@@ -1,3 +1,32 @@
-.idea
-.claude
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Claude Code : configuration locale au poste
+.claude/
 .mcp.json
+
+# OS
+.DS_Store
+
+# Secrets : seul .env.example est versionné
+.env
+.env.*
+!.env.example
+
+# Java / Gradle
+.gradle/
+.kotlin/
+build/
+*.class
+!gradle/wrapper/gradle-wrapper.jar
+
+# Python / uv
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
