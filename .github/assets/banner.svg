@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="370" viewBox="0 0 1280 370" role="img" aria-labelledby="title desc">
+  <title id="title">ai-lab</title>
+  <desc id="desc">Laboratoire d'AI engineering. Chaque expérience suit le même chemin : une question, un domaine et son golden set, des implémentations Java ou Python, des prédictions JSONL, un scorer commun, un verdict chiffré.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#131c2e"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1e293b" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#64748b"/>
+    </marker>
+    <style>
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .box { fill: #0f172a; stroke: #334155; stroke-width: 1.5; }
+      .box-accent { fill: #0f2a2a; stroke: #2dd4bf; stroke-width: 2; }
+      .label { fill: #e2e8f0; font-size: 19px; font-weight: 600; }
+      .sub { fill: #94a3b8; font-size: 14px; }
+      .step { fill: #2dd4bf; font-size: 13px; letter-spacing: 1px; }
+      .link { stroke: #64748b; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="370" rx="16" fill="url(#bg)"/>
+  <rect width="1280" height="370" rx="16" fill="url(#grid)" opacity="0.6"/>
+
+  <text x="60" y="108" class="mono" fill="#f8fafc" font-size="64" font-weight="700">ai-lab<tspan fill="#2dd4bf">_</tspan></text>
+  <text x="62" y="150" class="sans" fill="#94a3b8" font-size="22">Laboratoire d'AI engineering · agents · RAG · LLM · MCP · Java &amp; Python</text>
+  <text x="1220" y="108" class="mono" fill="#f59e0b" font-size="22" text-anchor="end">une question → un verdict chiffré</text>
+
+  <!-- Chaîne d'une expérience : 6 étapes de 170 px, espacées de 28 px -->
+  <g class="sans">
+    <g transform="translate(60 230)">
+      <rect class="box" width="170" height="96" rx="10"/>
+      <text x="16" y="28" class="step mono">01</text>
+      <text x="16" y="56" class="label">Question</text>
+      <text x="16" y="79" class="sub">écrite avant le run</text>
+    </g>
+    <g transform="translate(258 230)">
+      <rect class="box" width="170" height="96" rx="10"/>
+      <text x="16" y="28" class="step mono">02</text>
+      <text x="16" y="56" class="label">Golden set</text>
+      <text x="16" y="79" class="sub">partagé, versionné</text>
+    </g>
+    <g transform="translate(456 230)">
+      <rect class="box" width="170" height="96" rx="10"/>
+      <text x="16" y="28" class="step mono">03</text>
+      <text x="16" y="56" class="label">Variantes</text>
+      <text x="16" y="79" class="sub">Java · Python</text>
+    </g>
+    <g transform="translate(654 230)">
+      <rect class="box" width="170" height="96" rx="10"/>
+      <text x="16" y="28" class="step mono">04</text>
+      <text x="16" y="56" class="label">Scorer</text>
+      <text x="16" y="79" class="sub">conforme à la spec</text>
+    </g>
+    <g transform="translate(852 230)">
+      <rect class="box" width="170" height="96" rx="10"/>
+      <text x="16" y="28" class="step mono">05</text>
+      <text x="16" y="56" class="label">Langfuse</text>
+      <text x="16" y="79" class="sub">traces et scores</text>
+    </g>
+    <g transform="translate(1050 230)">
+      <rect class="box-accent" width="170" height="96" rx="10"/>
+      <text x="16" y="28" class="step mono">06</text>
+      <text x="16" y="56" class="label">Verdict</text>
+      <text x="16" y="79" class="sub" fill="#99f6e4">baseline · variante · Δ</text>
+    </g>
+  </g>
+
+  <g class="link" marker-end="url(#arrow)">
+    <line x1="232" y1="278" x2="255" y2="278"/>
+    <line x1="430" y1="278" x2="453" y2="278"/>
+    <line x1="628" y1="278" x2="651" y2="278"/>
+    <line x1="826" y1="278" x2="849" y2="278"/>
+    <line x1="1024" y1="278" x2="1047" y2="278"/>
+  </g>
+</svg>
