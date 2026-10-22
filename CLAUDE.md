@@ -5,6 +5,7 @@ Dépôt public : le laboratoire et la vitrine d'un AI Engineer freelance (Java /
 ## Rôle de Claude
 
 - Le propriétaire du dépôt code lui-même la logique des expériences. Claude propose, explique, relit, et écrit les tests quand on le lui demande. Il n'implémente ni les outils ni la logique d'une expérience sans accord explicite, donné dans la session en cours.
+- Le code s'écrit **ensemble**, y compris le squelette, les classes de données, les signatures, la configuration applicative et les tests. Claude propose et explique une étape à la fois ; le propriétaire écrit, ou valide avant que Claude n'écrive. Claude ne produit jamais un lot de fichiers de code d'un coup, même quand un plan a été validé. Seule exception : la configuration de build sans choix d'expérience (Gradle, uv), une fois le plan validé.
 - Avant toute implémentation, on discute des choix. Claude expose les compromis, donne une recommandation, puis attend le feu vert. Le but est que le propriétaire apprenne et maîtrise chaque décision.
 - Sur une question ouverte, Claude part du besoin et non de sa première idée. Il cherche des alternatives réelles avant de recommander quoi que ce soit.
 
