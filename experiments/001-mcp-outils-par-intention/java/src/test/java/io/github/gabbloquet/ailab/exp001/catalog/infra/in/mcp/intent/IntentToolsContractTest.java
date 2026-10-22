@@ -3,7 +3,6 @@ package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +20,6 @@ import io.modelcontextprotocol.spec.McpSchema.CallToolRequest;
 import io.modelcontextprotocol.spec.McpSchema.CallToolResult;
 import io.modelcontextprotocol.spec.McpSchema.TextContent;
 import io.modelcontextprotocol.spec.McpSchema.Tool;
-import tools.jackson.databind.json.JsonMapper;
 
 /**
  * Contrat public de la variante intent, vu par un vrai client MCP en Streamable HTTP :
@@ -82,11 +80,9 @@ class IntentToolsContractTest {
         CallToolResult result = call("get_product_details", Map.of("sku", "p-13905"));
 
         assertThat(result.isError()).isNotEqualTo(Boolean.TRUE);
-        assertThat(result.content()).hasSize(1);
-        ProductDetails details = JsonMapper.builder().build().readValue(text(result), ProductDetails.class);
-        assertThat(details.sku()).isEqualTo("P-13905");
-        assertThat(details.price()).isEqualByComparingTo(new BigDecimal("101.99"));
-        assertThat(details.currency()).isEqualTo("EUR");
+        assertThat(texts(result)).containsExactly("""
+                {"sku":"P-13905","name":"Pellisse Cafetière G9","brand":"Pellisse","department":"Maison",\
+                "type":"Cafetière","price":101.99,"currency":"EUR"}""");
     }
 
     @Test
@@ -94,9 +90,8 @@ class IntentToolsContractTest {
         CallToolResult result = call("get_product_details", Map.of("sku", "P-00000"));
 
         assertThat(result.isError()).isTrue();
-        assertThat(result.content()).hasSize(1);
-        assertThat(text(result))
-                .isEqualTo("Product not found: P-00000. Use search_catalog to find the SKU of a product.");
+        assertThat(texts(result))
+                .containsExactly("Product not found: P-00000. Use search_catalog to find the SKU of a product.");
     }
 
     private Tool tool(String name) {
@@ -110,7 +105,7 @@ class IntentToolsContractTest {
         return client.callTool(new CallToolRequest(tool, arguments));
     }
 
-    private static String text(CallToolResult result) {
-        return ((TextContent) result.content().getFirst()).text();
+    private static List<String> texts(CallToolResult result) {
+        return result.content().stream().map(content -> ((TextContent) content).text()).toList();
     }
 }
