@@ -1,0 +1,31 @@
+[project]
+name = "ai-lab"
+version = "0.1.0"
+description = "Laboratoire d'AI engineering : expériences mesurées et reproductibles"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+]
+
+[tool.uv]
+# Racine du workspace : elle n'est pas un paquet installable.
+package = false
+
+[tool.uv.workspace]
+members = []
+
+[tool.pytest.ini_options]
+testpaths = ["domains", "evals", "experiments"]
+pythonpath = ["domains/magasin"]
+addopts = ["--import-mode=importlib"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
