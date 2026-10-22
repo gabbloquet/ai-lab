@@ -1,0 +1,12 @@
+{
+  "dataset": "magasin/data",
+  "version": "v1",
+  "generator": "domains/magasin/magasin_generator.py",
+  "seed": 42,
+  "files": {
+    "products.jsonl": "620baf3d23575727d9e7b53a94013fdaa2c6cd23b3cf89c554ee8a3fcf3aa7fa",
+    "scenarios.json": "792c1d2f8727923577bb100732f1dc6e4ff9d17d4ee31fbeba771e5747a23ae3",
+    "stock.jsonl": "c88eb0d85314459db083f3c6ef68800354b96643d22fb3b9b3605ce8f0843d94",
+    "stores.jsonl": "bec1c58f8af7c670138a1cc7517d7f9b211f43d81534e0be20ff5bd8f0ddcb9a"
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "boundary_prices",
+    "sku": "P-15695",
+    "storeId": "S02",
+    "description": "En rupture ; deux alternatives pile aux bornes, une juste sous la borne basse."
+  },
+  {
+    "id": "out_of_stock_with_alternative",
+    "sku": "P-10851",
+    "storeId": "S01",
+    "description": "En rupture, avec au moins une alternative en stock."
+  },
+  {
+    "id": "out_of_stock_without_alternative",
+    "sku": "P-22280",
+    "storeId": "S03",
+    "description": "En rupture ; les produits de la même fourchette de prix aussi."
+  },
+  {
+    "id": "out_of_stock_everywhere",
+    "sku": "P-13478",
+    "storeId": "S01",
+    "description": "En rupture dans tous les magasins."
+  },
+  {
+    "id": "fully_reserved",
+    "sku": "P-38893",
+    "storeId": "S04",
+    "description": "Stock physique présent mais entièrement réservé : pas disponible."
+  },
+  {
+    "id": "single_product_type",
+    "sku": "P-93810",
+    "storeId": "S05",
+    "description": "Seul produit de son type : aucune alternative possible."
+  }
+]
