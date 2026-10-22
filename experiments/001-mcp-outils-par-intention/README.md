@@ -80,6 +80,8 @@ java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
 Si les outils de B étaient mieux décrits que ceux de A, l'expérience mesurerait la qualité de rédaction et non le découpage. Pour l'éviter, les deux variantes suivent **le même guide de rédaction** :
 - chaque description suit la même structure : ce que fait l'outil, ce qu'il renvoie, et un mot sur chaque paramètre ;
 - **aucune formulation n'est reprise des questions du golden set** ;
+- **aucune valeur réelle du jeu de données** (SKU, magasin, nom de produit) n'apparaît en exemple : on décrit le format (« P- followed by 5 digits »), sinon le modèle peut reprendre la valeur donnée ;
+- **un seul terme par notion, identique au nom du paramètre** (`sku` se dit « SKU » partout), et une seule langue, l'anglais, comme les noms d'outils et les messages d'erreur ;
 - la longueur totale des descriptions d'une variante ne s'écarte pas de plus de 20 % de l'autre, en tokens.
 
 Les longueurs mesurées sont publiées dans les Résultats.

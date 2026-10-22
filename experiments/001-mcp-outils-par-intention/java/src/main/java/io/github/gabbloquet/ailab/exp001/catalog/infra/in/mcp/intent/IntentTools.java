@@ -23,9 +23,9 @@ public class IntentTools {
     }
 
     @McpTool(name = "get_product_details",
-            description = "Rechercher les informations d'un produit via son skuCode",
+            description = "Returns the details of a product from its SKU: name, brand, department, type and price in euros.",
             annotations = @McpTool.McpAnnotations(readOnlyHint = true, idempotentHint = true, destructiveHint = false, openWorldHint = false))
-    public CallToolResult getProductDetails(@McpToolParam(description = "SkuCode, référence du produit recherché", required = true) String sku) {
+    public CallToolResult getProductDetails(@McpToolParam(description = "SKU of the product: P- followed by 5 digits.", required = true) String sku) {
         return toolResults.run(() -> {
             SkuCode skuCode = new SkuCode(sku);
             return catalog.product(skuCode)
