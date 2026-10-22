@@ -1,3 +1,8 @@
+server:
+  # En local, la spec MCP recommande d'écouter sur localhost uniquement (risque de DNS rebinding).
+  address: 127.0.0.1
+  port: 8080
+
 spring:
   main:
     banner-mode: off
@@ -6,4 +11,4 @@ spring:
       server:
         name: magasin-mcp
         version: 0.1.0
-        stdio: true
+        protocol: STREAMABLE

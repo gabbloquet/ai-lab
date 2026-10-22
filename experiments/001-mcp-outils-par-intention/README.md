@@ -22,7 +22,7 @@ Un serveur MCP dont les outils correspondent à des **intentions métier**, comm
 | Baseline (A) | Serveur MCP **miroir REST** : 5 outils calqués sur des endpoints |
 | Variante (B) | Serveur MCP **par intention** : 5 outils, un par besoin métier |
 | Ce qui change entre A et B | Le découpage, les noms et les descriptions des outils, et donc le jeu d'outils exposé |
-| Ce qui est fixé | Le modèle, le prompt système, la température (0), un maximum de **10 appels d'outils** par exécution, le nombre d'outils (5 de chaque côté), le guide de rédaction des descriptions (voir plus bas), le transport (STDIO), les données (`domains/magasin/data/v1`), la boucle d'agent et sa configuration (voir plus bas) |
+| Ce qui est fixé | Le modèle, le prompt système, la température (0), un maximum de **10 appels d'outils** par exécution, le nombre d'outils (5 de chaque côté), le guide de rédaction des descriptions (voir plus bas), le transport (Streamable HTTP, sur `127.0.0.1`), les données (`domains/magasin/data/v1`), la boucle d'agent et sa configuration (voir plus bas) |
 | Modèles | Un modèle par fournisseur : Gemini, Mistral et Claude. Les identifiants exacts seront fixés et vérifiés avant le gel. Un verdict par modèle. |
 | Golden set | `domains/magasin/golden/tool-selection/v1` : 130 items, **n_dev = 30, n_test = 100**, 26 items par intention, soit environ 6 en `dev` et 20 en `test` |
 | Répétitions | k = 5 |
@@ -57,7 +57,7 @@ Un prompt système identique pour les deux variantes, versionné dans `python/pr
 
 ### Boucle d'agent
 
-La boucle est la même pour les deux variantes et ne partage aucun code avec les serveurs. Elle lance le serveur de la variante en sous-processus (STDIO), pose la question, exécute les appels d'outils et enregistre **tous les appels émis**, y compris ceux qui sont rejetés côté client ou côté serveur, comme l'exige la spec.
+La boucle est la même pour les deux variantes et ne partage aucun code avec les serveurs. Elle se connecte en Streamable HTTP au serveur de la variante, démarré avec `--lab.variant`, pose la question, exécute les appels d'outils et enregistre **tous les appels émis**, y compris ceux qui sont rejetés côté client ou côté serveur, comme l'exige la spec.
 
 Une bibliothèque d'agent fait des choses en coulisse qui influencent la mesure : validation des arguments côté client, nouvelle tentative proposée automatiquement au modèle, comptage des appels. Ces comportements sont donc **des paramètres du protocole**, fixés et documentés :
 

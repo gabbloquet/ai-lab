@@ -15,7 +15,7 @@ dependencies {
     implementation(platform(SpringBootPlugin.BOM_COORDINATES))
     implementation(platform(libs.spring.ai.bom))
     implementation(platform(libs.mcp.bom))
-    implementation(libs.spring.ai.starter.mcp.server)
+    implementation(libs.spring.ai.starter.mcp.server.webmvc)
 
     testImplementation(libs.spring.boot.starter.test)
     // Client MCP : le test de contrat prévu parlera au serveur comme un vrai client.
@@ -30,7 +30,7 @@ tasks.withType<JavaCompile>().configureEach {
 
 tasks.test {
     useJUnitPlatform()
-    // Prévu pour le test de contrat : il lancera le jar exécutable en sous-processus, via STDIO.
+    // Prévu pour le test de contrat : il lancera le jar exécutable et lui parlera en Streamable HTTP.
     val serverJar = tasks.bootJar.flatMap { it.archiveFile }
     inputs.file(serverJar)
     jvmArgumentProviders += CommandLineArgumentProvider {
