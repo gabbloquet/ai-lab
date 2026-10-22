@@ -1,4 +1,4 @@
-package io.github.gabbloquet.ailab.exp001.catalog.infra;
+package io.github.gabbloquet.ailab.exp001.catalog.infra.out.data;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package io.github.gabbloquet.ailab.exp001.catalog.infra;
+package io.github.gabbloquet.ailab.exp001.catalog.infra.out.data;
 
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
 import org.springframework.context.annotation.Bean;

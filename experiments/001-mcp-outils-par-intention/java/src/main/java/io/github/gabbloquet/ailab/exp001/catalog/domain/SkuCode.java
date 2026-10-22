@@ -13,10 +13,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public record SkuCode(String value) {
 
     public SkuCode {
-        Objects.requireNonNull(value, "Le SKU est obligatoire");
+        Objects.requireNonNull(value, "SKU is required");
         value = value.strip().toUpperCase(Locale.ROOT);
         if (value.isEmpty()) {
-            throw new IllegalArgumentException("Le SKU ne peut pas être vide");
+            throw new IllegalArgumentException("SKU must not be blank");
         }
     }
 

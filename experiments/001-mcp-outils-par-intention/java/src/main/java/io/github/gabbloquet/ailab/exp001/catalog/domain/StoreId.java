@@ -12,10 +12,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public record StoreId(String value) {
 
     public StoreId {
-        Objects.requireNonNull(value, "L'identifiant du magasin est obligatoire");
+        Objects.requireNonNull(value, "Store id is required");
         value = value.strip().toUpperCase(Locale.ROOT);
         if (value.isEmpty()) {
-            throw new IllegalArgumentException("L'identifiant du magasin ne peut pas être vide");
+            throw new IllegalArgumentException("Store id must not be blank");
         }
     }
 

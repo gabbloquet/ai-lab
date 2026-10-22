@@ -1,4 +1,4 @@
-package io.github.gabbloquet.ailab.exp001.catalog.infra;
+package io.github.gabbloquet.ailab.exp001.catalog.infra.out.data;
 
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;

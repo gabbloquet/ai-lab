@@ -18,7 +18,7 @@ dependencies {
     implementation(libs.spring.ai.starter.mcp.server.webmvc)
 
     testImplementation(libs.spring.boot.starter.test)
-    // Client MCP : le test de contrat prévu parlera au serveur comme un vrai client.
+    // Client MCP : les tests de contrat parlent au serveur comme un vrai client, en Streamable HTTP.
     testImplementation(libs.mcp.core)
     testRuntimeOnly(libs.junit.platform.launcher)
 }
@@ -30,12 +30,6 @@ tasks.withType<JavaCompile>().configureEach {
 
 tasks.test {
     useJUnitPlatform()
-    // Prévu pour le test de contrat : il lancera le jar exécutable et lui parlera en Streamable HTTP.
-    val serverJar = tasks.bootJar.flatMap { it.archiveFile }
-    inputs.file(serverJar)
-    jvmArgumentProviders += CommandLineArgumentProvider {
-        listOf("-Dlab.server.jar=${serverJar.get().asFile.absolutePath}")
-    }
 }
 
 tasks.processResources {

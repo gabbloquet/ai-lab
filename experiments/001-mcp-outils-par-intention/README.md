@@ -57,16 +57,21 @@ Les **deux serveurs renvoient de vraies données** du domaine : en A, le modèle
 Les deux variantes sont **deux adaptateurs primaires au-dessus du même cœur** (architecture hexagonale) :
 
 ```
-java/src/main/java/io/github/gabbloquet/ailab/exp001/
-├── catalog/domain/   le cœur : entités, value objects (SkuCode, StoreId), règles métier
-├── catalog/infra/    adaptateur secondaire : chargement de domains/magasin/data/v1, embarqué dans le jar
-├── mcp/intent/       adaptateur primaire de la variante B : outils et DTO de réponse
-└── mcp/rest/         adaptateur primaire de la variante A : outils et DTO de réponse
+java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
+├── domain/              le cœur : entités, value objects (SkuCode, StoreId), règles métier
+└── infra/
+    ├── in/mcp/          adaptateurs entrants (primaires) : ce qui pilote le cœur
+    │   ├── ToolResults      construction des réponses MCP, commune aux deux variantes
+    │   ├── intent/          variante B : outils et DTO de réponse
+    │   └── rest/            variante A : outils et DTO de réponse
+    └── out/data/        adaptateur sortant (secondaire) : chargement de domains/magasin/data/v1, embarqué dans le jar
 ```
 
 - Le protocole MCP reste hors du domaine : aucune annotation ni aucun type MCP dans `catalog.domain`.
 - **Chaque outil renvoie un DTO dédié**, jamais un objet du domaine. La réponse se conçoit pour le modèle, et une évolution du domaine ne doit pas modifier en silence ce qu'il lit.
 - Les paramètres des outils sont des types simples (`String`), convertis en value objects à l'intérieur de l'adaptateur. Le schéma vu par le modèle reste donc `{"sku": {"type": "string"}}`.
+
+**Les réponses sont construites par `ToolResults`, pas par Spring AI.** Par défaut, Spring AI 2.0.1 renvoie le message d'une exception deux fois (son code concatène le message et celui de la cause racine, qui est l'exception elle-même quand elle n'a pas de cause), et transmettrait au modèle le détail d'une erreur interne. `ToolResults` renvoie le JSON en un seul bloc texte, une erreur attendue avec son message une seule fois, et un message générique pour une erreur inattendue, journalisée côté serveur.
 
 **Format des réponses : JSON dans un bloc texte, pour les deux variantes.** Spring AI 2.0.1 propose aussi un mode structuré (`generateOutputSchema = true`), qui publie un `outputSchema`. Mais d'après son code source (`AbstractMcpToolMethodCallback.convertValueToCallToolResult`, lu le 2026-10-22), il renvoie alors le résultat **uniquement** en `structuredContent`, sans le bloc texte que la spec MCP recommande pour la compatibilité. Un hôte qui ne lit que le texte ne verrait rien. Le mode texte est lu par tous les hôtes. Le format de réponse fera l'objet d'une expérience à part.
 
