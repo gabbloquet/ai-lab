@@ -37,3 +37,7 @@ tasks.test {
         listOf("-Dlab.server.jar=${serverJar.get().asFile.absolutePath}")
     }
 }
+
+tasks.processResources {
+    from(rootProject.file("domains/magasin/data/v1")) { into("magasin/v1") }
+}
