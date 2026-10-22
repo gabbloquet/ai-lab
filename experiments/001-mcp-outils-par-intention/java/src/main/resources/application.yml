@@ -1,0 +1,9 @@
+spring:
+  main:
+    banner-mode: off
+  ai:
+    mcp:
+      server:
+        name: magasin-mcp
+        version: 0.1.0
+        stdio: true
