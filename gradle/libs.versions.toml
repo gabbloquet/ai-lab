@@ -1,0 +1,18 @@
+# Versions vérifiées le 2026-10-21 sur Maven Central (dernières versions stables).
+[versions]
+spring-boot = "4.1.1"
+spring-ai = "2.0.1"
+# Spring AI 2.0.1 tire la 2.0.0 ; la 2.1.0 est imposée via son BOM.
+# Garde-fou prévu : un test de contrat qui démarre le serveur et liste ses outils par MCP.
+mcp-sdk = "2.1.0"
+
+[libraries]
+spring-ai-bom = { module = "org.springframework.ai:spring-ai-bom", version.ref = "spring-ai" }
+spring-ai-starter-mcp-server = { module = "org.springframework.ai:spring-ai-starter-mcp-server" }
+mcp-bom = { module = "io.modelcontextprotocol.sdk:mcp-bom", version.ref = "mcp-sdk" }
+mcp-core = { module = "io.modelcontextprotocol.sdk:mcp-core" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
