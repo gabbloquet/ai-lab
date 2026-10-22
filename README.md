@@ -90,7 +90,7 @@ ai-lab/
 | Java | 25 (LTS), via une toolchain Gradle |
 | Build | Gradle 9.8.2, Kotlin DSL, multi-module |
 | Spring Boot | 4.1.1 |
-| Spring AI | 2.0.1 (starter MCP Server) |
+| Spring AI | 2.0.1 (starter MCP Server WebMVC, transport Streamable HTTP) |
 | SDK MCP Java | 2.1.0, imposée à la place de la 2.0.0 tirée par Spring AI (compatibilité à valider par un test de démarrage) |
 | Évaluation | JUnit, scorer conforme à la spec |
 

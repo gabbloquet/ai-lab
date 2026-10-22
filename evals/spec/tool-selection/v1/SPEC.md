@@ -30,23 +30,23 @@ Fichier `items.jsonl`, un objet par ligne, validé par `golden.schema.json` :
 {
   "id": "ts-001",
   "split": "test",
-  "question": "Le casque Orvane H2 est en rupture ici, tu as un équivalent dispo ?",
-  "context": {"store_id": "S03"},
+  "question": "Le casque Veldric K8 est en rupture ici, tu as un équivalent dispo ?",
+  "context": {"storeId": "S02"},
   "tags": ["alternative"],
   "expected": {
     "intent": {
       "required": [
-        {"tool": "find_in_stock_alternative", "args": {"sku": ["AUD-0007"], "store_id": ["S03"]}}
+        {"tool": "find_in_stock_alternative", "args": {"sku": ["P-15695"], "storeId": ["S02"]}}
       ],
       "tolerated": []
     },
     "rest": {
       "required": [
-        {"tool": "get_similar", "args": {"sku": ["AUD-0007"]}},
-        {"tool": "get_stock", "args": {"sku": ["AUD-0012", "AUD-0019"], "store_id": ["S03"]}}
+        {"tool": "get_similar", "args": {"sku": ["P-15695"]}},
+        {"tool": "get_stock", "args": {"sku": ["P-26361", "P-44671"], "storeId": ["S02"]}}
       ],
       "tolerated": [
-        {"tool": "get_product", "args": {"sku": ["AUD-0007"]}}
+        {"tool": "get_product", "args": {"sku": ["P-15695"]}}
       ]
     }
   }
@@ -68,8 +68,8 @@ C'est la forme canonique, utilisée aussi par les vecteurs de conformance et les
   "model": "<fournisseur>/<modèle>",
   "repeat": 0,
   "calls": [
-    {"tool": "get_similar", "args": {"sku": "AUD-0007"}},
-    {"tool": "get_stock", "args": {"sku": "AUD-0012", "store_id": "S03"}}
+    {"tool": "get_similar", "args": {"sku": "P-15695"}},
+    {"tool": "get_stock", "args": {"sku": "P-26361", "storeId": "S02"}}
   ],
   "usage": {"input_tokens": 1234, "output_tokens": 210},
   "error": null
@@ -94,7 +94,7 @@ Un appel observé **satisfait** un motif si et seulement si les trois conditions
 
 | Type | Règle |
 |---|---|
-| Chaîne | Égales après normalisation Unicode NFC, suppression des espaces en début et en fin, puis *casefold*. Aucune autre transformation. Les services passent leurs identifiants en minuscules : `aud-0007` équivaut donc à `AUD-0007`, mais `aud-007` reste faux. |
+| Chaîne | Égales après normalisation Unicode NFC, suppression des espaces en début et en fin, puis *casefold*. Aucune autre transformation. Les serveurs normalisent leurs identifiants (casse, espaces) : `p-15695` équivaut donc à `P-15695`, mais `P-1569` reste faux. |
 | Nombre | Égalité numérique : `2` égale `2.0`. Une chaîne n'est jamais égale à un nombre : `"2"` diffère de `2`. |
 | Booléen, `null` | Égalité stricte |
 | Liste | Même longueur, éléments égaux deux à deux, dans le même ordre |
@@ -150,7 +150,7 @@ Les autres métriques (`args_recall`, `tool_recall`, `precision`, `n_calls`, tok
 
 Une implémentation est conforme si elle reproduit exactement les entiers, les booléens et les verdicts, et les nombres réels à 1e-9 près.
 
-Les cas à couvrir au minimum : appel parfait ; outil faux ; argument faux ; argument halluciné ; argument facultatif omis ; argument facultatif présent mais faux ; argument non contraint ; appel requis manquant ; appel en double ; appel toléré ; outil inconnu ; erreur d'exécution ; aucun appel ; plusieurs motifs du même outil dont les valeurs acceptables se recouvrent ; égalités de chaînes (casse, espaces, NFC ; `AUD-0007` contre `aud-0007` contre `aud-007`) ; `2` contre `2.0` contre `"2"`.
+Les cas à couvrir au minimum : appel parfait ; outil faux ; argument faux ; argument halluciné ; argument facultatif omis ; argument facultatif présent mais faux ; argument non contraint ; appel requis manquant ; appel en double ; appel toléré ; outil inconnu ; erreur d'exécution ; aucun appel ; plusieurs motifs du même outil dont les valeurs acceptables se recouvrent ; égalités de chaînes (casse, espaces, NFC ; `P-15695` contre `p-15695` contre `P-1569`) ; `2` contre `2.0` contre `"2"`.
 
 ## 9. Contenu d'un rapport
 

@@ -15,6 +15,16 @@ Un serveur MCP dont les outils correspondent à des **intentions métier**, comm
 - **Plus petit écart qui compte en pratique : 10 points de `success`.** En dessous, réécrire un serveur MCP existant ne vaut pas l'effort.
 - **Attentes secondaires**, qui ne portent pas le verdict : B fait moins d'appels par question. Pour les tokens, aucune prédiction : les schémas de B sont peut-être plus longs, mais B demande moins de tours d'échange.
 
+### Ce que disent les praticiens
+
+L'hypothèse n'est pas nouvelle : des praticiens expérimentés la recommandent déjà.
+
+- [Anthropic, *Writing effective tools for agents*](https://www.anthropic.com/engineering/writing-tools-for-agents) conseille de construire des outils autour du besoin de l'agent plutôt que d'exposer les endpoints d'une API. Son exemple : un `schedule_event` qui trouve un créneau et crée l'événement, plutôt que `list_users`, `list_events` et `create_event`. L'article recommande aussi des réponses riches en information utile (des noms lisibles plutôt que des identifiants techniques), des erreurs qui disent quoi corriger, et un format de réponse choisi par évaluation.
+- [Philipp Schmid, *MCP best practices*](https://www.philschmid.de/mcp-best-practices) classe la conversion « un endpoint REST, un outil » parmi les pièges, et recommande de 5 à 15 outils par serveur.
+- [Nordic APIs](https://nordicapis.com/8-tips-and-best-practices-for-mcp-server-development/) recommande un serveur par domaine (*bounded context*).
+
+**Ce que la 001 ajoute :** une mesure, et non une recommandation. Même modèle, mêmes questions, deux designs, un intervalle de confiance, trois modèles, et un split `test` jamais vu pendant la mise au point. Anthropic recommande d'ailleurs lui-même de valider ces choix par l'évaluation, avec un jeu de test mis de côté.
+
 ## Protocole
 
 | Élément | Valeur |
@@ -22,7 +32,7 @@ Un serveur MCP dont les outils correspondent à des **intentions métier**, comm
 | Baseline (A) | Serveur MCP **miroir REST** : 5 outils calqués sur des endpoints |
 | Variante (B) | Serveur MCP **par intention** : 5 outils, un par besoin métier |
 | Ce qui change entre A et B | Le découpage, les noms et les descriptions des outils, et donc le jeu d'outils exposé |
-| Ce qui est fixé | Le modèle, le prompt système, la température (0), un maximum de **10 appels d'outils** par exécution, le nombre d'outils (5 de chaque côté), le guide de rédaction des descriptions (voir plus bas), le transport (Streamable HTTP, sur `127.0.0.1`), les données (`domains/magasin/data/v1`), la boucle d'agent et sa configuration (voir plus bas) |
+| Ce qui est fixé | Le modèle, le prompt système, la température (0), un maximum de **10 appels d'outils** par exécution, le nombre d'outils (5 de chaque côté), le guide de rédaction des descriptions (voir plus bas), le transport (Streamable HTTP, sur `127.0.0.1`), le format des réponses (JSON sérialisé dans un bloc texte, voir plus bas), les données (`domains/magasin/data/v1`), la boucle d'agent et sa configuration (voir plus bas) |
 | Modèles | Un modèle par fournisseur : Gemini, Mistral et Claude. Les identifiants exacts seront fixés et vérifiés avant le gel. Un verdict par modèle. |
 | Golden set | `domains/magasin/golden/tool-selection/v1` : 130 items, **n_dev = 30, n_test = 100**, 26 items par intention, soit environ 6 en `dev` et 20 en `test` |
 | Répétitions | k = 5 |
@@ -42,6 +52,24 @@ Les deux serveurs couvrent les **mêmes cinq besoins** :
 
 Les **deux serveurs renvoient de vraies données** du domaine : en A, le modèle a besoin du résultat de `get_similar` pour savoir sur quels SKU appeler `get_stock`. Leur logique est implémentée en TDD.
 
+### Architecture des serveurs
+
+Les deux variantes sont **deux adaptateurs primaires au-dessus du même cœur** (architecture hexagonale) :
+
+```
+java/src/main/java/io/github/gabbloquet/ailab/exp001/
+├── catalog/domain/   le cœur : entités, value objects (SkuCode, StoreId), règles métier
+├── catalog/infra/    adaptateur secondaire : chargement de domains/magasin/data/v1, embarqué dans le jar
+├── mcp/intent/       adaptateur primaire de la variante B : outils et DTO de réponse
+└── mcp/rest/         adaptateur primaire de la variante A : outils et DTO de réponse
+```
+
+- Le protocole MCP reste hors du domaine : aucune annotation ni aucun type MCP dans `catalog.domain`.
+- **Chaque outil renvoie un DTO dédié**, jamais un objet du domaine. La réponse se conçoit pour le modèle, et une évolution du domaine ne doit pas modifier en silence ce qu'il lit.
+- Les paramètres des outils sont des types simples (`String`), convertis en value objects à l'intérieur de l'adaptateur. Le schéma vu par le modèle reste donc `{"sku": {"type": "string"}}`.
+
+**Format des réponses : JSON dans un bloc texte, pour les deux variantes.** Spring AI 2.0.1 propose aussi un mode structuré (`generateOutputSchema = true`), qui publie un `outputSchema`. Mais d'après son code source (`AbstractMcpToolMethodCallback.convertValueToCallToolResult`, lu le 2026-10-22), il renvoie alors le résultat **uniquement** en `structuredContent`, sans le bloc texte que la spec MCP recommande pour la compatibilité. Un hôte qui ne lit que le texte ne verrait rien. Le mode texte est lu par tous les hôtes. Le format de réponse fera l'objet d'une expérience à part.
+
 ### Neutraliser l'effet des descriptions
 
 Si les outils de B étaient mieux décrits que ceux de A, l'expérience mesurerait la qualité de rédaction et non le découpage. Pour l'éviter, les deux variantes suivent **le même guide de rédaction** :
@@ -53,7 +81,7 @@ Les longueurs mesurées sont publiées dans les Résultats.
 
 ### Contexte transmis au modèle
 
-Un prompt système identique pour les deux variantes, versionné dans `python/prompts/system.md`, indique le magasin courant (`context.store_id` de l'item). Le modèle ne reçoit ni identifiant de magasin supplémentaire ni liste de SKU.
+Un prompt système identique pour les deux variantes, versionné dans `python/prompts/system.md`, indique le magasin courant (`context.storeId` de l'item). Le modèle ne reçoit ni identifiant de magasin supplémentaire ni liste de SKU.
 
 ### Boucle d'agent
 
@@ -127,4 +155,5 @@ Pas encore de verdict.
 - **Itération sur un seul modèle.** Les variantes sont mises au point avec un seul modèle, ce qui peut avantager ce modèle-là au run final.
 - **Non-déterminisme.** Une température de 0 ne garantit pas des sorties identiques chez ces fournisseurs. C'est ce que couvrent les k = 5 répétitions. Si un modèle n'accepte pas la température 0, sa configuration réelle est indiquée ici.
 - **Effet des descriptions.** Le guide de rédaction le réduit sans l'éliminer.
+- **Format des réponses.** Il est fixé à du JSON en texte. Anthropic indique que le format (JSON, XML, Markdown) change les performances : l'écart entre A et B pourrait être différent avec un autre format.
 - **Boucle d'agent.** Les résultats valent pour cette boucle et sa configuration. Un autre client, par exemple Spring AI `ChatClient` ou un IDE, formate autrement les schémas d'outils et gère autrement les erreurs : l'écart absolu entre A et B pourrait changer.
