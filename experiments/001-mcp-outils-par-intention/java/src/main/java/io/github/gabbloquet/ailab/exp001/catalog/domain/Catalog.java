@@ -1,5 +1,6 @@
 package io.github.gabbloquet.ailab.exp001.catalog.domain;
 
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidSearchQueryException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.StoreNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
@@ -108,7 +109,7 @@ public class Catalog {
 
     public List<Product> search(String query, String department) {
         if (query == null || query.isBlank()) {
-            throw new IllegalArgumentException("Search query must not be blank");
+            throw new InvalidSearchQueryException("Search query must not be blank");
         }
         List<String> words = Arrays.asList(fold(query).split("\\s+"));
         boolean filterOnDepartment = department != null && !department.isBlank();

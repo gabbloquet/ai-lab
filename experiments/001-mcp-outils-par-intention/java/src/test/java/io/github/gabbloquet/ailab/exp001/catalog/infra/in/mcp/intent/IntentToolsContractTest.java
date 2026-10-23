@@ -46,7 +46,8 @@ class IntentToolsContractTest {
     @Test
     void exposesOnlyTheIntentTools() {
         assertThat(client.listTools().tools()).extracting(Tool::name)
-                .containsExactlyInAnyOrder("get_product_details", "check_availability", "find_stores_with_stock");
+                .containsExactlyInAnyOrder("get_product_details", "check_availability", "find_stores_with_stock",
+                        "find_in_stock_alternative");
     }
 
     @Test
@@ -134,6 +135,34 @@ class IntentToolsContractTest {
         assertThat(result.isError()).isNotEqualTo(Boolean.TRUE);
         assertThat(texts(result)).containsExactly("""
                 {"sku":"P-13478","name":"Tisanor Écran B6","stores":[]}""");
+    }
+
+    @Test
+    void offersAlternativesAtBothBoundsOfThePriceBand() {
+        CallToolResult result = call("find_in_stock_alternative", Map.of("sku", "P-15695", "storeId", "S02"));
+
+        assertThat(result.isError()).isNotEqualTo(Boolean.TRUE);
+        assertThat(texts(result)).containsExactly("""
+                {"alternatives":[\
+                {"sku":"P-26361","name":"Zorvane Casque P2","brand":"Zorvane","price":80.0,"currency":"EUR","available":4},\
+                {"sku":"P-44671","name":"Ostrane Casque N4","brand":"Ostrane","price":120.0,"currency":"EUR","available":4}]}""");
+    }
+
+    @Test
+    void offersNoAlternativeWhenNoneIsAvailableInTheStore() {
+        CallToolResult result = call("find_in_stock_alternative", Map.of("sku", "P-22280", "storeId", "S03"));
+
+        assertThat(result.isError()).isNotEqualTo(Boolean.TRUE);
+        assertThat(texts(result)).containsExactly("""
+                {"alternatives":[]}""");
+    }
+
+    @Test
+    void reportsAnUnknownStoreWhenLookingForAlternatives() {
+        CallToolResult result = call("find_in_stock_alternative", Map.of("sku", "P-15695", "storeId", "S99"));
+
+        assertThat(result.isError()).isTrue();
+        assertThat(texts(result)).containsExactly("Store not found: S99. Known stores: S01, S02, S03, S04, S05.");
     }
 
     @Test
