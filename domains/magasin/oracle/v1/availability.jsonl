@@ -1,0 +1,250 @@
+{"sku": "P-10851", "storeId": "S01", "available": 0, "alternatives": ["P-30926", "P-54597"]}
+{"sku": "P-10851", "storeId": "S02", "available": 0, "alternatives": ["P-46421", "P-65392", "P-30926"]}
+{"sku": "P-10851", "storeId": "S03", "available": 4, "alternatives": ["P-46421", "P-65392", "P-30926"]}
+{"sku": "P-10851", "storeId": "S04", "available": 8, "alternatives": ["P-46421", "P-30926", "P-54597"]}
+{"sku": "P-10851", "storeId": "S05", "available": 18, "alternatives": ["P-46421", "P-65392", "P-30926"]}
+{"sku": "P-13278", "storeId": "S01", "available": 0, "alternatives": ["P-46048"]}
+{"sku": "P-13278", "storeId": "S02", "available": 4, "alternatives": ["P-46048"]}
+{"sku": "P-13278", "storeId": "S03", "available": 0, "alternatives": ["P-46048"]}
+{"sku": "P-13278", "storeId": "S04", "available": 0, "alternatives": ["P-46048"]}
+{"sku": "P-13278", "storeId": "S05", "available": 0, "alternatives": ["P-46048"]}
+{"sku": "P-13478", "storeId": "S01", "available": 0, "alternatives": ["P-36062"]}
+{"sku": "P-13478", "storeId": "S02", "available": 0, "alternatives": ["P-36062", "P-81426"]}
+{"sku": "P-13478", "storeId": "S03", "available": 0, "alternatives": ["P-36062", "P-81426"]}
+{"sku": "P-13478", "storeId": "S04", "available": 0, "alternatives": ["P-81426"]}
+{"sku": "P-13478", "storeId": "S05", "available": 0, "alternatives": ["P-36062", "P-81426"]}
+{"sku": "P-13905", "storeId": "S01", "available": 2, "alternatives": []}
+{"sku": "P-13905", "storeId": "S02", "available": 14, "alternatives": []}
+{"sku": "P-13905", "storeId": "S03", "available": 0, "alternatives": []}
+{"sku": "P-13905", "storeId": "S04", "available": 5, "alternatives": []}
+{"sku": "P-13905", "storeId": "S05", "available": 19, "alternatives": []}
+{"sku": "P-14165", "storeId": "S01", "available": 2, "alternatives": []}
+{"sku": "P-14165", "storeId": "S02", "available": 2, "alternatives": []}
+{"sku": "P-14165", "storeId": "S03", "available": 8, "alternatives": []}
+{"sku": "P-14165", "storeId": "S04", "available": 18, "alternatives": []}
+{"sku": "P-14165", "storeId": "S05", "available": 20, "alternatives": []}
+{"sku": "P-15695", "storeId": "S01", "available": 8, "alternatives": ["P-26361", "P-44671"]}
+{"sku": "P-15695", "storeId": "S02", "available": 0, "alternatives": ["P-26361", "P-44671"]}
+{"sku": "P-15695", "storeId": "S03", "available": 0, "alternatives": ["P-26361", "P-44671"]}
+{"sku": "P-15695", "storeId": "S04", "available": 11, "alternatives": ["P-26361", "P-44671"]}
+{"sku": "P-15695", "storeId": "S05", "available": 7, "alternatives": ["P-26361", "P-44671"]}
+{"sku": "P-21395", "storeId": "S01", "available": 2, "alternatives": ["P-65302"]}
+{"sku": "P-21395", "storeId": "S02", "available": 15, "alternatives": ["P-65302"]}
+{"sku": "P-21395", "storeId": "S03", "available": 5, "alternatives": ["P-65302"]}
+{"sku": "P-21395", "storeId": "S04", "available": 9, "alternatives": ["P-65302"]}
+{"sku": "P-21395", "storeId": "S05", "available": 9, "alternatives": ["P-65302"]}
+{"sku": "P-22156", "storeId": "S01", "available": 18, "alternatives": ["P-38221", "P-30379"]}
+{"sku": "P-22156", "storeId": "S02", "available": 0, "alternatives": ["P-38221", "P-30379"]}
+{"sku": "P-22156", "storeId": "S03", "available": 5, "alternatives": ["P-38221", "P-30379"]}
+{"sku": "P-22156", "storeId": "S04", "available": 0, "alternatives": []}
+{"sku": "P-22156", "storeId": "S05", "available": 12, "alternatives": ["P-38221", "P-30379"]}
+{"sku": "P-22280", "storeId": "S01", "available": 20, "alternatives": ["P-38657"]}
+{"sku": "P-22280", "storeId": "S02", "available": 0, "alternatives": ["P-38657"]}
+{"sku": "P-22280", "storeId": "S03", "available": 0, "alternatives": []}
+{"sku": "P-22280", "storeId": "S04", "available": 0, "alternatives": ["P-38657"]}
+{"sku": "P-22280", "storeId": "S05", "available": 18, "alternatives": ["P-38657"]}
+{"sku": "P-22676", "storeId": "S01", "available": 7, "alternatives": ["P-57052"]}
+{"sku": "P-22676", "storeId": "S02", "available": 0, "alternatives": ["P-57052"]}
+{"sku": "P-22676", "storeId": "S03", "available": 11, "alternatives": []}
+{"sku": "P-22676", "storeId": "S04", "available": 4, "alternatives": ["P-57052"]}
+{"sku": "P-22676", "storeId": "S05", "available": 10, "alternatives": ["P-57052"]}
+{"sku": "P-23396", "storeId": "S01", "available": 10, "alternatives": []}
+{"sku": "P-23396", "storeId": "S02", "available": 13, "alternatives": []}
+{"sku": "P-23396", "storeId": "S03", "available": 20, "alternatives": []}
+{"sku": "P-23396", "storeId": "S04", "available": 1, "alternatives": []}
+{"sku": "P-23396", "storeId": "S05", "available": 19, "alternatives": []}
+{"sku": "P-23434", "storeId": "S01", "available": 15, "alternatives": ["P-81482"]}
+{"sku": "P-23434", "storeId": "S02", "available": 16, "alternatives": ["P-81482"]}
+{"sku": "P-23434", "storeId": "S03", "available": 6, "alternatives": ["P-81482"]}
+{"sku": "P-23434", "storeId": "S04", "available": 20, "alternatives": ["P-81482"]}
+{"sku": "P-23434", "storeId": "S05", "available": 8, "alternatives": ["P-81482"]}
+{"sku": "P-24592", "storeId": "S01", "available": 7, "alternatives": []}
+{"sku": "P-24592", "storeId": "S02", "available": 16, "alternatives": []}
+{"sku": "P-24592", "storeId": "S03", "available": 15, "alternatives": []}
+{"sku": "P-24592", "storeId": "S04", "available": 7, "alternatives": []}
+{"sku": "P-24592", "storeId": "S05", "available": 3, "alternatives": []}
+{"sku": "P-26361", "storeId": "S01", "available": 4, "alternatives": ["P-70217"]}
+{"sku": "P-26361", "storeId": "S02", "available": 4, "alternatives": ["P-70217"]}
+{"sku": "P-26361", "storeId": "S03", "available": 4, "alternatives": ["P-70217"]}
+{"sku": "P-26361", "storeId": "S04", "available": 17, "alternatives": ["P-70217"]}
+{"sku": "P-26361", "storeId": "S05", "available": 15, "alternatives": ["P-70217"]}
+{"sku": "P-28289", "storeId": "S01", "available": 17, "alternatives": []}
+{"sku": "P-28289", "storeId": "S02", "available": 15, "alternatives": []}
+{"sku": "P-28289", "storeId": "S03", "available": 16, "alternatives": []}
+{"sku": "P-28289", "storeId": "S04", "available": 9, "alternatives": []}
+{"sku": "P-28289", "storeId": "S05", "available": 7, "alternatives": []}
+{"sku": "P-30379", "storeId": "S01", "available": 3, "alternatives": ["P-22156"]}
+{"sku": "P-30379", "storeId": "S02", "available": 2, "alternatives": []}
+{"sku": "P-30379", "storeId": "S03", "available": 5, "alternatives": ["P-22156"]}
+{"sku": "P-30379", "storeId": "S04", "available": 0, "alternatives": []}
+{"sku": "P-30379", "storeId": "S05", "available": 18, "alternatives": ["P-22156"]}
+{"sku": "P-30926", "storeId": "S01", "available": 6, "alternatives": []}
+{"sku": "P-30926", "storeId": "S02", "available": 13, "alternatives": ["P-46421", "P-65392"]}
+{"sku": "P-30926", "storeId": "S03", "available": 1, "alternatives": ["P-10851", "P-46421", "P-65392"]}
+{"sku": "P-30926", "storeId": "S04", "available": 13, "alternatives": ["P-10851", "P-46421"]}
+{"sku": "P-30926", "storeId": "S05", "available": 10, "alternatives": ["P-10851", "P-46421", "P-65392"]}
+{"sku": "P-36062", "storeId": "S01", "available": 14, "alternatives": []}
+{"sku": "P-36062", "storeId": "S02", "available": 20, "alternatives": ["P-81426"]}
+{"sku": "P-36062", "storeId": "S03", "available": 9, "alternatives": ["P-81426"]}
+{"sku": "P-36062", "storeId": "S04", "available": 0, "alternatives": ["P-81426"]}
+{"sku": "P-36062", "storeId": "S05", "available": 13, "alternatives": ["P-81426"]}
+{"sku": "P-38221", "storeId": "S01", "available": 5, "alternatives": ["P-22156", "P-30379"]}
+{"sku": "P-38221", "storeId": "S02", "available": 13, "alternatives": ["P-30379"]}
+{"sku": "P-38221", "storeId": "S03", "available": 3, "alternatives": ["P-22156", "P-30379"]}
+{"sku": "P-38221", "storeId": "S04", "available": 0, "alternatives": []}
+{"sku": "P-38221", "storeId": "S05", "available": 1, "alternatives": ["P-22156", "P-30379"]}
+{"sku": "P-38657", "storeId": "S01", "available": 11, "alternatives": ["P-22280"]}
+{"sku": "P-38657", "storeId": "S02", "available": 9, "alternatives": []}
+{"sku": "P-38657", "storeId": "S03", "available": 0, "alternatives": []}
+{"sku": "P-38657", "storeId": "S04", "available": 7, "alternatives": []}
+{"sku": "P-38657", "storeId": "S05", "available": 3, "alternatives": ["P-22280"]}
+{"sku": "P-38893", "storeId": "S01", "available": 1, "alternatives": []}
+{"sku": "P-38893", "storeId": "S02", "available": 1, "alternatives": []}
+{"sku": "P-38893", "storeId": "S03", "available": 16, "alternatives": []}
+{"sku": "P-38893", "storeId": "S04", "available": 0, "alternatives": []}
+{"sku": "P-38893", "storeId": "S05", "available": 3, "alternatives": []}
+{"sku": "P-39256", "storeId": "S01", "available": 4, "alternatives": []}
+{"sku": "P-39256", "storeId": "S02", "available": 10, "alternatives": []}
+{"sku": "P-39256", "storeId": "S03", "available": 19, "alternatives": []}
+{"sku": "P-39256", "storeId": "S04", "available": 13, "alternatives": []}
+{"sku": "P-39256", "storeId": "S05", "available": 19, "alternatives": []}
+{"sku": "P-40495", "storeId": "S01", "available": 4, "alternatives": ["P-76237"]}
+{"sku": "P-40495", "storeId": "S02", "available": 20, "alternatives": ["P-76237"]}
+{"sku": "P-40495", "storeId": "S03", "available": 19, "alternatives": ["P-76237"]}
+{"sku": "P-40495", "storeId": "S04", "available": 14, "alternatives": []}
+{"sku": "P-40495", "storeId": "S05", "available": 0, "alternatives": ["P-76237"]}
+{"sku": "P-42098", "storeId": "S01", "available": 1, "alternatives": []}
+{"sku": "P-42098", "storeId": "S02", "available": 4, "alternatives": []}
+{"sku": "P-42098", "storeId": "S03", "available": 15, "alternatives": []}
+{"sku": "P-42098", "storeId": "S04", "available": 17, "alternatives": []}
+{"sku": "P-42098", "storeId": "S05", "available": 18, "alternatives": []}
+{"sku": "P-44671", "storeId": "S01", "available": 12, "alternatives": ["P-15695"]}
+{"sku": "P-44671", "storeId": "S02", "available": 4, "alternatives": []}
+{"sku": "P-44671", "storeId": "S03", "available": 15, "alternatives": []}
+{"sku": "P-44671", "storeId": "S04", "available": 6, "alternatives": ["P-15695"]}
+{"sku": "P-44671", "storeId": "S05", "available": 7, "alternatives": ["P-15695"]}
+{"sku": "P-46048", "storeId": "S01", "available": 9, "alternatives": []}
+{"sku": "P-46048", "storeId": "S02", "available": 9, "alternatives": ["P-13278"]}
+{"sku": "P-46048", "storeId": "S03", "available": 1, "alternatives": []}
+{"sku": "P-46048", "storeId": "S04", "available": 8, "alternatives": []}
+{"sku": "P-46048", "storeId": "S05", "available": 16, "alternatives": []}
+{"sku": "P-46421", "storeId": "S01", "available": 0, "alternatives": ["P-30926", "P-54597"]}
+{"sku": "P-46421", "storeId": "S02", "available": 13, "alternatives": ["P-65392", "P-30926"]}
+{"sku": "P-46421", "storeId": "S03", "available": 19, "alternatives": ["P-10851", "P-65392", "P-30926"]}
+{"sku": "P-46421", "storeId": "S04", "available": 12, "alternatives": ["P-10851", "P-30926", "P-54597"]}
+{"sku": "P-46421", "storeId": "S05", "available": 11, "alternatives": ["P-10851", "P-65392", "P-30926"]}
+{"sku": "P-46463", "storeId": "S01", "available": 9, "alternatives": []}
+{"sku": "P-46463", "storeId": "S02", "available": 3, "alternatives": []}
+{"sku": "P-46463", "storeId": "S03", "available": 1, "alternatives": []}
+{"sku": "P-46463", "storeId": "S04", "available": 19, "alternatives": []}
+{"sku": "P-46463", "storeId": "S05", "available": 10, "alternatives": []}
+{"sku": "P-54118", "storeId": "S01", "available": 8, "alternatives": []}
+{"sku": "P-54118", "storeId": "S02", "available": 17, "alternatives": []}
+{"sku": "P-54118", "storeId": "S03", "available": 14, "alternatives": []}
+{"sku": "P-54118", "storeId": "S04", "available": 16, "alternatives": []}
+{"sku": "P-54118", "storeId": "S05", "available": 16, "alternatives": []}
+{"sku": "P-54597", "storeId": "S01", "available": 1, "alternatives": []}
+{"sku": "P-54597", "storeId": "S02", "available": 0, "alternatives": ["P-65392"]}
+{"sku": "P-54597", "storeId": "S03", "available": 0, "alternatives": ["P-65392"]}
+{"sku": "P-54597", "storeId": "S04", "available": 19, "alternatives": []}
+{"sku": "P-54597", "storeId": "S05", "available": 0, "alternatives": ["P-65392"]}
+{"sku": "P-55082", "storeId": "S01", "available": 0, "alternatives": []}
+{"sku": "P-55082", "storeId": "S02", "available": 7, "alternatives": []}
+{"sku": "P-55082", "storeId": "S03", "available": 0, "alternatives": []}
+{"sku": "P-55082", "storeId": "S04", "available": 20, "alternatives": []}
+{"sku": "P-55082", "storeId": "S05", "available": 17, "alternatives": []}
+{"sku": "P-57052", "storeId": "S01", "available": 10, "alternatives": ["P-22676"]}
+{"sku": "P-57052", "storeId": "S02", "available": 10, "alternatives": []}
+{"sku": "P-57052", "storeId": "S03", "available": 0, "alternatives": ["P-22676"]}
+{"sku": "P-57052", "storeId": "S04", "available": 4, "alternatives": ["P-22676"]}
+{"sku": "P-57052", "storeId": "S05", "available": 6, "alternatives": ["P-22676"]}
+{"sku": "P-59797", "storeId": "S01", "available": 6, "alternatives": ["P-89131"]}
+{"sku": "P-59797", "storeId": "S02", "available": 14, "alternatives": ["P-89131"]}
+{"sku": "P-59797", "storeId": "S03", "available": 6, "alternatives": ["P-89131"]}
+{"sku": "P-59797", "storeId": "S04", "available": 8, "alternatives": ["P-89131"]}
+{"sku": "P-59797", "storeId": "S05", "available": 19, "alternatives": ["P-89131"]}
+{"sku": "P-64987", "storeId": "S01", "available": 11, "alternatives": []}
+{"sku": "P-64987", "storeId": "S02", "available": 9, "alternatives": []}
+{"sku": "P-64987", "storeId": "S03", "available": 0, "alternatives": []}
+{"sku": "P-64987", "storeId": "S04", "available": 10, "alternatives": []}
+{"sku": "P-64987", "storeId": "S05", "available": 10, "alternatives": []}
+{"sku": "P-65302", "storeId": "S01", "available": 10, "alternatives": ["P-21395"]}
+{"sku": "P-65302", "storeId": "S02", "available": 17, "alternatives": ["P-21395"]}
+{"sku": "P-65302", "storeId": "S03", "available": 7, "alternatives": ["P-21395"]}
+{"sku": "P-65302", "storeId": "S04", "available": 18, "alternatives": ["P-21395"]}
+{"sku": "P-65302", "storeId": "S05", "available": 19, "alternatives": ["P-21395"]}
+{"sku": "P-65392", "storeId": "S01", "available": 0, "alternatives": ["P-54597", "P-30926"]}
+{"sku": "P-65392", "storeId": "S02", "available": 9, "alternatives": ["P-46421", "P-30926"]}
+{"sku": "P-65392", "storeId": "S03", "available": 6, "alternatives": ["P-46421", "P-10851", "P-30926"]}
+{"sku": "P-65392", "storeId": "S04", "available": 0, "alternatives": ["P-46421", "P-10851", "P-54597"]}
+{"sku": "P-65392", "storeId": "S05", "available": 16, "alternatives": ["P-46421", "P-10851", "P-30926"]}
+{"sku": "P-68878", "storeId": "S01", "available": 14, "alternatives": []}
+{"sku": "P-68878", "storeId": "S02", "available": 6, "alternatives": []}
+{"sku": "P-68878", "storeId": "S03", "available": 10, "alternatives": []}
+{"sku": "P-68878", "storeId": "S04", "available": 16, "alternatives": []}
+{"sku": "P-68878", "storeId": "S05", "available": 5, "alternatives": []}
+{"sku": "P-70217", "storeId": "S01", "available": 1, "alternatives": ["P-26361"]}
+{"sku": "P-70217", "storeId": "S02", "available": 4, "alternatives": ["P-26361"]}
+{"sku": "P-70217", "storeId": "S03", "available": 16, "alternatives": ["P-26361"]}
+{"sku": "P-70217", "storeId": "S04", "available": 5, "alternatives": ["P-26361"]}
+{"sku": "P-70217", "storeId": "S05", "available": 15, "alternatives": ["P-26361"]}
+{"sku": "P-76237", "storeId": "S01", "available": 1, "alternatives": ["P-40495"]}
+{"sku": "P-76237", "storeId": "S02", "available": 8, "alternatives": ["P-40495"]}
+{"sku": "P-76237", "storeId": "S03", "available": 1, "alternatives": ["P-40495"]}
+{"sku": "P-76237", "storeId": "S04", "available": 0, "alternatives": ["P-40495"]}
+{"sku": "P-76237", "storeId": "S05", "available": 4, "alternatives": []}
+{"sku": "P-80284", "storeId": "S01", "available": 0, "alternatives": []}
+{"sku": "P-80284", "storeId": "S02", "available": 16, "alternatives": []}
+{"sku": "P-80284", "storeId": "S03", "available": 9, "alternatives": []}
+{"sku": "P-80284", "storeId": "S04", "available": 12, "alternatives": []}
+{"sku": "P-80284", "storeId": "S05", "available": 20, "alternatives": []}
+{"sku": "P-81426", "storeId": "S01", "available": 0, "alternatives": []}
+{"sku": "P-81426", "storeId": "S02", "available": 17, "alternatives": []}
+{"sku": "P-81426", "storeId": "S03", "available": 10, "alternatives": []}
+{"sku": "P-81426", "storeId": "S04", "available": 16, "alternatives": []}
+{"sku": "P-81426", "storeId": "S05", "available": 16, "alternatives": []}
+{"sku": "P-81482", "storeId": "S01", "available": 18, "alternatives": ["P-23434"]}
+{"sku": "P-81482", "storeId": "S02", "available": 7, "alternatives": ["P-23434"]}
+{"sku": "P-81482", "storeId": "S03", "available": 1, "alternatives": ["P-23434"]}
+{"sku": "P-81482", "storeId": "S04", "available": 11, "alternatives": ["P-23434"]}
+{"sku": "P-81482", "storeId": "S05", "available": 13, "alternatives": ["P-23434"]}
+{"sku": "P-83563", "storeId": "S01", "available": 5, "alternatives": []}
+{"sku": "P-83563", "storeId": "S02", "available": 0, "alternatives": []}
+{"sku": "P-83563", "storeId": "S03", "available": 19, "alternatives": []}
+{"sku": "P-83563", "storeId": "S04", "available": 0, "alternatives": []}
+{"sku": "P-83563", "storeId": "S05", "available": 4, "alternatives": []}
+{"sku": "P-87236", "storeId": "S01", "available": 5, "alternatives": []}
+{"sku": "P-87236", "storeId": "S02", "available": 3, "alternatives": []}
+{"sku": "P-87236", "storeId": "S03", "available": 13, "alternatives": []}
+{"sku": "P-87236", "storeId": "S04", "available": 18, "alternatives": []}
+{"sku": "P-87236", "storeId": "S05", "available": 16, "alternatives": []}
+{"sku": "P-87397", "storeId": "S01", "available": 0, "alternatives": []}
+{"sku": "P-87397", "storeId": "S02", "available": 0, "alternatives": []}
+{"sku": "P-87397", "storeId": "S03", "available": 10, "alternatives": []}
+{"sku": "P-87397", "storeId": "S04", "available": 14, "alternatives": []}
+{"sku": "P-87397", "storeId": "S05", "available": 4, "alternatives": []}
+{"sku": "P-88907", "storeId": "S01", "available": 1, "alternatives": ["P-76237"]}
+{"sku": "P-88907", "storeId": "S02", "available": 12, "alternatives": ["P-76237"]}
+{"sku": "P-88907", "storeId": "S03", "available": 14, "alternatives": ["P-76237"]}
+{"sku": "P-88907", "storeId": "S04", "available": 2, "alternatives": []}
+{"sku": "P-88907", "storeId": "S05", "available": 20, "alternatives": ["P-76237"]}
+{"sku": "P-89131", "storeId": "S01", "available": 5, "alternatives": ["P-59797"]}
+{"sku": "P-89131", "storeId": "S02", "available": 15, "alternatives": ["P-59797"]}
+{"sku": "P-89131", "storeId": "S03", "available": 15, "alternatives": ["P-59797"]}
+{"sku": "P-89131", "storeId": "S04", "available": 4, "alternatives": ["P-59797"]}
+{"sku": "P-89131", "storeId": "S05", "available": 10, "alternatives": ["P-59797"]}
+{"sku": "P-93810", "storeId": "S01", "available": 9, "alternatives": []}
+{"sku": "P-93810", "storeId": "S02", "available": 13, "alternatives": []}
+{"sku": "P-93810", "storeId": "S03", "available": 0, "alternatives": []}
+{"sku": "P-93810", "storeId": "S04", "available": 12, "alternatives": []}
+{"sku": "P-93810", "storeId": "S05", "available": 0, "alternatives": []}
+{"sku": "P-95181", "storeId": "S01", "available": 1, "alternatives": []}
+{"sku": "P-95181", "storeId": "S02", "available": 2, "alternatives": []}
+{"sku": "P-95181", "storeId": "S03", "available": 10, "alternatives": []}
+{"sku": "P-95181", "storeId": "S04", "available": 9, "alternatives": []}
+{"sku": "P-95181", "storeId": "S05", "available": 5, "alternatives": []}
+{"sku": "P-98696", "storeId": "S01", "available": 2, "alternatives": []}
+{"sku": "P-98696", "storeId": "S02", "available": 19, "alternatives": []}
+{"sku": "P-98696", "storeId": "S03", "available": 0, "alternatives": []}
+{"sku": "P-98696", "storeId": "S04", "available": 11, "alternatives": []}
+{"sku": "P-98696", "storeId": "S05", "available": 5, "alternatives": []}

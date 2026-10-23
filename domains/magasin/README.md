@@ -79,6 +79,7 @@ Le générateur refuse d'écrire dans une version existante. `MANIFEST.json` enr
 | Jeu | Chemin | Statut |
 |---|---|---|
 | Données | `data/v1/` | générées (seed 42), pas encore citées par un résultat |
+| Réponses de l'oracle | `oracle/v1/` | dérivées de `data/v1` par `magasin_oracle_export.py --version v1` : disponibilité et alternatives pour chaque couple produit × magasin, magasins en stock pour chaque produit. Les implémentations des expériences les rejouent pour prouver qu'elles appliquent les mêmes règles. |
 | Golden set sélection d'outils | `golden/tool-selection/v1/` | à générer |
 
 Un jeu publié ne change plus ; une correction donne une `v2`.

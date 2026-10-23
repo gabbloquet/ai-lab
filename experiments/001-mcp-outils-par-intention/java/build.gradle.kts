@@ -35,3 +35,8 @@ tasks.test {
 tasks.processResources {
     from(rootProject.file("domains/magasin/data/v1")) { into("magasin/v1") }
 }
+
+tasks.processTestResources {
+    // Réponses attendues de l'oracle Python, rejouées par OracleConformanceTest.
+    from(rootProject.file("domains/magasin/oracle/v1")) { into("magasin/oracle/v1") }
+}

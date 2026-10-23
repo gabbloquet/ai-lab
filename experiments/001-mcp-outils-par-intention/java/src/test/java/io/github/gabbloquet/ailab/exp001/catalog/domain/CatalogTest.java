@@ -56,6 +56,17 @@ class CatalogTest {
     }
 
     @Test
+    void findsAStoreById() {
+        assertThat(catalog.store(new StoreId(" s01 "))).hasValueSatisfying(store ->
+                assertThat(store.city()).isEqualTo("Lyon"));
+    }
+
+    @Test
+    void unknownStoreIdGivesNoStore() {
+        assertThat(catalog.store(new StoreId("S99"))).isEmpty();
+    }
+
+    @Test
     void unknownStoreGivesNoStockLine() {
         assertThat(catalog.stock(HEADPHONES_SKU, new StoreId("S99"))).isEmpty();
     }
