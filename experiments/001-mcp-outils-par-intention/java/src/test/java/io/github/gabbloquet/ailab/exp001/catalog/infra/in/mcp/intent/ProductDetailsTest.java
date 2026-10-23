@@ -4,10 +4,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
 
+import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto.ProductDetails;
 import org.junit.jupiter.api.Test;
 
-import io.github.gabbloquet.ailab.exp001.catalog.domain.Product;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.SkuCode;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.SkuCode;
 
 class ProductDetailsTest {
 

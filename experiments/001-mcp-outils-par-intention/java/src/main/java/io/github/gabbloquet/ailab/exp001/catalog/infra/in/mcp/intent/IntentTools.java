@@ -1,16 +1,16 @@
 package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent;
 
 import io.github.gabbloquet.ailab.exp001.catalog.domain.*;
-import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.ProductNotFoundException;
-import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.StoreNotFoundException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.ToolResults;
+import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto.Availability;
+import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto.ProductDetails;
+import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto.StoresWithStock;
 import io.modelcontextprotocol.spec.McpSchema.CallToolResult;
 import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.McpToolParam;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 @ConditionalOnProperty(name = "lab.variant", havingValue = "intent")
@@ -28,14 +28,8 @@ public class IntentTools {
             description = "Returns the details of a product from its SKU: name, brand, department, type and price in euros.",
             annotations = @McpTool.McpAnnotations(readOnlyHint = true, idempotentHint = true, destructiveHint = false, openWorldHint = false))
     public CallToolResult getProductDetails(@McpToolParam(description = "SKU of the product: P- followed by 5 digits.", required = true) String sku) {
-        return toolResults.run(() -> {
-            SkuCode skuCode = new SkuCode(sku);
-            return catalog.product(skuCode)
-                    .map(ProductDetails::from)
-                    .orElseThrow(() -> new ProductNotFoundException(skuCode));
-        });
+        return toolResults.run(() -> ProductDetails.from(catalog.requireProduct(new SkuCode(sku))));
     }
-
 
     @McpTool(name = "check_availability",
             description = "Returns how many units of a product can be sold in a store (stock minus reserved units),"
@@ -45,11 +39,9 @@ public class IntentTools {
             @McpToolParam(description = "SKU of the product: P- followed by 5 digits.", required = true) String sku,
             @McpToolParam(description = "ID of the store: S followed by 2 digits.", required = true) String storeId) {
         return toolResults.run(() -> {
-            SkuCode skuCode = new SkuCode(sku);
-            StoreId id = new StoreId(storeId);
-            Product product = catalog.product(skuCode).orElseThrow(() -> new ProductNotFoundException(skuCode));
-            Store store = catalog.store(id).orElseThrow(() -> new StoreNotFoundException(id, catalog.storeIds()));
-            int available = catalog.stock(skuCode, id).map(StockLine::available).orElse(0);
+            Product product = catalog.requireProduct(new SkuCode(sku));
+            Store store = catalog.requireStore(new StoreId(storeId));
+            int available = catalog.stock(product.sku(), store.storeId()).map(StockLine::available).orElse(0);
             return Availability.of(product, store, available);
         });
     }
@@ -60,10 +52,8 @@ public class IntentTools {
     public CallToolResult findStoresWithStock(
             @McpToolParam(description = "SKU of the product: P- followed by 5 digits.", required = true) String sku) {
         return toolResults.run(() -> {
-            SkuCode skuCode = new SkuCode(sku);
-            Product product = catalog.product(skuCode).orElseThrow(() -> new ProductNotFoundException(skuCode));
-            List<StoreStock> stores = catalog.storesWithStock(skuCode);
-            return StoresWithStock.of(product, stores);
+            Product product = catalog.requireProduct(new SkuCode(sku));
+            return StoresWithStock.of(product, catalog.storesWithStock(product.sku()));
         });
     }
 }

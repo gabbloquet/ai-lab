@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.SkuCode;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.StoreId;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.SkuCode;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StoreId;
 
 import java.math.BigDecimal;
 

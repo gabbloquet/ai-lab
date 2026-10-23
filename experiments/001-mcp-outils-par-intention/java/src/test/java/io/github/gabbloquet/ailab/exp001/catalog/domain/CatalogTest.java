@@ -1,10 +1,17 @@
 package io.github.gabbloquet.ailab.exp001.catalog.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.StoreNotFoundException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.SkuCode;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StockLine;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StoreId;
 import org.junit.jupiter.api.Test;
 
 class CatalogTest {
@@ -24,6 +31,30 @@ class CatalogTest {
     @Test
     void findsAProductBySku() {
         assertThat(catalog.product(HEADPHONES_SKU)).contains(HEADPHONES);
+    }
+
+    @Test
+    void requiresAKnownProduct() {
+        assertThat(catalog.requireProduct(HEADPHONES_SKU)).isEqualTo(HEADPHONES);
+    }
+
+    @Test
+    void signalsAnUnknownProductWithItsSku() {
+        assertThatThrownBy(() -> catalog.requireProduct(new SkuCode("P-99999")))
+                .isInstanceOfSatisfying(ProductNotFoundException.class,
+                        e -> assertThat(e.sku()).isEqualTo(new SkuCode("P-99999")));
+    }
+
+    @Test
+    void requiresAKnownStore() {
+        assertThat(catalog.requireStore(LYON).city()).isEqualTo("Lyon");
+    }
+
+    @Test
+    void signalsAnUnknownStoreWithItsId() {
+        assertThatThrownBy(() -> catalog.requireStore(new StoreId("S99")))
+                .isInstanceOfSatisfying(StoreNotFoundException.class,
+                        e -> assertThat(e.storeId()).isEqualTo(new StoreId("S99")));
     }
 
     @Test

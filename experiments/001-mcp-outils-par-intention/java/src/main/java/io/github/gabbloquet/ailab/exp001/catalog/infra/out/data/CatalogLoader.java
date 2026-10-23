@@ -9,8 +9,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.Product;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.StockLine;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StockLine;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
 import tools.jackson.databind.json.JsonMapper;
 

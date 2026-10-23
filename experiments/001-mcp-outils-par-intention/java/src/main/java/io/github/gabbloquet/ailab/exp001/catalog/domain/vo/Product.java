@@ -1,4 +1,4 @@
-package io.github.gabbloquet.ailab.exp001.catalog.domain;
+package io.github.gabbloquet.ailab.exp001.catalog.domain.vo;
 
 import java.math.BigDecimal;
 

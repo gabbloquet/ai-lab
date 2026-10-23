@@ -3,6 +3,8 @@ package io.github.gabbloquet.ailab.exp001.catalog.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidIdentifierException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StoreId;
 import org.junit.jupiter.api.Test;
 
 class StoreIdTest {
@@ -19,11 +21,11 @@ class StoreIdTest {
 
     @Test
     void rejectsABlankId() {
-        assertThatThrownBy(() -> new StoreId("   ")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new StoreId("   ")).isInstanceOf(InvalidIdentifierException.class);
     }
 
     @Test
     void rejectsANullId() {
-        assertThatThrownBy(() -> new StoreId(null)).isInstanceOf(NullPointerException.class);
+        assertThatThrownBy(() -> new StoreId(null)).isInstanceOf(InvalidIdentifierException.class);
     }
 }

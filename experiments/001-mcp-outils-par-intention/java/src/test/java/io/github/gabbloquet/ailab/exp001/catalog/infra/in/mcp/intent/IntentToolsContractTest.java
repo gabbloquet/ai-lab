@@ -90,6 +90,14 @@ class IntentToolsContractTest {
     }
 
     @Test
+    void reportsABlankSkuAsAnInvalidArgument() {
+        CallToolResult result = call("get_product_details", Map.of("sku", "   "));
+
+        assertThat(result.isError()).isTrue();
+        assertThat(texts(result)).containsExactly("SKU must not be blank");
+    }
+
+    @Test
     void givesTheQuantityAvailableForSaleNetOfReservations() {
         CallToolResult result = call("check_availability", Map.of("sku", "P-38893", "storeId", "s04"));
 

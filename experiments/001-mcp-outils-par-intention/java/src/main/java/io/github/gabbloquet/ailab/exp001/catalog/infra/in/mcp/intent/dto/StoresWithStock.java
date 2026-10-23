@@ -1,7 +1,7 @@
-package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent;
+package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto;
 
-import io.github.gabbloquet.ailab.exp001.catalog.domain.Product;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.StoreStock;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StoreStock;
 
 import java.util.List;
 

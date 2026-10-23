@@ -7,6 +7,7 @@ import static org.assertj.core.groups.Tuple.tuple;
 import java.math.BigDecimal;
 import java.util.List;
 
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 

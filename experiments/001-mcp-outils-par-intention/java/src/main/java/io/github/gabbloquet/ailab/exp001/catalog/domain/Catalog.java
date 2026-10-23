@@ -1,5 +1,9 @@
 package io.github.gabbloquet.ailab.exp001.catalog.domain;
 
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.StoreNotFoundException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
+
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toUnmodifiableMap;
 
@@ -57,6 +61,14 @@ public class Catalog {
 
     public Optional<Store> store(StoreId storeId) {
         return Optional.ofNullable(storesById.get(storeId));
+    }
+
+    public Product requireProduct(SkuCode sku) {
+        return product(sku).orElseThrow(() -> new ProductNotFoundException(sku));
+    }
+
+    public Store requireStore(StoreId storeId) {
+        return store(storeId).orElseThrow(() -> new StoreNotFoundException(storeId));
     }
 
     public List<StoreId> storeIds() {

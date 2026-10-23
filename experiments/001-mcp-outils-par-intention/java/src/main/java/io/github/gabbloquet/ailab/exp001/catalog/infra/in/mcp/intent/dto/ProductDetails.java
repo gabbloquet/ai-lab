@@ -1,8 +1,8 @@
-package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent;
+package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto;
 
 import java.math.BigDecimal;
 
-import io.github.gabbloquet.ailab.exp001.catalog.domain.Product;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
 
 public record ProductDetails(
         String sku,

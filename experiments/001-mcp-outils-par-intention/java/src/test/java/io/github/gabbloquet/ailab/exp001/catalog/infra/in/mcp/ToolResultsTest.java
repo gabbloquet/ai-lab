@@ -6,13 +6,16 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.SkuCode;
 import io.modelcontextprotocol.spec.McpSchema.CallToolResult;
 import io.modelcontextprotocol.spec.McpSchema.TextContent;
 import tools.jackson.databind.json.JsonMapper;
 
 class ToolResultsTest {
 
-    private final ToolResults toolResults = new ToolResults(JsonMapper.builder().build());
+    private final ToolResults toolResults =
+            new ToolResults(JsonMapper.builder().build(), exception -> "message for " + exception.getClass().getSimpleName());
 
     record Sample(String sku, int available) {
     }
@@ -30,24 +33,13 @@ class ToolResultsTest {
     }
 
     @Test
-    void returnsAnExpectedErrorWithItsMessageOnlyOnce() {
+    void translatesADomainErrorWithTheMessagesOfTheVariant() {
         CallToolResult result = toolResults.run(() -> {
-            throw new ToolException("Product not found: P-00000. Use search_catalog to find the SKU of a product.");
+            throw new ProductNotFoundException(new SkuCode("P-00000"));
         });
 
         assertThat(result.isError()).isTrue();
-        assertThat(texts(result))
-                .containsExactly("Product not found: P-00000. Use search_catalog to find the SKU of a product.");
-    }
-
-    @Test
-    void treatsInvalidArgumentsAsExpectedErrors() {
-        CallToolResult result = toolResults.run(() -> {
-            throw new IllegalArgumentException("SKU must not be blank");
-        });
-
-        assertThat(result.isError()).isTrue();
-        assertThat(texts(result)).containsExactly("SKU must not be blank");
+        assertThat(texts(result)).containsExactly("message for ProductNotFoundException");
     }
 
     @Test
@@ -59,6 +51,17 @@ class ToolResultsTest {
         assertThat(result.isError()).isTrue();
         assertThat(texts(result)).singleElement().asString()
                 .doesNotContain("db-prod-07")
+                .contains("Internal error");
+    }
+
+    @Test
+    void treatsAnIllegalArgumentFromABugAsUnexpected() {
+        CallToolResult result = toolResults.run(() -> {
+            throw new IllegalArgumentException("index 42 out of bounds for internal-cache");
+        });
+
+        assertThat(texts(result)).singleElement().asString()
+                .doesNotContain("internal-cache")
                 .contains("Internal error");
     }
 }

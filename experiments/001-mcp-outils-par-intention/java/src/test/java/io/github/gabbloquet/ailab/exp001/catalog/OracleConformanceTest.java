@@ -14,9 +14,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.SkuCode;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.StockLine;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.StoreId;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.SkuCode;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StockLine;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StoreId;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.out.data.CatalogLoader;
 import tools.jackson.databind.json.JsonMapper;
 
