@@ -68,6 +68,11 @@ public class Catalog {
         return Optional.ofNullable(storesById.get(storeId));
     }
 
+    /** Identifiants de tous les magasins, triés. */
+    public List<StoreId> storeIds() {
+        return stores.stream().map(Store::storeId).sorted(comparing(StoreId::value)).toList();
+    }
+
     public Optional<StockLine> stock(SkuCode sku, StoreId storeId) {
         return Optional.ofNullable(stockByKey.get(new StockKey(sku, storeId)));
     }

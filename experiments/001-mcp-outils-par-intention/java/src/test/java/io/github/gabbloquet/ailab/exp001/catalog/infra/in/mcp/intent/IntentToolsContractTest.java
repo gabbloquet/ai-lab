@@ -51,7 +51,7 @@ class IntentToolsContractTest {
     @Test
     void exposesOnlyTheIntentTools() {
         assertThat(client.listTools().tools()).extracting(Tool::name)
-                .containsExactlyInAnyOrder("get_product_details");
+                .containsExactlyInAnyOrder("get_product_details", "check_availability");
     }
 
     @Test
@@ -65,14 +65,15 @@ class IntentToolsContractTest {
         assertThat((List<String>) schema.get("required")).containsExactly("sku");
     }
 
+    // Paramètre fixé de la 001 : tous les outils sont en lecture seule, avec les mêmes annotations dans les deux variantes.
     @Test
-    void declaresTheToolAsReadOnlyOnAClosedDomain() {
-        var annotations = tool("get_product_details").annotations();
-
-        assertThat(annotations.readOnlyHint()).isTrue();
-        assertThat(annotations.destructiveHint()).isFalse();
-        assertThat(annotations.idempotentHint()).isTrue();
-        assertThat(annotations.openWorldHint()).isFalse();
+    void declaresEveryToolAsReadOnlyOnAClosedDomain() {
+        assertThat(client.listTools().tools()).allSatisfy(tool -> {
+            assertThat(tool.annotations().readOnlyHint()).as(tool.name()).isTrue();
+            assertThat(tool.annotations().destructiveHint()).as(tool.name()).isFalse();
+            assertThat(tool.annotations().idempotentHint()).as(tool.name()).isTrue();
+            assertThat(tool.annotations().openWorldHint()).as(tool.name()).isFalse();
+        });
     }
 
     @Test
@@ -92,6 +93,25 @@ class IntentToolsContractTest {
         assertThat(result.isError()).isTrue();
         assertThat(texts(result))
                 .containsExactly("Product not found: P-00000. Use search_catalog to find the SKU of a product.");
+    }
+
+    // Scénario « fully_reserved » du générateur : 3 unités en magasin, toutes réservées.
+    @Test
+    void givesTheQuantityAvailableForSaleNetOfReservations() {
+        CallToolResult result = call("check_availability", Map.of("sku", "P-38893", "storeId", "s04"));
+
+        assertThat(result.isError()).isNotEqualTo(Boolean.TRUE);
+        assertThat(texts(result)).containsExactly("""
+                {"sku":"P-38893","name":"Zorvane Souris E8","storeId":"S04","storeName":"Magasin Bordeaux",\
+                "available":0,"inStock":false}""");
+    }
+
+    @Test
+    void reportsAnUnknownStoreWithTheKnownOnes() {
+        CallToolResult result = call("check_availability", Map.of("sku", "P-38893", "storeId", "S99"));
+
+        assertThat(result.isError()).isTrue();
+        assertThat(texts(result)).containsExactly("Store not found: S99. Known stores: S01, S02, S03, S04, S05.");
     }
 
     private Tool tool(String name) {
