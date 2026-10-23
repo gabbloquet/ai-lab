@@ -10,10 +10,6 @@ import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-/**
- * Règles métier du domaine magasin (domains/magasin/README.md). Mêmes cas limites que l'oracle Python
- * (domains/magasin/tests/test_magasin_rules.py) ; la conformité complète est vérifiée par OracleConformanceTest.
- */
 class CatalogRulesTest {
 
     private static final StoreId STORE = new StoreId("S01");

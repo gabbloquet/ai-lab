@@ -14,7 +14,6 @@ import io.github.gabbloquet.ailab.exp001.LabProperties.Variant;
 
 class LabPropertiesTest {
 
-    // bindOrCreate reproduit ce que fait Spring au démarrage, y compris quand aucune propriété lab.* n'est fournie.
     private static LabProperties bind(Map<String, String> properties) {
         return new Binder(new MapConfigurationPropertySource(properties)).bindOrCreate("lab", LabProperties.class);
     }

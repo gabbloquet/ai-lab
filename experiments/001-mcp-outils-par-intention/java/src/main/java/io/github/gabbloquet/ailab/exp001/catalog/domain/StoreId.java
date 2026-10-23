@@ -6,9 +6,6 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Identifiant d'un magasin, normalisé à la création : espaces retirés, majuscules.
- */
 public record StoreId(String value) {
 
     public StoreId {

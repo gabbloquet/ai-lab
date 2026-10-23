@@ -3,10 +3,6 @@ package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Product;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
 
-/**
- * Disponibilité d'un produit dans un magasin, renvoyée au modèle par {@code check_availability}.
- * {@code available} est déjà net des unités réservées : le modèle n'a pas de calcul à faire.
- */
 public record Availability(
         String sku,
         String name,

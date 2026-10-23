@@ -9,11 +9,6 @@ import org.springframework.stereotype.Component;
 import io.modelcontextprotocol.spec.McpSchema.CallToolResult;
 import tools.jackson.databind.json.JsonMapper;
 
-/**
- * Construit la réponse MCP de chaque outil, pour maîtriser exactement ce que lit le modèle.
- * Par défaut, Spring AI 2.0.1 répète le message d'une exception deux fois, et transmettrait
- * au modèle le détail d'une erreur interne.
- */
 @Component
 public class ToolResults {
 
@@ -27,11 +22,6 @@ public class ToolResults {
         this.jsonMapper = jsonMapper;
     }
 
-    /**
-     * Succès : la réponse en JSON, dans un seul bloc texte.
-     * Erreur attendue (ToolException, argument invalide) : son message, une seule fois.
-     * Erreur inattendue : journalisée côté serveur, et un message générique pour le modèle.
-     */
     public CallToolResult run(Supplier<?> tool) {
         try {
             return CallToolResult.builder().addTextContent(jsonMapper.writeValueAsString(tool.get())).build();

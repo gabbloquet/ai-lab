@@ -20,10 +20,6 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.StoreId;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.out.data.CatalogLoader;
 import tools.jackson.databind.json.JsonMapper;
 
-/**
- * Le domaine Java applique exactement les règles de l'oracle Python qui calcule le golden set :
- * chaque couple produit × magasin de data/v1 est rejoué contre domains/magasin/oracle/v1.
- */
 class OracleConformanceTest {
 
     private static final JsonMapper JSON = JsonMapper.builder().build();

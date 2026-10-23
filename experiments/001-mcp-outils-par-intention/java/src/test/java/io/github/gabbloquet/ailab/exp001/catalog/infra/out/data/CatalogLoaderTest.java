@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 class CatalogLoaderTest {
 
     private final Catalog catalog = CatalogLoader.load(JsonMapper.builder().build(), "magasin/v1");
@@ -25,14 +24,12 @@ class CatalogLoaderTest {
 
     @Test
     void loadsPricesExactly() {
-        // 101.99 n'a pas de représentation exacte en double : un chargeur qui passerait par un double échouerait ici.
         assertThat(catalog.product(new SkuCode("P-13905"))).hasValueSatisfying(product ->
                 assertThat(product.price()).isEqualByComparingTo(new BigDecimal("101.99")));
     }
 
     @Test
     void loadsIdentifiersAsValueObjects() {
-        // Scénario « fully_reserved » du générateur : stock physique présent mais entièrement réservé.
         assertThat(catalog.stock(new SkuCode("P-38893"), new StoreId("S04"))).hasValueSatisfying(line -> {
             assertThat(line.onHand()).isEqualTo(3);
             assertThat(line.available()).isZero();

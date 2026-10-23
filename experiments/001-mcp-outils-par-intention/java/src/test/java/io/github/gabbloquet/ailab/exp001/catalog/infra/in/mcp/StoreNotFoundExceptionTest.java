@@ -13,7 +13,6 @@ class StoreNotFoundExceptionTest {
 
     private static final StoreId UNKNOWN = new StoreId("S99");
 
-    /** S01, S02, … : autant d'identifiants que demandé, déjà triés comme les renvoie le catalogue. */
     private static List<StoreId> stores(int count) {
         return IntStream.rangeClosed(1, count).mapToObj(i -> new StoreId("S%02d".formatted(i))).toList();
     }

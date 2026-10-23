@@ -4,10 +4,6 @@ import java.math.BigDecimal;
 
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Product;
 
-/**
- * Fiche produit renvoyée au modèle par {@code get_product_details}.
- * C'est le contrat de l'outil : il ne suit pas le domaine automatiquement, chaque champ est un choix.
- */
 public record ProductDetails(
         String sku,
         String name,

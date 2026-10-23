@@ -12,13 +12,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 
-/**
- * Catalogue en mémoire et règles métier du domaine magasin (domains/magasin/README.md).
- * L'oracle Python (domains/magasin/magasin_rules.py) applique les mêmes règles ; OracleConformanceTest le vérifie.
- */
 public class Catalog {
 
-    /** Fourchette de prix d'une alternative : ±20 % autour du prix du produit demandé, bornes incluses. */
     static final BigDecimal PRICE_TOLERANCE = new BigDecimal("0.20");
     static final int MAX_ALTERNATIVES = 3;
 
@@ -32,10 +27,6 @@ public class Catalog {
     private final Map<StoreId, Store> storesById;
     private final Map<StockKey, StockLine> stockByKey;
 
-    /**
-     * Un SKU en double, ou deux lignes de stock pour le même couple produit × magasin,
-     * font échouer la construction : un catalogue incohérent ne doit pas démarrer.
-     */
     public Catalog(List<Product> products, List<Store> stores, List<StockLine> stockLines) {
         this.products = List.copyOf(products);
         this.stores = List.copyOf(stores);
@@ -68,7 +59,6 @@ public class Catalog {
         return Optional.ofNullable(storesById.get(storeId));
     }
 
-    /** Identifiants de tous les magasins, triés. */
     public List<StoreId> storeIds() {
         return stores.stream().map(Store::storeId).sorted(comparing(StoreId::value)).toList();
     }
@@ -77,7 +67,6 @@ public class Catalog {
         return Optional.ofNullable(stockByKey.get(new StockKey(sku, storeId)));
     }
 
-    /** Magasins où le produit a des unités disponibles à la vente, triés par identifiant. */
     public List<StoreStock> storesWithStock(SkuCode sku) {
         return stores.stream()
                 .sorted(comparing(store -> store.storeId().value()))
@@ -86,11 +75,6 @@ public class Catalog {
                 .toList();
     }
 
-    /**
-     * Produits du même type, différents du produit demandé, dont le prix est à ±20 % (bornes incluses)
-     * et qui ont des unités disponibles dans le magasin. Triés par écart de prix puis par SKU ; 3 au plus.
-     * Aucun résultat pour un produit inconnu.
-     */
     public List<Alternative> alternatives(SkuCode sku, StoreId storeId) {
         Product reference = productsBySku.get(sku);
         if (reference == null) {
@@ -110,10 +94,6 @@ public class Catalog {
                 .toList();
     }
 
-    /**
-     * Produits dont le nom, la marque ou le type contiennent chacun des mots de la requête, sans tenir compte
-     * de la casse ni des accents, éventuellement filtrés sur un rayon. Triés par nom puis par SKU.
-     */
     public List<Product> search(String query, String department) {
         if (query == null || query.isBlank()) {
             throw new IllegalArgumentException("Search query must not be blank");
@@ -134,7 +114,6 @@ public class Catalog {
         return stock(sku, storeId).map(StockLine::available).orElse(0);
     }
 
-    /** Minuscules, sans accents ni espaces autour : « Cafetière » et « CAFETIERE » deviennent « cafetiere ». */
     private static String fold(String text) {
         return Normalizer.normalize(text, Normalizer.Form.NFD)
                 .replaceAll("\\p{M}", "")

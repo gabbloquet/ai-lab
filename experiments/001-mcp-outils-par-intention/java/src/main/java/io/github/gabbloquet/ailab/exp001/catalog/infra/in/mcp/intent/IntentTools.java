@@ -1,11 +1,6 @@
 package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent;
 
-import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.Product;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.SkuCode;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.StockLine;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.StoreId;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.*;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.ProductNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.StoreNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.ToolResults;
@@ -14,6 +9,8 @@ import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.McpToolParam;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @ConditionalOnProperty(name = "lab.variant", havingValue = "intent")
@@ -54,6 +51,19 @@ public class IntentTools {
             Store store = catalog.store(id).orElseThrow(() -> new StoreNotFoundException(id, catalog.storeIds()));
             int available = catalog.stock(skuCode, id).map(StockLine::available).orElse(0);
             return Availability.of(product, store, available);
+        });
+    }
+
+    @McpTool(name = "find_stores_with_stock",
+            description = "Returns the stores where a product can be sold, with the number of units available in each store. The list is empty when the product is out of stock everywhere.",
+            annotations = @McpTool.McpAnnotations(readOnlyHint = true, idempotentHint = true, destructiveHint = false, openWorldHint = false))
+    public CallToolResult findStoresWithStock(
+            @McpToolParam(description = "SKU of the product: P- followed by 5 digits.", required = true) String sku) {
+        return toolResults.run(() -> {
+            SkuCode skuCode = new SkuCode(sku);
+            Product product = catalog.product(skuCode).orElseThrow(() -> new ProductNotFoundException(skuCode));
+            List<StoreStock> stores = catalog.storesWithStock(skuCode);
+            return StoresWithStock.of(product, stores);
         });
     }
 }

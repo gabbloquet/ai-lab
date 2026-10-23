@@ -21,11 +21,6 @@ import io.modelcontextprotocol.spec.McpSchema.CallToolResult;
 import io.modelcontextprotocol.spec.McpSchema.TextContent;
 import io.modelcontextprotocol.spec.McpSchema.Tool;
 
-/**
- * Contrat public de la variante intent, vu par un vrai client MCP en Streamable HTTP :
- * ce que voit le modèle (outils, schéma, annotations) et ce qu'il reçoit (réponses, erreurs).
- * Sert aussi de garde-fou au SDK MCP 2.1.0 imposé au-dessus de la 2.0.0 tirée par Spring AI.
- */
 @SpringBootTest(webEnvironment = RANDOM_PORT, properties = "lab.variant=intent")
 class IntentToolsContractTest {
 
@@ -51,7 +46,7 @@ class IntentToolsContractTest {
     @Test
     void exposesOnlyTheIntentTools() {
         assertThat(client.listTools().tools()).extracting(Tool::name)
-                .containsExactlyInAnyOrder("get_product_details", "check_availability");
+                .containsExactlyInAnyOrder("get_product_details", "check_availability", "find_stores_with_stock");
     }
 
     @Test
@@ -65,7 +60,6 @@ class IntentToolsContractTest {
         assertThat((List<String>) schema.get("required")).containsExactly("sku");
     }
 
-    // Paramètre fixé de la 001 : tous les outils sont en lecture seule, avec les mêmes annotations dans les deux variantes.
     @Test
     void declaresEveryToolAsReadOnlyOnAClosedDomain() {
         assertThat(client.listTools().tools()).allSatisfy(tool -> {
@@ -95,7 +89,6 @@ class IntentToolsContractTest {
                 .containsExactly("Product not found: P-00000. Use search_catalog to find the SKU of a product.");
     }
 
-    // Scénario « fully_reserved » du générateur : 3 unités en magasin, toutes réservées.
     @Test
     void givesTheQuantityAvailableForSaleNetOfReservations() {
         CallToolResult result = call("check_availability", Map.of("sku", "P-38893", "storeId", "s04"));
@@ -112,6 +105,36 @@ class IntentToolsContractTest {
 
         assertThat(result.isError()).isTrue();
         assertThat(texts(result)).containsExactly("Store not found: S99. Known stores: S01, S02, S03, S04, S05.");
+    }
+
+    @Test
+    void listsTheStoresThatCanSellAProductWithTheirAvailableUnits() {
+        CallToolResult result = call("find_stores_with_stock", Map.of("sku", "P-15695"));
+
+        assertThat(result.isError()).isNotEqualTo(Boolean.TRUE);
+        assertThat(texts(result)).containsExactly("""
+                {"sku":"P-15695","name":"Veldric Casque K8","stores":[\
+                {"storeId":"S01","name":"Magasin Lyon","city":"Lyon","available":8},\
+                {"storeId":"S04","name":"Magasin Bordeaux","city":"Bordeaux","available":11},\
+                {"storeId":"S05","name":"Magasin Strasbourg","city":"Strasbourg","available":7}]}""");
+    }
+
+    @Test
+    void answersWithNoStoreWhenTheProductIsOutOfStockEverywhere() {
+        CallToolResult result = call("find_stores_with_stock", Map.of("sku", "P-13478"));
+
+        assertThat(result.isError()).isNotEqualTo(Boolean.TRUE);
+        assertThat(texts(result)).containsExactly("""
+                {"sku":"P-13478","name":"Tisanor Écran B6","stores":[]}""");
+    }
+
+    @Test
+    void reportsAnUnknownProductWhenLookingForStores() {
+        CallToolResult result = call("find_stores_with_stock", Map.of("sku", "P-00000"));
+
+        assertThat(result.isError()).isTrue();
+        assertThat(texts(result))
+                .containsExactly("Product not found: P-00000. Use search_catalog to find the SKU of a product.");
     }
 
     private Tool tool(String name) {

@@ -6,10 +6,6 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Identifiant d'un produit, normalisé à la création : espaces retirés, majuscules.
- * Deux SKU qui ne diffèrent que par la casse ou les espaces sont donc égaux.
- */
 public record SkuCode(String value) {
 
     public SkuCode {

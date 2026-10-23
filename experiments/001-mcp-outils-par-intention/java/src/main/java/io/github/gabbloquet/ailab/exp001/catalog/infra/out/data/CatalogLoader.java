@@ -14,9 +14,6 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.StockLine;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
 import tools.jackson.databind.json.JsonMapper;
 
-/**
- * Charge le jeu de données du domaine magasin depuis le classpath (fichiers JSONL, un objet par ligne).
- */
 public final class CatalogLoader {
 
     private CatalogLoader() {

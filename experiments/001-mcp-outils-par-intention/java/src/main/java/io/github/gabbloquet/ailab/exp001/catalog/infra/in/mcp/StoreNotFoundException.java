@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 public class StoreNotFoundException extends ToolException {
 
-    /** Au-delà, la liste coûterait trop de tokens à chaque erreur : on n'en cite qu'une partie. */
     private static final int MAX_LISTED = 10;
 
     public StoreNotFoundException(StoreId storeId, List<StoreId> knownStores) {
