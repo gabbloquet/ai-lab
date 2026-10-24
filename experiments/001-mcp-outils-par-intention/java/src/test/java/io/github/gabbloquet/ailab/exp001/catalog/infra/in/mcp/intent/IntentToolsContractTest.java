@@ -183,6 +183,14 @@ class IntentToolsContractTest {
     }
 
     @Test
+    void reportsAMalformedSkuWithTheExpectedFormat() {
+        CallToolResult result = call("get_product_details", Map.of("sku", "80284"));
+
+        assertThat(result.isError()).isTrue();
+        assertThat(texts(result)).containsExactly("Invalid SKU: 80284. A SKU is P- followed by 5 digits.");
+    }
+
+    @Test
     void givesTheQuantityAvailableForSaleNetOfReservations() {
         CallToolResult result = call("check_availability", Map.of("sku", "P-38893", "storeId", "s04"));
 

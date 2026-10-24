@@ -28,4 +28,32 @@ class SkuCodeTest {
     void rejectsANullCode() {
         assertThatThrownBy(() -> new SkuCode(null)).isInstanceOf(InvalidIdentifierException.class);
     }
+
+    @Test
+    void rejectsACodeWithoutThePrefix() {
+        assertThatThrownBy(() -> new SkuCode("80284"))
+                .isInstanceOf(InvalidIdentifierException.class)
+                .hasMessage("Invalid SKU: 80284. A SKU is P- followed by 5 digits.");
+    }
+
+    @Test
+    void rejectsACodeWithoutTheDash() {
+        assertThatThrownBy(() -> new SkuCode("P80284"))
+                .isInstanceOf(InvalidIdentifierException.class)
+                .hasMessage("Invalid SKU: P80284. A SKU is P- followed by 5 digits.");
+    }
+
+    @Test
+    void rejectsACodeWithTheWrongNumberOfDigits() {
+        assertThatThrownBy(() -> new SkuCode("P-1234"))
+                .isInstanceOf(InvalidIdentifierException.class)
+                .hasMessage("Invalid SKU: P-1234. A SKU is P- followed by 5 digits.");
+    }
+
+    @Test
+    void showsTheCodeAsTypedWithoutSurroundingSpacesInTheMessage() {
+        assertThatThrownBy(() -> new SkuCode(" p80284 "))
+                .isInstanceOf(InvalidIdentifierException.class)
+                .hasMessage("Invalid SKU: p80284. A SKU is P- followed by 5 digits.");
+    }
 }

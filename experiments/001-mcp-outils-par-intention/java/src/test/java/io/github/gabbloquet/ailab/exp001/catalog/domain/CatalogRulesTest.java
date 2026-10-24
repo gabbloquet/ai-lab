@@ -44,73 +44,85 @@ class CatalogRulesTest {
     @Nested
     class Alternatives {
 
+        private static final String P = "P-00001";
+        private static final String Q = "P-00002";
+        private static final String HIGH = "P-00010";
+        private static final String LOW = "P-00011";
+        private static final String EMPTY = "P-00020";
+        private static final String RESERVED = "P-00021";
+        private static final String NOLINE = "P-00022";
+        private static final String A = "P-00031";
+        private static final String B = "P-00032";
+        private static final String C = "P-00033";
+        private static final String D = "P-00034";
+
         @Test
         void includeBothBoundsOfThePriceBand() {
             var catalog = catalog(
-                    List.of(product("P", "100.00"), product("LOW", "80.00"), product("HIGH", "120.00")),
-                    List.of(stock("LOW", 1, 0), stock("HIGH", 1, 0)));
+                    List.of(product(P, "100.00"), product(LOW, "80.00"), product(HIGH, "120.00")),
+                    List.of(stock(LOW, 1, 0), stock(HIGH, 1, 0)));
 
-            assertThat(skus(alternativesOf(catalog, "P"))).containsExactly("HIGH", "LOW");
+            assertThat(skus(alternativesOf(catalog, P))).containsExactly(HIGH, LOW);
         }
 
         @Test
         void excludePricesJustOutsideTheBand() {
             var catalog = catalog(
-                    List.of(product("P", "100.00"), product("LOW", "79.99"), product("HIGH", "120.01")),
-                    List.of(stock("LOW", 1, 0), stock("HIGH", 1, 0)));
+                    List.of(product(P, "100.00"), product(LOW, "79.99"), product(HIGH, "120.01")),
+                    List.of(stock(LOW, 1, 0), stock(HIGH, 1, 0)));
 
-            assertThat(alternativesOf(catalog, "P")).isEmpty();
+            assertThat(alternativesOf(catalog, P)).isEmpty();
         }
 
         @Test
         void excludeTheProductItself() {
-            var catalog = catalog(List.of(product("P", "100.00")), List.of(stock("P", 5, 0)));
+            var catalog = catalog(List.of(product(P, "100.00")), List.of(stock(P, 5, 0)));
 
-            assertThat(alternativesOf(catalog, "P")).isEmpty();
+            assertThat(alternativesOf(catalog, P)).isEmpty();
         }
 
         @Test
         void requireTheSameType() {
             var catalog = catalog(
-                    List.of(product("P", "100.00"), product("Q", "100.00", "Enceinte")),
-                    List.of(stock("Q", 1, 0)));
+                    List.of(product(P, "100.00"), product(Q, "100.00", "Enceinte")),
+                    List.of(stock(Q, 1, 0)));
 
-            assertThat(alternativesOf(catalog, "P")).isEmpty();
+            assertThat(alternativesOf(catalog, P)).isEmpty();
         }
 
         @Test
         void requireUnitsAvailableInTheStore() {
             var catalog = catalog(
-                    List.of(product("P", "100.00"), product("EMPTY", "100.00"), product("RESERVED", "100.00"),
-                            product("NOLINE", "100.00")),
-                    List.of(stock("EMPTY", 0, 0), stock("RESERVED", 2, 2)));
+                    List.of(product(P, "100.00"), product(EMPTY, "100.00"), product(RESERVED, "100.00"),
+                            product(NOLINE, "100.00")),
+                    List.of(stock(EMPTY, 0, 0), stock(RESERVED, 2, 2)));
 
-            assertThat(alternativesOf(catalog, "P")).isEmpty();
+            assertThat(alternativesOf(catalog, P)).isEmpty();
         }
 
         @Test
         void areSortedByPriceGapThenSkuAndCappedAtThree() {
             var catalog = catalog(
-                    List.of(product("P", "100.00"), product("D", "110.00"), product("C", "90.00"),
-                            product("B", "95.00"), product("A", "119.00")),
-                    List.of(stock("A", 1, 0), stock("B", 1, 0), stock("C", 1, 0), stock("D", 1, 0)));
+                    List.of(product(P, "100.00"), product(D, "110.00"), product(C, "90.00"),
+                            product(B, "95.00"), product(A, "119.00")),
+                    List.of(stock(A, 1, 0), stock(B, 1, 0), stock(C, 1, 0), stock(D, 1, 0)));
 
-            assertThat(skus(alternativesOf(catalog, "P"))).containsExactly("B", "C", "D");
+            assertThat(skus(alternativesOf(catalog, P))).containsExactly(B, C, D);
         }
 
         @Test
         void carryTheQuantityAvailableForSale() {
             var catalog = catalog(
-                    List.of(product("P", "100.00"), product("Q", "100.00")),
-                    List.of(stock("Q", 5, 2)));
+                    List.of(product(P, "100.00"), product(Q, "100.00")),
+                    List.of(stock(Q, 5, 2)));
 
-            assertThat(alternativesOf(catalog, "P")).singleElement()
+            assertThat(alternativesOf(catalog, P)).singleElement()
                     .extracting(Alternative::available).isEqualTo(3);
         }
 
         @Test
         void doNotExistForAnUnknownProduct() {
-            var catalog = catalog(List.of(product("Q", "100.00")), List.of(stock("Q", 1, 0)));
+            var catalog = catalog(List.of(product(Q, "100.00")), List.of(stock(Q, 1, 0)));
 
             assertThat(alternativesOf(catalog, "P-99999")).isEmpty();
         }
@@ -121,7 +133,7 @@ class CatalogRulesTest {
 
         @Test
         void listStoresWithUnitsAvailableSortedByStoreId() {
-            var p = product("P", "100.00");
+            var p = product("P-00001", "100.00");
             var catalog = new Catalog(
                     List.of(p),
                     List.of(new Store(new StoreId("S02"), "Magasin 2", "Nantes"),
