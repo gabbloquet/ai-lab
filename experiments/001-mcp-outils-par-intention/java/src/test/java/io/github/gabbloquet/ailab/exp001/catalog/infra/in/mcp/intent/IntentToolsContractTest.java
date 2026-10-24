@@ -86,6 +86,17 @@ class IntentToolsContractTest {
                 "type":"Écouteurs","price":76.5,"currency":"EUR"}]}""");
     }
 
+    @Test
+    void explainsAnEmptySearchInsteadOfAnsweringWithNothing() {
+        CallToolResult result = call("search_catalog", Map.of("query", "audio"));
+
+        assertThat(result.isError()).isNotEqualTo(Boolean.TRUE);
+        assertThat(texts(result)).containsExactly("""
+                {"total":0,"products":[],\
+                "hint":"No product matches every word of the query. The query searches product names, brands\
+                 and types; use category to restrict to a department."}""");
+    }
+
     record SearchSummary(int total, List<Map<String, Object>> products) {
     }
 

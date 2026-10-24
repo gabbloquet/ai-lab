@@ -27,7 +27,7 @@ class CatalogSearchResultsTest {
         var matches = products(3);
 
         assertThat(CatalogSearchResults.of(matches))
-                .isEqualTo(new CatalogSearchResults(3, matches.stream().map(ProductDetails::from).toList()));
+                .isEqualTo(new CatalogSearchResults(3, matches.stream().map(ProductDetails::from).toList(), null));
     }
 
     @Test
@@ -50,6 +50,21 @@ class CatalogSearchResultsTest {
 
     @Test
     void isEmptyWhenNothingMatches() {
-        assertThat(CatalogSearchResults.of(List.of())).isEqualTo(new CatalogSearchResults(0, List.of()));
+        var results = CatalogSearchResults.of(List.of());
+
+        assertThat(results.total()).isZero();
+        assertThat(results.products()).isEmpty();
+    }
+
+    @Test
+    void explainsWhatTheQuerySearchesWhenNothingMatches() {
+        assertThat(CatalogSearchResults.of(List.of()).hint())
+                .isEqualTo("No product matches every word of the query. The query searches product names, brands"
+                        + " and types; use category to restrict to a department.");
+    }
+
+    @Test
+    void givesNoHintWhenSomethingMatches() {
+        assertThat(CatalogSearchResults.of(products(3)).hint()).isNull();
     }
 }
