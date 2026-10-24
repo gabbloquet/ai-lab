@@ -36,7 +36,7 @@ L'hypothèse n'est pas nouvelle : des praticiens expérimentés la recommandent 
 | Modèles | Un modèle par fournisseur : Gemini, Mistral et Claude. Les identifiants exacts seront fixés et vérifiés avant le gel. Un verdict par modèle. |
 | Golden set | `domains/magasin/golden/tool-selection/v1` : 130 items, **n_dev = 30, n_test = 100**, 26 items par intention, soit environ 6 en `dev` et 20 en `test` |
 | Répétitions | k = 5 |
-| Implémentation | `java/` : les deux serveurs MCP (Spring AI), testés en boîte noire à travers le protocole MCP. `python/` : la boucle d'agent, qui sert de client MCP, et la notation (métrique DeepEval personnalisée, conforme à la spec) |
+| Implémentation | `java/` : les deux serveurs MCP (Spring AI), testés en boîte noire à travers le protocole MCP. Seuls ces serveurs servent aux runs. `python/mcp_server/` : un jumeau de la variante B, écrit avec le SDK MCP Python (voir plus bas), qui n'intervient pas dans la mesure. `python/` : la boucle d'agent, qui sert de client MCP, et la notation (métrique DeepEval personnalisée, conforme à la spec) |
 
 ### Les deux jeux d'outils
 
@@ -77,6 +77,15 @@ java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
 **Les réponses sont construites par `ToolResults`, pas par Spring AI.** Par défaut, Spring AI 2.0.1 renvoie le message d'une exception deux fois (son code concatène le message et celui de la cause racine, qui est l'exception elle-même quand elle n'a pas de cause), et transmettrait au modèle le détail d'une erreur interne. `ToolResults` renvoie le JSON en un seul bloc texte, une erreur métier une seule fois, et un message générique pour une erreur inattendue, journalisée côté serveur. Le texte d'une erreur métier ne vient pas de l'exception : `ToolResults` le demande à `ToolErrorMessages`, que chaque variante implémente. Le domaine dit ce qui ne va pas, la variante le formule avec les noms de ses outils et de ses paramètres (le domaine dit `department`, le paramètre de B s'appelle `category`).
 
 **Format des réponses : JSON dans un bloc texte, pour les deux variantes.** Spring AI 2.0.1 propose aussi un mode structuré (`generateOutputSchema = true`), qui publie un `outputSchema`. Mais d'après son code source (`AbstractMcpToolMethodCallback.convertValueToCallToolResult`, lu le 2026-10-22), il renvoie alors le résultat **uniquement** en `structuredContent`, sans le bloc texte que la spec MCP recommande pour la compatibilité. Un hôte qui ne lit que le texte ne verrait rien. Le mode texte est lu par tous les hôtes. Le format de réponse fera l'objet d'une expérience à part.
+
+### Jumeau Python de la variante B
+
+`python/mcp_server/` réimplémente la variante B avec le SDK MCP Python officiel (`mcp` 2.3.0, `MCPServer`). Il ne sert pas aux runs : si les variantes tournaient sur deux langages, le langage deviendrait une variable de l'expérience. Il sert à vérifier que **le contrat de B ne dépend pas de Spring AI** : mêmes outils, mêmes schémas, mêmes annotations, mêmes réponses JSON, mêmes messages d'erreur.
+
+- **Un test de contrat en boîte noire**, écrit en pytest avec le client MCP Python, prend l'URL d'un serveur et tourne contre les deux implémentations. Une divergence se corrige dans le serveur fautif, jamais en assouplissant le test.
+- **Un domaine propre**, en architecture hexagonale comme en Java (`domain/`, `inbound/mcp/`, `outbound/data/`, `in` étant un mot réservé en Python). Il ne réutilise pas `magasin_rules.py`, l'oracle, qui ne serait alors plus indépendant ; il est vérifié contre les cas de `domains/magasin/oracle/v1`, comme `OracleConformanceTest` en Java.
+- **Les réponses sont construites par l'adaptateur, comme `ToolResults` en Java.** D'après le code du SDK 2.3.0 (`MCPServer.call_tool`, `Tool.run`, lus le 2026-10-24) : une erreur levée par un outil est préfixée par « Error executing tool <nom>: », une erreur de validation des arguments renvoie le texte brut de Pydantic, et un modèle Pydantic renvoyé produit un `structuredContent` en plus du texte. L'outil construit donc lui-même son `CallToolResult`, avec un bloc texte JSON et le message de la variante.
+- **L'en-tête `Origin` est validé par défaut** quand le serveur écoute sur `127.0.0.1` ou `localhost` (`TransportSecuritySettings`, 403 pour une origine refusée, 421 pour un hôte refusé), alors que Spring AI 2.0.1 demande de déclarer le validateur.
 
 ### Neutraliser l'effet des descriptions
 
