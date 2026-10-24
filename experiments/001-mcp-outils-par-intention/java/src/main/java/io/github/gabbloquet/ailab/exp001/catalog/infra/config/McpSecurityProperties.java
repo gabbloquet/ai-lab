@@ -1,4 +1,4 @@
-package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp;
+package io.github.gabbloquet.ailab.exp001.catalog.infra.config;
 
 import java.util.List;
 
