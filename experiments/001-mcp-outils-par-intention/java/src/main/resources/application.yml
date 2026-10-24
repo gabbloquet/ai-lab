@@ -12,3 +12,10 @@ spring:
         name: magasin-mcp
         version: 0.1.0
         protocol: STREAMABLE
+
+lab:
+  mcp:
+    # Origines navigateur acceptées (la spec MCP impose un 403 sinon). Une requête sans Origin passe.
+    allowed-origins:
+      - http://localhost:*
+      - http://127.0.0.1:*
