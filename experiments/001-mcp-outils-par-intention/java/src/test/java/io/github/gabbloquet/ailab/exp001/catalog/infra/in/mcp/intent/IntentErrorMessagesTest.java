@@ -2,12 +2,15 @@ package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.DepartmentNotFoundException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidIdentifierException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidSearchQueryException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
@@ -25,6 +28,10 @@ class IntentErrorMessagesTest {
                 .mapToObj(i -> new Store(new StoreId("S%02d".formatted(i)), "Magasin " + i, "Ville " + i))
                 .toList();
         return new IntentErrorMessages(new Catalog(List.of(), stores, List.of()));
+    }
+
+    private static Product product(String sku, String department) {
+        return new Product(new SkuCode(sku), "Produit " + sku, "Marque", department, "Type", new BigDecimal("10.00"));
     }
 
     @Test
@@ -49,6 +56,29 @@ class IntentErrorMessagesTest {
     void capsTheListAndCountsTheOthersBeyondTen() {
         assertThat(withStores(12).messageFor(UNKNOWN_STORE))
                 .isEqualTo("Store not found: S99. Known stores: S01, S02, S03, S04, S05, S06, S07, S08, S09, S10"
+                        + " and 2 more.");
+    }
+
+    @Test
+    void namesItACategoryAndListsEachKnownOneOnce() {
+        var messages = new IntentErrorMessages(new Catalog(
+                List.of(product("P-00001", "Maison"), product("P-00002", "Audio"), product("P-00003", "Maison")),
+                List.of(),
+                List.of()));
+
+        assertThat(messages.messageFor(new DepartmentNotFoundException("Hifi")))
+                .isEqualTo("Category not found: Hifi. Known categories: Audio, Maison.");
+    }
+
+    @Test
+    void capsTheCategoriesAndCountsTheOthersBeyondFive() {
+        var messages = new IntentErrorMessages(new Catalog(
+                IntStream.rangeClosed(1, 7).mapToObj(i -> product("P-%05d".formatted(i), "Rayon " + i)).toList(),
+                List.of(),
+                List.of()));
+
+        assertThat(messages.messageFor(new DepartmentNotFoundException("Hifi")))
+                .isEqualTo("Category not found: Hifi. Known categories: Rayon 1, Rayon 2, Rayon 3, Rayon 4, Rayon 5"
                         + " and 2 more.");
     }
 

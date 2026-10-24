@@ -16,6 +16,7 @@ import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.ToolErrorMessages;
 public class IntentErrorMessages implements ToolErrorMessages {
 
     private static final int MAX_LISTED_STORES = 10;
+    private static final int MAX_LISTED_DEPARTMENTS = 5;
 
     private final Catalog catalog;
 
@@ -30,6 +31,8 @@ public class IntentErrorMessages implements ToolErrorMessages {
                     "Product not found: " + e.sku() + ". Use search_catalog to find the SKU of a product.";
             case StoreNotFoundException e ->
                     "Store not found: " + e.storeId() + ". Known stores: " + knownStores() + ".";
+            case DepartmentNotFoundException e ->
+                    "Category not found: " + e.department() + ". Known categories: " + knownDepartments() + ".";
             case InvalidIdentifierException _, InvalidSearchQueryException _ -> exception.getMessage();
         };
     }
@@ -38,6 +41,13 @@ public class IntentErrorMessages implements ToolErrorMessages {
         List<StoreId> storeIds = catalog.storeIds();
         String listed = storeIds.stream().limit(MAX_LISTED_STORES).map(StoreId::value).collect(Collectors.joining(", "));
         int others = storeIds.size() - MAX_LISTED_STORES;
+        return others > 0 ? listed + " and " + others + " more" : listed;
+    }
+
+    private String knownDepartments() {
+        List<String> departments = catalog.departments();
+        String listed = departments.stream().limit(MAX_LISTED_DEPARTMENTS).collect(Collectors.joining(", "));
+        int others = departments.size() - MAX_LISTED_DEPARTMENTS;
         return others > 0 ? listed + " and " + others + " more" : listed;
     }
 }

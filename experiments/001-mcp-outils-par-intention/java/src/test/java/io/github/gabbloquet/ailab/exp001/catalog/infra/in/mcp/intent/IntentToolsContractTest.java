@@ -113,6 +113,15 @@ class IntentToolsContractTest {
     }
 
     @Test
+    void reportsAnUnknownCategoryWithTheKnownOnes() {
+        CallToolResult result = call("search_catalog", Map.of("query", "casque", "category", "Hifi"));
+
+        assertThat(result.isError()).isTrue();
+        assertThat(texts(result))
+                .containsExactly("Category not found: Hifi. Known categories: Audio, Informatique, Maison, Sport.");
+    }
+
+    @Test
     @SuppressWarnings("unchecked")
     void asksForTheSkuAsAPlainString() {
         Map<String, Object> schema = tool("get_product_details").inputSchema();

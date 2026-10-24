@@ -7,6 +7,7 @@ import static org.assertj.core.groups.Tuple.tuple;
 import java.math.BigDecimal;
 import java.util.List;
 
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.DepartmentNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidSearchQueryException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
 import org.junit.jupiter.api.Nested;
@@ -192,6 +193,18 @@ class CatalogRulesTest {
             assertThatThrownBy(() -> catalog.search("  ", null))
                     .isInstanceOf(InvalidSearchQueryException.class)
                     .hasMessage("Search query must not be blank");
+        }
+
+        @Test
+        void rejectsAnUnknownDepartment() {
+            assertThatThrownBy(() -> catalog.search("casque", "Hifi"))
+                    .isInstanceOf(DepartmentNotFoundException.class)
+                    .hasMessage("Unknown department: Hifi");
+        }
+
+        @Test
+        void returnsNothingForAKnownDepartmentWithoutMatch() {
+            assertThat(found("casque", "Maison")).isEmpty();
         }
     }
 }

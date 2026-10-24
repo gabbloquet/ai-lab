@@ -1,5 +1,6 @@
 package io.github.gabbloquet.ailab.exp001.catalog.domain;
 
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.DepartmentNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidSearchQueryException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.StoreNotFoundException;
@@ -76,6 +77,10 @@ public class Catalog {
         return stores.stream().map(Store::storeId).sorted(comparing(StoreId::value)).toList();
     }
 
+    public List<String> departments() {
+        return products.stream().map(Product::department).distinct().sorted().toList();
+    }
+
     public Optional<StockLine> stock(SkuCode sku, StoreId storeId) {
         return Optional.ofNullable(stockByKey.get(new StockKey(sku, storeId)));
     }
@@ -111,8 +116,11 @@ public class Catalog {
         if (query == null || query.isBlank()) {
             throw new InvalidSearchQueryException("Search query must not be blank");
         }
-        List<String> words = Arrays.asList(fold(query).split("\\s+"));
         boolean filterOnDepartment = department != null && !department.isBlank();
+        if (filterOnDepartment && departments().stream().noneMatch(known -> fold(known).equals(fold(department)))) {
+            throw new DepartmentNotFoundException(department);
+        }
+        List<String> words = Arrays.asList(fold(query).split("\\s+"));
         return products.stream()
                 .filter(product -> !filterOnDepartment || fold(product.department()).equals(fold(department)))
                 .filter(product -> {

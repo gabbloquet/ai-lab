@@ -105,6 +105,18 @@ class CatalogTest {
     }
 
     @Test
+    void listsEachDepartmentOnceInOrder() {
+        var catalog = new Catalog(
+                List.of(new Product(new SkuCode("P-00001"), "Cafetière test", "Marque", "Maison", "Cafetière", new BigDecimal("50.00")),
+                        new Product(new SkuCode("P-00002"), "Casque test", "Marque", "Audio", "Casque", new BigDecimal("100.00")),
+                        new Product(new SkuCode("P-00003"), "Bouilloire test", "Marque", "Maison", "Bouilloire", new BigDecimal("30.00"))),
+                List.of(),
+                List.of());
+
+        assertThat(catalog.departments()).containsExactly("Audio", "Maison");
+    }
+
+    @Test
     void unknownStoreIdGivesNoStore() {
         assertThat(catalog.store(new StoreId("S99"))).isEmpty();
     }
