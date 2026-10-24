@@ -1,5 +1,7 @@
 package io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent;
 
+import static java.util.Comparator.comparing;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,7 +10,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
-import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StoreId;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.ToolErrorMessages;
 
 @Component
@@ -41,9 +43,12 @@ public class IntentErrorMessages implements ToolErrorMessages {
     }
 
     private String knownStores() {
-        List<StoreId> storeIds = catalog.storeIds();
-        String listed = storeIds.stream().limit(MAX_LISTED_STORES).map(StoreId::value).collect(Collectors.joining(", "));
-        int others = storeIds.size() - MAX_LISTED_STORES;
+        List<Store> stores = catalog.stores().stream().sorted(comparing(store -> store.storeId().value())).toList();
+        String listed = stores.stream()
+                .limit(MAX_LISTED_STORES)
+                .map(store -> store.storeId().value() + " (" + store.city() + ")")
+                .collect(Collectors.joining(", "));
+        int others = stores.size() - MAX_LISTED_STORES;
         return others > 0 ? listed + " and " + others + " more" : listed;
     }
 

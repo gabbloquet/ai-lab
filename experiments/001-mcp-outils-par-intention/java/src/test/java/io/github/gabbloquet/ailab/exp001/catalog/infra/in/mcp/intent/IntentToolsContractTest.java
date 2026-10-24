@@ -205,7 +205,9 @@ class IntentToolsContractTest {
         CallToolResult result = call("check_availability", Map.of("sku", "P-38893", "storeId", "S99"));
 
         assertThat(result.isError()).isTrue();
-        assertThat(texts(result)).containsExactly("Store not found: S99. Known stores: S01, S02, S03, S04, S05.");
+        assertThat(texts(result)).containsExactly(
+                "Store not found: S99. Known stores: S01 (Lyon), S02 (Nantes), S03 (Lille), S04 (Bordeaux),"
+                        + " S05 (Strasbourg).");
     }
 
     @Test
@@ -254,7 +256,9 @@ class IntentToolsContractTest {
         CallToolResult result = call("find_in_stock_alternative", Map.of("sku", "P-15695", "storeId", "S99"));
 
         assertThat(result.isError()).isTrue();
-        assertThat(texts(result)).containsExactly("Store not found: S99. Known stores: S01, S02, S03, S04, S05.");
+        assertThat(texts(result)).containsExactly(
+                "Store not found: S99. Known stores: S01 (Lyon), S02 (Nantes), S03 (Lille), S04 (Bordeaux),"
+                        + " S05 (Strasbourg).");
     }
 
     @Test

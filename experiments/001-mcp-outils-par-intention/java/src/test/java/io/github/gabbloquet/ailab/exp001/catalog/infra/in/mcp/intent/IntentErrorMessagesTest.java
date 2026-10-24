@@ -41,22 +41,39 @@ class IntentErrorMessagesTest {
     }
 
     @Test
-    void listsEveryKnownStoreWhenThereAreFew() {
+    void listsEveryKnownStoreWithItsCityWhenThereAreFew() {
         assertThat(withStores(5).messageFor(UNKNOWN_STORE))
-                .isEqualTo("Store not found: S99. Known stores: S01, S02, S03, S04, S05.");
+                .isEqualTo("Store not found: S99. Known stores: S01 (Ville 1), S02 (Ville 2), S03 (Ville 3),"
+                        + " S04 (Ville 4), S05 (Ville 5).");
+    }
+
+    @Test
+    void listsTheKnownStoresInIdOrder() {
+        var messages = new IntentErrorMessages(new Catalog(
+                List.of(),
+                List.of(new Store(new StoreId("S03"), "Magasin 3", "Lille"),
+                        new Store(new StoreId("S01"), "Magasin 1", "Lyon"),
+                        new Store(new StoreId("S02"), "Magasin 2", "Nantes")),
+                List.of()));
+
+        assertThat(messages.messageFor(UNKNOWN_STORE))
+                .isEqualTo("Store not found: S99. Known stores: S01 (Lyon), S02 (Nantes), S03 (Lille).");
     }
 
     @Test
     void listsTenStoresWithoutMentioningOthersAtTheLimit() {
         assertThat(withStores(10).messageFor(UNKNOWN_STORE))
-                .isEqualTo("Store not found: S99. Known stores: S01, S02, S03, S04, S05, S06, S07, S08, S09, S10.");
+                .isEqualTo("Store not found: S99. Known stores: S01 (Ville 1), S02 (Ville 2), S03 (Ville 3),"
+                        + " S04 (Ville 4), S05 (Ville 5), S06 (Ville 6), S07 (Ville 7), S08 (Ville 8),"
+                        + " S09 (Ville 9), S10 (Ville 10).");
     }
 
     @Test
     void capsTheListAndCountsTheOthersBeyondTen() {
         assertThat(withStores(12).messageFor(UNKNOWN_STORE))
-                .isEqualTo("Store not found: S99. Known stores: S01, S02, S03, S04, S05, S06, S07, S08, S09, S10"
-                        + " and 2 more.");
+                .isEqualTo("Store not found: S99. Known stores: S01 (Ville 1), S02 (Ville 2), S03 (Ville 3),"
+                        + " S04 (Ville 4), S05 (Ville 5), S06 (Ville 6), S07 (Ville 7), S08 (Ville 8),"
+                        + " S09 (Ville 9), S10 (Ville 10) and 2 more.");
     }
 
     @Test
