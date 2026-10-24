@@ -10,22 +10,26 @@ Un catalogue de produits vendus dans cinq magasins, avec un stock par magasin. C
 
 | Champ | Type | Exemple | Rôle |
 |---|---|---|---|
-| `sku` | chaîne | `P-15695` | Identifiant unique et opaque, tiré au hasard : il ne révèle ni le type ni la marque |
+| `sku` | chaîne : `P-` suivi de 5 chiffres | `P-15695` | Identifiant unique et opaque, tiré au hasard : il ne révèle ni le type ni la marque |
 | `name` | chaîne | `Veldric Casque K8` | Nom commercial |
 | `brand` | chaîne | `Veldric` | Marque fictive |
 | `department` | chaîne | `Audio` | Rayon : recherche et navigation |
 | `type` | chaîne | `Casque` | Type de produit : base de la règle d'alternative |
 | `price` | décimal, 2 chiffres, en euros | `79.90` | Prix de vente |
 
+**Format du SKU.** C'est une règle du domaine : un SKU qui ne suit pas le format est refusé comme mal formé, avant toute recherche du produit. La casse et les espaces autour sont normalisés d'abord, donc ` p-15695 ` est accepté et vaut `P-15695`.
+
 ### Magasin
 
 | Champ | Type | Exemple |
 |---|---|---|
-| `storeId` | chaîne | `S01` |
+| `storeId` | chaîne : `S` suivi de 2 chiffres | `S01` |
 | `name` | chaîne | `Magasin Lyon` |
 | `city` | chaîne | `Lyon` |
 
 Les cinq magasins : S01 Lyon, S02 Nantes, S03 Lille, S04 Bordeaux, S05 Strasbourg.
+
+Le format de `storeId` est celui des données, mais il n'est pas validé : un identifiant hors format, comme un nom de ville, est simplement un magasin inconnu. La casse et les espaces autour sont normalisés.
 
 ### Stock
 
@@ -52,7 +56,16 @@ Les alternatives sont triées par écart de prix croissant (|prix de Q − p|), 
 
 **Magasins qui ont le produit.** Tous les magasins où le produit est en stock, triés par `storeId`.
 
-L'implémentation de référence de ces règles est `magasin_rules.py`, testée dans `tests/test_magasin_rules.py`. C'est elle qui calcule les réponses attendues du golden set, et elle sert d'oracle aux implémentations des expériences.
+L'implémentation de référence de ces trois règles est `magasin_rules.py`, testée dans `tests/test_magasin_rules.py`. C'est elle qui calcule les réponses attendues du golden set, et elle sert d'oracle aux implémentations des expériences.
+
+**Recherche dans le catalogue.** Une requête et, en option, un rayon :
+1. la requête est obligatoire : vide ou faite d'espaces, elle est refusée ;
+2. la requête est découpée en mots sur les espaces ; un produit correspond si **chaque mot** figure dans son nom, sa marque ou son type. Le rayon n'est pas cherché dans la requête, et aucun caractère joker n'est interprété ;
+3. la comparaison ignore la casse et les accents (`cafetiere` trouve `Cafetière`) ;
+4. un rayon renseigné filtre les produits, avec la même normalisation. Un rayon qui n'existe dans aucun produit est refusé. Un rayon vide équivaut à aucun filtre ;
+5. les résultats sont triés par nom, puis par `sku` en cas d'égalité.
+
+Le nombre de résultats renvoyés et la manière de signaler une recherche sans résultat relèvent des expériences, pas du domaine. Cette règle n'a pas d'implémentation de référence en Python ni de réponses d'oracle : le golden set ne contraint pas la requête de recherche (argument non contraint, `{"any": true}` dans la spec `tool-selection/v1`), donc la notation ne dépend pas de ses résultats.
 
 ## Volumétrie et cas à garantir
 
