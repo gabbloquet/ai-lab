@@ -73,10 +73,6 @@ public class Catalog {
         return store(storeId).orElseThrow(() -> new StoreNotFoundException(storeId));
     }
 
-    public List<StoreId> storeIds() {
-        return stores.stream().map(Store::storeId).sorted(comparing(StoreId::value)).toList();
-    }
-
     public List<String> departments() {
         return products.stream().map(Product::department).distinct().sorted().toList();
     }

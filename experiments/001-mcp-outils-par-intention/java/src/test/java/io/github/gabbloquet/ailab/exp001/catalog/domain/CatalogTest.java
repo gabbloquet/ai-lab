@@ -93,18 +93,6 @@ class CatalogTest {
     }
 
     @Test
-    void listsStoreIdsInOrder() {
-        var catalog = new Catalog(
-                List.of(),
-                List.of(new Store(new StoreId("S03"), "Magasin 3", "Lille"),
-                        new Store(new StoreId("S01"), "Magasin 1", "Lyon"),
-                        new Store(new StoreId("S02"), "Magasin 2", "Nantes")),
-                List.of());
-
-        assertThat(catalog.storeIds()).extracting(StoreId::value).containsExactly("S01", "S02", "S03");
-    }
-
-    @Test
     void listsEachDepartmentOnceInOrder() {
         var catalog = new Catalog(
                 List.of(new Product(new SkuCode("P-00001"), "Cafetière test", "Marque", "Maison", "Cafetière", new BigDecimal("50.00")),
