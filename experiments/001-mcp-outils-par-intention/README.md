@@ -32,7 +32,7 @@ L'hypothèse n'est pas nouvelle : des praticiens expérimentés la recommandent 
 | Baseline (A) | Serveur MCP **miroir REST** : 5 outils calqués sur des endpoints |
 | Variante (B) | Serveur MCP **par intention** : 5 outils, un par besoin métier |
 | Ce qui change entre A et B | Le découpage, les noms et les descriptions des outils, et donc le jeu d'outils exposé |
-| Ce qui est fixé | Le modèle, le prompt système, la température (0), un maximum de **10 appels d'outils** par exécution, le nombre d'outils (5 de chaque côté), le guide de rédaction des descriptions (voir plus bas), le transport (Streamable HTTP, sur `127.0.0.1`), le format des réponses (JSON sérialisé dans un bloc texte, voir plus bas), les données (`domains/magasin/data/v1`), la boucle d'agent et sa configuration (voir plus bas) |
+| Ce qui est fixé | Le modèle, le prompt système, la température (0), un maximum de **10 appels d'outils** par exécution, le nombre d'outils (5 de chaque côté), le guide de rédaction des descriptions et la politique d'erreur (voir plus bas), le transport (Streamable HTTP, sur `127.0.0.1`), le format des réponses (JSON sérialisé dans un bloc texte, voir plus bas), les données (`domains/magasin/data/v1`), la boucle d'agent et sa configuration (voir plus bas) |
 | Modèles | Un modèle par fournisseur : Gemini, Mistral et Claude. Les identifiants exacts seront fixés et vérifiés avant le gel. Un verdict par modèle. |
 | Golden set | `domains/magasin/golden/tool-selection/v1` : 130 items, **n_dev = 30, n_test = 100**, 26 items par intention, soit environ 6 en `dev` et 20 en `test` |
 | Répétitions | k = 5 |
@@ -59,11 +59,14 @@ Les deux variantes sont **deux adaptateurs primaires au-dessus du même cœur** 
 ```
 java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
 ├── domain/              le cœur : entités, value objects (SkuCode, StoreId), règles métier
+│   └── error/           erreurs métier (produit, magasin ou rayon introuvable, argument invalide), sans texte destiné au modèle
 └── infra/
+    ├── config/          configuration du transport MCP : validation de l'en-tête Origin
     ├── in/mcp/          adaptateurs entrants (primaires) : ce qui pilote le cœur
-    │   ├── ToolResults      construction des réponses MCP, commune aux deux variantes
-    │   ├── intent/          variante B : outils et DTO de réponse
-    │   └── rest/            variante A : outils et DTO de réponse
+    │   ├── ToolResults          construction des réponses MCP, commune aux deux variantes
+    │   ├── ToolErrorMessages    contrat : le message que le modèle lit pour chaque erreur métier
+    │   ├── intent/              variante B : outils, DTO de réponse, IntentErrorMessages
+    │   └── rest/                variante A : outils, DTO de réponse, messages d'erreur
     └── out/data/        adaptateur sortant (secondaire) : chargement de domains/magasin/data/v1, embarqué dans le jar
 ```
 
@@ -71,7 +74,7 @@ java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
 - **Chaque outil renvoie un DTO dédié**, jamais un objet du domaine. La réponse se conçoit pour le modèle, et une évolution du domaine ne doit pas modifier en silence ce qu'il lit.
 - Les paramètres des outils sont des types simples (`String`), convertis en value objects à l'intérieur de l'adaptateur. Le schéma vu par le modèle reste donc `{"sku": {"type": "string"}}`.
 
-**Les réponses sont construites par `ToolResults`, pas par Spring AI.** Par défaut, Spring AI 2.0.1 renvoie le message d'une exception deux fois (son code concatène le message et celui de la cause racine, qui est l'exception elle-même quand elle n'a pas de cause), et transmettrait au modèle le détail d'une erreur interne. `ToolResults` renvoie le JSON en un seul bloc texte, une erreur attendue avec son message une seule fois, et un message générique pour une erreur inattendue, journalisée côté serveur.
+**Les réponses sont construites par `ToolResults`, pas par Spring AI.** Par défaut, Spring AI 2.0.1 renvoie le message d'une exception deux fois (son code concatène le message et celui de la cause racine, qui est l'exception elle-même quand elle n'a pas de cause), et transmettrait au modèle le détail d'une erreur interne. `ToolResults` renvoie le JSON en un seul bloc texte, une erreur métier une seule fois, et un message générique pour une erreur inattendue, journalisée côté serveur. Le texte d'une erreur métier ne vient pas de l'exception : `ToolResults` le demande à `ToolErrorMessages`, que chaque variante implémente. Le domaine dit ce qui ne va pas, la variante le formule avec les noms de ses outils et de ses paramètres (le domaine dit `department`, le paramètre de B s'appelle `category`).
 
 **Format des réponses : JSON dans un bloc texte, pour les deux variantes.** Spring AI 2.0.1 propose aussi un mode structuré (`generateOutputSchema = true`), qui publie un `outputSchema`. Mais d'après son code source (`AbstractMcpToolMethodCallback.convertValueToCallToolResult`, lu le 2026-10-22), il renvoie alors le résultat **uniquement** en `structuredContent`, sans le bloc texte que la spec MCP recommande pour la compatibilité. Un hôte qui ne lit que le texte ne verrait rien. Le mode texte est lu par tous les hôtes. Le format de réponse fera l'objet d'une expérience à part.
 
@@ -86,9 +89,21 @@ Si les outils de B étaient mieux décrits que ceux de A, l'expérience mesurera
 
 Les longueurs mesurées sont publiées dans les Résultats.
 
+### Neutraliser l'effet des erreurs
+
+Une variante dont les erreurs guident mieux le modèle aurait un avantage qui ne tient pas au découpage. Les deux variantes suivent donc **la même politique d'erreur** :
+- une valeur inconnue (magasin, catégorie) est signalée par une erreur qui liste les valeurs connues, avec un nom lisible quand il existe (`S03 (Lille)`) ;
+- un argument mal formé est signalé avec le format attendu, sans valeur réelle en exemple (« A SKU is P- followed by 5 digits ») ;
+- toute erreur dit quoi faire ensuite (« Use search_catalog to find the SKU of a product ») ;
+- aucune réponse vide n'est muette : une recherche sans résultat porte un champ `hint` qui rappelle sur quoi porte la recherche. Ce champ est omis dès qu'il y a des résultats.
+
+Les erreurs du domaine sont communes aux deux variantes ; seuls leurs messages diffèrent, parce qu'ils nomment les outils et les paramètres de la variante. Une erreur provoquée par le même argument donne la même information des deux côtés : par exemple, un magasin inconnu liste les mêmes magasins avec leur ville en A et en B.
+
 ### Contexte transmis au modèle
 
-Un prompt système identique pour les deux variantes, versionné dans `python/prompts/system.md`, indique le magasin courant (`context.storeId` de l'item). Le modèle ne reçoit ni identifiant de magasin supplémentaire ni liste de SKU.
+Un prompt système identique pour les deux variantes, versionné dans `python/prompts/system.md`, indique le magasin courant (`context.storeId` de l'item). Le prompt ne donne ni autre identifiant de magasin ni liste de SKU.
+
+Le modèle peut en revanche apprendre la liste des magasins **par les outils**. En A, `list_stores()` la renvoie. En B, aucun outil ne liste les magasins, mais l'erreur de magasin inconnu donne tous les magasins avec leur ville : c'est de fait l'annuaire de B. Un modèle peut donc provoquer cette erreur exprès pour obtenir la liste. La spec enregistre tous les appels émis, y compris ceux que le serveur rejette : ce détour apparaît dans `n_calls` et `extra_calls`, mais ne pénalise pas `success`, qui permet les appels en trop.
 
 ### Boucle d'agent
 
@@ -131,7 +146,7 @@ Avec s_d ≤ 0,35, le MDE reste sous les 10 points qu'on vise. Si le s_d mesuré
 
 **Budget d'itération :** N = 3 cycles par variante.
 
-**Journal d'itération :**
+**Journal d'itération :** il commence au premier run sur le `dev`. Ce qui est fait avant, la construction des serveurs et l'application de la politique d'erreur, n'y figure pas et ne consomme aucun cycle.
 
 | # | Date | Variante | Modification | Motif | `success` dev |
 |---|---|---|---|---|---|
@@ -162,5 +177,6 @@ Pas encore de verdict.
 - **Itération sur un seul modèle.** Les variantes sont mises au point avec un seul modèle, ce qui peut avantager ce modèle-là au run final.
 - **Non-déterminisme.** Une température de 0 ne garantit pas des sorties identiques chez ces fournisseurs. C'est ce que couvrent les k = 5 répétitions. Si un modèle n'accepte pas la température 0, sa configuration réelle est indiquée ici.
 - **Effet des descriptions.** Le guide de rédaction le réduit sans l'éliminer.
+- **Effet des erreurs.** La politique d'erreur commune le réduit sans l'éliminer : un même message peut aider davantage une variante que l'autre, selon le chemin d'appels qu'elle impose.
 - **Format des réponses.** Il est fixé à du JSON en texte. Anthropic indique que le format (JSON, XML, Markdown) change les performances : l'écart entre A et B pourrait être différent avec un autre format.
 - **Boucle d'agent.** Les résultats valent pour cette boucle et sa configuration. Un autre client, par exemple Spring AI `ChatClient` ou un IDE, formate autrement les schémas d'outils et gère autrement les erreurs : l'écart absolu entre A et B pourrait changer.
