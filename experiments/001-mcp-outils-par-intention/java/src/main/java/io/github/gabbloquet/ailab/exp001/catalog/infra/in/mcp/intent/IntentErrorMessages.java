@@ -33,7 +33,10 @@ public class IntentErrorMessages implements ToolErrorMessages {
                     "Store not found: " + e.storeId() + ". Known stores: " + knownStores() + ".";
             case DepartmentNotFoundException e ->
                     "Category not found: " + e.department() + ". Known categories: " + knownDepartments() + ".";
-            case InvalidIdentifierException _, InvalidSearchQueryException _ -> exception.getMessage();
+            case InvalidSearchQueryException _ ->
+                    "Search query must not be blank. Provide at least one word of a product name, brand or type."
+                            + " To narrow the results to a department, use category.";
+            case InvalidIdentifierException _ -> exception.getMessage();
         };
     }
 

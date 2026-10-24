@@ -109,7 +109,9 @@ class IntentToolsContractTest {
         CallToolResult result = call("search_catalog", Map.of("query", "  "));
 
         assertThat(result.isError()).isTrue();
-        assertThat(texts(result)).containsExactly("Search query must not be blank");
+        assertThat(texts(result)).containsExactly(
+                "Search query must not be blank. Provide at least one word of a product name, brand or type."
+                        + " To narrow the results to a department, use category.");
     }
 
     @Test

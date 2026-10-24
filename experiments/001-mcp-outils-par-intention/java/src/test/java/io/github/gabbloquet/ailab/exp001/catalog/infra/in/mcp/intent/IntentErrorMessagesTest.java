@@ -83,9 +83,10 @@ class IntentErrorMessagesTest {
     }
 
     @Test
-    void passesAnInvalidSearchQueryMessageAsIs() {
+    void guidesTheModelAfterABlankSearchQuery() {
         assertThat(withStores(5).messageFor(new InvalidSearchQueryException("Search query must not be blank")))
-                .isEqualTo("Search query must not be blank");
+                .isEqualTo("Search query must not be blank. Provide at least one word of a product name, brand or type."
+                        + " To narrow the results to a department, use category.");
     }
 
     @Test
