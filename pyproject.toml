@@ -3,7 +3,9 @@ name = "ai-lab"
 version = "0.1.0"
 description = "Laboratoire d'AI engineering : expériences mesurées et reproductibles"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "exp001-mcp-server",
+]
 
 [dependency-groups]
 dev = [
@@ -15,8 +17,13 @@ dev = [
 # Racine du workspace : elle n'est pas un paquet installable.
 package = false
 
+[tool.uv.sources]
+exp001-mcp-server = { workspace = true }
+
 [tool.uv.workspace]
-members = []
+members = [
+    "experiments/001-mcp-outils-par-intention/python/mcp_server",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["domains", "evals", "experiments"]
