@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidIdentifierException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidSearchQueryException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.SkuCode;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
@@ -49,6 +50,12 @@ class IntentErrorMessagesTest {
         assertThat(withStores(12).messageFor(UNKNOWN_STORE))
                 .isEqualTo("Store not found: S99. Known stores: S01, S02, S03, S04, S05, S06, S07, S08, S09, S10"
                         + " and 2 more.");
+    }
+
+    @Test
+    void passesAnInvalidSearchQueryMessageAsIs() {
+        assertThat(withStores(5).messageFor(new InvalidSearchQueryException("Search query must not be blank")))
+                .isEqualTo("Search query must not be blank");
     }
 
     @Test

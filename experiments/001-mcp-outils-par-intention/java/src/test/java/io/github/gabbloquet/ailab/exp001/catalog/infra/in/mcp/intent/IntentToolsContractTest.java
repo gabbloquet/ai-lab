@@ -20,6 +20,7 @@ import io.modelcontextprotocol.spec.McpSchema.CallToolRequest;
 import io.modelcontextprotocol.spec.McpSchema.CallToolResult;
 import io.modelcontextprotocol.spec.McpSchema.TextContent;
 import io.modelcontextprotocol.spec.McpSchema.Tool;
+import tools.jackson.databind.json.JsonMapper;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT, properties = "lab.variant=intent")
 class IntentToolsContractTest {
@@ -47,7 +48,68 @@ class IntentToolsContractTest {
     void exposesOnlyTheIntentTools() {
         assertThat(client.listTools().tools()).extracting(Tool::name)
                 .containsExactlyInAnyOrder("get_product_details", "check_availability", "find_stores_with_stock",
-                        "find_in_stock_alternative");
+                        "find_in_stock_alternative", "search_catalog");
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void asksForAQueryAndAnOptionalCategoryToSearch() {
+        Map<String, Object> schema = tool("search_catalog").inputSchema();
+        Map<String, Object> properties = (Map<String, Object>) schema.get("properties");
+
+        assertThat(properties).containsOnlyKeys("query", "category");
+        assertThat((List<String>) schema.get("required")).containsExactly("query");
+    }
+
+    @Test
+    void searchesEveryWordIgnoringCaseAndAccents() {
+        CallToolResult result = call("search_catalog", Map.of("query", "CAFETIERE pellisse"));
+
+        assertThat(result.isError()).isNotEqualTo(Boolean.TRUE);
+        assertThat(texts(result)).containsExactly("""
+                {"total":2,"products":[\
+                {"sku":"P-14165","name":"Pellisse Cafetière F5","brand":"Pellisse","department":"Maison",\
+                "type":"Cafetière","price":157.0,"currency":"EUR"},\
+                {"sku":"P-13905","name":"Pellisse Cafetière G9","brand":"Pellisse","department":"Maison",\
+                "type":"Cafetière","price":101.99,"currency":"EUR"}]}""");
+    }
+
+    @Test
+    void filtersTheSearchOnACategory() {
+        CallToolResult result = call("search_catalog", Map.of("query", "veldric", "category", "audio"));
+
+        assertThat(texts(result)).containsExactly("""
+                {"total":2,"products":[\
+                {"sku":"P-15695","name":"Veldric Casque K8","brand":"Veldric","department":"Audio",\
+                "type":"Casque","price":100.0,"currency":"EUR"},\
+                {"sku":"P-23396","name":"Veldric Écouteurs R7","brand":"Veldric","department":"Audio",\
+                "type":"Écouteurs","price":76.5,"currency":"EUR"}]}""");
+    }
+
+    record SearchSummary(int total, List<Map<String, Object>> products) {
+    }
+
+    @Test
+    void returnsTenProductsAtMostButCountsEveryMatch() {
+        CallToolResult result = call("search_catalog", Map.of("query", "e"));
+
+        SearchSummary summary = JsonMapper.builder().build().readValue(texts(result).getFirst(), SearchSummary.class);
+        assertThat(summary.total()).isEqualTo(49);
+        assertThat(summary.products()).hasSize(10);
+    }
+
+    @Test
+    void tellsTheModelToRefineTheSearchWhenResultsAreCapped() {
+        assertThat(tool("search_catalog").description())
+                .contains("If total is greater than the number of products returned, refine the query or use a category.");
+    }
+
+    @Test
+    void reportsABlankSearchQuery() {
+        CallToolResult result = call("search_catalog", Map.of("query", "  "));
+
+        assertThat(result.isError()).isTrue();
+        assertThat(texts(result)).containsExactly("Search query must not be blank");
     }
 
     @Test

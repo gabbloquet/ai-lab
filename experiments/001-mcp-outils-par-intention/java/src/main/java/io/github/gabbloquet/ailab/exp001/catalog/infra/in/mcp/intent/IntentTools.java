@@ -4,6 +4,7 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.*;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.ToolResults;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto.Availability;
+import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto.CatalogSearchResults;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto.InStockAlternatives;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto.ProductDetails;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.in.mcp.intent.dto.StoresWithStock;
@@ -12,8 +13,6 @@ import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.McpToolParam;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 @ConditionalOnProperty(name = "lab.variant", havingValue = "intent")
@@ -71,5 +70,15 @@ public class IntentTools {
             Store store = catalog.requireStore(new StoreId(storeId));
             return InStockAlternatives.of(catalog.alternatives(product.sku(), store.storeId()));
         });
+    }
+
+    @McpTool(name = "search_catalog",
+            description = "Searches products whose name, brand or type contain every word of the query, ignoring case and accents. Returns at most 10 products, sorted by name, and the total number of matches."
+                    + " If total is greater than the number of products returned, refine the query or use a category.",
+            annotations = @McpTool.McpAnnotations(readOnlyHint = true, idempotentHint = true, destructiveHint = false, openWorldHint = false))
+    public CallToolResult searchCatalog(
+            @McpToolParam(description = "Words to look for in the product name, brand or type.", required = true) String query,
+            @McpToolParam(description = "Department to search in: Audio, Informatique, Maison or Sport.", required = false) String category) {
+        return toolResults.run(() -> CatalogSearchResults.of(catalog.search(query, category)));
     }
 }
