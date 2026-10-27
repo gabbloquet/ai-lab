@@ -3,8 +3,9 @@
 *.iml
 .vscode/
 
-# Claude Code : configuration locale au poste
-.claude/
+# Claude Code : seule la configuration locale au poste est ignorée,
+# les skills, commandes et agents du dépôt sont versionnés
+.claude/settings.local.json
 .mcp.json
 
 # OS
@@ -30,3 +31,4 @@ __pycache__/
 .ruff_cache/
 *.egg-info/
 dist/
+graphify-out/
