@@ -28,6 +28,12 @@ Dépôt public : le laboratoire et la vitrine d'un AI Engineer freelance (Java /
 - Chaque golden set a un split `dev` (pour itérer) et un split `test` (seul à porter le verdict). En aidant à itérer, Claude n'utilise que le `dev` : il n'affiche ni n'analyse les échecs item par item du `test` avant le run final.
 - Les traces et les scores remontent dans Langfuse (auto-hébergé). Les rapports Markdown datés vont dans `experiments/<exp>/results/` et citent la version du golden set, celle de la spec et les lockfiles utilisés.
 
+## Serveurs MCP
+
+- Tout serveur MCP du dépôt suit `docs/mcp-bonnes-pratiques.md`. Claude signale tout écart à une exigence de la spec (MUST, SHOULD) ; un écart assumé est écrit dans les limites de l'expérience.
+- Les recommandations de praticiens sont des hypothèses, pas des règles : elles ne s'appliquent pas en silence à une variante, puisqu'une expérience peut justement les tester.
+- Le référentiel cite la révision de la spec et la date de vérification. Avant de s'appuyer sur un point qui a pu changer, Claude le revérifie à la source.
+
 ## Données
 
 - Un jeu de données ou une spec publiés sont immuables : pour les corriger, on crée `v2`. Une version est publiée dès qu'un rapport de `results/` la cite.

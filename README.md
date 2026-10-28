@@ -119,6 +119,8 @@ Versions vérifiées le 2026-10-21 sur Maven Central, PyPI, GitHub et services.g
 
 Point d'attention sur la spec MCP : le SDK Python 2.3.0 supporte la révision `2026-07-28` (cœur sans état, `server/discover`). La pile Java s'arrête à la révision `2025-11-25`. Le détail est dans la section Limites de l'expérience 001.
 
+Les serveurs MCP du laboratoire suivent un référentiel commun, sourcé et daté : [bonnes pratiques MCP](docs/mcp-bonnes-pratiques.md). Il sépare les exigences de la spec (conception des réponses et des erreurs, sécurité du transport, authentification OAuth 2.1) des recommandations de praticiens, que les expériences mettent à l'épreuve.
+
 ## Reproduire
 
 Prérequis : un JDK 25 (sinon Gradle le télécharge) et [uv](https://docs.astral.sh/uv/).
