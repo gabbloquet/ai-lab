@@ -22,6 +22,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "jsonschema" },
     { name = "pytest" },
     { name = "ruff" },
 ]
@@ -31,6 +32,7 @@ requires-dist = [{ name = "exp001-mcp-server", editable = "experiments/001-mcp-o
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "jsonschema", specifier = ">=4.26.0" },
     { name = "pytest", specifier = ">=9.1.1" },
     { name = "ruff", specifier = ">=0.17.1" },
 ]

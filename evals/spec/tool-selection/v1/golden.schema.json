@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Item d'un golden set tool-selection v1",
+  "description": "Une ligne de items.jsonl (SPEC.md § 3.1). La règle « un outil n'est jamais à la fois requis et toléré » n'est pas exprimable en JSON Schema : le générateur la vérifie.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "split", "question", "context", "tags", "expected"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z]+-[0-9]{3,}$"},
+    "split": {"enum": ["dev", "test"]},
+    "question": {"type": "string", "minLength": 1},
+    "context": {"type": "object"},
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "expected": {
+      "description": "Appels attendus, par variante.",
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {"pattern": "^[a-z][a-z0-9_-]*$"},
+      "additionalProperties": {"$ref": "#/$defs/variantExpectation"}
+    }
+  },
+  "$defs": {
+    "variantExpectation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "tolerated"],
+      "properties": {
+        "required": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/callPattern"}},
+        "tolerated": {"type": "array", "items": {"$ref": "#/$defs/callPattern"}}
+      }
+    },
+    "callPattern": {
+      "description": "SPEC.md § 4.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tool", "args"],
+      "properties": {
+        "tool": {"type": "string", "pattern": "^[A-Za-z0-9_.-]{1,128}$"},
+        "args": {"type": "object", "additionalProperties": {"$ref": "#/$defs/acceptedValues"}},
+        "optional": {"type": "object", "additionalProperties": {"$ref": "#/$defs/acceptedValues"}}
+      }
+    },
+    "acceptedValues": {
+      "description": "Une liste non vide de valeurs acceptables, ou {\"any\": true} pour un argument non contraint.",
+      "oneOf": [
+        {"type": "array", "minItems": 1},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["any"],
+          "properties": {"any": {"const": true}}
+        }
+      ]
+    }
+  }
+}
