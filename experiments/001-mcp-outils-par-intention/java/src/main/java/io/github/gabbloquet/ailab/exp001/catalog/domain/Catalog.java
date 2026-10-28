@@ -106,20 +106,9 @@ public class Catalog {
     }
 
     public List<Alternative> alternatives(SkuCode sku, StoreId storeId) {
-        Product reference = productsBySku.get(sku);
-        if (reference == null) {
-            return List.of();
-        }
-        BigDecimal low = reference.price().multiply(BigDecimal.ONE.subtract(PRICE_TOLERANCE));
-        BigDecimal high = reference.price().multiply(BigDecimal.ONE.add(PRICE_TOLERANCE));
-        return products.stream()
-                .filter(candidate -> candidate.type().equals(reference.type()))
-                .filter(candidate -> !candidate.sku().equals(sku))
-                .filter(candidate -> candidate.price().compareTo(low) >= 0 && candidate.price().compareTo(high) <= 0)
+        return similar(sku).stream()
                 .map(candidate -> new Alternative(candidate, available(candidate.sku(), storeId)))
                 .filter(alternative -> alternative.available() > 0)
-                .sorted(comparing((Alternative alternative) -> alternative.product().price().subtract(reference.price()).abs())
-                        .thenComparing(alternative -> alternative.product().sku().value()))
                 .limit(MAX_ALTERNATIVES)
                 .toList();
     }
