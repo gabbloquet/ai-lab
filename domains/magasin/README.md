@@ -46,17 +46,18 @@ Une ligne par couple produit × magasin.
 
 **Disponible.** `available = onHand − reserved`. Un produit est **en stock** dans un magasin si `available > 0`.
 
-**Alternative en stock.** Pour un produit P de prix p, demandé dans un magasin M, un produit Q est une alternative si toutes ces conditions sont réunies :
+**Produits similaires.** Pour un produit P de prix p, un produit Q est similaire si toutes ces conditions sont réunies :
 1. Q a le même `type` que P ;
 2. Q est différent de P ;
-3. le prix de Q est compris dans [0,8 × p ; 1,2 × p], bornes incluses ;
-4. Q est en stock dans M.
+3. le prix de Q est compris dans [0,8 × p ; 1,2 × p], bornes incluses.
 
-Les alternatives sont triées par écart de prix croissant (|prix de Q − p|), puis par `sku` en cas d'égalité. On garde les **3 premières**. S'il n'y en a aucune, le résultat est une liste vide.
+Le stock n'intervient pas. Les produits similaires sont triés par écart de prix croissant (|prix de Q − p|), puis par `sku` en cas d'égalité, sans limite de nombre. Un produit inconnu n'a aucun produit similaire.
+
+**Alternative en stock.** Pour un produit P demandé dans un magasin M, les alternatives sont les produits similaires à P qui sont **en stock dans M**, dans le même ordre. On garde les **3 premières**. S'il n'y en a aucune, le résultat est une liste vide.
 
 **Magasins qui ont le produit.** Tous les magasins où le produit est en stock, triés par `storeId`.
 
-L'implémentation de référence de ces trois règles est `magasin_rules.py`, testée dans `tests/test_magasin_rules.py`. C'est elle qui calcule les réponses attendues du golden set, et elle sert d'oracle aux implémentations des expériences.
+L'implémentation de référence de la disponibilité, des alternatives et des magasins qui ont le produit est `magasin_rules.py`, testée dans `tests/test_magasin_rules.py`. C'est elle qui calcule les réponses attendues du golden set, et elle sert d'oracle aux implémentations des expériences. Les produits similaires n'y ont pas encore de fonction propre : ils y sont calculés à l'intérieur des alternatives.
 
 **Recherche dans le catalogue.** Une requête et, en option, un rayon :
 1. la requête est obligatoire : vide ou faite d'espaces, elle est refusée ;
@@ -65,7 +66,9 @@ L'implémentation de référence de ces trois règles est `magasin_rules.py`, te
 4. un rayon renseigné filtre les produits, avec la même normalisation. Un rayon qui n'existe dans aucun produit est refusé. Un rayon vide équivaut à aucun filtre ;
 5. les résultats sont triés par nom, puis par `sku` en cas d'égalité.
 
-Le nombre de résultats renvoyés et la manière de signaler une recherche sans résultat relèvent des expériences, pas du domaine. Cette règle n'a pas d'implémentation de référence en Python ni de réponses d'oracle : le golden set ne contraint pas la requête de recherche (argument non contraint, `{"any": true}` dans la spec `tool-selection/v1`), donc la notation ne dépend pas de ses résultats.
+**Parcours d'un rayon.** Un rayon en option, sans requête : les produits du rayon, ou tout le catalogue si le rayon est absent ou vide. Le rayon suit les mêmes règles que dans la recherche (normalisation, refus d'un rayon inconnu), et les produits sont triés par nom, puis par `sku`. Une recherche est donc un parcours du rayon, filtré par les mots de la requête.
+
+Le nombre de résultats renvoyés et la manière de signaler une recherche sans résultat relèvent des expériences, pas du domaine. La recherche et le parcours n'ont ni implémentation de référence en Python ni réponses d'oracle : le golden set ne contraint pas la requête de recherche (argument non contraint, `{"any": true}` dans la spec `tool-selection/v1`), donc la notation ne dépend pas de ses résultats.
 
 ## Volumétrie et cas à garantir
 
