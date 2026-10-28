@@ -59,7 +59,7 @@ Les deux variantes sont **deux adaptateurs primaires au-dessus du même cœur** 
 ```
 java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
 ├── domain/              le cœur : entités, value objects (SkuCode, StoreId), règles métier
-│   └── error/           erreurs métier (produit, magasin ou rayon introuvable, argument invalide), sans texte destiné au modèle
+│   └── error/           erreurs métier (produit, magasin ou rayon introuvable, argument invalide), avec un texte métier, sans référence à un canal d'entrée
 └── infra/
     ├── config/          configuration du transport MCP : validation de l'en-tête Origin
     ├── in/mcp/          adaptateurs entrants (primaires) : ce qui pilote le cœur
@@ -74,7 +74,7 @@ java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
 - **Chaque outil renvoie un DTO dédié**, jamais un objet du domaine. La réponse se conçoit pour le modèle, et une évolution du domaine ne doit pas modifier en silence ce qu'il lit.
 - Les paramètres des outils sont des types simples (`String`), convertis en value objects à l'intérieur de l'adaptateur. Le schéma vu par le modèle reste donc `{"sku": {"type": "string"}}`.
 
-**Les réponses sont construites par `ToolResults`, pas par Spring AI.** Par défaut, Spring AI 2.0.1 renvoie le message d'une exception deux fois (son code concatène le message et celui de la cause racine, qui est l'exception elle-même quand elle n'a pas de cause), et transmettrait au modèle le détail d'une erreur interne. `ToolResults` renvoie le JSON en un seul bloc texte, une erreur métier une seule fois, et un message générique pour une erreur inattendue, journalisée côté serveur. Le texte d'une erreur métier ne vient pas de l'exception : `ToolResults` le demande à `ToolErrorMessages`, que chaque variante implémente. Le domaine dit ce qui ne va pas, la variante le formule avec les noms de ses outils et de ses paramètres (le domaine dit `department`, le paramètre de B s'appelle `category`).
+**Les réponses sont construites par `ToolResults`, pas par Spring AI.** Par défaut, Spring AI 2.0.1 renvoie le message d'une exception deux fois (son code concatène le message et celui de la cause racine, qui est l'exception elle-même quand elle n'a pas de cause), et transmettrait au modèle le détail d'une erreur interne. `ToolResults` renvoie le JSON en un seul bloc texte, une erreur métier une seule fois, et un message générique pour une erreur inattendue, journalisée côté serveur. Le message que lit le modèle est choisi par la variante : `ToolResults` le demande à `ToolErrorMessages`, que chaque variante implémente. Le domaine dit ce qui ne va pas, en termes métier (« A SKU is P- followed by 5 digits. »). La variante le reformule quand il faut nommer ses outils ou ses paramètres (le domaine dit `department`, le paramètre de B s'appelle `category`), et le reprend tel quel sinon, comme pour un identifiant mal formé.
 
 **Format des réponses : JSON dans un bloc texte, pour les deux variantes.** Spring AI 2.0.1 propose aussi un mode structuré (`generateOutputSchema = true`), qui publie un `outputSchema`. Mais d'après son code source (`AbstractMcpToolMethodCallback.convertValueToCallToolResult`, lu le 2026-10-22), il renvoie alors le résultat **uniquement** en `structuredContent`, sans le bloc texte que la spec MCP recommande pour la compatibilité. Un hôte qui ne lit que le texte ne verrait rien. Le mode texte est lu par tous les hôtes. Le format de réponse fera l'objet d'une expérience à part.
 
