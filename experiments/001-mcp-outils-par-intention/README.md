@@ -6,7 +6,7 @@
 
 ## Question
 
-Un serveur MCP dont les outils correspondent à des **intentions métier**, comme `find_in_stock_alternative(sku, store_id)`, permet-il à un LLM de faire **plus souvent les bons appels avec les bons arguments** qu'un serveur dont les outils **reproduisent les endpoints d'une API REST** (`get_product`, `get_stock`, `get_similar`…) ?
+Un serveur MCP dont les outils correspondent à des **intentions métier**, comme `find_in_stock_alternative(sku, storeId)`, permet-il à un LLM de faire **plus souvent les bons appels avec les bons arguments** qu'un serveur dont les outils **reproduisent les endpoints d'une API REST** (`get_product`, `get_stock`, `get_similar`…) ?
 
 ## Hypothèse
 
@@ -44,11 +44,17 @@ Les deux serveurs couvrent les **mêmes cinq besoins** :
 
 | Besoin | B — par intention | A — miroir REST |
 |---|---|---|
-| Disponibilité d'un produit dans un magasin | `check_availability(sku, store_id)` | `get_stock(sku, store_id)` |
-| Alternative en stock | `find_in_stock_alternative(sku, store_id)` | `get_similar(sku)` puis `get_stock(sku, store_id)` |
-| Autres magasins qui ont le produit | `find_stores_with_stock(sku)` | `list_stores()` puis `get_stock(sku, store_id)` pour chaque magasin |
+| Disponibilité d'un produit dans un magasin | `check_availability(sku, storeId)` | `get_stock(sku, storeId)` |
+| Alternative en stock | `find_in_stock_alternative(sku, storeId)` | `get_similar(sku)` puis `get_stock(sku, storeId)` |
+| Autres magasins qui ont le produit | `find_stores_with_stock(sku)` | `list_stores()` puis `get_stock(sku, storeId)` pour chaque magasin |
 | Fiche produit | `get_product_details(sku)` | `get_product(sku)` |
 | Recherche dans le catalogue | `search_catalog(query, category?)` | `list_products(query?, category?)` |
+
+**Règles de A, fixées avant son implémentation** (2026-10-28) :
+- **`list_products(query?, category?)`** : sans requête, liste les produits du rayon, ou tout le catalogue sans rayon ; avec une requête, applique la même recherche que `search_catalog`. Le domaine garde la règle de B (une recherche exige au moins un mot) et gagne une capacité de liste par rayon ; l'adaptateur de A choisit l'une ou l'autre. Même forme de réponse que B : au plus 10 produits triés par nom, le total, et le `hint` d'une liste vide.
+- **`get_similar(sku)`** : la règle d'alternative de B sans le filtre de stock (même type, prix à ±20 %), triée par écart de prix puis par SKU, au plus 10 avec le total. Sur `data/v1`, un produit a au plus 4 similaires : le plafond ne cache aucune alternative en stock.
+- **Le paramètre magasin s'appelle `storeId`** dans les deux variantes, pour que les noms de paramètres ne deviennent pas une variable de l'expérience.
+- **Les chaînes d'appels de A tiennent sous le plafond de 10 appels** sur `data/v1` : au plus 6 pour les magasins qui ont le produit (5 magasins), au plus 5 pour une alternative (4 similaires).
 
 Les **deux serveurs renvoient de vraies données** du domaine : en A, le modèle a besoin du résultat de `get_similar` pour savoir sur quels SKU appeler `get_stock`. Leur logique est implémentée en TDD.
 
