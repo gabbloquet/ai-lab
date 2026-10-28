@@ -44,11 +44,12 @@ class IntentToolsContractTest {
         client.closeGracefully();
     }
 
+    // Le modèle lit les outils dans cet ordre : il est figé. Spring AI publie par nom de méthode Java.
     @Test
-    void exposesOnlyTheIntentTools() {
+    void exposesOnlyTheIntentToolsInAFixedOrder() {
         assertThat(client.listTools().tools()).extracting(Tool::name)
-                .containsExactlyInAnyOrder("get_product_details", "check_availability", "find_stores_with_stock",
-                        "find_in_stock_alternative", "search_catalog");
+                .containsExactly("check_availability", "find_in_stock_alternative", "find_stores_with_stock",
+                        "get_product_details", "search_catalog");
     }
 
     @Test
