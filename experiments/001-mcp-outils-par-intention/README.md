@@ -71,8 +71,9 @@ java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
     ├── in/mcp/          adaptateurs entrants (primaires) : ce qui pilote le cœur
     │   ├── ToolResults          construction des réponses MCP, commune aux deux variantes
     │   ├── ToolErrorMessages    contrat : le message que le modèle lit pour chaque erreur métier
-    │   ├── intent/              variante B : outils, DTO de réponse, IntentErrorMessages
-    │   └── rest/                variante A : outils, DTO de réponse, messages d'erreur
+    │   ├── KnownValues          magasins et rayons connus listés par les erreurs, communs aux deux variantes
+    │   ├── intent/              variante B : IntentTools (un outil par intention), DTO de réponse, IntentErrorMessages
+    │   └── rest/                variante A : ProductTools, StockTools, StoreTools (un outil par endpoint, groupés par ressource), DTO de réponse, RestErrorMessages
     └── out/data/        adaptateur sortant (secondaire) : chargement de domains/magasin/data/v1, embarqué dans le jar
 ```
 
@@ -102,7 +103,9 @@ Si les outils de B étaient mieux décrits que ceux de A, l'expérience mesurera
 - **un seul terme par notion, identique au nom du paramètre** (`sku` se dit « SKU » partout), et une seule langue, l'anglais, comme les noms d'outils et les messages d'erreur ;
 - la longueur totale des descriptions d'une variante ne s'écarte pas de plus de 20 % de l'autre, en tokens.
 
-Les longueurs mesurées sont publiées dans les Résultats.
+Les longueurs mesurées sont publiées dans les Résultats. En attendant la mesure en tokens, qui dépend du tokenizer de chaque fournisseur, `VariantFairnessTest` vérifie à chaque build une approximation en caractères : longueur totale des descriptions d'outils à moins de 20 % d'écart (A : 788, B : 834 au 2026-10-29), et description identique pour un paramètre de même nom dans les deux variantes.
+
+**Ordre des outils.** Le modèle lit les outils dans l'ordre de `tools/list`. Spring AI 2.0.1 les publie bean par bean, puis par nom de méthode Java dans chaque bean (`SyncMcpToolProvider`, lu le 2026-10-29). B expose donc `check_availability`, `find_in_stock_alternative`, `find_stores_with_stock`, `get_product_details`, `search_catalog`, et A expose `get_product`, `get_similar`, `list_products`, `get_stock`, `list_stores`. Ces ordres sont figés par les tests de contrat : un renommage qui les changerait casse la build.
 
 ### Neutraliser l'effet des erreurs
 
