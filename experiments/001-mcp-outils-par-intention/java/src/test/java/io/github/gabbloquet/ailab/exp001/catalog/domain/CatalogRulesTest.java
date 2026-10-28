@@ -41,6 +41,30 @@ class CatalogRulesTest {
         return catalog.alternatives(new SkuCode(sku), STORE);
     }
 
+    @Nested
+    class Similar {
+
+        private static final String P = "P-00001";
+        private static final String OTHER_TYPE = "P-00002";
+        private static final String HIGH = "P-00010";
+        private static final String LOW = "P-00011";
+        private static final String OUTSIDE = "P-00012";
+
+        private List<String> similarOf(Catalog catalog, String sku) {
+            return catalog.similar(new SkuCode(sku)).stream().map(product -> product.sku().value()).toList();
+        }
+
+        @Test
+        void areTheSameTypeWithinThePriceBandWhateverTheStock() {
+            var catalog = catalog(
+                    List.of(product(P, "100.00"), product(LOW, "80.00"), product(HIGH, "120.00"),
+                            product(OTHER_TYPE, "100.00", "Enceinte"), product(OUTSIDE, "120.01")),
+                    List.of(stock(LOW, 0, 0)));
+
+            assertThat(similarOf(catalog, P)).containsExactlyInAnyOrder(LOW, HIGH);
+        }
+    }
+
     private static final Catalog HOME_AND_AUDIO = new Catalog(
             List.of(
                     new Product(new SkuCode("P-00001"), "Pellisse Cafetière G9", "Pellisse", "Maison", "Cafetière",

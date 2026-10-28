@@ -89,6 +89,17 @@ public class Catalog {
                 .toList();
     }
 
+    public List<Product> similar(SkuCode sku) {
+        Product reference = productsBySku.get(sku);
+        BigDecimal low = reference.price().multiply(BigDecimal.ONE.subtract(PRICE_TOLERANCE));
+        BigDecimal high = reference.price().multiply(BigDecimal.ONE.add(PRICE_TOLERANCE));
+        return products.stream()
+                .filter(candidate -> candidate.type().equals(reference.type()))
+                .filter(candidate -> !candidate.sku().equals(sku))
+                .filter(candidate -> candidate.price().compareTo(low) >= 0 && candidate.price().compareTo(high) <= 0)
+                .toList();
+    }
+
     public List<Alternative> alternatives(SkuCode sku, StoreId storeId) {
         Product reference = productsBySku.get(sku);
         if (reference == null) {
