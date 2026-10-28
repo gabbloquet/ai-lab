@@ -104,7 +104,7 @@ Un appel observé **satisfait** un motif si et seulement si les trois conditions
 
 On note R le nombre d'appels requis et O le nombre d'appels observés.
 
-1. **Classement des appels observés.** Un appel qui satisfait un motif toléré est classé *toléré*. Pour que ce classement soit sans ambiguïté, le golden set ne doit pas contenir d'item où un même outil serait à la fois requis et toléré ; le schéma le vérifie.
+1. **Classement des appels observés.** Un appel qui satisfait un motif toléré est classé *toléré*. Pour que ce classement soit sans ambiguïté, le golden set ne doit pas contenir d'item où un même outil serait à la fois requis et toléré. JSON Schema ne sait pas exprimer cette contrainte entre deux tableaux : c'est le générateur du golden set qui la vérifie, et un test le garantit.
 2. **Couplage complet** : le couplage maximum entre les motifs requis et les appels observés non tolérés. Une arête relie un motif et un appel quand l'appel satisfait le motif (§ 4). On note **M** sa cardinalité. Quel que soit l'algorithme utilisé, la cardinalité d'un couplage maximum est la même.
 3. **Couplage par nom** : on compte, pour chaque outil, le minimum entre le nombre de motifs requis de cet outil et le nombre d'appels observés non tolérés de cet outil, puis on fait la somme. On note **N** ce total.
 4. **Appels en trop** : E = appels observés non tolérés − M.
@@ -116,10 +116,10 @@ On note R le nombre d'appels requis et O le nombre d'appels observés.
 | `precision` | M / (M + E) | `null` si M + E = 0 |
 | `extra_calls` | E | |
 | `n_calls` | O | Compte aussi les appels tolérés |
-| **`success`** | `args_recall == 1` | **Métrique principale.** Les appels en trop sont permis. |
+| **`success`** | `args_recall == 1` et aucune erreur d'exécution | **Métrique principale.** Les appels en trop sont permis. |
 | `strict_success` | `success` et E = 0 | |
 
-**Erreur d'exécution** (exception, délai dépassé, nombre maximal d'étapes atteint) : `success = false`, et l'item **reste compté**. L'exclure biaiserait le résultat en faveur de la variante qui échoue.
+**Erreur d'exécution** (exception, délai dépassé, nombre maximal d'étapes atteint), signalée par un champ `error` non nul : `success` et `strict_success` valent `false`, et l'item **reste compté**. L'exclure biaiserait le résultat en faveur de la variante qui échoue. Les autres métriques se calculent normalement sur les appels émis avant l'erreur : elles disent ce que le modèle avait réussi.
 
 **Tokens** : ils ne sont pas notés. On les agrège (moyenne par item de `input_tokens + output_tokens`) et on ne les compare qu'à modèle constant.
 
@@ -149,6 +149,24 @@ Les autres métriques (`args_recall`, `tool_recall`, `precision`, `n_calls`, tok
 - `"kind": "aggregate"` : des séries de pᵢ(A) et pᵢ(B) avec leur split, accompagnées du delta, des bornes de l'IC et du verdict attendus. Au moins un vecteur mélange des items `dev` et `test`, pour vérifier que les `dev` sont bien ignorés.
 
 Une implémentation est conforme si elle reproduit exactement les entiers, les booléens et les verdicts, et les nombres réels à 1e-9 près.
+
+Format des vecteurs, un objet JSON par ligne :
+
+```json
+{"id": "cv-001", "kind": "execution", "covers": ["appel parfait"], "description": "…",
+ "item": {…item valide selon golden.schema.json…},
+ "execution": {…exécution observée, forme canonique du § 3.2…},
+ "expected": {"tool_recall": 1.0, "args_recall": 1.0, "precision": 1.0, "extra_calls": 0, "n_calls": 1,
+              "success": true, "strict_success": true}}
+
+{"id": "cv-101", "kind": "aggregate", "covers": ["items dev ignorés"], "description": "…",
+ "items": [{"item_id": "ts-001", "split": "test", "p_a": 0.4, "p_b": 0.8}, …],
+ "expected": {"n": 3, "delta": 0.2, "ci_low": -0.1, "ci_high": 0.5, "verdict": "inconclusive"}}
+```
+
+- `execution.variant` désigne la variante de `item.expected` dont on note les appels.
+- `verdict` vaut `b_better`, `b_worse` ou `inconclusive` (§ 7). `n` compte les items `test`.
+- `covers` relie chaque vecteur aux cas à couvrir ci-dessous ; un test vérifie que chaque cas en a au moins un.
 
 Les cas à couvrir au minimum : appel parfait ; outil faux ; argument faux ; argument halluciné ; argument facultatif omis ; argument facultatif présent mais faux ; argument non contraint ; appel requis manquant ; appel en double ; appel toléré ; outil inconnu ; erreur d'exécution ; aucun appel ; plusieurs motifs du même outil dont les valeurs acceptables se recouvrent ; égalités de chaînes (casse, espaces, NFC ; `P-15695` contre `p-15695` contre `P-1569`) ; `2` contre `2.0` contre `"2"`.
 
