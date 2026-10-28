@@ -233,5 +233,11 @@ class CatalogRulesTest {
         void listsADepartmentSortedByName() {
             assertThat(browsed("maison")).containsExactly("P-00002", "P-00001");
         }
+
+        @Test
+        void listsTheWholeCatalogWithoutDepartment() {
+            assertThat(browsed(null)).containsExactly("P-00002", "P-00001", "P-00003");
+            assertThat(browsed(" ")).containsExactly("P-00002", "P-00001", "P-00003");
+        }
     }
 }
