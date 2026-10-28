@@ -110,6 +110,9 @@ public class Catalog {
 
     public List<Product> browse(String department) {
         boolean filterOnDepartment = department != null && !department.isBlank();
+        if (filterOnDepartment && departments().stream().noneMatch(known -> fold(known).equals(fold(department)))) {
+            throw new DepartmentNotFoundException(department);
+        }
         return products.stream()
                 .filter(product -> !filterOnDepartment || fold(product.department()).equals(fold(department)))
                 .sorted(comparing(Product::name).thenComparing(product -> product.sku().value()))

@@ -239,5 +239,12 @@ class CatalogRulesTest {
             assertThat(browsed(null)).containsExactly("P-00002", "P-00001", "P-00003");
             assertThat(browsed(" ")).containsExactly("P-00002", "P-00001", "P-00003");
         }
+
+        @Test
+        void rejectsAnUnknownDepartment() {
+            assertThatThrownBy(() -> HOME_AND_AUDIO.browse("Hifi"))
+                    .isInstanceOf(DepartmentNotFoundException.class)
+                    .hasMessage("Unknown department: Hifi");
+        }
     }
 }
