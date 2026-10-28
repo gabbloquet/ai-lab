@@ -97,6 +97,8 @@ public class Catalog {
                 .filter(candidate -> candidate.type().equals(reference.type()))
                 .filter(candidate -> !candidate.sku().equals(sku))
                 .filter(candidate -> candidate.price().compareTo(low) >= 0 && candidate.price().compareTo(high) <= 0)
+                .sorted(comparing((Product candidate) -> candidate.price().subtract(reference.price()).abs())
+                        .thenComparing(candidate -> candidate.sku().value()))
                 .toList();
     }
 

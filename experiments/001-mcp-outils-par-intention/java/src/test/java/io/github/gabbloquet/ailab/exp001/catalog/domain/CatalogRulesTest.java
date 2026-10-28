@@ -63,6 +63,16 @@ class CatalogRulesTest {
 
             assertThat(similarOf(catalog, P)).containsExactlyInAnyOrder(LOW, HIGH);
         }
+
+        @Test
+        void areSortedByPriceGapThenSkuWithoutCap() {
+            var catalog = catalog(
+                    List.of(product(P, "100.00"), product("P-00034", "110.00"), product("P-00033", "90.00"),
+                            product("P-00032", "95.00"), product("P-00031", "119.00")),
+                    List.of());
+
+            assertThat(similarOf(catalog, P)).containsExactly("P-00032", "P-00033", "P-00034", "P-00031");
+        }
     }
 
     private static final Catalog HOME_AND_AUDIO = new Catalog(
