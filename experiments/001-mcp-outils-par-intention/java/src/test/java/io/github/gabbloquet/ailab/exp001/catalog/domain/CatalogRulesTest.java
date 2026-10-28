@@ -41,6 +41,17 @@ class CatalogRulesTest {
         return catalog.alternatives(new SkuCode(sku), STORE);
     }
 
+    private static final Catalog HOME_AND_AUDIO = new Catalog(
+            List.of(
+                    new Product(new SkuCode("P-00001"), "Pellisse Cafetière G9", "Pellisse", "Maison", "Cafetière",
+                            new BigDecimal("101.99")),
+                    new Product(new SkuCode("P-00002"), "Pellisse Bouilloire K2", "Pellisse", "Maison", "Bouilloire",
+                            new BigDecimal("39.90")),
+                    new Product(new SkuCode("P-00003"), "Veldric Casque K8", "Veldric", "Audio", "Casque",
+                            new BigDecimal("100.00"))),
+            List.of(),
+            List.of());
+
     @Nested
     class Alternatives {
 
@@ -154,16 +165,7 @@ class CatalogRulesTest {
     @Nested
     class Search {
 
-        private final Catalog catalog = new Catalog(
-                List.of(
-                        new Product(new SkuCode("P-00001"), "Pellisse Cafetière G9", "Pellisse", "Maison", "Cafetière",
-                                new BigDecimal("101.99")),
-                        new Product(new SkuCode("P-00002"), "Pellisse Bouilloire K2", "Pellisse", "Maison", "Bouilloire",
-                                new BigDecimal("39.90")),
-                        new Product(new SkuCode("P-00003"), "Veldric Casque K8", "Veldric", "Audio", "Casque",
-                                new BigDecimal("100.00"))),
-                List.of(),
-                List.of());
+        private final Catalog catalog = HOME_AND_AUDIO;
 
         private List<String> found(String query, String department) {
             return catalog.search(query, department).stream().map(p -> p.sku().value()).toList();
@@ -217,6 +219,19 @@ class CatalogRulesTest {
         @Test
         void returnsNothingForAKnownDepartmentWithoutMatch() {
             assertThat(found("casque", "Maison")).isEmpty();
+        }
+    }
+
+    @Nested
+    class Browse {
+
+        private List<String> browsed(String department) {
+            return HOME_AND_AUDIO.browse(department).stream().map(p -> p.sku().value()).toList();
+        }
+
+        @Test
+        void listsADepartmentSortedByName() {
+            assertThat(browsed("maison")).containsExactly("P-00002", "P-00001");
         }
     }
 }

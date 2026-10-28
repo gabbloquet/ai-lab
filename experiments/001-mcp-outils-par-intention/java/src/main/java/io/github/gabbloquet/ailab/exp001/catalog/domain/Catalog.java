@@ -108,6 +108,13 @@ public class Catalog {
                 .toList();
     }
 
+    public List<Product> browse(String department) {
+        return products.stream()
+                .filter(product -> fold(product.department()).equals(fold(department)))
+                .sorted(comparing(Product::name).thenComparing(product -> product.sku().value()))
+                .toList();
+    }
+
     public List<Product> search(String query, String department) {
         if (query == null || query.isBlank()) {
             throw new InvalidSearchQueryException("Search query must not be blank");
