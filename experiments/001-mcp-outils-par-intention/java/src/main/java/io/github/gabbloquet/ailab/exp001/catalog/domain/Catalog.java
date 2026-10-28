@@ -91,6 +91,9 @@ public class Catalog {
 
     public List<Product> similar(SkuCode sku) {
         Product reference = productsBySku.get(sku);
+        if (reference == null) {
+            return List.of();
+        }
         BigDecimal low = reference.price().multiply(BigDecimal.ONE.subtract(PRICE_TOLERANCE));
         BigDecimal high = reference.price().multiply(BigDecimal.ONE.add(PRICE_TOLERANCE));
         return products.stream()

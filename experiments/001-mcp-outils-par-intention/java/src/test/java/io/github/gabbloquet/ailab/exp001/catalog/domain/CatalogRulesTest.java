@@ -73,6 +73,13 @@ class CatalogRulesTest {
 
             assertThat(similarOf(catalog, P)).containsExactly("P-00032", "P-00033", "P-00034", "P-00031");
         }
+
+        @Test
+        void doNotExistForAnUnknownProduct() {
+            var catalog = catalog(List.of(product(LOW, "100.00")), List.of());
+
+            assertThat(similarOf(catalog, "P-99999")).isEmpty();
+        }
     }
 
     private static final Catalog HOME_AND_AUDIO = new Catalog(
