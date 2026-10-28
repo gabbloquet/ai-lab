@@ -123,18 +123,12 @@ public class Catalog {
         if (query == null || query.isBlank()) {
             throw new InvalidSearchQueryException("Search query must not be blank");
         }
-        boolean filterOnDepartment = department != null && !department.isBlank();
-        if (filterOnDepartment && departments().stream().noneMatch(known -> fold(known).equals(fold(department)))) {
-            throw new DepartmentNotFoundException(department);
-        }
         List<String> words = Arrays.asList(fold(query).split("\\s+"));
-        return products.stream()
-                .filter(product -> !filterOnDepartment || fold(product.department()).equals(fold(department)))
+        return browse(department).stream()
                 .filter(product -> {
                     String text = fold(product.name() + " " + product.brand() + " " + product.type());
                     return words.stream().allMatch(text::contains);
                 })
-                .sorted(comparing(Product::name).thenComparing(product -> product.sku().value()))
                 .toList();
     }
 
