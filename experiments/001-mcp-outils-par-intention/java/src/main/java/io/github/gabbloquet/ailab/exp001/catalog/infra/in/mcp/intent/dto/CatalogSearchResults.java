@@ -5,7 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
 
-public record CatalogSearchResults(int total, List<ProductDetails> products,  @JsonInclude(JsonInclude.Include.NON_NULL) String hint) {
+public record CatalogSearchResults(int total, List<ProductDetails> products, @JsonInclude(JsonInclude.Include.NON_NULL) String hint) {
 
     private static final int MAX_PRODUCTS = 10;
 
