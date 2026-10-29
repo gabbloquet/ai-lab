@@ -40,3 +40,7 @@ target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.isort]
+# Paquets du workspace : ruff ne les trouve pas seul, ils vivent sous experiments/.
+known-first-party = ["exp001_mcp_server"]
