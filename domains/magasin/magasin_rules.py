@@ -64,20 +64,21 @@ class Catalog:
     def in_stock(self, sku: str, store_id: str) -> bool:
         return self.available(sku, store_id) > 0
 
-    def alternatives(self, sku: str, store_id: str) -> list[Product]:
+    def similar(self, sku: str) -> list[Product]:
         reference = self.products[sku]
         low = reference.price * (1 - PRICE_TOLERANCE)
         high = reference.price * (1 + PRICE_TOLERANCE)
         candidates = [
             p
             for p in self.products.values()
-            if p.type == reference.type
-            and p.sku != reference.sku
-            and low <= p.price <= high
-            and self.in_stock(p.sku, store_id)
+            if p.type == reference.type and p.sku != reference.sku and low <= p.price <= high
         ]
         candidates.sort(key=lambda p: (abs(p.price - reference.price), p.sku))
-        return candidates[:MAX_ALTERNATIVES]
+        return candidates
+
+    def alternatives(self, sku: str, store_id: str) -> list[Product]:
+        in_stock = [p for p in self.similar(sku) if self.in_stock(p.sku, store_id)]
+        return in_stock[:MAX_ALTERNATIVES]
 
     def stores_with_stock(self, sku: str) -> list[Store]:
         return [

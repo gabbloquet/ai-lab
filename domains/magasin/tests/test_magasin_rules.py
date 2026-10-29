@@ -88,6 +88,39 @@ def test_alternatives_sorted_by_price_gap_then_sku_and_capped_at_three() -> None
     assert skus(cat.alternatives("P", STORE)) == ["B", "C", "D"]
 
 
+def test_similar_products_ignore_stock_and_are_sorted_by_price_gap_then_sku() -> None:
+    cat = catalog(
+        [
+            product("P", "100.00"),
+            product("D", "110.00"),
+            product("C", "90.00"),
+            product("B", "95.00"),
+            product("A", "120.00"),
+            product("OUT", "120.01"),
+            product("OTHER", "100.00", "Enceinte"),
+        ],
+        {"B": (1, 0)},
+    )
+
+    assert skus(cat.similar("P")) == ["B", "C", "D", "A"]
+
+
+def test_alternatives_are_the_similar_products_in_stock() -> None:
+    cat = catalog(
+        [
+            product("P", "100.00"),
+            product("B", "95.00"),
+            product("C", "90.00"),
+            product("D", "110.00"),
+        ],
+        {"C": (2, 0), "D": (1, 0)},
+    )
+
+    assert skus(cat.alternatives("P", STORE)) == [
+        s for s in skus(cat.similar("P")) if s in {"C", "D"}
+    ]
+
+
 def test_stores_with_stock_sorted_by_store_id() -> None:
     p = product("P", "100.00")
     stores = [Store(s, f"Magasin {s}", "Ville") for s in ("S02", "S01", "S03")]

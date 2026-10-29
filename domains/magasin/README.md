@@ -57,7 +57,7 @@ Le stock n'intervient pas. Les produits similaires sont triés par écart de pri
 
 **Magasins qui ont le produit.** Tous les magasins où le produit est en stock, triés par `storeId`.
 
-L'implémentation de référence de la disponibilité, des alternatives et des magasins qui ont le produit est `magasin_rules.py`, testée dans `tests/test_magasin_rules.py`. C'est elle qui calcule les réponses attendues du golden set, et elle sert d'oracle aux implémentations des expériences. Les produits similaires n'y ont pas encore de fonction propre : ils y sont calculés à l'intérieur des alternatives.
+L'implémentation de référence de ces quatre règles est `magasin_rules.py`, testée dans `tests/test_magasin_rules.py`. C'est elle qui calcule les réponses attendues du golden set, et elle sert d'oracle aux implémentations des expériences.
 
 **Recherche dans le catalogue.** Une requête et, en option, un rayon :
 1. la requête est obligatoire : vide ou faite d'espaces, elle est refusée ;
