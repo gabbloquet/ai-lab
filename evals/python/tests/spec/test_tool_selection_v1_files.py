@@ -168,6 +168,7 @@ def test_covers_every_minimum_case_with_known_names(vectors):
         "argument facultatif présent et juste",
         "argument non contraint absent",
         "IC nul",
+        "booléen contre nombre",
     }
 
 

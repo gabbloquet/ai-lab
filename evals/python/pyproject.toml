@@ -1,0 +1,13 @@
+[project]
+name = "ailab-evals"
+version = "0.1.0"
+description = "Scorers Python des specs d'évaluation du laboratoire (métriques DeepEval personnalisées)"
+requires-python = ">=3.13"
+dependencies = [
+    "deepeval==4.3.1",
+    "scipy==1.18.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"

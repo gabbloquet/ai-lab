@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Laboratoire d'AI engineering : expériences mesurées et reproductibles"
 requires-python = ">=3.13"
 dependencies = [
+    "ailab-evals",
     "exp001-mcp-server",
 ]
 
@@ -19,10 +20,12 @@ dev = [
 package = false
 
 [tool.uv.sources]
+ailab-evals = { workspace = true }
 exp001-mcp-server = { workspace = true }
 
 [tool.uv.workspace]
 members = [
+    "evals/python",
     "experiments/001-mcp-outils-par-intention/python/mcp_server",
 ]
 
