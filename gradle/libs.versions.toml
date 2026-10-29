@@ -5,6 +5,10 @@ spring-ai = "2.0.1"
 # Spring AI 2.0.1 tire la 2.0.0 ; la 2.1.0 est imposée via son BOM.
 # Garde-fou prévu : un test de contrat qui démarre le serveur et liste ses outils par MCP.
 mcp-sdk = "2.1.0"
+# Scorer Java (evals/java), versions vérifiées le 2026-10-29 sur Maven Central.
+# ICU4J 79.1 n'a qu'une semaine : on garde la 78.3 (mars 2026).
+commons-statistics = "1.3"
+icu4j = "78.3"
 
 [libraries]
 spring-ai-bom = { module = "org.springframework.ai:spring-ai-bom", version.ref = "spring-ai" }
@@ -13,6 +17,11 @@ mcp-bom = { module = "io.modelcontextprotocol.sdk:mcp-bom", version.ref = "mcp-s
 mcp-core = { module = "io.modelcontextprotocol.sdk:mcp-core" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+assertj-core = { module = "org.assertj:assertj-core" }
+jackson-databind = { module = "tools.jackson.core:jackson-databind" }
+commons-statistics-distribution = { module = "org.apache.commons:commons-statistics-distribution", version.ref = "commons-statistics" }
+icu4j = { module = "com.ibm.icu:icu4j", version.ref = "icu4j" }
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }

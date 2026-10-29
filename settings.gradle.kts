@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 // Un module Gradle par implémentation Java d'expérience.
 include("exp001-mcp-servers")
 project(":exp001-mcp-servers").projectDir = file("experiments/001-mcp-outils-par-intention/java")
+
+// Un module Gradle par scorer Java d'une spec d'évaluation.
+include("evals-java")
+project(":evals-java").projectDir = file("evals/java")

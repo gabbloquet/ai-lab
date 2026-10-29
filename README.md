@@ -92,7 +92,7 @@ ai-lab/
 | Spring Boot | 4.1.1 |
 | Spring AI | 2.0.1 (starter MCP Server WebMVC, transport Streamable HTTP) |
 | SDK MCP Java | 2.1.0, imposée à la place de la 2.0.0 tirée par Spring AI (compatibilité à valider par un test de démarrage) |
-| Évaluation | JUnit, scorer conforme à la spec |
+| Évaluation | JUnit, scorer conforme à la spec ; Apache Commons Statistics 1.3 (loi de Student) et ICU4J 78.3 (casefold Unicode complet) |
 
 **Python**
 
