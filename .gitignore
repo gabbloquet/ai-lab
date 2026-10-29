@@ -31,5 +31,7 @@ __pycache__/
 .ruff_cache/
 *.egg-info/
 dist/
+# Cache et résultats locaux de DeepEval, écrits dans le répertoire courant
+.deepeval/
 graphify-out/
 .graphify_*
