@@ -1,7 +1,7 @@
 import pytest
 
 from exp001_mcp_server.catalog.domain.errors import InvalidIdentifierError
-from exp001_mcp_server.catalog.domain.vo import SkuCode
+from exp001_mcp_server.catalog.domain.vo.sku_code import SkuCode
 
 
 def test_normalizes_case_and_surrounding_spaces():
