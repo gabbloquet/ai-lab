@@ -4,6 +4,7 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.error.DepartmentNotFound
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidSearchQueryException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.StoreNotFoundException;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.port.ProductRepository;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
 
 import static java.util.Comparator.comparing;
@@ -26,19 +27,16 @@ public class Catalog {
     private record StockKey(SkuCode sku, StoreId storeId) {
     }
 
-    private final List<Product> products;
+    private final ProductRepository products;
     private final List<Store> stores;
     private final List<StockLine> stockLines;
-    private final Map<SkuCode, Product> productsBySku;
     private final Map<StoreId, Store> storesById;
     private final Map<StockKey, StockLine> stockByKey;
 
-    public Catalog(List<Product> products, List<Store> stores, List<StockLine> stockLines) {
-        this.products = List.copyOf(products);
+    public Catalog(ProductRepository products, List<Store> stores, List<StockLine> stockLines) {
+        this.products = products;
         this.stores = List.copyOf(stores);
         this.stockLines = List.copyOf(stockLines);
-        this.productsBySku = this.products.stream()
-                .collect(toUnmodifiableMap(Product::sku, Function.identity()));
         this.storesById = this.stores.stream()
                 .collect(toUnmodifiableMap(Store::storeId, Function.identity()));
         this.stockByKey = this.stockLines.stream()
@@ -46,7 +44,7 @@ public class Catalog {
     }
 
     public List<Product> products() {
-        return products;
+        return products.findAll();
     }
 
     public List<Store> stores() {
@@ -58,7 +56,7 @@ public class Catalog {
     }
 
     public Optional<Product> product(SkuCode sku) {
-        return Optional.ofNullable(productsBySku.get(sku));
+        return products.findBySku(sku);
     }
 
     public Optional<Store> store(StoreId storeId) {
@@ -74,7 +72,7 @@ public class Catalog {
     }
 
     public List<String> departments() {
-        return products.stream().map(Product::department).distinct().sorted().toList();
+        return products.findAll().stream().map(Product::department).distinct().sorted().toList();
     }
 
     public Optional<StockLine> stock(SkuCode sku, StoreId storeId) {
@@ -90,15 +88,15 @@ public class Catalog {
     }
 
     public List<Product> similar(SkuCode sku) {
-        Product reference = productsBySku.get(sku);
-        if (reference == null) {
-            return List.of();
-        }
+        return products.findBySku(sku).map(this::similarTo).orElse(List.of());
+    }
+
+    private List<Product> similarTo(Product reference) {
         BigDecimal low = reference.price().multiply(BigDecimal.ONE.subtract(PRICE_TOLERANCE));
         BigDecimal high = reference.price().multiply(BigDecimal.ONE.add(PRICE_TOLERANCE));
-        return products.stream()
+        return products.findAll().stream()
                 .filter(candidate -> candidate.type().equals(reference.type()))
-                .filter(candidate -> !candidate.sku().equals(sku))
+                .filter(candidate -> !candidate.sku().equals(reference.sku()))
                 .filter(candidate -> candidate.price().compareTo(low) >= 0 && candidate.price().compareTo(high) <= 0)
                 .sorted(comparing((Product candidate) -> candidate.price().subtract(reference.price()).abs())
                         .thenComparing(candidate -> candidate.sku().value()))
@@ -118,7 +116,7 @@ public class Catalog {
         if (filterOnDepartment && departments().stream().noneMatch(known -> fold(known).equals(fold(department)))) {
             throw new DepartmentNotFoundException(department);
         }
-        return products.stream()
+        return products.findAll().stream()
                 .filter(product -> !filterOnDepartment || fold(product.department()).equals(fold(department)))
                 .sorted(comparing(Product::name).thenComparing(product -> product.sku().value()))
                 .toList();
