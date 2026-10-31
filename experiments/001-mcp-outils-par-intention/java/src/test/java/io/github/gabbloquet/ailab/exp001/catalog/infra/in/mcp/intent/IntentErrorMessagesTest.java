@@ -8,7 +8,6 @@ import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 
-import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.DepartmentNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidIdentifierException;
@@ -18,6 +17,7 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.SkuCode;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StoreId;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.StoreNotFoundException;
+import io.github.gabbloquet.ailab.exp001.catalog.Catalogs;
 
 class IntentErrorMessagesTest {
 
@@ -27,7 +27,7 @@ class IntentErrorMessagesTest {
         List<Store> stores = IntStream.rangeClosed(1, count)
                 .mapToObj(i -> new Store(new StoreId("S%02d".formatted(i)), "Magasin " + i, "Ville " + i))
                 .toList();
-        return new IntentErrorMessages(new Catalog(List.of(), stores, List.of()));
+        return new IntentErrorMessages(Catalogs.inMemory(List.of(), stores, List.of()));
     }
 
     private static Product product(String sku, String department) {
@@ -49,7 +49,7 @@ class IntentErrorMessagesTest {
 
     @Test
     void listsTheKnownStoresInIdOrder() {
-        var messages = new IntentErrorMessages(new Catalog(
+        var messages = new IntentErrorMessages(Catalogs.inMemory(
                 List.of(),
                 List.of(new Store(new StoreId("S03"), "Magasin 3", "Lille"),
                         new Store(new StoreId("S01"), "Magasin 1", "Lyon"),
@@ -78,7 +78,7 @@ class IntentErrorMessagesTest {
 
     @Test
     void namesItACategoryAndListsEachKnownOneOnce() {
-        var messages = new IntentErrorMessages(new Catalog(
+        var messages = new IntentErrorMessages(Catalogs.inMemory(
                 List.of(product("P-00001", "Maison"), product("P-00002", "Audio"), product("P-00003", "Maison")),
                 List.of(),
                 List.of()));
@@ -89,7 +89,7 @@ class IntentErrorMessagesTest {
 
     @Test
     void capsTheCategoriesAndCountsTheOthersBeyondFive() {
-        var messages = new IntentErrorMessages(new Catalog(
+        var messages = new IntentErrorMessages(Catalogs.inMemory(
                 IntStream.rangeClosed(1, 7).mapToObj(i -> product("P-%05d".formatted(i), "Rayon " + i)).toList(),
                 List.of(),
                 List.of()));

@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import io.github.gabbloquet.ailab.exp001.catalog.domain.Catalog;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.DepartmentNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidIdentifierException;
@@ -16,10 +15,11 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.error.StoreNotFoundExcep
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.SkuCode;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StoreId;
+import io.github.gabbloquet.ailab.exp001.catalog.Catalogs;
 
 class RestErrorMessagesTest {
 
-    private final RestErrorMessages messages = new RestErrorMessages(new Catalog(
+    private final RestErrorMessages messages = new RestErrorMessages(Catalogs.inMemory(
             List.of(product("P-00001", "Maison"), product("P-00002", "Audio")),
             List.of(new Store(new StoreId("S02"), "Magasin 2", "Nantes"),
                     new Store(new StoreId("S01"), "Magasin 1", "Lyon")),

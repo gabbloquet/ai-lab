@@ -12,6 +12,7 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.SkuCode;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StockLine;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StoreId;
+import io.github.gabbloquet.ailab.exp001.catalog.Catalogs;
 import org.junit.jupiter.api.Test;
 
 class CatalogTest {
@@ -22,7 +23,7 @@ class CatalogTest {
     private static final Product HEADPHONES =
             new Product(HEADPHONES_SKU, "Casque test", "Marque", "Audio", "Casque", new BigDecimal("100.00"));
 
-    private final Catalog catalog = new Catalog(
+    private final Catalog catalog = Catalogs.inMemory(
             List.of(HEADPHONES),
             List.of(new Store(LYON, "Magasin test", "Lyon")),
             List.of(new StockLine(HEADPHONES_SKU, LYON, 3, 3))
@@ -94,7 +95,7 @@ class CatalogTest {
 
     @Test
     void listsEachDepartmentOnceInOrder() {
-        var catalog = new Catalog(
+        var catalog = Catalogs.inMemory(
                 List.of(new Product(new SkuCode("P-00001"), "Cafetière test", "Marque", "Maison", "Cafetière", new BigDecimal("50.00")),
                         new Product(new SkuCode("P-00002"), "Casque test", "Marque", "Audio", "Casque", new BigDecimal("100.00")),
                         new Product(new SkuCode("P-00003"), "Bouilloire test", "Marque", "Maison", "Bouilloire", new BigDecimal("30.00"))),

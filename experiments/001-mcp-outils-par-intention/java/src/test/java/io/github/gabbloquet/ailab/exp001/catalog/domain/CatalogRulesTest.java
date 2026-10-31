@@ -10,6 +10,7 @@ import java.util.List;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.DepartmentNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidSearchQueryException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
+import io.github.gabbloquet.ailab.exp001.catalog.Catalogs;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +31,7 @@ class CatalogRulesTest {
     }
 
     private static Catalog catalog(List<Product> products, List<StockLine> stock) {
-        return new Catalog(products, List.of(new Store(STORE, "Magasin test", "Lyon")), stock);
+        return Catalogs.inMemory(products, List.of(new Store(STORE, "Magasin test", "Lyon")), stock);
     }
 
     private static List<String> skus(List<Alternative> alternatives) {
@@ -82,7 +83,7 @@ class CatalogRulesTest {
         }
     }
 
-    private static final Catalog HOME_AND_AUDIO = new Catalog(
+    private static final Catalog HOME_AND_AUDIO = Catalogs.inMemory(
             List.of(
                     new Product(new SkuCode("P-00001"), "Pellisse Cafetière G9", "Pellisse", "Maison", "Cafetière",
                             new BigDecimal("101.99")),
@@ -186,7 +187,7 @@ class CatalogRulesTest {
         @Test
         void listStoresWithUnitsAvailableSortedByStoreId() {
             var p = product("P-00001", "100.00");
-            var catalog = new Catalog(
+            var catalog = Catalogs.inMemory(
                     List.of(p),
                     List.of(new Store(new StoreId("S02"), "Magasin 2", "Nantes"),
                             new Store(new StoreId("S01"), "Magasin 1", "Lyon"),
