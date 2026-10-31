@@ -13,13 +13,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CatalogLoaderTest {
 
-    private final Catalog catalog = CatalogLoader.load(JsonMapper.builder().build(), "magasin/v1");
+    private static final JsonMapper JSON = JsonMapper.builder().build();
+    private static final String DATA = "magasin/v1";
+
+    private final Catalog catalog = CatalogLoader.load(JSON, DATA);
 
     @Test
     void loadsTheWholeDataset() {
-        assertThat(catalog.products()).hasSize(50);
-        assertThat(catalog.stores()).hasSize(5);
-        assertThat(catalog.stockLines()).hasSize(250);
+        assertThat(CatalogLoader.readProducts(JSON, DATA)).hasSize(50);
+        assertThat(CatalogLoader.readStores(JSON, DATA)).hasSize(5);
+        assertThat(CatalogLoader.readStockLines(JSON, DATA)).hasSize(250);
     }
 
     @Test

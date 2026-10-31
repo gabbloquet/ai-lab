@@ -13,6 +13,7 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StockLine;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.out.memory.InMemoryProductRepository;
+import io.github.gabbloquet.ailab.exp001.catalog.infra.out.memory.InMemoryStockRepository;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.out.memory.InMemoryStoreRepository;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -23,9 +24,21 @@ public final class CatalogLoader {
 
     public static Catalog load(JsonMapper jsonMapper, String basePath) {
         return new Catalog(
-                new InMemoryProductRepository(readJsonLines(jsonMapper, basePath + "/products.jsonl", Product.class)),
-                new InMemoryStoreRepository(readJsonLines(jsonMapper, basePath + "/stores.jsonl", Store.class)),
-                readJsonLines(jsonMapper, basePath + "/stock.jsonl", StockLine.class));
+                new InMemoryProductRepository(readProducts(jsonMapper, basePath)),
+                new InMemoryStoreRepository(readStores(jsonMapper, basePath)),
+                new InMemoryStockRepository(readStockLines(jsonMapper, basePath)));
+    }
+
+    public static List<Product> readProducts(JsonMapper jsonMapper, String basePath) {
+        return readJsonLines(jsonMapper, basePath + "/products.jsonl", Product.class);
+    }
+
+    public static List<Store> readStores(JsonMapper jsonMapper, String basePath) {
+        return readJsonLines(jsonMapper, basePath + "/stores.jsonl", Store.class);
+    }
+
+    public static List<StockLine> readStockLines(JsonMapper jsonMapper, String basePath) {
+        return readJsonLines(jsonMapper, basePath + "/stock.jsonl", StockLine.class);
     }
 
     private static <T> List<T> readJsonLines(JsonMapper jsonMapper, String path, Class<T> type) {

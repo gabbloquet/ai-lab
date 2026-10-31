@@ -5,52 +5,36 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidSearchQuery
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.StoreNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.port.ProductRepository;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.port.StockRepository;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.port.StoreRepository;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
 
 import static java.util.Comparator.comparing;
-import static java.util.stream.Collectors.toUnmodifiableMap;
 
 import java.math.BigDecimal;
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
 
 public class Catalog {
 
     static final BigDecimal PRICE_TOLERANCE = new BigDecimal("0.20");
     static final int MAX_ALTERNATIVES = 3;
 
-    private record StockKey(SkuCode sku, StoreId storeId) {
-    }
-
     private final ProductRepository products;
     private final StoreRepository stores;
-    private final List<StockLine> stockLines;
-    private final Map<StockKey, StockLine> stockByKey;
+    private final StockRepository stock;
 
-    public Catalog(ProductRepository products, StoreRepository stores, List<StockLine> stockLines) {
+    public Catalog(ProductRepository products, StoreRepository stores, StockRepository stock) {
         this.products = products;
         this.stores = stores;
-        this.stockLines = List.copyOf(stockLines);
-        this.stockByKey = this.stockLines.stream()
-                .collect(toUnmodifiableMap(line -> new StockKey(line.sku(), line.storeId()), Function.identity()));
-    }
-
-    public List<Product> products() {
-        return products.findAll();
+        this.stock = stock;
     }
 
     public List<Store> stores() {
         return stores.findAll();
-    }
-
-    public List<StockLine> stockLines() {
-        return stockLines;
     }
 
     public Optional<Product> product(SkuCode sku) {
@@ -74,7 +58,7 @@ public class Catalog {
     }
 
     public Optional<StockLine> stock(SkuCode sku, StoreId storeId) {
-        return Optional.ofNullable(stockByKey.get(new StockKey(sku, storeId)));
+        return stock.find(sku, storeId);
     }
 
     public List<StoreStock> storesWithStock(SkuCode sku) {
