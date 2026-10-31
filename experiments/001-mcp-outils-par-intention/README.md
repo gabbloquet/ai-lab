@@ -64,7 +64,8 @@ Les deux variantes sont **deux adaptateurs primaires au-dessus du même cœur** 
 
 ```
 java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
-├── domain/              le cœur : entités, value objects (SkuCode, StoreId), règles métier
+├── domain/              le cœur : entités, value objects (SkuCode, StoreId), règles métier (Catalog)
+│   ├── port/            ce dont le cœur a besoin : ProductRepository, StoreRepository, StockRepository
 │   └── error/           erreurs métier (produit, magasin ou rayon introuvable, argument invalide), avec un texte métier, sans référence à un canal d'entrée
 └── infra/
     ├── config/          configuration du transport MCP : validation de l'en-tête Origin
@@ -74,8 +75,11 @@ java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
     │   ├── KnownValues          magasins et rayons connus listés par les erreurs, communs aux deux variantes
     │   ├── intent/              variante B : IntentTools (un outil par intention), DTO de réponse, IntentErrorMessages
     │   └── rest/                variante A : ProductTools, StockTools, StoreTools (un outil par endpoint, groupés par ressource), DTO de réponse, RestErrorMessages
-    └── out/data/        adaptateur sortant (secondaire) : chargement de domains/magasin/data/v1, embarqué dans le jar
+    ├── out/memory/      adaptateurs sortants (secondaires) : les trois ports, implémentés en mémoire
+    └── out/data/        lecture de domains/magasin/data/v1, embarqué dans le jar, vers les dépôts en mémoire (CatalogLoader)
 ```
+
+**Le cœur lit ses données par des ports.** `Catalog` ne reçoit ni listes ni fichiers, mais trois repositories qu'il déclare lui-même, un par source : produits, magasins, stock. En entreprise, ces données viennent de systèmes distincts (référentiel produit, référentiel magasins, API de stock), avec leurs propriétaires et leurs fréquences de mise à jour ; le stock, lui, change à chaque vente et serait interrogé à chaque appel. Pour la 001, les données sont figées : les trois ports sont implémentés en mémoire, remplis au démarrage par `CatalogLoader`, et les tests construisent le catalogue de la même façon (`Catalogs.inMemory`). Brancher une vraie source ne toucherait ni au domaine ni aux outils.
 
 - Le protocole MCP reste hors du domaine : aucune annotation ni aucun type MCP dans `catalog.domain`.
 - **Chaque outil renvoie un DTO dédié**, jamais un objet du domaine. La réponse se conçoit pour le modèle, et une évolution du domaine ne doit pas modifier en silence ce qu'il lit.
@@ -90,7 +94,7 @@ java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
 `python/mcp_server/` réimplémente la variante B avec le SDK MCP Python officiel (`mcp` 2.3.0, `MCPServer`). Il ne sert pas aux runs : si les variantes tournaient sur deux langages, le langage deviendrait une variable de l'expérience. Il sert à vérifier que **le contrat de B ne dépend pas de Spring AI** : mêmes outils, mêmes schémas, mêmes annotations, mêmes réponses JSON, mêmes messages d'erreur.
 
 - **Un test de contrat en boîte noire**, écrit en pytest avec le client MCP Python, prend l'URL d'un serveur et tourne contre les deux implémentations. Une divergence se corrige dans le serveur fautif, jamais en assouplissant le test.
-- **Un domaine propre**, en architecture hexagonale comme en Java (`domain/`, `inbound/mcp/`, `outbound/data/`, `in` étant un mot réservé en Python). Il ne réutilise pas `magasin_rules.py`, l'oracle, qui ne serait alors plus indépendant ; il est vérifié contre les cas de `domains/magasin/oracle/v1`, comme `OracleConformanceTest` en Java.
+- **Un domaine propre**, en architecture hexagonale comme en Java (`domain/`, `infra/inbound/mcp/`, `infra/outbound/memory/`, `infra/outbound/data/`, `in` étant un mot réservé en Python). Les trois ports sont des `typing.Protocol` : l'adaptateur n'hérite de rien, il suffit qu'il ait les bonnes méthodes. Il ne réutilise pas `magasin_rules.py`, l'oracle, qui ne serait alors plus indépendant ; il est vérifié contre les cas de `domains/magasin/oracle/v1`, comme `OracleConformanceTest` en Java.
 - **Les réponses sont construites par l'adaptateur, comme `ToolResults` en Java.** D'après le code du SDK 2.3.0 (`MCPServer.call_tool`, `Tool.run`, lus le 2026-10-24) : une erreur levée par un outil est préfixée par « Error executing tool <nom>: », une erreur de validation des arguments renvoie le texte brut de Pydantic, et un modèle Pydantic renvoyé produit un `structuredContent` en plus du texte. L'outil construit donc lui-même son `CallToolResult`, avec un bloc texte JSON et le message de la variante.
 - **L'en-tête `Origin` est validé par défaut** quand le serveur écoute sur `127.0.0.1` ou `localhost` (`TransportSecuritySettings`, 403 pour une origine refusée, 421 pour un hôte refusé), alors que Spring AI 2.0.1 demande de déclarer le validateur.
 
