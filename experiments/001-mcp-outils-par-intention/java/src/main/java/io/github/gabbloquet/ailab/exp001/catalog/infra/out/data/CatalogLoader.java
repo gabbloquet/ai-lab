@@ -13,6 +13,7 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StockLine;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.out.memory.InMemoryProductRepository;
+import io.github.gabbloquet.ailab.exp001.catalog.infra.out.memory.InMemoryStoreRepository;
 import tools.jackson.databind.json.JsonMapper;
 
 public final class CatalogLoader {
@@ -23,7 +24,7 @@ public final class CatalogLoader {
     public static Catalog load(JsonMapper jsonMapper, String basePath) {
         return new Catalog(
                 new InMemoryProductRepository(readJsonLines(jsonMapper, basePath + "/products.jsonl", Product.class)),
-                readJsonLines(jsonMapper, basePath + "/stores.jsonl", Store.class),
+                new InMemoryStoreRepository(readJsonLines(jsonMapper, basePath + "/stores.jsonl", Store.class)),
                 readJsonLines(jsonMapper, basePath + "/stock.jsonl", StockLine.class));
     }
 

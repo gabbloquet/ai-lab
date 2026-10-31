@@ -5,6 +5,7 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.error.InvalidSearchQuery
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.ProductNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.error.StoreNotFoundException;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.port.ProductRepository;
+import io.github.gabbloquet.ailab.exp001.catalog.domain.port.StoreRepository;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.*;
 
 import static java.util.Comparator.comparing;
@@ -28,17 +29,14 @@ public class Catalog {
     }
 
     private final ProductRepository products;
-    private final List<Store> stores;
+    private final StoreRepository stores;
     private final List<StockLine> stockLines;
-    private final Map<StoreId, Store> storesById;
     private final Map<StockKey, StockLine> stockByKey;
 
-    public Catalog(ProductRepository products, List<Store> stores, List<StockLine> stockLines) {
+    public Catalog(ProductRepository products, StoreRepository stores, List<StockLine> stockLines) {
         this.products = products;
-        this.stores = List.copyOf(stores);
+        this.stores = stores;
         this.stockLines = List.copyOf(stockLines);
-        this.storesById = this.stores.stream()
-                .collect(toUnmodifiableMap(Store::storeId, Function.identity()));
         this.stockByKey = this.stockLines.stream()
                 .collect(toUnmodifiableMap(line -> new StockKey(line.sku(), line.storeId()), Function.identity()));
     }
@@ -48,7 +46,7 @@ public class Catalog {
     }
 
     public List<Store> stores() {
-        return stores;
+        return stores.findAll();
     }
 
     public List<StockLine> stockLines() {
@@ -60,7 +58,7 @@ public class Catalog {
     }
 
     public Optional<Store> store(StoreId storeId) {
-        return Optional.ofNullable(storesById.get(storeId));
+        return stores.findById(storeId);
     }
 
     public Product requireProduct(SkuCode sku) {
@@ -80,7 +78,7 @@ public class Catalog {
     }
 
     public List<StoreStock> storesWithStock(SkuCode sku) {
-        return stores.stream()
+        return stores.findAll().stream()
                 .sorted(comparing(store -> store.storeId().value()))
                 .map(store -> new StoreStock(store, available(sku, store.storeId())))
                 .filter(stock -> stock.available() > 0)

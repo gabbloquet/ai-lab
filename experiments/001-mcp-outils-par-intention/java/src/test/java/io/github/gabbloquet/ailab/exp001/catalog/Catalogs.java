@@ -7,6 +7,7 @@ import io.github.gabbloquet.ailab.exp001.catalog.domain.Store;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.Product;
 import io.github.gabbloquet.ailab.exp001.catalog.domain.vo.StockLine;
 import io.github.gabbloquet.ailab.exp001.catalog.infra.out.memory.InMemoryProductRepository;
+import io.github.gabbloquet.ailab.exp001.catalog.infra.out.memory.InMemoryStoreRepository;
 
 public final class Catalogs {
 
@@ -14,6 +15,6 @@ public final class Catalogs {
     }
 
     public static Catalog inMemory(List<Product> products, List<Store> stores, List<StockLine> stockLines) {
-        return new Catalog(new InMemoryProductRepository(products), stores, stockLines);
+        return new Catalog(new InMemoryProductRepository(products), new InMemoryStoreRepository(stores), stockLines);
     }
 }
