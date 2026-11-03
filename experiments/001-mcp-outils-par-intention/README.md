@@ -110,7 +110,7 @@ Sans `EXP001_MCP_URL`, le test vise le jumeau en mémoire. Le jumeau rejoue auss
 
 **Écarts entre les deux serveurs**, hors du contrat vérifié :
 - **Outil inconnu** : le SDK Python 2.3.0 répond par un résultat `isError` (« Unknown tool: … ») et non par une erreur JSON-RPC, comme la spec le demande. Constaté le 2026-11-03.
-- **Argument requis absent** : le jumeau renvoie le texte brut de Pydantic (« 1 validation error for … Field required »), le serveur Java le message du domaine (« SKU is required »). La validation du schéma par le SDK passe avant l'outil.
+- **Argument requis absent ou du mauvais type** : dans les deux serveurs, le SDK valide le schéma avant l'outil, et chacun renvoie le texte de sa bibliothèque. Le jumeau renvoie celui de Pydantic (« 1 validation error for … Field required »). Le serveur Java renvoie « Tool (get_product_details) input validation failed: … », **dans la langue de la JVM** : « propriété requise 'sku' introuvable » sur une JVM en `fr` (constaté le 2026-11-03, voir le test exploratoire).
 - **Schéma d'un paramètre facultatif** : `category` est publié en `anyOf: [string, null]` avec `default: null`, et Pydantic ajoute des `title`. Les noms, types, descriptions et paramètres requis sont les mêmes que côté Java.
 - **En-tête `Host`** : vérifié par le jumeau (421), pas par le serveur Java (voir les Limites).
 - **Espaces Unicode** : `strip()` de Python retire l'espace insécable, `String.strip()` de Java non (`Character.isWhitespace` l'exclut). Une saisie faite seulement d'espaces insécables est donc vide pour le jumeau, pas pour le serveur Java (vérifié le 2026-11-03 avec Python 3.13 et jshell 25, pas par un test du dépôt).
@@ -162,6 +162,21 @@ Une bibliothèque d'agent fait des choses en coulisse qui influencent la mesure 
 - que se passe-t-il quand le budget de correction est épuisé ?
 
 Si l'historique ne permet pas de reconstituer tous les appels, on écrit la boucle nous-mêmes, directement avec les SDK des fournisseurs et le SDK MCP Python.
+
+**Résultats du test exploratoire (2026-11-03, `pydantic-ai-slim` 2.65.0, serveur Java variante intent).** Le script `python/agent/scripts/explore_tool_calls.py` remplace le modèle par un `FunctionModel`, qui émet des appels choisis à l'avance vers le vrai serveur : aucun coût, aucun hasard. Avec `MCPToolset(tool_error_behavior='failed', max_retries=1)` :
+
+| Appel émis | Rejeté par | Ce que voit le modèle | Dans l'historique |
+|---|---|---|---|
+| `sku` absent, ou `sku: 42` | le serveur (validation du schéma par le SDK Java) | le message du serveur, en échec (`outcome=failed`) | oui |
+| arguments JSON mal formés | Pydantic AI, côté client | l'erreur de parsing, avec une demande de correction (`outcome=retried`) | oui |
+| outil inventé (`get_stock_level`) | Pydantic AI, côté client | « Unknown tool name … Available tools: … », avec une demande de correction | oui |
+| magasin inconnu (`S99`) | le serveur (erreur métier) | le message du serveur, tel quel, sans consigne ajoutée | oui |
+| le même appel invalide, sans fin | le serveur | un échec à chaque fois : un échec ne consomme pas le budget de correction | oui, les 10 appels ; le run s'arrête sur `UsageLimitExceeded` |
+| le même outil inventé, deux fois | Pydantic AI | une demande de correction, puis le run s'arrête sur `UnexpectedModelBehavior` | oui, les 2 appels |
+
+**Pydantic AI convient** : chaque appel émis reste dans l'historique, y compris les rejets côté client, et même quand le run lève une exception, à condition de lire l'historique par `capture_run_messages()`. Deux constats pèsent sur la configuration :
+- **`request_limit` compte les requêtes au modèle, pas les appels d'outils** : avec `request_limit=10`, le modèle fait 10 appels et n'a plus de requête pour répondre. Le plafond de 10 appels se règle donc à `request_limit=11`, ou par un compteur à nous.
+- **Seuls les rejets côté client consomment le budget de correction** (JSON mal formé, outil inconnu) : avec `max_retries=1`, un deuxième rejet du même outil arrête le run.
 
 ### Taille de l'échantillon
 
