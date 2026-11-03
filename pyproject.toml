@@ -11,6 +11,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "jsonschema>=4.26.0",
+    "mypy>=2.4.1",
     "pytest>=9.1.1",
     "ruff>=0.17.1",
 ]
@@ -44,3 +45,9 @@ select = ["E", "F", "W", "I", "UP", "B", "SIM"]
 [tool.ruff.lint.isort]
 # Paquets du workspace : ruff ne les trouve pas seul, ils vivent sous experiments/.
 known-first-party = ["exp001_mcp_server"]
+
+[tool.mypy]
+# Vérifie que les adaptateurs du jumeau respectent les ports (typing.Protocol) du domaine.
+python_version = "3.13"
+files = ["experiments/001-mcp-outils-par-intention/python/mcp_server/src"]
+strict = true
