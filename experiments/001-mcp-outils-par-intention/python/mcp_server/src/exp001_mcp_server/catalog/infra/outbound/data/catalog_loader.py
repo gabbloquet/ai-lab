@@ -4,11 +4,19 @@ from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
+from exp001_mcp_server.catalog.domain.catalog import Catalog
 from exp001_mcp_server.catalog.domain.entities.product import Product
 from exp001_mcp_server.catalog.domain.entities.stock_line import StockLine
 from exp001_mcp_server.catalog.domain.entities.store import Store
 from exp001_mcp_server.catalog.domain.vo.sku_code import SkuCode
 from exp001_mcp_server.catalog.domain.vo.store_id import StoreId
+from exp001_mcp_server.catalog.infra.outbound.memory.in_memory_catalog import in_memory_catalog
+
+
+def load_catalog(data_dir: Path) -> Catalog:
+    return in_memory_catalog(
+        read_products(data_dir), read_stores(data_dir), read_stock_lines(data_dir)
+    )
 
 
 def read_products(data_dir: Path) -> list[Product]:
