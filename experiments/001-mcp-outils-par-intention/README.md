@@ -98,6 +98,23 @@ java/src/main/java/io/github/gabbloquet/ailab/exp001/catalog/
 - **Les réponses sont construites par l'adaptateur, comme `ToolResults` en Java.** D'après le code du SDK 2.3.0 (`MCPServer.call_tool`, `Tool.run`, lus le 2026-10-24) : une erreur levée par un outil est préfixée par « Error executing tool <nom>: », une erreur de validation des arguments renvoie le texte brut de Pydantic, et un modèle Pydantic renvoyé produit un `structuredContent` en plus du texte. L'outil construit donc lui-même son `CallToolResult`, avec un bloc texte JSON et le message de la variante.
 - **L'en-tête `Origin` est validé par défaut** quand le serveur écoute sur `127.0.0.1` ou `localhost` (`TransportSecuritySettings`, 403 pour une origine refusée, 421 pour un hôte refusé), alors que Spring AI 2.0.1 demande de déclarer le validateur.
 
+**Résultat (2026-11-03).** Le test de contrat (`tests/catalog/infra/inbound/mcp/intent/test_intent_tools_contract.py`, 24 cas repris de `IntentToolsContractTest`) passe sur les deux serveurs : le contrat de B ne dépend pas de Spring AI. Pour le rejouer :
+
+```bash
+uv run exp001-mcp-server                                   # jumeau Python, 127.0.0.1:8081
+./gradlew :exp001-mcp-servers:bootRun --args='--lab.variant=intent'   # serveur Java, 127.0.0.1:8080
+EXP001_MCP_URL=http://127.0.0.1:8080/mcp uv run pytest experiments/001-mcp-outils-par-intention/python/mcp_server/tests/catalog/infra/inbound/mcp/intent/test_intent_tools_contract.py
+```
+
+Sans `EXP001_MCP_URL`, le test vise le jumeau en mémoire. Le jumeau rejoue aussi les 300 cas de l'oracle, et `mypy --strict` vérifie que les adaptateurs respectent les ports.
+
+**Écarts entre les deux serveurs**, hors du contrat vérifié :
+- **Outil inconnu** : le SDK Python 2.3.0 répond par un résultat `isError` (« Unknown tool: … ») et non par une erreur JSON-RPC, comme la spec le demande. Constaté le 2026-11-03.
+- **Argument requis absent** : le jumeau renvoie le texte brut de Pydantic (« 1 validation error for … Field required »), le serveur Java le message du domaine (« SKU is required »). La validation du schéma par le SDK passe avant l'outil.
+- **Schéma d'un paramètre facultatif** : `category` est publié en `anyOf: [string, null]` avec `default: null`, et Pydantic ajoute des `title`. Les noms, types, descriptions et paramètres requis sont les mêmes que côté Java.
+- **En-tête `Host`** : vérifié par le jumeau (421), pas par le serveur Java (voir les Limites).
+- **Espaces Unicode** : `strip()` de Python retire l'espace insécable, `String.strip()` de Java non (`Character.isWhitespace` l'exclut). Une saisie faite seulement d'espaces insécables est donc vide pour le jumeau, pas pour le serveur Java (vérifié le 2026-11-03 avec Python 3.13 et jshell 25, pas par un test du dépôt).
+
 ### Neutraliser l'effet des descriptions
 
 Si les outils de B étaient mieux décrits que ceux de A, l'expérience mesurerait la qualité de rédaction et non le découpage. Pour l'éviter, les deux variantes suivent **le même guide de rédaction** :
