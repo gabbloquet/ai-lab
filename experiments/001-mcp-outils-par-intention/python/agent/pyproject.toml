@@ -1,0 +1,12 @@
+[project]
+name = "exp001-agent"
+version = "0.1.0"
+description = "Boucle d'agent de la 001 : client MCP des deux variantes, sans code partagé avec les serveurs"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic-ai-slim[mcp,mistral]==2.65.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"
