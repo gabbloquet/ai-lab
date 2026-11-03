@@ -1,4 +1,5 @@
 import json
+import os
 from collections.abc import AsyncIterator
 from typing import Any
 
@@ -23,8 +24,11 @@ def anyio_backend() -> str:
 
 @pytest.fixture
 async def client(pytestconfig) -> AsyncIterator[Client]:
-    server = create_server(pytestconfig.rootpath / "domains/magasin/data/v1")
-    async with Client(server, mode="legacy") as connected:
+    # Avec EXP001_MCP_URL, le même contrat est vérifié en boîte noire sur un serveur lancé à part,
+    # par exemple le serveur Java : http://127.0.0.1:8080/mcp.
+    url = os.environ.get("EXP001_MCP_URL")
+    target = url or create_server(pytestconfig.rootpath / "domains/magasin/data/v1")
+    async with Client(target, mode="legacy") as connected:
         yield connected
 
 
