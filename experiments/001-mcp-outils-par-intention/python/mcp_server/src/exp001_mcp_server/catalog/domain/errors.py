@@ -36,3 +36,21 @@ class DepartmentNotFoundError(CatalogError):
     def __init__(self, department: str) -> None:
         super().__init__(f"Unknown department: {department}")
         self.department = department
+
+
+type DomainError = (
+    InvalidIdentifierError
+    | InvalidSearchQueryError
+    | ProductNotFoundError
+    | StoreNotFoundError
+    | DepartmentNotFoundError
+)
+"""Toutes les erreurs du domaine : l'équivalent de la hiérarchie scellée de CatalogException."""
+
+DOMAIN_ERRORS = (
+    InvalidIdentifierError,
+    InvalidSearchQueryError,
+    ProductNotFoundError,
+    StoreNotFoundError,
+    DepartmentNotFoundError,
+)
