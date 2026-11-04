@@ -209,7 +209,9 @@ PYDANTIC_AI_NO_BANNER=1 uv run --env-file .env python \
 - Une limite de débit du fournisseur (429, 5xx) relance l'exécution, jusqu'à 4 tentatives, au lieu de la noter comme un échec du modèle.
 - En `dev`, le résumé donne le succès par variante, le delta indicatif, `s_d` et le MDE attendu sur le `test`, et le détail par item.
 - Le `test` n'est accepté qu'avec `--final`, sur un dépôt sans modification non commitée (le commit de gel), et n'affiche que l'agrégat et le verdict de la spec.
-- Les traces ne remontent pas encore dans Langfuse : c'est l'étape suivante, avec le serveur Langfuse auto-hébergé.
+- Avec `--langfuse`, chaque exécution devient une trace dans le Langfuse local (`infra/langfuse`, `docker compose up -d`), regroupées par run en session : la question, les requêtes au modèle et les appels d'outils (spans OpenTelemetry de Pydantic AI), la réponse, et les scores de la spec (`success`, `strict_success`, `tool_recall`, `args_recall`, `precision`, `n_calls`, `extra_calls`). Les clés viennent de `LANGFUSE_*` dans `.env`, ou à défaut de celles créées par `infra/langfuse/.env`. `records.jsonl` reste la source de vérité.
+- Un run fait sans `--langfuse` s'envoie après coup avec `python/agent/scripts/push_run_to_langfuse.py <dossier du run>`, sans les spans du modèle : c'est le cas du run 0 (`cycle1-dev`).
+- Langfuse 4.74.0 tourne en mode `events_only` : l'API publique de lecture des traces et des scores (`/api/public/traces`, `/scores`) y est désactivée. On les consulte dans l'interface (http://localhost:3000) ; `/api/public/v2/observations` reste lisible (constaté le 2026-11-04).
 
 ## Discipline d'itération
 

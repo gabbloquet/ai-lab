@@ -89,3 +89,35 @@ async def test_retries_a_rate_limited_execution_instead_of_scoring_it_as_a_failu
     assert record.attempts == 2
     assert record.execution.error is None
     assert record.score.success is True
+
+
+class RecordingTracer:
+    def __init__(self) -> None:
+        self.opened: list[tuple[str, str, int]] = []
+        self.recorded: list[bool] = []
+
+    def execution(self, *, item: dict, variant: str, repeat: int):
+        from contextlib import contextmanager
+
+        @contextmanager
+        def observe():
+            self.opened.append((item["id"], variant, repeat))
+            yield lambda record: self.recorded.append(record.score.success)
+
+        return observe()
+
+
+async def test_traces_each_execution_and_hands_it_its_score(server_url):
+    tracer = RecordingTracer()
+
+    await run_campaign(
+        items=ITEMS,
+        servers={"intent": server_url},
+        model=answering(),
+        repeats=2,
+        system_prompt="Magasin {store_id}.",
+        tracer=tracer,
+    )
+
+    assert tracer.opened == [("ts-x", "intent", 0), ("ts-x", "intent", 1)]
+    assert tracer.recorded == [True, True]

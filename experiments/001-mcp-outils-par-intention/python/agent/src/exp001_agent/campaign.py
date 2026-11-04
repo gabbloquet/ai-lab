@@ -10,6 +10,7 @@ from pydantic_ai.models import Model
 
 from ailab_evals.tool_selection import ExecutionScore, score_execution
 from exp001_agent.loop import Execution, run_item
+from exp001_agent.tracing import NO_TRACING, Tracer
 
 MAX_ATTEMPTS = 4
 TRANSIENT_STATUSES = {429, 500, 502, 503, 504}
@@ -34,6 +35,7 @@ async def run_campaign(
     concurrency: int = 1,
     backoff_seconds: float = 5.0,
     on_record: Callable[[Record], None] = lambda record: None,
+    tracer: Tracer = NO_TRACING,
 ) -> list[Record]:
     """Joue item × variante × répétition, sauf ce qui est déjà dans `done` (reprise d'un run)."""
     already = set(done)
@@ -49,11 +51,13 @@ async def run_campaign(
 
     async def play(index: int, item: dict[str, Any], variant: str, url: str, repeat: int) -> None:
         async with limiter:
-            execution, attempts = await _with_retries(
-                item, variant, url, repeat, model, system_prompt, backoff_seconds
-            )
-        score = score_execution(item["expected"][variant], execution.calls, execution.error)
-        record = Record(execution=execution, score=score, attempts=attempts)
+            with tracer.execution(item=item, variant=variant, repeat=repeat) as observe:
+                execution, attempts = await _with_retries(
+                    item, variant, url, repeat, model, system_prompt, backoff_seconds
+                )
+                score = score_execution(item["expected"][variant], execution.calls, execution.error)
+                record = Record(execution=execution, score=score, attempts=attempts)
+                observe(record)
         records[index] = record
         on_record(record)
 

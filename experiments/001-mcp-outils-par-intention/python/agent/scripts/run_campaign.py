@@ -29,13 +29,16 @@ from ailab_evals.tool_selection import PairedScore, aggregate
 from exp001_agent import loop
 from exp001_agent.campaign import Record, run_campaign
 from exp001_agent.golden import load_items
+from exp001_agent.langfuse_setup import check_reachable, credentials
 from exp001_agent.summary import summarize
+from exp001_agent.tracing import NO_TRACING, LangfuseTracing, Tracer
 
 ROOT = Path(__file__).resolve().parents[5]
 EXPERIMENT = ROOT / "experiments/001-mcp-outils-par-intention"
 GOLDEN = ROOT / "domains/magasin/golden/tool-selection/v1"
 SPEC = "evals/spec/tool-selection/v1"
 SYSTEM_PROMPT = EXPERIMENT / "python/prompts/system.md"
+LANGFUSE_INFRA_ENV = ROOT / "infra/langfuse/.env"
 DEFAULT_MODEL = "mistral:mistral-small-2603"
 N_TEST = 100
 S_D_ALERT = 0.4
@@ -136,6 +139,10 @@ async def main() -> None:
     parser.add_argument("--concurrency", type=int, default=2)
     parser.add_argument("--runs-dir", type=Path, default=EXPERIMENT / "runs")
     parser.add_argument("--run-id", help="reprendre un run existant")
+    parser.add_argument(
+        "--items", help="ids séparés par des virgules (dev seulement), pour un essai"
+    )
+    parser.add_argument("--langfuse", action="store_true", help="tracer dans le Langfuse local")
     args = parser.parse_args()
 
     servers = {
@@ -147,11 +154,26 @@ async def main() -> None:
         raise SystemExit("Donner au moins --intent-url ou --rest-url.")
 
     items = load_items(GOLDEN / "items.jsonl", args.split, final=args.final)
+    if args.items:
+        if args.split != "dev":
+            raise SystemExit("--items ne sert qu'aux essais sur le dev.")
+        wanted = set(args.items.split(","))
+        items = [item for item in items if item["id"] in wanted]
     meta = metadata(args, servers)
     if args.final and meta["git_dirty"]:
         raise SystemExit("Run final refusé : des modifications ne sont pas commitées (gel).")
 
     run_id = args.run_id or f"{meta['created'][:19].replace(':', '')}-{args.split}"
+    tracer: Tracer = NO_TRACING
+    langfuse = None
+    if args.langfuse:
+        from langfuse import Langfuse
+
+        base_url, public_key, secret_key = credentials(LANGFUSE_INFRA_ENV)
+        check_reachable(base_url)
+        langfuse = Langfuse(public_key=public_key, secret_key=secret_key, base_url=base_url)
+        tracer = LangfuseTracing(langfuse, run_id=run_id, split=args.split, model=args.model)
+        meta["langfuse"] = {"base_url": base_url, "session_id": run_id}
     run_dir = args.runs_dir / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
     if not (run_dir / "run.json").exists():
@@ -184,7 +206,10 @@ async def main() -> None:
         done=done,
         concurrency=args.concurrency,
         on_record=save,
+        tracer=tracer,
     )
+    if langfuse is not None:
+        langfuse.flush()
     report(args.split, read_records(records_path))
     shown = run_dir.relative_to(ROOT) if run_dir.is_relative_to(ROOT) else run_dir
     print(f"\nrésultats : {shown}")
