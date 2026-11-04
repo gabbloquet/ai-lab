@@ -13,7 +13,7 @@ uv run python domains/magasin/magasin_golden_tool_selection.py --seed 42 --versi
 | Version | Données | Seed | Spec | Statut |
 |---|---|---|---|---|
 | `v1` | `data/v1` | 42 | `tool-selection/v1` | générée le 2026-10-29, remplacée par la v2 ; elle se régénère toujours à l'identique |
-| `v2` | `data/v1` | 42 | `tool-selection/v1` | générée le 2026-11-04, version en cours, pas encore citée par un résultat |
+| `v2` | `data/v1` | 42 | `tool-selection/v1` | générée le 2026-11-04, **publiée** : citée par le [run final de la 001](../../../../experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md), donc immuable |
 
 ## Changements de la v2
 
