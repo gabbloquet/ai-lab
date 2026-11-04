@@ -223,7 +223,9 @@ PYDANTIC_AI_NO_BANNER=1 uv run --env-file .env python \
 
 | # | Date | Variante | Modification | Motif | `success` dev |
 |---|---|---|---|---|---|
-| | | | | | |
+| 0 | 2026-11-04 | A et B | Aucune : run de départ `cycle1-dev` (commit `748cc1c`, `mistral-small-2603`, k = 5, 30 items) | Mesurer avant d'itérer | A 0,727 · B 0,933 |
+
+Run 0 : delta B − A = +0,207 (indicatif, `dev`), s_d = 0,373, aucune exécution en erreur. Avec ce s_d, le MDE attendu sur les 100 items `test` est de 10,6 points, un peu au-dessus des 10 points visés (s_d ≤ 0,35 aurait suffi) : sous le seuil d'alerte de 0,4, mais à surveiller aux cycles suivants.
 
 **Commit de gel :** —
 **Run final sur le `test` :** —
