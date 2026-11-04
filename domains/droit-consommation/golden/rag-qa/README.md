@@ -1,6 +1,6 @@
 # Golden set `rag-qa` du domaine droit-consommation
 
-Des questions posées sur le Code de la consommation, avec leur réponse attendue et les articles qui la justifient. Ce jeu sert à la série d'expériences sur le RAG, à commencer par la 002 (modèle seul ou RAG naïf). Le format d'un item et les règles de notation seront fixés par la spec `rag-qa/v1` (à écrire).
+Des questions posées sur le Code de la consommation, avec leur réponse attendue et les articles qui la justifient. Ce jeu sert à la série d'expériences sur le RAG, à commencer par la 002 (modèle seul ou RAG naïf). Le format d'un item et les règles de notation sont fixés par la spec [`rag-qa/v1`](../../../../evals/spec/rag-qa/v1/SPEC.md).
 
 **Statut : règles de construction, rien n'est encore généré.** Ces règles sont écrites avant le générateur. Une règle qui change après le pilote est signalée ici.
 
@@ -38,14 +38,14 @@ Taille de l'échantillon : avec un écart type de la différence par item de 0,4
 - **Un article ne sert qu'une fois** dans tout le golden set, même dans une paire. Surtout, aucun article n'apparaît à la fois en `dev` et en `test` : itérer sur le `dev` ne doit rien apprendre du `test`.
 - **Surplus.** Le script tire environ 1,5 fois le besoin de chaque mode, pour absorber les rejets. Les items gardés sont les premiers à passer les contrôles, dans l'ordre du tirage seedé.
 
-## Format d'un item (provisoire, fixé par la spec)
+## Format d'un item (fixé par la spec [`rag-qa/v1`](../../../../evals/spec/rag-qa/v1/SPEC.md))
 
 ```json
 {"id": "rq-001", "split": "dev", "mode": "paraphrase", "answerable": true,
  "question": "J'ai acheté un aspirateur en ligne, combien de temps ai-je pour changer d'avis ?",
  "expected": {
    "facts": [{"accepted": ["quatorze jours", "14 jours"]}],
-   "articles": ["LEGIARTI000032226842"]},
+   "articles": [{"id": "LEGIARTI000032226842", "num": "L221-18"}]},
  "evidence": [{"article": "LEGIARTI000032226842", "quote": "dispose d'un délai de quatorze jours"}]}
 ```
 

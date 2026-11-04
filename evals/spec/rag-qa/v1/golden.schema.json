@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Item d'un golden set rag-qa v1",
+  "description": "Une ligne de items.jsonl (SPEC.md § 3.1). Deux règles ne sont pas exprimables en JSON Schema et sont vérifiées par le générateur : une forme acceptée ne doit pas devenir vide après normalisation (§ 4), et chaque extrait de `evidence` doit figurer dans le texte de son article.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "split", "mode", "answerable", "question", "expected", "evidence"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z]+-[0-9]{3,}$"},
+    "split": {"enum": ["dev", "test"]},
+    "mode": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "answerable": {"type": "boolean"},
+    "question": {"$ref": "#/$defs/text"},
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["facts", "articles"],
+      "properties": {
+        "facts": {"type": "array", "items": {"$ref": "#/$defs/fact"}},
+        "articles": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/article"}}
+      }
+    },
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "source_article": {"type": "string", "minLength": 1}
+  },
+  "if": {"properties": {"answerable": {"const": true}}},
+  "then": {
+    "properties": {
+      "expected": {
+        "properties": {
+          "facts": {"minItems": 1},
+          "articles": {"minItems": 1}
+        }
+      },
+      "evidence": {"minItems": 1}
+    }
+  },
+  "else": {
+    "properties": {
+      "expected": {
+        "properties": {
+          "facts": {"maxItems": 0},
+          "articles": {"maxItems": 0}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "text": {"type": "string", "pattern": "\\S"},
+    "fact": {
+      "description": "SPEC.md § 5 : le fait est retrouvé si l'une de ses formes l'est.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accepted"],
+      "properties": {
+        "accepted": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/text"}
+        }
+      }
+    },
+    "article": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "num"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "num": {"$ref": "#/$defs/text"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["article", "quote"],
+      "properties": {
+        "article": {"type": "string", "minLength": 1},
+        "quote": {"$ref": "#/$defs/text"}
+      }
+    }
+  }
+}
