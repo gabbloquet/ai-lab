@@ -1,6 +1,6 @@
 # 001 — Outils MCP : par intention métier ou miroir REST ?
 
-> **Statut :** cadrage
+> **Statut :** gelée le 2026-11-04, run final sur le `test` en cours
 > **Domaines :** [`magasin`](../../domains/magasin/README.md)
 > **Spec de notation :** [`tool-selection/v1`](../../evals/spec/tool-selection/v1/SPEC.md) (brouillon)
 
@@ -33,7 +33,7 @@ L'hypothèse n'est pas nouvelle : des praticiens expérimentés la recommandent 
 | Variante (B) | Serveur MCP **par intention** : 5 outils, un par besoin métier |
 | Ce qui change entre A et B | Le découpage, les noms et les descriptions des outils, et donc le jeu d'outils exposé |
 | Ce qui est fixé | Le modèle, le prompt système, la température (0), un maximum de **10 appels d'outils** par exécution, le nombre d'outils (5 de chaque côté), le guide de rédaction des descriptions et la politique d'erreur (voir plus bas), le transport (Streamable HTTP, sur `127.0.0.1`), le format des réponses (JSON sérialisé dans un bloc texte, voir plus bas), les données (`domains/magasin/data/v1`), la boucle d'agent et sa configuration (voir plus bas) |
-| Modèles | Un modèle par fournisseur : Gemini, Mistral et Claude. Les identifiants exacts seront fixés et vérifiés avant le gel. Un verdict par modèle. |
+| Modèles | Un modèle par fournisseur, tous du palier « petit modèle », un verdict par modèle : `mistral:mistral-small-2603` (vérifié auprès de l'API Mistral : alias `mistral-small-latest`), `google:gemini-3.5-flash-lite` (API Google), `anthropic:claude-haiku-5-5` (Models API d'Anthropic : Claude Haiku 5.5). Identifiants vérifiés le 2026-11-04 ; chacun a passé un contrôle de bout en bout sur 3 items `dev`, en A et en B. |
 | Golden set | `domains/magasin/golden/tool-selection/v2` : 130 items, **n_dev = 30, n_test = 100**, 26 items par intention, soit 6 en `dev` et 20 en `test`. Appels attendus par intention et par variante : [règles du golden set](../../domains/magasin/golden/tool-selection/README.md) |
 | Répétitions | k = 5 |
 | Implémentation | `java/` : les deux serveurs MCP (Spring AI), testés en boîte noire à travers le protocole MCP. Seuls ces serveurs servent aux runs. `python/mcp_server/` : un jumeau de la variante B, écrit avec le SDK MCP Python (voir plus bas), qui n'intervient pas dans la mesure. `python/` : la boucle d'agent, qui sert de client MCP, et la notation (métrique DeepEval personnalisée, conforme à la spec) |
@@ -156,7 +156,7 @@ Une bibliothèque d'agent fait des choses en coulisse qui influencent la mesure 
 | Erreur renvoyée par un outil MCP | `tool_error_behavior='failed'` : l'erreur est rendue au modèle comme un résultat en échec, sans demande de correction automatique |
 | Rejets côté client (JSON mal formé, outil inconnu) | Budget de correction de 2, pour le toolset (`max_retries`) comme pour l'agent (`retries`), qui rejette lui-même un outil inconnu ; au-delà, le run s'arrête avec une `error` |
 | Plafond de 10 appels | Un compteur de la boucle, sur les appels émis : au-delà de 10, le run s'arrête avant d'exécuter la réponse fautive, avec `error` = `tool_call_limit`. `request_limit` (30) n'est qu'un garde-fou : il compte les requêtes, et une réponse peut porter plusieurs appels |
-| Température | 0 |
+| Température | 0 pour Mistral et Gemini. Non envoyée pour Claude, dont les modèles actuels refusent le paramètre (voir les Limites) |
 | Prompt système | `python/prompts/system.md`, avec le magasin courant ; il ne nomme aucun outil |
 
 **Test exploratoire, avant tout run.** On connecte la boucle à un serveur MCP minimal, puis on provoque un argument invalide, un argument halluciné et une erreur serveur. Ce test vérifie deux choses :
@@ -219,7 +219,7 @@ PYDANTIC_AI_NO_BANNER=1 uv run --env-file .env python \
 2. **Gel avant le run final :** un commit fige les deux serveurs, leurs descriptions, le prompt système, la boucle d'agent avec sa configuration, et les identifiants de modèles.
 3. **Un seul run sur le `test`**, sur les trois modèles.
 
-**Budget d'itération :** N = 3 cycles par variante.
+**Budget d'itération :** N = 3 cycles par variante. **Utilisés : 0 en A, 0 en B.** Après le run 0, B réussissait tous les items `dev` et les échecs de A relevaient du phénomène mesuré (chaînage des appels) : aucune variante n'a été modifiée, l'effort est donc le même des deux côtés.
 
 **Journal d'itération :** il commence au premier run sur le `dev`. Ce qui est fait avant, la construction des serveurs et l'application de la politique d'erreur, n'y figure pas et ne consomme aucun cycle.
 
@@ -231,7 +231,7 @@ Run 0 : delta B − A = +0,207 (indicatif, `dev`), s_d = 0,373, aucune exécutio
 
 **Correction du golden set après le run 0 (2026-11-04), hors cycle.** Deux items `dev` échouaient dans les deux variantes alors que la réponse du modèle était juste : pour une fiche demandée par nom, la recherche donne déjà le rayon et le prix, mais la v1 exigeait la fiche. La v2 du golden set exige la recherche dans ce cas, de la même façon en A et en B ([changements de la v2](../../domains/magasin/golden/tool-selection/README.md#changements-de-la-v2)). Aucune variante n'a changé, donc aucun cycle n'est consommé. Le run 0, noté de nouveau sur la v2 sans rien rejouer (`rescore_run.py`) : **A 0,793 · B 1,000**, delta inchangé (+0,207), s_d inchangé (0,373). Les cycles suivants et le run final utilisent la v2.
 
-**Commit de gel :** —
+**Commit de gel :** le commit « Geler la 001 avant le run final sur le test » (2026-11-04) ; son hash est dans le `run.json` de chaque run final et dans le rapport.
 **Run final sur le `test` :** —
 
 ## Mesures
@@ -256,6 +256,9 @@ Pas encore de verdict.
 - **Cinq outils par variante.** Avec des dizaines d'outils, l'écart pourrait être très différent.
 - **Itération sur un seul modèle.** Les variantes sont mises au point avec un seul modèle, ce qui peut avantager ce modèle-là au run final.
 - **Non-déterminisme.** Une température de 0 ne garantit pas des sorties identiques chez ces fournisseurs. C'est ce que couvrent les k = 5 répétitions. Si un modèle n'accepte pas la température 0, sa configuration réelle est indiquée ici.
+- **Claude sans température fixée.** Les modèles Claude actuels refusent le paramètre `temperature` (HTTP 400, référence de l'API Claude consultée le 2026-11-04) : `claude-haiku-5-5` tourne avec ses réglages par défaut, réflexion adaptative comprise. Sa dispersion d'une répétition à l'autre peut donc être plus forte que celle des deux autres modèles. Les réglages réellement envoyés sont dans le `run.json` de chaque run.
+- **Puissance.** Au run 0, s_d = 0,373 donnait un MDE de 10,6 points sur les 100 items `test`, un peu au-dessus des 10 points visés.
+- **Golden set corrigé après un run.** La v2 a été faite après le run 0, sur une règle de notation commune à A et B (fiche demandée par nom) ; aucun item `test` n'a été lu pour la décider.
 - **Effet des descriptions.** Le guide de rédaction le réduit sans l'éliminer.
 - **Effet des erreurs.** La politique d'erreur commune le réduit sans l'éliminer : un même message peut aider davantage une variante que l'autre, selon le chemin d'appels qu'elle impose.
 - **Format des réponses.** Il est fixé à du JSON en texte. Anthropic indique que le format (JSON, XML, Markdown) change les performances : l'écart entre A et B pourrait être différent avec un autre format.
