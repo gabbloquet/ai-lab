@@ -781,11 +781,15 @@ name = "exp001-agent"
 version = "0.1.0"
 source = { editable = "experiments/001-mcp-outils-par-intention/python/agent" }
 dependencies = [
+    { name = "ailab-evals" },
     { name = "pydantic-ai-slim", extra = ["mcp", "mistral"] },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pydantic-ai-slim", extras = ["mcp", "mistral"], specifier = "==2.65.0" }]
+requires-dist = [
+    { name = "ailab-evals", editable = "evals/python" },
+    { name = "pydantic-ai-slim", extras = ["mcp", "mistral"], specifier = "==2.65.0" },
+]
 
 [[package]]
 name = "exp001-mcp-server"

@@ -4,8 +4,13 @@ version = "0.1.0"
 description = "Boucle d'agent de la 001 : client MCP des deux variantes, sans code partagé avec les serveurs"
 requires-python = ">=3.13"
 dependencies = [
+    # Le scorer de la spec tool-selection v1, pour noter les exécutions.
+    "ailab-evals",
     "pydantic-ai-slim[mcp,mistral]==2.65.0",
 ]
+
+[tool.uv.sources]
+ailab-evals = { workspace = true }
 
 [build-system]
 requires = ["uv_build>=0.13.5,<0.14"]
