@@ -6,11 +6,13 @@ scorer Java doit aussi passer. Les numéros de section renvoient à la spec.
 
 from __future__ import annotations
 
-import math
 import unicodedata
 from dataclasses import asdict, dataclass
 
-from scipy import stats
+# § 7 : l'agrégation appariée est commune aux specs ; réexportée pour les appelants existants.
+from ailab_evals.paired import Aggregate as Aggregate
+from ailab_evals.paired import PairedScore as PairedScore
+from ailab_evals.paired import aggregate as aggregate
 
 ANY = {"any": True}
 
@@ -117,39 +119,3 @@ def score_execution(expectation: dict, calls: list[dict], error: str | None) -> 
         success=success,
         strict_success=success and extra == 0,
     )
-
-
-@dataclass(frozen=True)
-class PairedScore:
-    """pᵢ(A) et pᵢ(B) d'un item : moyenne de `success` sur ses k répétitions."""
-
-    item_id: str
-    split: str
-    p_a: float
-    p_b: float
-
-
-@dataclass(frozen=True)
-class Aggregate:
-    n: int
-    delta: float
-    ci_low: float
-    ci_high: float
-    verdict: str
-
-    def as_dict(self) -> dict:
-        return asdict(self)
-
-
-def aggregate(scores: list[PairedScore]) -> Aggregate:
-    """§ 7 : différence appariée B − A sur les items `test` seulement, IC de Student à 95 %."""
-    differences = [s.p_b - s.p_a for s in scores if s.split == "test"]
-    n = len(differences)
-    if n < 2:
-        raise ValueError("Il faut au moins deux items test pour un intervalle de confiance.")
-    delta = sum(differences) / n
-    deviation = math.sqrt(sum((d - delta) ** 2 for d in differences) / (n - 1))
-    half_width = float(stats.t.ppf(0.975, n - 1)) * deviation / math.sqrt(n)
-    low, high = delta - half_width, delta + half_width
-    verdict = "b_better" if low > 0 else "b_worse" if high < 0 else "inconclusive"
-    return Aggregate(n=n, delta=delta, ci_low=low, ci_high=high, verdict=verdict)
