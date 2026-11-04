@@ -6,7 +6,10 @@ intention (`intent`) et de la variante miroir REST (`rest`), calculés par l'ora
 magasin_rules.py. Les règles sont décrites dans golden/tool-selection/README.md.
 
 Usage : uv run python domains/magasin/magasin_golden_tool_selection.py \\
-            --seed 42 --version v1 --data-version v1
+            --seed 42 --version v2 --data-version v1
+
+Les règles changent d'une version à l'autre (voir golden/tool-selection/README.md) ; chaque
+version publiée se régénère à l'identique avec sa seed.
 """
 
 from __future__ import annotations
@@ -21,8 +24,11 @@ from jsonschema import Draft202012Validator
 from magasin_rules import Catalog, Product, load_catalog
 
 ANY = {"any": True}
+SEARCH_BY_NAME = {"args": {"query": ANY}, "optional": {"category": ANY}}
 SPEC = "evals/spec/tool-selection/v1"
 SCHEMA = Path(__file__).resolve().parents[2] / SPEC / "golden.schema.json"
+
+VERSIONS = ("v1", "v2")
 
 ITEMS_PER_INTENT = 26
 DEV_PER_INTENT = 6
@@ -95,7 +101,9 @@ TEMPLATES = {
 }
 
 
-def generate(catalog: Catalog, scenarios: list[dict], seed: int) -> list[dict]:
+def generate(catalog: Catalog, scenarios: list[dict], seed: int, version: str) -> list[dict]:
+    if version not in VERSIONS:
+        raise ValueError(f"Version inconnue : {version}. Versions : {', '.join(VERSIONS)}.")
     rng = random.Random(seed)
     scenario = {row["id"]: (row["sku"], row["storeId"]) for row in scenarios}
     cases = (
@@ -104,7 +112,13 @@ def generate(catalog: Catalog, scenarios: list[dict], seed: int) -> list[dict]:
         + _stores_with_stock(catalog, scenario, rng)
         + _product_details(catalog, rng)
     )
-    items = [_product_item(catalog, case, rng) for case in _assign_references(cases, rng)]
+    # v2 : la recherche donne déjà le rayon et le prix ; pour une fiche demandée par nom, c'est
+    # elle qu'on exige, et la fiche n'est plus que tolérée (constaté au run 0 de la 001).
+    details_by_name_need_search = version != "v1"
+    items = [
+        _product_item(catalog, case, rng, details_by_name_need_search)
+        for case in _assign_references(cases, rng)
+    ]
     items += _search(catalog, rng)
     _assign_splits(items, rng)
     _write_questions(catalog, items, rng)
@@ -201,7 +215,9 @@ def _assign_references(cases: list[dict], rng: random.Random) -> list[dict]:
     return cases
 
 
-def _product_item(catalog: Catalog, case: dict, rng: random.Random) -> dict:
+def _product_item(
+    catalog: Catalog, case: dict, rng: random.Random, details_by_name_need_search: bool
+) -> dict:
     sku, store, intent = case["sku"], case["store"], case["intent"]
     by_name = case["ref"] == "name"
     one = {"sku": [sku]}
@@ -228,17 +244,21 @@ def _product_item(catalog: Catalog, case: dict, rng: random.Random) -> dict:
             {"tool": "get_stock", "args": {"sku": [sku], "storeId": [store_id]}}
             for store_id in sorted(catalog.stores)
         ]
+    elif by_name and details_by_name_need_search:
+        intent_required = [{"tool": "search_catalog", **SEARCH_BY_NAME}]
+        rest_required = [{"tool": "list_products", **SEARCH_BY_NAME}]
     else:
         intent_required = [{"tool": "get_product_details", "args": one}]
         rest_required = [{"tool": "get_product", "args": one}]
 
+    search_required = intent_required[0]["tool"] == "search_catalog"
     intent_tolerated, rest_tolerated = [], []
-    if intent != "product_details":
+    if intent != "product_details" or search_required:
         intent_tolerated.append({"tool": "get_product_details", "args": one})
         rest_tolerated.append({"tool": "get_product", "args": one})
     if intent == "stores_with_stock":
         rest_tolerated.append({"tool": "list_stores", "args": {}})
-    if by_name:
+    if by_name and not search_required:
         intent_tolerated.append(
             {"tool": "search_catalog", "args": {"query": ANY}, "optional": {"category": ANY}}
         )
@@ -406,7 +426,7 @@ def main(argv: list[str] | None = None) -> None:
         raise SystemExit(f"{version_dir} existe déjà : une version publiée ne se réécrit pas.")
     data_dir = domain / "data" / args.data_version
     scenarios = json.loads((data_dir / "scenarios.json").read_text(encoding="utf-8"))
-    items = generate(load_catalog(data_dir), scenarios, args.seed)
+    items = generate(load_catalog(data_dir), scenarios, args.seed, args.version)
 
     version_dir.mkdir(parents=True, exist_ok=True)
     items_path = version_dir / "items.jsonl"

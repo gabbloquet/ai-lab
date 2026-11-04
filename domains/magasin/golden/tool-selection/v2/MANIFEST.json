@@ -1,0 +1,11 @@
+{
+  "dataset": "magasin/golden/tool-selection",
+  "version": "v2",
+  "generator": "domains/magasin/magasin_golden_tool_selection.py",
+  "seed": 42,
+  "data_version": "v1",
+  "spec": "evals/spec/tool-selection/v1",
+  "files": {
+    "items.jsonl": "a8055fa7cd20e62d4e5002fe71912f8adc578342c060204f4ee6bd2344ede11e"
+  }
+}

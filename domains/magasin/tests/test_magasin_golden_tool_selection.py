@@ -1,3 +1,4 @@
+import hashlib
 import json
 from collections import Counter
 from pathlib import Path
@@ -30,7 +31,12 @@ def scenarios(scenario_rows: list[dict]) -> dict[str, dict]:
 
 @pytest.fixture(scope="module")
 def items(cat: Catalog, scenario_rows: list[dict]) -> list[dict]:
-    return generate(cat, scenario_rows, seed=42)
+    return generate(cat, scenario_rows, seed=42, version="v2")
+
+
+@pytest.fixture(scope="module")
+def items_v1(cat: Catalog, scenario_rows: list[dict]) -> list[dict]:
+    return generate(cat, scenario_rows, seed=42, version="v1")
 
 
 def of_intent(items: list[dict], intent: str) -> list[dict]:
@@ -46,7 +52,9 @@ def store(item: dict) -> str:
 
 
 def target(item: dict) -> str:
-    return item["expected"]["intent"]["required"][0]["args"]["sku"][0]
+    expectation = item["expected"]["intent"]
+    patterns = expectation["required"] + expectation["tolerated"]
+    return next(p["args"]["sku"][0] for p in patterns if "sku" in p["args"])
 
 
 def test_builds_twenty_six_items_per_intent(items: list[dict]) -> None:
@@ -100,8 +108,47 @@ def test_requires_no_more_calls_than_the_ten_call_cap(items: list[dict]) -> None
 def test_is_reproducible_with_the_same_seed(
     cat: Catalog, scenario_rows: list[dict], items: list[dict]
 ) -> None:
-    assert generate(cat, scenario_rows, seed=42) == items
-    assert generate(cat, scenario_rows, seed=7) != items
+    assert generate(cat, scenario_rows, seed=42, version="v2") == items
+    assert generate(cat, scenario_rows, seed=7, version="v2") != items
+
+
+def test_still_rebuilds_the_published_v1_byte_for_byte(items_v1: list[dict]) -> None:
+    v1 = DOMAIN / "golden" / "tool-selection" / "v1"
+    lines = "".join(json.dumps(item, ensure_ascii=False) + "\n" for item in items_v1)
+    manifest = json.loads((v1 / "MANIFEST.json").read_text(encoding="utf-8"))
+
+    assert hashlib.sha256(lines.encode("utf-8")).hexdigest() == manifest["files"]["items.jsonl"]
+
+
+def test_v2_changes_only_the_details_asked_by_name(
+    items: list[dict], items_v1: list[dict]
+) -> None:
+    for new, old in zip(items, items_v1, strict=True):
+        changed = "product_details" in new["tags"] and ref(new) == "ref:name"
+        assert {k: v for k, v in new.items() if k != "expected"} == {
+            k: v for k, v in old.items() if k != "expected"
+        }
+        assert (new["expected"] != old["expected"]) == changed, new["id"]
+
+
+def test_v2_requires_the_search_when_the_details_are_asked_by_name(items: list[dict]) -> None:
+    by_name = [i for i in of_intent(items, "product_details") if ref(i) == "ref:name"]
+
+    assert len(by_name) == 13
+    for item in by_name:
+        sku = {"sku": [target(item)]}
+        assert item["expected"]["intent"] == {
+            "required": [
+                {"tool": "search_catalog", "args": {"query": ANY}, "optional": {"category": ANY}}
+            ],
+            "tolerated": [{"tool": "get_product_details", "args": sku}],
+        }
+        assert item["expected"]["rest"] == {
+            "required": [
+                {"tool": "list_products", "args": {"query": ANY}, "optional": {"category": ANY}}
+            ],
+            "tolerated": [{"tool": "get_product", "args": sku}],
+        }
 
 
 def test_asks_each_question_once(items: list[dict]) -> None:
@@ -134,7 +181,8 @@ def test_tolerates_the_search_tool_only_when_the_question_gives_a_name(items: li
             variant: {pattern["tool"] for pattern in expectation["tolerated"]}
             for variant, expectation in item["expected"].items()
         }
-        by_name = ref(item) == "ref:name"
+        # En v2, une fiche demandée par nom exige la recherche : elle n'est plus seulement tolérée.
+        by_name = ref(item) == "ref:name" and "product_details" not in item["tags"]
         assert ("search_catalog" in tolerated["intent"]) == by_name, item["id"]
         assert ("list_products" in tolerated["rest"]) == by_name, item["id"]
 
@@ -236,7 +284,7 @@ def test_rest_checks_every_store_to_find_the_ones_with_stock(
 def test_asks_for_the_details_of_distinct_products(items: list[dict]) -> None:
     details = of_intent(items, "product_details")
 
-    for item in details:
+    for item in (i for i in details if ref(i) == "ref:sku"):
         assert item["expected"]["intent"]["required"] == [
             {"tool": "get_product_details", "args": {"sku": [target(item)]}}
         ]

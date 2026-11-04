@@ -5,16 +5,26 @@ Questions posées à un modèle équipé d'un serveur MCP, avec les appels d'out
 Les items sont générés par `magasin_golden_tool_selection.py`, seedé et testé. Les appels attendus sont calculés par l'oracle `magasin_rules.py` à partir des données, jamais écrits à la main.
 
 ```bash
-uv run python domains/magasin/magasin_golden_tool_selection.py --seed 42 --version v1 --data-version v1
+uv run python domains/magasin/magasin_golden_tool_selection.py --seed 42 --version v2 --data-version v1
 ```
 
 ## Versions
 
 | Version | Données | Seed | Spec | Statut |
 |---|---|---|---|---|
-| `v1` | `data/v1` | 42 | `tool-selection/v1` | générée le 2026-10-29, pas encore citée par un résultat |
+| `v1` | `data/v1` | 42 | `tool-selection/v1` | générée le 2026-10-29, remplacée par la v2 ; elle se régénère toujours à l'identique |
+| `v2` | `data/v1` | 42 | `tool-selection/v1` | générée le 2026-11-04, version en cours, pas encore citée par un résultat |
 
-## Composition de la v1
+## Changements de la v2
+
+Une seule règle change, pour l'intention « fiche produit » quand la question donne le **nom** du produit (13 items : 3 `dev`, 10 `test`) :
+
+- **v1** exigeait la fiche (`get_product_details` ou `get_product`) et tolérait la recherche ;
+- **v2** exige la recherche (`search_catalog` ou `list_products`, avec une requête libre et une catégorie facultative) et tolère la fiche du produit.
+
+**Pourquoi.** La recherche renvoie déjà le rayon, le type et le prix de chaque produit trouvé : un modèle qui cherche le produit par son nom a la réponse sans rouvrir la fiche. Au run 0 de la 001 (2026-11-04), le modèle répondait juste sur ces questions, dans les deux variantes, mais la v1 les notait en échec. La règle change de la même façon en A et en B ; tous les autres items, leurs identifiants, leurs questions et leurs splits sont identiques à la v1 (vérifié par un test).
+
+## Composition
 
 130 items, 26 par intention. Dans chaque intention, 6 items `dev` et 20 `test`. Les identifiants (`ts-001` à `ts-130`) sont mélangés : ils ne révèlent pas l'intention.
 
@@ -27,14 +37,14 @@ Toutes les questions portent sur le **magasin courant**, donné dans `context.st
 | Disponibilité | 17 produits en stock, 9 sans unité disponible (dont un stock entièrement réservé) | `check_availability(sku, storeId)` | `get_stock(sku, storeId)` |
 | Alternative en stock | produit en rupture dans le magasin : 18 avec une alternative en stock, 8 sans | `find_in_stock_alternative(sku, storeId)` | `get_similar(sku)`, puis un `get_stock(storeId)` sur **l'une** des alternatives que renverrait `intent` ; s'il n'y en a aucune, un `get_stock` sur **chaque** produit similaire, car il faut tous les vérifier pour conclure |
 | Magasins qui ont le produit | 26 produits distincts, dont un en rupture partout | `find_stores_with_stock(sku)` | un `get_stock(sku, storeId)` pour chacun des 5 magasins |
-| Fiche produit | 26 produits distincts | `get_product_details(sku)` | `get_product(sku)` |
+| Fiche produit | 26 produits distincts | par SKU : `get_product_details(sku)` ; par nom : `search_catalog` (v2) | par SKU : `get_product(sku)` ; par nom : `list_products` (v2) |
 | Recherche | 8 par type, 14 par marque et type, 4 sur des produits que le catalogue ne vend pas | `search_catalog` | `list_products` |
 
 Pour la recherche, la requête est exigée mais non contrainte (`{"any": true}`), et la catégorie est facultative : si elle est donnée, ce doit être le rayon des produits cherchés. Pour un produit absent du catalogue, toute catégorie est acceptée.
 
 **Appels tolérés** (ni exigés, ni comptés en trop) :
-- la fiche du produit visé (`get_product_details` ou `get_product`), sauf pour l'intention « fiche produit », où elle est requise ;
-- la recherche (`search_catalog` ou `list_products`, avec n'importe quels arguments), seulement quand la question donne le nom du produit : il faut alors trouver son SKU ;
+- la fiche du produit visé (`get_product_details` ou `get_product`), sauf pour une fiche demandée par SKU, où elle est requise ;
+- la recherche (`search_catalog` ou `list_products`, avec n'importe quels arguments), seulement quand la question donne le nom du produit : il faut alors trouver son SKU. Pour une fiche demandée par nom, elle est requise (v2) ;
 - `list_stores` en `rest`, pour l'intention « magasins qui ont le produit ».
 
 Un appel non toléré qui ne correspond à aucun motif requis compte comme appel en trop. C'est le cas, par exemple, d'un `get_stock` sur le produit en rupture lui-même dans l'intention « alternative ». Un appel en trop ne fait pas échouer `success`, seulement `strict_success`.
