@@ -66,3 +66,10 @@ def test_leaves_the_temperature_unset_for_claude_which_rejects_it():
     from exp001_agent.loop import model_settings
 
     assert model_settings("anthropic:claude-haiku-5-5") == {}
+
+
+def test_reads_empty_arguments_as_no_argument_like_pydantic_ai():
+    # Claude envoie "" pour un outil sans paramètre ; Pydantic AI l'exécute avec {}.
+    messages = [response(ToolCallPart("list_stores", ""))]
+
+    assert emitted_calls(messages) == [{"tool": "list_stores", "args": {}}]

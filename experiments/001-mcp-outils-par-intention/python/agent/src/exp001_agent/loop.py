@@ -136,6 +136,9 @@ def _count_calls(response: ModelResponse) -> int:
 
 
 def _args(part: ToolCallPart) -> dict[str, Any]:
+    if part.args == "":
+        # Comme Pydantic AI (args_as_dict) : des arguments vides valent « aucun argument ».
+        return {}
     if isinstance(part.args, str):
         try:
             parsed = json.loads(part.args)
