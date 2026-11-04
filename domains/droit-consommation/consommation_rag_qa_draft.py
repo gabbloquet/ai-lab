@@ -36,6 +36,7 @@ ANSWERABLE_SCHEMA: dict = {
     "type": "object",
     "properties": {
         "question": {"type": "string"},
+        "usable": {"type": "boolean"},
         "facts": {
             "type": "array",
             "items": {
@@ -51,7 +52,7 @@ ANSWERABLE_SCHEMA: dict = {
         },
         "doubt": {"type": "string"},
     },
-    "required": ["question", "facts", "doubt"],
+    "required": ["question", "usable", "facts", "doubt"],
     "additionalProperties": False,
 }
 UNANSWERABLE_SCHEMA: dict = {

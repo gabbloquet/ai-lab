@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-dev-002",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:38:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3117,
+    "output_tokens": 351
+  },
+  "output": {
+    "question": "Pour quels contrats de temps partagé l'offre doit-elle comporter des informations précontractuelles, et quelle durée minimale faut-il dépasser pour qu'un contrat d'utilisation de biens à temps partagé soit ainsi qualifié ? Donne le nombre de rubriques d'information exigées dans l'offre et la durée minimale.",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "14",
+          "quatorze"
+        ],
+        "quote": "14° L'existence, le cas échéant, d'un code de bonne conduite.",
+        "article": "L224-73"
+      },
+      {
+        "accepted": [
+          "plus d'un an",
+          "un an",
+          "1 an"
+        ],
+        "quote": "Le contrat d'utilisation de biens à temps partagé est un contrat d'une durée de plus d'un an",
+        "article": "L224-70"
+      }
+    ],
+    "doubt": "Le nombre de rubriques (14) se déduit de la numérotation de la liste et non d'une valeur énoncée explicitement ; la question est aussi formulée en deux parties, ce qui la rend un peu lourde."
+  },
+  "raw_text": "{\"question\":\"Pour quels contrats de temps partagé l'offre doit-elle comporter des informations précontractuelles, et quelle durée minimale faut-il dépasser pour qu'un contrat d'utilisation de biens à temps partagé soit ainsi qualifié ? Donne le nombre de rubriques d'information exigées dans l'offre et la durée minimale.\",\"usable\":true,\"facts\":[{\"accepted\":[\"14\",\"quatorze\"],\"quote\":\"14° L'existence, le cas échéant, d'un code de bonne conduite.\",\"article\":\"L224-73\"},{\"accepted\":[\"plus d'un an\",\"un an\",\"1 an\"],\"quote\":\"Le contrat d'utilisation de biens à temps partagé est un contrat d'une durée de plus d'un an\",\"article\":\"L224-70\"}],\"doubt\":\"Le nombre de rubriques (14) se déduit de la numérotation de la liste et non d'une valeur énoncée explicitement ; la question est aussi formulée en deux parties, ce qui la rend un peu lourde.\"}"
+}

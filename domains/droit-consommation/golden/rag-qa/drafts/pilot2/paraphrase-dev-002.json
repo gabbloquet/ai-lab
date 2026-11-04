@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-002",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:38:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1673,
+    "output_tokens": 196
+  },
+  "output": {
+    "question": "Quelles règles s'appliquent concrètement quand une banque me démarche chez moi pour un produit financier ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "chapitre Ier du titre IV du livre III du code monétaire et financier"
+        ],
+        "quote": "sont fixées par les dispositions du chapitre Ier du titre IV du livre III du code monétaire et financier",
+        "article": "R224-9"
+      }
+    ],
+    "doubt": "L'article ne fait que renvoyer au code monétaire et financier et ne contient aucune valeur précise propre au Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Quelles règles s'appliquent concrètement quand une banque me démarche chez moi pour un produit financier ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"chapitre Ier du titre IV du livre III du code monétaire et financier\"],\"quote\":\"sont fixées par les dispositions du chapitre Ier du titre IV du livre III du code monétaire et financier\",\"article\":\"R224-9\"}],\"doubt\":\"L'article ne fait que renvoyer au code monétaire et financier et ne contient aucune valeur précise propre au Code de la consommation.\"}"
+}

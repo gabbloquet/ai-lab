@@ -125,6 +125,11 @@ def test_multi_article_mode_shows_both_articles_in_order(prompts: dict[str, str]
     assert user.index("Article A : L221-18") < user.index("Article B : L221-23")
 
 
+def test_the_writer_can_declare_an_article_unusable() -> None:
+    assert ANSWERABLE_SCHEMA["properties"]["usable"] == {"type": "boolean"}
+    assert "usable" in ANSWERABLE_SCHEMA["required"]
+
+
 def test_unanswerable_mode_asks_for_no_fact(prompts: dict[str, str]) -> None:
     _, _, schema = render_request(task("unanswerable"), BY_ID, prompts)
 

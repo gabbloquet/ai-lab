@@ -1,0 +1,31 @@
+{
+  "task": "reference-dev-003",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:38:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1725,
+    "output_tokens": 275
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 751-5 : à quelle loi renvoie-t-il pour l'exercice du droit d'accès des intéressés aux informations les concernant dans le fichier ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "loi n° 78-17 du 6 janvier 1978",
+          "loi du 6 janvier 1978",
+          "78-17"
+        ],
+        "quote": "conformément à l'article 49 de la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés",
+        "article": "L751-5"
+      }
+    ],
+    "doubt": "L'article porte surtout sur une interdiction de remise de copie et renvoie à une autre loi pour le droit d'accès ; la valeur demandée est une référence de texte, pas une valeur chiffrée."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 751-5 : à quelle loi renvoie-t-il pour l'exercice du droit d'accès des intéressés aux informations les concernant dans le fichier ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"loi n° 78-17 du 6 janvier 1978\",\"loi du 6 janvier 1978\",\"78-17\"],\"quote\":\"conformément à l'article 49 de la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés\",\"article\":\"L751-5\"}],\"doubt\":\"L'article porte surtout sur une interdiction de remise de copie et renvoie à une autre loi pour le droit d'accès ; la valeur demandée est une référence de texte, pas une valeur chiffrée.\"}"
+}

@@ -1,0 +1,32 @@
+{
+  "task": "paraphrase-dev-004",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:38:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1886,
+    "output_tokens": 216
+  },
+  "output": {
+    "question": "Lors d'un contrôle de marchandises importées avant leur dédouanement, combien d'exemplaires un agent doit-il au minimum prélever quand il fait un prélèvement ordinaire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois",
+          "3",
+          "trois échantillons",
+          "3 échantillons"
+        ],
+        "quote": "tout prélèvement effectué en application de l'article L. 511-16 comporte au moins trois échantillons",
+        "article": "R512-25"
+      }
+    ],
+    "doubt": "La question vise le cas général ; les exceptions des articles R. 512-28 et R. 512-29 ne sont pas mentionnées."
+  },
+  "raw_text": "{\"question\":\"Lors d'un contrôle de marchandises importées avant leur dédouanement, combien d'exemplaires un agent doit-il au minimum prélever quand il fait un prélèvement ordinaire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois\",\"3\",\"trois échantillons\",\"3 échantillons\"],\"quote\":\"tout prélèvement effectué en application de l'article L. 511-16 comporte au moins trois échantillons\",\"article\":\"R512-25\"}],\"doubt\":\"La question vise le cas général ; les exceptions des articles R. 512-28 et R. 512-29 ne sont pas mentionnées.\"}"
+}

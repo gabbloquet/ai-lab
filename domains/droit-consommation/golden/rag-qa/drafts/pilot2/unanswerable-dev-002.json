@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-002",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:38:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2074,
+    "output_tokens": 281
+  },
+  "output": {
+    "question": "Quelle est la durée maximale d'attente autorisée avant qu'un conseiller prenne en charge l'appel au service d'assistance technique d'un fournisseur de services numériques ?",
+    "why_unanswerable": "L'article impose seulement qu'aucune somme ne soit facturée tant que le consommateur n'est pas mis en relation avec un interlocuteur, ainsi que l'accessibilité par un numéro non géographique, fixe et non surtaxé. Il ne fixe aucune durée maximale d'attente, et à ma connaissance aucun autre article du Code de la consommation n'en fixe pour ces services.",
+    "doubt": "Un autre article du code sur les délais de réponse du service client pourrait exister, mais je n'en connais pas qui fixe une durée d'attente pour ce type de service."
+  },
+  "raw_text": "{\"question\":\"Quelle est la durée maximale d'attente autorisée avant qu'un conseiller prenne en charge l'appel au service d'assistance technique d'un fournisseur de services numériques ?\",\"why_unanswerable\":\"L'article impose seulement qu'aucune somme ne soit facturée tant que le consommateur n'est pas mis en relation avec un interlocuteur, ainsi que l'accessibilité par un numéro non géographique, fixe et non surtaxé. Il ne fixe aucune durée maximale d'attente, et à ma connaissance aucun autre article du Code de la consommation n'en fixe pour ces services.\",\"doubt\":\"Un autre article du code sur les délais de réponse du service client pourrait exister, mais je n'en connais pas qui fixe une durée d'attente pour ce type de service.\"}"
+}

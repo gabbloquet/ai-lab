@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-dev-001",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:38:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1890,
+    "output_tokens": 255
+  },
+  "output": {
+    "question": "Dans les règles applicables aux contrats de fourniture de contenus numériques et de services numériques, comment est défini l'environnement numérique du consommateur : quels éléments le composent ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "matériel informatique, logiciel et connexion réseau"
+        ],
+        "quote": "tout matériel informatique, logiciel et connexion réseau utilisés par le consommateur pour accéder à un contenu numérique ou à un service numérique ou en faire usage",
+        "article": "L224-25-1"
+      }
+    ],
+    "doubt": "L'article ne contient que des définitions, sans valeur précise (durée, montant, taux, seuil, date, organisme ou document) ; il est donc peu adapté à ce type d'évaluation."
+  },
+  "raw_text": "{\"question\":\"Dans les règles applicables aux contrats de fourniture de contenus numériques et de services numériques, comment est défini l'environnement numérique du consommateur : quels éléments le composent ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"matériel informatique, logiciel et connexion réseau\"],\"quote\":\"tout matériel informatique, logiciel et connexion réseau utilisés par le consommateur pour accéder à un contenu numérique ou à un service numérique ou en faire usage\",\"article\":\"L224-25-1\"}],\"doubt\":\"L'article ne contient que des définitions, sans valeur précise (durée, montant, taux, seuil, date, organisme ou document) ; il est donc peu adapté à ce type d'évaluation.\"}"
+}

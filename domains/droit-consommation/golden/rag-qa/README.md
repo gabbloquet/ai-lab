@@ -36,7 +36,8 @@ Taille de l'échantillon : avec un écart type de la différence par item de 0,4
 - **Articles éligibles** : ni annexe, entre 200 et 4 000 caractères de texte, sans abrogation différée (`valid_to` vide), et pas un tableau (moins de la moitié des lignes contiennent ` | `). Au 2026-11-04, cela fait **1 707 articles** sur 2 150, dont 212 qui conviennent au mode `lost_context` et 1 496 paires A → B possibles pour `multi_article`.
 - **Répartition par livre**, proportionnelle au nombre d'articles éligibles de chaque livre, pour ne pas concentrer les questions sur un seul thème.
 - **Un article ne sert qu'une fois** dans tout le golden set, même dans une paire. Surtout, aucun article n'apparaît à la fois en `dev` et en `test` : itérer sur le `dev` ne doit rien apprendre du `test`.
-- **Surplus.** Le script tire environ 1,5 fois le besoin de chaque mode, pour absorber les rejets. Les items gardés sont les premiers à passer les contrôles, dans l'ordre du tirage seedé.
+- **Surplus.** Le script tire deux fois le besoin de chaque mode et de chaque split, pour absorber les rejets (1,5 fois avant le second pilote, voir plus bas). Les items gardés sont les premiers à passer les contrôles, dans l'ordre du tirage seedé.
+- **Les articles des pilotes sont exclus** du tirage de la v1.
 
 ## Format d'un item (fixé par la spec [`rag-qa/v1`](../../../../evals/spec/rag-qa/v1/SPEC.md))
 
@@ -62,11 +63,31 @@ Les identifiants `rq-001` à `rq-200` sont mélangés : ils ne révèlent ni le 
 
 ## Recouvrement lexical (mode `paraphrase`)
 
-Il se mesure ainsi : la part des mots pleins de la question (au moins 4 lettres, hors mots vides, après normalisation de la casse et des accents) qui apparaissent aussi dans l'article. Le seuil est fixé au pilote, puis écrit ici, avant la génération de la v1. Il sert aussi de mesure secondaire pour tous les modes, ce qui permet de vérifier que `paraphrase` est bien plus éloigné du texte que `direct`.
+Il se mesure ainsi : la part des mots pleins de la question (au moins 4 lettres, hors mots vides, après normalisation de la casse et des accents) qui apparaissent aussi dans l'article. Il sert aussi de mesure secondaire pour tous les modes, ce qui permet de vérifier que `paraphrase` est bien plus éloigné du texte que `direct`.
 
-## Pilote
+**Seuil : 0,40**, fixé après les pilotes. Une question `paraphrase` qui le dépasse est rejetée.
 
-Avant la v1, un pilote de 20 brouillons, tirés hors des articles de la v1, sert à mettre au point le prompt du rédacteur et le seuil de recouvrement. Ses items sont jetés. Tout changement de règle décidé au pilote est noté dans cette fiche.
+## Pilotes
+
+Avant la v1, deux pilotes de 20 brouillons chacun ont servi à mettre au point le prompt du rédacteur et le seuil de recouvrement. Leurs items sont jetés. Leurs plans et leurs brouillons restent versionnés (`pilot/`, `pilot2/`, `drafts/pilot*/`) pour retracer la calibration.
+
+| | Pilote 1 (seed 7) | Pilote 2 (seed 8) |
+|---|---|---|
+| Prompt | première version | version corrigée |
+| Formes sans chiffre absentes du texte (reformulations, traduction, coquille) | 15 formes, dans 7 brouillons | 2 formes |
+| Formes de plus de 6 mots | 6 | 2 |
+| Questions portant sur un autre code | 3 | 0 |
+| Brouillons rejetés | 1 sur 20 | 4 sur 20, dont 3 articles déclarés inutilisables |
+| Recouvrement lexical : maximum en `paraphrase`, minimum en `direct` | 0,33 / 0,57 | 0,31 / 0,42 |
+| Coût | 0,12 $ | 0,13 $ |
+
+**Changements décidés aux pilotes**, tous avant la v1 :
+- **Le prompt demande des valeurs, pas des phrases.** Une forme acceptée est la valeur telle qu'écrite dans le texte, ou une variante d'écriture (chiffres ou lettres, unité, sigle), en six mots au plus. Elle n'est jamais une reformulation, une négation ni une traduction. Un seul fait de préférence, deux au plus hors `multi_article`. Aucune question ne porte sur un autre code.
+- **Le rédacteur peut déclarer un article inutilisable** (`usable: false`) quand il n'offre aucune valeur précise. Le brouillon est alors rejeté et remplacé par le surplus.
+- **Le surplus passe de 1,5 à 2 fois le besoin**, car les rejets ont atteint 20 % au second pilote.
+- **Le seuil de recouvrement est fixé à 0,40.**
+- **Le contrôle « forme longue » est une alerte, au-delà de 6 mots.**
+- **Une forme sans chiffre absente du texte de l'article déclenche une alerte.** C'est le signal le plus fréquent d'une forme reformulée. Une forme avec chiffre est exemptée, car « 14 jours » est une variante légitime de « quatorze jours ».
 
 ## Relecture
 
@@ -87,4 +108,4 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 
 | Version | Données | Seed | Spec | Statut |
 |---|---|---|---|---|
-| `v1` | `data/v1` | à fixer | `rag-qa/v1` | règles écrites, à générer |
+| `v1` | `data/v1` | 42 | `rag-qa/v1` | règles écrites et calibrées, à générer |

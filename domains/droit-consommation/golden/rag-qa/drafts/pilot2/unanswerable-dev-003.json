@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-003",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:38:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1616,
+    "output_tokens": 269
+  },
+  "output": {
+    "question": "Quel est le nom du service de la DGCCRF qui prononce l'amende lorsqu'un prêteur immobilier fait payer des informations qui devraient être gratuites ?",
+    "why_unanswerable": "Le texte fixe seulement le montant de l'amende (30 000 euros) pour le non-respect de la gratuité des informations en crédit immobilier. Il ne désigne aucun service de la DGCCRF qui la prononcerait, et ne précise pas la procédure de prononcé ni le service compétent. Cette information n'est pas donnée par cet article.",
+    "doubt": "Un autre article du code (pouvoirs d'enquête, sanctions administratives) pourrait mentionner l'autorité compétente, mais pas un nom de service précis ; le risque est faible."
+  },
+  "raw_text": "{\"question\":\"Quel est le nom du service de la DGCCRF qui prononce l'amende lorsqu'un prêteur immobilier fait payer des informations qui devraient être gratuites ?\",\"why_unanswerable\":\"Le texte fixe seulement le montant de l'amende (30 000 euros) pour le non-respect de la gratuité des informations en crédit immobilier. Il ne désigne aucun service de la DGCCRF qui la prononcerait, et ne précise pas la procédure de prononcé ni le service compétent. Cette information n'est pas donnée par cet article.\",\"doubt\":\"Un autre article du code (pouvoirs d'enquête, sanctions administratives) pourrait mentionner l'autorité compétente, mais pas un nom de service précis ; le risque est faible.\"}"
+}

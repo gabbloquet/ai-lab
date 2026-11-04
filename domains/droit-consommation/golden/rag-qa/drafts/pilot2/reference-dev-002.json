@@ -1,0 +1,31 @@
+{
+  "task": "reference-dev-002",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:38:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1689,
+    "output_tokens": 210
+  },
+  "output": {
+    "question": "Selon l'article R. 313-21, à partir de combien de créances antérieures à rembourser, dont un crédit en cours, le prêteur doit-il interroger l'emprunteur avant l'offre de crédit immobilier ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "au moins deux",
+          "deux",
+          "2"
+        ],
+        "quote": "le remboursement d'au moins deux créances antérieures dont un crédit en cours",
+        "article": "R313-21"
+      }
+    ],
+    "doubt": "La valeur est un seuil simple (deux créances) ; la réponse peut être formulée « au moins deux », ce qui reste accepté."
+  },
+  "raw_text": "{\"question\":\"Selon l'article R. 313-21, à partir de combien de créances antérieures à rembourser, dont un crédit en cours, le prêteur doit-il interroger l'emprunteur avant l'offre de crédit immobilier ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"au moins deux\",\"deux\",\"2\"],\"quote\":\"le remboursement d'au moins deux créances antérieures dont un crédit en cours\",\"article\":\"R313-21\"}],\"doubt\":\"La valeur est un seuil simple (deux créances) ; la réponse peut être formulée « au moins deux », ce qui reste accepté.\"}"
+}

@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 from consommation_rag_qa_build import (
+    OVERLAP_THRESHOLD,
     Bm25,
     build,
     check,
@@ -69,6 +70,7 @@ def draft(t: dict, output: dict | None, stop_reason: str = "end_turn") -> dict:
 
 GOOD = {
     "question": "De combien de temps dispose-t-on pour se rétracter d'un achat en ligne ?",
+    "usable": True,
     "facts": [fact(["quatorze jours", "14 jours"], "délai de quatorze jours")],
     "doubt": "",
 }
@@ -90,6 +92,28 @@ def test_a_good_draft_passes_every_check() -> None:
 def test_a_missing_or_refused_draft_is_rejected() -> None:
     assert errors_of(task("direct"), None)
     assert check(task("direct"), None, BY_ID).errors
+
+
+def test_an_article_the_writer_finds_unusable_is_rejected() -> None:
+    assert any("inutilisable" in e for e in errors_of(task("direct"), {**GOOD, "usable": False}))
+
+
+def test_a_draft_written_before_the_usable_flag_counts_as_usable() -> None:
+    legacy = {k: v for k, v in GOOD.items() if k != "usable"}
+    assert errors_of(task("direct"), legacy) == []
+
+
+def test_paraphrase_uses_the_threshold_set_by_the_pilot_by_default() -> None:
+    assert OVERLAP_THRESHOLD == 0.4
+    close = {**GOOD, "question": "Quel délai pour exercer son droit de rétractation à distance ?"}
+    assert errors_of(task("paraphrase"), close)
+
+
+def test_a_form_longer_than_six_words_raises_an_alert() -> None:
+    long_form = "le délai de quatorze jours prévu au contrat"
+    output = {**GOOD, "facts": [fact(["quatorze jours", long_form], "délai de quatorze jours")]}
+    result = check(task("direct"), draft(task("direct"), output), BY_ID)
+    assert any("longue" in a for a in result.alerts)
 
 
 def test_an_empty_question_is_rejected() -> None:

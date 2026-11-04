@@ -1,0 +1,126 @@
+{
+  "version": "pilot2",
+  "seed": 8,
+  "overlap_threshold": 0.4,
+  "tasks": 20,
+  "drafts": 20,
+  "selected": 16,
+  "pending_review": [
+    "direct-dev-003",
+    "direct-dev-004",
+    "reference-dev-001",
+    "reference-dev-002",
+    "reference-dev-003",
+    "paraphrase-dev-001",
+    "paraphrase-dev-004",
+    "multi_article-dev-001",
+    "multi_article-dev-002",
+    "lost_context-dev-002",
+    "lost_context-dev-003",
+    "unanswerable-dev-001",
+    "unanswerable-dev-002",
+    "unanswerable-dev-003"
+  ],
+  "shortages": {
+    "direct/dev": 1,
+    "lost_context/dev": 1,
+    "multi_article/dev": 1,
+    "paraphrase/dev": 1
+  },
+  "rejected": {
+    "direct-dev-001": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-dev-002": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "multi_article-dev-003": [
+      "aucun fait tiré de L313-1"
+    ],
+    "lost_context-dev-001": [
+      "article inutilisable selon le rédacteur"
+    ]
+  },
+  "alerts": {
+    "direct-dev-003": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée, seulement un organisme de publication (le BODACC).",
+      "fait 1 : forme longue « Bulletin officiel des annonces civiles et commerciales »",
+      "fait 1 : forme sans chiffre absente du texte « BODACC »"
+    ],
+    "direct-dev-004": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée mais un document (l'acte de cession) ; la réponse est une désignation de document, avec une réserve liée à l'article L. 315-21."
+    ],
+    "reference-dev-002": [
+      "doute du rédacteur : La valeur est un seuil simple (deux créances) ; la réponse peut être formulée « au moins deux », ce qui reste accepté."
+    ],
+    "reference-dev-003": [
+      "doute du rédacteur : L'article porte surtout sur une interdiction de remise de copie et renvoie à une autre loi pour le droit d'accès ; la valeur demandée est une référence de texte, pas une valeur chiffrée.",
+      "fait 1 : forme longue « loi n° 78-17 du 6 janvier 1978 »"
+    ],
+    "paraphrase-dev-001": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée ; la valeur demandée est un document (la fiche d'informations), ce qui reste acceptable mais la question est assez simple."
+    ],
+    "paraphrase-dev-004": [
+      "doute du rédacteur : La question vise le cas général ; les exceptions des articles R. 512-28 et R. 512-29 ne sont pas mentionnées."
+    ],
+    "multi_article-dev-001": [
+      "doute du rédacteur : La question mêle deux valeurs de nature différente (livre d'un autre code et numéro d'article), et la seconde partie demande un numéro d'article, ce qui est un peu artificiel."
+    ],
+    "multi_article-dev-002": [
+      "doute du rédacteur : Le nombre de rubriques (14) se déduit de la numérotation de la liste et non d'une valeur énoncée explicitement ; la question est aussi formulée en deux parties, ce qui la rend un peu lourde.",
+      "fait 1 : forme sans chiffre absente du texte « quatorze »"
+    ],
+    "lost_context-dev-002": [
+      "doute du rédacteur : La question ne cite pas explicitement le contexte « section sur les injonctions de mise en conformité » de façon exacte, mais le mot « mesures » renvoie bien aux réquisitions de l'article.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-dev-003": [
+      "mode lost_context : relu systématiquement"
+    ],
+    "unanswerable-dev-001": [
+      "doute du rédacteur : Un autre article du Code de la consommation ou un texte sur les frais de procédure pourrait traiter la rémunération du liquidateur ; je n'en suis pas certain.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-002": [
+      "doute du rédacteur : Un autre article du code sur les délais de réponse du service client pourrait exister, mais je n'en connais pas qui fixe une durée d'attente pour ce type de service.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-003": [
+      "doute du rédacteur : Un autre article du code (pouvoirs d'enquête, sanctions administratives) pourrait mentionner l'autorité compétente, mais pas un nom de service précis ; le risque est faible.",
+      "mode unanswerable : relu systématiquement"
+    ]
+  },
+  "overlap": {
+    "direct-dev-001": 0.857,
+    "direct-dev-002": 0.833,
+    "direct-dev-003": 0.909,
+    "direct-dev-004": 0.417,
+    "reference-dev-001": 0.538,
+    "reference-dev-002": 0.636,
+    "reference-dev-003": 0.667,
+    "paraphrase-dev-001": 0.182,
+    "paraphrase-dev-002": 0.286,
+    "paraphrase-dev-003": 0.312,
+    "paraphrase-dev-004": 0.1,
+    "multi_article-dev-001": 0.522,
+    "multi_article-dev-002": 0.4,
+    "multi_article-dev-003": 0.75,
+    "lost_context-dev-001": 0.231,
+    "lost_context-dev-002": 0.6,
+    "lost_context-dev-003": 0.467,
+    "unanswerable-dev-001": 0.5,
+    "unanswerable-dev-002": 0.5,
+    "unanswerable-dev-003": 0.273
+  },
+  "writer_models": [
+    "claude-sonnet-5-5"
+  ],
+  "prompt_sha256": [
+    "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+    "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+    "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+    "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+    "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+    "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca"
+  ]
+}

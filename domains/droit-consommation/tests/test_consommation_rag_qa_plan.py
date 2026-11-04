@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 from consommation_rag_qa_plan import (
     PILOT_QUOTAS,
+    SURPLUS,
     V1_QUOTAS,
     allocate,
     eligible,
@@ -140,11 +141,11 @@ def plan(big_corpus: list[dict]) -> list[dict]:
     return make_plan(big_corpus, seed=42, quotas=V1_QUOTAS)
 
 
-def test_plan_draws_one_and_a_half_times_each_quota(plan: list[dict]) -> None:
+def test_plan_draws_twice_each_quota(plan: list[dict]) -> None:
     counts = Counter((task["mode"], task["split"]) for task in plan)
     for mode, (dev, test) in V1_QUOTAS.items():
-        assert counts[(mode, "dev")] == math.ceil(1.5 * dev), mode
-        assert counts[(mode, "test")] == math.ceil(1.5 * test), mode
+        assert counts[(mode, "dev")] == math.ceil(SURPLUS * dev) == 2 * dev, mode
+        assert counts[(mode, "test")] == math.ceil(SURPLUS * test) == 2 * test, mode
 
 
 def test_an_article_serves_only_once_in_the_whole_plan(plan: list[dict]) -> None:

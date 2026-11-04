@@ -1,0 +1,30 @@
+{
+  "task": "direct-dev-003",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:38:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1707,
+    "output_tokens": 213
+  },
+  "output": {
+    "question": "Dans quel bulletin officiel le greffe fait-il publier l'avis d'un jugement prononçant un rétablissement personnel sans liquidation judiciaire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "Bulletin officiel des annonces civiles et commerciales",
+          "BODACC"
+        ],
+        "quote": "un avis de celui-ci est adressé pour publication au Bulletin officiel des annonces civiles et commerciales par le greffe",
+        "article": "R741-17"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée, seulement un organisme de publication (le BODACC)."
+  },
+  "raw_text": "{\"question\":\"Dans quel bulletin officiel le greffe fait-il publier l'avis d'un jugement prononçant un rétablissement personnel sans liquidation judiciaire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"Bulletin officiel des annonces civiles et commerciales\",\"BODACC\"],\"quote\":\"un avis de celui-ci est adressé pour publication au Bulletin officiel des annonces civiles et commerciales par le greffe\",\"article\":\"R741-17\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée, seulement un organisme de publication (le BODACC).\"}"
+}

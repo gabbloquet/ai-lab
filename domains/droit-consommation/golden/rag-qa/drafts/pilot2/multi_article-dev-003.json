@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-dev-003",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:38:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2837,
+    "output_tokens": 459
+  },
+  "output": {
+    "question": "Pour qualifier un prêt d'usuraire, de combien son taux effectif global doit-il dépasser le taux effectif moyen du trimestre précédent, et à partir de quel montant de crédit pour travaux sur un logement les catégories d'opérations ne sont-elles plus définies à raison du montant des prêts ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "plus du tiers",
+          "du tiers",
+          "un tiers"
+        ],
+        "quote": "qui excède, au moment où il est consenti, de plus du tiers, le taux effectif moyen pratiqué au cours du trimestre précédent",
+        "article": "L314-6"
+      },
+      {
+        "accepted": [
+          "75 000 euros",
+          "75 000 €",
+          "75000 euros"
+        ],
+        "quote": "ne constituant pas une opération de crédit d'un montant supérieur à 75 000 euros destiné à financer, pour les immeubles à usage d'habitation ou à usage professionnel et d'habitation, les dépenses relatives à leur réparation, leur amélioration ou leur entretien",
+        "article": "L314-6"
+      }
+    ],
+    "doubt": "L'article B (L313-1) ne fournit aucune valeur chiffrée utilisée dans la question ; les deux faits proviennent de l'article A, donc la question ne nécessite pas vraiment les deux articles et la formulation sur le seuil de 75 000 euros est complexe."
+  },
+  "raw_text": "{\"question\":\"Pour qualifier un prêt d'usuraire, de combien son taux effectif global doit-il dépasser le taux effectif moyen du trimestre précédent, et à partir de quel montant de crédit pour travaux sur un logement les catégories d'opérations ne sont-elles plus définies à raison du montant des prêts ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"plus du tiers\",\"du tiers\",\"un tiers\"],\"quote\":\"qui excède, au moment où il est consenti, de plus du tiers, le taux effectif moyen pratiqué au cours du trimestre précédent\",\"article\":\"L314-6\"},{\"accepted\":[\"75 000 euros\",\"75 000 €\",\"75000 euros\"],\"quote\":\"ne constituant pas une opération de crédit d'un montant supérieur à 75 000 euros destiné à financer, pour les immeubles à usage d'habitation ou à usage professionnel et d'habitation, les dépenses relatives à leur réparation, leur amélioration ou leur entretien\",\"article\":\"L314-6\"}],\"doubt\":\"L'article B (L313-1) ne fournit aucune valeur chiffrée utilisée dans la question ; les deux faits proviennent de l'article A, donc la question ne nécessite pas vraiment les deux articles et la formulation sur le seuil de 75 000 euros est complexe.\"}"
+}

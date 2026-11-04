@@ -32,11 +32,12 @@ from ailab_evals.rag_qa import fact_found, normalize
 DOMAIN_DIR = Path(__file__).parent
 GOLDEN_DIR = DOMAIN_DIR / "golden" / "rag-qa"
 
-# Seuil de recouvrement lexical du mode paraphrase : fixé au pilote (README du golden set).
-OVERLAP_THRESHOLD: float | None = None
+# Seuil de recouvrement lexical du mode paraphrase, fixé au pilote du 2026-11-04 : au-dessus du
+# maximum mesuré en paraphrase (0,33), au-dessous du minimum du mode direct (0,57).
+OVERLAP_THRESHOLD: float | None = 0.4
 REVIEW_SHARE = 0.2
 MAX_FACTS = 3
-LONG_FORM_WORDS = 8
+LONG_FORM_WORDS = 6
 
 _SPACES = re.compile(r"[\s  ]+")
 _WORDS = re.compile(r"[^\W\d_]+")
@@ -234,6 +235,9 @@ def check(
             errors.append("raison de l'absence de réponse manquante")
         return Check(errors, alerts, overlap)
 
+    # Les brouillons du premier pilote n'avaient pas ce champ : son absence vaut « utilisable ».
+    if output.get("usable") is False:
+        errors.append("article inutilisable selon le rédacteur")
     facts = output.get("facts") or []
     if not 1 <= len(facts) <= MAX_FACTS:
         errors.append(f"{len(facts)} faits au lieu de 1 à {MAX_FACTS}")

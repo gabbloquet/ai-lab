@@ -41,7 +41,8 @@ PILOT_QUOTAS: dict[str, tuple[int, int]] = {
     "lost_context": (3, 0),
     "unanswerable": (3, 0),
 }
-SURPLUS = 1.5
+# Réserve : deux fois le besoin. Au second pilote, 4 brouillons sur 20 ont été rejetés.
+SURPLUS = 2.0
 
 # Les modes au vivier le plus étroit tirent en premier : un article ne sert qu'une fois.
 DRAW_ORDER = ("lost_context", "multi_article", "reference", "direct", "paraphrase", "unanswerable")

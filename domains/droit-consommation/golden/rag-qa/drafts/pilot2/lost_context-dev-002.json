@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-dev-002",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:38:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2829,
+    "output_tokens": 287
+  },
+  "output": {
+    "question": "Dans le cadre des injonctions de mise en conformité visant les interfaces en ligne illicites, quel est le délai minimal que l'autorité chargée de la concurrence et de la consommation doit laisser pour mettre en œuvre les mesures qu'elle ordonne par réquisition ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quarante-huit heures",
+          "48 heures"
+        ],
+        "quote": "Ces mesures sont mises en œuvre dans un délai, fixé par l'autorité administrative, qui ne peut être inférieur à quarante-huit heures.",
+        "article": "L521-3-1"
+      }
+    ],
+    "doubt": "La question ne cite pas explicitement le contexte « section sur les injonctions de mise en conformité » de façon exacte, mais le mot « mesures » renvoie bien aux réquisitions de l'article."
+  },
+  "raw_text": "{\"question\":\"Dans le cadre des injonctions de mise en conformité visant les interfaces en ligne illicites, quel est le délai minimal que l'autorité chargée de la concurrence et de la consommation doit laisser pour mettre en œuvre les mesures qu'elle ordonne par réquisition ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quarante-huit heures\",\"48 heures\"],\"quote\":\"Ces mesures sont mises en œuvre dans un délai, fixé par l'autorité administrative, qui ne peut être inférieur à quarante-huit heures.\",\"article\":\"L521-3-1\"}],\"doubt\":\"La question ne cite pas explicitement le contexte « section sur les injonctions de mise en conformité » de façon exacte, mais le mot « mesures » renvoie bien aux réquisitions de l'article.\"}"
+}
