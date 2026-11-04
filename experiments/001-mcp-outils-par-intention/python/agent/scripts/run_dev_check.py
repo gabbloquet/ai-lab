@@ -20,7 +20,7 @@ from ailab_evals.tool_selection import score_execution
 from exp001_agent.loop import run_item
 
 ROOT = Path(__file__).resolve().parents[5]
-GOLDEN = ROOT / "domains/magasin/golden/tool-selection/v1/items.jsonl"
+GOLDEN = ROOT / "domains/magasin/golden/tool-selection/v2/items.jsonl"
 SYSTEM_PROMPT = ROOT / "experiments/001-mcp-outils-par-intention/python/prompts/system.md"
 DEFAULT_MODEL = "mistral:mistral-small-2603"
 

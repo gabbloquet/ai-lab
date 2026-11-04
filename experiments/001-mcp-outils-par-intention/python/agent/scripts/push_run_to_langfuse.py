@@ -22,7 +22,7 @@ from exp001_agent.loop import Execution
 from exp001_agent.tracing import LangfuseTracing
 
 ROOT = Path(__file__).resolve().parents[5]
-GOLDEN = ROOT / "domains/magasin/golden/tool-selection/v1/items.jsonl"
+GOLDENS = ROOT / "domains/magasin/golden/tool-selection"
 
 
 def main() -> None:
@@ -35,7 +35,10 @@ def main() -> None:
         raise SystemExit("Ce run a déjà été tracé dans Langfuse pendant son exécution.")
     items = {
         item["id"]: item
-        for item in map(json.loads, GOLDEN.read_text(encoding="utf-8").splitlines())
+        for item in map(
+            json.loads,
+            (GOLDENS / meta["golden"]["version"] / "items.jsonl").read_text().splitlines(),
+        )
     }
     lines = [json.loads(line) for line in (args.run_dir / "records.jsonl").read_text().splitlines()]
 

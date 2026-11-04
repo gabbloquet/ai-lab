@@ -34,7 +34,7 @@ L'hypothèse n'est pas nouvelle : des praticiens expérimentés la recommandent 
 | Ce qui change entre A et B | Le découpage, les noms et les descriptions des outils, et donc le jeu d'outils exposé |
 | Ce qui est fixé | Le modèle, le prompt système, la température (0), un maximum de **10 appels d'outils** par exécution, le nombre d'outils (5 de chaque côté), le guide de rédaction des descriptions et la politique d'erreur (voir plus bas), le transport (Streamable HTTP, sur `127.0.0.1`), le format des réponses (JSON sérialisé dans un bloc texte, voir plus bas), les données (`domains/magasin/data/v1`), la boucle d'agent et sa configuration (voir plus bas) |
 | Modèles | Un modèle par fournisseur : Gemini, Mistral et Claude. Les identifiants exacts seront fixés et vérifiés avant le gel. Un verdict par modèle. |
-| Golden set | `domains/magasin/golden/tool-selection/v1` : 130 items, **n_dev = 30, n_test = 100**, 26 items par intention, soit 6 en `dev` et 20 en `test`. Appels attendus par intention et par variante : [règles du golden set](../../domains/magasin/golden/tool-selection/README.md) |
+| Golden set | `domains/magasin/golden/tool-selection/v2` : 130 items, **n_dev = 30, n_test = 100**, 26 items par intention, soit 6 en `dev` et 20 en `test`. Appels attendus par intention et par variante : [règles du golden set](../../domains/magasin/golden/tool-selection/README.md) |
 | Répétitions | k = 5 |
 | Implémentation | `java/` : les deux serveurs MCP (Spring AI), testés en boîte noire à travers le protocole MCP. Seuls ces serveurs servent aux runs. `python/mcp_server/` : un jumeau de la variante B, écrit avec le SDK MCP Python (voir plus bas), qui n'intervient pas dans la mesure. `python/` : la boucle d'agent, qui sert de client MCP, et la notation (métrique DeepEval personnalisée, conforme à la spec) |
 
@@ -228,6 +228,8 @@ PYDANTIC_AI_NO_BANNER=1 uv run --env-file .env python \
 | 0 | 2026-11-04 | A et B | Aucune : run de départ `cycle1-dev` (commit `748cc1c`, `mistral-small-2603`, k = 5, 30 items) | Mesurer avant d'itérer | A 0,727 · B 0,933 |
 
 Run 0 : delta B − A = +0,207 (indicatif, `dev`), s_d = 0,373, aucune exécution en erreur. Avec ce s_d, le MDE attendu sur les 100 items `test` est de 10,6 points, un peu au-dessus des 10 points visés (s_d ≤ 0,35 aurait suffi) : sous le seuil d'alerte de 0,4, mais à surveiller aux cycles suivants.
+
+**Correction du golden set après le run 0 (2026-11-04), hors cycle.** Deux items `dev` échouaient dans les deux variantes alors que la réponse du modèle était juste : pour une fiche demandée par nom, la recherche donne déjà le rayon et le prix, mais la v1 exigeait la fiche. La v2 du golden set exige la recherche dans ce cas, de la même façon en A et en B ([changements de la v2](../../domains/magasin/golden/tool-selection/README.md#changements-de-la-v2)). Aucune variante n'a changé, donc aucun cycle n'est consommé. Le run 0, noté de nouveau sur la v2 sans rien rejouer (`rescore_run.py`) : **A 0,793 · B 1,000**, delta inchangé (+0,207), s_d inchangé (0,373). Les cycles suivants et le run final utilisent la v2.
 
 **Commit de gel :** —
 **Run final sur le `test` :** —

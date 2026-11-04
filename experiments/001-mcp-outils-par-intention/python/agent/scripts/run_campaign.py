@@ -35,7 +35,8 @@ from exp001_agent.tracing import NO_TRACING, LangfuseTracing, Tracer
 
 ROOT = Path(__file__).resolve().parents[5]
 EXPERIMENT = ROOT / "experiments/001-mcp-outils-par-intention"
-GOLDEN = ROOT / "domains/magasin/golden/tool-selection/v1"
+GOLDENS = ROOT / "domains/magasin/golden/tool-selection"
+DEFAULT_GOLDEN = "v2"
 SPEC = "evals/spec/tool-selection/v1"
 SYSTEM_PROMPT = EXPERIMENT / "python/prompts/system.md"
 LANGFUSE_INFRA_ENV = ROOT / "infra/langfuse/.env"
@@ -53,8 +54,9 @@ def git(*args: str) -> str:
 
 
 def metadata(args: argparse.Namespace, servers: dict[str, str]) -> dict[str, Any]:
-    manifest = json.loads((GOLDEN / "MANIFEST.json").read_text(encoding="utf-8"))
-    items_sha = sha256(GOLDEN / "items.jsonl")
+    golden = GOLDENS / args.golden
+    manifest = json.loads((golden / "MANIFEST.json").read_text(encoding="utf-8"))
+    items_sha = sha256(golden / "items.jsonl")
     if items_sha != manifest["files"]["items.jsonl"]:
         raise SystemExit("Le golden set ne correspond plus à son MANIFEST : run refusé.")
     return {
@@ -135,6 +137,7 @@ async def main() -> None:
     parser.add_argument("--intent-url")
     parser.add_argument("--rest-url")
     parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument("--golden", default=DEFAULT_GOLDEN, help="version du golden set")
     parser.add_argument("--repeats", "-k", type=int, default=5)
     parser.add_argument("--concurrency", type=int, default=2)
     parser.add_argument("--runs-dir", type=Path, default=EXPERIMENT / "runs")
@@ -153,7 +156,7 @@ async def main() -> None:
     if not servers:
         raise SystemExit("Donner au moins --intent-url ou --rest-url.")
 
-    items = load_items(GOLDEN / "items.jsonl", args.split, final=args.final)
+    items = load_items(GOLDENS / args.golden / "items.jsonl", args.split, final=args.final)
     if args.items:
         if args.split != "dev":
             raise SystemExit("--items ne sert qu'aux essais sur le dev.")
