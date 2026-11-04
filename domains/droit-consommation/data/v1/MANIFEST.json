@@ -1,0 +1,25 @@
+{
+  "dataset": "droit-consommation/data",
+  "version": "v1",
+  "extractor": "domains/droit-consommation/consommation_extract.py",
+  "source": {
+    "archive": "Freemium_legi_global_20250713-140000.tar.gz",
+    "url": "https://echanges.dila.gouv.fr/OPENDATA/LEGI/Freemium_legi_global_20250713-140000.tar.gz",
+    "sha256": "f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca",
+    "licence": "Licence Ouverte / Open Licence (Etalab)"
+  },
+  "text_id": "LEGITEXT000006069565",
+  "state_date": "2025-07-13",
+  "counts": {
+    "article_versions_read": 6131,
+    "articles": 2150,
+    "cites": 2192,
+    "unresolved_cites": 83
+  },
+  "anomalies": [
+    "R542-1 : 2 versions en vigueur, conservée LEGIARTI000046012811 (début 2022-07-04), écartée LEGIARTI000044983959 (début 2021-04-01)"
+  ],
+  "files": {
+    "articles.jsonl": "ed9bb9ffd05103792132a35f1fab91c0c3dc07a719c7764ab7269eb85851d9d2"
+  }
+}
