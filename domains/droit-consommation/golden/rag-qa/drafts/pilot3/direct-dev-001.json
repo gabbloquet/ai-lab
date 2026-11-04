@@ -1,0 +1,30 @@
+{
+  "task": "direct-dev-001",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "f8a7d021b956c33727ae8144b5acf77049da49ef87ab114c19e2086a51ae0446",
+  "created_at": "2026-11-04T18:19:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2862,
+    "output_tokens": 223
+  },
+  "output": {
+    "question": "Polynésie ou Nouvelle-Calédonie : durée maximale d'inscription d'un plan conventionnel au fichier des incidents de crédit ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "L'inscription est conservée pendant toute la durée de l'exécution du plan conventionnel, sans pouvoir excéder cinq ans.",
+        "article": "L771-7"
+      }
+    ],
+    "doubt": "Le délai de cinq ans revient plusieurs fois dans l'article (plan, mesures imposées, rétablissement personnel), mais la valeur reste identique pour la question posée."
+  },
+  "raw_text": "{\"question\":\"Polynésie ou Nouvelle-Calédonie : durée maximale d'inscription d'un plan conventionnel au fichier des incidents de crédit ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"L'inscription est conservée pendant toute la durée de l'exécution du plan conventionnel, sans pouvoir excéder cinq ans.\",\"article\":\"L771-7\"}],\"doubt\":\"Le délai de cinq ans revient plusieurs fois dans l'article (plan, mesures imposées, rétablissement personnel), mais la valeur reste identique pour la question posée.\"}"
+}

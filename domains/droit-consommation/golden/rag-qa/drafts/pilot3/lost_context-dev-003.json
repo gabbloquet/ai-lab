@@ -1,0 +1,21 @@
+{
+  "task": "lost_context-dev-003",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "824aaa6815cea3ea178a50079845b7a08a9eadcbfcabb14ef1b8d564241f9d6c",
+  "created_at": "2026-11-04T18:19:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2450,
+    "output_tokens": 155
+  },
+  "output": {
+    "question": "Livraison en retard d'un achat : quelle lettre ou écrit fait considérer le contrat comme résolu ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : le délai est seulement « raisonnable » et les renvois à d'autres articles ne donnent pas de valeur. Il n'est donc pas adapté au mode demandé."
+  },
+  "raw_text": "{\"question\":\"Livraison en retard d'un achat : quelle lettre ou écrit fait considérer le contrat comme résolu ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : le délai est seulement « raisonnable » et les renvois à d'autres articles ne donnent pas de valeur. Il n'est donc pas adapté au mode demandé.\"}"
+}

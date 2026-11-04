@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-002",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "91ff9ee0d8d966b357e4af6cbd814005d441cbe9e966e9cb3fe283545f1b8ab7",
+  "created_at": "2026-11-04T18:19:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2321,
+    "output_tokens": 253
+  },
+  "output": {
+    "question": "À Saint-Pierre-et-Miquelon, qui siège à la commission de surendettement à la place du représentant de la Banque de France ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "directeur d'agence de l'Institut d'émission des départements d'outre-mer"
+        ],
+        "quote": "Le directeur d'agence de l'Institut d'émission des départements d'outre-mer est membre de la commission au lieu et place du représentant de la Banque de France.",
+        "article": "R771-6"
+      }
+    ],
+    "doubt": "La question reprend « commission » et « représentant de la Banque de France » du texte, ce qui s'écarte un peu de la consigne de paraphrase, mais ces termes sont nécessaires pour que la réponse soit unique."
+  },
+  "raw_text": "{\"question\":\"À Saint-Pierre-et-Miquelon, qui siège à la commission de surendettement à la place du représentant de la Banque de France ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"directeur d'agence de l'Institut d'émission des départements d'outre-mer\"],\"quote\":\"Le directeur d'agence de l'Institut d'émission des départements d'outre-mer est membre de la commission au lieu et place du représentant de la Banque de France.\",\"article\":\"R771-6\"}],\"doubt\":\"La question reprend « commission » et « représentant de la Banque de France » du texte, ce qui s'écarte un peu de la consigne de paraphrase, mais ces termes sont nécessaires pour que la réponse soit unique.\"}"
+}

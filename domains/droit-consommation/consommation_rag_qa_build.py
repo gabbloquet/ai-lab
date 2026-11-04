@@ -38,6 +38,10 @@ OVERLAP_THRESHOLD: float | None = 0.4
 # Part des items sans alerte tirés pour la relecture. Elle était de 20 % ; en v1, le rédacteur
 # exprime un doute sur 148 des 200 items retenus, et l'on relit donc tout (README, « Relecture »).
 REVIEW_SHARE = 1.0
+# Longueur maximale d'une question, en mots, fixée au pilote 3 : le prompt vise 15 mots, le
+# rédacteur écrit jusqu'à 20. Le mode multi_article demande deux faits : 5 mots de plus.
+MAX_QUESTION_WORDS: int | None = 20
+MULTI_EXTRA_WORDS = 5
 MAX_FACTS = 3
 LONG_FORM_WORDS = 6
 
@@ -126,6 +130,12 @@ def _squash(text: str) -> str:
     return _SPACES.sub(" ", text).strip()
 
 
+def question_words(question: str) -> int:
+    """Nombre de mots ; la ponctuation isolée par la typographie française (« : », « ? ») n'en
+    est pas un."""
+    return sum(any(c.isalnum() for c in token) for token in question.split())
+
+
 def quote_in_text(quote: str, text: str) -> bool:
     """L'extrait figure mot pour mot dans le texte, aux espaces près."""
     return _squash(quote) in _squash(text)
@@ -201,6 +211,7 @@ def check(
     by_id: dict[str, dict],
     *,
     overlap_threshold: float | None = OVERLAP_THRESHOLD,
+    max_question_words: int | None = MAX_QUESTION_WORDS,
 ) -> Check:
     errors: list[str] = []
     alerts: list[str] = []
@@ -217,6 +228,10 @@ def check(
 
     if not question.strip():
         errors.append("question vide")
+    if max_question_words is not None:
+        limit = max_question_words + (MULTI_EXTRA_WORDS if mode == "multi_article" else 0)
+        if question_words(question) > limit:
+            errors.append(f"question de {question_words(question)} mots, au-delà de {limit}")
     if draft and draft.get("model") != draft.get("model_requested"):
         alerts.append(f"rédigé par {draft.get('model')} au lieu de {draft.get('model_requested')}")
     if str(output.get("doubt", "")).strip():
@@ -369,6 +384,7 @@ def build(
     seed: int,
     review: dict[str, dict] | None = None,
     overlap_threshold: float | None = OVERLAP_THRESHOLD,
+    max_question_words: int | None = MAX_QUESTION_WORDS,
 ) -> BuildResult:
     review = review or {}
     checks: dict[str, tuple[dict, dict | None, Check]] = {}
@@ -377,7 +393,13 @@ def build(
     for task in plan:
         name = task["task"]
         draft = drafts.get(name)
-        result = check(task, draft, by_id, overlap_threshold=overlap_threshold)
+        result = check(
+            task,
+            draft,
+            by_id,
+            overlap_threshold=overlap_threshold,
+            max_question_words=max_question_words,
+        )
         checks[name] = (task, draft, result)
         verdict = review.get(name, {})
         if result.errors:
@@ -597,6 +619,7 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--golden-dir", type=Path, default=GOLDEN_DIR)
     parser.add_argument("--page", type=Path, default=None)
     parser.add_argument("--overlap-threshold", type=float, default=OVERLAP_THRESHOLD)
+    parser.add_argument("--max-question-words", type=int, default=MAX_QUESTION_WORDS)
     parser.add_argument("--publish", action="store_true")
     args = parser.parse_args(argv)
 
@@ -620,11 +643,13 @@ def main(argv: list[str] | None = None) -> None:
         seed=args.seed,
         review=review,
         overlap_threshold=args.overlap_threshold,
+        max_question_words=args.max_question_words,
     )
     report = {
         "version": args.version,
         "seed": args.seed,
         "overlap_threshold": args.overlap_threshold,
+        "max_question_words": args.max_question_words,
         "tasks": len(plan),
         "drafts": len(drafts),
         "selected": len(result.selected),
@@ -636,6 +661,11 @@ def main(argv: list[str] | None = None) -> None:
             name: round(checked.overlap, 3)
             for name, (_, _, checked) in result.checks.items()
             if checked.overlap is not None
+        },
+        "question_words": {
+            name: question_words(str((draft or {}).get("output", {}).get("question", "")))
+            for name, (_, draft, _) in result.checks.items()
+            if draft and isinstance(draft.get("output"), dict)
         },
         "writer_models": sorted({d.get("model", "") for d in drafts.values()}),
         "prompt_sha256": sorted({d.get("prompt_sha256", "") for d in drafts.values()}),

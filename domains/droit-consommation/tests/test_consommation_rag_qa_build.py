@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 from consommation_rag_qa_build import (
+    MAX_QUESTION_WORDS,
     OVERLAP_THRESHOLD,
     Bm25,
     build,
@@ -10,6 +11,7 @@ from consommation_rag_qa_build import (
     lexical_overlap,
     main,
     publish,
+    question_words,
     quote_in_text,
     render_review_page,
 )
@@ -114,6 +116,45 @@ def test_a_form_longer_than_six_words_raises_an_alert() -> None:
     output = {**GOOD, "facts": [fact(["quatorze jours", long_form], "délai de quatorze jours")]}
     result = check(task("direct"), draft(task("direct"), output), BY_ID)
     assert any("longue" in a for a in result.alerts)
+
+
+def test_questions_are_limited_to_twenty_words_by_default() -> None:
+    assert MAX_QUESTION_WORDS == 20
+
+
+def test_a_question_longer_than_the_limit_is_rejected() -> None:
+    long_question = (
+        "Pour un achat fait en ligne la semaine dernière, "
+        "combien de temps ai-je pour me rétracter ?"
+    )
+    assert question_words(long_question) == 16  # le « ? » isolé n'est pas un mot
+    assert any(
+        "mots" in e
+        for e in errors_of(
+            task("direct"), {**GOOD, "question": long_question}, max_question_words=15
+        )
+    )
+    assert (
+        errors_of(task("direct"), {**GOOD, "question": long_question}, max_question_words=None)
+        == []
+    )
+
+
+def test_multi_article_questions_get_a_few_more_words() -> None:
+    t = task("multi_article", (A, B))
+    output = {
+        **GOOD,
+        "question": (
+            "Achat en ligne : combien de temps pour me rétracter, "
+            "et qui paie alors le retour du colis ?"
+        ),
+        "facts": [
+            fact(["quatorze jours"], "délai de quatorze jours"),
+            fact(["coûts directs de renvoi"], "coûts directs de renvoi", article="L221-23"),
+        ],
+    }
+    assert question_words(output["question"]) == 17
+    assert errors_of(t, output, max_question_words=15) == []
 
 
 def test_an_empty_question_is_rejected() -> None:

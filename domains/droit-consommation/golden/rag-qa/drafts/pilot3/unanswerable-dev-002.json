@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-002",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "84f8fd79d696c8e98593a57bddf3fef327962b4728a72f64debaa2e561fab3db",
+  "created_at": "2026-11-04T18:19:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1812,
+    "output_tokens": 249
+  },
+  "output": {
+    "question": "Surendettement, liquidation judiciaire : quelle commission le liquidateur touche-t-il sur la vente de mes biens ?",
+    "why_unanswerable": "L'article fixe seulement le délai de douze mois dont dispose le liquidateur pour vendre les biens à l'amiable ou par vente forcée. Il ne dit rien de la rémunération ni de la commission du liquidateur, et le Code de la consommation ne fixe aucun taux ou montant à ce sujet dans la procédure de rétablissement personnel.",
+    "doubt": "Un autre texte (code de commerce ou décret) pourrait traiter de la rémunération du liquidateur, mais pas le Code de la consommation à ma connaissance."
+  },
+  "raw_text": "{\"question\":\"Surendettement, liquidation judiciaire : quelle commission le liquidateur touche-t-il sur la vente de mes biens ?\",\"why_unanswerable\":\"L'article fixe seulement le délai de douze mois dont dispose le liquidateur pour vendre les biens à l'amiable ou par vente forcée. Il ne dit rien de la rémunération ni de la commission du liquidateur, et le Code de la consommation ne fixe aucun taux ou montant à ce sujet dans la procédure de rétablissement personnel.\",\"doubt\":\"Un autre texte (code de commerce ou décret) pourrait traiter de la rémunération du liquidateur, mais pas le Code de la consommation à ma connaissance.\"}"
+}

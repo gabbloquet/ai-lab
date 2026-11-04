@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-dev-002",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "824aaa6815cea3ea178a50079845b7a08a9eadcbfcabb14ef1b8d564241f9d6c",
+  "created_at": "2026-11-04T18:19:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2125,
+    "output_tokens": 211
+  },
+  "output": {
+    "question": "En Nouvelle-Calédonie, le mot « grande » est remplacé par quel mot à l'article L. 512-6 du code ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "première"
+        ],
+        "quote": "A l'article L. 512-6, le mot : “ grande ” est remplacé par le mot : “ première ”",
+        "article": "L541-3"
+      }
+    ],
+    "doubt": "L'article ne fait que modifier d'autres textes pour la Nouvelle-Calédonie ; la valeur est un mot de substitution, pas une valeur précise, et la question cite un numéro d'article, donc peu exploitable."
+  },
+  "raw_text": "{\"question\":\"En Nouvelle-Calédonie, le mot « grande » est remplacé par quel mot à l'article L. 512-6 du code ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"première\"],\"quote\":\"A l'article L. 512-6, le mot : “ grande ” est remplacé par le mot : “ première ”\",\"article\":\"L541-3\"}],\"doubt\":\"L'article ne fait que modifier d'autres textes pour la Nouvelle-Calédonie ; la valeur est un mot de substitution, pas une valeur précise, et la question cite un numéro d'article, donc peu exploitable.\"}"
+}

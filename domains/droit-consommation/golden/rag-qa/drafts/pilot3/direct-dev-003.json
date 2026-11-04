@@ -1,0 +1,31 @@
+{
+  "task": "direct-dev-003",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "f8a7d021b956c33727ae8144b5acf77049da49ef87ab114c19e2086a51ae0446",
+  "created_at": "2026-11-04T18:19:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1811,
+    "output_tokens": 186
+  },
+  "output": {
+    "question": "Matériel médical : quelle amende maximale pour une personne morale en cas de manquement ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "75 000 €",
+          "75 000 euros",
+          "75000 euros"
+        ],
+        "quote": "une amende administrative dont le montant ne peut excéder 15 000 € pour une personne physique et 75 000 € pour une personne morale",
+        "article": "L242-47"
+      }
+    ],
+    "doubt": "La question reste ambiguë sur le type de manquement ; le contexte « matériel médical » est déduit du plan de l'article."
+  },
+  "raw_text": "{\"question\":\"Matériel médical : quelle amende maximale pour une personne morale en cas de manquement ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"75 000 €\",\"75 000 euros\",\"75000 euros\"],\"quote\":\"une amende administrative dont le montant ne peut excéder 15 000 € pour une personne physique et 75 000 € pour une personne morale\",\"article\":\"L242-47\"}],\"doubt\":\"La question reste ambiguë sur le type de manquement ; le contexte « matériel médical » est déduit du plan de l'article.\"}"
+}

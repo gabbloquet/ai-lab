@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-dev-003",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "91ff9ee0d8d966b357e4af6cbd814005d441cbe9e966e9cb3fe283545f1b8ab7",
+  "created_at": "2026-11-04T18:19:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2296,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Pour une fraude sanctionnée pénalement, combien de temps un tribunal peut-il m'interdire d'exercer mon métier ou de diriger une entreprise ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.",
+        "article": "L531-2"
+      }
+    ],
+    "doubt": "La question ne précise pas le délit visé à L531-1, mais la formulation vague reste la seule façon d'éviter les mots du texte ; d'autres articles du code peuvent prévoir des durées différentes pour d'autres infractions."
+  },
+  "raw_text": "{\"question\":\"Pour une fraude sanctionnée pénalement, combien de temps un tribunal peut-il m'interdire d'exercer mon métier ou de diriger une entreprise ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.\",\"article\":\"L531-2\"}],\"doubt\":\"La question ne précise pas le délit visé à L531-1, mais la formulation vague reste la seule façon d'éviter les mots du texte ; d'autres articles du code peuvent prévoir des durées différentes pour d'autres infractions.\"}"
+}

@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-001",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "91ff9ee0d8d966b357e4af6cbd814005d441cbe9e966e9cb3fe283545f1b8ab7",
+  "created_at": "2026-11-04T18:19:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1960,
+    "output_tokens": 197
+  },
+  "output": {
+    "question": "Mon projet immobilier a capoté et le prêt est annulé : la banque peut me réclamer quoi comme frais ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "frais d'étude"
+        ],
+        "quote": "le prêteur ne peut retenir ou demander que des frais d'étude dont le montant maximum est fixé suivant un barème déterminé par décret",
+        "article": "L313-38"
+      }
+    ],
+    "doubt": "Le texte ne donne pas de montant chiffré : la réponse est la nature des frais (frais d'étude), et le barème renvoie à un décret."
+  },
+  "raw_text": "{\"question\":\"Mon projet immobilier a capoté et le prêt est annulé : la banque peut me réclamer quoi comme frais ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"frais d'étude\"],\"quote\":\"le prêteur ne peut retenir ou demander que des frais d'étude dont le montant maximum est fixé suivant un barème déterminé par décret\",\"article\":\"L313-38\"}],\"doubt\":\"Le texte ne donne pas de montant chiffré : la réponse est la nature des frais (frais d'étude), et le barème renvoie à un décret.\"}"
+}

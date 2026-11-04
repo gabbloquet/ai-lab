@@ -1,0 +1,31 @@
+{
+  "task": "reference-dev-001",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "ec794d8285be37036a59cb3d52defc849ce3fe23a9eb721737f4053ddeb2210f",
+  "created_at": "2026-11-04T18:19:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2271,
+    "output_tokens": 189
+  },
+  "output": {
+    "question": "Selon l'article L. 315-2, à quel moment le remboursement d'un prêt avance mutation peut-il être exigé ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "lors de la mutation du bien",
+          "mutation du bien",
+          "mutation"
+        ],
+        "quote": "dont le remboursement ne peut être exigé que lors de la mutation du bien",
+        "article": "L315-2"
+      }
+    ],
+    "doubt": "La valeur attendue est un événement (la mutation du bien) plutôt qu'un chiffre, mais elle se lit directement dans le texte."
+  },
+  "raw_text": "{\"question\":\"Selon l'article L. 315-2, à quel moment le remboursement d'un prêt avance mutation peut-il être exigé ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"lors de la mutation du bien\",\"mutation du bien\",\"mutation\"],\"quote\":\"dont le remboursement ne peut être exigé que lors de la mutation du bien\",\"article\":\"L315-2\"}],\"doubt\":\"La valeur attendue est un événement (la mutation du bien) plutôt qu'un chiffre, mais elle se lit directement dans le texte.\"}"
+}

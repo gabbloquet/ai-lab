@@ -1,0 +1,32 @@
+{
+  "task": "paraphrase-dev-004",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "91ff9ee0d8d966b357e4af6cbd814005d441cbe9e966e9cb3fe283545f1b8ab7",
+  "created_at": "2026-11-04T18:19:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2552,
+    "output_tokens": 284
+  },
+  "output": {
+    "question": "J'ai changé d'opérateur et perdu mon numéro de téléphone : quelle indemnité minimale puis-je réclamer ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "vingt-quatre fois le prix mensuel",
+          "24 fois le prix mensuel",
+          "vingt-quatre fois",
+          "24 fois"
+        ],
+        "quote": "l'indemnité offerte au consommateur ne peut être inférieure à vingt-quatre fois le prix mensuel toutes taxes comprises de l'abonnement au service souscrit par le consommateur",
+        "article": "L224-42-1"
+      }
+    ],
+    "doubt": "La question évite le mot « portabilité » mais la situation (perte du numéro lors d'un changement d'opérateur) correspond bien au 2° ; la réponse est un multiple du prix mensuel de l'abonnement."
+  },
+  "raw_text": "{\"question\":\"J'ai changé d'opérateur et perdu mon numéro de téléphone : quelle indemnité minimale puis-je réclamer ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"vingt-quatre fois le prix mensuel\",\"24 fois le prix mensuel\",\"vingt-quatre fois\",\"24 fois\"],\"quote\":\"l'indemnité offerte au consommateur ne peut être inférieure à vingt-quatre fois le prix mensuel toutes taxes comprises de l'abonnement au service souscrit par le consommateur\",\"article\":\"L224-42-1\"}],\"doubt\":\"La question évite le mot « portabilité » mais la situation (perte du numéro lors d'un changement d'opérateur) correspond bien au 2° ; la réponse est un multiple du prix mensuel de l'abonnement.\"}"
+}

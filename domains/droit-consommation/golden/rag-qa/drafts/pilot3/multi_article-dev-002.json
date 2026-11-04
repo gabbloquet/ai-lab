@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-dev-002",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b0e5fbf0c9599c7a0125d54574f78c30d4d5e56ddfc581f8683ab85ea2e1b08e",
+  "created_at": "2026-11-04T18:19:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3092,
+    "output_tokens": 331
+  },
+  "output": {
+    "question": "Prêt immobilier en devise étrangère : la fiche d'information simule quelle fluctuation du taux de change, et à quel moment le prêteur informe-t-il des risques ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "20 %",
+          "20%",
+          "vingt pour cent"
+        ],
+        "quote": "un exemple illustrant l'incidence d'une fluctuation de 20 % du taux de change figure dans cette fiche",
+        "article": "R313-4"
+      },
+      {
+        "accepted": [
+          "à l'émission de l'offre de prêt",
+          "au plus tard à l'émission de l'offre de prêt",
+          "émission de l'offre de prêt"
+        ],
+        "quote": "Au plus tard à l'émission de l'offre de prêt, le prêteur informe l'emprunteur des risques inhérents à un tel contrat de prêt",
+        "article": "L313-64"
+      }
+    ],
+    "doubt": "La question a 22 mots environ, au-dessus de la limite de 20 mots ; à raccourcir si la limite est stricte."
+  },
+  "raw_text": "{\"question\":\"Prêt immobilier en devise étrangère : la fiche d'information simule quelle fluctuation du taux de change, et à quel moment le prêteur informe-t-il des risques ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"20 %\",\"20%\",\"vingt pour cent\"],\"quote\":\"un exemple illustrant l'incidence d'une fluctuation de 20 % du taux de change figure dans cette fiche\",\"article\":\"R313-4\"},{\"accepted\":[\"à l'émission de l'offre de prêt\",\"au plus tard à l'émission de l'offre de prêt\",\"émission de l'offre de prêt\"],\"quote\":\"Au plus tard à l'émission de l'offre de prêt, le prêteur informe l'emprunteur des risques inhérents à un tel contrat de prêt\",\"article\":\"L313-64\"}],\"doubt\":\"La question a 22 mots environ, au-dessus de la limite de 20 mots ; à raccourcir si la limite est stricte.\"}"
+}

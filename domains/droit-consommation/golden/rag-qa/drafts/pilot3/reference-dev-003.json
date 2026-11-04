@@ -1,0 +1,31 @@
+{
+  "task": "reference-dev-003",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "ec794d8285be37036a59cb3d52defc849ce3fe23a9eb721737f4053ddeb2210f",
+  "created_at": "2026-11-04T18:19:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1954,
+    "output_tokens": 131
+  },
+  "output": {
+    "question": "Quel délai l'article R. 742-49 fixe-t-il à la Caisse des dépôts pour payer les créanciers ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "dans le mois",
+          "un mois",
+          "1 mois"
+        ],
+        "quote": "dans le mois de la notification qui lui est faite par le liquidateur",
+        "article": "R742-49"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quel délai l'article R. 742-49 fixe-t-il à la Caisse des dépôts pour payer les créanciers ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"dans le mois\",\"un mois\",\"1 mois\"],\"quote\":\"dans le mois de la notification qui lui est faite par le liquidateur\",\"article\":\"R742-49\"}],\"doubt\":\"\"}"
+}

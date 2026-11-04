@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-001",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b0e5fbf0c9599c7a0125d54574f78c30d4d5e56ddfc581f8683ab85ea2e1b08e",
+  "created_at": "2026-11-04T18:19:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2415,
+    "output_tokens": 356
+  },
+  "output": {
+    "question": "Surendettement à Wallis-et-Futuna : par quels mots « juge des contentieux de la protection » est-il remplacé, et quel livre du code de commerce exclut le débiteur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "juge du tribunal de première instance"
+        ],
+        "quote": "Les mots : “ juge des contentieux de la protection ” sont remplacés dans toutes les occurrences par les mots : “ juge du tribunal de première instance ”",
+        "article": "L771-3"
+      },
+      {
+        "accepted": [
+          "livre VI",
+          "livre 6",
+          "VI"
+        ],
+        "quote": "Les dispositions du présent livre ne s'appliquent pas lorsque le débiteur relève des procédures instituées par le livre VI du code de commerce.",
+        "article": "L711-3"
+      }
+    ],
+    "doubt": "Le fait de A est une substitution de termes, et la question relie les deux articles de façon un peu artificielle ; le fait de B (livre VI) n'est valable que si le dernier alinéa de L711-3 est applicable, ce que A exclut pourtant."
+  },
+  "raw_text": "{\"question\":\"Surendettement à Wallis-et-Futuna : par quels mots « juge des contentieux de la protection » est-il remplacé, et quel livre du code de commerce exclut le débiteur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"juge du tribunal de première instance\"],\"quote\":\"Les mots : “ juge des contentieux de la protection ” sont remplacés dans toutes les occurrences par les mots : “ juge du tribunal de première instance ”\",\"article\":\"L771-3\"},{\"accepted\":[\"livre VI\",\"livre 6\",\"VI\"],\"quote\":\"Les dispositions du présent livre ne s'appliquent pas lorsque le débiteur relève des procédures instituées par le livre VI du code de commerce.\",\"article\":\"L711-3\"}],\"doubt\":\"Le fait de A est une substitution de termes, et la question relie les deux articles de façon un peu artificielle ; le fait de B (livre VI) n'est valable que si le dernier alinéa de L711-3 est applicable, ce que A exclut pourtant.\"}"
+}

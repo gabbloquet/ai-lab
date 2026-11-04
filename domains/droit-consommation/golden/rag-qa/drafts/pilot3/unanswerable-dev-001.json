@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-001",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "84f8fd79d696c8e98593a57bddf3fef327962b4728a72f64debaa2e561fab3db",
+  "created_at": "2026-11-04T18:19:29+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1801,
+    "output_tokens": 239
+  },
+  "output": {
+    "question": "Quel est le montant exact de l'amende infligée à un prêteur qui rémunère un vendeur de bien contrairement aux règles ?",
+    "why_unanswerable": "Le code ne fixe pas ici de montant en euros : il renvoie seulement à la peine d'amende prévue pour les contraventions de la 5e classe. Le montant chiffré de cette amende relève du Code pénal, et non du Code de la consommation. La question exige donc une valeur que le code ne donne pas.",
+    "doubt": "Le Code de la consommation peut mentionner le montant de la 5e classe ailleurs ; la question reste donc ambiguë, car la réponse se trouve dans le Code pénal."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant exact de l'amende infligée à un prêteur qui rémunère un vendeur de bien contrairement aux règles ?\",\"why_unanswerable\":\"Le code ne fixe pas ici de montant en euros : il renvoie seulement à la peine d'amende prévue pour les contraventions de la 5e classe. Le montant chiffré de cette amende relève du Code pénal, et non du Code de la consommation. La question exige donc une valeur que le code ne donne pas.\",\"doubt\":\"Le Code de la consommation peut mentionner le montant de la 5e classe ailleurs ; la question reste donc ambiguë, car la réponse se trouve dans le Code pénal.\"}"
+}

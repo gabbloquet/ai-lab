@@ -1,1 +1,1 @@
-Mode « référence exacte » : la question cite explicitement le numéro de l'article, sous la forme « l'article {citation} », par exemple « Que prévoit l'article {citation} sur … ? ». Le reste des règles s'applique.
+Mode « référence exacte » : la question cite explicitement le numéro de l'article, sous la forme « l'article {citation} » ou « l'article {citation} du code de la consommation ». Par exemple : « Que prévoit l'article {citation} comme délai ? ». La limite de 15 mots s'applique.

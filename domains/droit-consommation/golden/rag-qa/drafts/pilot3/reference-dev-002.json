@@ -1,0 +1,29 @@
+{
+  "task": "reference-dev-002",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "ec794d8285be37036a59cb3d52defc849ce3fe23a9eb721737f4053ddeb2210f",
+  "created_at": "2026-11-04T18:19:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2042,
+    "output_tokens": 211
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 215-5 du code de la consommation pour la reconduction des contrats d'assurance ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "chapitre III du titre Ier du livre Ier du code des assurances"
+        ],
+        "quote": "sont fixées par les dispositions du chapitre III du titre Ier du livre Ier du code des assurances",
+        "article": "L215-5"
+      }
+    ],
+    "doubt": "L'article ne fait que renvoyer à d'autres codes (assurances, mutualité, sécurité sociale) et ne contient aucune valeur précise propre au Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 215-5 du code de la consommation pour la reconduction des contrats d'assurance ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"chapitre III du titre Ier du livre Ier du code des assurances\"],\"quote\":\"sont fixées par les dispositions du chapitre III du titre Ier du livre Ier du code des assurances\",\"article\":\"L215-5\"}],\"doubt\":\"L'article ne fait que renvoyer à d'autres codes (assurances, mutualité, sécurité sociale) et ne contient aucune valeur précise propre au Code de la consommation.\"}"
+}

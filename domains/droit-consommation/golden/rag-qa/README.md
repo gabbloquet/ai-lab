@@ -69,17 +69,18 @@ Il se mesure ainsi : la part des mots pleins de la question (au moins 4 lettres,
 
 ## Pilotes
 
-Avant la v1, deux pilotes de 20 brouillons chacun ont servi à mettre au point le prompt du rédacteur et le seuil de recouvrement. Leurs items sont jetés. Leurs plans et leurs brouillons restent versionnés (`pilot/`, `pilot2/`, `drafts/pilot*/`) pour retracer la calibration.
+Avant la v1, trois pilotes de 20 brouillons chacun ont servi à mettre au point le prompt du rédacteur, le seuil de recouvrement et la longueur des questions. Leurs items sont jetés, et leurs articles sont exclus de la v1 (le pilote 3, tiré après le plan v1, exclut aussi les articles de ce plan). Leurs plans et leurs brouillons restent versionnés (`pilot*/`, `drafts/pilot*/`) pour retracer la calibration.
 
-| | Pilote 1 (seed 7) | Pilote 2 (seed 8) |
-|---|---|---|
-| Prompt | première version | version corrigée |
-| Formes sans chiffre absentes du texte (reformulations, traduction, coquille) | 15 formes, dans 7 brouillons | 2 formes |
-| Formes de plus de 6 mots | 6 | 2 |
-| Questions portant sur un autre code | 3 | 0 |
-| Brouillons rejetés | 1 sur 20 | 4 sur 20, dont 3 articles déclarés inutilisables |
-| Recouvrement lexical : maximum en `paraphrase`, minimum en `direct` | 0,33 / 0,57 | 0,31 / 0,42 |
-| Coût | 0,12 $ | 0,13 $ |
+| | Pilote 1 (seed 7) | Pilote 2 (seed 8) | Pilote 3 (seed 9) |
+|---|---|---|---|
+| Prompt | première version | valeurs plutôt que phrases | questions de chat |
+| Mots par question, médiane des modes | non mesuré | non mesuré | 15 à 24 (28 à 39 avec le prompt du pilote 2, mesuré sur la première rédaction de la v1) |
+| Formes sans chiffre absentes du texte (reformulations, traduction, coquille) | 15 formes, dans 7 brouillons | 2 formes | non compté |
+| Formes de plus de 6 mots | 6 | 2 | non compté |
+| Questions portant sur un autre code | 3 | 0 | 0 |
+| Brouillons rejetés | 1 sur 20 | 4 sur 20, dont 3 articles déclarés inutilisables | 5 sur 20 |
+| Recouvrement lexical : maximum en `paraphrase`, minimum en `direct` | 0,33 / 0,57 | 0,31 / 0,42 | 0,80 (rejeté) puis 0,40 / 0,44 |
+| Coût | 0,12 $ | 0,13 $ | 0,14 $ |
 
 **Changements décidés aux pilotes**, tous avant la v1 :
 - **Le prompt demande des valeurs, pas des phrases.** Une forme acceptée est la valeur telle qu'écrite dans le texte, ou une variante d'écriture (chiffres ou lettres, unité, sigle), en six mots au plus. Elle n'est jamais une reformulation, une négation ni une traduction. Un seul fait de préférence, deux au plus hors `multi_article`. Aucune question ne porte sur un autre code.
@@ -88,6 +89,10 @@ Avant la v1, deux pilotes de 20 brouillons chacun ont servi à mettre au point l
 - **Le seuil de recouvrement est fixé à 0,40.**
 - **Le contrôle « forme longue » est une alerte, au-delà de 6 mots.**
 - **Une forme sans chiffre absente du texte de l'article déclenche une alerte.** C'est le signal le plus fréquent d'une forme reformulée. Une forme avec chiffre est exemptée, car « 14 jours » est une variante légitime de « quatorze jours ».
+- **Pilote 3 : des questions de chat.** À la relecture des 10 premiers items de la première rédaction de la v1, les questions étaient justes mais trop longues et trop précises : 28 à 39 mots en médiane selon le mode, loin de ce qu'on tape dans un chat. Elles reprenaient aussi beaucoup de termes de l'article, ce qui rend la récupération artificiellement facile. Le prompt demande désormais une question de 15 mots au plus, avec seulement le contexte nécessaire pour que la réponse soit unique dans le code.
+- **Une question de plus de 20 mots est rejetée** (25 en `multi_article`). Le rédacteur dépasse la cible de 15 mots, jusqu'à 20 au pilote 3.
+- **Un article sur lequel personne ne poserait de question dans un chat est déclaré inutilisable** : adaptation à l'outre-mer par remplacement de mots, procédure interne à une administration.
+- **La rédaction de la v1 a été refaite** avec ce prompt, sur le même plan. La première rédaction reste dans l'historique git (commit `c072abc`). Rien n'avait été publié.
 
 ## Relecture
 

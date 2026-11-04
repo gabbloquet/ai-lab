@@ -1,0 +1,31 @@
+{
+  "task": "direct-dev-002",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "f8a7d021b956c33727ae8144b5acf77049da49ef87ab114c19e2086a51ae0446",
+  "created_at": "2026-11-04T18:19:20+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1994,
+    "output_tokens": 217
+  },
+  "output": {
+    "question": "À partir de quand un dépassement significatif de compte oblige-t-il la banque à informer le client sans délai ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "au-delà d'un mois",
+          "un mois",
+          "1 mois"
+        ],
+        "quote": "Dans le cas d'un dépassement significatif qui se prolonge au-delà d'un mois, le prêteur fournit cette information à l'emprunteur, sans délai",
+        "article": "L312-92"
+      }
+    ],
+    "doubt": "La durée d'un mois est la seule valeur précise de l'article ; la formulation « à partir de quand » pourrait amener une réponse du type « après un mois »."
+  },
+  "raw_text": "{\"question\":\"À partir de quand un dépassement significatif de compte oblige-t-il la banque à informer le client sans délai ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"au-delà d'un mois\",\"un mois\",\"1 mois\"],\"quote\":\"Dans le cas d'un dépassement significatif qui se prolonge au-delà d'un mois, le prêteur fournit cette information à l'emprunteur, sans délai\",\"article\":\"L312-92\"}],\"doubt\":\"La durée d'un mois est la seule valeur précise de l'article ; la formulation « à partir de quand » pourrait amener une réponse du type « après un mois ».\"}"
+}

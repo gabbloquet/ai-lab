@@ -1,0 +1,163 @@
+{
+  "version": "pilot3",
+  "seed": 9,
+  "overlap_threshold": 0.4,
+  "max_question_words": null,
+  "tasks": 20,
+  "drafts": 20,
+  "selected": 15,
+  "pending_review": [
+    "direct-dev-001",
+    "direct-dev-002",
+    "direct-dev-003",
+    "direct-dev-004",
+    "reference-dev-003",
+    "paraphrase-dev-001",
+    "paraphrase-dev-003",
+    "paraphrase-dev-004",
+    "multi_article-dev-001",
+    "multi_article-dev-002",
+    "multi_article-dev-003",
+    "lost_context-dev-001",
+    "unanswerable-dev-001",
+    "unanswerable-dev-002",
+    "unanswerable-dev-003"
+  ],
+  "shortages": {
+    "lost_context/dev": 2,
+    "paraphrase/dev": 1,
+    "reference/dev": 2
+  },
+  "rejected": {
+    "reference-dev-001": [
+      "fait 1 : la question contient la réponse « mutation »"
+    ],
+    "reference-dev-002": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-dev-002": [
+      "recouvrement lexical 0.80 > 0.40"
+    ],
+    "lost_context-dev-002": [
+      "la question cite un numéro d'article",
+      "article inutilisable selon le rédacteur"
+    ],
+    "lost_context-dev-003": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ]
+  },
+  "alerts": {
+    "direct-dev-001": [
+      "doute du rédacteur : Le délai de cinq ans revient plusieurs fois dans l'article (plan, mesures imposées, rétablissement personnel), mais la valeur reste identique pour la question posée."
+    ],
+    "direct-dev-002": [
+      "doute du rédacteur : La durée d'un mois est la seule valeur précise de l'article ; la formulation « à partir de quand » pourrait amener une réponse du type « après un mois »."
+    ],
+    "direct-dev-003": [
+      "doute du rédacteur : La question reste ambiguë sur le type de manquement ; le contexte « matériel médical » est déduit du plan de l'article."
+    ],
+    "direct-dev-004": [
+      "fait 1 : forme sans chiffre absente du texte « cinquième classe »"
+    ],
+    "reference-dev-003": [
+      "fait 1 : forme sans chiffre absente du texte « un mois »"
+    ],
+    "paraphrase-dev-001": [
+      "doute du rédacteur : Le texte ne donne pas de montant chiffré : la réponse est la nature des frais (frais d'étude), et le barème renvoie à un décret."
+    ],
+    "paraphrase-dev-003": [
+      "doute du rédacteur : La question ne précise pas le délit visé à L531-1, mais la formulation vague reste la seule façon d'éviter les mots du texte ; d'autres articles du code peuvent prévoir des durées différentes pour d'autres infractions."
+    ],
+    "paraphrase-dev-004": [
+      "doute du rédacteur : La question évite le mot « portabilité » mais la situation (perte du numéro lors d'un changement d'opérateur) correspond bien au 2° ; la réponse est un multiple du prix mensuel de l'abonnement."
+    ],
+    "multi_article-dev-001": [
+      "doute du rédacteur : Le fait de A est une substitution de termes, et la question relie les deux articles de façon un peu artificielle ; le fait de B (livre VI) n'est valable que si le dernier alinéa de L711-3 est applicable, ce que A exclut pourtant."
+    ],
+    "multi_article-dev-002": [
+      "doute du rédacteur : La question a 22 mots environ, au-dessus de la limite de 20 mots ; à raccourcir si la limite est stricte.",
+      "fait 1 : forme sans chiffre absente du texte « vingt pour cent »",
+      "fait 2 : forme longue « au plus tard à l'émission de l'offre de prêt »"
+    ],
+    "multi_article-dev-003": [
+      "doute du rédacteur : La question est un peu longue et le premier fait (existence ou absence du droit, durée, modalités) est formulé de façon qualitative, donc moins précis qu'une valeur chiffrée.",
+      "fait 1 : forme longue « l'existence ou l'absence du droit de rétractation »",
+      "fait 1 : forme longue « existence ou absence du droit de rétractation »",
+      "fait 1 : forme sans chiffre absente du texte « existence ou absence du droit de rétractation »",
+      "fait 1 : forme sans chiffre absente du texte « existence ou absence »"
+    ],
+    "lost_context-dev-001": [
+      "doute du rédacteur : La valeur attendue est une personne (le prêteur initial) et non un chiffre ; l'article ne contient pas de valeur numérique précise.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme sans chiffre absente du texte « le prêteur initial »"
+    ],
+    "unanswerable-dev-001": [
+      "doute du rédacteur : Le Code de la consommation peut mentionner le montant de la 5e classe ailleurs ; la question reste donc ambiguë, car la réponse se trouve dans le Code pénal.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-002": [
+      "doute du rédacteur : Un autre texte (code de commerce ou décret) pourrait traiter de la rémunération du liquidateur, mais pas le Code de la consommation à ma connaissance.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-003": [
+      "doute du rédacteur : L'article L224-109 (non fourni) pourrait mentionner une obligation de proposer des pièces d'occasion, mais sans doute pas de remise chiffrée ; un risque subsiste qu'un autre article fixe un tel taux.",
+      "mode unanswerable : relu systématiquement"
+    ]
+  },
+  "overlap": {
+    "direct-dev-001": 0.727,
+    "direct-dev-002": 0.444,
+    "direct-dev-003": 0.571,
+    "direct-dev-004": 0.625,
+    "reference-dev-001": 0.833,
+    "reference-dev-002": 0.6,
+    "reference-dev-003": 0.5,
+    "paraphrase-dev-001": 0.222,
+    "paraphrase-dev-002": 0.8,
+    "paraphrase-dev-003": 0.4,
+    "paraphrase-dev-004": 0.222,
+    "multi_article-dev-001": 0.333,
+    "multi_article-dev-002": 0.643,
+    "multi_article-dev-003": 0.3,
+    "lost_context-dev-001": 0.75,
+    "lost_context-dev-002": 1.0,
+    "lost_context-dev-003": 0.556,
+    "unanswerable-dev-001": 0.3,
+    "unanswerable-dev-002": 0.375,
+    "unanswerable-dev-003": 0.2
+  },
+  "question_words": {
+    "direct-dev-001": 15,
+    "direct-dev-002": 18,
+    "direct-dev-003": 13,
+    "direct-dev-004": 17,
+    "reference-dev-001": 16,
+    "reference-dev-002": 16,
+    "reference-dev-003": 15,
+    "paraphrase-dev-001": 18,
+    "paraphrase-dev-002": 19,
+    "paraphrase-dev-003": 20,
+    "paraphrase-dev-004": 14,
+    "multi_article-dev-001": 24,
+    "multi_article-dev-002": 24,
+    "multi_article-dev-003": 20,
+    "lost_context-dev-001": 15,
+    "lost_context-dev-002": 16,
+    "lost_context-dev-003": 15,
+    "unanswerable-dev-001": 20,
+    "unanswerable-dev-002": 14,
+    "unanswerable-dev-003": 17
+  },
+  "writer_models": [
+    "claude-sonnet-5-5"
+  ],
+  "prompt_sha256": [
+    "824aaa6815cea3ea178a50079845b7a08a9eadcbfcabb14ef1b8d564241f9d6c",
+    "84f8fd79d696c8e98593a57bddf3fef327962b4728a72f64debaa2e561fab3db",
+    "91ff9ee0d8d966b357e4af6cbd814005d441cbe9e966e9cb3fe283545f1b8ab7",
+    "b0e5fbf0c9599c7a0125d54574f78c30d4d5e56ddfc581f8683ab85ea2e1b08e",
+    "ec794d8285be37036a59cb3d52defc849ce3fe23a9eb721737f4053ddeb2210f",
+    "f8a7d021b956c33727ae8144b5acf77049da49ef87ab114c19e2086a51ae0446"
+  ]
+}
