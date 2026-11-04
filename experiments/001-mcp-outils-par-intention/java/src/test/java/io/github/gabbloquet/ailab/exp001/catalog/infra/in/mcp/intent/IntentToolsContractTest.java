@@ -191,6 +191,15 @@ class IntentToolsContractTest {
         assertThat(texts(result)).containsExactly("Invalid SKU: 80284. A SKU is P- followed by 5 digits.");
     }
 
+    // Le SDK valide le schéma avant l'outil, avec des messages dans la langue de la JVM.
+    @Test
+    void reportsAMissingArgumentInEnglishWhateverTheMachineLocale() {
+        CallToolResult result = call("get_product_details", Map.of());
+
+        assertThat(result.isError()).isTrue();
+        assertThat(texts(result)).singleElement().asString().contains("required property 'sku' not found");
+    }
+
     @Test
     void givesTheQuantityAvailableForSaleNetOfReservations() {
         CallToolResult result = call("check_availability", Map.of("sku", "P-38893", "storeId", "s04"));
