@@ -38,3 +38,6 @@ graphify-out/
 
 # Runs de la 001 : artefacts de travail, le rapport daté va dans results/
 experiments/001-mcp-outils-par-intention/runs/
+
+# Archives sources des domaines (LEGI : 1,1 Go), retéléchargeables et vérifiées par empreinte
+domains/*/.cache/

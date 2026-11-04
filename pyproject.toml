@@ -35,7 +35,7 @@ members = [
 
 [tool.pytest.ini_options]
 testpaths = ["domains", "evals", "experiments"]
-pythonpath = ["domains/magasin"]
+pythonpath = ["domains/magasin", "domains/droit-consommation"]
 addopts = ["--import-mode=importlib"]
 
 [tool.ruff]
