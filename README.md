@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/FastAPI-0.159-009688?logo=fastapi&logoColor=white" alt="FastAPI 0.159">
   <img src="https://img.shields.io/badge/MCP-SDK_Java_%26_Python-111827" alt="MCP">
   <img src="https://img.shields.io/badge/DeepEval-4.3.1-6E56CF" alt="DeepEval 4.3.1">
-  <img src="https://img.shields.io/badge/Langfuse-4.67-0A0A0A" alt="Langfuse 4.67">
+  <img src="https://img.shields.io/badge/Langfuse-4.74-0A0A0A" alt="Langfuse 4.74">
   <img src="https://img.shields.io/badge/licence-MIT-blue" alt="Licence MIT">
 </p>
 
@@ -113,7 +113,7 @@ Côté Python, aucune bibliothèque ne couvre seule le périmètre de Spring AI 
 |---|---|
 | Fournisseurs LLM | Gemini, Mistral, Claude (starters Spring AI côté Java ; SDK côté Python à choisir) |
 | Golden sets et specs | JSONL et JSON Schema, lisibles depuis les deux langages |
-| Traces et scores | Langfuse 4.67.0, auto-hébergé |
+| Traces et scores | Langfuse 4.74.0, auto-hébergé (`infra/langfuse/`, Docker Compose, sur `127.0.0.1`) |
 
 Versions vérifiées le 2026-10-21 sur Maven Central, PyPI, GitHub et services.gradle.org.
 
