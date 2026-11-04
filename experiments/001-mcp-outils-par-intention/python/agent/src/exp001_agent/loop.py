@@ -17,6 +17,9 @@ MAX_TOOL_CALLS = 10
 MAX_RETRIES = 2
 TOOL_ERROR_BEHAVIOR = "failed"
 TEMPERATURE = 0.0
+# Les modèles Claude actuels refusent le paramètre temperature (HTTP 400, référence de l'API
+# Claude, 2026-11-04) : il n'est pas envoyé, et la configuration réelle va dans run.json.
+PROVIDERS_WITHOUT_TEMPERATURE = ("anthropic:",)
 # Garde-fou seulement : le plafond réel est MAX_TOOL_CALLS, compté par la boucle.
 SAFETY_REQUEST_LIMIT = 30
 
@@ -68,7 +71,7 @@ async def run_item(
         # Un outil inconnu est rejeté par l'agent, pas par le toolset : même budget des deux côtés.
         retries=MAX_RETRIES,
         instructions=system_prompt.format(store_id=store_id),
-        model_settings=ModelSettings(temperature=TEMPERATURE),
+        model_settings=model_settings(model if isinstance(model, str) else model.model_name),
     )
     error: str | None = None
     answer: str | None = None
@@ -101,6 +104,12 @@ async def run_item(
         error=error,
         answer=answer,
     )
+
+
+def model_settings(model: str) -> ModelSettings:
+    if model.startswith(PROVIDERS_WITHOUT_TEMPERATURE):
+        return ModelSettings()
+    return ModelSettings(temperature=TEMPERATURE)
 
 
 def emitted_calls(messages: list[ModelMessage]) -> list[dict[str, Any]]:

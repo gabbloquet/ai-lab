@@ -75,7 +75,7 @@ def metadata(args: argparse.Namespace, servers: dict[str, str]) -> dict[str, Any
             "max_tool_calls": loop.MAX_TOOL_CALLS,
             "max_retries": loop.MAX_RETRIES,
             "tool_error_behavior": loop.TOOL_ERROR_BEHAVIOR,
-            "temperature": loop.TEMPERATURE,
+            "model_settings": dict(loop.model_settings(args.model)),
         },
     }
 

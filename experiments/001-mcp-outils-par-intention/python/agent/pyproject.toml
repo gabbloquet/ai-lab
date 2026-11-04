@@ -8,7 +8,7 @@ dependencies = [
     "ailab-evals",
     # Traces et scores des runs, vers le Langfuse local (infra/langfuse).
     "langfuse==5.1.0",
-    "pydantic-ai-slim[mcp,mistral]==2.65.0",
+    "pydantic-ai-slim[anthropic,google,mcp,mistral]==2.65.0",
 ]
 
 [tool.uv.sources]
