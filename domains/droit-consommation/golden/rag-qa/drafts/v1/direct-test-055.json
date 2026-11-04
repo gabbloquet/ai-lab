@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-055",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:41:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1721,
+    "output_tokens": 253
+  },
+  "output": {
+    "question": "Quel règlement européen, daté du 5 avril 2017, définit les dispositifs médicaux auxquels correspondent les matériels médicaux listés pour la disponibilité des pièces détachées ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "règlement (UE) 2017/745",
+          "2017/745"
+        ],
+        "quote": "au sens de l'article 2 du règlement (UE) 2017/745 du Parlement européen et du Conseil du 5 avril 2017 relatif aux dispositifs médicaux",
+        "article": "D224-41"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée mais un numéro de règlement européen ; la valeur reste précise mais la question est de nature plutôt documentaire."
+  },
+  "raw_text": "{\"question\":\"Quel règlement européen, daté du 5 avril 2017, définit les dispositifs médicaux auxquels correspondent les matériels médicaux listés pour la disponibilité des pièces détachées ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"règlement (UE) 2017/745\",\"2017/745\"],\"quote\":\"au sens de l'article 2 du règlement (UE) 2017/745 du Parlement européen et du Conseil du 5 avril 2017 relatif aux dispositifs médicaux\",\"article\":\"D224-41\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée mais un numéro de règlement européen ; la valeur reste précise mais la question est de nature plutôt documentaire.\"}"
+}

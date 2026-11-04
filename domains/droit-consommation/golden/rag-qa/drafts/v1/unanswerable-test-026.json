@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-026",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1685,
+    "output_tokens": 284
+  },
+  "output": {
+    "question": "Quel est le délai minimal, en nombre de jours, que le prêteur doit respecter avant de modifier les conditions d'un crédit immobilier après avoir informé l'emprunteur ?",
+    "why_unanswerable": "L'article impose seulement au prêteur de communiquer les modifications envisagées, le calendrier de mise en œuvre et les modalités de réclamation et de médiation, et renvoie la liste des informations à un décret en Conseil d'État. Il ne fixe aucun délai de préavis chiffré. Le code ne donne donc pas de nombre de jours dans ce texte.",
+    "doubt": "Un autre article du Code de la consommation (ou un décret) pourrait prévoir un préavis pour certaines modifications, comme celles du taux variable, ce qui rendrait la question partiellement répondable."
+  },
+  "raw_text": "{\"question\":\"Quel est le délai minimal, en nombre de jours, que le prêteur doit respecter avant de modifier les conditions d'un crédit immobilier après avoir informé l'emprunteur ?\",\"why_unanswerable\":\"L'article impose seulement au prêteur de communiquer les modifications envisagées, le calendrier de mise en œuvre et les modalités de réclamation et de médiation, et renvoie la liste des informations à un décret en Conseil d'État. Il ne fixe aucun délai de préavis chiffré. Le code ne donne donc pas de nombre de jours dans ce texte.\",\"doubt\":\"Un autre article du Code de la consommation (ou un décret) pourrait prévoir un préavis pour certaines modifications, comme celles du taux variable, ce qui rendrait la question partiellement répondable.\"}"
+}

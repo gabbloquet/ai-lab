@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-028",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2690,
+    "output_tokens": 297
+  },
+  "output": {
+    "question": "Quelle est l'amende maximale encourue par un comparateur en ligne qui n'affiche pas la rubrique expliquant le fonctionnement de son service de comparaison ?",
+    "why_unanswerable": "L'article D111-7 énumère seulement les mentions et informations que le comparateur doit afficher (rubrique spécifique, haut des pages de résultats, mention « Annonces »). Il ne fixe aucun montant d'amende ni de sanction en cas de manquement. Cette question porte sur une situation voisine que l'article ne couvre pas.",
+    "doubt": "Le Code de la consommation prévoit des sanctions pour manquement à l'information précontractuelle (amendes administratives) dans d'autres articles, qui pourraient s'appliquer aux comparateurs en ligne ; la question pourrait donc avoir une réponse ailleurs."
+  },
+  "raw_text": "{\"question\":\"Quelle est l'amende maximale encourue par un comparateur en ligne qui n'affiche pas la rubrique expliquant le fonctionnement de son service de comparaison ?\",\"why_unanswerable\":\"L'article D111-7 énumère seulement les mentions et informations que le comparateur doit afficher (rubrique spécifique, haut des pages de résultats, mention « Annonces »). Il ne fixe aucun montant d'amende ni de sanction en cas de manquement. Cette question porte sur une situation voisine que l'article ne couvre pas.\",\"doubt\":\"Le Code de la consommation prévoit des sanctions pour manquement à l'information précontractuelle (amendes administratives) dans d'autres articles, qui pourraient s'appliquer aux comparateurs en ligne ; la question pourrait donc avoir une réponse ailleurs.\"}"
+}

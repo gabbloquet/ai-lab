@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-046",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:42:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2246,
+    "output_tokens": 233
+  },
+  "output": {
+    "question": "Un vendeur de logiciels en ligne refuse de mauvaise foi de me faire bénéficier de la garantie de conformité. Quel est le plafond de l'amende civile que le juge peut lui infliger, en euros, dans le cas général ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €",
+          "300000 euros"
+        ],
+        "quote": "une amende civile dont le montant ne peut excéder 300 000 euros",
+        "article": "L242-18-1"
+      }
+    ],
+    "doubt": "Le montant peut être porté à 10 % du chiffre d'affaires moyen annuel ; la question précise « dans le cas général » pour viser le plafond de base."
+  },
+  "raw_text": "{\"question\":\"Un vendeur de logiciels en ligne refuse de mauvaise foi de me faire bénéficier de la garantie de conformité. Quel est le plafond de l'amende civile que le juge peut lui infliger, en euros, dans le cas général ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\",\"300000 euros\"],\"quote\":\"une amende civile dont le montant ne peut excéder 300 000 euros\",\"article\":\"L242-18-1\"}],\"doubt\":\"Le montant peut être porté à 10 % du chiffre d'affaires moyen annuel ; la question précise « dans le cas général » pour viser le plafond de base.\"}"
+}

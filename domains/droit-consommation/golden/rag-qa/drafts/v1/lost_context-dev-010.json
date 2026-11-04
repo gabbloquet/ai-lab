@@ -1,0 +1,38 @@
+{
+  "task": "lost_context-dev-010",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1888,
+    "output_tokens": 856
+  },
+  "output": {
+    "question": "En matière de surendettement des particuliers, un débiteur perd le bénéfice de la procédure s'il aggrave son endettement sans accord pendant l'exécution du plan ou des mesures prévues par quels articles du code ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "L. 733-1",
+          "L733-1"
+        ],
+        "quote": "des mesures prévues à l'article L. 733-1 ou à l'article L. 733-4",
+        "article": "L761-1"
+      },
+      {
+        "accepted": [
+          "L. 733-4",
+          "L733-4"
+        ],
+        "quote": "des mesures prévues à l'article L. 733-1 ou à l'article L. 733-4",
+        "article": "L761-1"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée classique ; la réponse est un renvoi à deux numéros d'articles, et la question demande ces numéros sans les citer."
+  },
+  "raw_text": "{\"question\":\"En matière de surendettement des particuliers, un débiteur perd le bénéfice de la procédure s'il aggrave son endettement sans accord pendant l'exécution du plan ou des mesures prévues par quels articles du code ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"L. 733-1\",\"L733-1\"],\"quote\":\"des mesures prévues à l'article L. 733-1 ou à l'article L. 733-4\",\"article\":\"L761-1\"},{\"accepted\":[\"L. 733-4\",\"L733-4\"],\"quote\":\"des mesures prévues à l'article L. 733-1 ou à l'article L. 733-4\",\"article\":\"L761-1\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée classique ; la réponse est un renvoi à deux numéros d'articles, et la question demande ces numéros sans les citer.\"}"
+}

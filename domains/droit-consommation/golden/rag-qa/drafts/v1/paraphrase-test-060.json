@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-060",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:42:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1637,
+    "output_tokens": 207
+  },
+  "output": {
+    "question": "Si une entreprise ne respecte pas les mesures décidées par la Commission européenne en matière de sécurité des produits, à quelle catégorie de contravention l'amende correspond-elle ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "5e classe",
+          "cinquième classe",
+          "contraventions de la 5e classe"
+        ],
+        "quote": "sont punies de la peine d'amende prévue pour les contraventions de la 5e classe",
+        "article": "R452-3"
+      }
+    ],
+    "doubt": "La question évite le numéro d'article L. 422-3 et la réponse est une classe de contravention, non un montant en euros."
+  },
+  "raw_text": "{\"question\":\"Si une entreprise ne respecte pas les mesures décidées par la Commission européenne en matière de sécurité des produits, à quelle catégorie de contravention l'amende correspond-elle ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"5e classe\",\"cinquième classe\",\"contraventions de la 5e classe\"],\"quote\":\"sont punies de la peine d'amende prévue pour les contraventions de la 5e classe\",\"article\":\"R452-3\"}],\"doubt\":\"La question évite le numéro d'article L. 422-3 et la réponse est une classe de contravention, non un montant en euros.\"}"
+}

@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-040",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2086,
+    "output_tokens": 345
+  },
+  "output": {
+    "question": "Un vendeur doit rembourser un consommateur après la mise en œuvre de la garantie légale de conformité : dans quel délai maximal après réception du bien ou de la preuve de son renvoi doit-il le faire, et de quel pourcentage la somme restante due est-elle majorée si le remboursement a lieu plus de quatorze jours après ce terme mais jusqu'à trente jours ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quatorze jours",
+          "14 jours"
+        ],
+        "quote": "et au plus tard dans les quatorze jours suivants",
+        "article": "L217-17"
+      },
+      {
+        "accepted": [
+          "20 %",
+          "20 pour cent",
+          "vingt pour cent"
+        ],
+        "quote": "de 20 % jusqu'à trente jours",
+        "article": "L241-7"
+      }
+    ],
+    "doubt": "La réponse « quatorze jours » apparaît aussi dans l'article A pour la tranche de 10 %, ce qui pourrait créer une légère ambiguïté, mais la question distingue clairement les deux valeurs."
+  },
+  "raw_text": "{\"question\":\"Un vendeur doit rembourser un consommateur après la mise en œuvre de la garantie légale de conformité : dans quel délai maximal après réception du bien ou de la preuve de son renvoi doit-il le faire, et de quel pourcentage la somme restante due est-elle majorée si le remboursement a lieu plus de quatorze jours après ce terme mais jusqu'à trente jours ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quatorze jours\",\"14 jours\"],\"quote\":\"et au plus tard dans les quatorze jours suivants\",\"article\":\"L217-17\"},{\"accepted\":[\"20 %\",\"20 pour cent\",\"vingt pour cent\"],\"quote\":\"de 20 % jusqu'à trente jours\",\"article\":\"L241-7\"}],\"doubt\":\"La réponse « quatorze jours » apparaît aussi dans l'article A pour la tranche de 10 %, ce qui pourrait créer une légère ambiguïté, mais la question distingue clairement les deux valeurs.\"}"
+}

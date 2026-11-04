@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-028",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:41:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1775,
+    "output_tokens": 295
+  },
+  "output": {
+    "question": "Quel organisme doit rendre un avis avant les décrets de sécurité des produits qui comportent des dispositions visant à prévenir des risques sanitaires ou nutritionnels ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "Agence nationale chargée de la sécurité sanitaire de l'alimentation, de l'environnement et du travail",
+          "ANSES"
+        ],
+        "quote": "De l'Agence nationale chargée de la sécurité sanitaire de l'alimentation, de l'environnement et du travail mentionnée à l'article L. 1313-1 du code de la santé publique lorsqu'ils comportent des dispositions visant à prévenir des risques sanitaires ou nutritionnels.",
+        "article": "R422-1"
+      }
+    ],
+    "doubt": "Le sigle ANSES n'apparaît pas dans le texte, c'est un sigle courant."
+  },
+  "raw_text": "{\"question\":\"Quel organisme doit rendre un avis avant les décrets de sécurité des produits qui comportent des dispositions visant à prévenir des risques sanitaires ou nutritionnels ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"Agence nationale chargée de la sécurité sanitaire de l'alimentation, de l'environnement et du travail\",\"ANSES\"],\"quote\":\"De l'Agence nationale chargée de la sécurité sanitaire de l'alimentation, de l'environnement et du travail mentionnée à l'article L. 1313-1 du code de la santé publique lorsqu'ils comportent des dispositions visant à prévenir des risques sanitaires ou nutritionnels.\",\"article\":\"R422-1\"}],\"doubt\":\"Le sigle ANSES n'apparaît pas dans le texte, c'est un sigle courant.\"}"
+}

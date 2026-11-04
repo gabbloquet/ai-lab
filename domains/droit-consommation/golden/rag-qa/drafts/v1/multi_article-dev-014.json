@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-dev-014",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2177,
+    "output_tokens": 337
+  },
+  "output": {
+    "question": "Un consommateur doute sérieusement que le bien qu'il a acheté ait été fabriqué dans le respect des droits humains fondamentaux. Par quel texte la liste des conventions internationales concernées est-elle précisée, et à quelle condition le fabricant peut-il décider de ne pas transmettre une information demandée ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "décret",
+          "par décret"
+        ],
+        "quote": "La liste des conventions mentionnées au premier alinéa est précisée par décret.",
+        "article": "L113-1"
+      },
+      {
+        "accepted": [
+          "motiver les raisons",
+          "en motiver les raisons",
+          "motiver"
+        ],
+        "quote": "celui-ci peut décider de ne pas la transmettre à condition d'en motiver les raisons.",
+        "article": "L113-2"
+      }
+    ],
+    "doubt": "La question combine deux sous-questions; la condition de non-transmission (motiver les raisons) vient de L113-2 et le décret de L113-1, ce qui reste une valeur peu chiffrée."
+  },
+  "raw_text": "{\"question\":\"Un consommateur doute sérieusement que le bien qu'il a acheté ait été fabriqué dans le respect des droits humains fondamentaux. Par quel texte la liste des conventions internationales concernées est-elle précisée, et à quelle condition le fabricant peut-il décider de ne pas transmettre une information demandée ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"décret\",\"par décret\"],\"quote\":\"La liste des conventions mentionnées au premier alinéa est précisée par décret.\",\"article\":\"L113-1\"},{\"accepted\":[\"motiver les raisons\",\"en motiver les raisons\",\"motiver\"],\"quote\":\"celui-ci peut décider de ne pas la transmettre à condition d'en motiver les raisons.\",\"article\":\"L113-2\"}],\"doubt\":\"La question combine deux sous-questions; la condition de non-transmission (motiver les raisons) vient de L113-2 et le décret de L113-1, ce qui reste une valeur peu chiffrée.\"}"
+}

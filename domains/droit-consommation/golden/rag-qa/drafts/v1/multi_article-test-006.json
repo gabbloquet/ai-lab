@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-test-006",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2369,
+    "output_tokens": 350
+  },
+  "output": {
+    "question": "Pour un prêt immobilier remboursé par anticipation, quel est le plafond de l'indemnité en pourcentage du capital restant dû, et en dessous de quel pourcentage du montant initial du prêt le contrat peut-il interdire un remboursement partiel ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "3 %",
+          "3 pour cent",
+          "trois pour cent"
+        ],
+        "quote": "sans pouvoir dépasser 3 % du capital restant dû avant le remboursement",
+        "article": "R313-25"
+      },
+      {
+        "accepted": [
+          "10 %",
+          "10 pour cent",
+          "dix pour cent"
+        ],
+        "quote": "Le contrat de prêt peut interdire les remboursements égaux ou inférieurs à 10 % du montant initial du prêt, sauf s'il s'agit de son solde.",
+        "article": "L313-47"
+      }
+    ],
+    "doubt": "Le seuil de 10 % couvre les remboursements « égaux ou inférieurs » à ce pourcentage, la formulation de la question pourrait donc être légèrement imprécise."
+  },
+  "raw_text": "{\"question\":\"Pour un prêt immobilier remboursé par anticipation, quel est le plafond de l'indemnité en pourcentage du capital restant dû, et en dessous de quel pourcentage du montant initial du prêt le contrat peut-il interdire un remboursement partiel ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"3 %\",\"3 pour cent\",\"trois pour cent\"],\"quote\":\"sans pouvoir dépasser 3 % du capital restant dû avant le remboursement\",\"article\":\"R313-25\"},{\"accepted\":[\"10 %\",\"10 pour cent\",\"dix pour cent\"],\"quote\":\"Le contrat de prêt peut interdire les remboursements égaux ou inférieurs à 10 % du montant initial du prêt, sauf s'il s'agit de son solde.\",\"article\":\"L313-47\"}],\"doubt\":\"Le seuil de 10 % couvre les remboursements « égaux ou inférieurs » à ce pourcentage, la formulation de la question pourrait donc être légèrement imprécise.\"}"
+}

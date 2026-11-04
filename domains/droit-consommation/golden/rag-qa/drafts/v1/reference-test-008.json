@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-008",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1682,
+    "output_tokens": 268
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 512-65 du Code de la consommation quant à l'autorité judiciaire informée avant la saisine du juge des libertés et de la détention lorsque la visite et saisie vise des infractions au livre IV ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "le procureur de la République territorialement compétent",
+          "procureur de la République"
+        ],
+        "quote": "le procureur de la République territorialement compétent est informé par l'autorité chargée de la concurrence et de la consommation du projet d'opération de visite et saisie",
+        "article": "L512-65"
+      }
+    ],
+    "doubt": "L'article contient peu de valeurs chiffrées ; la valeur attendue est une autorité (le procureur de la République), ce qui est acceptable mais moins précis qu'un chiffre."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 512-65 du Code de la consommation quant à l'autorité judiciaire informée avant la saisine du juge des libertés et de la détention lorsque la visite et saisie vise des infractions au livre IV ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"le procureur de la République territorialement compétent\",\"procureur de la République\"],\"quote\":\"le procureur de la République territorialement compétent est informé par l'autorité chargée de la concurrence et de la consommation du projet d'opération de visite et saisie\",\"article\":\"L512-65\"}],\"doubt\":\"L'article contient peu de valeurs chiffrées ; la valeur attendue est une autorité (le procureur de la République), ce qui est acceptable mais moins précis qu'un chiffre.\"}"
+}

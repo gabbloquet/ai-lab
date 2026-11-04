@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-054",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:42:08+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1713,
+    "output_tokens": 217
+  },
+  "output": {
+    "question": "Dans le cadre de la réparation d'un outil de jardinage à moteur, comment définit-on les pièces dites issues de l'économie circulaire ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "préparation en vue de leur réutilisation"
+        ],
+        "quote": "les composants et éléments issus d'une opération de préparation en vue de leur réutilisation",
+        "article": "R224-60"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il donne une définition et renvoie au code de l'environnement, donc il ne se prête pas à une question à réponse chiffrée."
+  },
+  "raw_text": "{\"question\":\"Dans le cadre de la réparation d'un outil de jardinage à moteur, comment définit-on les pièces dites issues de l'économie circulaire ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"préparation en vue de leur réutilisation\"],\"quote\":\"les composants et éléments issus d'une opération de préparation en vue de leur réutilisation\",\"article\":\"R224-60\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il donne une définition et renvoie au code de l'environnement, donc il ne se prête pas à une question à réponse chiffrée.\"}"
+}

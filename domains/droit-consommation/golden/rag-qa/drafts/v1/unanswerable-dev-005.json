@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-005",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1946,
+    "output_tokens": 230
+  },
+  "output": {
+    "question": "Quelle taille minimale de caractères doit avoir le taux annuel effectif global dans une publicité pour un crédit à la consommation ?",
+    "why_unanswerable": "L'article L312-6 impose que les informations soient mentionnées de façon claire, précise et visible, mais ne fixe aucune taille de caractères, aucune police ni aucune dimension minimale. Le texte ne donne donc aucune valeur chiffrée à ce sujet.",
+    "doubt": "Un autre article du code ou un arrêté pris pour son application pourrait préciser la lisibilité des mentions, mais le Code de la consommation ne semble pas fixer de taille de caractères."
+  },
+  "raw_text": "{\"question\":\"Quelle taille minimale de caractères doit avoir le taux annuel effectif global dans une publicité pour un crédit à la consommation ?\",\"why_unanswerable\":\"L'article L312-6 impose que les informations soient mentionnées de façon claire, précise et visible, mais ne fixe aucune taille de caractères, aucune police ni aucune dimension minimale. Le texte ne donne donc aucune valeur chiffrée à ce sujet.\",\"doubt\":\"Un autre article du code ou un arrêté pris pour son application pourrait préciser la lisibilité des mentions, mais le Code de la consommation ne semble pas fixer de taille de caractères.\"}"
+}

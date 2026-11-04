@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-034",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1729,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 313-6 sur le coût pour l'emprunteur des informations générales relatives aux contrats de crédit immobilier ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "gratuitement"
+        ],
+        "quote": "Elles sont facilement accessibles et sont fournies gratuitement à l'emprunteur.",
+        "article": "L313-6"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) ; il énonce des principes de disponibilité et de gratuité, et renvoie à un décret en Conseil d'Etat pour la liste et le contenu des informations."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 313-6 sur le coût pour l'emprunteur des informations générales relatives aux contrats de crédit immobilier ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"gratuitement\"],\"quote\":\"Elles sont facilement accessibles et sont fournies gratuitement à l'emprunteur.\",\"article\":\"L313-6\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) ; il énonce des principes de disponibilité et de gratuité, et renvoie à un décret en Conseil d'Etat pour la liste et le contenu des informations.\"}"
+}

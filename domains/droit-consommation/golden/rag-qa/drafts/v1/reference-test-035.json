@@ -1,0 +1,31 @@
+{
+  "task": "reference-test-035",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1693,
+    "output_tokens": 206
+  },
+  "output": {
+    "question": "Que prévoit l'article R. 622-8 quant au document, relatif à l'agrément de l'association nationale, à joindre à l'acte introductif d'instance dans une action en représentation conjointe ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "copie de l'arrêté d'agrément",
+          "l'arrêté d'agrément",
+          "arrêté d'agrément"
+        ],
+        "quote": "Copie de l'arrêté d'agrément pris en application des dispositions de l'article R. 811-2 est jointe à l'acte introductif d'instance.",
+        "article": "R622-8"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article R. 622-8 quant au document, relatif à l'agrément de l'association nationale, à joindre à l'acte introductif d'instance dans une action en représentation conjointe ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"copie de l'arrêté d'agrément\",\"l'arrêté d'agrément\",\"arrêté d'agrément\"],\"quote\":\"Copie de l'arrêté d'agrément pris en application des dispositions de l'article R. 811-2 est jointe à l'acte introductif d'instance.\",\"article\":\"R622-8\"}],\"doubt\":\"\"}"
+}

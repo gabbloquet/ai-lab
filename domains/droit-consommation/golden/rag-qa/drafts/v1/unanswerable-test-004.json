@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-004",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1582,
+    "output_tokens": 267
+  },
+  "output": {
+    "question": "Quelle est la taille de police minimale à respecter pour imprimer le formulaire détachable de rétractation d'un contrat de crédit à la consommation ?",
+    "why_unanswerable": "L'article impose seulement que le formulaire suive le modèle type annexé au code et qu'il ne porte au verso que le nom et l'adresse du prêteur. Il ne fixe aucune taille de police, ni aucune autre précision typographique. Le Code de la consommation ne contient pas cette valeur pour ce formulaire.",
+    "doubt": "Un autre article du code pourrait imposer une taille de caractères pour certaines mentions du contrat de crédit, mais pas pour ce formulaire. Le modèle type en annexe pourrait aussi contenir des indications de présentation."
+  },
+  "raw_text": "{\"question\":\"Quelle est la taille de police minimale à respecter pour imprimer le formulaire détachable de rétractation d'un contrat de crédit à la consommation ?\",\"why_unanswerable\":\"L'article impose seulement que le formulaire suive le modèle type annexé au code et qu'il ne porte au verso que le nom et l'adresse du prêteur. Il ne fixe aucune taille de police, ni aucune autre précision typographique. Le Code de la consommation ne contient pas cette valeur pour ce formulaire.\",\"doubt\":\"Un autre article du code pourrait imposer une taille de caractères pour certaines mentions du contrat de crédit, mais pas pour ce formulaire. Le modèle type en annexe pourrait aussi contenir des indications de présentation.\"}"
+}

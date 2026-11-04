@@ -1,0 +1,29 @@
+{
+  "task": "direct-test-045",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:41:09+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2070,
+    "output_tokens": 177
+  },
+  "output": {
+    "question": "Quel juge fixe ou modifie la mise à prix lorsque le liquidateur reprend une saisie immobilière suspendue par le jugement d'ouverture d'un rétablissement personnel ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "juge des contentieux de la protection"
+        ],
+        "quote": "le juge des contentieux de la protection, à la demande du liquidateur, fixe ou modifie, s'il y a lieu, la mise à prix",
+        "article": "R742-31"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quel juge fixe ou modifie la mise à prix lorsque le liquidateur reprend une saisie immobilière suspendue par le jugement d'ouverture d'un rétablissement personnel ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"juge des contentieux de la protection\"],\"quote\":\"le juge des contentieux de la protection, à la demande du liquidateur, fixe ou modifie, s'il y a lieu, la mise à prix\",\"article\":\"R742-31\"}],\"doubt\":\"\"}"
+}

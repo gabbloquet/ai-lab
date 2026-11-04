@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-022",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:43:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1913,
+    "output_tokens": 284
+  },
+  "output": {
+    "question": "Quel est le numéro du règlement européen de 2017 qui organise la coopération administrative entre autorités nationales de protection des consommateurs, dans le cadre des demandes d'assistance mutuelle pour la recherche et la constatation des infractions ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "2017/2394",
+          "(UE) 2017/2394",
+          "règlement (UE) 2017/2394"
+        ],
+        "quote": "règlement (UE) 2017/2394 du Parlement européen et du Conseil du 12 décembre 2017",
+        "article": "L511-10"
+      }
+    ],
+    "doubt": "L'article ne contient pas d'expression de contexte perdu comme « le présent chapitre » : seule l'expression « au présent livre » renvoie au contexte, et la réponse attendue (numéro du règlement) n'en dépend pas directement."
+  },
+  "raw_text": "{\"question\":\"Quel est le numéro du règlement européen de 2017 qui organise la coopération administrative entre autorités nationales de protection des consommateurs, dans le cadre des demandes d'assistance mutuelle pour la recherche et la constatation des infractions ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"2017/2394\",\"(UE) 2017/2394\",\"règlement (UE) 2017/2394\"],\"quote\":\"règlement (UE) 2017/2394 du Parlement européen et du Conseil du 12 décembre 2017\",\"article\":\"L511-10\"}],\"doubt\":\"L'article ne contient pas d'expression de contexte perdu comme « le présent chapitre » : seule l'expression « au présent livre » renvoie au contexte, et la réponse attendue (numéro du règlement) n'en dépend pas directement.\"}"
+}

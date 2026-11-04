@@ -1,0 +1,31 @@
+{
+  "task": "direct-dev-009",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:40:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1731,
+    "output_tokens": 312
+  },
+  "output": {
+    "question": "Quelle autorité saisit le tribunal ou le juge d'instruction lorsque, au vu des procès-verbaux des agents habilités, des poursuites doivent être engagées en matière de consommation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "procureur de la République",
+          "le procureur de la République",
+          "procureur"
+        ],
+        "quote": "Le procureur de la République, s'il estime, au vu des procès-verbaux dressés par les agents habilités ou du rapport d'essais ou d'analyses et, au besoin, après enquête préalable, que des poursuites doivent être engagées ou une information ouverte, saisit, suivant le cas, le tribunal ou le juge d'instruction.",
+        "article": "L512-41"
+      }
+    ],
+    "doubt": "L'article contient peu de valeurs chiffrées ; la valeur retenue est un organe (le procureur de la République), ce qui reste une valeur précise mais moins typique."
+  },
+  "raw_text": "{\"question\":\"Quelle autorité saisit le tribunal ou le juge d'instruction lorsque, au vu des procès-verbaux des agents habilités, des poursuites doivent être engagées en matière de consommation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"procureur de la République\",\"le procureur de la République\",\"procureur\"],\"quote\":\"Le procureur de la République, s'il estime, au vu des procès-verbaux dressés par les agents habilités ou du rapport d'essais ou d'analyses et, au besoin, après enquête préalable, que des poursuites doivent être engagées ou une information ouverte, saisit, suivant le cas, le tribunal ou le juge d'instruction.\",\"article\":\"L512-41\"}],\"doubt\":\"L'article contient peu de valeurs chiffrées ; la valeur retenue est un organe (le procureur de la République), ce qui reste une valeur précise mais moins typique.\"}"
+}

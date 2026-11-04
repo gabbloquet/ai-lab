@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-039",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2273,
+    "output_tokens": 214
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 111-1 comme type de décret qui fixe la liste et le contenu précis des informations précontractuelles à communiquer au consommateur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "décret en Conseil d'Etat"
+        ],
+        "quote": "La liste et le contenu précis de ces informations sont fixés par décret en Conseil d'Etat.",
+        "article": "L111-1"
+      }
+    ],
+    "doubt": "La valeur attendue est une forme de texte (décret en Conseil d'Etat) plutôt qu'un chiffre ; l'article contient peu de valeurs numériques précises."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 111-1 comme type de décret qui fixe la liste et le contenu précis des informations précontractuelles à communiquer au consommateur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"décret en Conseil d'Etat\"],\"quote\":\"La liste et le contenu précis de ces informations sont fixés par décret en Conseil d'Etat.\",\"article\":\"L111-1\"}],\"doubt\":\"La valeur attendue est une forme de texte (décret en Conseil d'Etat) plutôt qu'un chiffre ; l'article contient peu de valeurs numériques précises.\"}"
+}

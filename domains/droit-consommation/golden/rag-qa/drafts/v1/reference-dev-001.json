@@ -1,0 +1,29 @@
+{
+  "task": "reference-dev-001",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1784,
+    "output_tokens": 181
+  },
+  "output": {
+    "question": "Selon l'article D. 224-56, sur quel type de support le consommateur doit-il préciser son choix entre plusieurs pièces issues de l'économie circulaire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "support durable"
+        ],
+        "quote": "Il précise son choix sur support durable pour chacune d'elles.",
+        "article": "D224-56"
+      }
+    ],
+    "doubt": "La valeur attendue est un type de document (support durable) plutôt qu'un chiffre, mais elle reste précise et lisible dans le texte."
+  },
+  "raw_text": "{\"question\":\"Selon l'article D. 224-56, sur quel type de support le consommateur doit-il préciser son choix entre plusieurs pièces issues de l'économie circulaire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"support durable\"],\"quote\":\"Il précise son choix sur support durable pour chacune d'elles.\",\"article\":\"D224-56\"}],\"doubt\":\"La valeur attendue est un type de document (support durable) plutôt qu'un chiffre, mais elle reste précise et lisible dans le texte.\"}"
+}

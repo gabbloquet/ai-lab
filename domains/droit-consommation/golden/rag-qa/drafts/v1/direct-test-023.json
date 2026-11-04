@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-023",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:40:59+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1625,
+    "output_tokens": 184
+  },
+  "output": {
+    "question": "Quelle classe de contravention sanctionne le fait de ne pas remettre à un consommateur handicapé, dans une forme adaptée à son handicap, les contrats et informations demandés en matière de fourniture d'électricité ou de gaz ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "5e classe",
+          "cinquième classe",
+          "contraventions de la 5e classe"
+        ],
+        "quote": "est puni de la peine d'amende prévue pour les contraventions de la 5e classe",
+        "article": "R242-6"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quelle classe de contravention sanctionne le fait de ne pas remettre à un consommateur handicapé, dans une forme adaptée à son handicap, les contrats et informations demandés en matière de fourniture d'électricité ou de gaz ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"5e classe\",\"cinquième classe\",\"contraventions de la 5e classe\"],\"quote\":\"est puni de la peine d'amende prévue pour les contraventions de la 5e classe\",\"article\":\"R242-6\"}],\"doubt\":\"\"}"
+}

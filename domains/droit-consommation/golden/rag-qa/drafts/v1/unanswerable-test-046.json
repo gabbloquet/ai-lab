@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-046",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1627,
+    "output_tokens": 298
+  },
+  "output": {
+    "question": "Quel est le montant maximal de frais de dossier qu'un prêteur peut facturer à l'emprunteur qui refuse les nouvelles conditions lors de la reconduction d'un crédit renouvelable ?",
+    "why_unanswerable": "L'article prévoit seulement que l'emprunteur qui refuse les nouvelles conditions rembourse le crédit déjà utilisé aux anciennes conditions, sans pouvoir réutiliser l'ouverture de crédit. Il ne fixe aucun plafond de frais de dossier ni aucune facturation liée à ce refus, et le code ne semble pas non plus le faire ailleurs pour cette situation.",
+    "doubt": "Un autre article sur les frais ou les coûts du crédit renouvelable pourrait traiter indirectement des frais en cas de refus, mais cela paraît peu probable."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant maximal de frais de dossier qu'un prêteur peut facturer à l'emprunteur qui refuse les nouvelles conditions lors de la reconduction d'un crédit renouvelable ?\",\"why_unanswerable\":\"L'article prévoit seulement que l'emprunteur qui refuse les nouvelles conditions rembourse le crédit déjà utilisé aux anciennes conditions, sans pouvoir réutiliser l'ouverture de crédit. Il ne fixe aucun plafond de frais de dossier ni aucune facturation liée à ce refus, et le code ne semble pas non plus le faire ailleurs pour cette situation.\",\"doubt\":\"Un autre article sur les frais ou les coûts du crédit renouvelable pourrait traiter indirectement des frais en cas de refus, mais cela paraît peu probable.\"}"
+}

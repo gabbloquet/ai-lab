@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-004",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1603,
+    "output_tokens": 289
+  },
+  "output": {
+    "question": "Quel est le montant des frais de justice qu'un consommateur doit avancer à l'association lorsqu'il lui donne mandat pour une action en représentation conjointe ?",
+    "why_unanswerable": "L'article R622-5 prévoit seulement les effets de la révocation du mandat (poursuite de l'instance par le mandant, obligation d'en aviser le juge et la partie adverse). Le Code de la consommation ne fixe aucun montant de frais à avancer par le consommateur à l'association : cela relève de la convention entre eux et de la procédure civile, et non d'une valeur chiffrée prévue par le code.",
+    "doubt": "D'autres articles du chapitre sur l'action en représentation conjointe (mandat, forme) pourraient évoquer des frais, mais il est peu probable qu'ils fixent un montant précis."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant des frais de justice qu'un consommateur doit avancer à l'association lorsqu'il lui donne mandat pour une action en représentation conjointe ?\",\"why_unanswerable\":\"L'article R622-5 prévoit seulement les effets de la révocation du mandat (poursuite de l'instance par le mandant, obligation d'en aviser le juge et la partie adverse). Le Code de la consommation ne fixe aucun montant de frais à avancer par le consommateur à l'association : cela relève de la convention entre eux et de la procédure civile, et non d'une valeur chiffrée prévue par le code.\",\"doubt\":\"D'autres articles du chapitre sur l'action en représentation conjointe (mandat, forme) pourraient évoquer des frais, mais il est peu probable qu'ils fixent un montant précis.\"}"
+}

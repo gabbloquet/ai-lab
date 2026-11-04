@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-031",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1623,
+    "output_tokens": 298
+  },
+  "output": {
+    "question": "Quel est le montant de l'amende civile que le juge inflige à un professionnel qui a inséré une clause abusive dans un contrat de consommation ?",
+    "why_unanswerable": "L'article L241-1 prévoit seulement que les clauses abusives sont réputées non écrites, que le contrat subsiste s'il le peut et que ces dispositions sont d'ordre public. Il ne fixe aucun montant d'amende civile. Cette sanction pécuniaire relève d'un autre régime, et la question suppose une amende civile qui n'est pas prévue dans ce texte.",
+    "doubt": "Le Code de la consommation prévoit par ailleurs des amendes administratives pour clauses abusives (par exemple à l'article L241-2), donc un autre article pourrait répondre sur un plan voisin, même si la notion d'amende civile n'y figure pas."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant de l'amende civile que le juge inflige à un professionnel qui a inséré une clause abusive dans un contrat de consommation ?\",\"why_unanswerable\":\"L'article L241-1 prévoit seulement que les clauses abusives sont réputées non écrites, que le contrat subsiste s'il le peut et que ces dispositions sont d'ordre public. Il ne fixe aucun montant d'amende civile. Cette sanction pécuniaire relève d'un autre régime, et la question suppose une amende civile qui n'est pas prévue dans ce texte.\",\"doubt\":\"Le Code de la consommation prévoit par ailleurs des amendes administratives pour clauses abusives (par exemple à l'article L241-2), donc un autre article pourrait répondre sur un plan voisin, même si la notion d'amende civile n'y figure pas.\"}"
+}

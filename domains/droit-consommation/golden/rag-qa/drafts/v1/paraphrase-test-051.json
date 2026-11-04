@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-051",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:42:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2652,
+    "output_tokens": 631
+  },
+  "output": {
+    "question": "J'utilise une canne anglaise pour marcher : quelle pièce de rechange de ma canne fait partie de la liste réglementaire des pièces concernées par l'obligation du vendeur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "embouts"
+        ],
+        "quote": "2° Cannes et béquilles : embouts ;",
+        "article": "R224-52"
+      }
+    ],
+    "doubt": "L'article est une simple liste de pièces sans durée ni montant ; la valeur demandée est un nom de pièce, et la nature exacte de l'obligation (article L. 224-111) n'est pas précisée dans l'extrait."
+  },
+  "raw_text": "{\"question\":\"J'utilise une canne anglaise pour marcher : quelle pièce de rechange de ma canne fait partie de la liste réglementaire des pièces concernées par l'obligation du vendeur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"embouts\"],\"quote\":\"2° Cannes et béquilles : embouts ;\",\"article\":\"R224-52\"}],\"doubt\":\"L'article est une simple liste de pièces sans durée ni montant ; la valeur demandée est un nom de pièce, et la nature exacte de l'obligation (article L. 224-111) n'est pas précisée dans l'extrait.\"}"
+}

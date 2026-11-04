@@ -1,0 +1,21 @@
+{
+  "task": "multi_article-dev-006",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2114,
+    "output_tokens": 232
+  },
+  "output": {
+    "question": "Dans les îles Wallis et Futuna, quel type de sociétés voit la souscription ou cession de leurs parts ou actions exclue du champ de la dérogation au droit de rétractation, et quel article du Code (celui sur le délai de rétractation) ne s'applique pas aux contrats de temps partagé ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "Les articles ne contiennent aucune valeur précise (durée, montant, taux, seuil, date) : A est une adaptation outre-mer par remplacement de mots, B ne fait que renvoyer à L. 222-7 et L. 224-69 ; la question n'est donc pas exploitable."
+  },
+  "raw_text": "{\"question\":\"Dans les îles Wallis et Futuna, quel type de sociétés voit la souscription ou cession de leurs parts ou actions exclue du champ de la dérogation au droit de rétractation, et quel article du Code (celui sur le délai de rétractation) ne s'applique pas aux contrats de temps partagé ?\",\"usable\":false,\"facts\":[],\"doubt\":\"Les articles ne contiennent aucune valeur précise (durée, montant, taux, seuil, date) : A est une adaptation outre-mer par remplacement de mots, B ne fait que renvoyer à L. 222-7 et L. 224-69 ; la question n'est donc pas exploitable.\"}"
+}

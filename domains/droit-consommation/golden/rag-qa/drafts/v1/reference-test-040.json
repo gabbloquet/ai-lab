@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-040",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:35+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1785,
+    "output_tokens": 182
+  },
+  "output": {
+    "question": "Que prévoit l'article R. 512-24 du Code de la consommation quant au remboursement des échantillons prélevés lors d'un prélèvement administratif ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "aucun remboursement"
+        ],
+        "quote": "Les échantillons prélevés ne donnent lieu à aucun remboursement.",
+        "article": "R512-24"
+      }
+    ],
+    "doubt": "La réponse est une formule plutôt qu'une valeur chiffrée, et la question ressemble à un oui/non déguisé."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article R. 512-24 du Code de la consommation quant au remboursement des échantillons prélevés lors d'un prélèvement administratif ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"aucun remboursement\"],\"quote\":\"Les échantillons prélevés ne donnent lieu à aucun remboursement.\",\"article\":\"R512-24\"}],\"doubt\":\"La réponse est une formule plutôt qu'une valeur chiffrée, et la question ressemble à un oui/non déguisé.\"}"
+}

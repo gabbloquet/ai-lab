@@ -1,0 +1,29 @@
+{
+  "task": "direct-test-053",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:41:10+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1773,
+    "output_tokens": 217
+  },
+  "output": {
+    "question": "Quel document prévoit les facilités de caisse ou découverts bancaires pour lesquels des intérêts, commissions ou frais peuvent être perçus malgré l'interdiction de vente sans commande préalable ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "convention de compte"
+        ],
+        "quote": "prévus par la convention de compte instituée à l'article L. 312-1-1 du code monétaire et financier",
+        "article": "L121-13"
+      }
+    ],
+    "doubt": "L'article contient peu de valeurs chiffrées ; la valeur attendue est un document (la convention de compte), ce qui reste acceptable mais peu précis."
+  },
+  "raw_text": "{\"question\":\"Quel document prévoit les facilités de caisse ou découverts bancaires pour lesquels des intérêts, commissions ou frais peuvent être perçus malgré l'interdiction de vente sans commande préalable ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"convention de compte\"],\"quote\":\"prévus par la convention de compte instituée à l'article L. 312-1-1 du code monétaire et financier\",\"article\":\"L121-13\"}],\"doubt\":\"L'article contient peu de valeurs chiffrées ; la valeur attendue est un document (la convention de compte), ce qui reste acceptable mais peu précis.\"}"
+}

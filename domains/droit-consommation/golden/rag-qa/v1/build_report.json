@@ -1,0 +1,1572 @@
+{
+  "version": "v1",
+  "seed": 42,
+  "overlap_threshold": 0.4,
+  "tasks": 400,
+  "drafts": 400,
+  "selected": 200,
+  "pending_review": [
+    "direct-dev-001",
+    "direct-dev-003",
+    "direct-dev-005",
+    "direct-dev-006",
+    "direct-dev-007",
+    "direct-dev-008",
+    "direct-dev-009",
+    "direct-dev-010",
+    "direct-dev-011",
+    "direct-dev-012",
+    "direct-test-001",
+    "direct-test-002",
+    "direct-test-003",
+    "direct-test-005",
+    "direct-test-007",
+    "direct-test-008",
+    "direct-test-009",
+    "direct-test-010",
+    "direct-test-011",
+    "direct-test-012",
+    "direct-test-013",
+    "direct-test-014",
+    "direct-test-017",
+    "direct-test-018",
+    "direct-test-019",
+    "direct-test-020",
+    "direct-test-022",
+    "direct-test-023",
+    "direct-test-024",
+    "direct-test-025",
+    "direct-test-026",
+    "direct-test-028",
+    "direct-test-031",
+    "direct-test-032",
+    "direct-test-033",
+    "direct-test-035",
+    "direct-test-037",
+    "direct-test-038",
+    "direct-test-040",
+    "direct-test-043",
+    "reference-dev-001",
+    "reference-dev-002",
+    "reference-dev-003",
+    "reference-dev-004",
+    "reference-dev-005",
+    "reference-dev-006",
+    "reference-dev-007",
+    "reference-dev-008",
+    "reference-test-001",
+    "reference-test-002",
+    "reference-test-003",
+    "reference-test-006",
+    "reference-test-007",
+    "reference-test-008",
+    "reference-test-010",
+    "reference-test-011",
+    "reference-test-013",
+    "reference-test-015",
+    "reference-test-016",
+    "reference-test-017",
+    "reference-test-018",
+    "reference-test-020",
+    "reference-test-022",
+    "reference-test-023",
+    "reference-test-024",
+    "reference-test-027",
+    "reference-test-028",
+    "reference-test-029",
+    "reference-test-031",
+    "reference-test-032",
+    "paraphrase-dev-001",
+    "paraphrase-dev-002",
+    "paraphrase-dev-003",
+    "paraphrase-dev-009",
+    "paraphrase-dev-010",
+    "paraphrase-dev-011",
+    "paraphrase-dev-012",
+    "paraphrase-dev-014",
+    "paraphrase-dev-015",
+    "paraphrase-dev-017",
+    "paraphrase-test-001",
+    "paraphrase-test-002",
+    "paraphrase-test-004",
+    "paraphrase-test-005",
+    "paraphrase-test-006",
+    "paraphrase-test-007",
+    "paraphrase-test-008",
+    "paraphrase-test-014",
+    "paraphrase-test-015",
+    "paraphrase-test-021",
+    "paraphrase-test-023",
+    "paraphrase-test-024",
+    "paraphrase-test-026",
+    "paraphrase-test-027",
+    "paraphrase-test-028",
+    "paraphrase-test-030",
+    "paraphrase-test-033",
+    "paraphrase-test-034",
+    "paraphrase-test-035",
+    "paraphrase-test-036",
+    "paraphrase-test-037",
+    "paraphrase-test-040",
+    "paraphrase-test-041",
+    "paraphrase-test-043",
+    "paraphrase-test-044",
+    "paraphrase-test-045",
+    "paraphrase-test-046",
+    "paraphrase-test-049",
+    "paraphrase-test-050",
+    "paraphrase-test-051",
+    "multi_article-dev-002",
+    "multi_article-dev-003",
+    "multi_article-dev-004",
+    "multi_article-dev-005",
+    "multi_article-dev-007",
+    "multi_article-dev-009",
+    "multi_article-dev-010",
+    "multi_article-dev-011",
+    "multi_article-test-001",
+    "multi_article-test-002",
+    "multi_article-test-003",
+    "multi_article-test-004",
+    "multi_article-test-005",
+    "multi_article-test-006",
+    "multi_article-test-007",
+    "multi_article-test-008",
+    "multi_article-test-011",
+    "multi_article-test-012",
+    "multi_article-test-013",
+    "multi_article-test-014",
+    "multi_article-test-015",
+    "multi_article-test-016",
+    "multi_article-test-017",
+    "multi_article-test-019",
+    "multi_article-test-023",
+    "multi_article-test-024",
+    "multi_article-test-027",
+    "multi_article-test-028",
+    "multi_article-test-029",
+    "multi_article-test-030",
+    "lost_context-dev-001",
+    "lost_context-dev-002",
+    "lost_context-dev-003",
+    "lost_context-dev-004",
+    "lost_context-dev-005",
+    "lost_context-dev-006",
+    "lost_context-dev-007",
+    "lost_context-test-001",
+    "lost_context-test-002",
+    "lost_context-test-003",
+    "lost_context-test-004",
+    "lost_context-test-005",
+    "lost_context-test-006",
+    "lost_context-test-007",
+    "lost_context-test-009",
+    "lost_context-test-010",
+    "lost_context-test-012",
+    "lost_context-test-013",
+    "lost_context-test-017",
+    "lost_context-test-018",
+    "lost_context-test-019",
+    "lost_context-test-020",
+    "lost_context-test-021",
+    "lost_context-test-022",
+    "lost_context-test-023",
+    "lost_context-test-024",
+    "lost_context-test-025",
+    "lost_context-test-026",
+    "lost_context-test-027",
+    "lost_context-test-028",
+    "unanswerable-dev-001",
+    "unanswerable-dev-002",
+    "unanswerable-dev-003",
+    "unanswerable-dev-004",
+    "unanswerable-dev-005",
+    "unanswerable-dev-006",
+    "unanswerable-dev-007",
+    "unanswerable-test-001",
+    "unanswerable-test-002",
+    "unanswerable-test-003",
+    "unanswerable-test-004",
+    "unanswerable-test-005",
+    "unanswerable-test-006",
+    "unanswerable-test-007",
+    "unanswerable-test-008",
+    "unanswerable-test-009",
+    "unanswerable-test-010",
+    "unanswerable-test-011",
+    "unanswerable-test-012",
+    "unanswerable-test-013",
+    "unanswerable-test-014",
+    "unanswerable-test-015",
+    "unanswerable-test-016",
+    "unanswerable-test-017",
+    "unanswerable-test-018",
+    "unanswerable-test-019",
+    "unanswerable-test-020",
+    "unanswerable-test-021",
+    "unanswerable-test-022",
+    "unanswerable-test-023"
+  ],
+  "shortages": {},
+  "rejected": {
+    "direct-dev-002": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-dev-004": [
+      "la question cite un numéro d'article"
+    ],
+    "direct-dev-013": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-dev-017": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-dev-020": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-004": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-test-006": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-015": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-016": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-test-021": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-027": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-test-029": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-test-030": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-test-034": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-036": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-test-039": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-041": [
+      "la question cite un numéro d'article"
+    ],
+    "direct-test-042": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-044": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-046": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-050": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "direct-test-054": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-test-057": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "direct-test-059": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-dev-012": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-004": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-005": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-009": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-012": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "reference-test-014": [
+      "article inutilisable selon le rédacteur",
+      "fait 1 : la question contient la réponse « L. 121-6 »"
+    ],
+    "reference-test-019": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-021": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-025": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-026": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-030": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "reference-test-033": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-034": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "reference-test-041": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-dev-004": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3",
+      "recouvrement lexical 0.60 > 0.40"
+    ],
+    "paraphrase-dev-005": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-dev-006": [
+      "recouvrement lexical 0.62 > 0.40"
+    ],
+    "paraphrase-dev-007": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-dev-008": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-dev-013": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-dev-016": [
+      "recouvrement lexical 0.47 > 0.40"
+    ],
+    "paraphrase-dev-019": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-dev-020": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-test-003": [
+      "recouvrement lexical 0.71 > 0.40"
+    ],
+    "paraphrase-test-009": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-010": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-011": [
+      "recouvrement lexical 0.42 > 0.40"
+    ],
+    "paraphrase-test-012": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-013": [
+      "recouvrement lexical 0.50 > 0.40"
+    ],
+    "paraphrase-test-016": [
+      "recouvrement lexical 0.50 > 0.40"
+    ],
+    "paraphrase-test-017": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-018": [
+      "recouvrement lexical 0.47 > 0.40"
+    ],
+    "paraphrase-test-019": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-020": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-test-022": [
+      "recouvrement lexical 0.45 > 0.40"
+    ],
+    "paraphrase-test-025": [
+      "recouvrement lexical 0.43 > 0.40"
+    ],
+    "paraphrase-test-029": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-031": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-032": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-038": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-039": [
+      "recouvrement lexical 0.46 > 0.40"
+    ],
+    "paraphrase-test-042": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-test-047": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-test-048": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "paraphrase-test-052": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-test-053": [
+      "recouvrement lexical 0.71 > 0.40"
+    ],
+    "paraphrase-test-054": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "paraphrase-test-056": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "multi_article-dev-001": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "multi_article-dev-006": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3",
+      "aucun fait tiré de L252-3, L222-10"
+    ],
+    "multi_article-dev-008": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3",
+      "aucun fait tiré de L224-42-2, L224-42-3"
+    ],
+    "multi_article-dev-013": [
+      "fait 1 : la question contient la réponse « trois mois »"
+    ],
+    "multi_article-test-009": [
+      "aucun fait tiré de L511-15"
+    ],
+    "multi_article-test-010": [
+      "fait 2 : la question contient la réponse « l'acceptation de l'offre »",
+      "fait 2 : la question contient la réponse « acceptation de l'offre »"
+    ],
+    "multi_article-test-018": [
+      "fait 2 : la question contient la réponse « pièces issues de l'économie circulaire »",
+      "fait 2 : la question contient la réponse « issues de l'économie circulaire »",
+      "fait 2 : la question contient la réponse « économie circulaire »"
+    ],
+    "multi_article-test-020": [
+      "aucun fait tiré de L314-24"
+    ],
+    "multi_article-test-021": [
+      "aucun fait tiré de L741-8"
+    ],
+    "multi_article-test-022": [
+      "fait 2 : aucune forme acceptée ne figure dans l'extrait"
+    ],
+    "multi_article-test-025": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3",
+      "aucun fait tiré de L733-9, L733-7"
+    ],
+    "multi_article-test-026": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "multi_article-test-034": [
+      "fait 2 : la question contient la réponse « la quantité des choses livrées »",
+      "fait 2 : la question contient la réponse « quantité des choses livrées »",
+      "fait 2 : la question contient la réponse « quantité »"
+    ],
+    "multi_article-test-040": [
+      "fait 1 : la question contient la réponse « quatorze jours »"
+    ],
+    "multi_article-test-043": [
+      "article inutilisable selon le rédacteur",
+      "aucun fait tiré de L121-6"
+    ],
+    "lost_context-dev-008": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "lost_context-test-008": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "lost_context-test-011": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "lost_context-test-014": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3"
+    ],
+    "lost_context-test-015": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "lost_context-test-016": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "lost_context-test-031": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "lost_context-test-042": [
+      "fait 1 : la question contient la réponse « II »"
+    ]
+  },
+  "alerts": {
+    "direct-dev-003": [
+      "doute du rédacteur : Le texte dit « supérieur à 10 % », donc le seuil est dépassé à partir de plus de 10 %, ce qui rend « à partir de » légèrement imprécis."
+    ],
+    "direct-dev-006": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée précise, seulement « l'intégralité » ; la forme « la totalité » est une variante non écrite dans le texte.",
+      "fait 1 : forme sans chiffre absente du texte « la totalité »"
+    ],
+    "direct-dev-008": [
+      "doute du rédacteur : L'article contient peu de valeurs précises ; la valeur demandée est un nom d'accord, la question est donc un peu indirecte.",
+      "fait 1 : forme sans chiffre absente du texte « EEE »"
+    ],
+    "direct-dev-009": [
+      "doute du rédacteur : L'article contient peu de valeurs chiffrées ; la valeur retenue est un organe (le procureur de la République), ce qui reste une valeur précise mais moins typique."
+    ],
+    "direct-dev-011": [
+      "doute du rédacteur : L'article est essentiellement une liste de renvois à des règlements européens ; la valeur demandée (une date) est précise mais la question porte sur un texte de l'Union cité, pas sur une règle de fond du Code."
+    ],
+    "direct-dev-012": [
+      "fait 1 : forme longue « l'observatoire des prix, des marges et des revenus »",
+      "fait 1 : forme longue « observatoire des prix, des marges et des revenus »"
+    ],
+    "direct-test-001": [
+      "doute du rédacteur : La valeur attendue est un multiplicateur (le double) et non un montant chiffré ; la question reste fidèle au texte.",
+      "fait 1 : forme sans chiffre absente du texte « le double »",
+      "fait 1 : forme sans chiffre absente du texte « double des arrhes »"
+    ],
+    "direct-test-005": [
+      "doute du rédacteur : L'article contient peu de valeurs chiffrées ; la valeur retenue est un destinataire (autorité), ce qui reste précis mais la question énumère plusieurs destinataires pour cibler le bon."
+    ],
+    "direct-test-007": [
+      "doute du rédacteur : L'article ne contient ni durée ni montant ; les seules valeurs précises sont les modes de notification (voie électronique ou courrier simple), ce qui est un peu faible."
+    ],
+    "direct-test-009": [
+      "doute du rédacteur : La réponse pourrait aussi mentionner les agents contractuels de niveau équivalent, mais le fait attendu reste la catégorie A."
+    ],
+    "direct-test-010": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée, seulement un document (le récépissé), ce qui reste une valeur précise acceptable."
+    ],
+    "direct-test-013": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée mais désigne un organisme (préfet / préfet de police), ce qui reste une valeur précise ; la question suppose que l'autorité visée par les articles listés corresponde aux mesures de police administrative sur la conformité et la sécurité."
+    ],
+    "direct-test-014": [
+      "fait 1 : forme sans chiffre absente du texte « deux jours ouvrés »"
+    ],
+    "direct-test-017": [
+      "fait 1 : forme sans chiffre absente du texte « le ministère public »"
+    ],
+    "direct-test-019": [
+      "doute du rédacteur : La valeur attendue est un couple d'autorités plutôt qu'un chiffre ; la formulation de la réponse peut varier.",
+      "fait 1 : forme longue « ministre chargé de la consommation et ministre de la justice »",
+      "fait 1 : forme sans chiffre absente du texte « ministre chargé de la consommation et ministre de la justice »",
+      "fait 1 : forme longue « ministre chargé de la consommation et du ministre de la justice »"
+    ],
+    "direct-test-022": [
+      "doute du rédacteur : L'article ne mentionne pas de valeur chiffrée ; le seul élément précis est le nom du document (avis d'information type)."
+    ],
+    "direct-test-023": [
+      "fait 1 : forme sans chiffre absente du texte « cinquième classe »"
+    ],
+    "direct-test-024": [
+      "doute du rédacteur : L'article contient peu de valeurs chiffrées ; la valeur attendue est un type de support (document), ce qui reste précis mais moins numérique."
+    ],
+    "direct-test-025": [
+      "doute du rédacteur : L'article est surtout une liste de renvois à des règlements européens ; la valeur demandée (une date) est précise mais peu substantielle, et la question porte sur un texte de l'Union cité plutôt que sur une règle du Code lui-même."
+    ],
+    "direct-test-026": [
+      "doute du rédacteur : L'article prévoit aussi un plafond de 75 000 euros et des exceptions ; la question ne porte que sur le seuil inférieur."
+    ],
+    "direct-test-028": [
+      "doute du rédacteur : Le sigle ANSES n'apparaît pas dans le texte, c'est un sigle courant.",
+      "fait 1 : forme longue « Agence nationale chargée de la sécurité sanitaire de l'alimentation, de l'environnement et du travail »",
+      "fait 1 : forme sans chiffre absente du texte « ANSES »"
+    ],
+    "direct-test-031": [
+      "doute du rédacteur : La valeur attendue (un arrêté) est un type de document, assez simple ; l'article ne contient ni chiffre ni durée."
+    ],
+    "direct-test-035": [
+      "doute du rédacteur : L'article contient peu de valeurs précises : la seule valeur courte est la locution « à tout moment », ce qui rend la question à la limite d'une valeur précise."
+    ],
+    "direct-test-037": [
+      "doute du rédacteur : La valeur attendue est un moyen de notification plutôt qu'un chiffre, mais l'article ne contient aucune autre valeur précise.",
+      "fait 1 : forme longue « lettre recommandée avec demande d'avis de réception »",
+      "fait 1 : forme sans chiffre absente du texte « lettre recommandée avec accusé de réception »"
+    ],
+    "direct-test-040": [
+      "fait 1 : forme sans chiffre absente du texte « cinquième classe »"
+    ],
+    "reference-dev-001": [
+      "doute du rédacteur : La valeur attendue est un type de document (support durable) plutôt qu'un chiffre, mais elle reste précise et lisible dans le texte."
+    ],
+    "reference-dev-002": [
+      "doute du rédacteur : Le texte dit « est punie d'une amende de 300 000 euros » sans employer explicitement le mot « maximal », mais il s'agit bien du montant de l'amende prévue."
+    ],
+    "reference-dev-003": [
+      "doute du rédacteur : La question reformule la demande du prêteur en nombre de créances ; la valeur « deux » est seulement un seuil implicite dans la question posée à l'emprunteur."
+    ],
+    "reference-dev-004": [
+      "doute du rédacteur : La valeur précise est un numéro de partie d'un autre code, mais la question porte bien sur le champ d'exclusion fixé par le Code de la consommation.",
+      "fait 1 : forme sans chiffre absente du texte « Ve partie »",
+      "fait 1 : forme sans chiffre absente du texte « cinquième partie »"
+    ],
+    "reference-dev-005": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée, seulement une désignation de juridiction ; la question reste factuelle mais la réponse est une formule institutionnelle."
+    ],
+    "reference-dev-006": [
+      "doute du rédacteur : La question mentionne « température maximale » ; le texte dit « inférieure ou égale à - 12 °C », ce qui reste cohérent, mais la forme avec signe moins peut s'écrire de plusieurs façons."
+    ],
+    "reference-dev-007": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée ; la réponse est une catégorie de dettes (alimentaires), ce qui reste lisible directement dans le texte.",
+      "fait 1 : forme sans chiffre absente du texte « dettes alimentaires »",
+      "fait 1 : forme sans chiffre absente du texte « les dettes alimentaires »"
+    ],
+    "reference-test-001": [
+      "doute du rédacteur : La valeur attendue est un mode d'envoi plutôt qu'un chiffre, mais elle est précise et clairement énoncée dans le texte.",
+      "fait 1 : forme longue « lettre recommandée avec demande d'avis de réception »",
+      "fait 1 : forme sans chiffre absente du texte « lettre recommandée avec avis de réception »",
+      "fait 1 : forme sans chiffre absente du texte « LRAR »"
+    ],
+    "reference-test-006": [
+      "doute du rédacteur : La valeur attendue est une sanction et non un chiffre ; la question cite le numéro de l'article comme le demande le mode.",
+      "fait 1 : forme sans chiffre absente du texte « déchéance du droit aux intérêts »"
+    ],
+    "reference-test-007": [
+      "doute du rédacteur : L'article ne contient pas de valeur numérique, mais des éléments à mentionner (coût annuel, coût total) ; la question demande donc deux éléments, pas une valeur chiffrée."
+    ],
+    "reference-test-008": [
+      "doute du rédacteur : L'article contient peu de valeurs chiffrées ; la valeur attendue est une autorité (le procureur de la République), ce qui est acceptable mais moins précis qu'un chiffre.",
+      "fait 1 : forme longue « le procureur de la République territorialement compétent »"
+    ],
+    "reference-test-011": [
+      "doute du rédacteur : La valeur précise est une simple date citée dans un article de renvoi ; la question reste cependant lisible dans le texte."
+    ],
+    "reference-test-015": [
+      "doute du rédacteur : L'article mentionne aussi un délai maximal de quarante jours, ce qui peut créer une ambiguïté dans les réponses."
+    ],
+    "reference-test-016": [
+      "doute du rédacteur : L'article ne fait que renvoyer à deux décrets ; la valeur demandée est un numéro de texte, ce qui est peu substantiel, et la question porte en partie sur un autre texte."
+    ],
+    "reference-test-017": [
+      "doute du rédacteur : La valeur attendue est un emplacement (annexe) et non une valeur chiffrée ; l'article contient peu de valeurs précises."
+    ],
+    "reference-test-022": [
+      "fait 1 : forme sans chiffre absente du texte « troisième classe »"
+    ],
+    "reference-test-023": [
+      "doute du rédacteur : L'article ne contient aucune valeur chiffrée précise ; la valeur attendue est une notion (patrimoine non affecté), ce qui rend l'article peu adapté, mais la réponse se lit dans le texte."
+    ],
+    "reference-test-024": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée ; la réponse est un type de texte (décret en Conseil d'Etat), ce qui reste une valeur précise mais peu riche."
+    ],
+    "reference-test-029": [
+      "doute du rédacteur : La réponse attendue est une formule plutôt qu'une valeur chiffrée ; l'article contient peu de valeurs précises (pas de durée ni de montant)."
+    ],
+    "reference-test-032": [
+      "doute du rédacteur : La valeur est un organisme, ce qui est une valeur précise mais l'article reste essentiellement un renvoi à un arrêté.",
+      "fait 1 : forme longue « Commission nationale de l'informatique et des libertés »",
+      "fait 1 : forme sans chiffre absente du texte « CNIL »"
+    ],
+    "paraphrase-dev-001": [
+      "doute du rédacteur : La question reformule le texte en évitant « chocolat » et « adjonction », mais la réponse attendue reste la matière grasse végétale ajoutée."
+    ],
+    "paraphrase-dev-002": [
+      "doute du rédacteur : L'article liste plusieurs catégories de dettes exclues ; la question est orientée vers la pension via l'exemple, mais d'autres catégories pourraient être citées par une réponse plus large."
+    ],
+    "paraphrase-dev-003": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée mais un type d'organisme (association nationale agréée de consommateurs), ce qui reste une valeur précise acceptable."
+    ],
+    "paraphrase-dev-009": [
+      "doute du rédacteur : L'article contient peu de valeurs chiffrées ; la valeur demandée est un type de support (support durable), pas un nombre."
+    ],
+    "paraphrase-dev-010": [
+      "fait 1 : forme sans chiffre absente du texte « cinquième classe »"
+    ],
+    "paraphrase-dev-011": [
+      "doute du rédacteur : La valeur attendue est une modalité de notification (un document), et non un chiffre ; la question reste factuelle mais peu numérique.",
+      "fait 1 : forme longue « lettre recommandée avec demande d'avis de réception »",
+      "fait 1 : forme sans chiffre absente du texte « lettre recommandée avec avis de réception »"
+    ],
+    "paraphrase-dev-012": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée précise ; la réponse attendue est une formulation, la forme acceptée dépasse six mots et la question peut admettre des réponses variées (recommandé, dépôt contre récépissé).Il est discutable que l'article soit réellement exploitable.",
+      "fait 1 : forme longue « tout moyen permettant d'apporter la preuve de sa date de réception »"
+    ],
+    "paraphrase-dev-014": [
+      "doute du rédacteur : La question mentionne la rénovation énergétique, absente du texte, ce qui ajoute un contexte non prévu par l'article ; la réponse attend deux organismes.",
+      "fait 1 : forme longue « Agence de l'environnement et de la maîtrise de l'énergie »",
+      "fait 1 : forme sans chiffre absente du texte « ADEME »",
+      "fait 2 : forme sans chiffre absente du texte « ANAH »"
+    ],
+    "paraphrase-dev-015": [
+      "doute du rédacteur : La question vise une personne morale (société) pour que la réponse soit unique ; le plafond de 75 000 € pour une personne physique pourrait être cité en plus sans être faux."
+    ],
+    "paraphrase-test-002": [
+      "doute du rédacteur : La valeur attendue est une autorité (le procureur de la République) plutôt qu'un chiffre, mais c'est un organisme précis donc acceptable."
+    ],
+    "paraphrase-test-005": [
+      "doute du rédacteur : L'article ne contient ni durée ni montant ; la valeur attendue est une autorité (le juge de la saisie immobilière), ce qui reste précis mais moins chiffré.",
+      "fait 1 : forme longue « le juge chargé de la saisie immobilière »",
+      "fait 1 : forme sans chiffre absente du texte « le juge chargé de la saisie immobilière »"
+    ],
+    "paraphrase-test-006": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée classique ; la valeur attendue est la signature, ce qui reste un élément précis mais peu technique. La formulation de l'article évoque aussi des exceptions pour les emménagements.",
+      "fait 1 : forme sans chiffre absente du texte « la signature »"
+    ],
+    "paraphrase-test-007": [
+      "doute du rédacteur : La valeur attendue est un nom de mesure plutôt qu'un chiffre ; la paraphrase reste proche de la notion de redressement personnel."
+    ],
+    "paraphrase-test-008": [
+      "doute du rédacteur : La question mentionne le montant en euros pour être identifiable, ce qui reprend un mot du texte ; la paraphrase est limitée car l'article est une table de conversion."
+    ],
+    "paraphrase-test-015": [
+      "doute du rédacteur : La valeur attendue est une règle de taux (même taux que le prêt) et non un chiffre, donc les formes acceptées sont des courtes expressions du texte.",
+      "fait 1 : forme longue « un taux égal à celui du prêt »"
+    ],
+    "paraphrase-test-021": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée mais un document (bon de commande) ; la question admet aussi « tout autre support durable » si aucun bon de commande n'existe."
+    ],
+    "paraphrase-test-023": [
+      "doute du rédacteur : L'article ne contient aucune valeur chiffrée ; la réponse est un nom de taux (TAEG), ce qui reste une valeur précise mais peu numérique.",
+      "fait 1 : forme sans chiffre absente du texte « TAEG »"
+    ],
+    "paraphrase-test-024": [
+      "doute du rédacteur : La valeur attendue est une désignation du fichier par renvoi à un article (sans nom explicite), ce qui est peu précis ; l'article ne contient ni durée, ni montant, ni seuil."
+    ],
+    "paraphrase-test-026": [
+      "doute du rédacteur : La question demande un organisme, mais la réponse pourrait aussi être formulée comme « service de la publicité foncière » ; la forme acceptée est celle du texte."
+    ],
+    "paraphrase-test-027": [
+      "doute du rédacteur : Les formes acceptées sont un peu longues et la variante « majoré de 50 % » est une reformulation chiffrée du texte, pas une écriture littérale.",
+      "fait 1 : forme longue « taux de l'intérêt légal majoré de moitié »"
+    ],
+    "paraphrase-test-028": [
+      "doute du rédacteur : La question évoque un vendeur indépendant sans préciser s'il s'agit d'une personne physique, ce qui est assimilé au cas du particulier ; la formulation reste proche mais sans les termes juridiques."
+    ],
+    "paraphrase-test-033": [
+      "doute du rédacteur : La valeur attendue est un numéro de loi, donc la question reste proche du texte malgré la paraphrase ; elle mentionne une année qui donne un indice.  Le « laboratoire national d'essais » désigne le LNE (Laboratoire national de métrologie et d'essais).",
+      "fait 1 : forme longue « loi n° 83-675 du 26 juillet 1983 »"
+    ],
+    "paraphrase-test-034": [
+      "doute du rédacteur : La mention « sans prolongation » dans la question est ajoutée pour cibler la durée initiale, mais l'article permet un renouvellement pour une même durée ; la formulation pourrait prêter à confusion."
+    ],
+    "paraphrase-test-035": [
+      "doute du rédacteur : L'article contient peu de valeurs chiffrées ; la valeur demandée est la nature du texte (décret en Conseil d'Etat), ce qui reste un document précis mais peu technique."
+    ],
+    "paraphrase-test-037": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée mais une désignation de juge ; la question demande bien une valeur précise (autorité judiciaire) mais reste un peu institutionnelle.",
+      "fait 1 : forme longue « juge des libertés et de la détention »",
+      "fait 1 : forme longue « le juge des libertés et de la détention du tribunal judiciaire »",
+      "fait 1 : forme sans chiffre absente du texte « le juge des libertés et de la détention du tribunal judiciaire »",
+      "fait 1 : forme sans chiffre absente du texte « JLD »"
+    ],
+    "paraphrase-test-041": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée précise ; la réponse attendue est un type de tarif (communication nationale), ce qui reste une valeur assez peu précise.",
+      "fait 1 : forme sans chiffre absente du texte « tarif d'une communication nationale »"
+    ],
+    "paraphrase-test-043": [
+      "doute du rédacteur : La valeur attendue est un organisme (greffe du tribunal judiciaire), sans durée ni montant ; la question reste assez proche du texte pour la paraphrase.",
+      "fait 1 : forme sans chiffre absente du texte « le greffe du tribunal judiciaire »"
+    ],
+    "paraphrase-test-044": [
+      "doute du rédacteur : La question ne précise pas l'obligation concernée (renvoi à L. 111-6) ; elle repose sur la distinction entre personne physique et personne morale, exprimée ici par « particulier »."
+    ],
+    "paraphrase-test-045": [
+      "doute du rédacteur : La valeur est un acte de désignation et une autorité plutôt qu'un chiffre ; la formulation de la réponse attendue peut varier (ministre chargé de l'économie)."
+    ],
+    "paraphrase-test-046": [
+      "doute du rédacteur : Le montant peut être porté à 10 % du chiffre d'affaires moyen annuel ; la question précise « dans le cas général » pour viser le plafond de base."
+    ],
+    "paraphrase-test-049": [
+      "doute du rédacteur : La question reformule la convention en « accord de répartition des dossiers » ; la réponse reste lisible directement dans le texte.",
+      "fait 1 : forme longue « commission d'évaluation et de contrôle de la médiation »"
+    ],
+    "paraphrase-test-050": [
+      "doute du rédacteur : La valeur est une durée relative (tant que le service est disponible), non un chiffre ; la question reste vérifiable mais la forme acceptée est une expression de six mots.",
+      "fait 1 : forme longue « aussi longtemps que le service est disponible »"
+    ],
+    "paraphrase-test-051": [
+      "doute du rédacteur : L'article est une simple liste de pièces sans durée ni montant ; la valeur demandée est un nom de pièce, et la nature exacte de l'obligation (article L. 224-111) n'est pas précisée dans l'extrait."
+    ],
+    "multi_article-dev-004": [
+      "doute du rédacteur : La condition des 10 000 membres peut ne pas être exigée des associations de recherche scientifique, mais la question dit « en principe ».",
+      "fait 1 : forme sans chiffre absente du texte « le procureur général »",
+      "fait 2 : forme sans chiffre absente du texte « dix mille »"
+    ],
+    "multi_article-dev-005": [
+      "doute du rédacteur : Les faits sont des destinataires et des documents, sans valeur chiffrée ; l'article A mentionne aussi l'assureur délégué."
+    ],
+    "multi_article-dev-007": [
+      "doute du rédacteur : La question combine deux situations (durée du protocole après effacement, et juge saisi pour la liquidation judiciaire) qui sont liées mais distinctes ; la durée de trois ans vaut en cas d'effacement."
+    ],
+    "multi_article-dev-009": [
+      "doute du rédacteur : Le bulletin est aussi nommé dans l'article A ; la question exige quand même les deux articles pour les modalités, mais le second fait pourrait être trouvé dans A seul.",
+      "fait 2 : forme longue « Bulletin officiel des annonces civiles et commerciales »",
+      "fait 2 : forme sans chiffre absente du texte « BODACC »"
+    ],
+    "multi_article-dev-010": [
+      "doute du rédacteur : Le cas de deux ans suppose une fourniture continue d'au plus deux ans ; au-delà, la durée de fourniture s'applique, mais la question reste lisible dans le texte."
+    ],
+    "multi_article-dev-011": [
+      "doute du rédacteur : La question combine deux éléments distincts ; le second fait admet aussi « autre support durable » comme réponse valable, non listée comme forme acceptée."
+    ],
+    "multi_article-test-001": [
+      "doute du rédacteur : La question mentionne le contenu des articles de façon indirecte, et la réponse sur les articles supprimés est un renvoi d'articles plutôt qu'une valeur numérique classique."
+    ],
+    "multi_article-test-002": [
+      "doute du rédacteur : L'article L712-3 renvoie lui-même à L. 761-1 pour la déchéance, mais la question reste répondable avec les deux articles donnés."
+    ],
+    "multi_article-test-003": [
+      "doute du rédacteur : Les valeurs sont qualitatives (voie de recours, caractère exceptionnel) et non chiffrées ; la question est un peu longue et le second fait est une condition plutôt qu'une valeur précise."
+    ],
+    "multi_article-test-004": [
+      "doute du rédacteur : La question porte sur une liste d'informations (TAEG, nature du taux, montant total dû, échéances) ; un seul élément est attendu, ce qui peut rendre la réponse incomplète ou ambiguë.",
+      "fait 1 : forme longue « sous forme d'encadré, en en-tête du texte publicitaire »",
+      "fait 1 : forme sans chiffre absente du texte « en encadré en en-tête »",
+      "fait 1 : forme sans chiffre absente du texte « encadré en en-tête »",
+      "fait 2 : forme sans chiffre absente du texte « TAEG »"
+    ],
+    "multi_article-test-005": [
+      "doute du rédacteur : L'article L224-15 ne s'applique qu'aux consommateurs, et la mention de l'article L224-15 dans L224-1 passe par le II, alinéa 2, pour les contrats d'électricité du code de l'énergie ; le lien avec la question reste indirect."
+    ],
+    "multi_article-test-006": [
+      "doute du rédacteur : Le seuil de 10 % couvre les remboursements « égaux ou inférieurs » à ce pourcentage, la formulation de la question pourrait donc être légèrement imprécise.",
+      "fait 1 : forme sans chiffre absente du texte « trois pour cent »",
+      "fait 2 : forme sans chiffre absente du texte « dix pour cent »"
+    ],
+    "multi_article-test-007": [
+      "doute du rédacteur : La deuxième forme acceptée est longue et la réponse pourrait être formulée différemment (par exemple « durée du contrat »), ce qui pourrait gêner la vérification.",
+      "fait 1 : forme longue « version la plus récente qui est disponible »",
+      "fait 2 : forme longue « la période pendant laquelle le contenu numérique ou le service numérique est fourni en vertu du contrat »",
+      "fait 2 : forme sans chiffre absente du texte « période de fourniture prévue au contrat »"
+    ],
+    "multi_article-test-008": [
+      "doute du rédacteur : Le premier fait admet aussi « support durable » comme alternative légale ; la forme acceptée ne retient que « support papier » pour rester courte."
+    ],
+    "multi_article-test-012": [
+      "doute du rédacteur : Les deux faits ont la même valeur (deux ans), ce qui peut rendre la vérification moins discriminante ; la question reste néanmoins bien liée aux deux articles."
+    ],
+    "multi_article-test-013": [
+      "doute du rédacteur : L314-1 ne contient aucune valeur chiffrée ; le second fait est un document (l'avenant), choisi parmi deux possibilités citées (offre ou avenant), ce qui suppose de relier le cas de la substitution à l'avenant."
+    ],
+    "multi_article-test-015": [
+      "doute du rédacteur : La question demande la diagonale en pouces alors que le texte donne aussi la valeur en cm ; les deux formes sont acceptées."
+    ],
+    "multi_article-test-016": [
+      "doute du rédacteur : Les réponses sont des expressions nominales plutôt que des valeurs chiffrées, l'article ne contenant pas de valeur numérique précise dans ce passage."
+    ],
+    "multi_article-test-019": [
+      "doute du rédacteur : L'article L224-67 ne renvoie pas explicitement à L112-1 ; le lien entre les deux repose sur le thème de l'information du consommateur, et la question combine deux valeurs de nature procédurale.",
+      "fait 2 : forme sans chiffre absente du texte « arrêté »"
+    ],
+    "multi_article-test-023": [
+      "doute du rédacteur : Le second fait est une modalité (décret) plutôt qu'une valeur chiffrée ; la formulation de la question est un peu longue.",
+      "fait 2 : forme sans chiffre absente du texte « barème fixé par décret »"
+    ],
+    "multi_article-test-024": [
+      "doute du rédacteur : Les valeurs sont des organismes (juge, commission) plutôt que des chiffres ; la question combine deux faits mais le juge est nommé dans les deux articles.",
+      "fait 2 : forme sans chiffre absente du texte « commission de surendettement »"
+    ],
+    "multi_article-test-027": [
+      "doute du rédacteur : Le second fait est une absence de voix délibérative, formulée comme une négation ; la question mélange deux aspects (nombre de membres et statut des experts) et la formulation « voix des experts » est un peu maladroite.",
+      "fait 2 : forme sans chiffre absente du texte « sans voix délibérative »"
+    ],
+    "multi_article-test-028": [
+      "doute du rédacteur : Le premier fait est un numéro d'article du code du travail, et la question ne demande pas explicitement ce numéro ; la formulation pourrait aussi admettre « barème de la saisie des rémunérations ».",
+      "fait 1 : forme longue « article R. 3252-2 du code du travail »"
+    ],
+    "multi_article-test-029": [
+      "doute du rédacteur : Le premier fait est une formulation plutôt qu'une valeur chiffrée, et la question combine deux informations assez disjointes.",
+      "fait 1 : forme longue « un affichage clair, visible et lisible de l'extérieur »"
+    ],
+    "multi_article-test-030": [
+      "doute du rédacteur : La question demande un numéro d'article alors que la consigne générale déconseille d'en citer ; la réponse attendue est ici un numéro d'article, ce qui reste une valeur précise mais peu naturelle."
+    ],
+    "lost_context-dev-001": [
+      "doute du rédacteur : Le texte ne dit pas explicitement « Laboratoire national de métrologie et d'essais » ; ce contexte vient du plan. La question reste valable car le délai de dix jours est lisible dans l'article.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-dev-002": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée ; la réponse est une catégorie de créanciers (les bailleurs), ce qui reste une valeur précise lisible dans le texte.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme sans chiffre absente du texte « les bailleurs »"
+    ],
+    "lost_context-dev-003": [
+      "doute du rédacteur : La question mentionne le contexte (garantie légale de conformité, vente de biens) sans citer d'article ; la formulation est un peu longue et la réponse 'RGPD' n'apparaît pas dans le texte, seulement le numéro du règlement.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme sans chiffre absente du texte « RGPD »"
+    ],
+    "lost_context-dev-004": [
+      "doute du rédacteur : L'article contient peu de valeurs chiffrées ; la valeur demandée est une juridiction (le juge de la mise en état), ce qui reste précis mais n'est pas un nombre.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme longue « le juge de la mise en état »",
+      "fait 1 : forme sans chiffre absente du texte « le juge de la mise en état »"
+    ],
+    "lost_context-dev-005": [
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-dev-006": [
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-dev-007": [
+      "doute du rédacteur : La question mentionne le taux annuel effectif global comme contexte, mais la valeur de cinq ans concerne le calcul du TAEG illustratif supplémentaire, ce qui est précisé de façon implicite seulement.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-001": [
+      "doute du rédacteur : La formulation « annuellement » est la seule valeur précise de l'article ; les variantes « chaque année » et « une fois par an » sont des paraphrases proches mais non écrites dans le texte.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme sans chiffre absente du texte « chaque année »",
+      "fait 1 : forme sans chiffre absente du texte « une fois par an »"
+    ],
+    "lost_context-test-002": [
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-003": [
+      "doute du rédacteur : La question demande un numéro d'article comme réponse, ce qui est peu naturel et ne nomme pas explicitement le contexte « présent titre » (titre Ier du livre V, recherche et constatation) ; la valeur reste un renvoi plutôt qu'une valeur chiffrée.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-004": [
+      "doute du rédacteur : L'article contient peu de valeurs chiffrées ; la réponse est une notion (interface en ligne) plutôt qu'un chiffre, et la question est assez facile à deviner.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-005": [
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-006": [
+      "doute du rédacteur : La valeur attendue est un nom de document plutôt qu'un chiffre, mais elle correspond bien à la catégorie « document » et se lit directement dans le texte.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-007": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée mais un type d'acte (arrêtés conjoints) ; la réponse reste précise et lisible dans le texte.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme sans chiffre absente du texte « arrêté conjoint »"
+    ],
+    "lost_context-test-009": [
+      "doute du rédacteur : Le chapitre III porte sur le crédit immobilier d'après le plan du code, mais cela n'apparaît pas dans l'article ; la réponse attendue reste le numéro du chapitre, lisible dans le texte.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme sans chiffre absente du texte « le chapitre III »"
+    ],
+    "lost_context-test-010": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée, seulement un document (le règlement intérieur) ; la question reste lisible sans le plan, mais la mention « présente section » n'est pas directement exploitée dans la réponse.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-012": [
+      "doute du rédacteur : La valeur attendue est un document (un exemplaire du contrat), ce qui reste assez peu chiffré ; la réponse pourrait être formulée de diverses manières.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme sans chiffre absente du texte « un exemplaire du contrat »",
+      "fait 1 : forme sans chiffre absente du texte « exemplaire du contrat »"
+    ],
+    "lost_context-test-013": [
+      "doute du rédacteur : Le délai de quinze jours s'applique aussi au pourvoi en cassation, mais la question porte uniquement sur l'appel, donc la valeur attendue reste unique.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-017": [
+      "doute du rédacteur : La question ne cite pas d'expression de contexte perdu comme « présent chapitre » pour la réponse, mais précise le contexte (vente de biens, garantie commerciale) ; la valeur attendue est un moment et non un chiffre.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme longue « au moment de la délivrance du bien »"
+    ],
+    "lost_context-test-018": [
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-019": [
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-020": [
+      "doute du rédacteur : L'article mentionne aussi le droit de rétractation de l'article L. 221-18 (quatorze jours), qui pourrait prêter à confusion, mais la question vise bien le délai propre au courtage matrimonial.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-021": [
+      "doute du rédacteur : La question mentionne la sous-section sur la formation, la modification et la durée, ce qui aide à situer le contexte mais ne donne pas la réponse ; l'exception de l'article L. 224-25-6 n'est pas demandée.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-022": [
+      "doute du rédacteur : L'article ne contient pas d'expression de contexte perdu comme « le présent chapitre » : seule l'expression « au présent livre » renvoie au contexte, et la réponse attendue (numéro du règlement) n'en dépend pas directement.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-023": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée, seulement des professions ; la question porte sur la qualité exigée des agents, et le contexte (Livre V, habilitations) est nommé dans la question.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-024": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée mais un terme précis (l'emprunteur) ; la question ne mentionne pas explicitement un renvoi de contexte du type « le présent chapitre », donc le mode s'applique de façon limitée.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-025": [
+      "doute du rédacteur : L'article ne contient pas de valeur chiffrée ; la réponse est une désignation (contrat unique), et la question ne renvoie pas à une expression du type « le présent chapitre » dans le texte.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-026": [
+      "doute du rédacteur : La question contient la date du règlement, ce qui aide à le retrouver, mais la valeur demandée (le numéro 2016/679) n'y figure pas ; le sigle RGPD n'apparaît pas dans le texte.",
+      "mode lost_context : relu systématiquement",
+      "fait 1 : forme sans chiffre absente du texte « RGPD »"
+    ],
+    "lost_context-test-027": [
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-test-028": [
+      "mode lost_context : relu systématiquement"
+    ],
+    "unanswerable-dev-001": [
+      "doute du rédacteur : D'autres articles du code sur la garantie légale de conformité prévoient que la réparation est gratuite, mais aucun ne fixe de montant maximal de frais de port, donc la question reste sans réponse chiffrée.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-002": [
+      "doute du rédacteur : Un autre article du code ou un texte réglementaire pourrait peut-être préciser un délai d'activation, mais je n'en connais pas.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-003": [
+      "doute du rédacteur : Un autre article du livre VI pourrait mentionner des modalités financières, mais je n'en connais aucun qui prévoie des frais de dossier pour les candidats médiateurs.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-004": [
+      "doute du rédacteur : D'autres articles du chapitre sur l'action en représentation conjointe (mandat, forme) pourraient évoquer des frais, mais il est peu probable qu'ils fixent un montant précis.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-005": [
+      "doute du rédacteur : Un autre article du code ou un arrêté pris pour son application pourrait préciser la lisibilité des mentions, mais le Code de la consommation ne semble pas fixer de taille de caractères.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-006": [
+      "doute du rédacteur : Un autre article du Code de la consommation (par exemple sur les modalités de remboursement après résolution, L217-17 ou L224-25-22) pourrait fixer un délai, notamment quatorze jours ; la question risque donc d'avoir une réponse ailleurs dans le code.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-007": [
+      "doute du rédacteur : Le décret d'application peut éventuellement préciser la présentation de la notice, mais il ne fait pas partie du Code de la consommation lui-même.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-001": [
+      "doute du rédacteur : Le délai maximum de publication et de conservation est mentionné par l'article sans valeur chiffrée ; une autre disposition pourrait le fixer, mais aucune ne porte sur la longueur des avis.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-002": [
+      "doute du rédacteur : Le code pourrait contenir des règles générales sur l'information sur les prix, mais aucune ne plafonne le prix d'une pièce détachée.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-003": [
+      "doute du rédacteur : Les frais de vente ou émoluments d'avocat pourraient être traités dans un autre texte (procédure civile d'exécution), mais pas dans le Code de la consommation, donc la question reste sans réponse ici.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-004": [
+      "doute du rédacteur : Un autre article du code pourrait imposer une taille de caractères pour certaines mentions du contrat de crédit, mais pas pour ce formulaire. Le modèle type en annexe pourrait aussi contenir des indications de présentation.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-005": [
+      "doute du rédacteur : Un autre article du Code de la consommation (par exemple sur la procédure d'amende administrative au livre V) pourrait éventuellement traiter de la récidive de façon générale, ce qui rendrait la question partiellement répondable.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-006": [
+      "doute du rédacteur : Un autre article du Code de la consommation pourrait mentionner les frais d'analyse ou d'expertise, ce qui rendrait la question partiellement répondable.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-007": [
+      "doute du rédacteur : D'autres articles du code, notamment ceux de la partie législative sur les sanctions administratives, fixent peut-être des plafonds d'amende pour certains manquements. La question pourrait donc avoir une réponse ailleurs dans le code.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-008": [
+      "doute du rédacteur : Un autre article du code ou un texte réglementaire pourrait traiter des frais d'expertise, mais il semble peu probable que le Code de la consommation fixe un tarif horaire.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-009": [
+      "doute du rédacteur : D'autres dispositions du Code de la consommation sur les injonctions administratives en ligne pourraient mentionner un délai de retrait. Je n'ai pas pu vérifier qu'aucun article ne le prévoit.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-010": [
+      "doute du rédacteur : Un autre article du code ou un autre texte (code rural, INAO) pourrait traiter des frais ; le Code de la consommation lui-même ne semble pas en fixer.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-011": [
+      "doute du rédacteur : Un autre article du Code de la consommation (sanctions pénales des tromperies ou des fraudes sur l'origine) pourrait fixer une amende, mais il s'agirait d'une amende pénale et non civile, donc la question reste sans réponse précise.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-012": [
+      "doute du rédacteur : Un autre article du Code de la consommation pourrait fixer des plafonds de régie pour l'INC, mais cela paraît improbable ; le seuil relève de la réglementation sur les régies.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-013": [
+      "doute du rédacteur : Un autre article du livre VII pourrait évoquer les frais de procédure, mais il est peu probable qu'il chiffre des frais de greffe.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-014": [
+      "doute du rédacteur : Un autre article du Code de la consommation sur le fonctionnement des commissions pourrait mentionner une indemnité ou la gratuité des fonctions de membre, ce qui rendrait la question répondable.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-015": [
+      "doute du rédacteur : Le code mentionne la capacité de remboursement et le reste à vivre, ce qui pourrait laisser penser qu'un autre article donne un plafond ; mais ils ne fixent pas de montant maximal unique de mensualité.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-016": [
+      "doute du rédacteur : Un article voisin sur les pièces de l'économie circulaire pourrait évoquer des conditions tarifaires, mais je n'en ai pas connaissance et je ne pense pas qu'il fixe un pourcentage.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-017": [
+      "doute du rédacteur : Les règles sur la libre fixation des prix ou sur l'affichage des prix figurent ailleurs dans le code, mais aucune ne fixe de prix maximal pour la viande hachée. Il y a donc un faible risque qu'un autre article réponde.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-018": [
+      "doute du rédacteur : Un autre article du code ou la partie réglementaire pourrait traiter des frais d'analyse ou d'expertise lors des prélèvements, ce qui rendrait la question partiellement répondable.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-019": [
+      "doute du rédacteur : Un autre article de la sous-section pourrait fixer un délai de transmission, ce que je n'ai pas pu vérifier ; l'article R. 742-44 ne porte que sur le délai de contestation.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-020": [
+      "doute du rédacteur : Un autre article du Code de la consommation pourrait encadrer les primes ou cadeaux, mais il est peu probable qu'il impose une marque précise.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-021": [
+      "doute du rédacteur : Un autre article du titre sur le fichier (par exemple sur le droit d'accès) pourrait traiter de la gratuité ou du coût de la consultation, ce qui rendrait la question répondable.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-022": [
+      "doute du rédacteur : D'autres articles du code, comme ceux sur les sanctions administratives de la DGCCRF, pourraient prévoir un montant d'amende administrative pour certains manquements voisins. La question reste donc à vérifier.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-023": [
+      "doute du rédacteur : Un autre article du chapitre sur l'Institut national de la consommation pourrait préciser l'organisation ou le nombre des comités, mais cela paraît peu probable.",
+      "mode unanswerable : relu systématiquement"
+    ]
+  },
+  "overlap": {
+    "direct-dev-001": 0.667,
+    "direct-dev-003": 0.8,
+    "direct-dev-004": 0.625,
+    "direct-dev-005": 0.9,
+    "direct-dev-006": 0.8,
+    "direct-dev-007": 0.929,
+    "direct-dev-008": 0.643,
+    "direct-dev-009": 0.714,
+    "direct-dev-010": 1.0,
+    "direct-dev-011": 0.933,
+    "direct-dev-012": 0.842,
+    "direct-dev-013": 1.0,
+    "direct-dev-014": 0.538,
+    "direct-dev-015": 0.75,
+    "direct-dev-016": 0.5,
+    "direct-dev-017": 0.75,
+    "direct-dev-018": 0.727,
+    "direct-dev-019": 0.818,
+    "direct-dev-020": 0.75,
+    "direct-test-001": 0.714,
+    "direct-test-002": 0.353,
+    "direct-test-003": 0.667,
+    "direct-test-005": 0.846,
+    "direct-test-006": 0.286,
+    "direct-test-007": 0.625,
+    "direct-test-008": 0.222,
+    "direct-test-009": 1.0,
+    "direct-test-010": 0.667,
+    "direct-test-011": 0.75,
+    "direct-test-012": 0.727,
+    "direct-test-013": 0.333,
+    "direct-test-014": 0.882,
+    "direct-test-015": 0.556,
+    "direct-test-017": 0.727,
+    "direct-test-018": 0.375,
+    "direct-test-019": 0.462,
+    "direct-test-020": 0.846,
+    "direct-test-021": 0.818,
+    "direct-test-022": 0.308,
+    "direct-test-023": 0.667,
+    "direct-test-024": 0.857,
+    "direct-test-025": 0.833,
+    "direct-test-026": 0.7,
+    "direct-test-028": 0.846,
+    "direct-test-031": 0.706,
+    "direct-test-032": 0.778,
+    "direct-test-033": 0.6,
+    "direct-test-034": 0.615,
+    "direct-test-035": 0.923,
+    "direct-test-037": 0.778,
+    "direct-test-038": 0.615,
+    "direct-test-039": 0.778,
+    "direct-test-040": 0.833,
+    "direct-test-041": 0.818,
+    "direct-test-042": 0.333,
+    "direct-test-043": 0.812,
+    "direct-test-044": 0.429,
+    "direct-test-045": 0.733,
+    "direct-test-046": 0.875,
+    "direct-test-047": 0.714,
+    "direct-test-048": 0.538,
+    "direct-test-049": 0.4,
+    "direct-test-050": 0.5,
+    "direct-test-051": 0.692,
+    "direct-test-052": 0.833,
+    "direct-test-053": 0.438,
+    "direct-test-054": 0.571,
+    "direct-test-055": 0.571,
+    "direct-test-056": 0.5,
+    "direct-test-058": 0.867,
+    "direct-test-059": 0.75,
+    "direct-test-060": 0.75,
+    "reference-dev-001": 0.8,
+    "reference-dev-002": 0.692,
+    "reference-dev-003": 0.727,
+    "reference-dev-004": 0.833,
+    "reference-dev-005": 1.0,
+    "reference-dev-006": 0.647,
+    "reference-dev-007": 0.6,
+    "reference-dev-008": 0.5,
+    "reference-dev-009": 0.583,
+    "reference-dev-010": 0.583,
+    "reference-dev-011": 0.6,
+    "reference-dev-012": 0.625,
+    "reference-dev-013": 0.5,
+    "reference-dev-014": 0.4,
+    "reference-dev-015": 0.5,
+    "reference-dev-016": 0.833,
+    "reference-test-001": 0.545,
+    "reference-test-002": 0.941,
+    "reference-test-003": 0.778,
+    "reference-test-004": 0.333,
+    "reference-test-005": 0.5,
+    "reference-test-006": 0.583,
+    "reference-test-007": 0.545,
+    "reference-test-008": 0.688,
+    "reference-test-009": 0.625,
+    "reference-test-010": 0.571,
+    "reference-test-011": 0.706,
+    "reference-test-012": 0.857,
+    "reference-test-013": 0.6,
+    "reference-test-014": 0.571,
+    "reference-test-015": 0.846,
+    "reference-test-016": 0.538,
+    "reference-test-017": 0.8,
+    "reference-test-018": 0.636,
+    "reference-test-019": 0.636,
+    "reference-test-020": 0.5,
+    "reference-test-021": 0.125,
+    "reference-test-022": 0.667,
+    "reference-test-023": 0.636,
+    "reference-test-024": 0.667,
+    "reference-test-025": 0.929,
+    "reference-test-026": 0.667,
+    "reference-test-027": 0.667,
+    "reference-test-028": 0.875,
+    "reference-test-029": 0.5,
+    "reference-test-030": 0.714,
+    "reference-test-031": 0.8,
+    "reference-test-032": 0.462,
+    "reference-test-033": 0.583,
+    "reference-test-034": 0.556,
+    "reference-test-035": 0.429,
+    "reference-test-036": 0.818,
+    "reference-test-037": 0.889,
+    "reference-test-038": 0.533,
+    "reference-test-039": 0.5,
+    "reference-test-040": 0.375,
+    "reference-test-041": 0.667,
+    "reference-test-042": 0.778,
+    "reference-test-043": 0.667,
+    "reference-test-044": 0.688,
+    "paraphrase-dev-001": 0.333,
+    "paraphrase-dev-002": 0.125,
+    "paraphrase-dev-003": 0.071,
+    "paraphrase-dev-004": 0.6,
+    "paraphrase-dev-005": 0.273,
+    "paraphrase-dev-006": 0.615,
+    "paraphrase-dev-007": 0.357,
+    "paraphrase-dev-008": 0.0,
+    "paraphrase-dev-009": 0.4,
+    "paraphrase-dev-010": 0.083,
+    "paraphrase-dev-011": 0.091,
+    "paraphrase-dev-012": 0.25,
+    "paraphrase-dev-013": 0.167,
+    "paraphrase-dev-014": 0.333,
+    "paraphrase-dev-015": 0.0,
+    "paraphrase-dev-016": 0.467,
+    "paraphrase-dev-017": 0.167,
+    "paraphrase-dev-018": 0.167,
+    "paraphrase-dev-020": 0.167,
+    "paraphrase-test-001": 0.0,
+    "paraphrase-test-002": 0.154,
+    "paraphrase-test-003": 0.714,
+    "paraphrase-test-004": 0.286,
+    "paraphrase-test-005": 0.308,
+    "paraphrase-test-006": 0.3,
+    "paraphrase-test-007": 0.231,
+    "paraphrase-test-008": 0.25,
+    "paraphrase-test-011": 0.417,
+    "paraphrase-test-013": 0.5,
+    "paraphrase-test-014": 0.091,
+    "paraphrase-test-015": 0.267,
+    "paraphrase-test-016": 0.5,
+    "paraphrase-test-018": 0.467,
+    "paraphrase-test-019": 0.211,
+    "paraphrase-test-020": 0.111,
+    "paraphrase-test-021": 0.143,
+    "paraphrase-test-022": 0.455,
+    "paraphrase-test-023": 0.182,
+    "paraphrase-test-024": 0.3,
+    "paraphrase-test-025": 0.429,
+    "paraphrase-test-026": 0.333,
+    "paraphrase-test-027": 0.308,
+    "paraphrase-test-028": 0.071,
+    "paraphrase-test-030": 0.3,
+    "paraphrase-test-033": 0.154,
+    "paraphrase-test-034": 0.231,
+    "paraphrase-test-035": 0.333,
+    "paraphrase-test-036": 0.167,
+    "paraphrase-test-037": 0.231,
+    "paraphrase-test-038": 0.25,
+    "paraphrase-test-039": 0.462,
+    "paraphrase-test-040": 0.056,
+    "paraphrase-test-041": 0.25,
+    "paraphrase-test-042": 0.071,
+    "paraphrase-test-043": 0.364,
+    "paraphrase-test-044": 0.0,
+    "paraphrase-test-045": 0.2,
+    "paraphrase-test-046": 0.4,
+    "paraphrase-test-047": 0.385,
+    "paraphrase-test-049": 0.385,
+    "paraphrase-test-050": 0.333,
+    "paraphrase-test-051": 0.231,
+    "paraphrase-test-052": 0.167,
+    "paraphrase-test-053": 0.714,
+    "paraphrase-test-054": 0.364,
+    "paraphrase-test-055": 0.333,
+    "paraphrase-test-056": 0.111,
+    "paraphrase-test-057": 0.25,
+    "paraphrase-test-058": 0.25,
+    "paraphrase-test-059": 0.071,
+    "paraphrase-test-060": 0.308,
+    "multi_article-dev-001": 0.571,
+    "multi_article-dev-002": 0.5,
+    "multi_article-dev-003": 0.227,
+    "multi_article-dev-004": 0.294,
+    "multi_article-dev-005": 0.647,
+    "multi_article-dev-006": 0.571,
+    "multi_article-dev-007": 0.667,
+    "multi_article-dev-009": 0.364,
+    "multi_article-dev-010": 0.318,
+    "multi_article-dev-011": 0.417,
+    "multi_article-dev-012": 0.562,
+    "multi_article-dev-013": 0.318,
+    "multi_article-dev-014": 0.273,
+    "multi_article-dev-015": 0.429,
+    "multi_article-dev-016": 0.5,
+    "multi_article-test-001": 0.417,
+    "multi_article-test-002": 0.533,
+    "multi_article-test-003": 0.438,
+    "multi_article-test-004": 0.474,
+    "multi_article-test-005": 0.5,
+    "multi_article-test-006": 0.5,
+    "multi_article-test-007": 0.737,
+    "multi_article-test-008": 0.412,
+    "multi_article-test-009": 0.125,
+    "multi_article-test-010": 0.467,
+    "multi_article-test-011": 0.15,
+    "multi_article-test-012": 0.4,
+    "multi_article-test-013": 0.545,
+    "multi_article-test-014": 0.471,
+    "multi_article-test-015": 0.333,
+    "multi_article-test-016": 0.4,
+    "multi_article-test-017": 0.286,
+    "multi_article-test-018": 0.174,
+    "multi_article-test-019": 0.636,
+    "multi_article-test-020": 0.308,
+    "multi_article-test-021": 0.5,
+    "multi_article-test-022": 0.733,
+    "multi_article-test-023": 0.294,
+    "multi_article-test-024": 0.533,
+    "multi_article-test-026": 0.714,
+    "multi_article-test-027": 0.462,
+    "multi_article-test-028": 0.6,
+    "multi_article-test-029": 0.409,
+    "multi_article-test-030": 0.357,
+    "multi_article-test-031": 0.417,
+    "multi_article-test-032": 0.545,
+    "multi_article-test-033": 0.235,
+    "multi_article-test-034": 0.278,
+    "multi_article-test-035": 0.625,
+    "multi_article-test-036": 0.222,
+    "multi_article-test-037": 0.474,
+    "multi_article-test-038": 0.357,
+    "multi_article-test-039": 0.471,
+    "multi_article-test-040": 0.32,
+    "multi_article-test-041": 0.211,
+    "multi_article-test-042": 0.5,
+    "multi_article-test-043": 0.188,
+    "multi_article-test-044": 0.625,
+    "lost_context-dev-001": 0.529,
+    "lost_context-dev-002": 0.636,
+    "lost_context-dev-003": 0.444,
+    "lost_context-dev-004": 0.643,
+    "lost_context-dev-005": 0.6,
+    "lost_context-dev-006": 0.5,
+    "lost_context-dev-007": 0.81,
+    "lost_context-dev-008": 0.667,
+    "lost_context-dev-009": 0.652,
+    "lost_context-dev-010": 0.667,
+    "lost_context-dev-011": 0.667,
+    "lost_context-dev-012": 0.7,
+    "lost_context-dev-013": 0.733,
+    "lost_context-dev-014": 0.714,
+    "lost_context-test-001": 0.75,
+    "lost_context-test-002": 0.667,
+    "lost_context-test-003": 0.667,
+    "lost_context-test-004": 0.688,
+    "lost_context-test-005": 0.643,
+    "lost_context-test-006": 0.688,
+    "lost_context-test-007": 0.35,
+    "lost_context-test-009": 0.875,
+    "lost_context-test-010": 0.538,
+    "lost_context-test-011": 0.5,
+    "lost_context-test-012": 0.545,
+    "lost_context-test-013": 0.833,
+    "lost_context-test-015": 0.733,
+    "lost_context-test-016": 0.923,
+    "lost_context-test-017": 0.727,
+    "lost_context-test-018": 0.692,
+    "lost_context-test-019": 0.611,
+    "lost_context-test-020": 0.5,
+    "lost_context-test-021": 0.412,
+    "lost_context-test-022": 0.824,
+    "lost_context-test-023": 0.438,
+    "lost_context-test-024": 0.857,
+    "lost_context-test-025": 0.636,
+    "lost_context-test-026": 0.435,
+    "lost_context-test-027": 0.667,
+    "lost_context-test-028": 0.882,
+    "lost_context-test-029": 0.5,
+    "lost_context-test-030": 0.636,
+    "lost_context-test-031": 0.706,
+    "lost_context-test-032": 0.417,
+    "lost_context-test-033": 0.467,
+    "lost_context-test-034": 0.733,
+    "lost_context-test-035": 0.714,
+    "lost_context-test-036": 0.412,
+    "lost_context-test-037": 0.688,
+    "lost_context-test-038": 0.263,
+    "lost_context-test-039": 0.647,
+    "lost_context-test-040": 0.688,
+    "lost_context-test-041": 0.933,
+    "lost_context-test-042": 0.381,
+    "lost_context-test-043": 0.316,
+    "lost_context-test-044": 0.5,
+    "lost_context-test-045": 0.5,
+    "lost_context-test-046": 0.4,
+    "unanswerable-dev-001": 0.5,
+    "unanswerable-dev-002": 0.231,
+    "unanswerable-dev-003": 0.154,
+    "unanswerable-dev-004": 0.167,
+    "unanswerable-dev-005": 0.6,
+    "unanswerable-dev-006": 0.615,
+    "unanswerable-dev-007": 0.273,
+    "unanswerable-dev-008": 0.231,
+    "unanswerable-dev-009": 0.308,
+    "unanswerable-dev-010": 0.167,
+    "unanswerable-dev-011": 0.071,
+    "unanswerable-dev-012": 0.545,
+    "unanswerable-dev-013": 0.364,
+    "unanswerable-dev-014": 0.062,
+    "unanswerable-test-001": 0.125,
+    "unanswerable-test-002": 0.2,
+    "unanswerable-test-003": 0.2,
+    "unanswerable-test-004": 0.273,
+    "unanswerable-test-005": 0.278,
+    "unanswerable-test-006": 0.222,
+    "unanswerable-test-007": 0.429,
+    "unanswerable-test-008": 0.429,
+    "unanswerable-test-009": 0.4,
+    "unanswerable-test-010": 0.286,
+    "unanswerable-test-011": 0.364,
+    "unanswerable-test-012": 0.444,
+    "unanswerable-test-013": 0.083,
+    "unanswerable-test-014": 0.333,
+    "unanswerable-test-015": 0.273,
+    "unanswerable-test-016": 0.143,
+    "unanswerable-test-017": 0.111,
+    "unanswerable-test-018": 0.0,
+    "unanswerable-test-019": 0.818,
+    "unanswerable-test-020": 0.5,
+    "unanswerable-test-021": 0.25,
+    "unanswerable-test-022": 0.214,
+    "unanswerable-test-023": 0.818,
+    "unanswerable-test-024": 0.0,
+    "unanswerable-test-025": 0.214,
+    "unanswerable-test-026": 0.417,
+    "unanswerable-test-027": 0.429,
+    "unanswerable-test-028": 0.545,
+    "unanswerable-test-029": 0.538,
+    "unanswerable-test-030": 0.333,
+    "unanswerable-test-031": 0.091,
+    "unanswerable-test-032": 0.286,
+    "unanswerable-test-033": 0.529,
+    "unanswerable-test-034": 0.533,
+    "unanswerable-test-035": 0.455,
+    "unanswerable-test-036": 0.1,
+    "unanswerable-test-037": 0.167,
+    "unanswerable-test-038": 0.2,
+    "unanswerable-test-039": 0.375,
+    "unanswerable-test-040": 0.5,
+    "unanswerable-test-041": 0.5,
+    "unanswerable-test-042": 0.545,
+    "unanswerable-test-043": 0.462,
+    "unanswerable-test-044": 0.214,
+    "unanswerable-test-045": 0.583,
+    "unanswerable-test-046": 0.462
+  },
+  "writer_models": [
+    "claude-sonnet-5-5"
+  ],
+  "prompt_sha256": [
+    "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+    "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+    "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+    "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+    "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+    "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca"
+  ]
+}

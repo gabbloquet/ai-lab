@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-test-019",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:41:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1695,
+    "output_tokens": 196
+  },
+  "output": {
+    "question": "Je veux contester auprès de mon fournisseur d'accès internet, mais je me demande si la médiation de la consommation couvre aussi le cas où c'est le commerçant qui me poursuit en justice : quel type de procédure est exclu de ce dispositif quand elle vient du professionnel ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il énumère seulement des exclusions, donc il se prête mal à une question à réponse courte."
+  },
+  "raw_text": "{\"question\":\"Je veux contester auprès de mon fournisseur d'accès internet, mais je me demande si la médiation de la consommation couvre aussi le cas où c'est le commerçant qui me poursuit en justice : quel type de procédure est exclu de ce dispositif quand elle vient du professionnel ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il énumère seulement des exclusions, donc il se prête mal à une question à réponse courte.\"}"
+}

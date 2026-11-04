@@ -1,0 +1,30 @@
+{
+  "task": "direct-dev-015",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:40:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1976,
+    "output_tokens": 175
+  },
+  "output": {
+    "question": "Pendant combien de temps minimum, à compter de la date d'achat, l'outil en ligne d'identification d'un numéro à valeur ajoutée doit-il permettre d'obtenir les informations sur le produit ou le service ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "douze mois",
+          "12 mois"
+        ],
+        "quote": "pendant une période qui ne peut être inférieure à douze mois à compter de la date d'achat du produit ou du service",
+        "article": "L224-43"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Pendant combien de temps minimum, à compter de la date d'achat, l'outil en ligne d'identification d'un numéro à valeur ajoutée doit-il permettre d'obtenir les informations sur le produit ou le service ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"douze mois\",\"12 mois\"],\"quote\":\"pendant une période qui ne peut être inférieure à douze mois à compter de la date d'achat du produit ou du service\",\"article\":\"L224-43\"}],\"doubt\":\"\"}"
+}

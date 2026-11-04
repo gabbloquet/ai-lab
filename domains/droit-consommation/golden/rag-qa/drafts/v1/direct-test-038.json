@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-038",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:41:04+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1666,
+    "output_tokens": 166
+  },
+  "output": {
+    "question": "Quel est le montant maximal de l'amende administrative encourue par une personne morale qui ne recueille pas le consentement exprès du consommateur avant un paiement supplémentaire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €",
+          "15000 euros"
+        ],
+        "quote": "ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale",
+        "article": "L132-22"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quel est le montant maximal de l'amende administrative encourue par une personne morale qui ne recueille pas le consentement exprès du consommateur avant un paiement supplémentaire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"15 000 euros\",\"15 000 €\",\"15000 euros\"],\"quote\":\"ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale\",\"article\":\"L132-22\"}],\"doubt\":\"\"}"
+}

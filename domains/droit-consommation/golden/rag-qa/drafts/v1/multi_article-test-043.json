@@ -1,0 +1,30 @@
+{
+  "task": "multi_article-test-043",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2429,
+    "output_tokens": 525
+  },
+  "output": {
+    "question": "Quelle peine d'emprisonnement est encourue pour une pratique commerciale agressive (sollicitations répétées et insistantes, contrainte physique ou morale) lorsqu'elle a été suivie de la conclusion d'un contrat ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "la peine d'emprisonnement prévue à l'article L. 132-11 est portée à trois ans",
+        "article": "L132-11-1"
+      }
+    ],
+    "doubt": "L121-6 ne donne que la définition de la pratique agressive et des critères qualitatifs, sans valeur précise (durée, montant, taux, seuil). Aucun fait de B ne peut donc être demandé et la question ne nécessite pas les deux articles."
+  },
+  "raw_text": "{\"question\":\"Quelle peine d'emprisonnement est encourue pour une pratique commerciale agressive (sollicitations répétées et insistantes, contrainte physique ou morale) lorsqu'elle a été suivie de la conclusion d'un contrat ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"la peine d'emprisonnement prévue à l'article L. 132-11 est portée à trois ans\",\"article\":\"L132-11-1\"}],\"doubt\":\"L121-6 ne donne que la définition de la pratique agressive et des critères qualitatifs, sans valeur précise (durée, montant, taux, seuil). Aucun fait de B ne peut donc être demandé et la question ne nécessite pas les deux articles.\"}"
+}

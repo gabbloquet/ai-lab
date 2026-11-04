@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-005",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1685,
+    "output_tokens": 315
+  },
+  "output": {
+    "question": "Quel est le montant de l'amende administrative encourue par un prêteur immobilier qui ne respecte pas ses obligations en matière de délégation d'assurance emprunteur lorsqu'il a déjà été sanctionné une première fois, en cas de récidive ?",
+    "why_unanswerable": "L'article fixe seulement des plafonds d'amende administrative (3 000 euros pour une personne physique, 15 000 euros pour une personne morale) sans prévoir de majoration ni de montant spécifique en cas de récidive. Le code ne détaille pas ici un régime de récidive pour cette infraction, donc la question n'a pas de réponse dans le texte.",
+    "doubt": "Un autre article du Code de la consommation (par exemple sur la procédure d'amende administrative au livre V) pourrait éventuellement traiter de la récidive de façon générale, ce qui rendrait la question partiellement répondable."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant de l'amende administrative encourue par un prêteur immobilier qui ne respecte pas ses obligations en matière de délégation d'assurance emprunteur lorsqu'il a déjà été sanctionné une première fois, en cas de récidive ?\",\"why_unanswerable\":\"L'article fixe seulement des plafonds d'amende administrative (3 000 euros pour une personne physique, 15 000 euros pour une personne morale) sans prévoir de majoration ni de montant spécifique en cas de récidive. Le code ne détaille pas ici un régime de récidive pour cette infraction, donc la question n'a pas de réponse dans le texte.\",\"doubt\":\"Un autre article du Code de la consommation (par exemple sur la procédure d'amende administrative au livre V) pourrait éventuellement traiter de la récidive de façon générale, ce qui rendrait la question partiellement répondable.\"}"
+}

@@ -35,7 +35,9 @@ GOLDEN_DIR = DOMAIN_DIR / "golden" / "rag-qa"
 # Seuil de recouvrement lexical du mode paraphrase, fixé au pilote du 2026-11-04 : au-dessus du
 # maximum mesuré en paraphrase (0,33), au-dessous du minimum du mode direct (0,57).
 OVERLAP_THRESHOLD: float | None = 0.4
-REVIEW_SHARE = 0.2
+# Part des items sans alerte tirés pour la relecture. Elle était de 20 % ; en v1, le rédacteur
+# exprime un doute sur 148 des 200 items retenus, et l'on relit donc tout (README, « Relecture »).
+REVIEW_SHARE = 1.0
 MAX_FACTS = 3
 LONG_FORM_WORDS = 6
 
@@ -539,7 +541,16 @@ def render_review_page(
     )
     selected = {s.task["task"]: s for s in result.selected}
     cards = []
-    for name, (task, draft, checked) in result.checks.items():
+    order = sorted(
+        result.checks.items(),
+        key=lambda entry: (
+            entry[1][0]["split"] != "dev",
+            MODE_ORDER.index(entry[1][0]["mode"]),
+            entry[1][0]["rank"],
+        ),
+    )
+    current_split = None
+    for name, (task, draft, checked) in order:
         chosen = selected.get(name)
         if chosen is not None:
             status = "à relire" if name in result.pending_review else "retenu"
@@ -553,6 +564,9 @@ def render_review_page(
             status = "surplus"
             if not include_all:
                 continue
+        if task["split"] != current_split:
+            current_split = task["split"]
+            cards.append(f"<h2>Split {html.escape(current_split)}</h2>")
         cards.append(_card(name, task, draft, checked, status, by_id, index))
     summary = (
         f"{len(result.selected)} items retenus, {len(result.pending_review)} à relire, "

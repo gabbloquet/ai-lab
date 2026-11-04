@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-019",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1686,
+    "output_tokens": 293
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 512-7 du Code de la consommation quant au moment où les agents habilités peuvent ne décliner leur qualité qu'à l'égard de la personne contrôlée ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "au moment où ils informent la personne contrôlée de la constatation d'une infraction ou d'un manquement"
+        ],
+        "quote": "les agents habilités peuvent ne décliner leur qualité qu'au moment où ils informent la personne contrôlée de la constatation d'une infraction ou d'un manquement",
+        "article": "L512-7"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, date, organisme, document) : il énonce une règle procédurale, donc il n'est pas adapté ; la réponse attendue est une phrase et non une valeur courte."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 512-7 du Code de la consommation quant au moment où les agents habilités peuvent ne décliner leur qualité qu'à l'égard de la personne contrôlée ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"au moment où ils informent la personne contrôlée de la constatation d'une infraction ou d'un manquement\"],\"quote\":\"les agents habilités peuvent ne décliner leur qualité qu'au moment où ils informent la personne contrôlée de la constatation d'une infraction ou d'un manquement\",\"article\":\"L512-7\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, date, organisme, document) : il énonce une règle procédurale, donc il n'est pas adapté ; la réponse attendue est une phrase et non une valeur courte.\"}"
+}

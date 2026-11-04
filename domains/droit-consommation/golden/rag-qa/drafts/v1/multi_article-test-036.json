@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-test-036",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2064,
+    "output_tokens": 337
+  },
+  "output": {
+    "question": "Quel est le montant de l'amende encourue par un prêteur immobilier qui manque à certaines obligations du contrat de crédit, et à quelle sanction civile liée aux intérêts s'expose-t-il en cas de mention erronée du TAEG ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "150 000 euros",
+          "150 000 €",
+          "150000 euros"
+        ],
+        "quote": "est puni d'une amende de 150 000 euros",
+        "article": "L341-37"
+      },
+      {
+        "accepted": [
+          "déchéance du droit aux intérêts",
+          "déchu du droit aux intérêts",
+          "déchéance des intérêts"
+        ],
+        "quote": "le prêteur peut être déchu du droit aux intérêts dans la proportion fixée par le juge",
+        "article": "L341-34"
+      }
+    ],
+    "doubt": "La question vise les obligations des articles L. 313-24, L. 313-25 et L. 313-38 sans les nommer, ce qui reste un peu vague ; la déchéance est partielle, fixée par le juge.}"
+  },
+  "raw_text": "{\"question\":\"Quel est le montant de l'amende encourue par un prêteur immobilier qui manque à certaines obligations du contrat de crédit, et à quelle sanction civile liée aux intérêts s'expose-t-il en cas de mention erronée du TAEG ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"150 000 euros\",\"150 000 €\",\"150000 euros\"],\"quote\":\"est puni d'une amende de 150 000 euros\",\"article\":\"L341-37\"},{\"accepted\":[\"déchéance du droit aux intérêts\",\"déchu du droit aux intérêts\",\"déchéance des intérêts\"],\"quote\":\"le prêteur peut être déchu du droit aux intérêts dans la proportion fixée par le juge\",\"article\":\"L341-34\"}],\"doubt\":\"La question vise les obligations des articles L. 313-24, L. 313-25 et L. 313-38 sans les nommer, ce qui reste un peu vague ; la déchéance est partielle, fixée par le juge.}\"}"
+}

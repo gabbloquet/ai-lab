@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-050",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:42:06+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2291,
+    "output_tokens": 195
+  },
+  "output": {
+    "question": "Pendant combien de temps un prestataire doit-il garder les informations expliquant comment son service respecte les règles d'accessibilité ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "aussi longtemps que le service est disponible"
+        ],
+        "quote": "Les prestataires de services conservent ces informations aussi longtemps que le service est disponible",
+        "article": "D412-57"
+      }
+    ],
+    "doubt": "La valeur est une durée relative (tant que le service est disponible), non un chiffre ; la question reste vérifiable mais la forme acceptée est une expression de six mots."
+  },
+  "raw_text": "{\"question\":\"Pendant combien de temps un prestataire doit-il garder les informations expliquant comment son service respecte les règles d'accessibilité ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"aussi longtemps que le service est disponible\"],\"quote\":\"Les prestataires de services conservent ces informations aussi longtemps que le service est disponible\",\"article\":\"D412-57\"}],\"doubt\":\"La valeur est une durée relative (tant que le service est disponible), non un chiffre ; la question reste vérifiable mais la forme acceptée est une expression de six mots.\"}"
+}

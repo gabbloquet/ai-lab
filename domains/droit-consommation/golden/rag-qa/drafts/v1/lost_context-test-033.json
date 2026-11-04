@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-033",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:43:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1966,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Dans les contrats de fourniture de contenus numériques et de services numériques, quels articles du code civil définissent la garantie des vices cachés que le consommateur conserve le droit d'invoquer ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "1641 à 1649",
+          "articles 1641 à 1649",
+          "1641 à 1649 du code civil"
+        ],
+        "quote": "telle qu'elle résulte des articles 1641 à 1649 du code civil",
+        "article": "L224-25-29"
+      }
+    ],
+    "doubt": "La réponse est un numéro d'articles d'un autre code, mais la question porte bien sur ce que prévoit le Code de la consommation pour ces contrats."
+  },
+  "raw_text": "{\"question\":\"Dans les contrats de fourniture de contenus numériques et de services numériques, quels articles du code civil définissent la garantie des vices cachés que le consommateur conserve le droit d'invoquer ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"1641 à 1649\",\"articles 1641 à 1649\",\"1641 à 1649 du code civil\"],\"quote\":\"telle qu'elle résulte des articles 1641 à 1649 du code civil\",\"article\":\"L224-25-29\"}],\"doubt\":\"La réponse est un numéro d'articles d'un autre code, mais la question porte bien sur ce que prévoit le Code de la consommation pour ces contrats.\"}"
+}

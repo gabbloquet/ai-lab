@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-003",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2262,
+    "output_tokens": 344
+  },
+  "output": {
+    "question": "Quel article du Code de la consommation prévoit les pouvoirs supplémentaires dont disposent les agents de la concurrence, de la consommation et de la répression des fraudes pour rechercher et constater les pratiques commerciales trompeuses, en plus de ceux de la sous-section 6 de la section 2 du chapitre II du titre Ier du livre V ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "L. 512-15",
+          "L512-15"
+        ],
+        "quote": "ils disposent en outre des pouvoirs prévus à l'article L. 512-15 ainsi qu'à la sous-section 6 de la section 2 du chapitre II du présent titre",
+        "article": "L511-5"
+      }
+    ],
+    "doubt": "La question demande un numéro d'article comme réponse, ce qui est peu naturel et ne nomme pas explicitement le contexte « présent titre » (titre Ier du livre V, recherche et constatation) ; la valeur reste un renvoi plutôt qu'une valeur chiffrée."
+  },
+  "raw_text": "{\"question\":\"Quel article du Code de la consommation prévoit les pouvoirs supplémentaires dont disposent les agents de la concurrence, de la consommation et de la répression des fraudes pour rechercher et constater les pratiques commerciales trompeuses, en plus de ceux de la sous-section 6 de la section 2 du chapitre II du titre Ier du livre V ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"L. 512-15\",\"L512-15\"],\"quote\":\"ils disposent en outre des pouvoirs prévus à l'article L. 512-15 ainsi qu'à la sous-section 6 de la section 2 du chapitre II du présent titre\",\"article\":\"L511-5\"}],\"doubt\":\"La question demande un numéro d'article comme réponse, ce qui est peu naturel et ne nomme pas explicitement le contexte « présent titre » (titre Ier du livre V, recherche et constatation) ; la valeur reste un renvoi plutôt qu'une valeur chiffrée.\"}"
+}

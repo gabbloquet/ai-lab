@@ -1,0 +1,29 @@
+{
+  "task": "direct-test-025",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:41:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2950,
+    "output_tokens": 270
+  },
+  "output": {
+    "question": "À quelle date le règlement (UE) 2018/848 du Parlement européen et du Conseil relatif à la production biologique et à l'étiquetage des produits biologiques a-t-il été adopté ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "30 mai 2018"
+        ],
+        "quote": "du règlement (UE) 2018/848 du Parlement européen et du Conseil du 30 mai 2018 relatif à la production biologique et à l'étiquetage des produits biologiques",
+        "article": "R412-33-1"
+      }
+    ],
+    "doubt": "L'article est surtout une liste de renvois à des règlements européens ; la valeur demandée (une date) est précise mais peu substantielle, et la question porte sur un texte de l'Union cité plutôt que sur une règle du Code lui-même."
+  },
+  "raw_text": "{\"question\":\"À quelle date le règlement (UE) 2018/848 du Parlement européen et du Conseil relatif à la production biologique et à l'étiquetage des produits biologiques a-t-il été adopté ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"30 mai 2018\"],\"quote\":\"du règlement (UE) 2018/848 du Parlement européen et du Conseil du 30 mai 2018 relatif à la production biologique et à l'étiquetage des produits biologiques\",\"article\":\"R412-33-1\"}],\"doubt\":\"L'article est surtout une liste de renvois à des règlements européens ; la valeur demandée (une date) est précise mais peu substantielle, et la question porte sur un texte de l'Union cité plutôt que sur une règle du Code lui-même.\"}"
+}

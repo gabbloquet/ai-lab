@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-020",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:41:55+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1855,
+    "output_tokens": 442
+  },
+  "output": {
+    "question": "J'étale le paiement de l'installation de la fibre chez moi par un contrat à part : quel type de matériel n'est pas couvert par ce contrat d'installation ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "équipements terminaux"
+        ],
+        "quote": "Un contrat pour le déploiement d'un raccordement physique n'inclut pas les équipements terminaux, tels que les routeurs ou les modems",
+        "article": "L224-29"
+      }
+    ],
+    "doubt": "L'article ne contient ni durée, ni montant, ni seuil : il renvoie surtout à d'autres articles et ne donne aucune valeur précise."
+  },
+  "raw_text": "{\"question\":\"J'étale le paiement de l'installation de la fibre chez moi par un contrat à part : quel type de matériel n'est pas couvert par ce contrat d'installation ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"équipements terminaux\"],\"quote\":\"Un contrat pour le déploiement d'un raccordement physique n'inclut pas les équipements terminaux, tels que les routeurs ou les modems\",\"article\":\"L224-29\"}],\"doubt\":\"L'article ne contient ni durée, ni montant, ni seuil : il renvoie surtout à d'autres articles et ne donne aucune valeur précise.\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-019",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1949,
+    "output_tokens": 219
+  },
+  "output": {
+    "question": "Pour un prêt immobilier libellé dans une devise autre que l'euro, quel pourcentage minimal de l'emprunt doit représenter le patrimoine détenu dans cette devise par l'emprunteur qui supporte le risque de change, s'il ne perçoit pas la majorité de ses revenus dans cette devise ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "20 %",
+          "20 pour cent",
+          "20%"
+        ],
+        "quote": "un patrimoine, financier ou immobilier, dans cette même devise, au moins égal à 20 % de l'emprunt considéré",
+        "article": "R313-31"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Pour un prêt immobilier libellé dans une devise autre que l'euro, quel pourcentage minimal de l'emprunt doit représenter le patrimoine détenu dans cette devise par l'emprunteur qui supporte le risque de change, s'il ne perçoit pas la majorité de ses revenus dans cette devise ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"20 %\",\"20 pour cent\",\"20%\"],\"quote\":\"un patrimoine, financier ou immobilier, dans cette même devise, au moins égal à 20 % de l'emprunt considéré\",\"article\":\"R313-31\"}],\"doubt\":\"\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-006",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2090,
+    "output_tokens": 301
+  },
+  "output": {
+    "question": "Quel délai maximal le vendeur a-t-il pour effectuer le remboursement du prix après que le consommateur a décidé de résoudre le contrat pour défaut de conformité du bien ?",
+    "why_unanswerable": "L'article L217-16 prévoit seulement que le consommateur informe le vendeur de la résolution, restitue le bien aux frais du vendeur, et que le vendeur rembourse le prix et restitue les autres avantages reçus. Il ne fixe aucun délai chiffré pour ce remboursement ; ce détail n'y figure pas.",
+    "doubt": "Un autre article du Code de la consommation (par exemple sur les modalités de remboursement après résolution, L217-17 ou L224-25-22) pourrait fixer un délai, notamment quatorze jours ; la question risque donc d'avoir une réponse ailleurs dans le code."
+  },
+  "raw_text": "{\"question\":\"Quel délai maximal le vendeur a-t-il pour effectuer le remboursement du prix après que le consommateur a décidé de résoudre le contrat pour défaut de conformité du bien ?\",\"why_unanswerable\":\"L'article L217-16 prévoit seulement que le consommateur informe le vendeur de la résolution, restitue le bien aux frais du vendeur, et que le vendeur rembourse le prix et restitue les autres avantages reçus. Il ne fixe aucun délai chiffré pour ce remboursement ; ce détail n'y figure pas.\",\"doubt\":\"Un autre article du Code de la consommation (par exemple sur les modalités de remboursement après résolution, L217-17 ou L224-25-22) pourrait fixer un délai, notamment quatorze jours ; la question risque donc d'avoir une réponse ailleurs dans le code.\"}"
+}

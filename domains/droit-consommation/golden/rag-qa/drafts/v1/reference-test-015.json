@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-015",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1928,
+    "output_tokens": 236
+  },
+  "output": {
+    "question": "Dans quel délai à compter de la décision frappée d'appel la chambre de l'instruction ou la cour d'appel doit-elle statuer sur une demande de mainlevée de suspension de commercialisation, selon l'article L. 455-1 ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un mois",
+          "1 mois"
+        ],
+        "quote": "La chambre de l'instruction ou la cour d'appel statue dans un délai d'un mois à compter de la date de la décision frappée d'appel.",
+        "article": "L455-1"
+      }
+    ],
+    "doubt": "L'article mentionne aussi un délai maximal de quarante jours, ce qui peut créer une ambiguïté dans les réponses."
+  },
+  "raw_text": "{\"question\":\"Dans quel délai à compter de la décision frappée d'appel la chambre de l'instruction ou la cour d'appel doit-elle statuer sur une demande de mainlevée de suspension de commercialisation, selon l'article L. 455-1 ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un mois\",\"1 mois\"],\"quote\":\"La chambre de l'instruction ou la cour d'appel statue dans un délai d'un mois à compter de la date de la décision frappée d'appel.\",\"article\":\"L455-1\"}],\"doubt\":\"L'article mentionne aussi un délai maximal de quarante jours, ce qui peut créer une ambiguïté dans les réponses.\"}"
+}

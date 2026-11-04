@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-012",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1784,
+    "output_tokens": 225
+  },
+  "output": {
+    "question": "Dans les contrats de vente de biens conclus avec un consommateur, quel document est remis au consommateur pour une prestation de service après-vente exécutée par le vendeur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un exemplaire du contrat",
+          "exemplaire du contrat",
+          "un exemplaire"
+        ],
+        "quote": "Elle fait l'objet d'un contrat dont un exemplaire est remis au consommateur.",
+        "article": "L217-25"
+      }
+    ],
+    "doubt": "La valeur attendue est un document (un exemplaire du contrat), ce qui reste assez peu chiffré ; la réponse pourrait être formulée de diverses manières."
+  },
+  "raw_text": "{\"question\":\"Dans les contrats de vente de biens conclus avec un consommateur, quel document est remis au consommateur pour une prestation de service après-vente exécutée par le vendeur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un exemplaire du contrat\",\"exemplaire du contrat\",\"un exemplaire\"],\"quote\":\"Elle fait l'objet d'un contrat dont un exemplaire est remis au consommateur.\",\"article\":\"L217-25\"}],\"doubt\":\"La valeur attendue est un document (un exemplaire du contrat), ce qui reste assez peu chiffré ; la réponse pourrait être formulée de diverses manières.\"}"
+}

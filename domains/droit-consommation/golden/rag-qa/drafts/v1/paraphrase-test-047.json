@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-047",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:42:06+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1731,
+    "output_tokens": 224
+  },
+  "output": {
+    "question": "Quels ministres signent ensemble l'arrêté qui fixe les règles spéciales, notamment de sécurité, pour vendre certains produits sans emballage ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "ministre chargé de la consommation"
+        ],
+        "quote": "par arrêté conjoint du ministre chargé de la consommation et du ministre compétent pour les produits concernés",
+        "article": "D120-8"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il désigne seulement les autorités compétentes pour prendre un arrêté, donc peu adapté à l'évaluation."
+  },
+  "raw_text": "{\"question\":\"Quels ministres signent ensemble l'arrêté qui fixe les règles spéciales, notamment de sécurité, pour vendre certains produits sans emballage ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"ministre chargé de la consommation\"],\"quote\":\"par arrêté conjoint du ministre chargé de la consommation et du ministre compétent pour les produits concernés\",\"article\":\"D120-8\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il désigne seulement les autorités compétentes pour prendre un arrêté, donc peu adapté à l'évaluation.\"}"
+}

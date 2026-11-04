@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-057",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:42:10+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1749,
+    "output_tokens": 225
+  },
+  "output": {
+    "question": "Si un professionnel ne respecte pas la règle sur la pause du délai de garantie pour un service numérique, quelle amende maximale risque-t-il quand c'est une société ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €",
+          "15000 euros"
+        ],
+        "quote": "le montant ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale",
+        "article": "L242-18-9"
+      }
+    ],
+    "doubt": "La question mentionne la société comme personne morale ; le montant pour une personne physique (3 000 euros) pourrait être cité en plus, mais n'est pas demandé."
+  },
+  "raw_text": "{\"question\":\"Si un professionnel ne respecte pas la règle sur la pause du délai de garantie pour un service numérique, quelle amende maximale risque-t-il quand c'est une société ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"15 000 euros\",\"15 000 €\",\"15000 euros\"],\"quote\":\"le montant ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale\",\"article\":\"L242-18-9\"}],\"doubt\":\"La question mentionne la société comme personne morale ; le montant pour une personne physique (3 000 euros) pourrait être cité en plus, mais n'est pas demandé.\"}"
+}

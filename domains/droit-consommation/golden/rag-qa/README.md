@@ -11,7 +11,7 @@ Ici, aucun oracle ne peut calculer la réponse à une question sur un texte juri
 1. **Tirage seedé des articles.** C'est le script qui choisit les articles, pas le LLM. Laissé libre, un LLM choisirait les articles les plus connus, ce qui gonflerait le score du modèle sans récupération.
 2. **Rédaction d'un brouillon par un LLM** : Claude Sonnet 5.5 (`claude-sonnet-5-5`), un fournisseur différent du modèle évalué dans la 002 (Mistral Small). Le prompt du rédacteur est versionné dans le dépôt.
 3. **Contrôles automatiques.** Un brouillon qui échoue à un contrôle bloquant est rejeté ; un brouillon qui échoue à un contrôle d'alerte est signalé pour la relecture.
-4. **Relecture humaine** de tous les items signalés, plus 20 % des autres tirés au hasard.
+4. **Relecture humaine de tous les items retenus** (voir « Relecture »).
 5. **Gel.** Les réponses du rédacteur sont enregistrées dans `drafts/v1/`, et le générateur les rejoue sans appeler l'API. La sélection et le split se rejouent à l'identique ; la rédaction, elle, ne se rejoue pas. Une nouvelle rédaction donne une nouvelle version.
 
 ## Composition
@@ -92,6 +92,8 @@ Avant la v1, deux pilotes de 20 brouillons chacun ont servi à mettre au point l
 ## Relecture
 
 Le générateur produit une page de relecture locale, qui n'est pas versionnée. Pour chaque item, elle montre la question, les faits, les citations surlignées dans l'article et, pour `unanswerable`, les articles les plus proches.
+
+**Tout est relu, en commençant par le `dev`.** La règle prévue était de relire les items signalés par une alerte, plus 20 % des autres tirés au hasard. En v1, le rédacteur exprime un doute sur 148 des 200 items retenus, et 171 items étaient déjà à relire. Relire les 29 restants coûte peu et rend la règle simple. Ce choix ne dépend d'aucun résultat d'expérience. Les 50 items `dev` sont relus d'abord, pour démarrer la 002 ; les 150 items `test` le sont avant le gel des variantes.
 
 Le relecteur donne un verdict par item : `ok`, `corrige` (avec la correction) ou `rejete`. Les verdicts sont versionnés dans `review/v1.jsonl`, pour qu'on puisse retracer qui a validé quoi. Un item rejeté est remplacé par le suivant du surplus, qui passe à son tour en relecture.
 

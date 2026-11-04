@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-test-009",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2623,
+    "output_tokens": 449
+  },
+  "output": {
+    "question": "Quand des agents de la répression des fraudes enjoignent à un professionnel de se mettre en conformité en l'assortissant d'une astreinte, quel est le plafond de l'astreinte journalière et celui du total des sommes demandées lors de sa liquidation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "3 000 euros",
+          "3 000 €",
+          "3000 euros"
+        ],
+        "quote": "Toute injonction prononcée en application du présent article peut être assortie d'une astreinte journalière ne pouvant excéder un montant de 3 000 euros.",
+        "article": "L521-1"
+      },
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €",
+          "300000 euros"
+        ],
+        "quote": "Le total des sommes demandées au titre de la liquidation de l'astreinte ne peut excéder 300 000 euros.",
+        "article": "L521-1"
+      }
+    ],
+    "doubt": "Les deux faits viennent de l'article B (L521-1) ; l'article A (L511-15) ne contient aucune valeur chiffrée et sert seulement de renvoi, donc la question ne requiert pas vraiment les deux articles.  Le plafond alternatif lié au chiffre d'affaires (0,1 % et 5 %) pourrait aussi être donné pour certaines infractions.  L'article A ne fournit pas de fait propre exploitable."
+  },
+  "raw_text": "{\"question\":\"Quand des agents de la répression des fraudes enjoignent à un professionnel de se mettre en conformité en l'assortissant d'une astreinte, quel est le plafond de l'astreinte journalière et celui du total des sommes demandées lors de sa liquidation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"3 000 euros\",\"3 000 €\",\"3000 euros\"],\"quote\":\"Toute injonction prononcée en application du présent article peut être assortie d'une astreinte journalière ne pouvant excéder un montant de 3 000 euros.\",\"article\":\"L521-1\"},{\"accepted\":[\"300 000 euros\",\"300 000 €\",\"300000 euros\"],\"quote\":\"Le total des sommes demandées au titre de la liquidation de l'astreinte ne peut excéder 300 000 euros.\",\"article\":\"L521-1\"}],\"doubt\":\"Les deux faits viennent de l'article B (L521-1) ; l'article A (L511-15) ne contient aucune valeur chiffrée et sert seulement de renvoi, donc la question ne requiert pas vraiment les deux articles.  Le plafond alternatif lié au chiffre d'affaires (0,1 % et 5 %) pourrait aussi être donné pour certaines infractions.  L'article A ne fournit pas de fait propre exploitable.\"}"
+}

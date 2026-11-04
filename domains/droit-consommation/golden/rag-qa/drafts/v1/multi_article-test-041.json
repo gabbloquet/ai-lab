@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-test-041",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2151,
+    "output_tokens": 961
+  },
+  "output": {
+    "question": "Après la recevabilité d'un dossier de surendettement, quelle est la durée maximale de la suspension des mesures d'expulsion, et quelle mesure la commission impose-t-elle si la situation du débiteur est irrémédiablement compromise et qu'il ne possède que des biens exclus de la liquidation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "Cette suspension est acquise, pour une période maximale de deux ans",
+        "article": "L722-9"
+      },
+      {
+        "accepted": [
+          "rétablissement personnel sans liquidation judiciaire"
+        ],
+        "quote": "la commission impose un rétablissement personnel sans liquidation judiciaire",
+        "article": "L741-1"
+      }
+    ],
+    "doubt": "L741-1 ne contient pas de valeur chiffrée, seulement le nom d'une mesure ; la question dépend aussi d'un renvoi à L724-1 pour décrire les biens."
+  },
+  "raw_text": "{\"question\":\"Après la recevabilité d'un dossier de surendettement, quelle est la durée maximale de la suspension des mesures d'expulsion, et quelle mesure la commission impose-t-elle si la situation du débiteur est irrémédiablement compromise et qu'il ne possède que des biens exclus de la liquidation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"Cette suspension est acquise, pour une période maximale de deux ans\",\"article\":\"L722-9\"},{\"accepted\":[\"rétablissement personnel sans liquidation judiciaire\"],\"quote\":\"la commission impose un rétablissement personnel sans liquidation judiciaire\",\"article\":\"L741-1\"}],\"doubt\":\"L741-1 ne contient pas de valeur chiffrée, seulement le nom d'une mesure ; la question dépend aussi d'un renvoi à L724-1 pour décrire les biens.\"}"
+}

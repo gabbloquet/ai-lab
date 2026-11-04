@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-014",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1828,
+    "output_tokens": 328
+  },
+  "output": {
+    "question": "Quel est le montant de l'amende civile que peut prononcer le juge à l'encontre d'un prêteur qui applique un taux d'intérêt non conforme, lorsque le consommateur saisit le tribunal judiciaire ?",
+    "why_unanswerable": "L'article L341-49 ne prévoit qu'une amende pénale de 150 000 euros et des peines complémentaires d'interdiction d'exercer pour le non-respect de l'article L. 314-5. Il ne prévoit aucune amende civile prononcée à la demande du consommateur, et la question suppose une sanction qui n'existe pas dans ce texte. Le code ne fixe donc aucun montant de ce type.",
+    "doubt": "Un autre article du Code de la consommation sur la déchéance du droit aux intérêts ou la nullité de la clause d'intérêts pourrait être invoqué, mais ces sanctions ne sont pas des amendes civiles chiffrées."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant de l'amende civile que peut prononcer le juge à l'encontre d'un prêteur qui applique un taux d'intérêt non conforme, lorsque le consommateur saisit le tribunal judiciaire ?\",\"why_unanswerable\":\"L'article L341-49 ne prévoit qu'une amende pénale de 150 000 euros et des peines complémentaires d'interdiction d'exercer pour le non-respect de l'article L. 314-5. Il ne prévoit aucune amende civile prononcée à la demande du consommateur, et la question suppose une sanction qui n'existe pas dans ce texte. Le code ne fixe donc aucun montant de ce type.\",\"doubt\":\"Un autre article du Code de la consommation sur la déchéance du droit aux intérêts ou la nullité de la clause d'intérêts pourrait être invoqué, mais ces sanctions ne sont pas des amendes civiles chiffrées.\"}"
+}

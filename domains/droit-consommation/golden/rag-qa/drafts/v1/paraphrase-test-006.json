@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-006",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:41:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1990,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Quand je m'installe dans un nouveau logement et que je prends un contrat d'électricité par internet, qu'est-ce qui m'engage vraiment vis-à-vis du fournisseur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "sa signature",
+          "la signature",
+          "signature"
+        ],
+        "quote": "Le consommateur n'est engagé que par sa signature.",
+        "article": "L224-6"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée classique ; la valeur attendue est la signature, ce qui reste un élément précis mais peu technique. La formulation de l'article évoque aussi des exceptions pour les emménagements."
+  },
+  "raw_text": "{\"question\":\"Quand je m'installe dans un nouveau logement et que je prends un contrat d'électricité par internet, qu'est-ce qui m'engage vraiment vis-à-vis du fournisseur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"sa signature\",\"la signature\",\"signature\"],\"quote\":\"Le consommateur n'est engagé que par sa signature.\",\"article\":\"L224-6\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée classique ; la valeur attendue est la signature, ce qui reste un élément précis mais peu technique. La formulation de l'article évoque aussi des exceptions pour les emménagements.\"}"
+}

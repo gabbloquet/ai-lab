@@ -1,0 +1,31 @@
+{
+  "task": "reference-dev-016",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1908,
+    "output_tokens": 219
+  },
+  "output": {
+    "question": "Que prévoit l'article R. 314-12 sur le calcul du taux annuel effectif de l'assurance : sur quelle durée le taux périodique est-il capitalisé dans la méthode des intérêts composés ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un an",
+          "1 an",
+          "d'un an"
+        ],
+        "quote": "soit la méthode des intérêts composés en capitalisant le taux périodique sur une durée d'un an",
+        "article": "R314-12"
+      }
+    ],
+    "doubt": "La valeur est simple (durée d'un an) et l'article contient surtout une définition de méthode de calcul, ce qui limite la richesse de la question."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article R. 314-12 sur le calcul du taux annuel effectif de l'assurance : sur quelle durée le taux périodique est-il capitalisé dans la méthode des intérêts composés ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un an\",\"1 an\",\"d'un an\"],\"quote\":\"soit la méthode des intérêts composés en capitalisant le taux périodique sur une durée d'un an\",\"article\":\"R314-12\"}],\"doubt\":\"La valeur est simple (durée d'un an) et l'article contient surtout une définition de méthode de calcul, ce qui limite la richesse de la question.\"}"
+}

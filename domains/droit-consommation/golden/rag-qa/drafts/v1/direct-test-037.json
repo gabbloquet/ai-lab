@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-037",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:41:06+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1613,
+    "output_tokens": 233
+  },
+  "output": {
+    "question": "Par quel moyen la commission de surendettement informe-t-elle les créanciers de l'état du passif déclaré par le débiteur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "lettre recommandée avec demande d'avis de réception",
+          "lettre recommandée avec accusé de réception",
+          "lettre recommandée"
+        ],
+        "quote": "La commission informe par lettre recommandée avec demande d'avis de réception les créanciers de l'état du passif déclaré par le débiteur.",
+        "article": "R723-1"
+      }
+    ],
+    "doubt": "La valeur attendue est un moyen de notification plutôt qu'un chiffre, mais l'article ne contient aucune autre valeur précise."
+  },
+  "raw_text": "{\"question\":\"Par quel moyen la commission de surendettement informe-t-elle les créanciers de l'état du passif déclaré par le débiteur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"lettre recommandée avec demande d'avis de réception\",\"lettre recommandée avec accusé de réception\",\"lettre recommandée\"],\"quote\":\"La commission informe par lettre recommandée avec demande d'avis de réception les créanciers de l'état du passif déclaré par le débiteur.\",\"article\":\"R723-1\"}],\"doubt\":\"La valeur attendue est un moyen de notification plutôt qu'un chiffre, mais l'article ne contient aucune autre valeur précise.\"}"
+}

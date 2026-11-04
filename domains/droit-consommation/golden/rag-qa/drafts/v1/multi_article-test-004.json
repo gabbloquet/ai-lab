@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-004",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2023,
+    "output_tokens": 407
+  },
+  "output": {
+    "question": "Pour une publicité de crédit à la consommation envoyée par courrier électronique qui indique un taux d'intérêt, où doivent figurer les informations obligatoires sur le coût du crédit, et quelle information sur le coût total doit y apparaître dans une taille de caractère plus importante que les autres ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "sous forme d'encadré, en en-tête du texte publicitaire",
+          "en encadré en en-tête",
+          "encadré en en-tête"
+        ],
+        "quote": "les informations mentionnées à l'article L. 312-8 figurent, sous forme d'encadré, en en-tête du texte publicitaire",
+        "article": "L312-9"
+      },
+      {
+        "accepted": [
+          "taux annuel effectif global",
+          "TAEG"
+        ],
+        "quote": "les informations relatives au taux annuel effectif global, à sa nature fixe, variable ou révisable, au montant total dû par l'emprunteur et au montant des échéances",
+        "article": "L312-8"
+      }
+    ],
+    "doubt": "La question porte sur une liste d'informations (TAEG, nature du taux, montant total dû, échéances) ; un seul élément est attendu, ce qui peut rendre la réponse incomplète ou ambiguë."
+  },
+  "raw_text": "{\"question\":\"Pour une publicité de crédit à la consommation envoyée par courrier électronique qui indique un taux d'intérêt, où doivent figurer les informations obligatoires sur le coût du crédit, et quelle information sur le coût total doit y apparaître dans une taille de caractère plus importante que les autres ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"sous forme d'encadré, en en-tête du texte publicitaire\",\"en encadré en en-tête\",\"encadré en en-tête\"],\"quote\":\"les informations mentionnées à l'article L. 312-8 figurent, sous forme d'encadré, en en-tête du texte publicitaire\",\"article\":\"L312-9\"},{\"accepted\":[\"taux annuel effectif global\",\"TAEG\"],\"quote\":\"les informations relatives au taux annuel effectif global, à sa nature fixe, variable ou révisable, au montant total dû par l'emprunteur et au montant des échéances\",\"article\":\"L312-8\"}],\"doubt\":\"La question porte sur une liste d'informations (TAEG, nature du taux, montant total dû, échéances) ; un seul élément est attendu, ce qui peut rendre la réponse incomplète ou ambiguë.\"}"
+}

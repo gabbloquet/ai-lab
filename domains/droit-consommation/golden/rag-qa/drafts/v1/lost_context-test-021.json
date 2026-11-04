@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-test-021",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:43:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1827,
+    "output_tokens": 248
+  },
+  "output": {
+    "question": "Pour les contrats de fourniture de contenus et de services numériques, quelle section du chapitre régit les services de communications interpersonnelles non fondés sur la numérotation, au lieu de la sous-section sur la formation, la modification et la durée du contrat ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "section 3"
+        ],
+        "quote": "lesquels sont soumis aux dispositions de la section 3 du présent chapitre",
+        "article": "L224-25-4"
+      }
+    ],
+    "doubt": "La question mentionne la sous-section sur la formation, la modification et la durée, ce qui aide à situer le contexte mais ne donne pas la réponse ; l'exception de l'article L. 224-25-6 n'est pas demandée."
+  },
+  "raw_text": "{\"question\":\"Pour les contrats de fourniture de contenus et de services numériques, quelle section du chapitre régit les services de communications interpersonnelles non fondés sur la numérotation, au lieu de la sous-section sur la formation, la modification et la durée du contrat ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"section 3\"],\"quote\":\"lesquels sont soumis aux dispositions de la section 3 du présent chapitre\",\"article\":\"L224-25-4\"}],\"doubt\":\"La question mentionne la sous-section sur la formation, la modification et la durée, ce qui aide à situer le contexte mais ne donne pas la réponse ; l'exception de l'article L. 224-25-6 n'est pas demandée.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-dev-006",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1917,
+    "output_tokens": 173
+  },
+  "output": {
+    "question": "Dans un contrat d'achat de métaux précieux conclu avec un professionnel, de combien de temps le consommateur dispose-t-il à compter de la signature pour se rétracter ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quarante-huit heures",
+          "48 heures"
+        ],
+        "quote": "Le consommateur dispose d'un délai de quarante-huit heures à compter de la signature du contrat pour exercer son droit de rétractation",
+        "article": "L224-99"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Dans un contrat d'achat de métaux précieux conclu avec un professionnel, de combien de temps le consommateur dispose-t-il à compter de la signature pour se rétracter ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quarante-huit heures\",\"48 heures\"],\"quote\":\"Le consommateur dispose d'un délai de quarante-huit heures à compter de la signature du contrat pour exercer son droit de rétractation\",\"article\":\"L224-99\"}],\"doubt\":\"\"}"
+}

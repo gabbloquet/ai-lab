@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-039",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2825,
+    "output_tokens": 379
+  },
+  "output": {
+    "question": "Pour le contrôle des teneurs en mycotoxines dans les denrées alimentaires, combien d'échantillon(s) comporte le prélèvement, et quel document est établi pour le prélèvement des marchandises, avec la description des marques et étiquettes apposées sur les enveloppes ou récipients ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un échantillon",
+          "1 échantillon",
+          "un seul échantillon"
+        ],
+        "quote": "le prélèvement ne comporte qu'un échantillon",
+        "article": "R512-28"
+      },
+      {
+        "accepted": [
+          "procès-verbal",
+          "le procès-verbal"
+        ],
+        "quote": "Le procès-verbal mentionné à l'article R. 512-10 comporte, outre un exposé succinct des modalités de prélèvement, une description des marques et étiquettes apposées sur les enveloppes ou récipients.",
+        "article": "R512-11"
+      }
+    ],
+    "doubt": "Le fait de l'article B (procès-verbal) est un document, et la question le décrit un peu à partir du contenu de B, ce qui rend la réponse partiellement devinable ; la valeur de A est un nombre."
+  },
+  "raw_text": "{\"question\":\"Pour le contrôle des teneurs en mycotoxines dans les denrées alimentaires, combien d'échantillon(s) comporte le prélèvement, et quel document est établi pour le prélèvement des marchandises, avec la description des marques et étiquettes apposées sur les enveloppes ou récipients ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un échantillon\",\"1 échantillon\",\"un seul échantillon\"],\"quote\":\"le prélèvement ne comporte qu'un échantillon\",\"article\":\"R512-28\"},{\"accepted\":[\"procès-verbal\",\"le procès-verbal\"],\"quote\":\"Le procès-verbal mentionné à l'article R. 512-10 comporte, outre un exposé succinct des modalités de prélèvement, une description des marques et étiquettes apposées sur les enveloppes ou récipients.\",\"article\":\"R512-11\"}],\"doubt\":\"Le fait de l'article B (procès-verbal) est un document, et la question le décrit un peu à partir du contenu de B, ce qui rend la réponse partiellement devinable ; la valeur de A est un nombre.\"}"
+}

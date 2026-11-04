@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-022",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2936,
+    "output_tokens": 316
+  },
+  "output": {
+    "question": "Quel est le plafond de l'amende civile pour une pratique commerciale déloyale continue, avant majoration, et quelle action en justice des associations de défense des consommateurs permet de la demander ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "prononcer une amende civile dont le montant ne peut excéder 300 000 euros",
+        "article": "L132-1 A"
+      },
+      {
+        "accepted": [
+          "action en cessation d'agissements illicites",
+          "action en cessation"
+        ],
+        "quote": "Les associations mentionnées à l'article L. 621-1 peuvent agir devant la juridiction civile pour faire cesser ou interdire tout agissement illicite",
+        "article": "L621-7"
+      }
+    ],
+    "doubt": "Le second fait (nom de l'action) vient du titre de la section du plan de L621-7 et non du corps du texte ; la quote ne contient pas littéralement l'intitulé."
+  },
+  "raw_text": "{\"question\":\"Quel est le plafond de l'amende civile pour une pratique commerciale déloyale continue, avant majoration, et quelle action en justice des associations de défense des consommateurs permet de la demander ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"prononcer une amende civile dont le montant ne peut excéder 300 000 euros\",\"article\":\"L132-1 A\"},{\"accepted\":[\"action en cessation d'agissements illicites\",\"action en cessation\"],\"quote\":\"Les associations mentionnées à l'article L. 621-1 peuvent agir devant la juridiction civile pour faire cesser ou interdire tout agissement illicite\",\"article\":\"L621-7\"}],\"doubt\":\"Le second fait (nom de l'action) vient du titre de la section du plan de L621-7 et non du corps du texte ; la quote ne contient pas littéralement l'intitulé.\"}"
+}

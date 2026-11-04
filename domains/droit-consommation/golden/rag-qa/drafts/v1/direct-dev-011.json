@@ -1,0 +1,29 @@
+{
+  "task": "direct-dev-011",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:40:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2130,
+    "output_tokens": 291
+  },
+  "output": {
+    "question": "Quelle est la date du règlement (UE) n° 284/2011 de la Commission fixant des conditions particulières pour l'importation d'ustensiles de cuisine en matière plastique polyamide et mélamine originaires de Chine ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "22 mars 2011"
+        ],
+        "quote": "règlement (UE) n° 284/2011 de la Commission du 22 mars 2011 fixant des conditions particulières et des procédures détaillées pour l'importation d'ustensiles de cuisine en matière plastique polyamide et mélamine",
+        "article": "R412-36"
+      }
+    ],
+    "doubt": "L'article est essentiellement une liste de renvois à des règlements européens ; la valeur demandée (une date) est précise mais la question porte sur un texte de l'Union cité, pas sur une règle de fond du Code."
+  },
+  "raw_text": "{\"question\":\"Quelle est la date du règlement (UE) n° 284/2011 de la Commission fixant des conditions particulières pour l'importation d'ustensiles de cuisine en matière plastique polyamide et mélamine originaires de Chine ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"22 mars 2011\"],\"quote\":\"règlement (UE) n° 284/2011 de la Commission du 22 mars 2011 fixant des conditions particulières et des procédures détaillées pour l'importation d'ustensiles de cuisine en matière plastique polyamide et mélamine\",\"article\":\"R412-36\"}],\"doubt\":\"L'article est essentiellement une liste de renvois à des règlements européens ; la valeur demandée (une date) est précise mais la question porte sur un texte de l'Union cité, pas sur une règle de fond du Code.\"}"
+}

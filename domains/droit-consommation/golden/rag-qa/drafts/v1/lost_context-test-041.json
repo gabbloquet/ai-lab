@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-041",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:43:09+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1986,
+    "output_tokens": 240
+  },
+  "output": {
+    "question": "Quand un professionnel demande à l'administration de la concurrence et de la consommation de prendre position sur son information sur les prix de vente au consommateur, que vaut le silence de l'administration à l'issue du délai ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "rejet",
+          "vaut rejet"
+        ],
+        "quote": "Le silence gardé par l'autorité administrative à l'issue de ce délai vaut rejet de cette demande.",
+        "article": "L112-5"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur numérique précise ; la réponse est une décision implicite (rejet), et le mode « contexte perdu » est appliqué via « ce délai » et la demande de prise de position."
+  },
+  "raw_text": "{\"question\":\"Quand un professionnel demande à l'administration de la concurrence et de la consommation de prendre position sur son information sur les prix de vente au consommateur, que vaut le silence de l'administration à l'issue du délai ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"rejet\",\"vaut rejet\"],\"quote\":\"Le silence gardé par l'autorité administrative à l'issue de ce délai vaut rejet de cette demande.\",\"article\":\"L112-5\"}],\"doubt\":\"L'article ne contient pas de valeur numérique précise ; la réponse est une décision implicite (rejet), et le mode « contexte perdu » est appliqué via « ce délai » et la demande de prise de position.\"}"
+}

@@ -1,0 +1,39 @@
+{
+  "task": "reference-test-007",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1662,
+    "output_tokens": 313
+  },
+  "output": {
+    "question": "Selon l'article L. 313-54, quels éléments chiffrés une publicité sur une location-vente doit-elle mentionner, au-delà de la durée du bail, lorsqu'elle comporte des chiffres ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "le coût annuel",
+          "coût annuel"
+        ],
+        "quote": "elle mentionne la durée du bail ainsi que le coût annuel et le coût total de l'opération",
+        "article": "L313-54"
+      },
+      {
+        "accepted": [
+          "le coût total de l'opération",
+          "coût total de l'opération",
+          "coût total"
+        ],
+        "quote": "elle mentionne la durée du bail ainsi que le coût annuel et le coût total de l'opération",
+        "article": "L313-54"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur numérique, mais des éléments à mentionner (coût annuel, coût total) ; la question demande donc deux éléments, pas une valeur chiffrée."
+  },
+  "raw_text": "{\"question\":\"Selon l'article L. 313-54, quels éléments chiffrés une publicité sur une location-vente doit-elle mentionner, au-delà de la durée du bail, lorsqu'elle comporte des chiffres ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"le coût annuel\",\"coût annuel\"],\"quote\":\"elle mentionne la durée du bail ainsi que le coût annuel et le coût total de l'opération\",\"article\":\"L313-54\"},{\"accepted\":[\"le coût total de l'opération\",\"coût total de l'opération\",\"coût total\"],\"quote\":\"elle mentionne la durée du bail ainsi que le coût annuel et le coût total de l'opération\",\"article\":\"L313-54\"}],\"doubt\":\"L'article ne contient pas de valeur numérique, mais des éléments à mentionner (coût annuel, coût total) ; la question demande donc deux éléments, pas une valeur chiffrée.\"}"
+}

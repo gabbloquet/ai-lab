@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-014",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1803,
+    "output_tokens": 276
+  },
+  "output": {
+    "question": "Quelle rémunération mensuelle perçoit le délégué du préfet qui siège dans une commission de surendettement des particuliers ?",
+    "why_unanswerable": "L'article R712-3 précise seulement que le préfet et le directeur départemental des finances publiques ne peuvent se faire représenter que par un seul délégué, ainsi que les catégories de fonctionnaires parmi lesquelles ils le choisissent. Il ne fixe aucune rémunération ni indemnité pour ce délégué, et la question porte donc sur un détail que le texte ne traite pas.",
+    "doubt": "Un autre article du Code de la consommation sur le fonctionnement des commissions pourrait mentionner une indemnité ou la gratuité des fonctions de membre, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle rémunération mensuelle perçoit le délégué du préfet qui siège dans une commission de surendettement des particuliers ?\",\"why_unanswerable\":\"L'article R712-3 précise seulement que le préfet et le directeur départemental des finances publiques ne peuvent se faire représenter que par un seul délégué, ainsi que les catégories de fonctionnaires parmi lesquelles ils le choisissent. Il ne fixe aucune rémunération ni indemnité pour ce délégué, et la question porte donc sur un détail que le texte ne traite pas.\",\"doubt\":\"Un autre article du Code de la consommation sur le fonctionnement des commissions pourrait mentionner une indemnité ou la gratuité des fonctions de membre, ce qui rendrait la question répondable.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-059",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:42:10+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2152,
+    "output_tokens": 152
+  },
+  "output": {
+    "question": "Quand la commission de surendettement a décidé d'effacer mes dettes sans vente de mes biens et que je ne suis pas d'accord, de combien de temps je dispose pour contester après avoir reçu le courrier ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trente jours",
+          "30 jours"
+        ],
+        "quote": "dans un délai de trente jours à compter de sa notification",
+        "article": "R741-1"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quand la commission de surendettement a décidé d'effacer mes dettes sans vente de mes biens et que je ne suis pas d'accord, de combien de temps je dispose pour contester après avoir reçu le courrier ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trente jours\",\"30 jours\"],\"quote\":\"dans un délai de trente jours à compter de sa notification\",\"article\":\"R741-1\"}],\"doubt\":\"\"}"
+}

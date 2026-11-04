@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-009",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1913,
+    "output_tokens": 254
+  },
+  "output": {
+    "question": "Quelle taille maximale en mégaoctets une mise à jour logicielle d'un bien connecté peut-elle avoir avant que le producteur doive proposer un téléchargement différé ?",
+    "why_unanswerable": "L'article impose seulement au producteur d'informer le consommateur, avant l'installation, de l'espace de stockage requis par la mise à jour, sans fixer de taille maximale ni d'obligation de téléchargement différé. Aucune valeur chiffrée de ce type n'est prévue par le Code de la consommation.",
+    "doubt": "Un autre article sur les mises à jour des biens comportant des éléments numériques pourrait traiter de modalités d'installation, mais aucune limite de taille n'y est connue."
+  },
+  "raw_text": "{\"question\":\"Quelle taille maximale en mégaoctets une mise à jour logicielle d'un bien connecté peut-elle avoir avant que le producteur doive proposer un téléchargement différé ?\",\"why_unanswerable\":\"L'article impose seulement au producteur d'informer le consommateur, avant l'installation, de l'espace de stockage requis par la mise à jour, sans fixer de taille maximale ni d'obligation de téléchargement différé. Aucune valeur chiffrée de ce type n'est prévue par le Code de la consommation.\",\"doubt\":\"Un autre article sur les mises à jour des biens comportant des éléments numériques pourrait traiter de modalités d'installation, mais aucune limite de taille n'y est connue.\"}"
+}

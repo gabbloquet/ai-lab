@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-012",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1641,
+    "output_tokens": 278
+  },
+  "output": {
+    "question": "Quel est le montant maximal de l'avance qu'une régie de dépenses de l'Institut national de la consommation peut détenir ?",
+    "why_unanswerable": "Le Code de la consommation se borne à permettre au directeur de l'Institut national de la consommation de créer des régies de recettes et de dépenses, en renvoyant au décret du 26 juillet 2019. Il ne fixe aucun plafond d'avance ni de encaisse. Ces montants relèvent de l'acte de création de la régie et de la réglementation générale sur les régies, qui ne figurent pas dans ce code.",
+    "doubt": "Un autre article du Code de la consommation pourrait fixer des plafonds de régie pour l'INC, mais cela paraît improbable ; le seuil relève de la réglementation sur les régies."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant maximal de l'avance qu'une régie de dépenses de l'Institut national de la consommation peut détenir ?\",\"why_unanswerable\":\"Le Code de la consommation se borne à permettre au directeur de l'Institut national de la consommation de créer des régies de recettes et de dépenses, en renvoyant au décret du 26 juillet 2019. Il ne fixe aucun plafond d'avance ni de encaisse. Ces montants relèvent de l'acte de création de la régie et de la réglementation générale sur les régies, qui ne figurent pas dans ce code.\",\"doubt\":\"Un autre article du Code de la consommation pourrait fixer des plafonds de régie pour l'INC, mais cela paraît improbable ; le seuil relève de la réglementation sur les régies.\"}"
+}

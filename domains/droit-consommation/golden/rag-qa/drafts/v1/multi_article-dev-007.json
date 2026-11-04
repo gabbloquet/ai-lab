@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-dev-007",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2924,
+    "output_tokens": 405
+  },
+  "output": {
+    "question": "En cas de surendettement avec protocole de cohésion sociale conclu avec le bailleur, si la commission impose un rétablissement personnel, à combien est portée la durée du protocole, et quel juge saisit-elle pour ouvrir une procédure de rétablissement personnel avec liquidation judiciaire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "la durée du protocole est portée à trois ans à partir de la date de la décision imposant les mesures d'effacement",
+        "article": "L722-16"
+      },
+      {
+        "accepted": [
+          "juge des contentieux de la protection"
+        ],
+        "quote": "saisir, si elle constate que le débiteur n'est pas dans la situation mentionnée au 1°, avec l'accord du débiteur, le juge des contentieux de la protection aux fins d'ouverture d'une procédure de rétablissement personnel avec liquidation judiciaire",
+        "article": "L724-1"
+      }
+    ],
+    "doubt": "La question combine deux situations (durée du protocole après effacement, et juge saisi pour la liquidation judiciaire) qui sont liées mais distinctes ; la durée de trois ans vaut en cas d'effacement."
+  },
+  "raw_text": "{\"question\":\"En cas de surendettement avec protocole de cohésion sociale conclu avec le bailleur, si la commission impose un rétablissement personnel, à combien est portée la durée du protocole, et quel juge saisit-elle pour ouvrir une procédure de rétablissement personnel avec liquidation judiciaire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"la durée du protocole est portée à trois ans à partir de la date de la décision imposant les mesures d'effacement\",\"article\":\"L722-16\"},{\"accepted\":[\"juge des contentieux de la protection\"],\"quote\":\"saisir, si elle constate que le débiteur n'est pas dans la situation mentionnée au 1°, avec l'accord du débiteur, le juge des contentieux de la protection aux fins d'ouverture d'une procédure de rétablissement personnel avec liquidation judiciaire\",\"article\":\"L724-1\"}],\"doubt\":\"La question combine deux situations (durée du protocole après effacement, et juge saisi pour la liquidation judiciaire) qui sont liées mais distinctes ; la durée de trois ans vaut en cas d'effacement.\"}"
+}

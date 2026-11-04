@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-dev-001",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2100,
+    "output_tokens": 247
+  },
+  "output": {
+    "question": "Pour le conseil d'administration du Laboratoire national de métrologie et d'essais, de combien de jours le commissaire du Gouvernement dispose-t-il pour s'opposer à une délibération ordinaire avant qu'elle devienne exécutoire de plein droit ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "dix jours",
+          "10 jours"
+        ],
+        "quote": "n'y a pas fait opposition dans les dix jours qui suivent",
+        "article": "R823-10"
+      }
+    ],
+    "doubt": "Le texte ne dit pas explicitement « Laboratoire national de métrologie et d'essais » ; ce contexte vient du plan. La question reste valable car le délai de dix jours est lisible dans l'article."
+  },
+  "raw_text": "{\"question\":\"Pour le conseil d'administration du Laboratoire national de métrologie et d'essais, de combien de jours le commissaire du Gouvernement dispose-t-il pour s'opposer à une délibération ordinaire avant qu'elle devienne exécutoire de plein droit ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"dix jours\",\"10 jours\"],\"quote\":\"n'y a pas fait opposition dans les dix jours qui suivent\",\"article\":\"R823-10\"}],\"doubt\":\"Le texte ne dit pas explicitement « Laboratoire national de métrologie et d'essais » ; ce contexte vient du plan. La question reste valable car le délai de dix jours est lisible dans l'article.\"}"
+}

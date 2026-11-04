@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-dev-017",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:41:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1657,
+    "output_tokens": 155
+  },
+  "output": {
+    "question": "Un prêteur a noté dans un fichier le nom de clients qui avaient renoncé à leur crédit après l'avoir signé, ce qui est interdit. Quelle amende maximale risque-t-il ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €",
+          "300000 euros"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-15"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Un prêteur a noté dans un fichier le nom de clients qui avaient renoncé à leur crédit après l'avoir signé, ce qui est interdit. Quelle amende maximale risque-t-il ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\",\"300000 euros\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-15\"}],\"doubt\":\"\"}"
+}

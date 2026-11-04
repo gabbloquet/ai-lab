@@ -1,0 +1,32 @@
+{
+  "task": "lost_context-test-036",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:43:07+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1832,
+    "output_tokens": 277
+  },
+  "output": {
+    "question": "Pour un débiteur dont la demande de traitement de surendettement a été déclarée recevable, quelle fraction des émoluments normalement prévus pour les huissiers de justice supporte-t-il dans les procédures d'exécution qui ne sont ni suspendues ni interdites ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "la moitié",
+          "moitié",
+          "1/2",
+          "50 %"
+        ],
+        "quote": "les émoluments supportés par le débiteur sont égaux à la moitié de ceux prévus par les arrêtés mentionnés à l'article R. 444-4 du code de commerce",
+        "article": "R722-11"
+      }
+    ],
+    "doubt": "L'article ne mentionne que « la moitié » ; les variantes « 1/2 » et « 50 % » sont des équivalents d'écriture, absents du texte."
+  },
+  "raw_text": "{\"question\":\"Pour un débiteur dont la demande de traitement de surendettement a été déclarée recevable, quelle fraction des émoluments normalement prévus pour les huissiers de justice supporte-t-il dans les procédures d'exécution qui ne sont ni suspendues ni interdites ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"la moitié\",\"moitié\",\"1/2\",\"50 %\"],\"quote\":\"les émoluments supportés par le débiteur sont égaux à la moitié de ceux prévus par les arrêtés mentionnés à l'article R. 444-4 du code de commerce\",\"article\":\"R722-11\"}],\"doubt\":\"L'article ne mentionne que « la moitié » ; les variantes « 1/2 » et « 50 % » sont des équivalents d'écriture, absents du texte.\"}"
+}

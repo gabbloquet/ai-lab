@@ -1,0 +1,32 @@
+{
+  "task": "reference-dev-003",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1704,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Que prévoit l'article R. 312-5 sur le nombre minimal de créances antérieures dont le remboursement doit être demandé à l'emprunteur avant la fourniture de la fiche d'information ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux",
+          "2",
+          "au moins deux",
+          "au moins 2"
+        ],
+        "quote": "si l'opération a pour objet le remboursement d'au moins deux créances antérieures dont un crédit en cours",
+        "article": "R312-5"
+      }
+    ],
+    "doubt": "La question reformule la demande du prêteur en nombre de créances ; la valeur « deux » est seulement un seuil implicite dans la question posée à l'emprunteur."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article R. 312-5 sur le nombre minimal de créances antérieures dont le remboursement doit être demandé à l'emprunteur avant la fourniture de la fiche d'information ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux\",\"2\",\"au moins deux\",\"au moins 2\"],\"quote\":\"si l'opération a pour objet le remboursement d'au moins deux créances antérieures dont un crédit en cours\",\"article\":\"R312-5\"}],\"doubt\":\"La question reformule la demande du prêteur en nombre de créances ; la valeur « deux » est seulement un seuil implicite dans la question posée à l'emprunteur.\"}"
+}

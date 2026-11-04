@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-012",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2027,
+    "output_tokens": 278
+  },
+  "output": {
+    "question": "Quelle rémunération mensuelle perçoit la personne justifiant d'une expérience juridique nommée par le préfet à la commission de surendettement ?",
+    "why_unanswerable": "L'article R712-6 fixe la durée du mandat (deux ans renouvelable), les conditions d'expérience et de diplôme, et les règles de remplacement en cas d'absence, mais il ne dit rien de la rémunération ou de l'indemnisation de ces membres. Le montant d'une éventuelle rémunération n'est donc pas fixé par cet article.",
+    "doubt": "Un autre article du Code de la consommation relatif au fonctionnement des commissions de surendettement pourrait traiter de l'indemnisation ou de la gratuité des fonctions des membres, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle rémunération mensuelle perçoit la personne justifiant d'une expérience juridique nommée par le préfet à la commission de surendettement ?\",\"why_unanswerable\":\"L'article R712-6 fixe la durée du mandat (deux ans renouvelable), les conditions d'expérience et de diplôme, et les règles de remplacement en cas d'absence, mais il ne dit rien de la rémunération ou de l'indemnisation de ces membres. Le montant d'une éventuelle rémunération n'est donc pas fixé par cet article.\",\"doubt\":\"Un autre article du Code de la consommation relatif au fonctionnement des commissions de surendettement pourrait traiter de l'indemnisation ou de la gratuité des fonctions des membres, ce qui rendrait la question répondable.\"}"
+}

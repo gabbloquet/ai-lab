@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-test-026",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3315,
+    "output_tokens": 886
+  },
+  "output": {
+    "question": "Quand un fournisseur de services financiers qui met fin sans préavis, pour motif légitime, à un contrat à durée indéterminée doit-il en informer l'autre partie, et quelle présomption s'applique en principe à une clause réservant au professionnel le droit de modifier unilatéralement le prix ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "immédiatement"
+        ],
+        "quote": "à condition que soit mise à la charge du professionnel l'obligation d'en informer la ou les autres parties contractantes immédiatement",
+        "article": "R212-4"
+      },
+      {
+        "accepted": [
+          "irréfragable",
+          "de manière irréfragable"
+        ],
+        "quote": "sont de manière irréfragable présumées abusives",
+        "article": "R212-1"
+      }
+    ],
+    "doubt": "Les deux articles ne contiennent aucune valeur chiffrée précise (durée, montant, taux, seuil) : « immédiatement » et « irréfragable » sont des notions qualitatives, donc l'article ne se prête guère à une question factuelle."
+  },
+  "raw_text": "{\"question\":\"Quand un fournisseur de services financiers qui met fin sans préavis, pour motif légitime, à un contrat à durée indéterminée doit-il en informer l'autre partie, et quelle présomption s'applique en principe à une clause réservant au professionnel le droit de modifier unilatéralement le prix ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"immédiatement\"],\"quote\":\"à condition que soit mise à la charge du professionnel l'obligation d'en informer la ou les autres parties contractantes immédiatement\",\"article\":\"R212-4\"},{\"accepted\":[\"irréfragable\",\"de manière irréfragable\"],\"quote\":\"sont de manière irréfragable présumées abusives\",\"article\":\"R212-1\"}],\"doubt\":\"Les deux articles ne contiennent aucune valeur chiffrée précise (durée, montant, taux, seuil) : « immédiatement » et « irréfragable » sont des notions qualitatives, donc l'article ne se prête guère à une question factuelle.\"}"
+}

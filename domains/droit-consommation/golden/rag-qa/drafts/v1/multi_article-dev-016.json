@@ -1,0 +1,41 @@
+{
+  "task": "multi_article-dev-016",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2354,
+    "output_tokens": 326
+  },
+  "output": {
+    "question": "Dans une procédure de surendettement, à la charge de qui sont mis les frais d'une mesure d'instruction prescrite par le juge, et quelles personnes peuvent bénéficier des mesures de traitement du surendettement ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "l'Etat",
+          "l'État",
+          "Etat",
+          "État"
+        ],
+        "quote": "Les frais relatifs à celle-ci sont mis à la charge de l'Etat.",
+        "article": "L733-12"
+      },
+      {
+        "accepted": [
+          "personnes physiques de bonne foi",
+          "les personnes physiques de bonne foi",
+          "personnes physiques"
+        ],
+        "quote": "Le bénéfice des mesures de traitement des situations de surendettement est ouvert aux personnes physiques de bonne foi.",
+        "article": "L711-1"
+      }
+    ],
+    "doubt": "Les valeurs sont des acteurs ou catégories de personnes plutôt que des chiffres, mais elles sont précises et se lisent directement dans les textes."
+  },
+  "raw_text": "{\"question\":\"Dans une procédure de surendettement, à la charge de qui sont mis les frais d'une mesure d'instruction prescrite par le juge, et quelles personnes peuvent bénéficier des mesures de traitement du surendettement ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"l'Etat\",\"l'État\",\"Etat\",\"État\"],\"quote\":\"Les frais relatifs à celle-ci sont mis à la charge de l'Etat.\",\"article\":\"L733-12\"},{\"accepted\":[\"personnes physiques de bonne foi\",\"les personnes physiques de bonne foi\",\"personnes physiques\"],\"quote\":\"Le bénéfice des mesures de traitement des situations de surendettement est ouvert aux personnes physiques de bonne foi.\",\"article\":\"L711-1\"}],\"doubt\":\"Les valeurs sont des acteurs ou catégories de personnes plutôt que des chiffres, mais elles sont précises et se lisent directement dans les textes.\"}"
+}

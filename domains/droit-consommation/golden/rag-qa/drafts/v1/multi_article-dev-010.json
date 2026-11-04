@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-dev-010",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2435,
+    "output_tokens": 336
+  },
+  "output": {
+    "question": "Pour un bien comportant des éléments numériques vendu avec fourniture continue d'un service numérique, pendant combien de temps à compter de la délivrance le vendeur doit-il assurer les mises à jour, et quel est le montant maximal de l'amende administrative pour une personne morale qui ne le fait pas ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "Durant une période de deux ans à compter du moment où les biens comportant des éléments numériques ont été délivrés",
+        "article": "L217-19"
+      },
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €",
+          "15000 euros"
+        ],
+        "quote": "3 000 euros pour une personne physique et 15 000 euros pour une personne morale",
+        "article": "L241-12"
+      }
+    ],
+    "doubt": "Le cas de deux ans suppose une fourniture continue d'au plus deux ans ; au-delà, la durée de fourniture s'applique, mais la question reste lisible dans le texte."
+  },
+  "raw_text": "{\"question\":\"Pour un bien comportant des éléments numériques vendu avec fourniture continue d'un service numérique, pendant combien de temps à compter de la délivrance le vendeur doit-il assurer les mises à jour, et quel est le montant maximal de l'amende administrative pour une personne morale qui ne le fait pas ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"Durant une période de deux ans à compter du moment où les biens comportant des éléments numériques ont été délivrés\",\"article\":\"L217-19\"},{\"accepted\":[\"15 000 euros\",\"15 000 €\",\"15000 euros\"],\"quote\":\"3 000 euros pour une personne physique et 15 000 euros pour une personne morale\",\"article\":\"L241-12\"}],\"doubt\":\"Le cas de deux ans suppose une fourniture continue d'au plus deux ans ; au-delà, la durée de fourniture s'applique, mais la question reste lisible dans le texte.\"}"
+}

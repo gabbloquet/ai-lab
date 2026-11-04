@@ -307,17 +307,14 @@ def test_a_correction_replaces_the_question_and_the_facts() -> None:
     assert item["expected"]["facts"] == [{"accepted": ["quatorze jours", "14 jours", "14 j"]}]
 
 
-def test_flagged_items_and_a_fifth_of_the_others_need_review() -> None:
+def test_every_selected_item_needs_review() -> None:
     outputs = {("dev", r): {**GOOD, "doubt": "?" if r == 1 else ""} for r in range(1, 6)}
     outputs |= {("test", r): GOOD for r in range(1, 6)}
     plan, drafts = plan_and_drafts(outputs)
     result = build(plan, drafts, BY_ID, {"direct": (5, 5)}, seed=1)
 
-    flagged = [s for s in result.selected if s.alerts]
-    sampled = [s for s in result.selected if s.needs_review and not s.alerts]
-    assert len(flagged) == 1
-    assert len(sampled) == 2  # 20 % des 9 autres, arrondi au-dessus
-    assert set(result.pending_review) == {s.task["task"] for s in flagged + sampled}
+    assert all(s.needs_review for s in result.selected)
+    assert set(result.pending_review) == {s.task["task"] for s in result.selected}
 
 
 def test_reviewed_items_are_no_longer_pending() -> None:
@@ -404,6 +401,18 @@ def test_review_page_shows_the_question_and_highlights_the_quote() -> None:
     assert "<mark>délai de quatorze jours</mark>" in html
     assert "Formulation ?" in html
     assert "direct-dev-001" in html
+
+
+def test_review_page_lists_dev_items_before_test_items() -> None:
+    plan = [task("direct", split="test", rank=1), task("reference", split="dev", rank=1)]
+    reference = {**GOOD, "question": "Que prévoit l'article L. 221-18 sur la rétractation ?"}
+    drafts = {plan[0]["task"]: draft(plan[0], GOOD), plan[1]["task"]: draft(plan[1], reference)}
+    result = build(plan, drafts, BY_ID, {"direct": (0, 1), "reference": (1, 0)}, seed=1)
+
+    html = render_review_page(result, BY_ID, version="v1")
+
+    assert html.index("reference-dev-001") < html.index("direct-test-001")
+    assert html.index("Split dev") < html.index("Split test")
 
 
 def test_review_page_escapes_html() -> None:

@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-027",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2504,
+    "output_tokens": 297
+  },
+  "output": {
+    "question": "Au Conseil national de la consommation, combien de membres titulaires le bureau compte-t-il par collège, et quelle est la voix des experts invités par le président aux réunions ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "sept",
+          "7"
+        ],
+        "quote": "Le bureau du Conseil national de la consommation comprend, pour chaque collège, sept membres titulaires et un nombre égal de membres suppléants.",
+        "article": "D821-11"
+      },
+      {
+        "accepted": [
+          "pas de voix délibérative",
+          "sans voix délibérative"
+        ],
+        "quote": "Ces experts n'ont pas de voix délibérative.",
+        "article": "D821-9"
+      }
+    ],
+    "doubt": "Le second fait est une absence de voix délibérative, formulée comme une négation ; la question mélange deux aspects (nombre de membres et statut des experts) et la formulation « voix des experts » est un peu maladroite."
+  },
+  "raw_text": "{\"question\":\"Au Conseil national de la consommation, combien de membres titulaires le bureau compte-t-il par collège, et quelle est la voix des experts invités par le président aux réunions ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"sept\",\"7\"],\"quote\":\"Le bureau du Conseil national de la consommation comprend, pour chaque collège, sept membres titulaires et un nombre égal de membres suppléants.\",\"article\":\"D821-11\"},{\"accepted\":[\"pas de voix délibérative\",\"sans voix délibérative\"],\"quote\":\"Ces experts n'ont pas de voix délibérative.\",\"article\":\"D821-9\"}],\"doubt\":\"Le second fait est une absence de voix délibérative, formulée comme une négation ; la question mélange deux aspects (nombre de membres et statut des experts) et la formulation « voix des experts » est un peu maladroite.\"}"
+}

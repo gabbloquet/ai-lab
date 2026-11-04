@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-005",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2291,
+    "output_tokens": 188
+  },
+  "output": {
+    "question": "Dans un contrat de fourniture numérique ponctuelle (garantie légale de conformité des contenus et services numériques), pendant combien de temps le professionnel répond-il des défauts de conformité après la fourniture ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "le professionnel répond des défauts de conformité existant au moment de la fourniture et qui apparaissent dans un délai de deux ans à compter de celle-ci",
+        "article": "L224-25-12"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Dans un contrat de fourniture numérique ponctuelle (garantie légale de conformité des contenus et services numériques), pendant combien de temps le professionnel répond-il des défauts de conformité après la fourniture ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"le professionnel répond des défauts de conformité existant au moment de la fourniture et qui apparaissent dans un délai de deux ans à compter de celle-ci\",\"article\":\"L224-25-12\"}],\"doubt\":\"\"}"
+}

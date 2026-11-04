@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-001",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:41:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2007,
+    "output_tokens": 178
+  },
+  "output": {
+    "question": "Je suis promoteur et ma pub pour un appartement à louer avec avantage fiscal ne respecte pas les règles de mentions obligatoires : quelle est la sanction financière maximale que je risque ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "100 000 €",
+          "100 000 euros"
+        ],
+        "quote": "Tout manquement aux dispositions du présent article est passible d'une amende administrative dont le montant ne peut excéder 100 000 €.",
+        "article": "L122-23"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Je suis promoteur et ma pub pour un appartement à louer avec avantage fiscal ne respecte pas les règles de mentions obligatoires : quelle est la sanction financière maximale que je risque ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"100 000 €\",\"100 000 euros\"],\"quote\":\"Tout manquement aux dispositions du présent article est passible d'une amende administrative dont le montant ne peut excéder 100 000 €.\",\"article\":\"L122-23\"}],\"doubt\":\"\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "lost_context-test-011",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:59+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2293,
+    "output_tokens": 707
+  },
+  "output": {
+    "question": "Dans les règles communes au crédit à la consommation et au crédit immobilier, en fonction de quels éléments un vendeur ne peut-il pas être rémunéré pour un crédit qu'il a fait contracter ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "taux du crédit",
+          "le taux du crédit"
+        ],
+        "quote": "ne peut, en aucun cas, être rémunéré en fonction du taux du crédit ou du type de crédit qu'il a fait contracter",
+        "article": "L314-23"
+      },
+      {
+        "accepted": [
+          "type de crédit",
+          "le type de crédit"
+        ],
+        "quote": "ne peut, en aucun cas, être rémunéré en fonction du taux du crédit ou du type de crédit qu'il a fait contracter",
+        "article": "L314-23"
+      }
+    ],
+    "doubt": "L'article énonce des principes et ne contient ni durée, ni montant, ni seuil précis : la réponse est une notion plutôt qu'une valeur chiffrée ou un organisme, donc peu adaptée."
+  },
+  "raw_text": "{\"question\":\"Dans les règles communes au crédit à la consommation et au crédit immobilier, en fonction de quels éléments un vendeur ne peut-il pas être rémunéré pour un crédit qu'il a fait contracter ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"taux du crédit\",\"le taux du crédit\"],\"quote\":\"ne peut, en aucun cas, être rémunéré en fonction du taux du crédit ou du type de crédit qu'il a fait contracter\",\"article\":\"L314-23\"},{\"accepted\":[\"type de crédit\",\"le type de crédit\"],\"quote\":\"ne peut, en aucun cas, être rémunéré en fonction du taux du crédit ou du type de crédit qu'il a fait contracter\",\"article\":\"L314-23\"}],\"doubt\":\"L'article énonce des principes et ne contient ni durée, ni montant, ni seuil précis : la réponse est une notion plutôt qu'une valeur chiffrée ou un organisme, donc peu adaptée.\"}"
+}

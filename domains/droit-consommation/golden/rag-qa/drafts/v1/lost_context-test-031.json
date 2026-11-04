@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-031",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:43:08+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1894,
+    "output_tokens": 620
+  },
+  "output": {
+    "question": "Un consommateur conclut un contrat portant sur la jouissance d'un bien immobilier, soumis à la loi d'un pays tiers. Dans quel type d'État ce bien doit-il être situé pour qu'il garde la protection prévue pour ces contrats ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "Etat membre de l'Union européenne",
+          "Etat membre",
+          "État membre de l'UE"
+        ],
+        "quote": "ce bien immobilier est situé sur le territoire d'un Etat membre de l'Union européenne",
+        "article": "L232-6"
+      }
+    ],
+    "doubt": "L'article énonce une règle de protection et des conditions de rattachement, mais ne contient aucune valeur précise (durée, montant, seuil, date). Il ne fait que renvoyer à d'autres sections et articles du code."
+  },
+  "raw_text": "{\"question\":\"Un consommateur conclut un contrat portant sur la jouissance d'un bien immobilier, soumis à la loi d'un pays tiers. Dans quel type d'État ce bien doit-il être situé pour qu'il garde la protection prévue pour ces contrats ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"Etat membre de l'Union européenne\",\"Etat membre\",\"État membre de l'UE\"],\"quote\":\"ce bien immobilier est situé sur le territoire d'un Etat membre de l'Union européenne\",\"article\":\"L232-6\"}],\"doubt\":\"L'article énonce une règle de protection et des conditions de rattachement, mais ne contient aucune valeur précise (durée, montant, seuil, date). Il ne fait que renvoyer à d'autres sections et articles du code.\"}"
+}

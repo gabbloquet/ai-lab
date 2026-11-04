@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-006",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1752,
+    "output_tokens": 200
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 341-1 comme sanction pour le prêteur qui accorde un crédit à la consommation sans communiquer à l'emprunteur les informations précontractuelles requises ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "déchu du droit aux intérêts",
+          "déchéance du droit aux intérêts"
+        ],
+        "quote": "est déchu du droit aux intérêts",
+        "article": "L341-1"
+      }
+    ],
+    "doubt": "La valeur attendue est une sanction et non un chiffre ; la question cite le numéro de l'article comme le demande le mode."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 341-1 comme sanction pour le prêteur qui accorde un crédit à la consommation sans communiquer à l'emprunteur les informations précontractuelles requises ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"déchu du droit aux intérêts\",\"déchéance du droit aux intérêts\"],\"quote\":\"est déchu du droit aux intérêts\",\"article\":\"L341-1\"}],\"doubt\":\"La valeur attendue est une sanction et non un chiffre ; la question cite le numéro de l'article comme le demande le mode.\"}"
+}

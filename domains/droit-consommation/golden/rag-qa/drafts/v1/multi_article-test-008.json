@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-008",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2172,
+    "output_tokens": 291
+  },
+  "output": {
+    "question": "Quand un emprunteur ne rembourse pas son crédit à la consommation, sur quel type de support le prêteur doit-il l'informer des risques dès le premier manquement, et par quel moyen est fixé le barème de l'indemnité que le prêteur peut lui demander en cas de défaillance ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "support papier",
+          "papier"
+        ],
+        "quote": "le prêteur informe celui-ci, sur support papier ou tout autre support durable des risques qu'il encourt",
+        "article": "L312-36"
+      },
+      {
+        "accepted": [
+          "décret",
+          "par décret"
+        ],
+        "quote": "est fixée suivant un barème déterminé par décret",
+        "article": "L312-39"
+      }
+    ],
+    "doubt": "Le premier fait admet aussi « support durable » comme alternative légale ; la forme acceptée ne retient que « support papier » pour rester courte."
+  },
+  "raw_text": "{\"question\":\"Quand un emprunteur ne rembourse pas son crédit à la consommation, sur quel type de support le prêteur doit-il l'informer des risques dès le premier manquement, et par quel moyen est fixé le barème de l'indemnité que le prêteur peut lui demander en cas de défaillance ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"support papier\",\"papier\"],\"quote\":\"le prêteur informe celui-ci, sur support papier ou tout autre support durable des risques qu'il encourt\",\"article\":\"L312-36\"},{\"accepted\":[\"décret\",\"par décret\"],\"quote\":\"est fixée suivant un barème déterminé par décret\",\"article\":\"L312-39\"}],\"doubt\":\"Le premier fait admet aussi « support durable » comme alternative légale ; la forme acceptée ne retient que « support papier » pour rester courte.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-043",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1907,
+    "output_tokens": 218
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 224-76 quant à la langue dans laquelle le contrat doit en tout état de cause être rédigé lorsque le consommateur réside en France ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "langue française",
+          "français"
+        ],
+        "quote": "En tout état de cause, le contrat est rédigé en langue française dès lors que le consommateur réside en France ou que le professionnel exerce son activité de vente sur le territoire français.",
+        "article": "L224-76"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée mais une langue précise ; la valeur attendue est donc peu technique."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 224-76 quant à la langue dans laquelle le contrat doit en tout état de cause être rédigé lorsque le consommateur réside en France ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"langue française\",\"français\"],\"quote\":\"En tout état de cause, le contrat est rédigé en langue française dès lors que le consommateur réside en France ou que le professionnel exerce son activité de vente sur le territoire français.\",\"article\":\"L224-76\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée mais une langue précise ; la valeur attendue est donc peu technique.\"}"
+}

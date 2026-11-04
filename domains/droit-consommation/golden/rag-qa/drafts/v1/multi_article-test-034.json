@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-034",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2044,
+    "output_tokens": 357
+  },
+  "output": {
+    "question": "Quelle peine d'emprisonnement encourt une personne qui trompe son contractant sur la quantité des choses livrées, si cette tromperie a rendu la marchandise dangereuse pour la santé, et sur quel aspect de la livraison porte la tromperie visée ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "sept ans",
+          "7 ans"
+        ],
+        "quote": "est punie d'une peine d'emprisonnement de sept ans et d'une amende de 750 000 euros",
+        "article": "L454-3"
+      },
+      {
+        "accepted": [
+          "la quantité des choses livrées",
+          "quantité des choses livrées",
+          "quantité"
+        ],
+        "quote": "2° Soit sur la quantité des choses livrées ou sur leur identité par la livraison d'une marchandise autre que la chose déterminée qui a fait l'objet du contrat ;",
+        "article": "L441-1"
+      }
+    ],
+    "doubt": "La seconde partie de la question reprend déjà la notion de quantité, donc le fait issu de L441-1 est en partie contenu dans la question ; une reformulation serait préférable."
+  },
+  "raw_text": "{\"question\":\"Quelle peine d'emprisonnement encourt une personne qui trompe son contractant sur la quantité des choses livrées, si cette tromperie a rendu la marchandise dangereuse pour la santé, et sur quel aspect de la livraison porte la tromperie visée ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"sept ans\",\"7 ans\"],\"quote\":\"est punie d'une peine d'emprisonnement de sept ans et d'une amende de 750 000 euros\",\"article\":\"L454-3\"},{\"accepted\":[\"la quantité des choses livrées\",\"quantité des choses livrées\",\"quantité\"],\"quote\":\"2° Soit sur la quantité des choses livrées ou sur leur identité par la livraison d'une marchandise autre que la chose déterminée qui a fait l'objet du contrat ;\",\"article\":\"L441-1\"}],\"doubt\":\"La seconde partie de la question reprend déjà la notion de quantité, donc le fait issu de L441-1 est en partie contenu dans la question ; une reformulation serait préférable.\"}"
+}

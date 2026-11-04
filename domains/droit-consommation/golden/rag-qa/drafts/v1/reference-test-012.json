@@ -1,0 +1,21 @@
+{
+  "task": "reference-test-012",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1754,
+    "output_tokens": 133
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 217-18 sur les mises à jour d'un bien comportant des éléments numériques ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient que des définitions et un champ d'application, sans durée, montant, taux, seuil, date, organisme ni document précis ; aucune valeur courte ne peut servir de réponse."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 217-18 sur les mises à jour d'un bien comportant des éléments numériques ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient que des définitions et un champ d'application, sans durée, montant, taux, seuil, date, organisme ni document précis ; aucune valeur courte ne peut servir de réponse.\"}"
+}

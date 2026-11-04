@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-042",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:43:10+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1783,
+    "output_tokens": 253
+  },
+  "output": {
+    "question": "Pour la mise à disposition ou remise d'informations ou documents sur un support durable autre que le papier en matière de crédit, quel chapitre du titre II du livre II du code de la consommation régit les contrats de services financiers à distance exclus de ces dispositions ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "chapitre II",
+          "le chapitre II",
+          "II"
+        ],
+        "quote": "services financiers régis par le chapitre II du titre II du livre II du présent code",
+        "article": "L314-31"
+      }
+    ],
+    "doubt": "La question renvoie à un chapitre précis du code, la réponse est donc un numéro de chapitre ; le texte mentionne aussi des chapitres du code monétaire et financier, ce qui pourrait créer une confusion."
+  },
+  "raw_text": "{\"question\":\"Pour la mise à disposition ou remise d'informations ou documents sur un support durable autre que le papier en matière de crédit, quel chapitre du titre II du livre II du code de la consommation régit les contrats de services financiers à distance exclus de ces dispositions ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"chapitre II\",\"le chapitre II\",\"II\"],\"quote\":\"services financiers régis par le chapitre II du titre II du livre II du présent code\",\"article\":\"L314-31\"}],\"doubt\":\"La question renvoie à un chapitre précis du code, la réponse est donc un numéro de chapitre ; le texte mentionne aussi des chapitres du code monétaire et financier, ce qui pourrait créer une confusion.\"}"
+}

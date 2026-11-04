@@ -1,0 +1,32 @@
+{
+  "task": "reference-dev-004",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "22a3b55a4c6380a11cbdc39e77adc06335e50b735ad0373df47f2c2a27f7d867",
+  "created_at": "2026-11-04T17:41:15+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1941,
+    "output_tokens": 231
+  },
+  "output": {
+    "question": "Selon l'article L. 433-8, quelle partie du code de la santé publique régit les autorisations de mise sur le marché des médicaments qui échappent aux règles de certification des articles L. 433-3 à L. 433-7 ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "Vème partie",
+          "Ve partie",
+          "cinquième partie",
+          "5e partie"
+        ],
+        "quote": "faisant l'objet des dispositions de la Vème partie du code de la santé publique",
+        "article": "L433-8"
+      }
+    ],
+    "doubt": "La valeur précise est un numéro de partie d'un autre code, mais la question porte bien sur le champ d'exclusion fixé par le Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Selon l'article L. 433-8, quelle partie du code de la santé publique régit les autorisations de mise sur le marché des médicaments qui échappent aux règles de certification des articles L. 433-3 à L. 433-7 ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"Vème partie\",\"Ve partie\",\"cinquième partie\",\"5e partie\"],\"quote\":\"faisant l'objet des dispositions de la Vème partie du code de la santé publique\",\"article\":\"L433-8\"}],\"doubt\":\"La valeur précise est un numéro de partie d'un autre code, mais la question porte bien sur le champ d'exclusion fixé par le Code de la consommation.\"}"
+}

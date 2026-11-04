@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-033",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2374,
+    "output_tokens": 249
+  },
+  "output": {
+    "question": "Quand un opérateur ne déclare pas un rappel de produits sur le site internet dédié, de quelle classe de contravention relève l'amende, et quel organisme doit rendre un avis avant l'arrêté fixant le fonctionnement de ce site ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "5e classe",
+          "cinquième classe",
+          "5ème classe"
+        ],
+        "quote": "est puni de l'amende prévue pour les contraventions de la 5e classe",
+        "article": "R452-5"
+      },
+      {
+        "accepted": [
+          "Commission nationale de l'informatique et des libertés",
+          "CNIL"
+        ],
+        "quote": "pris après avis de la Commission nationale de l'informatique et des libertés",
+        "article": "L423-3"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quand un opérateur ne déclare pas un rappel de produits sur le site internet dédié, de quelle classe de contravention relève l'amende, et quel organisme doit rendre un avis avant l'arrêté fixant le fonctionnement de ce site ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"5e classe\",\"cinquième classe\",\"5ème classe\"],\"quote\":\"est puni de l'amende prévue pour les contraventions de la 5e classe\",\"article\":\"R452-5\"},{\"accepted\":[\"Commission nationale de l'informatique et des libertés\",\"CNIL\"],\"quote\":\"pris après avis de la Commission nationale de l'informatique et des libertés\",\"article\":\"L423-3\"}],\"doubt\":\"\"}"
+}

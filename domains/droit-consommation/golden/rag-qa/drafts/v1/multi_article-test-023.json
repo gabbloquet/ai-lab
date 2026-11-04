@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-023",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2278,
+    "output_tokens": 275
+  },
+  "output": {
+    "question": "Un prêteur qui réclame à un preneur en location-vente des sommes supérieures à celles autorisées encourt quelle amende, et selon quel moyen est fixé le plafond de l'indemnité exigible du bailleur en cas de défaillance du preneur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-46"
+      },
+      {
+        "accepted": [
+          "barème déterminé par décret",
+          "barème fixé par décret",
+          "décret"
+        ],
+        "quote": "fixé suivant un barème déterminé par décret",
+        "article": "L313-60"
+      }
+    ],
+    "doubt": "Le second fait est une modalité (décret) plutôt qu'une valeur chiffrée ; la formulation de la question est un peu longue."
+  },
+  "raw_text": "{\"question\":\"Un prêteur qui réclame à un preneur en location-vente des sommes supérieures à celles autorisées encourt quelle amende, et selon quel moyen est fixé le plafond de l'indemnité exigible du bailleur en cas de défaillance du preneur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-46\"},{\"accepted\":[\"barème déterminé par décret\",\"barème fixé par décret\",\"décret\"],\"quote\":\"fixé suivant un barème déterminé par décret\",\"article\":\"L313-60\"}],\"doubt\":\"Le second fait est une modalité (décret) plutôt qu'une valeur chiffrée ; la formulation de la question est un peu longue.\"}"
+}

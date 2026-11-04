@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-040",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:41:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1644,
+    "output_tokens": 171
+  },
+  "output": {
+    "question": "Quelle classe de contravention sanctionne le fait de facturer à un consommateur, lors de la résiliation de son contrat d'électricité ou de gaz naturel, des frais non explicitement prévus ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "5e classe",
+          "cinquième classe",
+          "contraventions de la 5e classe"
+        ],
+        "quote": "est puni de la peine d'amende prévue pour les contraventions de la 5e classe",
+        "article": "R242-14"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quelle classe de contravention sanctionne le fait de facturer à un consommateur, lors de la résiliation de son contrat d'électricité ou de gaz naturel, des frais non explicitement prévus ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"5e classe\",\"cinquième classe\",\"contraventions de la 5e classe\"],\"quote\":\"est puni de la peine d'amende prévue pour les contraventions de la 5e classe\",\"article\":\"R242-14\"}],\"doubt\":\"\"}"
+}

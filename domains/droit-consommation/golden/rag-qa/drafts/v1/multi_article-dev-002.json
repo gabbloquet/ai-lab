@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-dev-002",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2828,
+    "output_tokens": 249
+  },
+  "output": {
+    "question": "Dans la liquidation judiciaire d'un surendetté avec vente d'un bien immobilier par adjudication, quel magistrat fixe la mise à prix du bien et en quel délai peut-on faire appel d'un jugement d'adjudication qui tranche une contestation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "juge des contentieux de la protection"
+        ],
+        "quote": "Le juge des contentieux de la protection, à la demande du liquidateur, détermine la mise à prix du bien à vendre",
+        "article": "R742-28"
+      },
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "dans un délai de quinze jours à compter de sa notification",
+        "article": "R742-37"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Dans la liquidation judiciaire d'un surendetté avec vente d'un bien immobilier par adjudication, quel magistrat fixe la mise à prix du bien et en quel délai peut-on faire appel d'un jugement d'adjudication qui tranche une contestation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"juge des contentieux de la protection\"],\"quote\":\"Le juge des contentieux de la protection, à la demande du liquidateur, détermine la mise à prix du bien à vendre\",\"article\":\"R742-28\"},{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"dans un délai de quinze jours à compter de sa notification\",\"article\":\"R742-37\"}],\"doubt\":\"\"}"
+}

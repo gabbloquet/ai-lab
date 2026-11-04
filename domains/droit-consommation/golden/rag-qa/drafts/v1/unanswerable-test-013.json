@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-013",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1636,
+    "output_tokens": 272
+  },
+  "output": {
+    "question": "Quel est le coût moyen en euros des frais de greffe pour obtenir la clôture d'une procédure de rétablissement personnel avec liquidation judiciaire ?",
+    "why_unanswerable": "L'article L742-22 prévoit seulement l'effet de la clôture, c'est-à-dire l'effacement des dettes arrêtées à la date du jugement d'ouverture, avec une exception pour les dettes payées par une caution ou un coobligé personne physique. Il ne dit rien des frais de greffe ni d'un coût moyen, et le Code de la consommation ne fixe aucun montant de ce type.",
+    "doubt": "Un autre article du livre VII pourrait évoquer les frais de procédure, mais il est peu probable qu'il chiffre des frais de greffe."
+  },
+  "raw_text": "{\"question\":\"Quel est le coût moyen en euros des frais de greffe pour obtenir la clôture d'une procédure de rétablissement personnel avec liquidation judiciaire ?\",\"why_unanswerable\":\"L'article L742-22 prévoit seulement l'effet de la clôture, c'est-à-dire l'effacement des dettes arrêtées à la date du jugement d'ouverture, avec une exception pour les dettes payées par une caution ou un coobligé personne physique. Il ne dit rien des frais de greffe ni d'un coût moyen, et le Code de la consommation ne fixe aucun montant de ce type.\",\"doubt\":\"Un autre article du livre VII pourrait évoquer les frais de procédure, mais il est peu probable qu'il chiffre des frais de greffe.\"}"
+}

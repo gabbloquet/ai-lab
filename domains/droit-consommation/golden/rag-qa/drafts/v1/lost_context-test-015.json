@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-015",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:43:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2046,
+    "output_tokens": 648
+  },
+  "output": {
+    "question": "Dans les règles sur la formation du prêteur et de l'intermédiaire en matière de crédit, quel type de contrat de travail dispense les personnels de l'obligation de compétence professionnelle pendant sa durée ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "contrat de formation en alternance",
+          "formation en alternance"
+        ],
+        "quote": "ne s'applique pas aux personnels employés dans le cadre d'un contrat de formation en alternance",
+        "article": "D314-22"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur chiffrée (durée, montant, seuil, date) : il définit des catégories de personnels et renvoie à d'autres textes, et la réponse est un type de contrat plutôt qu'une valeur précise."
+  },
+  "raw_text": "{\"question\":\"Dans les règles sur la formation du prêteur et de l'intermédiaire en matière de crédit, quel type de contrat de travail dispense les personnels de l'obligation de compétence professionnelle pendant sa durée ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"contrat de formation en alternance\",\"formation en alternance\"],\"quote\":\"ne s'applique pas aux personnels employés dans le cadre d'un contrat de formation en alternance\",\"article\":\"D314-22\"}],\"doubt\":\"L'article ne contient aucune valeur chiffrée (durée, montant, seuil, date) : il définit des catégories de personnels et renvoie à d'autres textes, et la réponse est un type de contrat plutôt qu'une valeur précise.\"}"
+}

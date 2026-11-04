@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-055",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:42:09+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2039,
+    "output_tokens": 220
+  },
+  "output": {
+    "question": "Si l'administration me demande de verser à l'avance une somme couvrant le prix des contrôles de mon produit, entre les mains de qui cet argent doit-il être déposé ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un comptable public",
+          "comptable public"
+        ],
+        "quote": "la consignation entre les mains d'un comptable public, avant une date qu'elle détermine, d'une somme correspondant au coût des contrôles à réaliser",
+        "article": "L521-12"
+      }
+    ],
+    "doubt": "La valeur attendue est une catégorie de personne plutôt qu'un chiffre ; elle reste précise et se lit directement dans le texte."
+  },
+  "raw_text": "{\"question\":\"Si l'administration me demande de verser à l'avance une somme couvrant le prix des contrôles de mon produit, entre les mains de qui cet argent doit-il être déposé ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un comptable public\",\"comptable public\"],\"quote\":\"la consignation entre les mains d'un comptable public, avant une date qu'elle détermine, d'une somme correspondant au coût des contrôles à réaliser\",\"article\":\"L521-12\"}],\"doubt\":\"La valeur attendue est une catégorie de personne plutôt qu'un chiffre ; elle reste précise et se lit directement dans le texte.\"}"
+}

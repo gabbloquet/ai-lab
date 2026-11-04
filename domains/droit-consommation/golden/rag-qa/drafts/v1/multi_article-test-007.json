@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-007",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3378,
+    "output_tokens": 425
+  },
+  "output": {
+    "question": "Pour un contenu numérique ou un service numérique, quelle version doit être fournie au moment de la conclusion du contrat sauf accord contraire, et pendant quelle période le professionnel doit-il fournir les mises à jour si le contrat prévoit une fourniture continue ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "la plus récente",
+          "version la plus récente",
+          "version la plus récente qui est disponible"
+        ],
+        "quote": "Il est fourni selon la version la plus récente qui est disponible au moment de la conclusion du contrat, sauf si les parties en conviennent autrement",
+        "article": "L224-25-14"
+      },
+      {
+        "accepted": [
+          "la période pendant laquelle le contenu numérique ou le service numérique est fourni en vertu du contrat",
+          "période de fourniture prévue au contrat"
+        ],
+        "quote": "Durant la période pendant laquelle le contenu numérique ou le service numérique est fourni en vertu du contrat, lorsque celui-ci en prévoit la fourniture continue pendant une période donnée.",
+        "article": "L224-25-25"
+      }
+    ],
+    "doubt": "La deuxième forme acceptée est longue et la réponse pourrait être formulée différemment (par exemple « durée du contrat »), ce qui pourrait gêner la vérification."
+  },
+  "raw_text": "{\"question\":\"Pour un contenu numérique ou un service numérique, quelle version doit être fournie au moment de la conclusion du contrat sauf accord contraire, et pendant quelle période le professionnel doit-il fournir les mises à jour si le contrat prévoit une fourniture continue ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"la plus récente\",\"version la plus récente\",\"version la plus récente qui est disponible\"],\"quote\":\"Il est fourni selon la version la plus récente qui est disponible au moment de la conclusion du contrat, sauf si les parties en conviennent autrement\",\"article\":\"L224-25-14\"},{\"accepted\":[\"la période pendant laquelle le contenu numérique ou le service numérique est fourni en vertu du contrat\",\"période de fourniture prévue au contrat\"],\"quote\":\"Durant la période pendant laquelle le contenu numérique ou le service numérique est fourni en vertu du contrat, lorsque celui-ci en prévoit la fourniture continue pendant une période donnée.\",\"article\":\"L224-25-25\"}],\"doubt\":\"La deuxième forme acceptée est longue et la réponse pourrait être formulée différemment (par exemple « durée du contrat »), ce qui pourrait gêner la vérification.\"}"
+}

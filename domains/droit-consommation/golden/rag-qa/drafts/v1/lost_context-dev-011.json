@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-dev-011",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1910,
+    "output_tokens": 289
+  },
+  "output": {
+    "question": "Pour les denrées non préemballées, quel règlement européen (numéro et année) liste les substances provoquant des allergies ou intolérances dont l'utilisation doit être portée à la connaissance du consommateur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "règlement (UE) n° 1169/2011",
+          "n° 1169/2011",
+          "1169/2011"
+        ],
+        "quote": "énuméré à l'annexe II du règlement (UE) n° 1169/2011 modifié du Parlement européen et du Conseil du 25 octobre 2011",
+        "article": "R412-12"
+      }
+    ],
+    "doubt": "L'article renvoie surtout à un règlement européen ; la valeur demandée est un numéro de texte, et la question mentionne le contexte des denrées non préemballées sans que l'article le dise explicitement (il dit « la présente sous-section »)."
+  },
+  "raw_text": "{\"question\":\"Pour les denrées non préemballées, quel règlement européen (numéro et année) liste les substances provoquant des allergies ou intolérances dont l'utilisation doit être portée à la connaissance du consommateur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"règlement (UE) n° 1169/2011\",\"n° 1169/2011\",\"1169/2011\"],\"quote\":\"énuméré à l'annexe II du règlement (UE) n° 1169/2011 modifié du Parlement européen et du Conseil du 25 octobre 2011\",\"article\":\"R412-12\"}],\"doubt\":\"L'article renvoie surtout à un règlement européen ; la valeur demandée est un numéro de texte, et la question mentionne le contexte des denrées non préemballées sans que l'article le dise explicitement (il dit « la présente sous-section »).\"}"
+}

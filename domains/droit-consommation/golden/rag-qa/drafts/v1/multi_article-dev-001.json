@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-dev-001",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2727,
+    "output_tokens": 362
+  },
+  "output": {
+    "question": "Quand un opérateur n'exécute pas la suspension d'un numéro à valeur ajoutée, quel article du code des postes et des communications électroniques définit les fournisseurs pouvant suspendre l'accès, et quel article du code civil encadre la mise en demeure préalable à la résiliation du contrat ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "7° de l'article L. 32",
+          "L. 32",
+          "article L. 32"
+        ],
+        "quote": "tout fournisseur d'un service de communications vocales, au sens du 7° de l'article L. 32 du code des postes et des communications électroniques",
+        "article": "L224-47-1"
+      },
+      {
+        "accepted": [
+          "article 1225",
+          "1225"
+        ],
+        "quote": "dans les conditions prévues au second alinéa de l'article 1225 du code civil",
+        "article": "L224-46"
+      }
+    ],
+    "doubt": "Les seules valeurs précises des articles sont des renvois à d'autres codes (code des postes et des communications électroniques, code civil) : la question ne porte donc pas sur le Code de la consommation lui-même, d'où usable à false."
+  },
+  "raw_text": "{\"question\":\"Quand un opérateur n'exécute pas la suspension d'un numéro à valeur ajoutée, quel article du code des postes et des communications électroniques définit les fournisseurs pouvant suspendre l'accès, et quel article du code civil encadre la mise en demeure préalable à la résiliation du contrat ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"7° de l'article L. 32\",\"L. 32\",\"article L. 32\"],\"quote\":\"tout fournisseur d'un service de communications vocales, au sens du 7° de l'article L. 32 du code des postes et des communications électroniques\",\"article\":\"L224-47-1\"},{\"accepted\":[\"article 1225\",\"1225\"],\"quote\":\"dans les conditions prévues au second alinéa de l'article 1225 du code civil\",\"article\":\"L224-46\"}],\"doubt\":\"Les seules valeurs précises des articles sont des renvois à d'autres codes (code des postes et des communications électroniques, code civil) : la question ne porte donc pas sur le Code de la consommation lui-même, d'où usable à false.\"}"
+}

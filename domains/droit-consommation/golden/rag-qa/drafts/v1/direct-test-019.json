@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-019",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:40:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1904,
+    "output_tokens": 241
+  },
+  "output": {
+    "question": "Dans un contrat de multipropriété ou de produit de vacances à long terme, par arrêté de quels ministres est fixé le modèle du formulaire de rétractation distinct du contrat ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "ministre chargé de la consommation et ministre de la justice",
+          "ministre chargé de la consommation et du ministre de la justice"
+        ],
+        "quote": "conforme à un modèle déterminé par arrêté conjoint du ministre chargé de la consommation et du ministre de la justice",
+        "article": "L224-78"
+      }
+    ],
+    "doubt": "La valeur attendue est un couple d'autorités plutôt qu'un chiffre ; la formulation de la réponse peut varier."
+  },
+  "raw_text": "{\"question\":\"Dans un contrat de multipropriété ou de produit de vacances à long terme, par arrêté de quels ministres est fixé le modèle du formulaire de rétractation distinct du contrat ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"ministre chargé de la consommation et ministre de la justice\",\"ministre chargé de la consommation et du ministre de la justice\"],\"quote\":\"conforme à un modèle déterminé par arrêté conjoint du ministre chargé de la consommation et du ministre de la justice\",\"article\":\"L224-78\"}],\"doubt\":\"La valeur attendue est un couple d'autorités plutôt qu'un chiffre ; la formulation de la réponse peut varier.\"}"
+}

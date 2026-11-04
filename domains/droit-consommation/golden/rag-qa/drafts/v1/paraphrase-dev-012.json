@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-012",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c56a91ad6db3a7024597f685f2fe39cb144eae1e3266ebda57b84dc92393a1dc",
+  "created_at": "2026-11-04T17:41:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1843,
+    "output_tokens": 274
+  },
+  "output": {
+    "question": "Je tiens une boutique et je veux faire une demande à l'administration de la répression des fraudes : comment dois-je l'envoyer pour pouvoir prouver quand elle l'a reçue ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "tout moyen permettant d'apporter la preuve de sa date de réception"
+        ],
+        "quote": "adressée ou déposée par tout moyen permettant d'apporter la preuve de sa date de réception",
+        "article": "R112-1"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée précise ; la réponse attendue est une formulation, la forme acceptée dépasse six mots et la question peut admettre des réponses variées (recommandé, dépôt contre récépissé).Il est discutable que l'article soit réellement exploitable."
+  },
+  "raw_text": "{\"question\":\"Je tiens une boutique et je veux faire une demande à l'administration de la répression des fraudes : comment dois-je l'envoyer pour pouvoir prouver quand elle l'a reçue ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"tout moyen permettant d'apporter la preuve de sa date de réception\"],\"quote\":\"adressée ou déposée par tout moyen permettant d'apporter la preuve de sa date de réception\",\"article\":\"R112-1\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée précise ; la réponse attendue est une formulation, la forme acceptée dépasse six mots et la question peut admettre des réponses variées (recommandé, dépôt contre récépissé).Il est discutable que l'article soit réellement exploitable.\"}"
+}

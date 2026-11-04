@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-024",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1852,
+    "output_tokens": 235
+  },
+  "output": {
+    "question": "Quel est le montant de l'amende complémentaire encourue par une personne physique condamnée pour un délit lié au prêt viager hypothécaire ?",
+    "why_unanswerable": "L'article ne prévoit que des peines complémentaires d'interdiction d'exercice, d'une durée maximale de cinq ans, et aucune amende complémentaire. Il ne fixe donc aucun montant d'amende complémentaire pour ces délits.",
+    "doubt": "Les montants des amendes principales pour ces délits figurent peut-être dans les articles L341-56 à L341-59, mais la question porte sur une amende complémentaire, que ces articles ne semblent pas prévoir."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant de l'amende complémentaire encourue par une personne physique condamnée pour un délit lié au prêt viager hypothécaire ?\",\"why_unanswerable\":\"L'article ne prévoit que des peines complémentaires d'interdiction d'exercice, d'une durée maximale de cinq ans, et aucune amende complémentaire. Il ne fixe donc aucun montant d'amende complémentaire pour ces délits.\",\"doubt\":\"Les montants des amendes principales pour ces délits figurent peut-être dans les articles L341-56 à L341-59, mais la question porte sur une amende complémentaire, que ces articles ne semblent pas prévoir.\"}"
+}

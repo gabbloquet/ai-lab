@@ -1,0 +1,36 @@
+{
+  "task": "lost_context-test-023",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:43:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1932,
+    "output_tokens": 283
+  },
+  "output": {
+    "question": "Quelles sont les deux professions de santé que doivent avoir les agents relevant du code de la santé publique pour être habilités à rechercher et constater les infractions en matière de pouvoirs d'enquête du Code de la consommation (Livre V, habilitations, autres agents) ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "médecin"
+        ],
+        "quote": "ayant la qualité de médecin ou de pharmacien",
+        "article": "L511-23"
+      },
+      {
+        "accepted": [
+          "pharmacien"
+        ],
+        "quote": "ayant la qualité de médecin ou de pharmacien",
+        "article": "L511-23"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée, seulement des professions ; la question porte sur la qualité exigée des agents, et le contexte (Livre V, habilitations) est nommé dans la question."
+  },
+  "raw_text": "{\"question\":\"Quelles sont les deux professions de santé que doivent avoir les agents relevant du code de la santé publique pour être habilités à rechercher et constater les infractions en matière de pouvoirs d'enquête du Code de la consommation (Livre V, habilitations, autres agents) ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"médecin\"],\"quote\":\"ayant la qualité de médecin ou de pharmacien\",\"article\":\"L511-23\"},{\"accepted\":[\"pharmacien\"],\"quote\":\"ayant la qualité de médecin ou de pharmacien\",\"article\":\"L511-23\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée, seulement des professions ; la question porte sur la qualité exigée des agents, et le contexte (Livre V, habilitations) est nommé dans la question.\"}"
+}

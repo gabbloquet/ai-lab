@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-025",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1682,
+    "output_tokens": 261
+  },
+  "output": {
+    "question": "Quel est le montant maximal journalier de l'astreinte que la juridiction répressive peut fixer lorsqu'elle ajourne le prononcé de la peine à la demande d'une association de consommateurs ?",
+    "why_unanswerable": "L'article indique seulement que la juridiction fixe le taux de l'astreinte et sa date de départ, sans prévoir de plafond ni de montant précis. Le taux est laissé à l'appréciation du juge. Le Code de la consommation ne donne donc aucun montant maximal journalier.",
+    "doubt": "Un autre article du Code de la consommation, par exemple sur l'action civile des associations, pourrait mentionner un plafond d'astreinte. Je ne peux pas l'exclure avec certitude."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant maximal journalier de l'astreinte que la juridiction répressive peut fixer lorsqu'elle ajourne le prononcé de la peine à la demande d'une association de consommateurs ?\",\"why_unanswerable\":\"L'article indique seulement que la juridiction fixe le taux de l'astreinte et sa date de départ, sans prévoir de plafond ni de montant précis. Le taux est laissé à l'appréciation du juge. Le Code de la consommation ne donne donc aucun montant maximal journalier.\",\"doubt\":\"Un autre article du Code de la consommation, par exemple sur l'action civile des associations, pourrait mentionner un plafond d'astreinte. Je ne peux pas l'exclure avec certitude.\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-dev-014",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "61638e94e456c51c461199621b98532ba9f8260473ba41b7d3f5895432d38218",
+  "created_at": "2026-11-04T17:42:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1795,
+    "output_tokens": 331
+  },
+  "output": {
+    "question": "Dans le cadre du crédit à la consommation et du crédit immobilier, quel article du code de commerce s'applique aux lettres de change et billets à ordre souscrits ou avalisés par des emprunteurs même majeurs ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "L. 511-5",
+          "L511-5",
+          "article L. 511-5 du code de commerce"
+        ],
+        "quote": "Les dispositions de l'article L. 511-5 du code de commerce sont applicables aux lettres de change et billets à ordre souscrits ou avalisés par les emprunteurs même majeurs",
+        "article": "L314-21"
+      }
+    ],
+    "doubt": "La réponse est un renvoi à un article d'un autre code, et la question mentionne le code de commerce ; elle porte toutefois sur une règle du Code de la consommation. Le contexte (chapitre sur les dispositions communes au crédit) est nommé explicitement mais la question reste un peu proche d'une demande de référence d'article."
+  },
+  "raw_text": "{\"question\":\"Dans le cadre du crédit à la consommation et du crédit immobilier, quel article du code de commerce s'applique aux lettres de change et billets à ordre souscrits ou avalisés par des emprunteurs même majeurs ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"L. 511-5\",\"L511-5\",\"article L. 511-5 du code de commerce\"],\"quote\":\"Les dispositions de l'article L. 511-5 du code de commerce sont applicables aux lettres de change et billets à ordre souscrits ou avalisés par les emprunteurs même majeurs\",\"article\":\"L314-21\"}],\"doubt\":\"La réponse est un renvoi à un article d'un autre code, et la question mentionne le code de commerce ; elle porte toutefois sur une règle du Code de la consommation. Le contexte (chapitre sur les dispositions communes au crédit) est nommé explicitement mais la question reste un peu proche d'une demande de référence d'article.\"}"
+}

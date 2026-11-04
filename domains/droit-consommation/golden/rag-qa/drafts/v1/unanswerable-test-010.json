@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-010",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1621,
+    "output_tokens": 228
+  },
+  "output": {
+    "question": "Quel est le coût de la demande de reconnaissance d'une appellation d'origine pour un producteur de fromage ?",
+    "why_unanswerable": "L'article ne fait que définir l'appellation d'origine (dénomination géographique, qualité due au milieu géographique, facteurs naturels et humains). Il ne fixe aucun tarif ou frais de procédure, et le Code de la consommation ne prévoit pas de montant pour une demande de reconnaissance.",
+    "doubt": "Un autre article du code ou un autre texte (code rural, INAO) pourrait traiter des frais ; le Code de la consommation lui-même ne semble pas en fixer."
+  },
+  "raw_text": "{\"question\":\"Quel est le coût de la demande de reconnaissance d'une appellation d'origine pour un producteur de fromage ?\",\"why_unanswerable\":\"L'article ne fait que définir l'appellation d'origine (dénomination géographique, qualité due au milieu géographique, facteurs naturels et humains). Il ne fixe aucun tarif ou frais de procédure, et le Code de la consommation ne prévoit pas de montant pour une demande de reconnaissance.\",\"doubt\":\"Un autre article du code ou un autre texte (code rural, INAO) pourrait traiter des frais ; le Code de la consommation lui-même ne semble pas en fixer.\"}"
+}

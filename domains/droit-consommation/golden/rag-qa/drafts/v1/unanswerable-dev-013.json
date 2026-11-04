@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-013",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1631,
+    "output_tokens": 225
+  },
+  "output": {
+    "question": "Quel est le tarif horaire maximal qu'un parc de stationnement public a le droit de facturer à un automobiliste pour un stationnement de deux heures ?",
+    "why_unanswerable": "Le code impose seulement une tarification par pas de quinze minutes au plus pour les stationnements de moins de douze heures payés à la durée. Il ne fixe aucun prix, plafond ni tarif horaire maximal : chaque exploitant détermine librement ses tarifs.",
+    "doubt": "Un autre article du code sur l'information sur les prix pourrait exiger l'affichage des tarifs, mais il ne fixe pas de montant maximal."
+  },
+  "raw_text": "{\"question\":\"Quel est le tarif horaire maximal qu'un parc de stationnement public a le droit de facturer à un automobiliste pour un stationnement de deux heures ?\",\"why_unanswerable\":\"Le code impose seulement une tarification par pas de quinze minutes au plus pour les stationnements de moins de douze heures payés à la durée. Il ne fixe aucun prix, plafond ni tarif horaire maximal : chaque exploitant détermine librement ses tarifs.\",\"doubt\":\"Un autre article du code sur l'information sur les prix pourrait exiger l'affichage des tarifs, mais il ne fixe pas de montant maximal.\"}"
+}

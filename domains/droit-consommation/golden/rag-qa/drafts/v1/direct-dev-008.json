@@ -1,0 +1,31 @@
+{
+  "task": "direct-dev-008",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:40:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1663,
+    "output_tokens": 211
+  },
+  "output": {
+    "question": "Quel accord, outre l'appartenance à l'Union européenne, permet à un laboratoire d'un autre État d'être admis à analyser des échantillons prélevés dans le cadre d'une coopération européenne ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "accord sur l'Espace économique européen",
+          "Espace économique européen",
+          "EEE"
+        ],
+        "quote": "partie à l'accord sur l'Espace économique européen",
+        "article": "R512-34"
+      }
+    ],
+    "doubt": "L'article contient peu de valeurs précises ; la valeur demandée est un nom d'accord, la question est donc un peu indirecte."
+  },
+  "raw_text": "{\"question\":\"Quel accord, outre l'appartenance à l'Union européenne, permet à un laboratoire d'un autre État d'être admis à analyser des échantillons prélevés dans le cadre d'une coopération européenne ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"accord sur l'Espace économique européen\",\"Espace économique européen\",\"EEE\"],\"quote\":\"partie à l'accord sur l'Espace économique européen\",\"article\":\"R512-34\"}],\"doubt\":\"L'article contient peu de valeurs précises ; la valeur demandée est un nom d'accord, la question est donc un peu indirecte.\"}"
+}

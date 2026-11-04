@@ -1,0 +1,29 @@
+{
+  "task": "direct-test-009",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5ed563f972328cb6db7bfc5e370454122820dc3bff88295f958b491ca9687ca",
+  "created_at": "2026-11-04T17:40:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1843,
+    "output_tokens": 223
+  },
+  "output": {
+    "question": "Quelle catégorie de fonctionnaires le directeur général de la concurrence, de la consommation et de la répression des fraudes peut-il désigner pour le représenter devant les juridictions civiles et administratives ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "catégorie A"
+        ],
+        "quote": "peuvent désigner des fonctionnaires de catégorie A ou des agents contractuels chargés de fonctions d'un niveau équivalent",
+        "article": "R524-1"
+      }
+    ],
+    "doubt": "La réponse pourrait aussi mentionner les agents contractuels de niveau équivalent, mais le fait attendu reste la catégorie A."
+  },
+  "raw_text": "{\"question\":\"Quelle catégorie de fonctionnaires le directeur général de la concurrence, de la consommation et de la répression des fraudes peut-il désigner pour le représenter devant les juridictions civiles et administratives ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"catégorie A\"],\"quote\":\"peuvent désigner des fonctionnaires de catégorie A ou des agents contractuels chargés de fonctions d'un niveau équivalent\",\"article\":\"R524-1\"}],\"doubt\":\"La réponse pourrait aussi mentionner les agents contractuels de niveau équivalent, mais le fait attendu reste la catégorie A.\"}"
+}

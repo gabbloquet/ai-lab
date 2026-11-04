@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-009",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "74b368cacd48ffaa51f934148c504cef785c23680c4e2d10a7f704531f3c73df",
+  "created_at": "2026-11-04T17:43:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1706,
+    "output_tokens": 313
+  },
+  "output": {
+    "question": "Quel délai maximal les hébergeurs ont-ils pour retirer un contenu illicite après avoir reçu la notification des agents de la DGCCRF ?",
+    "why_unanswerable": "L'article L512-22-1 indique seulement que le secret de l'enquête et le secret professionnel ne font pas obstacle à la notification d'informations sur un contenu illicite aux hébergeurs et fournisseurs d'accès. Il ne fixe aucun délai de retrait. Les conditions de notification relèvent de la loi pour la confiance dans l'économie numérique, qui n'est pas le Code de la consommation. Le code ne donne donc pas de délai.",
+    "doubt": "D'autres dispositions du Code de la consommation sur les injonctions administratives en ligne pourraient mentionner un délai de retrait. Je n'ai pas pu vérifier qu'aucun article ne le prévoit."
+  },
+  "raw_text": "{\"question\":\"Quel délai maximal les hébergeurs ont-ils pour retirer un contenu illicite après avoir reçu la notification des agents de la DGCCRF ?\",\"why_unanswerable\":\"L'article L512-22-1 indique seulement que le secret de l'enquête et le secret professionnel ne font pas obstacle à la notification d'informations sur un contenu illicite aux hébergeurs et fournisseurs d'accès. Il ne fixe aucun délai de retrait. Les conditions de notification relèvent de la loi pour la confiance dans l'économie numérique, qui n'est pas le Code de la consommation. Le code ne donne donc pas de délai.\",\"doubt\":\"D'autres dispositions du Code de la consommation sur les injonctions administratives en ligne pourraient mentionner un délai de retrait. Je n'ai pas pu vérifier qu'aucun article ne le prévoit.\"}"
+}

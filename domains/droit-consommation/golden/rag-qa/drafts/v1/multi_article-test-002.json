@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-test-002",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "0a65116a9f11d4e8920f533e5b0a3b6b0130551f62c7a9c4664ff311f9e7c79e",
+  "created_at": "2026-11-04T17:42:20+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2170,
+    "output_tokens": 288
+  },
+  "output": {
+    "question": "En cas de déchéance du bénéfice de la procédure de traitement du surendettement prononcée par la commission, dans quel délai le recours est-il possible, et quel juge peut aussi prononcer cette déchéance lorsqu'un recours est exercé devant lui ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "dans un délai de quinze jours à compter de sa notification",
+        "article": "R712-14"
+      },
+      {
+        "accepted": [
+          "juge des contentieux de la protection"
+        ],
+        "quote": "ou par le juge des contentieux de la protection à l'occasion des recours exercés devant lui",
+        "article": "L712-3"
+      }
+    ],
+    "doubt": "L'article L712-3 renvoie lui-même à L. 761-1 pour la déchéance, mais la question reste répondable avec les deux articles donnés."
+  },
+  "raw_text": "{\"question\":\"En cas de déchéance du bénéfice de la procédure de traitement du surendettement prononcée par la commission, dans quel délai le recours est-il possible, et quel juge peut aussi prononcer cette déchéance lorsqu'un recours est exercé devant lui ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"dans un délai de quinze jours à compter de sa notification\",\"article\":\"R712-14\"},{\"accepted\":[\"juge des contentieux de la protection\"],\"quote\":\"ou par le juge des contentieux de la protection à l'occasion des recours exercés devant lui\",\"article\":\"L712-3\"}],\"doubt\":\"L'article L712-3 renvoie lui-même à L. 761-1 pour la déchéance, mais la question reste répondable avec les deux articles donnés.\"}"
+}
