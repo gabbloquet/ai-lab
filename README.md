@@ -53,7 +53,7 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 
 | Aspect | Expérience | Statut |
 |---|---|---|
-| Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Cadrage |
+| Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Terminée : B meilleure de +24,6 pts avec Mistral small ; non concluant (plafond) avec Gemini Flash-Lite et Claude Haiku 5.5 |
 
 ### Par domaine
 
@@ -103,7 +103,7 @@ Côté Python, aucune bibliothèque ne couvre seule le périmètre de Spring AI 
 | Runtime et workspace | Python, uv | 3.13 |
 | Serveurs MCP | SDK MCP Python officiel (embarque Starlette et uvicorn, sans FastAPI) | 2.3.0 |
 | API HTTP, quand une expérience en expose une | FastAPI | 0.159.0 |
-| Boucle d'agent, client LLM et MCP | Pydantic AI (Gemini, Mistral, Claude et MCP en extras), retenu pour la 001 sous réserve d'un test exploratoire | 2.59.0 |
+| Boucle d'agent, client LLM et MCP | Pydantic AI (Gemini, Mistral, Claude et MCP en extras), retenu pour la 001 après le test exploratoire | 2.65.0 |
 | Tests et qualité | pytest, ruff | 9.1.1 · 0.17.1 |
 | Évaluation | DeepEval, avec une métrique personnalisée conforme à la spec | 4.3.1 |
 

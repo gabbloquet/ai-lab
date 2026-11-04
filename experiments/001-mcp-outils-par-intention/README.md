@@ -1,6 +1,6 @@
 # 001 — Outils MCP : par intention métier ou miroir REST ?
 
-> **Statut :** gelée le 2026-11-04, run final sur le `test` en cours
+> **Statut :** terminée le 2026-11-04 — [rapport du run final](results/2026-11-04-run-final-test.md)
 > **Domaines :** [`magasin`](../../domains/magasin/README.md)
 > **Spec de notation :** [`tool-selection/v1`](../../evals/spec/tool-selection/v1/SPEC.md) (brouillon)
 
@@ -232,7 +232,7 @@ Run 0 : delta B − A = +0,207 (indicatif, `dev`), s_d = 0,373, aucune exécutio
 **Correction du golden set après le run 0 (2026-11-04), hors cycle.** Deux items `dev` échouaient dans les deux variantes alors que la réponse du modèle était juste : pour une fiche demandée par nom, la recherche donne déjà le rayon et le prix, mais la v1 exigeait la fiche. La v2 du golden set exige la recherche dans ce cas, de la même façon en A et en B ([changements de la v2](../../domains/magasin/golden/tool-selection/README.md#changements-de-la-v2)). Aucune variante n'a changé, donc aucun cycle n'est consommé. Le run 0, noté de nouveau sur la v2 sans rien rejouer (`rescore_run.py`) : **A 0,793 · B 1,000**, delta inchangé (+0,207), s_d inchangé (0,373). Les cycles suivants et le run final utilisent la v2.
 
 **Commit de gel :** le commit « Geler la 001 avant le run final sur le test » (2026-11-04) ; son hash est dans le `run.json` de chaque run final et dans le rapport.
-**Run final sur le `test` :** —
+**Run final sur le `test` :** 2026-11-04, commit `092a894`, runs `final-test-mistral`, `final-test-gemini`, `final-test-claude` ([rapport](results/2026-11-04-run-final-test.md)).
 
 ## Mesures
 
@@ -242,11 +242,23 @@ Run 0 : delta B − A = +0,207 (indicatif, `dev`), s_d = 0,373, aucune exécutio
 
 ## Résultats
 
-Pas encore de résultats.
+Run final du 2026-11-04 sur les 100 items `test`, k = 5, golden set v2 (détail, métriques secondaires et provenance dans le [rapport](results/2026-11-04-run-final-test.md)) :
+
+| Modèle | `success` A | `success` B | Delta B − A | IC 95 % | `n_calls` A → B |
+|---|---|---|---|---|---|
+| `mistral-small-2603` | 0,742 | 0,988 | +0,246 | [+0,160 ; +0,332] | 2,97 → 1,95 |
+| `gemini-3.5-flash-lite` | 0,994 | 1,000 | +0,006 | [−0,006 ; +0,018] | 3,31 → 1,77 |
+| `claude-haiku-5-5` | 0,996 | 1,000 | +0,004 | [−0,002 ; +0,010] | 3,33 → 1,70 |
+
+Longueur totale des descriptions d'outils : non mesurée en tokens dans ce run (le guide de rédaction fixe ±20 % ; `VariantFairnessTest` la contrôle en caractères côté Java).
 
 ## Verdict
 
-Pas encore de verdict.
+- **`mistral-small-2603` : B meilleure**, +24,6 points de `success` (IC 95 % [+16,0 ; +33,2]). Tout l'écart vient des intentions qui exigent un enchaînement d'appels en A (alternative en stock, magasins qui ont le produit). H1 est confirmée pour ce modèle.
+- **`gemini-3.5-flash-lite` et `claude-haiku-5-5` : non concluant.** Les deux variantes sont au plafond. Les intervalles excluent un gain de 10 points, le plus petit écart qui compte : pour ces modèles, le découpage ne change pas le taux de réussite d'une façon qui justifierait de réécrire un serveur.
+- **Pour les trois modèles, B demande moins d'appels**, de 1,0 à 1,6 en moyenne, soit à peu près la moitié pour Gemini et Claude. Ce n'est pas le critère du verdict.
+
+Le découpage par intention sert donc surtout de filet pour les modèles qui enchaînent mal les appels. Avec des modèles qui enchaînent bien, sur un serveur de 5 outils, il réduit le nombre d'allers-retours sans changer le taux de réussite.
 
 ## Limites
 
