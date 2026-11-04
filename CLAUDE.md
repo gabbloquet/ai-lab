@@ -37,7 +37,7 @@ Dépôt public : le laboratoire et la vitrine d'un AI Engineer freelance (Java /
 ## Données
 
 - Un jeu de données ou une spec publiés sont immuables : pour les corriger, on crée `v2`. Une version est publiée dès qu'un rapport de `results/` la cite.
-- Les données des domaines sont 100 % synthétiques, générées par un script seedé et versionné.
+- Les données d'un domaine sont soit synthétiques (script seedé et versionné), soit publiques sous une licence compatible avec un dépôt public. Le README du domaine cite la source, la licence et la date d'extraction.
 
 ## Dépôt public
 

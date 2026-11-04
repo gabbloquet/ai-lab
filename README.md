@@ -34,7 +34,7 @@ Ce lab traite ces choix comme des hypothèses : une question, un protocole écri
 4. **Les domaines sont séparés des expériences.** Un domaine (`domains/<nom>/`) regroupe ses données et ses jeux d'évaluation. Plusieurs expériences peuvent tourner sur le même domaine, et chacune indique les siens dans son README.
 5. **L'évaluation est commune par sa spec, pas par son code.** Voir [Évaluation](#évaluation).
 6. **Un jeu de données publié ne change plus.** Pour le corriger, on crée `v2`. Une version est considérée comme publiée dès qu'un rapport de résultats la cite.
-7. **Les données sont 100 % synthétiques.** Elles sont produites par des scripts seedés et versionnés.
+7. **Les données sont synthétiques ou publiques.** Synthétiques, elles sont produites par des scripts seedés et versionnés. Publiques, elles sont sous une licence compatible avec un dépôt public, et le README du domaine cite la source, la licence et la date d'extraction. Aucune donnée client, dans les deux cas.
 8. **Les comparaisons se font à modèle constant.** Les deltas sont calculés modèle par modèle. Les tokens ne sont jamais comparés d'un fournisseur à l'autre, car leurs tokenizers diffèrent.
 
 ## Évaluation
