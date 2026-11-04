@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-dev-002",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2f316df77be91f033fb2ccbc78a78b54aad61c147c53615d399410393d563250",
+  "created_at": "2026-11-04T16:00:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1714,
+    "output_tokens": 251
+  },
+  "output": {
+    "question": "Dans les contrats de fourniture de contenus et services numériques, au titre de la garantie légale de conformité, que peut exiger le consommateur en cas de défaut de conformité du contenu numérique ?",
+    "facts": [
+      {
+        "accepted": [
+          "la mise en conformité",
+          "mise en conformité du contenu numérique",
+          "mise en conformité du contenu"
+        ],
+        "quote": "le consommateur est en droit d'exiger la mise en conformité du contenu numérique ou du service numérique",
+        "article": "L224-25-18"
+      }
+    ],
+    "doubt": "La question nomme le contexte (contrats de contenus et services numériques, garantie légale de conformité), mais la réponse reste très courte et l'article évoque aussi d'autres points (absence de frais, délai)."
+  },
+  "raw_text": "{\"question\":\"Dans les contrats de fourniture de contenus et services numériques, au titre de la garantie légale de conformité, que peut exiger le consommateur en cas de défaut de conformité du contenu numérique ?\",\"facts\":[{\"accepted\":[\"la mise en conformité\",\"mise en conformité du contenu numérique\",\"mise en conformité du contenu\"],\"quote\":\"le consommateur est en droit d'exiger la mise en conformité du contenu numérique ou du service numérique\",\"article\":\"L224-25-18\"}],\"doubt\":\"La question nomme le contexte (contrats de contenus et services numériques, garantie légale de conformité), mais la réponse reste très courte et l'article évoque aussi d'autres points (absence de frais, délai).\"}"
+}

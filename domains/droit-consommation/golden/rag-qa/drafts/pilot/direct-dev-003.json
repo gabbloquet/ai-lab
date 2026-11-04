@@ -1,0 +1,29 @@
+{
+  "task": "direct-dev-003",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2c62ee2478d5b9ddb82c5b2f020d940935767471cc951fe60d769ec9bb3e03f0",
+  "created_at": "2026-11-04T16:00:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1299,
+    "output_tokens": 151
+  },
+  "output": {
+    "question": "Dans la procédure de rétablissement personnel avec liquidation judiciaire, qui effectue les actes qui incombent normalement au créancier poursuivant dans les procédures civiles d'exécution ?",
+    "facts": [
+      {
+        "accepted": [
+          "le liquidateur",
+          "liquidateur"
+        ],
+        "quote": "le liquidateur effectue les actes qui incombent au créancier poursuivant",
+        "article": "R742-25"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Dans la procédure de rétablissement personnel avec liquidation judiciaire, qui effectue les actes qui incombent normalement au créancier poursuivant dans les procédures civiles d'exécution ?\",\"facts\":[{\"accepted\":[\"le liquidateur\",\"liquidateur\"],\"quote\":\"le liquidateur effectue les actes qui incombent au créancier poursuivant\",\"article\":\"R742-25\"}],\"doubt\":\"\"}"
+}

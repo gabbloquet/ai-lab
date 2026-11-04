@@ -1,0 +1,141 @@
+{
+  "version": "pilot",
+  "seed": 7,
+  "overlap_threshold": null,
+  "tasks": 20,
+  "drafts": 20,
+  "selected": 19,
+  "pending_review": [
+    "direct-dev-001",
+    "direct-dev-002",
+    "reference-dev-001",
+    "reference-dev-002",
+    "reference-dev-003",
+    "paraphrase-dev-001",
+    "paraphrase-dev-002",
+    "paraphrase-dev-004",
+    "multi_article-dev-001",
+    "multi_article-dev-003",
+    "lost_context-dev-001",
+    "lost_context-dev-002",
+    "lost_context-dev-003",
+    "unanswerable-dev-001",
+    "unanswerable-dev-002",
+    "unanswerable-dev-003"
+  ],
+  "shortages": {
+    "multi_article/dev": 1
+  },
+  "rejected": {
+    "multi_article-dev-002": [
+      "fait 1 : aucune forme acceptée ne figure dans l'extrait"
+    ]
+  },
+  "alerts": {
+    "direct-dev-001": [
+      "doute du rédacteur : La question mentionne l'article 11 du code de procédure pénale, ce qui est un renvoi à un autre code et non à un article du Code de la consommation ; la forme « fraises » dans accepted est une erreur de frappe à ignorer.",
+      "fait 1 : forme longue « les agents de la concurrence, de la consommation et de la répression des fraises »",
+      "fait 1 : forme sans chiffre absente du texte « les agents de la concurrence, de la consommation et de la répression des fraises »",
+      "fait 1 : forme longue « les agents de la concurrence, de la consommation et de la répression des fraudes »",
+      "fait 1 : forme sans chiffre absente du texte « les agents de la concurrence, de la consommation et de la répression des fraudes »",
+      "fait 1 : forme sans chiffre absente du texte « agents de la DGCCRF »",
+      "fait 1 : forme longue « agents de la concurrence, de la consommation et de la répression des fraudes »"
+    ],
+    "direct-dev-002": [
+      "fait 1 : forme sans chiffre absente du texte « le tarif »",
+      "fait 1 : forme sans chiffre absente du texte « le tarif de la mise en relation »",
+      "fait 2 : forme sans chiffre absente du texte « avant l'acceptation expresse du consommateur »",
+      "fait 2 : forme sans chiffre absente du texte « avant l'acceptation de l'offre »"
+    ],
+    "reference-dev-001": [
+      "doute du rédacteur : La question porte sur une interdiction d'opposition ; la réponse est formulée en négation, ce qui peut rendre la comparaison des réponses moins nette.",
+      "fait 1 : forme sans chiffre absente du texte « Ils ne peuvent pas s'opposer »",
+      "fait 1 : forme sans chiffre absente du texte « Aucune opposition possible »",
+      "fait 1 : forme sans chiffre absente du texte « Ils ne peuvent pas s'y opposer »",
+      "fait 2 : forme longue « Les abonnés et les fournisseurs de produits ou de services à valeur ajoutée »",
+      "fait 2 : forme sans chiffre absente du texte « abonnés et fournisseurs de services à valeur ajoutée »"
+    ],
+    "reference-dev-002": [
+      "fait 1 : forme sans chiffre absente du texte « five years »"
+    ],
+    "paraphrase-dev-001": [
+      "doute du rédacteur : La question porte sur deux faits (fréquence et emplacement) ; le 'relevé' est une reformulation de l'information sur le capital restant dû.",
+      "fait 1 : forme sans chiffre absente du texte « chaque année »",
+      "fait 2 : forme sans chiffre absente du texte « en première page »"
+    ],
+    "paraphrase-dev-002": [
+      "doute du rédacteur : La notion de grosse amende (excédant 3 000 euros pour une personne physique ou 15 000 euros pour une personne morale) n'est pas précisée dans la question, ce qui la rend un peu vague.",
+      "fait 1 : forme sans chiffre absente du texte « trois ans »"
+    ],
+    "paraphrase-dev-004": [
+      "doute du rédacteur : La question reste assez ouverte : la réponse attendue inclut aussi le producteur, et un répondant pourrait ne mentionner que celui-ci. La mention du code civil n'est pas demandée.",
+      "fait 1 : forme longue « toute personne en amont dans la chaîne de transactions commerciales »",
+      "fait 1 : forme longue « les personnes en amont de la chaîne, y compris le producteur »",
+      "fait 1 : forme sans chiffre absente du texte « les personnes en amont de la chaîne, y compris le producteur »"
+    ],
+    "multi_article-dev-001": [
+      "doute du rédacteur : La question combine deux informations distinctes, l'une sur l'amende et l'autre sur le délai de restitution ; le délai ne concerne que les contenus fournis sur support matériel."
+    ],
+    "multi_article-dev-003": [
+      "fait 1 : forme longue « sur un formulaire remis par le secrétariat de la commission »",
+      "fait 1 : forme sans chiffre absente du texte « sur un formulaire remis par le secrétariat de la commission »"
+    ],
+    "lost_context-dev-001": [
+      "doute du rédacteur : La question est un peu ambiguë : la réponse attendue est le renvoi à l'article L. 329-5 du code de la route, et la mention « en matière de véhicules » est une déduction du contexte du code de la route, pas du texte de l'article lui-même.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-dev-002": [
+      "doute du rédacteur : La question nomme le contexte (contrats de contenus et services numériques, garantie légale de conformité), mais la réponse reste très courte et l'article évoque aussi d'autres points (absence de frais, délai).",
+      "mode lost_context : relu systématiquement"
+    ],
+    "lost_context-dev-003": [
+      "doute du rédacteur : La question nomme le contexte (crédit immobilier) ; le texte parle de « présent chapitre », que seul le plan permet de relier au crédit immobilier.",
+      "mode lost_context : relu systématiquement"
+    ],
+    "unanswerable-dev-001": [
+      "doute du rédacteur : Le code de procédure pénale fixe des règles de prescription de l'action civile, donc la question reste hors du Code de la consommation. Un évaluateur pourrait toutefois juger qu'elle est trop éloignée de l'article.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-002": [
+      "doute du rédacteur : Le code prévoit par ailleurs un droit d'accès de la personne à ses données, mais pas de délai d'attente ni de tarif de copie à ma connaissance. La question reste plausible mais il faut vérifier qu'aucun autre article ne fixe ces détails.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-003": [
+      "doute du rédacteur : Le code de la consommation contient des dispositions sur le taux de l'usure dans une autre partie, donc la question pourrait être jugée partiellement couverte, mais aucun plafond ne dépend du fichage de l'emprunteur.",
+      "mode unanswerable : relu systématiquement"
+    ]
+  },
+  "overlap": {
+    "direct-dev-001": 1.0,
+    "direct-dev-002": 0.583,
+    "direct-dev-003": 0.571,
+    "direct-dev-004": 0.583,
+    "reference-dev-001": 0.769,
+    "reference-dev-002": 0.588,
+    "reference-dev-003": 0.714,
+    "paraphrase-dev-001": 0.286,
+    "paraphrase-dev-002": 0.182,
+    "paraphrase-dev-003": 0.333,
+    "paraphrase-dev-004": 0.083,
+    "multi_article-dev-001": 0.321,
+    "multi_article-dev-002": 0.545,
+    "multi_article-dev-003": 0.467,
+    "lost_context-dev-001": 0.5,
+    "lost_context-dev-002": 0.429,
+    "lost_context-dev-003": 0.583,
+    "unanswerable-dev-001": 0.286,
+    "unanswerable-dev-002": 0.278,
+    "unanswerable-dev-003": 0.308
+  },
+  "writer_models": [
+    "claude-sonnet-5-5"
+  ],
+  "prompt_sha256": [
+    "2c62ee2478d5b9ddb82c5b2f020d940935767471cc951fe60d769ec9bb3e03f0",
+    "2f316df77be91f033fb2ccbc78a78b54aad61c147c53615d399410393d563250",
+    "53ee65e3ff68d09ec0a417cb96a14aad64c9859a5c8e89321514228355b7b31e",
+    "63cffa6bccc831c2930b97a2a00068fd198f8e5d991c7e703c99f6b7ebe45832",
+    "9fa5b5368393c697e06a4fa326f42a146abee84d180996087c884d44ab9e61ec",
+    "fb24cc87ae49cede25530025af525dc1e6db5e01f56f50389445afb5c9ba32ca"
+  ]
+}

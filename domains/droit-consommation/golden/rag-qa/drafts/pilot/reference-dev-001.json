@@ -1,0 +1,39 @@
+{
+  "task": "reference-dev-001",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "9fa5b5368393c697e06a4fa326f42a146abee84d180996087c884d44ab9e61ec",
+  "created_at": "2026-11-04T16:00:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1404,
+    "output_tokens": 370
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 224-45 sur la possibilité, pour les abonnés et les fournisseurs de services à valeur ajoutée, de s'opposer à la communication et à la publication par des tiers de certaines informations ?",
+    "facts": [
+      {
+        "accepted": [
+          "Ils ne peuvent pas s'opposer",
+          "ne peuvent s'opposer",
+          "Aucune opposition possible",
+          "Ils ne peuvent pas s'y opposer"
+        ],
+        "quote": "ne peuvent s'opposer à la communication et à la publication par des tiers des informations",
+        "article": "L224-45"
+      },
+      {
+        "accepted": [
+          "Les abonnés et les fournisseurs de produits ou de services à valeur ajoutée",
+          "abonnés et fournisseurs de services à valeur ajoutée"
+        ],
+        "quote": "Les abonnés et les fournisseurs de produits ou de services à valeur ajoutée concernés",
+        "article": "L224-45"
+      }
+    ],
+    "doubt": "La question porte sur une interdiction d'opposition ; la réponse est formulée en négation, ce qui peut rendre la comparaison des réponses moins nette."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 224-45 sur la possibilité, pour les abonnés et les fournisseurs de services à valeur ajoutée, de s'opposer à la communication et à la publication par des tiers de certaines informations ?\",\"facts\":[{\"accepted\":[\"Ils ne peuvent pas s'opposer\",\"ne peuvent s'opposer\",\"Aucune opposition possible\",\"Ils ne peuvent pas s'y opposer\"],\"quote\":\"ne peuvent s'opposer à la communication et à la publication par des tiers des informations\",\"article\":\"L224-45\"},{\"accepted\":[\"Les abonnés et les fournisseurs de produits ou de services à valeur ajoutée\",\"abonnés et fournisseurs de services à valeur ajoutée\"],\"quote\":\"Les abonnés et les fournisseurs de produits ou de services à valeur ajoutée concernés\",\"article\":\"L224-45\"}],\"doubt\":\"La question porte sur une interdiction d'opposition ; la réponse est formulée en négation, ce qui peut rendre la comparaison des réponses moins nette.\"}"
+}

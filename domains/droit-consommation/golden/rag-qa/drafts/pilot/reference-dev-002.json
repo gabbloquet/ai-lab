@@ -1,0 +1,30 @@
+{
+  "task": "reference-dev-002",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "9fa5b5368393c697e06a4fa326f42a146abee84d180996087c884d44ab9e61ec",
+  "created_at": "2026-11-04T16:00:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1890,
+    "output_tokens": 169
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 341-33 comme durée maximale pour les interdictions d'exercice prononcées à titre de peines complémentaires contre les personnes physiques condamnées pour certaines infractions de crédit immobilier ?",
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans",
+          "five years"
+        ],
+        "quote": "Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.",
+        "article": "L341-33"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 341-33 comme durée maximale pour les interdictions d'exercice prononcées à titre de peines complémentaires contre les personnes physiques condamnées pour certaines infractions de crédit immobilier ?\",\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\",\"five years\"],\"quote\":\"Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.\",\"article\":\"L341-33\"}],\"doubt\":\"\"}"
+}

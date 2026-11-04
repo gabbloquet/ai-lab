@@ -1,0 +1,32 @@
+{
+  "task": "paraphrase-dev-002",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "63cffa6bccc831c2930b97a2a00068fd198f8e5d991c7e703c99f6b7ebe45832",
+  "created_at": "2026-11-04T16:00:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1431,
+    "output_tokens": 234
+  },
+  "output": {
+    "question": "Au bout de combien de temps l'administration ne peut-elle plus me punir d'une grosse amende pour une infraction à la consommation, si elle n'a rien entrepris depuis les faits ?",
+    "facts": [
+      {
+        "accepted": [
+          "trois années révolues",
+          "3 années révolues",
+          "trois ans",
+          "3 ans",
+          "trois années"
+        ],
+        "quote": "se prescrit par trois années révolues à compter du jour où le manquement a été commis",
+        "article": "L522-2"
+      }
+    ],
+    "doubt": "La notion de grosse amende (excédant 3 000 euros pour une personne physique ou 15 000 euros pour une personne morale) n'est pas précisée dans la question, ce qui la rend un peu vague."
+  },
+  "raw_text": "{\"question\":\"Au bout de combien de temps l'administration ne peut-elle plus me punir d'une grosse amende pour une infraction à la consommation, si elle n'a rien entrepris depuis les faits ?\",\"facts\":[{\"accepted\":[\"trois années révolues\",\"3 années révolues\",\"trois ans\",\"3 ans\",\"trois années\"],\"quote\":\"se prescrit par trois années révolues à compter du jour où le manquement a été commis\",\"article\":\"L522-2\"}],\"doubt\":\"La notion de grosse amende (excédant 3 000 euros pour une personne physique ou 15 000 euros pour une personne morale) n'est pas précisée dans la question, ce qui la rend un peu vague.\"}"
+}

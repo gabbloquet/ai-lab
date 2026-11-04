@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-003",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "63cffa6bccc831c2930b97a2a00068fd198f8e5d991c7e703c99f6b7ebe45832",
+  "created_at": "2026-11-04T16:00:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1431,
+    "output_tokens": 143
+  },
+  "output": {
+    "question": "Quel organisme tient le fichier national qui liste les gros impayés sur les crédits des particuliers non liés à leur activité professionnelle ?",
+    "facts": [
+      {
+        "accepted": [
+          "la Banque de France",
+          "Banque de France"
+        ],
+        "quote": "Ce fichier est géré par la Banque de France, laquelle est seule habilitée à centraliser ces informations.",
+        "article": "L751-1"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quel organisme tient le fichier national qui liste les gros impayés sur les crédits des particuliers non liés à leur activité professionnelle ?\",\"facts\":[{\"accepted\":[\"la Banque de France\",\"Banque de France\"],\"quote\":\"Ce fichier est géré par la Banque de France, laquelle est seule habilitée à centraliser ces informations.\",\"article\":\"L751-1\"}],\"doubt\":\"\"}"
+}

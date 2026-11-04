@@ -1,0 +1,37 @@
+{
+  "task": "reference-dev-003",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "9fa5b5368393c697e06a4fa326f42a146abee84d180996087c884d44ab9e61ec",
+  "created_at": "2026-11-04T16:00:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1409,
+    "output_tokens": 238
+  },
+  "output": {
+    "question": "Que prévoit l'article R. 741-2 sur le délai dont disposent les titulaires de créances pour exercer leur recours après la publicité faite par la commission de surendettement, et devant quel juge ce recours est-il formé ?",
+    "facts": [
+      {
+        "accepted": [
+          "deux mois",
+          "2 mois"
+        ],
+        "quote": "Les titulaires de créances disposent d'un délai de deux mois à compter de cette publicité pour exercer leur recours.",
+        "article": "R741-2"
+      },
+      {
+        "accepted": [
+          "juge des contentieux de la protection",
+          "le juge des contentieux de la protection"
+        ],
+        "quote": "former un recours devant le juge des contentieux de la protection",
+        "article": "R741-2"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article R. 741-2 sur le délai dont disposent les titulaires de créances pour exercer leur recours après la publicité faite par la commission de surendettement, et devant quel juge ce recours est-il formé ?\",\"facts\":[{\"accepted\":[\"deux mois\",\"2 mois\"],\"quote\":\"Les titulaires de créances disposent d'un délai de deux mois à compter de cette publicité pour exercer leur recours.\",\"article\":\"R741-2\"},{\"accepted\":[\"juge des contentieux de la protection\",\"le juge des contentieux de la protection\"],\"quote\":\"former un recours devant le juge des contentieux de la protection\",\"article\":\"R741-2\"}],\"doubt\":\"\"}"
+}

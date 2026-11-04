@@ -1,0 +1,20 @@
+{"task": "direct-dev-001", "mode": "direct", "split": "dev", "rank": 1, "articles": ["LEGIARTI000046190638"], "livre": "Livre V"}
+{"task": "direct-dev-002", "mode": "direct", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032226595"], "livre": "Livre II"}
+{"task": "direct-dev-003", "mode": "direct", "split": "dev", "rank": 3, "articles": ["LEGIARTI000032808858"], "livre": "Livre VII"}
+{"task": "direct-dev-004", "mode": "direct", "split": "dev", "rank": 4, "articles": ["LEGIARTI000032226144"], "livre": "Livre III"}
+{"task": "reference-dev-001", "mode": "reference", "split": "dev", "rank": 1, "articles": ["LEGIARTI000032226625"], "livre": "Livre II"}
+{"task": "reference-dev-002", "mode": "reference", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032303393"], "livre": "Livre III"}
+{"task": "reference-dev-003", "mode": "reference", "split": "dev", "rank": 3, "articles": ["LEGIARTI000039066342"], "livre": "Livre VII"}
+{"task": "paraphrase-dev-001", "mode": "paraphrase", "split": "dev", "rank": 1, "articles": ["LEGIARTI000035731414"], "livre": "Livre III"}
+{"task": "paraphrase-dev-002", "mode": "paraphrase", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032224904"], "livre": "Livre V"}
+{"task": "paraphrase-dev-003", "mode": "paraphrase", "split": "dev", "rank": 3, "articles": ["LEGIARTI000032224306"], "livre": "Livre VII"}
+{"task": "paraphrase-dev-004", "mode": "paraphrase", "split": "dev", "rank": 4, "articles": ["LEGIARTI000044139963"], "livre": "Livre II"}
+{"task": "multi_article-dev-001", "mode": "multi_article", "split": "dev", "rank": 1, "articles": ["LEGIARTI000044138720", "LEGIARTI000044133072"], "livre": "Livre II"}
+{"task": "multi_article-dev-002", "mode": "multi_article", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032433239", "LEGIARTI000032433227"], "livre": "Livre III"}
+{"task": "multi_article-dev-003", "mode": "multi_article", "split": "dev", "rank": 3, "articles": ["LEGIARTI000032808804", "LEGIARTI000039119534"], "livre": "Livre VII"}
+{"task": "lost_context-dev-001", "mode": "lost_context", "split": "dev", "rank": 1, "articles": ["LEGIARTI000041985451"], "livre": "Livre V"}
+{"task": "lost_context-dev-002", "mode": "lost_context", "split": "dev", "rank": 2, "articles": ["LEGIARTI000044133034"], "livre": "Livre II"}
+{"task": "lost_context-dev-003", "mode": "lost_context", "split": "dev", "rank": 3, "articles": ["LEGIARTI000032316056"], "livre": "Livre III"}
+{"task": "unanswerable-dev-001", "mode": "unanswerable", "split": "dev", "rank": 1, "articles": ["LEGIARTI000044563248"], "livre": "Livre II"}
+{"task": "unanswerable-dev-002", "mode": "unanswerable", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032224275"], "livre": "Livre VII"}
+{"task": "unanswerable-dev-003", "mode": "unanswerable", "split": "dev", "rank": 3, "articles": ["LEGIARTI000036769082"], "livre": "Livre III"}

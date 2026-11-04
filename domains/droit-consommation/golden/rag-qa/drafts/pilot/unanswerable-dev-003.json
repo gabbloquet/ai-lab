@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-003",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "fb24cc87ae49cede25530025af525dc1e6db5e01f56f50389445afb5c9ba32ca",
+  "created_at": "2026-11-04T16:00:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2471,
+    "output_tokens": 305
+  },
+  "output": {
+    "question": "Quel taux d'intérêt maximal un établissement de crédit à la consommation peut-il proposer à un emprunteur dont le dossier a déjà fait l'objet d'un incident de remboursement ?",
+    "why_unanswerable": "L'article R312-2 liste seulement les informations précontractuelles à fournir à l'emprunteur (taux débiteur, TAEG, frais, etc.). Il ne fixe aucun taux d'intérêt maximal selon le profil de l'emprunteur ni selon ses antécédents d'incidents de remboursement, et il ne prévoit aucun taux précis applicable à ce cas.",
+    "doubt": "Le code de la consommation contient des dispositions sur le taux de l'usure dans une autre partie, donc la question pourrait être jugée partiellement couverte, mais aucun plafond ne dépend du fichage de l'emprunteur."
+  },
+  "raw_text": "{\"question\":\"Quel taux d'intérêt maximal un établissement de crédit à la consommation peut-il proposer à un emprunteur dont le dossier a déjà fait l'objet d'un incident de remboursement ?\",\"why_unanswerable\":\"L'article R312-2 liste seulement les informations précontractuelles à fournir à l'emprunteur (taux débiteur, TAEG, frais, etc.). Il ne fixe aucun taux d'intérêt maximal selon le profil de l'emprunteur ni selon ses antécédents d'incidents de remboursement, et il ne prévoit aucun taux précis applicable à ce cas.\",\"doubt\":\"Le code de la consommation contient des dispositions sur le taux de l'usure dans une autre partie, donc la question pourrait être jugée partiellement couverte, mais aucun plafond ne dépend du fichage de l'emprunteur.\"}"
+}

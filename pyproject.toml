@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Laboratoire d'AI engineering : expériences mesurées et reproductibles"
 requires-python = ">=3.13"
 dependencies = [
+    # Rédacteur du golden set rag-qa (domains/droit-consommation) ; déjà tiré par Pydantic AI.
+    "anthropic==2.4.0",
     "ailab-evals",
     "exp001-agent",
     "exp001-mcp-server",

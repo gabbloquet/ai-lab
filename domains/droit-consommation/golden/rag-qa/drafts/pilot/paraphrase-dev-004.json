@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-dev-004",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "63cffa6bccc831c2930b97a2a00068fd198f8e5d991c7e703c99f6b7ebe45832",
+  "created_at": "2026-11-04T16:00:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1401,
+    "output_tokens": 270
+  },
+  "output": {
+    "question": "Si un commerçant a dû indemniser un client pour un produit défectueux, contre qui peut-il se retourner ensuite, parmi les intervenants situés avant lui dans la chaîne de distribution ?",
+    "facts": [
+      {
+        "accepted": [
+          "toute personne en amont dans la chaîne de transactions commerciales",
+          "toute personne en amont",
+          "les personnes en amont de la chaîne, y compris le producteur"
+        ],
+        "quote": "à l'encontre de toute personne en amont dans la chaîne de transactions commerciales, y compris le producteur",
+        "article": "L217-31"
+      }
+    ],
+    "doubt": "La question reste assez ouverte : la réponse attendue inclut aussi le producteur, et un répondant pourrait ne mentionner que celui-ci. La mention du code civil n'est pas demandée."
+  },
+  "raw_text": "{\"question\":\"Si un commerçant a dû indemniser un client pour un produit défectueux, contre qui peut-il se retourner ensuite, parmi les intervenants situés avant lui dans la chaîne de distribution ?\",\"facts\":[{\"accepted\":[\"toute personne en amont dans la chaîne de transactions commerciales\",\"toute personne en amont\",\"les personnes en amont de la chaîne, y compris le producteur\"],\"quote\":\"à l'encontre de toute personne en amont dans la chaîne de transactions commerciales, y compris le producteur\",\"article\":\"L217-31\"}],\"doubt\":\"La question reste assez ouverte : la réponse attendue inclut aussi le producteur, et un répondant pourrait ne mentionner que celui-ci. La mention du code civil n'est pas demandée.\"}"
+}

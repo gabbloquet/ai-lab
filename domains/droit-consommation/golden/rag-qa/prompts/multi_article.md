@@ -1,0 +1,1 @@
+Mode « plusieurs articles » : on te donne deux articles, A puis B, et A renvoie à B. La question demande au moins un fait de A et au moins un fait de B : on ne peut y répondre qu'avec les deux articles. Chaque fait indique l'article d'où il vient.

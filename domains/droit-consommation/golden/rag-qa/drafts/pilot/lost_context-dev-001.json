@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-dev-001",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2f316df77be91f033fb2ccbc78a78b54aad61c147c53615d399410393d563250",
+  "created_at": "2026-11-04T16:00:36+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2599,
+    "output_tokens": 267
+  },
+  "output": {
+    "question": "Dans les dispositions sur les pouvoirs d'enquête et les suites données aux contrôles, quels agents sont habilités à rechercher et constater les infractions de tromperie en matière de véhicules, et de quel code relève leur statut ?",
+    "facts": [
+      {
+        "accepted": [
+          "L. 329-5 du code de la route",
+          "article L. 329-5 du code de la route",
+          "code de la route"
+        ],
+        "quote": "Les agents mentionnés à l'article L. 329-5 du code de la route",
+        "article": "L511-22"
+      }
+    ],
+    "doubt": "La question est un peu ambiguë : la réponse attendue est le renvoi à l'article L. 329-5 du code de la route, et la mention « en matière de véhicules » est une déduction du contexte du code de la route, pas du texte de l'article lui-même."
+  },
+  "raw_text": "{\"question\":\"Dans les dispositions sur les pouvoirs d'enquête et les suites données aux contrôles, quels agents sont habilités à rechercher et constater les infractions de tromperie en matière de véhicules, et de quel code relève leur statut ?\",\"facts\":[{\"accepted\":[\"L. 329-5 du code de la route\",\"article L. 329-5 du code de la route\",\"code de la route\"],\"quote\":\"Les agents mentionnés à l'article L. 329-5 du code de la route\",\"article\":\"L511-22\"}],\"doubt\":\"La question est un peu ambiguë : la réponse attendue est le renvoi à l'article L. 329-5 du code de la route, et la mention « en matière de véhicules » est une déduction du contexte du code de la route, pas du texte de l'article lui-même.\"}"
+}

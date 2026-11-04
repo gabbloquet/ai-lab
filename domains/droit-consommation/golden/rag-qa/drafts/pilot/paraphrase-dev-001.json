@@ -1,0 +1,41 @@
+{
+  "task": "paraphrase-dev-001",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "63cffa6bccc831c2930b97a2a00068fd198f8e5d991c7e703c99f6b7ebe45832",
+  "created_at": "2026-11-04T16:00:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1407,
+    "output_tokens": 332
+  },
+  "output": {
+    "question": "Mon organisme de prêt pour un achat à crédit doit m'envoyer un relevé de ce que je dois encore rembourser : à quelle fréquence minimale doit-il le faire, et à quel endroit du document cette somme doit-elle apparaître ?",
+    "facts": [
+      {
+        "accepted": [
+          "au moins une fois par an",
+          "une fois par an",
+          "chaque année",
+          "1 fois par an"
+        ],
+        "quote": "le prêteur fournit, au moins une fois par an, à l'emprunteur, l'information relative au montant du capital restant à rembourser",
+        "article": "L312-32"
+      },
+      {
+        "accepted": [
+          "sur la première page",
+          "première page",
+          "en première page",
+          "sur la première page du document"
+        ],
+        "quote": "Cette information figure, en caractères lisibles, sur la première page du document fourni à l'emprunteur.",
+        "article": "L312-32"
+      }
+    ],
+    "doubt": "La question porte sur deux faits (fréquence et emplacement) ; le 'relevé' est une reformulation de l'information sur le capital restant dû."
+  },
+  "raw_text": "{\"question\":\"Mon organisme de prêt pour un achat à crédit doit m'envoyer un relevé de ce que je dois encore rembourser : à quelle fréquence minimale doit-il le faire, et à quel endroit du document cette somme doit-elle apparaître ?\",\"facts\":[{\"accepted\":[\"au moins une fois par an\",\"une fois par an\",\"chaque année\",\"1 fois par an\"],\"quote\":\"le prêteur fournit, au moins une fois par an, à l'emprunteur, l'information relative au montant du capital restant à rembourser\",\"article\":\"L312-32\"},{\"accepted\":[\"sur la première page\",\"première page\",\"en première page\",\"sur la première page du document\"],\"quote\":\"Cette information figure, en caractères lisibles, sur la première page du document fourni à l'emprunteur.\",\"article\":\"L312-32\"}],\"doubt\":\"La question porte sur deux faits (fréquence et emplacement) ; le 'relevé' est une reformulation de l'information sur le capital restant dû.\"}"
+}

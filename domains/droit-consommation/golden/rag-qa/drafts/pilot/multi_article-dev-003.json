@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-003",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "53ee65e3ff68d09ec0a417cb96a14aad64c9859a5c8e89321514228355b7b31e",
+  "created_at": "2026-11-04T16:00:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1819,
+    "output_tokens": 332
+  },
+  "output": {
+    "question": "Pour qu'une commission de surendettement saisisse le juge en vue d'une procédure de rétablissement personnel avec liquidation judiciaire, sous quelle forme le débiteur doit-il donner son accord, et quel juge la commission saisit-elle ensuite ?",
+    "facts": [
+      {
+        "accepted": [
+          "par écrit",
+          "par écrit sur un formulaire",
+          "sur un formulaire remis par le secrétariat de la commission"
+        ],
+        "quote": "L'accord du débiteur mentionné à l'article L. 742-1 est donné par écrit sur un formulaire remis à l'intéressé par le secrétariat de la commission.",
+        "article": "R742-1"
+      },
+      {
+        "accepted": [
+          "le juge des contentieux de la protection",
+          "juge des contentieux de la protection"
+        ],
+        "quote": "saisit le juge des contentieux de la protection aux fins d'ouverture d'une procédure de rétablissement personnel avec liquidation judiciaire",
+        "article": "L742-1"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Pour qu'une commission de surendettement saisisse le juge en vue d'une procédure de rétablissement personnel avec liquidation judiciaire, sous quelle forme le débiteur doit-il donner son accord, et quel juge la commission saisit-elle ensuite ?\",\"facts\":[{\"accepted\":[\"par écrit\",\"par écrit sur un formulaire\",\"sur un formulaire remis par le secrétariat de la commission\"],\"quote\":\"L'accord du débiteur mentionné à l'article L. 742-1 est donné par écrit sur un formulaire remis à l'intéressé par le secrétariat de la commission.\",\"article\":\"R742-1\"},{\"accepted\":[\"le juge des contentieux de la protection\",\"juge des contentieux de la protection\"],\"quote\":\"saisit le juge des contentieux de la protection aux fins d'ouverture d'une procédure de rétablissement personnel avec liquidation judiciaire\",\"article\":\"L742-1\"}],\"doubt\":\"\"}"
+}

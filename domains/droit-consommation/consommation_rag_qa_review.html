@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relecture rag-qa $version</title>
+<style>
+:root { --bg:#fafaf9; --fg:#1c1917; --muted:#57534e; --card:#fff; --line:#e7e5e4;
+        --err:#b91c1c; --warn:#a16207; --mark:#fde68a; }
+@media (prefers-color-scheme: dark) { :root { --bg:#1c1917; --fg:#f5f5f4; --muted:#a8a29e;
+        --card:#292524; --line:#44403c; --err:#f87171; --warn:#facc15; --mark:#854d0e; } }
+body { background:var(--bg); color:var(--fg); font:15px/1.5 system-ui, sans-serif;
+       max-width:960px; margin:0 auto; padding:16px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 16px;
+        margin:16px 0; }
+.card.rejected { opacity:.75; }
+h2 { font-size:15px; margin:0 0 8px; } small { color:var(--muted); font-weight:normal; }
+.question { font-size:17px; font-weight:600; }
+table { border-collapse:collapse; width:100%; font-size:14px; }
+td, th { border:1px solid var(--line); padding:4px 6px; text-align:left; vertical-align:top; }
+.error { color:var(--err); margin:2px 0; } .alert { color:var(--warn); margin:2px 0; }
+.meta { color:var(--muted); font-size:13px; } mark { background:var(--mark); color:inherit; }
+.text { white-space:pre-wrap; font-size:14px; }
+textarea { width:100%; box-sizing:border-box; margin-top:6px; font:13px ui-monospace, monospace; }
+.verdict label { margin-right:12px; }
+#export { height:160px; }
+</style></head><body>
+<h1>Relecture du golden set rag-qa $version</h1>
+<p>$summary</p>
+$cards
+<h2>Export</h2>
+<p>Les verdicts sont gardés dans ce navigateur. « Exporter » produit le contenu de
+<code>review/$version.jsonl</code>.</p>
+<button id="do-export">Exporter</button>
+<textarea id="export" readonly></textarea>
+<script>
+const KEY = "rag-qa-review-$version";
+function load() { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; } }
+function save(state) { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+const state = load();
+document.querySelectorAll(".card").forEach(card => {
+  const task = card.dataset.task, saved = state[task] || {};
+  const note = card.querySelector(".note"), corr = card.querySelector(".correction");
+  if (saved.note) note.value = saved.note;
+  if (saved.correction) corr.value = saved.correction;
+  card.querySelectorAll("input[type=radio]").forEach(r => {
+    if (r.value === saved.verdict) r.checked = true;
+    r.addEventListener("change", () => { state[task] = {...state[task], verdict: r.value}; save(state); });
+  });
+  note.addEventListener("input", () => { state[task] = {...state[task], note: note.value}; save(state); });
+  corr.addEventListener("input", () => { state[task] = {...state[task], correction: corr.value}; save(state); });
+});
+document.getElementById("do-export").addEventListener("click", () => {
+  const lines = [];
+  for (const [task, v] of Object.entries(state)) {
+    if (!v.verdict) continue;
+    const entry = {task, verdict: v.verdict, note: v.note || ""};
+    if (v.verdict === "corrige") {
+      try { entry.correction = JSON.parse(v.correction || "{}"); }
+      catch (e) { alert("Correction illisible pour " + task); return; }
+    }
+    lines.push(JSON.stringify(entry));
+  }
+  document.getElementById("export").value = lines.sort().join("\n") + "\n";
+});
+</script></body></html>

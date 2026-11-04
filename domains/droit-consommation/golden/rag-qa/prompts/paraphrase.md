@@ -1,0 +1,1 @@
+Mode « paraphrase » : la question est posée comme le ferait un particulier, en langage courant, à partir d'une situation concrète. Elle évite les mots du texte de l'article : emploie des synonymes et des tournures du quotidien. Les formes acceptées des faits, elles, restent celles du texte et leurs variantes d'écriture.

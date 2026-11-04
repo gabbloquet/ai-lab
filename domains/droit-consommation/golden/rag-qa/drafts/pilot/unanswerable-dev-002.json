@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-002",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "fb24cc87ae49cede25530025af525dc1e6db5e01f56f50389445afb5c9ba32ca",
+  "created_at": "2026-11-04T16:00:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1281,
+    "output_tokens": 362
+  },
+  "output": {
+    "question": "Combien de temps une personne inscrite au fichier des incidents de remboursement des crédits aux particuliers doit-elle attendre avant de pouvoir demander à la Banque de France de lui remettre une copie papier de sa fiche, et quel est le tarif de cette copie ?",
+    "why_unanswerable": "L'article L762-1 se borne à sanctionner pénalement la remise à quiconque de copies des informations du fichier par la Banque de France et les établissements concernés, en renvoyant aux articles 226-21 et 226-22 du code pénal. Il ne fixe ni délai d'attente, ni tarif de copie, ni modalités pratiques de demande par la personne inscrite. Le code n'apporte donc pas ces éléments à cet endroit.",
+    "doubt": "Le code prévoit par ailleurs un droit d'accès de la personne à ses données, mais pas de délai d'attente ni de tarif de copie à ma connaissance. La question reste plausible mais il faut vérifier qu'aucun autre article ne fixe ces détails."
+  },
+  "raw_text": "{\"question\":\"Combien de temps une personne inscrite au fichier des incidents de remboursement des crédits aux particuliers doit-elle attendre avant de pouvoir demander à la Banque de France de lui remettre une copie papier de sa fiche, et quel est le tarif de cette copie ?\",\"why_unanswerable\":\"L'article L762-1 se borne à sanctionner pénalement la remise à quiconque de copies des informations du fichier par la Banque de France et les établissements concernés, en renvoyant aux articles 226-21 et 226-22 du code pénal. Il ne fixe ni délai d'attente, ni tarif de copie, ni modalités pratiques de demande par la personne inscrite. Le code n'apporte donc pas ces éléments à cet endroit.\",\"doubt\":\"Le code prévoit par ailleurs un droit d'accès de la personne à ses données, mais pas de délai d'attente ni de tarif de copie à ma connaissance. La question reste plausible mais il faut vérifier qu'aucun autre article ne fixe ces détails.\"}"
+}

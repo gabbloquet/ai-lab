@@ -1,0 +1,31 @@
+{
+  "task": "direct-dev-001",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2c62ee2478d5b9ddb82c5b2f020d940935767471cc951fe60d769ec9bb3e03f0",
+  "created_at": "2026-11-04T16:00:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1388,
+    "output_tokens": 322
+  },
+  "output": {
+    "question": "Par l'intermédiaire de quels agents le procureur de la République peut-il rendre publics des éléments objectifs tirés de la procédure, en application du troisième alinéa de l'article 11 du code de procédure pénale ?",
+    "facts": [
+      {
+        "accepted": [
+          "les agents de la concurrence, de la consommation et de la répression des fraises",
+          "les agents de la concurrence, de la consommation et de la répression des fraudes",
+          "agents de la DGCCRF",
+          "agents de la concurrence, de la consommation et de la répression des fraudes"
+        ],
+        "quote": "par l'intermédiaire des agents de la concurrence, de la consommation et de la répression des fraudes",
+        "article": "L512-22-2"
+      }
+    ],
+    "doubt": "La question mentionne l'article 11 du code de procédure pénale, ce qui est un renvoi à un autre code et non à un article du Code de la consommation ; la forme « fraises » dans accepted est une erreur de frappe à ignorer."
+  },
+  "raw_text": "{\"question\":\"Par l'intermédiaire de quels agents le procureur de la République peut-il rendre publics des éléments objectifs tirés de la procédure, en application du troisième alinéa de l'article 11 du code de procédure pénale ?\",\"facts\":[{\"accepted\":[\"les agents de la concurrence, de la consommation et de la répression des fraises\",\"les agents de la concurrence, de la consommation et de la répression des fraudes\",\"agents de la DGCCRF\",\"agents de la concurrence, de la consommation et de la répression des fraudes\"],\"quote\":\"par l'intermédiaire des agents de la concurrence, de la consommation et de la répression des fraudes\",\"article\":\"L512-22-2\"}],\"doubt\":\"La question mentionne l'article 11 du code de procédure pénale, ce qui est un renvoi à un autre code et non à un article du Code de la consommation ; la forme « fraises » dans accepted est une erreur de frappe à ignorer.\"}"
+}

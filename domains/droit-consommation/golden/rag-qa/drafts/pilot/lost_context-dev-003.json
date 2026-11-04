@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-dev-003",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2f316df77be91f033fb2ccbc78a78b54aad61c147c53615d399410393d563250",
+  "created_at": "2026-11-04T16:00:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1954,
+    "output_tokens": 213
+  },
+  "output": {
+    "question": "Dans les règles sur le crédit immobilier, quel est le délai de remboursement maximal d'une autorisation de découvert pour qu'elle soit exclue du champ d'application ?",
+    "facts": [
+      {
+        "accepted": [
+          "un mois",
+          "1 mois",
+          "un (1) mois"
+        ],
+        "quote": "Les opérations consenties sous la forme d'une autorisation de découvert remboursable dans un délai d'un mois",
+        "article": "L313-2"
+      }
+    ],
+    "doubt": "La question nomme le contexte (crédit immobilier) ; le texte parle de « présent chapitre », que seul le plan permet de relier au crédit immobilier."
+  },
+  "raw_text": "{\"question\":\"Dans les règles sur le crédit immobilier, quel est le délai de remboursement maximal d'une autorisation de découvert pour qu'elle soit exclue du champ d'application ?\",\"facts\":[{\"accepted\":[\"un mois\",\"1 mois\",\"un (1) mois\"],\"quote\":\"Les opérations consenties sous la forme d'une autorisation de découvert remboursable dans un délai d'un mois\",\"article\":\"L313-2\"}],\"doubt\":\"La question nomme le contexte (crédit immobilier) ; le texte parle de « présent chapitre », que seul le plan permet de relier au crédit immobilier.\"}"
+}
