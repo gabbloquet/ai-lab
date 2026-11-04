@@ -150,12 +150,14 @@ La boucle est la même pour les deux variantes et ne partage aucun code avec les
 
 Une bibliothèque d'agent fait des choses en coulisse qui influencent la mesure : validation des arguments côté client, nouvelle tentative proposée automatiquement au modèle, comptage des appels. Ces comportements sont donc **des paramètres du protocole**, fixés et documentés :
 
-| Paramètre | Valeur prévue |
+| Paramètre | Valeur retenue (2026-11-04, après le test exploratoire) |
 |---|---|
-| Bibliothèque | Pydantic AI (`pydantic-ai` 2.59.0), sous réserve du test exploratoire ci-dessous |
+| Bibliothèque | Pydantic AI (`pydantic-ai-slim[mcp,mistral]` 2.65.0), boucle dans `python/agent/src/exp001_agent/loop.py` |
 | Erreur renvoyée par un outil MCP | `tool_error_behavior='failed'` : l'erreur est rendue au modèle comme un résultat en échec, sans demande de correction automatique |
-| Arguments invalides (validation côté client) | Budget de correction : à fixer après le test exploratoire |
-| Plafond de 10 appels | Via `request_limit` ou un compteur à nous. `tool_calls_limit` ne compte que les appels réussis. |
+| Rejets côté client (JSON mal formé, outil inconnu) | Budget de correction de 2, pour le toolset (`max_retries`) comme pour l'agent (`retries`), qui rejette lui-même un outil inconnu ; au-delà, le run s'arrête avec une `error` |
+| Plafond de 10 appels | Un compteur de la boucle, sur les appels émis : au-delà de 10, le run s'arrête avant d'exécuter la réponse fautive, avec `error` = `tool_call_limit`. `request_limit` (30) n'est qu'un garde-fou : il compte les requêtes, et une réponse peut porter plusieurs appels |
+| Température | 0 |
+| Prompt système | `python/prompts/system.md`, avec le magasin courant ; il ne nomme aucun outil |
 
 **Test exploratoire, avant tout run.** On connecte la boucle à un serveur MCP minimal, puis on provoque un argument invalide, un argument halluciné et une erreur serveur. Ce test vérifie deux choses :
 - l'historique des messages conserve-t-il chaque appel émis, y compris les appels invalides ?
@@ -177,6 +179,8 @@ Si l'historique ne permet pas de reconstituer tous les appels, on écrit la bouc
 **Pydantic AI convient** : chaque appel émis reste dans l'historique, y compris les rejets côté client, et même quand le run lève une exception, à condition de lire l'historique par `capture_run_messages()`. Deux constats pèsent sur la configuration :
 - **`request_limit` compte les requêtes au modèle, pas les appels d'outils** : avec `request_limit=10`, le modèle fait 10 appels et n'a plus de requête pour répondre. Le plafond de 10 appels se règle donc à `request_limit=11`, ou par un compteur à nous.
 - **Seuls les rejets côté client consomment le budget de correction** (JSON mal formé, outil inconnu) : avec `max_retries=1`, un deuxième rejet du même outil arrête le run.
+
+**Vérification de bout en bout (2026-11-04), hors journal d'itération.** `python/agent/scripts/run_dev_check.py` a fait tourner la boucle avec `mistral:mistral-small-2603` (l'alias `mistral-small-latest` pointait vers ce modèle, vérifié auprès de l'API Mistral le même jour) sur 3 items `dev`, un par intention (disponibilité, alternative, magasins qui ont le produit), en A et en B. La boucle enregistre les appels, les réponses et les tokens, et le scorer de la spec les note. Ce run sert à vérifier la boucle, pas à mettre au point une variante : rien n'a été modifié à sa suite, et il ne consomme aucun des 3 cycles.
 
 ### Taille de l'échantillon
 
