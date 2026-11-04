@@ -194,7 +194,22 @@ Avec s_d ≤ 0,35, le MDE reste sous les 10 points qu'on vise. Si le s_d mesuré
 
 ### Lancer un run
 
-À définir avec l'implémentation.
+Un serveur par variante, lancés à part, puis le lanceur (`python/agent/scripts/run_campaign.py`), avec la clé du fournisseur dans `.env` :
+
+```bash
+./gradlew :exp001-mcp-servers:bootRun --args='--lab.variant=intent --server.port=8082'
+./gradlew :exp001-mcp-servers:bootRun --args='--lab.variant=rest --server.port=8083'
+PYDANTIC_AI_NO_BANNER=1 uv run --env-file .env python \
+    experiments/001-mcp-outils-par-intention/python/agent/scripts/run_campaign.py \
+    --split dev --intent-url http://127.0.0.1:8082/mcp --rest-url http://127.0.0.1:8083/mcp
+```
+
+- Chaque item est joué k fois (5 par défaut) sur chaque variante, et chaque exécution est notée par le scorer de la spec. Les exécutions vont dans `runs/<run-id>/records.jsonl`, avec `run.json` (commit, golden set vérifié contre son MANIFEST, `uv.lock`, prompt, paramètres de la boucle). `runs/` est ignoré par git ; le rapport daté va dans `results/`.
+- Un run interrompu reprend avec `--run-id`, sans rejouer ce qui est fait.
+- Une limite de débit du fournisseur (429, 5xx) relance l'exécution, jusqu'à 4 tentatives, au lieu de la noter comme un échec du modèle.
+- En `dev`, le résumé donne le succès par variante, le delta indicatif, `s_d` et le MDE attendu sur le `test`, et le détail par item.
+- Le `test` n'est accepté qu'avec `--final`, sur un dépôt sans modification non commitée (le commit de gel), et n'affiche que l'agrégat et le verdict de la spec.
+- Les traces ne remontent pas encore dans Langfuse : c'est l'étape suivante, avec le serveur Langfuse auto-hébergé.
 
 ## Discipline d'itération
 
