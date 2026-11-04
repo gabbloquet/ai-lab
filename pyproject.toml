@@ -47,7 +47,7 @@ select = ["E", "F", "W", "I", "UP", "B", "SIM"]
 
 [tool.ruff.lint.isort]
 # Paquets du workspace : ruff ne les trouve pas seul, ils vivent sous experiments/.
-known-first-party = ["exp001_agent", "exp001_mcp_server"]
+known-first-party = ["ailab_evals", "exp001_agent", "exp001_mcp_server"]
 
 [tool.mypy]
 # Vérifie que les adaptateurs du jumeau respectent les ports (typing.Protocol) du domaine.

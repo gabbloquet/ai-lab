@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 import pytest
+
 from ailab_evals.tool_selection import PairedScore, aggregate, score_execution, values_equal
 
 VECTORS = (

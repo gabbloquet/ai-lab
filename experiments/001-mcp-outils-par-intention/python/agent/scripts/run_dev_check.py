@@ -15,8 +15,8 @@ from pathlib import Path
 from typing import Any
 
 import anyio
-from ailab_evals.tool_selection import score_execution
 
+from ailab_evals.tool_selection import score_execution
 from exp001_agent.loop import run_item
 
 ROOT = Path(__file__).resolve().parents[5]

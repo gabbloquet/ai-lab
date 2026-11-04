@@ -1,8 +1,9 @@
 import json
 from pathlib import Path
 
-from ailab_evals.tool_selection_metric import ToolSelectionMetric
 from deepeval.test_case import LLMTestCase, ToolCall
+
+from ailab_evals.tool_selection_metric import ToolSelectionMetric
 
 VECTORS = (
     Path(__file__).resolve().parents[2] / "spec" / "tool-selection" / "v1" / "conformance.jsonl"

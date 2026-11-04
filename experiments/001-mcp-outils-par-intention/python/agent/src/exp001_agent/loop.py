@@ -1,6 +1,7 @@
 """Boucle d'agent de la 001 : une question, un serveur MCP, tous les appels émis enregistrés."""
 
 import json
+from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
@@ -57,7 +58,9 @@ async def run_item(
     model: str | Model,
     system_prompt: str,
     repeat: int = 0,
+    reraise: Callable[[BaseException], bool] = lambda error: False,
 ) -> Execution:
+    """`reraise` laisse passer une erreur d'infrastructure (limite de débit) au lieu de la noter."""
     toolset = MCPToolset(url, tool_error_behavior=TOOL_ERROR_BEHAVIOR, max_retries=MAX_RETRIES)
     agent = Agent(
         model,
@@ -85,6 +88,8 @@ async def run_item(
                 if error is None and run.result is not None:
                     answer = str(run.result.output)
         except Exception as exc:
+            if reraise(exc):
+                raise
             error = f"{type(exc).__name__}: {exc}"
     return Execution(
         item_id=item_id,
