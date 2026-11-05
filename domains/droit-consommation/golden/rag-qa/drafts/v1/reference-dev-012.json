@@ -1,0 +1,29 @@
+{
+  "task": "reference-dev-012",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2110,
+    "output_tokens": 228
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 224-100 du code de la consommation sur les renseignements dus par les banques à leurs clients ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "sections 3 et 4 du chapitre IV du titre Ier du livre III"
+        ],
+        "quote": "sont fixées par les dispositions des sections 3 et 4 du chapitre IV du titre Ier du livre III du code monétaire et financier",
+        "article": "L224-100"
+      }
+    ],
+    "doubt": "L'article ne fait que renvoyer au code monétaire et financier et ne contient aucune valeur précise (durée, montant, seuil) ; il n'est donc pas utilisable."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 224-100 du code de la consommation sur les renseignements dus par les banques à leurs clients ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"sections 3 et 4 du chapitre IV du titre Ier du livre III\"],\"quote\":\"sont fixées par les dispositions des sections 3 et 4 du chapitre IV du titre Ier du livre III du code monétaire et financier\",\"article\":\"L224-100\"}],\"doubt\":\"L'article ne fait que renvoyer au code monétaire et financier et ne contient aucune valeur précise (durée, montant, seuil) ; il n'est donc pas utilisable.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-022",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1860,
+    "output_tokens": 183
+  },
+  "output": {
+    "question": "Quel document type peut servir à informer le consommateur de son droit de rétractation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "avis d'information type",
+          "l'avis d'information type"
+        ],
+        "quote": "peuvent être fournies au moyen de l'avis d'information type dûment complété figurant en annexe au présent code",
+        "article": "R221-3"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée, seulement un document (avis d'information type) ; la question reste valable mais la réponse est un nom de document."
+  },
+  "raw_text": "{\"question\":\"Quel document type peut servir à informer le consommateur de son droit de rétractation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"avis d'information type\",\"l'avis d'information type\"],\"quote\":\"peuvent être fournies au moyen de l'avis d'information type dûment complété figurant en annexe au présent code\",\"article\":\"R221-3\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée, seulement un document (avis d'information type) ; la question reste valable mais la réponse est un nom de document.\"}"
+}

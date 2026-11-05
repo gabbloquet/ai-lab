@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-051",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2926,
+    "output_tokens": 180
+  },
+  "output": {
+    "question": "Quelles pièces de rechange doivent être fournies pour une canne ou une béquille ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "embouts",
+          "Embouts"
+        ],
+        "quote": "2° Cannes et béquilles : embouts ;",
+        "article": "R224-52"
+      }
+    ],
+    "doubt": "L'article est une liste de pièces ; la question est peu paraphrasée car « cannes et béquilles » est difficile à remplacer, et la valeur attendue est un nom de pièce plutôt qu'un chiffre."
+  },
+  "raw_text": "{\"question\":\"Quelles pièces de rechange doivent être fournies pour une canne ou une béquille ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"embouts\",\"Embouts\"],\"quote\":\"2° Cannes et béquilles : embouts ;\",\"article\":\"R224-52\"}],\"doubt\":\"L'article est une liste de pièces ; la question est peu paraphrasée car « cannes et béquilles » est difficile à remplacer, et la valeur attendue est un nom de pièce plutôt qu'un chiffre.\"}"
+}

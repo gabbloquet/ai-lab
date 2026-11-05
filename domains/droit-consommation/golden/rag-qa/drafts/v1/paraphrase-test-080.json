@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-080",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:09+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1998,
+    "output_tokens": 219
+  },
+  "output": {
+    "question": "Ma carte bancaire est liée à un crédit renouvelable : à quel moment dois-je donner mon accord pour utiliser ce crédit ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "délai raisonnable"
+        ],
+        "quote": "dans un délai raisonnable, à réception de l'état actualisé de l'exécution du contrat de crédit",
+        "article": "L312-70"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée chiffrée, montant, taux, seuil) : le délai est seulement qualifié de « raisonnable », ce qui n'est pas une valeur courte vérifiable."
+  },
+  "raw_text": "{\"question\":\"Ma carte bancaire est liée à un crédit renouvelable : à quel moment dois-je donner mon accord pour utiliser ce crédit ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"délai raisonnable\"],\"quote\":\"dans un délai raisonnable, à réception de l'état actualisé de l'exécution du contrat de crédit\",\"article\":\"L312-70\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée chiffrée, montant, taux, seuil) : le délai est seulement qualifié de « raisonnable », ce qui n'est pas une valeur courte vérifiable.\"}"
+}

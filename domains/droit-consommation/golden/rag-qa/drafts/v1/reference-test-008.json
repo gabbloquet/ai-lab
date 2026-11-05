@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-008",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1990,
+    "output_tokens": 205
+  },
+  "output": {
+    "question": "Qui est informé avant la saisine du juge, selon l'article L. 512-65, pour une visite portant sur le livre IV ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "le procureur de la République",
+          "procureur de la République"
+        ],
+        "quote": "le procureur de la République territorialement compétent est informé par l'autorité chargée de la concurrence et de la consommation du projet d'opération de visite et saisie",
+        "article": "L512-65"
+      }
+    ],
+    "doubt": "La réponse est une autorité plutôt qu'une valeur chiffrée, mais l'article ne contient pas de valeur numérique."
+  },
+  "raw_text": "{\"question\":\"Qui est informé avant la saisine du juge, selon l'article L. 512-65, pour une visite portant sur le livre IV ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"le procureur de la République\",\"procureur de la République\"],\"quote\":\"le procureur de la République territorialement compétent est informé par l'autorité chargée de la concurrence et de la consommation du projet d'opération de visite et saisie\",\"article\":\"L512-65\"}],\"doubt\":\"La réponse est une autorité plutôt qu'une valeur chiffrée, mais l'article ne contient pas de valeur numérique.\"}"
+}

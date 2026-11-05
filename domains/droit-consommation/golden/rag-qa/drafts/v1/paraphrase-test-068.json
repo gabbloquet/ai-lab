@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-068",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:04+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2161,
+    "output_tokens": 149
+  },
+  "output": {
+    "question": "Je suis en liquidation judiciaire pour surendettement, sans bien à vendre ni revenus : qui règle le mandataire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "le Trésor",
+          "Trésor"
+        ],
+        "quote": "A défaut d'actif réalisable ou de ressources du débiteur, la rémunération du mandataire incombe au Trésor.",
+        "article": "R742-6"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Je suis en liquidation judiciaire pour surendettement, sans bien à vendre ni revenus : qui règle le mandataire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"le Trésor\",\"Trésor\"],\"quote\":\"A défaut d'actif réalisable ou de ressources du débiteur, la rémunération du mandataire incombe au Trésor.\",\"article\":\"R742-6\"}],\"doubt\":\"\"}"
+}

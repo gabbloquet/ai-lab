@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-010",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2251,
+    "output_tokens": 191
+  },
+  "output": {
+    "question": "Qui s'engage dans une garantie commerciale : le vendeur ou le fabricant ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "vendeur ou producteur"
+        ],
+        "quote": "tout engagement contractuel d'un professionnel, qu'il s'agisse du vendeur ou du producteur",
+        "article": "L217-21"
+      }
+    ],
+    "doubt": "L'article donne une définition et un principe sans valeur précise (durée, montant, taux, seuil, date, organisme ou document) ; il n'est donc pas adapté à une question de valeur."
+  },
+  "raw_text": "{\"question\":\"Qui s'engage dans une garantie commerciale : le vendeur ou le fabricant ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"vendeur ou producteur\"],\"quote\":\"tout engagement contractuel d'un professionnel, qu'il s'agisse du vendeur ou du producteur\",\"article\":\"L217-21\"}],\"doubt\":\"L'article donne une définition et un principe sans valeur précise (durée, montant, taux, seuil, date, organisme ou document) ; il n'est donc pas adapté à une question de valeur.\"}"
+}

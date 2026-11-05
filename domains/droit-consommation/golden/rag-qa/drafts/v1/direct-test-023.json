@@ -1,0 +1,32 @@
+{
+  "task": "direct-test-023",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1906,
+    "output_tokens": 241
+  },
+  "output": {
+    "question": "Quelle amende encourt un fournisseur d'énergie qui ne remet pas les contrats sous une forme adaptée au handicap du consommateur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "contraventions de la 5e classe",
+          "5e classe",
+          "contravention de 5e classe",
+          "cinquième classe"
+        ],
+        "quote": "est puni de la peine d'amende prévue pour les contraventions de la 5e classe",
+        "article": "R242-6"
+      }
+    ],
+    "doubt": "La question mentionne l'énergie pour situer la sous-section (électricité ou gaz), ce qui n'est pas explicite dans le texte de l'article lui-même ; la réponse est une classe de contravention et non un montant en euros."
+  },
+  "raw_text": "{\"question\":\"Quelle amende encourt un fournisseur d'énergie qui ne remet pas les contrats sous une forme adaptée au handicap du consommateur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"contraventions de la 5e classe\",\"5e classe\",\"contravention de 5e classe\",\"cinquième classe\"],\"quote\":\"est puni de la peine d'amende prévue pour les contraventions de la 5e classe\",\"article\":\"R242-6\"}],\"doubt\":\"La question mentionne l'énergie pour situer la sous-section (électricité ou gaz), ce qui n'est pas explicite dans le texte de l'article lui-même ; la réponse est une classe de contravention et non un montant en euros.\"}"
+}

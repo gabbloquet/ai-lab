@@ -1,0 +1,36 @@
+{
+  "task": "paraphrase-dev-033",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2390,
+    "output_tokens": 770
+  },
+  "output": {
+    "question": "Mon opérateur internet a un SAV par téléphone : quel genre de numéro doit-il avoir ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "non géographique"
+        ],
+        "quote": "par un numéro d'appel non géographique, fixe et non surtaxé",
+        "article": "L224-38"
+      },
+      {
+        "accepted": [
+          "non surtaxé"
+        ],
+        "quote": "par un numéro d'appel non géographique, fixe et non surtaxé",
+        "article": "L224-38"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur chiffrée précise ; les faits sont des qualificatifs du numéro d'appel, et le caractère « fixe » n'est pas demandé."
+  },
+  "raw_text": "{\"question\":\"Mon opérateur internet a un SAV par téléphone : quel genre de numéro doit-il avoir ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"non géographique\"],\"quote\":\"par un numéro d'appel non géographique, fixe et non surtaxé\",\"article\":\"L224-38\"},{\"accepted\":[\"non surtaxé\"],\"quote\":\"par un numéro d'appel non géographique, fixe et non surtaxé\",\"article\":\"L224-38\"}],\"doubt\":\"L'article ne contient aucune valeur chiffrée précise ; les faits sont des qualificatifs du numéro d'appel, et le caractère « fixe » n'est pas demandé.\"}"
+}

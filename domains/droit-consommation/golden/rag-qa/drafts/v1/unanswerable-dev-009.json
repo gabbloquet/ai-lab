@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-009",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2194,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Mise à jour de mon smartphone : de combien de mégaoctets d'espace de stockage le producteur doit-il me prévenir au maximum ?",
+    "why_unanswerable": "Le code impose seulement au producteur d'indiquer l'espace de stockage requis par la mise à jour avant l'installation. Il ne fixe aucun seuil, plafond ou volume en mégaoctets, car l'espace dépend de chaque mise à jour.",
+    "doubt": "La question suppose à tort l'existence d'un seuil chiffré. Elle reste crédible mais pourrait être jugée ambiguë, car l'article exige une information et non une valeur."
+  },
+  "raw_text": "{\"question\":\"Mise à jour de mon smartphone : de combien de mégaoctets d'espace de stockage le producteur doit-il me prévenir au maximum ?\",\"why_unanswerable\":\"Le code impose seulement au producteur d'indiquer l'espace de stockage requis par la mise à jour avant l'installation. Il ne fixe aucun seuil, plafond ou volume en mégaoctets, car l'espace dépend de chaque mise à jour.\",\"doubt\":\"La question suppose à tort l'existence d'un seuil chiffré. Elle reste crédible mais pourrait être jugée ambiguë, car l'article exige une information et non une valeur.\"}"
+}

@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-071",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2165,
+    "output_tokens": 220
+  },
+  "output": {
+    "question": "Un commerçant a mis une clause abusive dans mon contrat : quelle administration peut saisir le tribunal pour la faire supprimer ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "l'autorité administrative chargée de la concurrence et de la consommation"
+        ],
+        "quote": "l'autorité administrative chargée de la concurrence et de la consommation peut demander à la juridiction civile",
+        "article": "L524-1"
+      }
+    ],
+    "doubt": "L'article ne contient ni durée ni montant ; la valeur attendue est un organisme, et la forme acceptée est longue (sept mots ou plus) alors que la limite est de six mots."
+  },
+  "raw_text": "{\"question\":\"Un commerçant a mis une clause abusive dans mon contrat : quelle administration peut saisir le tribunal pour la faire supprimer ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"l'autorité administrative chargée de la concurrence et de la consommation\"],\"quote\":\"l'autorité administrative chargée de la concurrence et de la consommation peut demander à la juridiction civile\",\"article\":\"L524-1\"}],\"doubt\":\"L'article ne contient ni durée ni montant ; la valeur attendue est un organisme, et la forme acceptée est longue (sept mots ou plus) alors que la limite est de six mots.\"}"
+}

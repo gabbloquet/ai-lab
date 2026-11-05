@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-test-025",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2249,
+    "output_tokens": 224
+  },
+  "output": {
+    "question": "Contrat unique électricité ou gaz : que doit reproduire le contrat en annexe ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "les clauses réglant les relations entre le fournisseur et le gestionnaire de réseau"
+        ],
+        "quote": "Ce contrat reproduit en annexe les clauses réglant les relations entre le fournisseur et le gestionnaire de réseau",
+        "article": "L224-8"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) ; il énonce des principes et la réponse est une phrase, pas une valeur courte, donc non exploitable."
+  },
+  "raw_text": "{\"question\":\"Contrat unique électricité ou gaz : que doit reproduire le contrat en annexe ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"les clauses réglant les relations entre le fournisseur et le gestionnaire de réseau\"],\"quote\":\"Ce contrat reproduit en annexe les clauses réglant les relations entre le fournisseur et le gestionnaire de réseau\",\"article\":\"L224-8\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) ; il énonce des principes et la réponse est une phrase, pas une valeur courte, donc non exploitable.\"}"
+}

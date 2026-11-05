@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-003",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:36+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1853,
+    "output_tokens": 294
+  },
+  "output": {
+    "question": "Quel est le tarif maximum qu'un médiateur de la consommation peut facturer au professionnel pour une médiation ?",
+    "why_unanswerable": "Le Code de la consommation ne fixe aucun barème ni plafond de rémunération des médiateurs facturée au professionnel. L'article porte seulement sur l'examen des candidatures par la commission d'évaluation et de contrôle de la médiation, et sur l'inscription sur la liste des médiateurs. La gratuité pour le consommateur est prévue ailleurs, mais aucun tarif chiffré n'est donné pour le professionnel.",
+    "doubt": "Le code prévoit que la médiation est gratuite pour le consommateur, et un autre article pourrait mentionner le financement par le professionnel ; il n'existe cependant, à ma connaissance, aucun montant chiffré."
+  },
+  "raw_text": "{\"question\":\"Quel est le tarif maximum qu'un médiateur de la consommation peut facturer au professionnel pour une médiation ?\",\"why_unanswerable\":\"Le Code de la consommation ne fixe aucun barème ni plafond de rémunération des médiateurs facturée au professionnel. L'article porte seulement sur l'examen des candidatures par la commission d'évaluation et de contrôle de la médiation, et sur l'inscription sur la liste des médiateurs. La gratuité pour le consommateur est prévue ailleurs, mais aucun tarif chiffré n'est donné pour le professionnel.\",\"doubt\":\"Le code prévoit que la médiation est gratuite pour le consommateur, et un autre article pourrait mentionner le financement par le professionnel ; il n'existe cependant, à ma connaissance, aucun montant chiffré.\"}"
+}

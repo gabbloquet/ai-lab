@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-044",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1959,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Un vendeur ne m'a pas donné les infos obligatoires avant l'achat : quelle amende maximale risque-t-il s'il est une entreprise ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €",
+          "15000 euros"
+        ],
+        "quote": "15 000 euros pour une personne morale",
+        "article": "L131-3-1"
+      }
+    ],
+    "doubt": "L'article L. 111-6 concerne une obligation d'information précise (documents d'information des consommateurs), la question reste générale ; « entreprise » est utilisé pour « personne morale », ce qui peut exclure un professionnel individuel (3 000 euros)."
+  },
+  "raw_text": "{\"question\":\"Un vendeur ne m'a pas donné les infos obligatoires avant l'achat : quelle amende maximale risque-t-il s'il est une entreprise ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"15 000 euros\",\"15 000 €\",\"15000 euros\"],\"quote\":\"15 000 euros pour une personne morale\",\"article\":\"L131-3-1\"}],\"doubt\":\"L'article L. 111-6 concerne une obligation d'information précise (documents d'information des consommateurs), la question reste générale ; « entreprise » est utilisé pour « personne morale », ce qui peut exclure un professionnel individuel (3 000 euros).\"}"
+}

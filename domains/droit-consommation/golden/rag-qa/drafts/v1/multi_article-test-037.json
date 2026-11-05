@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-037",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:04+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2378,
+    "output_tokens": 222
+  },
+  "output": {
+    "question": "Pas de formulaire de rétractation remis : quelle amende, et jusqu'à quel % du chiffre d'affaires en cas d'infraction de grande ampleur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "150 000 euros",
+          "150 000 €"
+        ],
+        "quote": "sont punies d'une peine d'emprisonnement de deux ans et d'une amende de 150 000 euros",
+        "article": "L242-6"
+      },
+      {
+        "accepted": [
+          "4 %",
+          "4 pour cent"
+        ],
+        "quote": "son montant peut être porté à 4 % du chiffre d'affaires moyen annuel",
+        "article": "L242-7-2"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Pas de formulaire de rétractation remis : quelle amende, et jusqu'à quel % du chiffre d'affaires en cas d'infraction de grande ampleur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"150 000 euros\",\"150 000 €\"],\"quote\":\"sont punies d'une peine d'emprisonnement de deux ans et d'une amende de 150 000 euros\",\"article\":\"L242-6\"},{\"accepted\":[\"4 %\",\"4 pour cent\"],\"quote\":\"son montant peut être porté à 4 % du chiffre d'affaires moyen annuel\",\"article\":\"L242-7-2\"}],\"doubt\":\"\"}"
+}

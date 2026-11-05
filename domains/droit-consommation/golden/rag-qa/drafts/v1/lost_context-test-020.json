@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-020",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2100,
+    "output_tokens": 192
+  },
+  "output": {
+    "question": "Courtage matrimonial : combien de jours pour revenir sur mon engagement après la signature ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "sept jours",
+          "7 jours"
+        ],
+        "quote": "dans un délai de sept jours à compter de la signature du contrat",
+        "article": "L224-91"
+      }
+    ],
+    "doubt": "L'article renvoie aussi à L. 221-18 (délai de rétractation de 14 jours pour les contrats à distance ou hors établissement), ce qui pourrait causer de la confusion selon le mode de conclusion du contrat."
+  },
+  "raw_text": "{\"question\":\"Courtage matrimonial : combien de jours pour revenir sur mon engagement après la signature ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"sept jours\",\"7 jours\"],\"quote\":\"dans un délai de sept jours à compter de la signature du contrat\",\"article\":\"L224-91\"}],\"doubt\":\"L'article renvoie aussi à L. 221-18 (délai de rétractation de 14 jours pour les contrats à distance ou hors établissement), ce qui pourrait causer de la confusion selon le mode de conclusion du contrat.\"}"
+}

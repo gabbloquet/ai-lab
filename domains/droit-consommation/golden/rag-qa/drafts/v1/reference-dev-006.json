@@ -1,0 +1,32 @@
+{
+  "task": "reference-dev-006",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2832,
+    "output_tokens": 220
+  },
+  "output": {
+    "question": "Selon l'article D. 120-6, à quelle température maximale doivent être conservées les denrées surgelées vendues en vrac ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "- 12 °C",
+          "-12 °C",
+          "moins 12 °C",
+          "- 12 degrés"
+        ],
+        "quote": "qui sont conservées à une température inférieure ou égale à - 12 °C lors de leur vente aux consommateurs",
+        "article": "D120-6"
+      }
+    ],
+    "doubt": "La question reste un peu technique et la mention « surgelées » est une reformulation du texte, qui parle de denrées conservées à une température inférieure ou égale à -12 °C."
+  },
+  "raw_text": "{\"question\":\"Selon l'article D. 120-6, à quelle température maximale doivent être conservées les denrées surgelées vendues en vrac ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"- 12 °C\",\"-12 °C\",\"moins 12 °C\",\"- 12 degrés\"],\"quote\":\"qui sont conservées à une température inférieure ou égale à - 12 °C lors de leur vente aux consommateurs\",\"article\":\"D120-6\"}],\"doubt\":\"La question reste un peu technique et la mention « surgelées » est une reformulation du texte, qui parle de denrées conservées à une température inférieure ou égale à -12 °C.\"}"
+}

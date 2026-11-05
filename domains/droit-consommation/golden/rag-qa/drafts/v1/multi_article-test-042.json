@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-test-042",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:07+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2325,
+    "output_tokens": 340
+  },
+  "output": {
+    "question": "À Saint-Pierre-et-Miquelon, quel directeur remplace celui de la DDPP pour la transaction pénale, et à quels fonctionnaires peut-il déléguer sa signature ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "directeur de la cohésion sociale, du travail, de l'emploi et de la population"
+        ],
+        "quote": "sont remplacées par la référence au directeur de la cohésion sociale, du travail, de l'emploi et de la population",
+        "article": "R542-2"
+      },
+      {
+        "accepted": [
+          "fonctionnaires de catégorie A",
+          "catégorie A"
+        ],
+        "quote": "Ces autorités administratives peuvent déléguer leurs signatures aux fonctionnaires de catégorie A placés sous leur autorité.",
+        "article": "R523-1"
+      }
+    ],
+    "doubt": "Article A est une adaptation outre-mer par remplacement de termes ; la question reste un peu technique et la délégation à Saint-Pierre-et-Miquelon est déduite de la substitution."
+  },
+  "raw_text": "{\"question\":\"À Saint-Pierre-et-Miquelon, quel directeur remplace celui de la DDPP pour la transaction pénale, et à quels fonctionnaires peut-il déléguer sa signature ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"directeur de la cohésion sociale, du travail, de l'emploi et de la population\"],\"quote\":\"sont remplacées par la référence au directeur de la cohésion sociale, du travail, de l'emploi et de la population\",\"article\":\"R542-2\"},{\"accepted\":[\"fonctionnaires de catégorie A\",\"catégorie A\"],\"quote\":\"Ces autorités administratives peuvent déléguer leurs signatures aux fonctionnaires de catégorie A placés sous leur autorité.\",\"article\":\"R523-1\"}],\"doubt\":\"Article A est une adaptation outre-mer par remplacement de termes ; la question reste un peu technique et la délégation à Saint-Pierre-et-Miquelon est déduite de la substitution.\"}"
+}

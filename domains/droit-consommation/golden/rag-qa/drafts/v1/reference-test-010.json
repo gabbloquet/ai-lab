@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-010",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2111,
+    "output_tokens": 149
+  },
+  "output": {
+    "question": "Selon l'article R. 112-4, quel préavis minimum pour notifier une nouvelle position formelle au professionnel ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux semaines",
+          "2 semaines"
+        ],
+        "quote": "l'autorité compétente notifie au professionnel sa nouvelle position formelle au moins deux semaines avant sa prise d'effet",
+        "article": "R112-4"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Selon l'article R. 112-4, quel préavis minimum pour notifier une nouvelle position formelle au professionnel ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux semaines\",\"2 semaines\"],\"quote\":\"l'autorité compétente notifie au professionnel sa nouvelle position formelle au moins deux semaines avant sa prise d'effet\",\"article\":\"R112-4\"}],\"doubt\":\"\"}"
+}

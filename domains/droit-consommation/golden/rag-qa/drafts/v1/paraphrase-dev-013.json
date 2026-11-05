@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-dev-013",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:09+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1954,
+    "output_tokens": 100
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article énonce seulement un principe (cumul des sanctions administratives en cas de manquements en concours) sans valeur précise : ni durée, ni montant, ni taux, ni seuil, ni organisme, ni document."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article énonce seulement un principe (cumul des sanctions administratives en cas de manquements en concours) sans valeur précise : ni durée, ni montant, ni taux, ni seuil, ni organisme, ni document.\"}"
+}

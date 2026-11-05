@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-069",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2070,
+    "output_tokens": 187
+  },
+  "output": {
+    "question": "Surendetté, le juge a ouvert et clos ma liquidation d'un coup : qui prévoit le délai pour contester pour les créanciers ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "décret"
+        ],
+        "quote": "dans un délai fixé par décret",
+        "article": "L742-20"
+      }
+    ],
+    "doubt": "L'article ne donne aucune valeur précise : le délai de tierce opposition est seulement renvoyé à un décret, et la seule réponse possible (« décret ») est un simple renvoi, donc peu pertinent."
+  },
+  "raw_text": "{\"question\":\"Surendetté, le juge a ouvert et clos ma liquidation d'un coup : qui prévoit le délai pour contester pour les créanciers ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"décret\"],\"quote\":\"dans un délai fixé par décret\",\"article\":\"L742-20\"}],\"doubt\":\"L'article ne donne aucune valeur précise : le délai de tierce opposition est seulement renvoyé à un décret, et la seule réponse possible (« décret ») est un simple renvoi, donc peu pertinent.\"}"
+}

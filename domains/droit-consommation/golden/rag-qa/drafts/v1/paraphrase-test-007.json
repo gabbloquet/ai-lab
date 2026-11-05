@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-007",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2091,
+    "output_tokens": 193
+  },
+  "output": {
+    "question": "Surendettement : si je conteste les mesures imposées, quelle procédure le juge peut-il prononcer en plus ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "redressement personnel sans liquidation judiciaire"
+        ],
+        "quote": "le juge peut en outre prononcer un redressement personnel sans liquidation judiciaire",
+        "article": "L733-13"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée mais un nom de procédure ; la réponse est une expression plus longue que d'habitude (cinq mots)."
+  },
+  "raw_text": "{\"question\":\"Surendettement : si je conteste les mesures imposées, quelle procédure le juge peut-il prononcer en plus ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"redressement personnel sans liquidation judiciaire\"],\"quote\":\"le juge peut en outre prononcer un redressement personnel sans liquidation judiciaire\",\"article\":\"L733-13\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée mais un nom de procédure ; la réponse est une expression plus longue que d'habitude (cinq mots).\"}"
+}

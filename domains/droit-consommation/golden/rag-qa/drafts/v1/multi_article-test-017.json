@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-017",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2496,
+    "output_tokens": 174
+  },
+  "output": {
+    "question": "Commission de la médiation de la consommation : quelle durée de mandat des membres, et combien de représentants d'associations de consommateurs y siègent ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "pour une durée de trois ans renouvelable",
+        "article": "R615-2"
+      },
+      {
+        "accepted": [
+          "deux",
+          "2"
+        ],
+        "quote": "De deux représentants des associations de consommateurs agréées au plan national",
+        "article": "R615-1"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Commission de la médiation de la consommation : quelle durée de mandat des membres, et combien de représentants d'associations de consommateurs y siègent ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"pour une durée de trois ans renouvelable\",\"article\":\"R615-2\"},{\"accepted\":[\"deux\",\"2\"],\"quote\":\"De deux représentants des associations de consommateurs agréées au plan national\",\"article\":\"R615-1\"}],\"doubt\":\"\"}"
+}

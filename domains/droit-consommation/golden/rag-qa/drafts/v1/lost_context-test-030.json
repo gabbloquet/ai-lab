@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-030",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2407,
+    "output_tokens": 213
+  },
+  "output": {
+    "question": "Pub pour un crédit immobilier : quel taux doit obligatoirement figurer parmi les informations complémentaires, outre le taux débiteur ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "taux annuel effectif global",
+          "TAEG"
+        ],
+        "quote": "Le taux annuel effectif global du crédit mentionné à l'article L. 314-3.",
+        "article": "R313-1"
+      }
+    ],
+    "doubt": "L'article est une liste d'informations sans valeur chiffrée précise ; la question admet plusieurs réponses (montant total du crédit, durée, etc.), donc la réponse n'est pas unique."
+  },
+  "raw_text": "{\"question\":\"Pub pour un crédit immobilier : quel taux doit obligatoirement figurer parmi les informations complémentaires, outre le taux débiteur ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"taux annuel effectif global\",\"TAEG\"],\"quote\":\"Le taux annuel effectif global du crédit mentionné à l'article L. 314-3.\",\"article\":\"R313-1\"}],\"doubt\":\"L'article est une liste d'informations sans valeur chiffrée précise ; la question admet plusieurs réponses (montant total du crédit, durée, etc.), donc la réponse n'est pas unique.\"}"
+}

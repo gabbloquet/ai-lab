@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-007",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1838,
+    "output_tokens": 196
+  },
+  "output": {
+    "question": "Comment le médiateur de la consommation informe-t-il les parties qu'il a été saisi ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "par voie électronique ou par courrier simple",
+          "voie électronique ou courrier simple"
+        ],
+        "quote": "notifie aux parties par voie électronique ou par courrier simple sa saisine",
+        "article": "R612-2"
+      }
+    ],
+    "doubt": "La réponse est un mode de notification (deux moyens possibles) plutôt qu'une valeur chiffrée ; l'article ne contient pas de durée, montant ou seuil."
+  },
+  "raw_text": "{\"question\":\"Comment le médiateur de la consommation informe-t-il les parties qu'il a été saisi ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"par voie électronique ou par courrier simple\",\"voie électronique ou courrier simple\"],\"quote\":\"notifie aux parties par voie électronique ou par courrier simple sa saisine\",\"article\":\"R612-2\"}],\"doubt\":\"La réponse est un mode de notification (deux moyens possibles) plutôt qu'une valeur chiffrée ; l'article ne contient pas de durée, montant ou seuil.\"}"
+}

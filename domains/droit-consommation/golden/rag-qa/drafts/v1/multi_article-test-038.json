@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-038",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2362,
+    "output_tokens": 316
+  },
+  "output": {
+    "question": "Action de groupe simplifiée : que perd le consommateur qui n'accepte pas à temps, et à qui adresse-t-il son acceptation ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "ne sont plus recevables à demander leur indemnisation",
+          "irrecevables à demander leur indemnisation"
+        ],
+        "quote": "ne sont plus recevables à demander leur indemnisation dans le cadre de l'action de groupe",
+        "article": "R623-14"
+      },
+      {
+        "accepted": [
+          "le professionnel et l'association requérante",
+          "professionnel et association requérante"
+        ],
+        "quote": "auprès du professionnel et de l'association requérante ou, en cas de pluralité, de l'une d'elles",
+        "article": "R623-13"
+      }
+    ],
+    "doubt": "Aucune valeur chiffrée précise (durée, montant, seuil) : le délai est fixé par le juge, et la réponse porte sur des effets et des destinataires, d'où usable à false."
+  },
+  "raw_text": "{\"question\":\"Action de groupe simplifiée : que perd le consommateur qui n'accepte pas à temps, et à qui adresse-t-il son acceptation ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"ne sont plus recevables à demander leur indemnisation\",\"irrecevables à demander leur indemnisation\"],\"quote\":\"ne sont plus recevables à demander leur indemnisation dans le cadre de l'action de groupe\",\"article\":\"R623-14\"},{\"accepted\":[\"le professionnel et l'association requérante\",\"professionnel et association requérante\"],\"quote\":\"auprès du professionnel et de l'association requérante ou, en cas de pluralité, de l'une d'elles\",\"article\":\"R623-13\"}],\"doubt\":\"Aucune valeur chiffrée précise (durée, montant, seuil) : le délai est fixé par le juge, et la réponse porte sur des effets et des destinataires, d'où usable à false.\"}"
+}

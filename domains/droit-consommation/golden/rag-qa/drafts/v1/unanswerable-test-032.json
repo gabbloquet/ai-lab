@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-032",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2188,
+    "output_tokens": 297
+  },
+  "output": {
+    "question": "Multipropriété : quel pourcentage du prix le professionnel peut-il garder comme frais de dossier avant la fin du délai de rétractation ?",
+    "why_unanswerable": "L'article interdit au professionnel toute demande ou réception de paiement d'avance ou de rémunération avant l'expiration des délais de rétractation et la conclusion effective du contrat. Il ne prévoit aucun pourcentage de frais de dossier autorisé, car aucune somme n'est admise pendant cette période. Le code ne fixe donc aucun taux de ce type.",
+    "doubt": "Le champ « usable » du schéma n'existe pas ; en mode sans réponse, la question présuppose un pourcentage inexistant, ce qui peut sembler piégeux. Un lecteur pourrait aussi répondre « zéro », puisque tout paiement est interdit."
+  },
+  "raw_text": "{\"question\":\"Multipropriété : quel pourcentage du prix le professionnel peut-il garder comme frais de dossier avant la fin du délai de rétractation ?\",\"why_unanswerable\":\"L'article interdit au professionnel toute demande ou réception de paiement d'avance ou de rémunération avant l'expiration des délais de rétractation et la conclusion effective du contrat. Il ne prévoit aucun pourcentage de frais de dossier autorisé, car aucune somme n'est admise pendant cette période. Le code ne fixe donc aucun taux de ce type.\",\"doubt\":\"Le champ « usable » du schéma n'existe pas ; en mode sans réponse, la question présuppose un pourcentage inexistant, ce qui peut sembler piégeux. Un lecteur pourrait aussi répondre « zéro », puisque tout paiement est interdit.\"}"
+}

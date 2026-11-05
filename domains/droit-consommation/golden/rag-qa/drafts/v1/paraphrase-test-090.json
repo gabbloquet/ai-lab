@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-090",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2007,
+    "output_tokens": 191
+  },
+  "output": {
+    "question": "Un site refuse de me vendre à cause de mon pays de résidence : quelle amende maximale risque une société ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "75 000 euros",
+          "75 000 €",
+          "75000 euros"
+        ],
+        "quote": "75 000 euros pour une personne morale",
+        "article": "L132-24-2"
+      }
+    ],
+    "doubt": "La question évoque le blocage géographique sans citer l'article ; la réponse vaut pour les interdictions 1° à 3° de L. 121-23 seulement, et la personne morale est reformulée par « société »."
+  },
+  "raw_text": "{\"question\":\"Un site refuse de me vendre à cause de mon pays de résidence : quelle amende maximale risque une société ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"75 000 euros\",\"75 000 €\",\"75000 euros\"],\"quote\":\"75 000 euros pour une personne morale\",\"article\":\"L132-24-2\"}],\"doubt\":\"La question évoque le blocage géographique sans citer l'article ; la réponse vaut pour les interdictions 1° à 3° de L. 121-23 seulement, et la personne morale est reformulée par « société ».\"}"
+}

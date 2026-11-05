@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-030",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:59:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2015,
+    "output_tokens": 195
+  },
+  "output": {
+    "question": "Que prévoit l'article R. 623-22 comme conséquence pour un consommateur non indemnisé qui ne fournit pas ses documents à temps ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "réputé renoncer à son adhésion"
+        ],
+        "quote": "est réputé renoncer à son adhésion",
+        "article": "R623-22"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil) : il renvoie à un délai fixé par le juge et énonce seulement une conséquence, la renonciation présumée."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article R. 623-22 comme conséquence pour un consommateur non indemnisé qui ne fournit pas ses documents à temps ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"réputé renoncer à son adhésion\"],\"quote\":\"est réputé renoncer à son adhésion\",\"article\":\"R623-22\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil) : il renvoie à un délai fixé par le juge et énonce seulement une conséquence, la renonciation présumée.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-026",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2143,
+    "output_tokens": 181
+  },
+  "output": {
+    "question": "Mon logement est vendu aux enchères après mon surendettement : où le jugement est-il rendu public ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "service chargé de la publicité foncière",
+          "publicité foncière"
+        ],
+        "quote": "au service chargé de la publicité foncière du lieu de situation des biens",
+        "article": "R742-30"
+      }
+    ],
+    "doubt": "Pour l'Alsace-Moselle, la publicité se fait au Livre foncier ; la question vise le cas général, ce qui n'est pas précisé."
+  },
+  "raw_text": "{\"question\":\"Mon logement est vendu aux enchères après mon surendettement : où le jugement est-il rendu public ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"service chargé de la publicité foncière\",\"publicité foncière\"],\"quote\":\"au service chargé de la publicité foncière du lieu de situation des biens\",\"article\":\"R742-30\"}],\"doubt\":\"Pour l'Alsace-Moselle, la publicité se fait au Livre foncier ; la question vise le cas général, ce qui n'est pas précisé.\"}"
+}

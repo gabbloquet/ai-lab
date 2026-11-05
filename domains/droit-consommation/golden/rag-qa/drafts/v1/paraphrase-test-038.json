@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-038",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2146,
+    "output_tokens": 212
+  },
+  "output": {
+    "question": "Je veux faire remplir mon propre bocal en magasin : à quelle condition le commerçant doit-il accepter ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "visiblement propre et adapté à la nature du produit acheté"
+        ],
+        "quote": "dans la mesure où ce dernier est visiblement propre et adapté à la nature du produit acheté",
+        "article": "L120-2"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il énonce seulement une condition qualitative, donc inadapté à une question de valeur."
+  },
+  "raw_text": "{\"question\":\"Je veux faire remplir mon propre bocal en magasin : à quelle condition le commerçant doit-il accepter ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"visiblement propre et adapté à la nature du produit acheté\"],\"quote\":\"dans la mesure où ce dernier est visiblement propre et adapté à la nature du produit acheté\",\"article\":\"L120-2\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il énonce seulement une condition qualitative, donc inadapté à une question de valeur.\"}"
+}

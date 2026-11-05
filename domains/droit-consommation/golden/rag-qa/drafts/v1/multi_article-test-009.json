@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-009",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2933,
+    "output_tokens": 851
+  },
+  "output": {
+    "question": "Contrôle de conformité des produits : quelles sections de pouvoirs d'enquête, et quel plafond d'astreinte journalière en cas d'injonction ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "sections 1 à 3",
+          "1 à 3"
+        ],
+        "quote": "sections 1 à 3 du chapitre II du présent titre",
+        "article": "L511-15"
+      },
+      {
+        "accepted": [
+          "3 000 euros",
+          "3 000 €",
+          "3000 euros"
+        ],
+        "quote": "ne pouvant excéder un montant de 3 000 euros",
+        "article": "L521-1"
+      }
+    ],
+    "doubt": "La formulation « sections de pouvoirs d'enquête » reste un peu vague, et L521-1 prévoit aussi un plafond fondé sur le chiffre d'affaires dans certains cas."
+  },
+  "raw_text": "{\"question\":\"Contrôle de conformité des produits : quelles sections de pouvoirs d'enquête, et quel plafond d'astreinte journalière en cas d'injonction ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"sections 1 à 3\",\"1 à 3\"],\"quote\":\"sections 1 à 3 du chapitre II du présent titre\",\"article\":\"L511-15\"},{\"accepted\":[\"3 000 euros\",\"3 000 €\",\"3000 euros\"],\"quote\":\"ne pouvant excéder un montant de 3 000 euros\",\"article\":\"L521-1\"}],\"doubt\":\"La formulation « sections de pouvoirs d'enquête » reste un peu vague, et L521-1 prévoit aussi un plafond fondé sur le chiffre d'affaires dans certains cas.\"}"
+}

@@ -1,0 +1,47 @@
+{
+  "task": "multi_article-test-034",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:04+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2354,
+    "output_tokens": 370
+  },
+  "output": {
+    "question": "Tromperie sur une marchandise commise en bande organisée : quelle peine de prison et quelle amende, et sur quoi la tromperie peut-elle porter ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "sept ans",
+          "7 ans"
+        ],
+        "quote": "est punie d'une peine d'emprisonnement de sept ans et d'une amende de 750 000 euros",
+        "article": "L454-3"
+      },
+      {
+        "accepted": [
+          "750 000 euros",
+          "750 000 €",
+          "750000 euros"
+        ],
+        "quote": "est punie d'une peine d'emprisonnement de sept ans et d'une amende de 750 000 euros",
+        "article": "L454-3"
+      },
+      {
+        "accepted": [
+          "quantité",
+          "la quantité des choses livrées"
+        ],
+        "quote": "Soit sur la quantité des choses livrées",
+        "article": "L441-1"
+      }
+    ],
+    "doubt": "La question demande trois faits (peine, amende, objet de la tromperie) alors que deux sont préférés ; l'objet de la tromperie admet plusieurs réponses valables (nature, origine, quantité, etc.), ce qui rend le dernier fait ambigu."
+  },
+  "raw_text": "{\"question\":\"Tromperie sur une marchandise commise en bande organisée : quelle peine de prison et quelle amende, et sur quoi la tromperie peut-elle porter ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"sept ans\",\"7 ans\"],\"quote\":\"est punie d'une peine d'emprisonnement de sept ans et d'une amende de 750 000 euros\",\"article\":\"L454-3\"},{\"accepted\":[\"750 000 euros\",\"750 000 €\",\"750000 euros\"],\"quote\":\"est punie d'une peine d'emprisonnement de sept ans et d'une amende de 750 000 euros\",\"article\":\"L454-3\"},{\"accepted\":[\"quantité\",\"la quantité des choses livrées\"],\"quote\":\"Soit sur la quantité des choses livrées\",\"article\":\"L441-1\"}],\"doubt\":\"La question demande trois faits (peine, amende, objet de la tromperie) alors que deux sont préférés ; l'objet de la tromperie admet plusieurs réponses valables (nature, origine, quantité, etc.), ce qui rend le dernier fait ambigu.\"}"
+}

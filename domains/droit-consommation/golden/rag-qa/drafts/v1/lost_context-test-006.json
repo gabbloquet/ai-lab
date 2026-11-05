@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-006",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2195,
+    "output_tokens": 208
+  },
+  "output": {
+    "question": "Certification de services ou produits non agricoles : comment s'appelle le document technique fixant les caractéristiques à respecter ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "référentiel de certification",
+          "un référentiel de certification"
+        ],
+        "quote": "Le référentiel de certification est un document technique définissant les caractéristiques que doit présenter un produit, un service ou une combinaison de produits et de services",
+        "article": "L433-3"
+      }
+    ],
+    "doubt": "L'article donne une définition plutôt qu'une valeur chiffrée ; la réponse est un nom de document, ce qui reste admis par la consigne."
+  },
+  "raw_text": "{\"question\":\"Certification de services ou produits non agricoles : comment s'appelle le document technique fixant les caractéristiques à respecter ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"référentiel de certification\",\"un référentiel de certification\"],\"quote\":\"Le référentiel de certification est un document technique définissant les caractéristiques que doit présenter un produit, un service ou une combinaison de produits et de services\",\"article\":\"L433-3\"}],\"doubt\":\"L'article donne une définition plutôt qu'une valeur chiffrée ; la réponse est un nom de document, ce qui reste admis par la consigne.\"}"
+}

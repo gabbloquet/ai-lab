@@ -1,0 +1,29 @@
+{
+  "task": "reference-dev-016",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2216,
+    "output_tokens": 219
+  },
+  "output": {
+    "question": "Selon l'article R. 314-12, à quoi est égal le taux annuel effectif de l'assurance ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "différence entre deux taux annuels effectifs globaux"
+        ],
+        "quote": "Le taux annuel effectif de l'assurance mentionné à l'article L. 313-8 est égal à la différence entre :",
+        "article": "R314-12"
+      }
+    ],
+    "doubt": "L'article décrit une méthode de calcul sans valeur précise (durée, montant, taux chiffré) ; la réponse est une formule, pas une valeur courte, et les formes acceptées dépassent le format attendu."
+  },
+  "raw_text": "{\"question\":\"Selon l'article R. 314-12, à quoi est égal le taux annuel effectif de l'assurance ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"différence entre deux taux annuels effectifs globaux\"],\"quote\":\"Le taux annuel effectif de l'assurance mentionné à l'article L. 313-8 est égal à la différence entre :\",\"article\":\"R314-12\"}],\"doubt\":\"L'article décrit une méthode de calcul sans valeur précise (durée, montant, taux chiffré) ; la réponse est une formule, pas une valeur courte, et les formes acceptées dépassent le format attendu.\"}"
+}

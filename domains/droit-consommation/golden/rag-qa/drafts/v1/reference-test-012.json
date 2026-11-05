@@ -1,0 +1,21 @@
+{
+  "task": "reference-test-012",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2062,
+    "output_tokens": 145
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 217-18 du code de la consommation comme délai ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article L217-18 ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme) : il définit seulement les mises à jour d'un bien comportant des éléments numériques, donc aucune question à réponse chiffrée n'est possible."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 217-18 du code de la consommation comme délai ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article L217-18 ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme) : il définit seulement les mises à jour d'un bien comportant des éléments numériques, donc aucune question à réponse chiffrée n'est possible.\"}"
+}

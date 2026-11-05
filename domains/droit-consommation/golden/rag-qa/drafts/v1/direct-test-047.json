@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-047",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1881,
+    "output_tokens": 209
+  },
+  "output": {
+    "question": "Falsification : l'amende peut aller jusqu'à quel pourcentage du chiffre d'affaires moyen annuel ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "10 %",
+          "10 pour cent",
+          "dix pour cent"
+        ],
+        "quote": "peut être porté, de manière proportionnée aux avantages tirés du délit, à 10 % du chiffre d'affaires moyen annuel",
+        "article": "L451-5"
+      }
+    ],
+    "doubt": "La question vise le plafond majoré de l'amende, dont le montant de base figure dans d'autres articles (L. 451-1 à L. 451-4)."
+  },
+  "raw_text": "{\"question\":\"Falsification : l'amende peut aller jusqu'à quel pourcentage du chiffre d'affaires moyen annuel ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"10 %\",\"10 pour cent\",\"dix pour cent\"],\"quote\":\"peut être porté, de manière proportionnée aux avantages tirés du délit, à 10 % du chiffre d'affaires moyen annuel\",\"article\":\"L451-5\"}],\"doubt\":\"La question vise le plafond majoré de l'amende, dont le montant de base figure dans d'autres articles (L. 451-1 à L. 451-4).\"}"
+}

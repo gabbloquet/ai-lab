@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-dev-015",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1985,
+    "output_tokens": 194
+  },
+  "output": {
+    "question": "Un démarcheur par téléphone ne respecte pas les règles : quelle amende maximale risque sa société ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "375 000 €",
+          "375 000 euros",
+          "375000 euros"
+        ],
+        "quote": "75 000 € pour une personne physique et 375 000 € pour une personne morale",
+        "article": "L242-12"
+      }
+    ],
+    "doubt": "La question précise une société (personne morale) ; le plafond pour une personne physique est de 75 000 €, ce qui pourrait prêter à confusion si la réponse mentionne les deux."
+  },
+  "raw_text": "{\"question\":\"Un démarcheur par téléphone ne respecte pas les règles : quelle amende maximale risque sa société ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"375 000 €\",\"375 000 euros\",\"375000 euros\"],\"quote\":\"75 000 € pour une personne physique et 375 000 € pour une personne morale\",\"article\":\"L242-12\"}],\"doubt\":\"La question précise une société (personne morale) ; le plafond pour une personne physique est de 75 000 €, ce qui pourrait prêter à confusion si la réponse mentionne les deux.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-023",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2588,
+    "output_tokens": 332
+  },
+  "output": {
+    "question": "Crédit immobilier : si un prêteur réclame trop sur une location-vente, quelle amende risque-t-il et pour quelle durée maximale d'interdiction d'exercer ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-46"
+      },
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.",
+        "article": "L341-46"
+      }
+    ],
+    "doubt": "Les deux faits viennent de A ; aucune valeur chiffrée de B (L313-60, barème fixé par décret) n'est demandée, donc la question ne nécessite pas vraiment B et ne respecte pas le mode.  Article B ne contient pas de valeur précise exploitable.  Il vaut mieux marquer cette paire comme peu adaptée.\n"
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : si un prêteur réclame trop sur une location-vente, quelle amende risque-t-il et pour quelle durée maximale d'interdiction d'exercer ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-46\"},{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.\",\"article\":\"L341-46\"}],\"doubt\":\"Les deux faits viennent de A ; aucune valeur chiffrée de B (L313-60, barème fixé par décret) n'est demandée, donc la question ne nécessite pas vraiment B et ne respecte pas le mode.  Article B ne contient pas de valeur précise exploitable.  Il vaut mieux marquer cette paire comme peu adaptée.\\n\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-063",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2100,
+    "output_tokens": 195
+  },
+  "output": {
+    "question": "Borne de recharge qui ne respecte pas les règles européennes : amende maximale pour une entreprise ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "75 000 €",
+          "75 000 euros",
+          "75000 euros"
+        ],
+        "quote": "dont le montant ne peut excéder 15 000 € pour une personne physique et 75 000 € pour une personne morale",
+        "article": "L132-29"
+      }
+    ],
+    "doubt": "Le terme « entreprise » est une approximation de « personne morale » ; si l'exploitant est une personne physique, le plafond est de 15 000 €."
+  },
+  "raw_text": "{\"question\":\"Borne de recharge qui ne respecte pas les règles européennes : amende maximale pour une entreprise ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"75 000 €\",\"75 000 euros\",\"75000 euros\"],\"quote\":\"dont le montant ne peut excéder 15 000 € pour une personne physique et 75 000 € pour une personne morale\",\"article\":\"L132-29\"}],\"doubt\":\"Le terme « entreprise » est une approximation de « personne morale » ; si l'exploitant est une personne physique, le plafond est de 15 000 €.\"}"
+}

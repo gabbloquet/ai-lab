@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-test-012",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:20+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2067,
+    "output_tokens": 194
+  },
+  "output": {
+    "question": "Dans un contrat de vente de bien, combien d'exemplaires du contrat de service après-vente sont remis au consommateur ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "un exemplaire"
+        ],
+        "quote": "Elle fait l'objet d'un contrat dont un exemplaire est remis au consommateur.",
+        "article": "L217-25"
+      }
+    ],
+    "doubt": "L'article ne contient qu'une définition et un nombre trivial (un exemplaire) ; il n'y a pas de valeur précise réellement utile, et la question serait peu naturelle."
+  },
+  "raw_text": "{\"question\":\"Dans un contrat de vente de bien, combien d'exemplaires du contrat de service après-vente sont remis au consommateur ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"un exemplaire\"],\"quote\":\"Elle fait l'objet d'un contrat dont un exemplaire est remis au consommateur.\",\"article\":\"L217-25\"}],\"doubt\":\"L'article ne contient qu'une définition et un nombre trivial (un exemplaire) ; il n'y a pas de valeur précise réellement utile, et la question serait peu naturelle.\"}"
+}

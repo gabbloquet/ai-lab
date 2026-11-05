@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-012",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2197,
+    "output_tokens": 121
+  },
+  "output": {
+    "question": "Surendettement et saisie immobilière : combien de jours avant la vente la commission doit-elle demander le report au juge ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "quinze jours au moins avant la date prévue pour la vente",
+        "article": "R721-7"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Surendettement et saisie immobilière : combien de jours avant la vente la commission doit-elle demander le report au juge ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"quinze jours au moins avant la date prévue pour la vente\",\"article\":\"R721-7\"}],\"doubt\":\"\"}"
+}

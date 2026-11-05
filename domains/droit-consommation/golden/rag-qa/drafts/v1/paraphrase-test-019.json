@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-test-019",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1969,
+    "output_tokens": 123
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article L611-3 énumère seulement des cas d'exclusion de la médiation de la consommation. Il ne contient ni durée, ni montant, ni taux, ni seuil, ni date, ni organisme, ni document précis. Il n'y a donc aucune valeur précise à demander."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article L611-3 énumère seulement des cas d'exclusion de la médiation de la consommation. Il ne contient ni durée, ni montant, ni taux, ni seuil, ni date, ni organisme, ni document précis. Il n'y a donc aucune valeur précise à demander.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-016",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:55+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2028,
+    "output_tokens": 196
+  },
+  "output": {
+    "question": "Quel décret prévoit le contrôle économique et financier de l'État sur le laboratoire, selon l'article R. 823-19 ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "décret n° 53-707 du 9 août 1953",
+          "53-707"
+        ],
+        "quote": "décret n° 53-707 du 9 août 1953",
+        "article": "R823-19"
+      }
+    ],
+    "doubt": "L'article ne fait que renvoyer à deux autres décrets, sans valeur précise propre (durée, montant, taux) ; peu de personnes poseraient cette question dans un chat."
+  },
+  "raw_text": "{\"question\":\"Quel décret prévoit le contrôle économique et financier de l'État sur le laboratoire, selon l'article R. 823-19 ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"décret n° 53-707 du 9 août 1953\",\"53-707\"],\"quote\":\"décret n° 53-707 du 9 août 1953\",\"article\":\"R823-19\"}],\"doubt\":\"L'article ne fait que renvoyer à deux autres décrets, sans valeur précise propre (durée, montant, taux) ; peu de personnes poseraient cette question dans un chat.\"}"
+}

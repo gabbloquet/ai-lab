@@ -1,0 +1,30 @@
+{
+  "task": "reference-dev-011",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2042,
+    "output_tokens": 181
+  },
+  "output": {
+    "question": "Quel organisme, avec les agents de la répression des fraudes, peut échanger des informations selon l'article L. 512-20-1 ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "Commission de régulation de l'énergie",
+          "CRE"
+        ],
+        "quote": "les agents de la Commission de régulation de l'énergie",
+        "article": "L512-20-1"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée, seulement un organisme ; la question reste simple mais la valeur est peu discriminante."
+  },
+  "raw_text": "{\"question\":\"Quel organisme, avec les agents de la répression des fraudes, peut échanger des informations selon l'article L. 512-20-1 ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"Commission de régulation de l'énergie\",\"CRE\"],\"quote\":\"les agents de la Commission de régulation de l'énergie\",\"article\":\"L512-20-1\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée, seulement un organisme ; la question reste simple mais la valeur est peu discriminante.\"}"
+}

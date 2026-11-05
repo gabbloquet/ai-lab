@@ -1,0 +1,21 @@
+{
+  "task": "lost_context-test-038",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2187,
+    "output_tokens": 137
+  },
+  "output": {
+    "question": "Garantie de conformité des contenus et services numériques : que couvrent les mises à jour ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il se borne à définir les mises à jour, donc la réponse ne peut pas se ramener à un fait court vérifiable."
+  },
+  "raw_text": "{\"question\":\"Garantie de conformité des contenus et services numériques : que couvrent les mises à jour ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il se borne à définir les mises à jour, donc la réponse ne peut pas se ramener à un fait court vérifiable.\"}"
+}

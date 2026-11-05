@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-test-086",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2402,
+    "output_tokens": 156
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article L121-11 énonce des interdictions (refus de vente, ventes subordonnées) sans aucune valeur précise : ni durée, ni montant, ni taux, ni seuil. Il ne renvoie qu'à des textes (L. 121-1, L. 518-1 du code monétaire et financier), donc aucune question à réponse courte chiffrée n'est raisonnable."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article L121-11 énonce des interdictions (refus de vente, ventes subordonnées) sans aucune valeur précise : ni durée, ni montant, ni taux, ni seuil. Il ne renvoie qu'à des textes (L. 121-1, L. 518-1 du code monétaire et financier), donc aucune question à réponse courte chiffrée n'est raisonnable.\"}"
+}

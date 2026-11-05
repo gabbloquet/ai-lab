@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-007",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2028,
+    "output_tokens": 251
+  },
+  "output": {
+    "question": "Quelle amende risque un vendeur de drone qui oublie la notice d'information dans l'emballage ?",
+    "why_unanswerable": "L'article impose d'inclure une notice d'information dans l'emballage des drones et de leurs pièces détachées, y compris pour les appareils d'occasion. Il ne prévoit aucun montant d'amende pour un manquement. Il renvoie seulement à un décret en Conseil d'Etat pour les modalités d'application. Il ne chiffre donc aucune sanction.",
+    "doubt": "D'autres articles du Code de la consommation sur les sanctions de la sécurité des produits pourraient fixer une amende générale applicable, ce qui rendrait la question partiellement répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle amende risque un vendeur de drone qui oublie la notice d'information dans l'emballage ?\",\"why_unanswerable\":\"L'article impose d'inclure une notice d'information dans l'emballage des drones et de leurs pièces détachées, y compris pour les appareils d'occasion. Il ne prévoit aucun montant d'amende pour un manquement. Il renvoie seulement à un décret en Conseil d'Etat pour les modalités d'application. Il ne chiffre donc aucune sanction.\",\"doubt\":\"D'autres articles du Code de la consommation sur les sanctions de la sécurité des produits pourraient fixer une amende générale applicable, ce qui rendrait la question partiellement répondable.\"}"
+}

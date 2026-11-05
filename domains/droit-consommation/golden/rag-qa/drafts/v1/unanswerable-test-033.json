@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-033",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2007,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Prêt pour construire ma maison : combien de temps le tribunal peut-il suspendre le remboursement en cas de litige avec le constructeur ?",
+    "why_unanswerable": "L'article prévoit que le tribunal peut suspendre l'exécution du contrat de prêt jusqu'à la solution du litige, sans fixer de durée maximale ni de délai précis. Le Code de la consommation ne donne donc aucune durée chiffrée de suspension, qui relève de l'appréciation du juge.",
+    "doubt": "Un lecteur pourrait répondre « jusqu'à la solution du litige », ce qui est une durée indéterminée et non une valeur chiffrée ; la question reste donc sans réponse chiffrée dans le code."
+  },
+  "raw_text": "{\"question\":\"Prêt pour construire ma maison : combien de temps le tribunal peut-il suspendre le remboursement en cas de litige avec le constructeur ?\",\"why_unanswerable\":\"L'article prévoit que le tribunal peut suspendre l'exécution du contrat de prêt jusqu'à la solution du litige, sans fixer de durée maximale ni de délai précis. Le Code de la consommation ne donne donc aucune durée chiffrée de suspension, qui relève de l'appréciation du juge.\",\"doubt\":\"Un lecteur pourrait répondre « jusqu'à la solution du litige », ce qui est une durée indéterminée et non une valeur chiffrée ; la question reste donc sans réponse chiffrée dans le code.\"}"
+}

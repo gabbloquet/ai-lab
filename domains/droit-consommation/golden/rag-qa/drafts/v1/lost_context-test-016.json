@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-016",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2260,
+    "output_tokens": 218
+  },
+  "output": {
+    "question": "En matière de sécurité des produits, de quel article du code les mesures de la Commission européenne sont-elles des mesures d'exécution ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 412-1",
+          "L412-1"
+        ],
+        "quote": "constituent des mesures d'exécution de l'article L. 412-1",
+        "article": "L422-3"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise de type durée, montant ou seuil : il renvoie seulement à d'autres textes (règlements européens et article L. 412-1) ; de plus la question demanderait un numéro d'article, et peu de gens la poseraient."
+  },
+  "raw_text": "{\"question\":\"En matière de sécurité des produits, de quel article du code les mesures de la Commission européenne sont-elles des mesures d'exécution ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 412-1\",\"L412-1\"],\"quote\":\"constituent des mesures d'exécution de l'article L. 412-1\",\"article\":\"L422-3\"}],\"doubt\":\"L'article ne contient aucune valeur précise de type durée, montant ou seuil : il renvoie seulement à d'autres textes (règlements européens et article L. 412-1) ; de plus la question demanderait un numéro d'article, et peu de gens la poseraient.\"}"
+}

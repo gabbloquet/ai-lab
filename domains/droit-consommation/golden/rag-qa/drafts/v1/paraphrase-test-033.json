@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-033",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2141,
+    "output_tokens": 253
+  },
+  "output": {
+    "question": "Quelle loi de 1983 encadre le remplacement d'un administrateur du laboratoire national d'essais qui quitte son poste ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "loi n° 83-675 du 26 juillet 1983",
+          "n° 83-675",
+          "83-675"
+        ],
+        "quote": "sont remplacés dans les conditions fixées par la loi n° 83-675 du 26 juillet 1983 relative à la démocratisation du secteur public",
+        "article": "R823-4"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur chiffrée utile pour un particulier : il renvoie à une autre loi et traite du fonctionnement interne du conseil d'administration du LNE, donc peu probable en question de chat."
+  },
+  "raw_text": "{\"question\":\"Quelle loi de 1983 encadre le remplacement d'un administrateur du laboratoire national d'essais qui quitte son poste ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"loi n° 83-675 du 26 juillet 1983\",\"n° 83-675\",\"83-675\"],\"quote\":\"sont remplacés dans les conditions fixées par la loi n° 83-675 du 26 juillet 1983 relative à la démocratisation du secteur public\",\"article\":\"R823-4\"}],\"doubt\":\"L'article ne contient aucune valeur chiffrée utile pour un particulier : il renvoie à une autre loi et traite du fonctionnement interne du conseil d'administration du LNE, donc peu probable en question de chat.\"}"
+}

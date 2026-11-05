@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-021",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1926,
+    "output_tokens": 188
+  },
+  "output": {
+    "question": "Location avec promesse de vente : sur quoi l'offre de crédit immobilier doit-elle décomposer le coût de la levée d'option ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "valeur résiduelle du bien",
+          "valeur résiduelle"
+        ],
+        "quote": "la valeur résiduelle du bien",
+        "article": "L313-56"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il énumère seulement des mentions de l'offre, donc peu adapté."
+  },
+  "raw_text": "{\"question\":\"Location avec promesse de vente : sur quoi l'offre de crédit immobilier doit-elle décomposer le coût de la levée d'option ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"valeur résiduelle du bien\",\"valeur résiduelle\"],\"quote\":\"la valeur résiduelle du bien\",\"article\":\"L313-56\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il énumère seulement des mentions de l'offre, donc peu adapté.\"}"
+}

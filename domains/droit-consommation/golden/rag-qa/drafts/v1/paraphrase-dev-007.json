@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-007",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:07+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2452,
+    "output_tokens": 198
+  },
+  "output": {
+    "question": "Quel organe valide le budget du Laboratoire national de métrologie et d'essais ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "conseil d'administration"
+        ],
+        "quote": "Le conseil d'administration règle par ses délibérations les affaires du laboratoire.",
+        "article": "R823-7"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il énumère des compétences du conseil d'administration d'un établissement, et personne ne poserait raisonnablement cette question dans un chat de consommation."
+  },
+  "raw_text": "{\"question\":\"Quel organe valide le budget du Laboratoire national de métrologie et d'essais ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"conseil d'administration\"],\"quote\":\"Le conseil d'administration règle par ses délibérations les affaires du laboratoire.\",\"article\":\"R823-7\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il énumère des compétences du conseil d'administration d'un établissement, et personne ne poserait raisonnablement cette question dans un chat de consommation.\"}"
+}

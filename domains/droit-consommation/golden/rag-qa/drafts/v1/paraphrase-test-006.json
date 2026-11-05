@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-test-006",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2264,
+    "output_tokens": 164
+  },
+  "output": {
+    "question": "Je n'ai pas encore signé mon contrat d'électricité : suis-je déjà lié au fournisseur ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il énonce que le consommateur n'est engagé que par sa signature et renvoie à d'autres articles, donc une question appelant une valeur courte n'est pas possible sans tomber dans un oui/non."
+  },
+  "raw_text": "{\"question\":\"Je n'ai pas encore signé mon contrat d'électricité : suis-je déjà lié au fournisseur ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il énonce que le consommateur n'est engagé que par sa signature et renvoie à d'autres articles, donc une question appelant une valeur courte n'est pas possible sans tomber dans un oui/non.\"}"
+}

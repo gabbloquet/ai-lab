@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-030",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1880,
+    "output_tokens": 224
+  },
+  "output": {
+    "question": "Action en représentation conjointe : quel pourcentage des dommages-intérêts l'association peut-elle garder pour ses frais ?",
+    "why_unanswerable": "Le Code de la consommation ne fixe aucun pourcentage des indemnités que l'association pourrait retenir pour ses frais dans l'action en représentation conjointe. L'article ne traite que de la notification de la décision à l'association et du point de départ du délai de recours.",
+    "doubt": "Un autre article du chapitre sur l'action en représentation conjointe pourrait aborder les frais ou la rémunération, mais je ne crois pas qu'il fixe un pourcentage."
+  },
+  "raw_text": "{\"question\":\"Action en représentation conjointe : quel pourcentage des dommages-intérêts l'association peut-elle garder pour ses frais ?\",\"why_unanswerable\":\"Le Code de la consommation ne fixe aucun pourcentage des indemnités que l'association pourrait retenir pour ses frais dans l'action en représentation conjointe. L'article ne traite que de la notification de la décision à l'association et du point de départ du délai de recours.\",\"doubt\":\"Un autre article du chapitre sur l'action en représentation conjointe pourrait aborder les frais ou la rémunération, mais je ne crois pas qu'il fixe un pourcentage.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-006",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1982,
+    "output_tokens": 254
+  },
+  "output": {
+    "question": "Lors d'un prélèvement par la DGCCRF, quel est le coût de l'analyse d'un échantillon que doit payer le commerçant ?",
+    "why_unanswerable": "L'article R512-17 fixe seulement le nombre minimal d'échantillons (trois) et leur destination (laboratoire d'État et experts). Il ne dit rien du coût de l'analyse ni de la personne qui le supporte. Le thème est voisin, mais aucun montant ni aucune règle de prise en charge n'y figure.",
+    "doubt": "Un autre article du code sur les frais de prélèvement ou d'analyse pourrait exister (par exemple sur les frais d'expertise), ce qui rendrait la question partiellement répondable."
+  },
+  "raw_text": "{\"question\":\"Lors d'un prélèvement par la DGCCRF, quel est le coût de l'analyse d'un échantillon que doit payer le commerçant ?\",\"why_unanswerable\":\"L'article R512-17 fixe seulement le nombre minimal d'échantillons (trois) et leur destination (laboratoire d'État et experts). Il ne dit rien du coût de l'analyse ni de la personne qui le supporte. Le thème est voisin, mais aucun montant ni aucune règle de prise en charge n'y figure.\",\"doubt\":\"Un autre article du code sur les frais de prélèvement ou d'analyse pourrait exister (par exemple sur les frais d'expertise), ce qui rendrait la question partiellement répondable.\"}"
+}

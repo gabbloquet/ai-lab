@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-043",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:01:03+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1899,
+    "output_tokens": 238
+  },
+  "output": {
+    "question": "Crédit conso : en cas de défaillance, la banque peut-elle saisir mon compte sans passer par un juge ?",
+    "why_unanswerable": "L'article D312-16 fixe seulement l'indemnité que le prêteur peut demander en cas d'exigibilité immédiate du capital restant dû. Il ne traite pas des mesures d'exécution forcée comme la saisie de compte, qui relèvent des procédures civiles d'exécution et non de ce texte.",
+    "doubt": "Question de type oui/non par nature ; le Code de la consommation évoque peut-être indirectement la saisie via d'autres articles, et la question pourrait recevoir une réponse ailleurs."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : en cas de défaillance, la banque peut-elle saisir mon compte sans passer par un juge ?\",\"why_unanswerable\":\"L'article D312-16 fixe seulement l'indemnité que le prêteur peut demander en cas d'exigibilité immédiate du capital restant dû. Il ne traite pas des mesures d'exécution forcée comme la saisie de compte, qui relèvent des procédures civiles d'exécution et non de ce texte.\",\"doubt\":\"Question de type oui/non par nature ; le Code de la consommation évoque peut-être indirectement la saisie via d'autres articles, et la question pourrait recevoir une réponse ailleurs.\"}"
+}

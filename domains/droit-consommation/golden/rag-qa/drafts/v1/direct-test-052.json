@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-052",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2028,
+    "output_tokens": 205
+  },
+  "output": {
+    "question": "Crédit à la consommation : comment dois-je être prévenu si le taux débiteur change ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "support papier ou sur un autre support durable",
+          "support papier ou autre support durable",
+          "papier ou support durable"
+        ],
+        "quote": "l'emprunteur en est informé sur support papier ou sur un autre support durable, avant que la modification n'entre en vigueur",
+        "article": "L312-31"
+      }
+    ],
+    "doubt": "La réponse porte sur le support de l'information et non sur une valeur chiffrée ; l'article ne contient pas de durée ni de montant précis."
+  },
+  "raw_text": "{\"question\":\"Crédit à la consommation : comment dois-je être prévenu si le taux débiteur change ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"support papier ou sur un autre support durable\",\"support papier ou autre support durable\",\"papier ou support durable\"],\"quote\":\"l'emprunteur en est informé sur support papier ou sur un autre support durable, avant que la modification n'entre en vigueur\",\"article\":\"L312-31\"}],\"doubt\":\"La réponse porte sur le support de l'information et non sur une valeur chiffrée ; l'article ne contient pas de durée ni de montant précis.\"}"
+}

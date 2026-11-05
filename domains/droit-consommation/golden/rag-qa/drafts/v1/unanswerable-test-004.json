@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-004",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1863,
+    "output_tokens": 198
+  },
+  "output": {
+    "question": "Quelle police de caractères doit-on utiliser pour le formulaire de rétractation d'un crédit à la consommation ?",
+    "why_unanswerable": "L'article impose seulement un modèle type en annexe et limite les mentions au verso au nom et à l'adresse du prêteur. Le code ne précise aucune police de caractères ni mise en forme typographique du formulaire de rétractation.",
+    "doubt": "Le modèle type en annexe pourrait contenir des indications de mise en forme (taille de caractères), mais il est peu probable qu'il impose une police précise."
+  },
+  "raw_text": "{\"question\":\"Quelle police de caractères doit-on utiliser pour le formulaire de rétractation d'un crédit à la consommation ?\",\"why_unanswerable\":\"L'article impose seulement un modèle type en annexe et limite les mentions au verso au nom et à l'adresse du prêteur. Le code ne précise aucune police de caractères ni mise en forme typographique du formulaire de rétractation.\",\"doubt\":\"Le modèle type en annexe pourrait contenir des indications de mise en forme (taille de caractères), mais il est peu probable qu'il impose une police précise.\"}"
+}

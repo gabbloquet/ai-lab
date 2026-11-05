@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-test-041",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:07+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2461,
+    "output_tokens": 307
+  },
+  "output": {
+    "question": "Surendettement : quelle durée maximale de suspension de l'expulsion après recevabilité, et que impose la commission si le débiteur n'a que des biens du 1° ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "Cette suspension est acquise, pour une période maximale de deux ans",
+        "article": "L722-9"
+      },
+      {
+        "accepted": [
+          "rétablissement personnel sans liquidation judiciaire"
+        ],
+        "quote": "la commission impose un rétablissement personnel sans liquidation judiciaire",
+        "article": "L741-1"
+      }
+    ],
+    "doubt": "La question fait référence à une catégorie de biens (1° de L724-1) sans la décrire, ce qui peut paraître obscur pour un utilisateur ; elle dépasse aussi légèrement la formulation naturelle d'un chat et compte plus de 15 mots (20 autorisés)."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quelle durée maximale de suspension de l'expulsion après recevabilité, et que impose la commission si le débiteur n'a que des biens du 1° ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"Cette suspension est acquise, pour une période maximale de deux ans\",\"article\":\"L722-9\"},{\"accepted\":[\"rétablissement personnel sans liquidation judiciaire\"],\"quote\":\"la commission impose un rétablissement personnel sans liquidation judiciaire\",\"article\":\"L741-1\"}],\"doubt\":\"La question fait référence à une catégorie de biens (1° de L724-1) sans la décrire, ce qui peut paraître obscur pour un utilisateur ; elle dépasse aussi légèrement la formulation naturelle d'un chat et compte plus de 15 mots (20 autorisés).\"}"
+}

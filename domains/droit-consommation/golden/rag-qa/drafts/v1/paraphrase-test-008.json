@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-008",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2154,
+    "output_tokens": 218
+  },
+  "output": {
+    "question": "À Wallis-et-Futuna, quel seuil en francs CFP remplace 3 000 euros pour le crédit à la consommation ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "358 000 francs CFP",
+          "358 000 F CFP"
+        ],
+        "quote": "Les mots : “ 3 000 euros ” sont remplacés par les mots : “ 358 000 francs CFP ”",
+        "article": "D351-2"
+      }
+    ],
+    "doubt": "Article d'adaptation outre-mer qui remplace des montants en euros par des francs CFP : personne ne poserait raisonnablement cette question dans un chat, donc non utilisable."
+  },
+  "raw_text": "{\"question\":\"À Wallis-et-Futuna, quel seuil en francs CFP remplace 3 000 euros pour le crédit à la consommation ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"358 000 francs CFP\",\"358 000 F CFP\"],\"quote\":\"Les mots : “ 3 000 euros ” sont remplacés par les mots : “ 358 000 francs CFP ”\",\"article\":\"D351-2\"}],\"doubt\":\"Article d'adaptation outre-mer qui remplace des montants en euros par des francs CFP : personne ne poserait raisonnablement cette question dans un chat, donc non utilisable.\"}"
+}

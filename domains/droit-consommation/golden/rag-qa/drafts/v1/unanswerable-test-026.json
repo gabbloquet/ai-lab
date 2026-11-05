@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-026",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:55+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1966,
+    "output_tokens": 247
+  },
+  "output": {
+    "question": "Crédit immobilier : de combien de jours le prêteur doit-il m'avertir avant de modifier mon contrat ?",
+    "why_unanswerable": "L'article impose au prêteur d'informer l'emprunteur avant toute modification du contrat, mais il ne fixe aucun délai de préavis chiffré. La liste des informations à communiquer est renvoyée à un décret en Conseil d'État. Le Code de la consommation ne donne donc pas de nombre de jours à cet endroit.",
+    "doubt": "Un article réglementaire ou un autre article du code pourrait fixer un délai de préavis pour certaines modifications, par exemple de taux ; je ne peux pas l'exclure avec certitude."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : de combien de jours le prêteur doit-il m'avertir avant de modifier mon contrat ?\",\"why_unanswerable\":\"L'article impose au prêteur d'informer l'emprunteur avant toute modification du contrat, mais il ne fixe aucun délai de préavis chiffré. La liste des informations à communiquer est renvoyée à un décret en Conseil d'État. Le Code de la consommation ne donne donc pas de nombre de jours à cet endroit.\",\"doubt\":\"Un article réglementaire ou un autre article du code pourrait fixer un délai de préavis pour certaines modifications, par exemple de taux ; je ne peux pas l'exclure avec certitude.\"}"
+}

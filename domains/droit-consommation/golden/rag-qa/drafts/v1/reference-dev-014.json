@@ -1,0 +1,31 @@
+{
+  "task": "reference-dev-014",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2043,
+    "output_tokens": 132
+  },
+  "output": {
+    "question": "Quelle amende prévoit l'article L. 242-28 du code de la consommation pour une offre non conforme de contrat de temps partagé ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "150 000 euros",
+          "150 000 €",
+          "150000 euros"
+        ],
+        "quote": "est puni d'une amende de 150 000 euros",
+        "article": "L242-28"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quelle amende prévoit l'article L. 242-28 du code de la consommation pour une offre non conforme de contrat de temps partagé ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"150 000 euros\",\"150 000 €\",\"150000 euros\"],\"quote\":\"est puni d'une amende de 150 000 euros\",\"article\":\"L242-28\"}],\"doubt\":\"\"}"
+}

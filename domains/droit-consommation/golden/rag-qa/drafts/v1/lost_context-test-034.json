@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-034",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1994,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Quelle juridiction apprécie si les usages invoqués pour une appellation d'origine remplissent les caractères légaux ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "La Cour de cassation",
+          "Cour de cassation"
+        ],
+        "quote": "La Cour de cassation, saisie d'un pourvoi, est compétente pour apprécier si les usages invoqués pour l'emploi d'une appellation d'origine possèdent tous les caractères légaux exigés",
+        "article": "R431-4"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée, seulement un nom de juridiction ; la question est aussi assez technique pour un chat."
+  },
+  "raw_text": "{\"question\":\"Quelle juridiction apprécie si les usages invoqués pour une appellation d'origine remplissent les caractères légaux ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"La Cour de cassation\",\"Cour de cassation\"],\"quote\":\"La Cour de cassation, saisie d'un pourvoi, est compétente pour apprécier si les usages invoqués pour l'emploi d'une appellation d'origine possèdent tous les caractères légaux exigés\",\"article\":\"R431-4\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée, seulement un nom de juridiction ; la question est aussi assez technique pour un chat.\"}"
+}

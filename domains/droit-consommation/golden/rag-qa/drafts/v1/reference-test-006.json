@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-006",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2060,
+    "output_tokens": 185
+  },
+  "output": {
+    "question": "Selon l'article L. 341-1, de quel droit le prêteur est-il déchu s'il omet l'information précontractuelle ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "droit aux intérêts",
+          "déchéance du droit aux intérêts"
+        ],
+        "quote": "est déchu du droit aux intérêts",
+        "article": "L341-1"
+      }
+    ],
+    "doubt": "La valeur attendue est un droit (déchéance des intérêts) plutôt qu'un chiffre, mais l'article ne contient pas de durée ni de montant."
+  },
+  "raw_text": "{\"question\":\"Selon l'article L. 341-1, de quel droit le prêteur est-il déchu s'il omet l'information précontractuelle ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"droit aux intérêts\",\"déchéance du droit aux intérêts\"],\"quote\":\"est déchu du droit aux intérêts\",\"article\":\"L341-1\"}],\"doubt\":\"La valeur attendue est un droit (déchéance des intérêts) plutôt qu'un chiffre, mais l'article ne contient pas de durée ni de montant.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-041",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1828,
+    "output_tokens": 213
+  },
+  "output": {
+    "question": "Quelle amende pour violation des interdictions du deuxième alinéa de l'article L. 643-1 du code rural ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "une peine d'emprisonnement de deux ans et d'une amende de 300 000 euros",
+        "article": "L453-3"
+      }
+    ],
+    "doubt": "L'article contient des valeurs précises mais la question dépend d'un renvoi au code rural et de la pêche maritime ; la question doit citer un numéro d'article d'un autre code, ce qui est peu naturel, d'où usable=false."
+  },
+  "raw_text": "{\"question\":\"Quelle amende pour violation des interdictions du deuxième alinéa de l'article L. 643-1 du code rural ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"une peine d'emprisonnement de deux ans et d'une amende de 300 000 euros\",\"article\":\"L453-3\"}],\"doubt\":\"L'article contient des valeurs précises mais la question dépend d'un renvoi au code rural et de la pêche maritime ; la question doit citer un numéro d'article d'un autre code, ce qui est peu naturel, d'où usable=false.\"}"
+}

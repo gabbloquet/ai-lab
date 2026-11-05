@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-044",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:01:04+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2115,
+    "output_tokens": 218
+  },
+  "output": {
+    "question": "Surendettement : combien coûte la publication d'un appel aux créanciers ordonnée par le juge ?",
+    "why_unanswerable": "L'article prévoit seulement que le juge peut faire publier un appel aux créanciers avant de statuer. Il ne fixe ni le coût de cette publication, ni le support de publication, ni la personne qui en supporte les frais, et le Code de la consommation ne contient pas ces précisions.",
+    "doubt": "Un autre article du livre VII pourrait traiter des frais de publicité de la procédure, ce qui reste peu probable pour un appel aux créanciers ordonné par le juge."
+  },
+  "raw_text": "{\"question\":\"Surendettement : combien coûte la publication d'un appel aux créanciers ordonnée par le juge ?\",\"why_unanswerable\":\"L'article prévoit seulement que le juge peut faire publier un appel aux créanciers avant de statuer. Il ne fixe ni le coût de cette publication, ni le support de publication, ni la personne qui en supporte les frais, et le Code de la consommation ne contient pas ces précisions.\",\"doubt\":\"Un autre article du livre VII pourrait traiter des frais de publicité de la procédure, ce qui reste peu probable pour un appel aux créanciers ordonné par le juge.\"}"
+}

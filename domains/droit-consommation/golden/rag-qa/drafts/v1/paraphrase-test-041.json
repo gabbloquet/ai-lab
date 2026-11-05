@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-041",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2017,
+    "output_tokens": 220
+  },
+  "output": {
+    "question": "Depuis mon portable, je compose un service d'annuaire téléphonique : quel tarif d'appel l'opérateur peut-il me facturer en plus du prix du service ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "celui d'une communication nationale",
+          "communication nationale",
+          "tarif d'une communication nationale"
+        ],
+        "quote": "aucun tarif de communication spécifique autre que celui d'une communication nationale ne peut être appliqué",
+        "article": "L224-57"
+      }
+    ],
+    "doubt": "La réponse est une notion (tarif de communication nationale) plutôt qu'un chiffre précis ; l'article ne contient pas de montant."
+  },
+  "raw_text": "{\"question\":\"Depuis mon portable, je compose un service d'annuaire téléphonique : quel tarif d'appel l'opérateur peut-il me facturer en plus du prix du service ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"celui d'une communication nationale\",\"communication nationale\",\"tarif d'une communication nationale\"],\"quote\":\"aucun tarif de communication spécifique autre que celui d'une communication nationale ne peut être appliqué\",\"article\":\"L224-57\"}],\"doubt\":\"La réponse est une notion (tarif de communication nationale) plutôt qu'un chiffre précis ; l'article ne contient pas de montant.\"}"
+}

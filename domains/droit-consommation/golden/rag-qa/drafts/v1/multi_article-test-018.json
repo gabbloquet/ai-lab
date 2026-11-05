@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-018",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2442,
+    "output_tokens": 302
+  },
+  "output": {
+    "question": "Réparation d'équipement médical : quelle amende maximale si le pro ne propose pas de pièces d'économie circulaire, et quelles pièces doit-il proposer ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "3 000 €",
+          "3 000 euros",
+          "3000 euros"
+        ],
+        "quote": "ne peut excéder 3 000 € pour une personne physique et 15 000 € pour une personne morale",
+        "article": "L242-48"
+      },
+      {
+        "accepted": [
+          "pièces issues de l'économie circulaire",
+          "pièces issues de l’économie circulaire"
+        ],
+        "quote": "de pièces issues de l'économie circulaire à la place des pièces neuves",
+        "article": "L224-111"
+      }
+    ],
+    "doubt": "La question ne précise pas personne physique ou morale (3 000 € ou 15 000 €) ; la formulation est un peu longue et le second fait est qualitatif, pas un chiffre."
+  },
+  "raw_text": "{\"question\":\"Réparation d'équipement médical : quelle amende maximale si le pro ne propose pas de pièces d'économie circulaire, et quelles pièces doit-il proposer ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"3 000 €\",\"3 000 euros\",\"3000 euros\"],\"quote\":\"ne peut excéder 3 000 € pour une personne physique et 15 000 € pour une personne morale\",\"article\":\"L242-48\"},{\"accepted\":[\"pièces issues de l'économie circulaire\",\"pièces issues de l’économie circulaire\"],\"quote\":\"de pièces issues de l'économie circulaire à la place des pièces neuves\",\"article\":\"L224-111\"}],\"doubt\":\"La question ne précise pas personne physique ou morale (3 000 € ou 15 000 €) ; la formulation est un peu longue et le second fait est qualitatif, pas un chiffre.\"}"
+}

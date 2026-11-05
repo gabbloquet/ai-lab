@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-031",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:24:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2025,
+    "output_tokens": 213
+  },
+  "output": {
+    "question": "Action de groupe : je n'ai pas rejoint le groupe à temps, qui fixe la date limite pour le faire ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "le juge"
+        ],
+        "quote": "dans le délai fixé par le juge en application de l'article L. 623-8",
+        "article": "R623-19"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil) : il pose seulement la forclusion des consommateurs n'ayant pas adhéré dans le délai fixé par le juge ; la réponse « le juge » est trop générale pour une évaluation fiable."
+  },
+  "raw_text": "{\"question\":\"Action de groupe : je n'ai pas rejoint le groupe à temps, qui fixe la date limite pour le faire ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"le juge\"],\"quote\":\"dans le délai fixé par le juge en application de l'article L. 623-8\",\"article\":\"R623-19\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil) : il pose seulement la forclusion des consommateurs n'ayant pas adhéré dans le délai fixé par le juge ; la réponse « le juge » est trop générale pour une évaluation fiable.\"}"
+}

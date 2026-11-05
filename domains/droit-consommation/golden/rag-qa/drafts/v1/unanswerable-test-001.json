@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-001",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2028,
+    "output_tokens": 272
+  },
+  "output": {
+    "question": "Combien d'avis un site peut-il afficher au maximum sur une même page de résultats ?",
+    "why_unanswerable": "L'article D111-10 énumère les informations à afficher près des avis et dans une rubrique dédiée (contrôle, dates, critères de classement, contreparties, délai de publication et de conservation). Il ne fixe aucun nombre maximal d'avis par page, et le Code de la consommation ne contient pas non plus de règle sur ce point. De même, la valeur du délai maximum de publication et de conservation n'est pas chiffrée dans l'article.",
+    "doubt": "Un lecteur pourrait chercher le délai de conservation des avis ailleurs dans le code, mais la question porte sur le nombre d'avis par page, qui n'est fixé nulle part."
+  },
+  "raw_text": "{\"question\":\"Combien d'avis un site peut-il afficher au maximum sur une même page de résultats ?\",\"why_unanswerable\":\"L'article D111-10 énumère les informations à afficher près des avis et dans une rubrique dédiée (contrôle, dates, critères de classement, contreparties, délai de publication et de conservation). Il ne fixe aucun nombre maximal d'avis par page, et le Code de la consommation ne contient pas non plus de règle sur ce point. De même, la valeur du délai maximum de publication et de conservation n'est pas chiffrée dans l'article.\",\"doubt\":\"Un lecteur pourrait chercher le délai de conservation des avis ailleurs dans le code, mais la question porte sur le nombre d'avis par page, qui n'est fixé nulle part.\"}"
+}

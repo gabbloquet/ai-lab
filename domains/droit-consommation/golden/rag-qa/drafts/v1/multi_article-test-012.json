@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-012",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3067,
+    "output_tokens": 281
+  },
+  "output": {
+    "question": "Crédit conso impayé : sous quel délai agir en justice, et quel report maximal la commission de surendettement peut-elle imposer ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "doivent être formées dans les deux ans de l'événement qui leur a donné naissance à peine de forclusion",
+        "article": "R312-35"
+      },
+      {
+        "accepted": [
+          "sept ans",
+          "7 ans"
+        ],
+        "quote": "sans que le délai de report ou de rééchelonnement puisse excéder sept ans ou la moitié de la durée de remboursement restant à courir des emprunts en cours",
+        "article": "L733-1"
+      }
+    ],
+    "doubt": "Le report maximal de sept ans est alternatif à la moitié de la durée de remboursement restant à courir ; la question ne précise pas ce cas."
+  },
+  "raw_text": "{\"question\":\"Crédit conso impayé : sous quel délai agir en justice, et quel report maximal la commission de surendettement peut-elle imposer ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"doivent être formées dans les deux ans de l'événement qui leur a donné naissance à peine de forclusion\",\"article\":\"R312-35\"},{\"accepted\":[\"sept ans\",\"7 ans\"],\"quote\":\"sans que le délai de report ou de rééchelonnement puisse excéder sept ans ou la moitié de la durée de remboursement restant à courir des emprunts en cours\",\"article\":\"L733-1\"}],\"doubt\":\"Le report maximal de sept ans est alternatif à la moitié de la durée de remboursement restant à courir ; la question ne précise pas ce cas.\"}"
+}

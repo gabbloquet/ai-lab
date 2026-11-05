@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-028",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2427,
+    "output_tokens": 311
+  },
+  "output": {
+    "question": "Surendettement : par rapport à quel barème calcule-t-on la part de ressources à rembourser, et quelle quotité sert de référence ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "barème prévu à l'article R. 3252-2 du code du travail",
+          "R. 3252-2 du code du travail",
+          "R3252-2"
+        ],
+        "quote": "par référence au barème prévu à l'article R. 3252-2 du code du travail",
+        "article": "R731-1"
+      },
+      {
+        "accepted": [
+          "quotité saisissable du salaire",
+          "quotité saisissable"
+        ],
+        "quote": "par référence à la quotité saisissable du salaire telle qu'elle résulte des articles L. 3252-2 et L. 3252-3 du code du travail",
+        "article": "L731-1"
+      }
+    ],
+    "doubt": "Les deux articles renvoient au Code du travail et la question est un peu technique ; la réponse attendue est un barème et une notion, pas un chiffre."
+  },
+  "raw_text": "{\"question\":\"Surendettement : par rapport à quel barème calcule-t-on la part de ressources à rembourser, et quelle quotité sert de référence ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"barème prévu à l'article R. 3252-2 du code du travail\",\"R. 3252-2 du code du travail\",\"R3252-2\"],\"quote\":\"par référence au barème prévu à l'article R. 3252-2 du code du travail\",\"article\":\"R731-1\"},{\"accepted\":[\"quotité saisissable du salaire\",\"quotité saisissable\"],\"quote\":\"par référence à la quotité saisissable du salaire telle qu'elle résulte des articles L. 3252-2 et L. 3252-3 du code du travail\",\"article\":\"L731-1\"}],\"doubt\":\"Les deux articles renvoient au Code du travail et la question est un peu technique ; la réponse attendue est un barème et une notion, pas un chiffre.\"}"
+}

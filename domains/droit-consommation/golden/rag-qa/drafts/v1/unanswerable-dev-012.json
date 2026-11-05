@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-012",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2308,
+    "output_tokens": 231
+  },
+  "output": {
+    "question": "Quelle rémunération perçoit le membre d'une commission de surendettement qui représente le domaine juridique ?",
+    "why_unanswerable": "L'article R712-6 fixe la durée du mandat (deux ans renouvelable), les conditions d'expérience et les modalités de nomination et de fin de mandat, mais il ne dit rien de la rémunération ou de l'indemnisation des membres de la commission. Aucun montant n'y figure.",
+    "doubt": "Un autre article de la partie réglementaire pourrait traiter de l'indemnisation ou du défraiement des membres, ce qui n'est pas exclu, mais je n'en ai pas connaissance."
+  },
+  "raw_text": "{\"question\":\"Quelle rémunération perçoit le membre d'une commission de surendettement qui représente le domaine juridique ?\",\"why_unanswerable\":\"L'article R712-6 fixe la durée du mandat (deux ans renouvelable), les conditions d'expérience et les modalités de nomination et de fin de mandat, mais il ne dit rien de la rémunération ou de l'indemnisation des membres de la commission. Aucun montant n'y figure.\",\"doubt\":\"Un autre article de la partie réglementaire pourrait traiter de l'indemnisation ou du défraiement des membres, ce qui n'est pas exclu, mais je n'en ai pas connaissance.\"}"
+}

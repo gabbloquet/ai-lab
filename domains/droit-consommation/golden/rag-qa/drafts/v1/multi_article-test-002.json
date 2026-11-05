@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-002",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2480,
+    "output_tokens": 261
+  },
+  "output": {
+    "question": "Surendettement : qui peut prononcer ma déchéance, et sous quel délai puis-je contester la décision de la commission ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "le juge des contentieux de la protection",
+          "juge des contentieux de la protection"
+        ],
+        "quote": "ou par le juge des contentieux de la protection à l'occasion des recours exercés devant lui",
+        "article": "L712-3"
+      },
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "dans un délai de quinze jours à compter de sa notification",
+        "article": "R712-14"
+      }
+    ],
+    "doubt": "La question admet aussi la commission comme auteur de la déchéance ; le fait attendu (juge) est un complément, la commission pourrait être citée seule dans une réponse correcte."
+  },
+  "raw_text": "{\"question\":\"Surendettement : qui peut prononcer ma déchéance, et sous quel délai puis-je contester la décision de la commission ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"le juge des contentieux de la protection\",\"juge des contentieux de la protection\"],\"quote\":\"ou par le juge des contentieux de la protection à l'occasion des recours exercés devant lui\",\"article\":\"L712-3\"},{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"dans un délai de quinze jours à compter de sa notification\",\"article\":\"R712-14\"}],\"doubt\":\"La question admet aussi la commission comme auteur de la déchéance ; le fait attendu (juge) est un complément, la commission pourrait être citée seule dans une réponse correcte.\"}"
+}

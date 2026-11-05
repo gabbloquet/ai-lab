@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-019",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2232,
+    "output_tokens": 221
+  },
+  "output": {
+    "question": "Prêt immobilier en devise étrangère : quel patrimoine minimum dans cette devise, en % de l'emprunt, pour avoir l'offre ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "20 %",
+          "20%",
+          "vingt pour cent"
+        ],
+        "quote": "un patrimoine, financier ou immobilier, dans cette même devise, au moins égal à 20 % de l'emprunt considéré",
+        "article": "R313-31"
+      }
+    ],
+    "doubt": "L'offre est aussi possible si l'emprunteur perçoit plus de la moitié de ses revenus dans la devise ; la question cible seulement le critère du patrimoine."
+  },
+  "raw_text": "{\"question\":\"Prêt immobilier en devise étrangère : quel patrimoine minimum dans cette devise, en % de l'emprunt, pour avoir l'offre ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"20 %\",\"20%\",\"vingt pour cent\"],\"quote\":\"un patrimoine, financier ou immobilier, dans cette même devise, au moins égal à 20 % de l'emprunt considéré\",\"article\":\"R313-31\"}],\"doubt\":\"L'offre est aussi possible si l'emprunteur perçoit plus de la moitié de ses revenus dans la devise ; la question cible seulement le critère du patrimoine.\"}"
+}

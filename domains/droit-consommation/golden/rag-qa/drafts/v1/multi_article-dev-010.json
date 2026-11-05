@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-010",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2745,
+    "output_tokens": 280
+  },
+  "output": {
+    "question": "Mises à jour d'un bien connecté : quelle durée minimale d'obligation du vendeur si fourniture continue, et amende max pour une personne morale ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "Durant une période de deux ans à compter du moment où les biens comportant des éléments numériques ont été délivrés",
+        "article": "L217-19"
+      },
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €"
+        ],
+        "quote": "3 000 euros pour une personne physique et 15 000 euros pour une personne morale",
+        "article": "L241-12"
+      }
+    ],
+    "doubt": "La durée de deux ans vaut pour une fourniture continue de durée inférieure ou égale à deux ans ; au-delà, c'est la durée du contrat, ce que la question ne précise pas."
+  },
+  "raw_text": "{\"question\":\"Mises à jour d'un bien connecté : quelle durée minimale d'obligation du vendeur si fourniture continue, et amende max pour une personne morale ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"Durant une période de deux ans à compter du moment où les biens comportant des éléments numériques ont été délivrés\",\"article\":\"L217-19\"},{\"accepted\":[\"15 000 euros\",\"15 000 €\"],\"quote\":\"3 000 euros pour une personne physique et 15 000 euros pour une personne morale\",\"article\":\"L241-12\"}],\"doubt\":\"La durée de deux ans vaut pour une fourniture continue de durée inférieure ou égale à deux ans ; au-delà, c'est la durée du contrat, ce que la question ne précise pas.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-041",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:01:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2525,
+    "output_tokens": 298
+  },
+  "output": {
+    "question": "Mon fournisseur d'électricité doit-il me donner l'accès à mes données de consommation sur plus de dix ans ?",
+    "why_unanswerable": "L'article fixe seulement un minimum de trois ans d'historique, ou la durée écoulée depuis le début du contrat si elle est inférieure. Aucune disposition du Code de la consommation ne prévoit un historique de plus de dix ans ni n'indique une durée maximale de conservation des données accessibles.",
+    "doubt": "La question est formulée sous forme oui/non, ce qui est inhabituel pour ce mode. Elle pourrait aussi se lire comme demandant la durée minimale (trois ans), à laquelle l'article répond. Une reformulation en « Quelle durée maximale d'historique de consommation le fournisseur conserve-t-il en ligne ? » serait plus sûre."
+  },
+  "raw_text": "{\"question\":\"Mon fournisseur d'électricité doit-il me donner l'accès à mes données de consommation sur plus de dix ans ?\",\"why_unanswerable\":\"L'article fixe seulement un minimum de trois ans d'historique, ou la durée écoulée depuis le début du contrat si elle est inférieure. Aucune disposition du Code de la consommation ne prévoit un historique de plus de dix ans ni n'indique une durée maximale de conservation des données accessibles.\",\"doubt\":\"La question est formulée sous forme oui/non, ce qui est inhabituel pour ce mode. Elle pourrait aussi se lire comme demandant la durée minimale (trois ans), à laquelle l'article répond. Une reformulation en « Quelle durée maximale d'historique de consommation le fournisseur conserve-t-il en ligne ? » serait plus sûre.\"}"
+}

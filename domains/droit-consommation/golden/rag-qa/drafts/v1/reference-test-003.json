@@ -1,0 +1,41 @@
+{
+  "task": "reference-test-003",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2208,
+    "output_tokens": 291
+  },
+  "output": {
+    "question": "Quelle peine d'emprisonnement et quelle amende prévoit l'article L. 341-61 pour le démarchage en vue d'un prêt viager hypothécaire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans d'emprisonnement",
+          "5 ans d'emprisonnement",
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "est puni d'une peine de cinq ans d'emprisonnement et d'une amende de 375 000 euros",
+        "article": "L341-61"
+      },
+      {
+        "accepted": [
+          "375 000 euros",
+          "375 000 €",
+          "375000 euros"
+        ],
+        "quote": "est puni d'une peine de cinq ans d'emprisonnement et d'une amende de 375 000 euros",
+        "article": "L341-61"
+      }
+    ],
+    "doubt": "La question fait 18 mots environ, ce qui dépasse la limite de 15 mots."
+  },
+  "raw_text": "{\"question\":\"Quelle peine d'emprisonnement et quelle amende prévoit l'article L. 341-61 pour le démarchage en vue d'un prêt viager hypothécaire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans d'emprisonnement\",\"5 ans d'emprisonnement\",\"cinq ans\",\"5 ans\"],\"quote\":\"est puni d'une peine de cinq ans d'emprisonnement et d'une amende de 375 000 euros\",\"article\":\"L341-61\"},{\"accepted\":[\"375 000 euros\",\"375 000 €\",\"375000 euros\"],\"quote\":\"est puni d'une peine de cinq ans d'emprisonnement et d'une amende de 375 000 euros\",\"article\":\"L341-61\"}],\"doubt\":\"La question fait 18 mots environ, ce qui dépasse la limite de 15 mots.\"}"
+}

@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-039",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:59:03+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2581,
+    "output_tokens": 195
+  },
+  "output": {
+    "question": "Selon l'article L. 111-1, vers quel type de médiateur le professionnel doit-il informer le consommateur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "médiateur de la consommation"
+        ],
+        "quote": "La possibilité de recourir à un médiateur de la consommation dans les conditions prévues au titre Ier du livre VI.",
+        "article": "L111-1"
+      }
+    ],
+    "doubt": "L'article contient peu de valeurs chiffrées ; la valeur retenue est un type de médiateur, et la question reste assez proche d'une réponse évidente."
+  },
+  "raw_text": "{\"question\":\"Selon l'article L. 111-1, vers quel type de médiateur le professionnel doit-il informer le consommateur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"médiateur de la consommation\"],\"quote\":\"La possibilité de recourir à un médiateur de la consommation dans les conditions prévues au titre Ier du livre VI.\",\"article\":\"L111-1\"}],\"doubt\":\"L'article contient peu de valeurs chiffrées ; la valeur retenue est un type de médiateur, et la question reste assez proche d'une réponse évidente.\"}"
+}

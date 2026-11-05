@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-034",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:59:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2037,
+    "output_tokens": 206
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 313-6 du code de la consommation comme texte pour fixer la liste des informations générales ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "décret en Conseil d'Etat",
+          "décret en Conseil d'État"
+        ],
+        "quote": "Un décret en Conseil d'Etat détermine la liste et le contenu de ces informations générales.",
+        "article": "L313-6"
+      }
+    ],
+    "doubt": "L'article contient peu de valeurs précises : la seule réponse est le type de décret (décret en Conseil d'Etat), et la question dépasse légèrement 15 mots."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 313-6 du code de la consommation comme texte pour fixer la liste des informations générales ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"décret en Conseil d'Etat\",\"décret en Conseil d'État\"],\"quote\":\"Un décret en Conseil d'Etat détermine la liste et le contenu de ces informations générales.\",\"article\":\"L313-6\"}],\"doubt\":\"L'article contient peu de valeurs précises : la seule réponse est le type de décret (décret en Conseil d'Etat), et la question dépasse légèrement 15 mots.\"}"
+}

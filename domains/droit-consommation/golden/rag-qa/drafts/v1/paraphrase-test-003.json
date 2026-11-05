@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-test-003",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2119,
+    "output_tokens": 125
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "Article d'adaptation outre-mer qui se contente de remplacer des mots par d'autres (Saint-Barthélemy et Saint-Pierre-et-Miquelon) ; personne ne poserait raisonnablement de question dessus et il ne contient pas de valeur utile à interroger."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"Article d'adaptation outre-mer qui se contente de remplacer des mots par d'autres (Saint-Barthélemy et Saint-Pierre-et-Miquelon) ; personne ne poserait raisonnablement de question dessus et il ne contient pas de valeur utile à interroger.\"}"
+}

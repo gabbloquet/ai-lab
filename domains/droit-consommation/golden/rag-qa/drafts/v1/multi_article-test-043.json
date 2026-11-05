@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-043",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:08+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2739,
+    "output_tokens": 291
+  },
+  "output": {
+    "question": "Pratique commerciale agressive suivie d'un contrat : quelle peine de prison, et combien d'éléments sont listés pour caractériser le harcèlement ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "la peine d'emprisonnement prévue à l'article L. 132-11 est portée à trois ans",
+        "article": "L132-11-1"
+      },
+      {
+        "accepted": [
+          "cinq",
+          "5"
+        ],
+        "quote": "5° Toute menace d'action alors que cette action n'est pas légalement possible.",
+        "article": "L121-6"
+      }
+    ],
+    "doubt": "L'article B ne contient pas de valeur précise utile : le nombre d'éléments (cinq) est seulement déduit de la numérotation de la liste, et la question est artificielle et peu plausible dans un chat ; je la déclare donc inutilisable."
+  },
+  "raw_text": "{\"question\":\"Pratique commerciale agressive suivie d'un contrat : quelle peine de prison, et combien d'éléments sont listés pour caractériser le harcèlement ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"la peine d'emprisonnement prévue à l'article L. 132-11 est portée à trois ans\",\"article\":\"L132-11-1\"},{\"accepted\":[\"cinq\",\"5\"],\"quote\":\"5° Toute menace d'action alors que cette action n'est pas légalement possible.\",\"article\":\"L121-6\"}],\"doubt\":\"L'article B ne contient pas de valeur précise utile : le nombre d'éléments (cinq) est seulement déduit de la numérotation de la liste, et la question est artificielle et peu plausible dans un chat ; je la déclare donc inutilisable.\"}"
+}

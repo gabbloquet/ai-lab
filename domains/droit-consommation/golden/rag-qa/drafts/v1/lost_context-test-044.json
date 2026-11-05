@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-044",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2032,
+    "output_tokens": 190
+  },
+  "output": {
+    "question": "Crédit à la consommation : à partir de quel montant total du crédit les règles s'appliquent-elles ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "200 euros",
+          "200 €"
+        ],
+        "quote": "dès lors que le montant total du crédit est égal ou supérieur à 200 euros et inférieur ou égal à 75 000 euros",
+        "article": "L312-1"
+      }
+    ],
+    "doubt": "L'article donne aussi un plafond de 75 000 euros ; la question ne vise que le seuil minimal pour n'avoir qu'un fait."
+  },
+  "raw_text": "{\"question\":\"Crédit à la consommation : à partir de quel montant total du crédit les règles s'appliquent-elles ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"200 euros\",\"200 €\"],\"quote\":\"dès lors que le montant total du crédit est égal ou supérieur à 200 euros et inférieur ou égal à 75 000 euros\",\"article\":\"L312-1\"}],\"doubt\":\"L'article donne aussi un plafond de 75 000 euros ; la question ne vise que le seuil minimal pour n'avoir qu'un fait.\"}"
+}

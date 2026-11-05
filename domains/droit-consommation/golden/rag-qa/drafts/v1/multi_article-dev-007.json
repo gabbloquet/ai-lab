@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-007",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3234,
+    "output_tokens": 314
+  },
+  "output": {
+    "question": "Surendettement : si le rétablissement personnel est imposé, quelle durée du protocole de cohésion sociale, et qui saisit le juge pour la liquidation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "la durée du protocole est portée à trois ans à partir de la date de la décision imposant les mesures d'effacement",
+        "article": "L722-16"
+      },
+      {
+        "accepted": [
+          "la commission",
+          "commission de surendettement"
+        ],
+        "quote": "Soit saisir, si elle constate que le débiteur n'est pas dans la situation mentionnée au 1°, avec l'accord du débiteur, le juge des contentieux de la protection",
+        "article": "L724-1"
+      }
+    ],
+    "doubt": "La question est un peu longue (plus de 20 mots) et le second fait (la commission) est un organisme déduit du sujet « elle » dans le texte, pas nommé dans la phrase citée."
+  },
+  "raw_text": "{\"question\":\"Surendettement : si le rétablissement personnel est imposé, quelle durée du protocole de cohésion sociale, et qui saisit le juge pour la liquidation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"la durée du protocole est portée à trois ans à partir de la date de la décision imposant les mesures d'effacement\",\"article\":\"L722-16\"},{\"accepted\":[\"la commission\",\"commission de surendettement\"],\"quote\":\"Soit saisir, si elle constate que le débiteur n'est pas dans la situation mentionnée au 1°, avec l'accord du débiteur, le juge des contentieux de la protection\",\"article\":\"L724-1\"}],\"doubt\":\"La question est un peu longue (plus de 20 mots) et le second fait (la commission) est un organisme déduit du sujet « elle » dans le texte, pas nommé dans la phrase citée.\"}"
+}

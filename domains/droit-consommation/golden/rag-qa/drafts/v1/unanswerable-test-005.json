@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-005",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1966,
+    "output_tokens": 263
+  },
+  "output": {
+    "question": "Crédit immobilier : quel est le montant de l'amende administrative si le prêteur est une banque mutualiste plutôt qu'une société ordinaire ?",
+    "why_unanswerable": "L'article fixe seulement deux plafonds d'amende, 3 000 euros pour une personne physique et 15 000 euros pour une personne morale. Il ne prévoit aucun montant ni aucun régime particulier selon le statut mutualiste ou coopératif du prêteur, et le code ne donne pas non plus de barème différencié à ce titre.",
+    "doubt": "Une banque mutualiste est une personne morale, donc le plafond de 15 000 euros pourrait être déduit. La question suppose cependant un régime spécifique que le code ne prévoit pas."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : quel est le montant de l'amende administrative si le prêteur est une banque mutualiste plutôt qu'une société ordinaire ?\",\"why_unanswerable\":\"L'article fixe seulement deux plafonds d'amende, 3 000 euros pour une personne physique et 15 000 euros pour une personne morale. Il ne prévoit aucun montant ni aucun régime particulier selon le statut mutualiste ou coopératif du prêteur, et le code ne donne pas non plus de barème différencié à ce titre.\",\"doubt\":\"Une banque mutualiste est une personne morale, donc le plafond de 15 000 euros pourrait être déduit. La question suppose cependant un régime spécifique que le code ne prévoit pas.\"}"
+}

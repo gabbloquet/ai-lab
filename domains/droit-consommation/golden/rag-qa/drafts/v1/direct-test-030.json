@@ -1,0 +1,21 @@
+{
+  "task": "direct-test-030",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1885,
+    "output_tokens": 105
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article n'énonce aucune valeur précise (durée, montant, taux, seuil) : il impose seulement une information préalable sur support papier ou durable et renvoie à un décret en Conseil d'Etat pour la liste des informations."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article n'énonce aucune valeur précise (durée, montant, taux, seuil) : il impose seulement une information préalable sur support papier ou durable et renvoie à un décret en Conseil d'Etat pour la liste des informations.\"}"
+}

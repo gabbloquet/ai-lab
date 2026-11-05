@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-022",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3246,
+    "output_tokens": 863
+  },
+  "output": {
+    "question": "Pratique déloyale continue : plafond de l'amende civile, et devant quelle juridiction une association peut-elle agir pour la faire cesser ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €",
+          "300000 euros"
+        ],
+        "quote": "une amende civile dont le montant ne peut excéder 300 000 euros",
+        "article": "L132-1 A"
+      },
+      {
+        "accepted": [
+          "juridiction civile",
+          "la juridiction civile"
+        ],
+        "quote": "peuvent agir devant la juridiction civile pour faire cesser ou interdire tout agissement illicite",
+        "article": "L621-7"
+      }
+    ],
+    "doubt": "Le fait tiré de L621-7 (juridiction civile) est peu précis, et le plafond de 300 000 euros peut être porté à 4 % du chiffre d'affaires ou à deux millions d'euros."
+  },
+  "raw_text": "{\"question\":\"Pratique déloyale continue : plafond de l'amende civile, et devant quelle juridiction une association peut-elle agir pour la faire cesser ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\",\"300000 euros\"],\"quote\":\"une amende civile dont le montant ne peut excéder 300 000 euros\",\"article\":\"L132-1 A\"},{\"accepted\":[\"juridiction civile\",\"la juridiction civile\"],\"quote\":\"peuvent agir devant la juridiction civile pour faire cesser ou interdire tout agissement illicite\",\"article\":\"L621-7\"}],\"doubt\":\"Le fait tiré de L621-7 (juridiction civile) est peu précis, et le plafond de 300 000 euros peut être porté à 4 % du chiffre d'affaires ou à deux millions d'euros.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-036",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:01:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2097,
+    "output_tokens": 253
+  },
+  "output": {
+    "question": "Quel pourcentage minimum de réduction faut-il afficher pour pouvoir annoncer des soldes sur un produit ?",
+    "why_unanswerable": "L'article impose seulement d'indiquer le prix antérieur (le plus bas des trente derniers jours) lors d'une annonce de réduction de prix. Il ne fixe aucun pourcentage minimum de réduction, et le Code de la consommation n'en prévoit pas non plus ailleurs pour annoncer une réduction ou des soldes.",
+    "doubt": "Le mot « soldes » renvoie à d'autres dispositions du code, qui ne fixent toutefois pas de taux minimal de remise ; la question reste proche du thème des annonces de réduction."
+  },
+  "raw_text": "{\"question\":\"Quel pourcentage minimum de réduction faut-il afficher pour pouvoir annoncer des soldes sur un produit ?\",\"why_unanswerable\":\"L'article impose seulement d'indiquer le prix antérieur (le plus bas des trente derniers jours) lors d'une annonce de réduction de prix. Il ne fixe aucun pourcentage minimum de réduction, et le Code de la consommation n'en prévoit pas non plus ailleurs pour annoncer une réduction ou des soldes.\",\"doubt\":\"Le mot « soldes » renvoie à d'autres dispositions du code, qui ne fixent toutefois pas de taux minimal de remise ; la question reste proche du thème des annonces de réduction.\"}"
+}

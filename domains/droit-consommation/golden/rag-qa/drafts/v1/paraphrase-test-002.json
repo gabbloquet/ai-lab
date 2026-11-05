@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-002",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2025,
+    "output_tokens": 183
+  },
+  "output": {
+    "question": "Si un contrevenant ignore la transaction proposée par l'administration, qui est prévenu ensuite ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "le procureur de la République",
+          "procureur de la République",
+          "procureur"
+        ],
+        "quote": "l'autorité administrative en informe sans délai le procureur de la République",
+        "article": "R523-4"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur chiffrée, seulement un destinataire (le procureur de la République) ; la question est donc peu précise sur le plan numérique."
+  },
+  "raw_text": "{\"question\":\"Si un contrevenant ignore la transaction proposée par l'administration, qui est prévenu ensuite ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"le procureur de la République\",\"procureur de la République\",\"procureur\"],\"quote\":\"l'autorité administrative en informe sans délai le procureur de la République\",\"article\":\"R523-4\"}],\"doubt\":\"L'article ne contient aucune valeur chiffrée, seulement un destinataire (le procureur de la République) ; la question est donc peu précise sur le plan numérique.\"}"
+}

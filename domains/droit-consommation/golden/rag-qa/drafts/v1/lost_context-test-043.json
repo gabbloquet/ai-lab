@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-043",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2330,
+    "output_tokens": 224
+  },
+  "output": {
+    "question": "Contrôle des produits avant mise en libre pratique : quel règlement européen définit les mesures ordonnées après contrôle ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "règlement (CE) n° 882/2004",
+          "882/2004"
+        ],
+        "quote": "définies aux articles 19 à 21 du règlement (CE) n° 882/2004 du Parlement européen et du Conseil du 29 avril 2004",
+        "article": "L511-16"
+      }
+    ],
+    "doubt": "Le contexte (mise en libre pratique) est nommé dans la question, mais l'article renvoie aussi à un règlement européen, ce qui rend la valeur un peu technique."
+  },
+  "raw_text": "{\"question\":\"Contrôle des produits avant mise en libre pratique : quel règlement européen définit les mesures ordonnées après contrôle ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"règlement (CE) n° 882/2004\",\"882/2004\"],\"quote\":\"définies aux articles 19 à 21 du règlement (CE) n° 882/2004 du Parlement européen et du Conseil du 29 avril 2004\",\"article\":\"L511-16\"}],\"doubt\":\"Le contexte (mise en libre pratique) est nommé dans la question, mais l'article renvoie aussi à un règlement européen, ce qui rend la valeur un peu technique.\"}"
+}

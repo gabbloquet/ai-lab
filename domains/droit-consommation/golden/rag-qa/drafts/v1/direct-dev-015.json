@@ -1,0 +1,30 @@
+{
+  "task": "direct-dev-015",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2257,
+    "output_tokens": 143
+  },
+  "output": {
+    "question": "Pendant combien de temps l'outil en ligne d'identification des numéros surtaxés doit-il rester consultable après l'achat ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "douze mois",
+          "12 mois"
+        ],
+        "quote": "pendant une période qui ne peut être inférieure à douze mois à compter de la date d'achat du produit ou du service",
+        "article": "L224-43"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Pendant combien de temps l'outil en ligne d'identification des numéros surtaxés doit-il rester consultable après l'achat ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"douze mois\",\"12 mois\"],\"quote\":\"pendant une période qui ne peut être inférieure à douze mois à compter de la date d'achat du produit ou du service\",\"article\":\"L224-43\"}],\"doubt\":\"\"}"
+}

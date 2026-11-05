@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-018",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1962,
+    "output_tokens": 207
+  },
+  "output": {
+    "question": "Quel texte européen encadre le site officiel de l'UE pour régler en ligne mes litiges d'achat ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "règlement (UE) n° 524/2013",
+          "règlement n° 524/2013",
+          "524/2013"
+        ],
+        "quote": "prévue par le règlement (UE) n° 524/2013 du Parlement européen et du Conseil du 21 mai 2013",
+        "article": "L614-2"
+      }
+    ],
+    "doubt": "La valeur attendue est un numéro de règlement européen, pas un chiffre ou une durée ; la question reste unique mais assez technique."
+  },
+  "raw_text": "{\"question\":\"Quel texte européen encadre le site officiel de l'UE pour régler en ligne mes litiges d'achat ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"règlement (UE) n° 524/2013\",\"règlement n° 524/2013\",\"524/2013\"],\"quote\":\"prévue par le règlement (UE) n° 524/2013 du Parlement européen et du Conseil du 21 mai 2013\",\"article\":\"L614-2\"}],\"doubt\":\"La valeur attendue est un numéro de règlement européen, pas un chiffre ou une durée ; la question reste unique mais assez technique.\"}"
+}

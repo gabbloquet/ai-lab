@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-dev-002",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3138,
+    "output_tokens": 636
+  },
+  "output": {
+    "question": "Liquidation d'un immeuble en surendettement : quel juge fixe la mise à prix, et quel délai d'appel ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "juge des contentieux de la protection"
+        ],
+        "quote": "Le juge des contentieux de la protection, à la demande du liquidateur, détermine la mise à prix du bien à vendre",
+        "article": "R742-28"
+      },
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "dans un délai de quinze jours à compter de sa notification",
+        "article": "R742-37"
+      }
+    ],
+    "doubt": "Le délai d'appel ne vaut que pour le jugement d'adjudication qui statue sur une contestation, ce que la question ne précise pas."
+  },
+  "raw_text": "{\"question\":\"Liquidation d'un immeuble en surendettement : quel juge fixe la mise à prix, et quel délai d'appel ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"juge des contentieux de la protection\"],\"quote\":\"Le juge des contentieux de la protection, à la demande du liquidateur, détermine la mise à prix du bien à vendre\",\"article\":\"R742-28\"},{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"dans un délai de quinze jours à compter de sa notification\",\"article\":\"R742-37\"}],\"doubt\":\"Le délai d'appel ne vaut que pour le jugement d'adjudication qui statue sur une contestation, ce que la question ne précise pas.\"}"
+}

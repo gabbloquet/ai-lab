@@ -1,0 +1,30 @@
+{
+  "task": "multi_article-test-030",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3428,
+    "output_tokens": 203
+  },
+  "output": {
+    "question": "Achat à distance : quelles infos le professionnel doit-il donner avant, et quel article du code les prévoit ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 221-5",
+          "L221-5"
+        ],
+        "quote": "les informations prévues à l'article L. 221-5",
+        "article": "L221-11"
+      }
+    ],
+    "doubt": "Les articles ne contiennent aucune valeur précise (durée, montant, seuil) qui permette une question à réponse courte portant sur les deux articles ; A ne fait que renvoyer à B et B énumère des informations générales, sans chiffre propre à A."
+  },
+  "raw_text": "{\"question\":\"Achat à distance : quelles infos le professionnel doit-il donner avant, et quel article du code les prévoit ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 221-5\",\"L221-5\"],\"quote\":\"les informations prévues à l'article L. 221-5\",\"article\":\"L221-11\"}],\"doubt\":\"Les articles ne contiennent aucune valeur précise (durée, montant, seuil) qui permette une question à réponse courte portant sur les deux articles ; A ne fait que renvoyer à B et B énumère des informations générales, sans chiffre propre à A.\"}"
+}

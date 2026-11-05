@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-010",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1958,
+    "output_tokens": 278
+  },
+  "output": {
+    "question": "Quelle amende encourt un fabricant qui vend un nouvel aliment non autorisé dans l'UE ?",
+    "why_unanswerable": "L'article se borne à désigner les articles 1 à 3 et 6 du règlement (UE) 2015/2283 comme mesures d'exécution de l'article L. 412-1. Il ne fixe aucune sanction ni aucun montant d'amende pour la mise sur le marché d'un nouvel aliment non autorisé, et la question ne se rattache à aucune valeur qu'il énonce.",
+    "doubt": "Le Code de la consommation prévoit des sanctions pénales générales pour tromperie ou non-conformité dans d'autres articles, qui pourraient être jugées applicables ; la question n'est donc peut-être pas totalement hors du code."
+  },
+  "raw_text": "{\"question\":\"Quelle amende encourt un fabricant qui vend un nouvel aliment non autorisé dans l'UE ?\",\"why_unanswerable\":\"L'article se borne à désigner les articles 1 à 3 et 6 du règlement (UE) 2015/2283 comme mesures d'exécution de l'article L. 412-1. Il ne fixe aucune sanction ni aucun montant d'amende pour la mise sur le marché d'un nouvel aliment non autorisé, et la question ne se rattache à aucune valeur qu'il énonce.\",\"doubt\":\"Le Code de la consommation prévoit des sanctions pénales générales pour tromperie ou non-conformité dans d'autres articles, qui pourraient être jugées applicables ; la question n'est donc peut-être pas totalement hors du code.\"}"
+}

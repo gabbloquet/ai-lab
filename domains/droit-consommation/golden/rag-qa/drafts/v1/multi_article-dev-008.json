@@ -1,0 +1,21 @@
+{
+  "task": "multi_article-dev-008",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2799,
+    "output_tokens": 142
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "Les articles ne contiennent aucune valeur précise (durée, montant, taux, seuil, date) : A énumère des renvois à d'autres articles et B ne fait qu'énoncer un principe de publication d'informations et renvoyer à un décret. Aucune question à réponse courte vérifiable n'est possible en mode plusieurs articles."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"Les articles ne contiennent aucune valeur précise (durée, montant, taux, seuil, date) : A énumère des renvois à d'autres articles et B ne fait qu'énoncer un principe de publication d'informations et renvoyer à un décret. Aucune question à réponse courte vérifiable n'est possible en mode plusieurs articles.\"}"
+}

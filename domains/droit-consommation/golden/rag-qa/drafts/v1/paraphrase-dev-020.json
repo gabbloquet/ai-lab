@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-dev-020",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2010,
+    "output_tokens": 150
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article L722-8 ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il prévoit seulement que le juge peut suspendre provisoirement les expulsions, avec des exceptions renvoyant à un jugement d'adjudication et au code civil. Il n'y a donc pas de réponse courte à évaluer."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article L722-8 ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il prévoit seulement que le juge peut suspendre provisoirement les expulsions, avec des exceptions renvoyant à un jugement d'adjudication et au code civil. Il n'y a donc pas de réponse courte à évaluer.\"}"
+}

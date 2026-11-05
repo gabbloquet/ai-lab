@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-089",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1956,
+    "output_tokens": 240
+  },
+  "output": {
+    "question": "Je suis artisan et j'emprunte pour mon atelier : le plafond des taux d'usure me concerne-t-il ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 314-6 à L. 314-8"
+        ],
+        "quote": "Les dispositions des articles L. 314-6 à L. 314-8 ne sont pas applicables aux prêts accordés à une personne physique agissant pour ses besoins professionnels",
+        "article": "L314-9"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il énonce seulement un champ d'exclusion et renvoie à d'autres articles ; la question appellerait un oui/non."
+  },
+  "raw_text": "{\"question\":\"Je suis artisan et j'emprunte pour mon atelier : le plafond des taux d'usure me concerne-t-il ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 314-6 à L. 314-8\"],\"quote\":\"Les dispositions des articles L. 314-6 à L. 314-8 ne sont pas applicables aux prêts accordés à une personne physique agissant pour ses besoins professionnels\",\"article\":\"L314-9\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il énonce seulement un champ d'exclusion et renvoie à d'autres articles ; la question appellerait un oui/non.\"}"
+}

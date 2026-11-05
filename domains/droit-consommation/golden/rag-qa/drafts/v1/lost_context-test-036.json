@@ -1,0 +1,32 @@
+{
+  "task": "lost_context-test-036",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2115,
+    "output_tokens": 252
+  },
+  "output": {
+    "question": "Surendettement, dossier déclaré recevable : quelle part des émoluments d'huissier le débiteur paie-t-il pour les procédures d'exécution non suspendues ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "la moitié",
+          "moitié",
+          "50 %",
+          "1/2"
+        ],
+        "quote": "les émoluments supportés par le débiteur sont égaux à la moitié de ceux prévus par les arrêtés mentionnés à l'article R. 444-4 du code de commerce",
+        "article": "R722-11"
+      }
+    ],
+    "doubt": "La question nomme le contexte (surendettement, recevabilité) mais l'article renvoie aussi à un tarif du code de commerce ; la réponse reste la fraction indiquée dans le texte."
+  },
+  "raw_text": "{\"question\":\"Surendettement, dossier déclaré recevable : quelle part des émoluments d'huissier le débiteur paie-t-il pour les procédures d'exécution non suspendues ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"la moitié\",\"moitié\",\"50 %\",\"1/2\"],\"quote\":\"les émoluments supportés par le débiteur sont égaux à la moitié de ceux prévus par les arrêtés mentionnés à l'article R. 444-4 du code de commerce\",\"article\":\"R722-11\"}],\"doubt\":\"La question nomme le contexte (surendettement, recevabilité) mais l'article renvoie aussi à un tarif du code de commerce ; la réponse reste la fraction indiquée dans le texte.\"}"
+}

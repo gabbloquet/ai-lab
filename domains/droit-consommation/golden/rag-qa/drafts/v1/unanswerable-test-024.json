@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-024",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:55+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2133,
+    "output_tokens": 236
+  },
+  "output": {
+    "question": "Prêt viager hypothécaire : quelle amende maximale pour un prêteur condamné pour manquement aux règles de publicité ?",
+    "why_unanswerable": "L'article L341-60 ne traite que des peines complémentaires d'interdiction d'exercer, limitées à cinq ans, et ne fixe aucun montant d'amende. Il ne dit rien non plus d'un manquement précis aux règles de publicité, ni du plafond d'une amende pour ce manquement.",
+    "doubt": "Les articles L341-56 à L341-59 voisins pourraient fixer des amendes pour certains délits, ce qui risquerait de répondre à la question selon le manquement visé."
+  },
+  "raw_text": "{\"question\":\"Prêt viager hypothécaire : quelle amende maximale pour un prêteur condamné pour manquement aux règles de publicité ?\",\"why_unanswerable\":\"L'article L341-60 ne traite que des peines complémentaires d'interdiction d'exercer, limitées à cinq ans, et ne fixe aucun montant d'amende. Il ne dit rien non plus d'un manquement précis aux règles de publicité, ni du plafond d'une amende pour ce manquement.\",\"doubt\":\"Les articles L341-56 à L341-59 voisins pourraient fixer des amendes pour certains délits, ce qui risquerait de répondre à la question selon le manquement visé.\"}"
+}

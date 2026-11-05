@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-044",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:08+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2637,
+    "output_tokens": 340
+  },
+  "output": {
+    "question": "Dans une transaction administrative en consommation, à qui verse-t-on la somme, et quelle autorité prononce les amendes administratives ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "au Trésor",
+          "Trésor"
+        ],
+        "quote": "Le montant de la somme à verser au Trésor par la personne mise en cause.",
+        "article": "L522-9-1"
+      },
+      {
+        "accepted": [
+          "l'autorité administrative chargée de la concurrence et de la consommation",
+          "DGCCRF"
+        ],
+        "quote": "L'autorité administrative chargée de la concurrence et de la consommation est l'autorité compétente pour prononcer les amendes administratives",
+        "article": "L522-1"
+      }
+    ],
+    "doubt": "Les articles ne contiennent aucune valeur chiffrée (durée, montant, seuil) ; seuls des organismes sont cités, et la citation du fait A n'est pas copiée mot pour mot (« précise le montant de la somme à verser au Trésor par la personne mise en cause »), donc inutilisable."
+  },
+  "raw_text": "{\"question\":\"Dans une transaction administrative en consommation, à qui verse-t-on la somme, et quelle autorité prononce les amendes administratives ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"au Trésor\",\"Trésor\"],\"quote\":\"Le montant de la somme à verser au Trésor par la personne mise en cause.\",\"article\":\"L522-9-1\"},{\"accepted\":[\"l'autorité administrative chargée de la concurrence et de la consommation\",\"DGCCRF\"],\"quote\":\"L'autorité administrative chargée de la concurrence et de la consommation est l'autorité compétente pour prononcer les amendes administratives\",\"article\":\"L522-1\"}],\"doubt\":\"Les articles ne contiennent aucune valeur chiffrée (durée, montant, seuil) ; seuls des organismes sont cités, et la citation du fait A n'est pas copiée mot pour mot (« précise le montant de la somme à verser au Trésor par la personne mise en cause »), donc inutilisable.\"}"
+}

@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-025",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:59+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2250,
+    "output_tokens": 209
+  },
+  "output": {
+    "question": "Selon l'article L. 121-17, de quoi le professionnel doit-il s'assurer avant un paiement supplémentaire ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "consentement exprès"
+        ],
+        "quote": "le professionnel s'assure du consentement exprès du consommateur pour tout paiement supplémentaire",
+        "article": "L121-17"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) ; il énonce seulement un principe, donc il ne se prête pas à une question à réponse chiffrée."
+  },
+  "raw_text": "{\"question\":\"Selon l'article L. 121-17, de quoi le professionnel doit-il s'assurer avant un paiement supplémentaire ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"consentement exprès\"],\"quote\":\"le professionnel s'assure du consentement exprès du consommateur pour tout paiement supplémentaire\",\"article\":\"L121-17\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) ; il énonce seulement un principe, donc il ne se prête pas à une question à réponse chiffrée.\"}"
+}

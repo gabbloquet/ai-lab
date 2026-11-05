@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-021",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1953,
+    "output_tokens": 211
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 721-6 du code de la consommation comme valeur précise ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 722-2 à L. 722-5"
+        ],
+        "quote": "selon les mêmes modalités que celles prévues par les dispositions des articles L. 722-2 à L. 722-5",
+        "article": "L721-6"
+      }
+    ],
+    "doubt": "L'article ne fait que renvoyer à d'autres articles (L. 721-4 et L. 722-2 à L. 722-5) sans énoncer de durée, montant ou seuil propre ; il n'est pas exploitable."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 721-6 du code de la consommation comme valeur précise ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 722-2 à L. 722-5\"],\"quote\":\"selon les mêmes modalités que celles prévues par les dispositions des articles L. 722-2 à L. 722-5\",\"article\":\"L721-6\"}],\"doubt\":\"L'article ne fait que renvoyer à d'autres articles (L. 721-4 et L. 722-2 à L. 722-5) sans énoncer de durée, montant ou seuil propre ; il n'est pas exploitable.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-015",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3660,
+    "output_tokens": 259
+  },
+  "output": {
+    "question": "Pour un ordinateur portable, quelle diagonale d'écran minimale et quel délai pour fournir les pièces détachées au réparateur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "22,86 cm",
+          "9 pouces"
+        ],
+        "quote": "d'une diagonale visible d'au moins 22,86 cm (9 pouces)",
+        "article": "R111-4-1"
+      },
+      {
+        "accepted": [
+          "quinze jours ouvrables",
+          "15 jours ouvrables"
+        ],
+        "quote": "dans un délai de quinze jours ouvrables",
+        "article": "L111-4"
+      }
+    ],
+    "doubt": "La question combine deux notions distinctes (définition de l'ordinateur portable et délai de fourniture des pièces) ; le lien repose sur le renvoi de A à B."
+  },
+  "raw_text": "{\"question\":\"Pour un ordinateur portable, quelle diagonale d'écran minimale et quel délai pour fournir les pièces détachées au réparateur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"22,86 cm\",\"9 pouces\"],\"quote\":\"d'une diagonale visible d'au moins 22,86 cm (9 pouces)\",\"article\":\"R111-4-1\"},{\"accepted\":[\"quinze jours ouvrables\",\"15 jours ouvrables\"],\"quote\":\"dans un délai de quinze jours ouvrables\",\"article\":\"L111-4\"}],\"doubt\":\"La question combine deux notions distinctes (définition de l'ordinateur portable et délai de fourniture des pièces) ; le lien repose sur le renvoi de A à B.\"}"
+}

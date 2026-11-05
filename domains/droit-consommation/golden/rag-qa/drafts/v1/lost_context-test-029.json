@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-029",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2188,
+    "output_tokens": 213
+  },
+  "output": {
+    "question": "En cas de litige avec un professionnel, combien coûte pour le consommateur le recours à un médiateur de la consommation ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "gratuitement",
+          "gratuit"
+        ],
+        "quote": "Tout consommateur a le droit de recourir gratuitement à un médiateur de la consommation",
+        "article": "L612-1"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, organisme nommé) : seule la gratuité est énoncée, et aucune expression de contexte perdu comme « le présent chapitre » n'est à résoudre."
+  },
+  "raw_text": "{\"question\":\"En cas de litige avec un professionnel, combien coûte pour le consommateur le recours à un médiateur de la consommation ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"gratuitement\",\"gratuit\"],\"quote\":\"Tout consommateur a le droit de recourir gratuitement à un médiateur de la consommation\",\"article\":\"L612-1\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, organisme nommé) : seule la gratuité est énoncée, et aucune expression de contexte perdu comme « le présent chapitre » n'est à résoudre.\"}"
+}

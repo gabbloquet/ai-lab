@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-018",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2109,
+    "output_tokens": 144
+  },
+  "output": {
+    "question": "Médiateur de la consommation en manquement : de combien de temps dispose-t-il pour se mettre en conformité avec la commission d'évaluation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois mois",
+          "3 mois"
+        ],
+        "quote": "lui demande de se mettre en conformité dans un délai de trois mois à compter de la date de sa décision",
+        "article": "R615-7"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Médiateur de la consommation en manquement : de combien de temps dispose-t-il pour se mettre en conformité avec la commission d'évaluation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois mois\",\"3 mois\"],\"quote\":\"lui demande de se mettre en conformité dans un délai de trois mois à compter de la date de sa décision\",\"article\":\"R615-7\"}],\"doubt\":\"\"}"
+}

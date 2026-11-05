@@ -1,0 +1,31 @@
+{
+  "task": "direct-dev-018",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1899,
+    "output_tokens": 169
+  },
+  "output": {
+    "question": "Action en représentation conjointe : à qui sont adressées les significations et notifications concernant le consommateur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "l'association",
+          "à l'association",
+          "association"
+        ],
+        "quote": "les significations et notifications qui concernent le consommateur sont adressées à l'association",
+        "article": "L622-3"
+      }
+    ],
+    "doubt": "L'article ne contient ni chiffre ni montant ; la valeur précise est le destinataire (l'association), ce qui reste un organisme."
+  },
+  "raw_text": "{\"question\":\"Action en représentation conjointe : à qui sont adressées les significations et notifications concernant le consommateur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"l'association\",\"à l'association\",\"association\"],\"quote\":\"les significations et notifications qui concernent le consommateur sont adressées à l'association\",\"article\":\"L622-3\"}],\"doubt\":\"L'article ne contient ni chiffre ni montant ; la valeur précise est le destinataire (l'association), ce qui reste un organisme.\"}"
+}

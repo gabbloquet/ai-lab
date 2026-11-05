@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-079",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:09+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2196,
+    "output_tokens": 211
+  },
+  "output": {
+    "question": "J'ai commandé sur internet : sur quel type de support le vendeur doit-il m'envoyer la confirmation de ma commande ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "support durable",
+          "sur support durable"
+        ],
+        "quote": "Le professionnel fournit au consommateur, sur support durable, dans un délai raisonnable, après la conclusion du contrat",
+        "article": "L221-13"
+      }
+    ],
+    "doubt": "La valeur attendue est un type de document/support plutôt qu'un chiffre ; l'article ne contient aucune durée ou montant précis, et 'support durable' est un terme proche du texte."
+  },
+  "raw_text": "{\"question\":\"J'ai commandé sur internet : sur quel type de support le vendeur doit-il m'envoyer la confirmation de ma commande ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"support durable\",\"sur support durable\"],\"quote\":\"Le professionnel fournit au consommateur, sur support durable, dans un délai raisonnable, après la conclusion du contrat\",\"article\":\"L221-13\"}],\"doubt\":\"La valeur attendue est un type de document/support plutôt qu'un chiffre ; l'article ne contient aucune durée ou montant précis, et 'support durable' est un terme proche du texte.\"}"
+}

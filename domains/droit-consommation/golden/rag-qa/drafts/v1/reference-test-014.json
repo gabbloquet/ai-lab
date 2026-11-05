@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-014",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:55+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2618,
+    "output_tokens": 225
+  },
+  "output": {
+    "question": "Que dit l'article L. 121-7 sur les pratiques agressives visant les enfants dans la publicité ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "inciter directement les enfants à acheter"
+        ],
+        "quote": "d'inciter directement les enfants à acheter ou à persuader leurs parents ou d'autres adultes de leur acheter le produit faisant l'objet de la publicité",
+        "article": "L121-7"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, date, organisme) : il énumère des pratiques réputées agressives, donc la réponse serait une description et non une valeur courte."
+  },
+  "raw_text": "{\"question\":\"Que dit l'article L. 121-7 sur les pratiques agressives visant les enfants dans la publicité ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"inciter directement les enfants à acheter\"],\"quote\":\"d'inciter directement les enfants à acheter ou à persuader leurs parents ou d'autres adultes de leur acheter le produit faisant l'objet de la publicité\",\"article\":\"L121-7\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, date, organisme) : il énumère des pratiques réputées agressives, donc la réponse serait une description et non une valeur courte.\"}"
+}

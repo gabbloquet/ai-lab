@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-011",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2361,
+    "output_tokens": 123
+  },
+  "output": {
+    "question": "Combien de fois par an le conseil d'administration de l'INC doit-il se réunir au minimum ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois fois par an",
+          "trois fois",
+          "3 fois"
+        ],
+        "quote": "Le conseil d'administration se réunit au moins trois fois par an",
+        "article": "R822-7"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Combien de fois par an le conseil d'administration de l'INC doit-il se réunir au minimum ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois fois par an\",\"trois fois\",\"3 fois\"],\"quote\":\"Le conseil d'administration se réunit au moins trois fois par an\",\"article\":\"R822-7\"}],\"doubt\":\"\"}"
+}

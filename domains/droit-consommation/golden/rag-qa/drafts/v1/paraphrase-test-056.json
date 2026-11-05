@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-test-056",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:35+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1977,
+    "output_tokens": 138
+  },
+  "output": {
+    "question": "Une boîte me propose, contre paiement, de monter mon dossier de surendettement à ma place : c'est permis ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article L322-1 ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il énonce seulement une interdiction, et toute question porterait sur un oui/non."
+  },
+  "raw_text": "{\"question\":\"Une boîte me propose, contre paiement, de monter mon dossier de surendettement à ma place : c'est permis ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article L322-1 ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il énonce seulement une interdiction, et toute question porterait sur un oui/non.\"}"
+}

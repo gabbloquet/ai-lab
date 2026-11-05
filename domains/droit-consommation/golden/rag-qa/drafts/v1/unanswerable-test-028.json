@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-028",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2971,
+    "output_tokens": 243
+  },
+  "output": {
+    "question": "Quelle amende risque un comparateur en ligne qui n'explique pas son classement des offres ?",
+    "why_unanswerable": "L'article énonce les mentions que doit afficher un comparateur en ligne (rubrique de fonctionnement, critères de classement, mention « Annonces ») mais ne prévoit aucune sanction ni montant d'amende en cas de manquement. Il ne fixe donc aucune valeur répondant à la question.",
+    "doubt": "Le Code de la consommation prévoit peut-être des sanctions générales pour manquement à l'information précontractuelle dans d'autres articles (par exemple L131-1 ou L132-?), qui pourraient s'appliquer indirectement."
+  },
+  "raw_text": "{\"question\":\"Quelle amende risque un comparateur en ligne qui n'explique pas son classement des offres ?\",\"why_unanswerable\":\"L'article énonce les mentions que doit afficher un comparateur en ligne (rubrique de fonctionnement, critères de classement, mention « Annonces ») mais ne prévoit aucune sanction ni montant d'amende en cas de manquement. Il ne fixe donc aucune valeur répondant à la question.\",\"doubt\":\"Le Code de la consommation prévoit peut-être des sanctions générales pour manquement à l'information précontractuelle dans d'autres articles (par exemple L131-1 ou L132-?), qui pourraient s'appliquer indirectement.\"}"
+}

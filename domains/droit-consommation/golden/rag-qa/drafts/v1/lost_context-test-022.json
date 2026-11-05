@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-022",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2196,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Quel règlement européen encadre la coopération entre autorités nationales de protection des consommateurs pour les demandes d'assistance mutuelle ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "règlement (UE) 2017/2394",
+          "2017/2394"
+        ],
+        "quote": "le règlement (UE) 2017/2394 du Parlement européen et du Conseil du 12 décembre 2017",
+        "article": "L511-10"
+      }
+    ],
+    "doubt": "L'article ne contient pas d'expression de contexte perdu très nette en dehors de « présent livre », et la question ne nomme donc pas ce contexte ; la réponse se lit toutefois directement dans le texte."
+  },
+  "raw_text": "{\"question\":\"Quel règlement européen encadre la coopération entre autorités nationales de protection des consommateurs pour les demandes d'assistance mutuelle ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"règlement (UE) 2017/2394\",\"2017/2394\"],\"quote\":\"le règlement (UE) 2017/2394 du Parlement européen et du Conseil du 12 décembre 2017\",\"article\":\"L511-10\"}],\"doubt\":\"L'article ne contient pas d'expression de contexte perdu très nette en dehors de « présent livre », et la question ne nomme donc pas ce contexte ; la réponse se lit toutefois directement dans le texte.\"}"
+}

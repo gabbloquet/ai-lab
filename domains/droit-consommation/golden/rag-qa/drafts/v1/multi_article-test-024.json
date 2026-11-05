@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-test-024",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2196,
+    "output_tokens": 296
+  },
+  "output": {
+    "question": "Surendettement : quel juge peut ouvrir un rétablissement personnel avec liquidation judiciaire, et qui peut le saisir pour vérifier les créances ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "juge des contentieux de la protection"
+        ],
+        "quote": "le juge des contentieux de la protection peut, avec l'accord du débiteur, décider l'ouverture d'une procédure de rétablissement personnel avec liquidation judiciaire",
+        "article": "L742-2"
+      },
+      {
+        "accepted": [
+          "la commission",
+          "commission de surendettement"
+        ],
+        "quote": "la commission peut, en cas de difficultés, saisir le juge des contentieux de la protection",
+        "article": "L723-4"
+      }
+    ],
+    "doubt": "Les deux faits désignent le même juge pour A ; la réponse sur la commission vient de B, mais le premier fait seul ne nécessite pas B."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quel juge peut ouvrir un rétablissement personnel avec liquidation judiciaire, et qui peut le saisir pour vérifier les créances ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"juge des contentieux de la protection\"],\"quote\":\"le juge des contentieux de la protection peut, avec l'accord du débiteur, décider l'ouverture d'une procédure de rétablissement personnel avec liquidation judiciaire\",\"article\":\"L742-2\"},{\"accepted\":[\"la commission\",\"commission de surendettement\"],\"quote\":\"la commission peut, en cas de difficultés, saisir le juge des contentieux de la protection\",\"article\":\"L723-4\"}],\"doubt\":\"Les deux faits désignent le même juge pour A ; la réponse sur la commission vient de B, mais le premier fait seul ne nécessite pas B.\"}"
+}

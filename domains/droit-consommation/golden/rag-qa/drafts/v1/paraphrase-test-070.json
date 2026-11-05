@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-070",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1974,
+    "output_tokens": 200
+  },
+  "output": {
+    "question": "Un démarcheur m'a fait payer chez moi le jour même de la signature : quelle amende risque-t-il ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "150 000 euros",
+          "150 000 €",
+          "150000 euros"
+        ],
+        "quote": "est puni d'une peine d'emprisonnement de deux ans et d'une amende de 150 000 euros",
+        "article": "L242-7"
+      }
+    ],
+    "doubt": "La question ne précise pas le délai de sept jours ; la réponse pourrait aussi inclure la peine de prison de deux ans, mais seule l'amende est demandée."
+  },
+  "raw_text": "{\"question\":\"Un démarcheur m'a fait payer chez moi le jour même de la signature : quelle amende risque-t-il ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"150 000 euros\",\"150 000 €\",\"150000 euros\"],\"quote\":\"est puni d'une peine d'emprisonnement de deux ans et d'une amende de 150 000 euros\",\"article\":\"L242-7\"}],\"doubt\":\"La question ne précise pas le délai de sept jours ; la réponse pourrait aussi inclure la peine de prison de deux ans, mais seule l'amende est demandée.\"}"
+}

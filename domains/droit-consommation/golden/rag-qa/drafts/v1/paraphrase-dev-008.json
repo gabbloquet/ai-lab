@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-008",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:09+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2737,
+    "output_tokens": 263
+  },
+  "output": {
+    "question": "Je commande un voyage organisé sur internet : le délai de rétractation de 14 jours s'applique-t-il ? Quel texte du code du tourisme définit ce forfait ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 211-2"
+        ],
+        "quote": "les contrats portant sur un forfait touristique, au sens de l'article L. 211-2 du code du tourisme",
+        "article": "L221-2"
+      }
+    ],
+    "doubt": "L'article n'énonce qu'une liste d'exclusions du champ d'application, sans valeur précise propre au Code de la consommation ; les seules valeurs sont des renvois à d'autres textes, notamment le code du tourisme. La question proposée ne respecte pas non plus les consignes (trop longue, oui/non)."
+  },
+  "raw_text": "{\"question\":\"Je commande un voyage organisé sur internet : le délai de rétractation de 14 jours s'applique-t-il ? Quel texte du code du tourisme définit ce forfait ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 211-2\"],\"quote\":\"les contrats portant sur un forfait touristique, au sens de l'article L. 211-2 du code du tourisme\",\"article\":\"L221-2\"}],\"doubt\":\"L'article n'énonce qu'une liste d'exclusions du champ d'application, sans valeur précise propre au Code de la consommation ; les seules valeurs sont des renvois à d'autres textes, notamment le code du tourisme. La question proposée ne respecte pas non plus les consignes (trop longue, oui/non).\"}"
+}

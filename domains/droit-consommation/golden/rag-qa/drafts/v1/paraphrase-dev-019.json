@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-dev-019",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2019,
+    "output_tokens": 116
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne fait que renvoyer à d'autres textes (articles R. 322-31 à R. 322-36 du code des procédures civiles d'exécution) pour la publicité de la vente forcée, sans énoncer de valeur précise propre au Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne fait que renvoyer à d'autres textes (articles R. 322-31 à R. 322-36 du code des procédures civiles d'exécution) pour la publicité de la vente forcée, sans énoncer de valeur précise propre au Code de la consommation.\"}"
+}

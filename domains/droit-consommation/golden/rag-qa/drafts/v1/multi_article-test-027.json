@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-test-027",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2814,
+    "output_tokens": 240
+  },
+  "output": {
+    "question": "Au Conseil national de la consommation, les experts invités par le président ont-ils une voix délibérative, et combien de membres titulaires le bureau compte-t-il par collège ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "pas de voix délibérative"
+        ],
+        "quote": "Ces experts n'ont pas de voix délibérative.",
+        "article": "D821-9"
+      },
+      {
+        "accepted": [
+          "sept",
+          "7"
+        ],
+        "quote": "comprend, pour chaque collège, sept membres titulaires",
+        "article": "D821-11"
+      }
+    ],
+    "doubt": "La question de la première partie est de type oui/non et l'article A ne contient pas de valeur précise propre ; la question n'est pas adaptée, d'où usable à false."
+  },
+  "raw_text": "{\"question\":\"Au Conseil national de la consommation, les experts invités par le président ont-ils une voix délibérative, et combien de membres titulaires le bureau compte-t-il par collège ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"pas de voix délibérative\"],\"quote\":\"Ces experts n'ont pas de voix délibérative.\",\"article\":\"D821-9\"},{\"accepted\":[\"sept\",\"7\"],\"quote\":\"comprend, pour chaque collège, sept membres titulaires\",\"article\":\"D821-11\"}],\"doubt\":\"La question de la première partie est de type oui/non et l'article A ne contient pas de valeur précise propre ; la question n'est pas adaptée, d'où usable à false.\"}"
+}

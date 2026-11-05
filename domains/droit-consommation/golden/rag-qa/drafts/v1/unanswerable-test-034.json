@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-034",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2150,
+    "output_tokens": 210
+  },
+  "output": {
+    "question": "Quelle taille minimale doit avoir l'affiche sur les pièces d'économie circulaire à l'entrée d'un atelier de réparation de tondeuses ?",
+    "why_unanswerable": "L'article impose un affichage clair, visible et lisible de l'extérieur, avec certaines mentions, mais ne fixe ni dimension, ni format, ni police minimale. Aucun autre article du Code de la consommation ne précise la taille de cet affichage.",
+    "doubt": "Un autre article réglementaire de la même section pourrait fixer un format d'affichage, mais cela paraît peu probable."
+  },
+  "raw_text": "{\"question\":\"Quelle taille minimale doit avoir l'affiche sur les pièces d'économie circulaire à l'entrée d'un atelier de réparation de tondeuses ?\",\"why_unanswerable\":\"L'article impose un affichage clair, visible et lisible de l'extérieur, avec certaines mentions, mais ne fixe ni dimension, ni format, ni police minimale. Aucun autre article du Code de la consommation ne précise la taille de cet affichage.\",\"doubt\":\"Un autre article réglementaire de la même section pourrait fixer un format d'affichage, mais cela paraît peu probable.\"}"
+}

@@ -1,0 +1,29 @@
+{
+  "task": "direct-test-053",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2054,
+    "output_tokens": 207
+  },
+  "output": {
+    "question": "Quelle convention de compte permet de percevoir des frais de découvert malgré l'interdiction de vente sans commande ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "convention de compte"
+        ],
+        "quote": "prévus par la convention de compte instituée à l'article L. 312-1-1 du code monétaire et financier",
+        "article": "L121-13"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il écarte une exception à l'article L121-12 et renvoie au code monétaire et financier, donc peu adapté à une question factuelle."
+  },
+  "raw_text": "{\"question\":\"Quelle convention de compte permet de percevoir des frais de découvert malgré l'interdiction de vente sans commande ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"convention de compte\"],\"quote\":\"prévus par la convention de compte instituée à l'article L. 312-1-1 du code monétaire et financier\",\"article\":\"L121-13\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il écarte une exception à l'article L121-12 et renvoie au code monétaire et financier, donc peu adapté à une question factuelle.\"}"
+}

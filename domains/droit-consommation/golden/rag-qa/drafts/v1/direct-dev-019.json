@@ -1,0 +1,30 @@
+{
+  "task": "direct-dev-019",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1948,
+    "output_tokens": 148
+  },
+  "output": {
+    "question": "Pendant combien de temps un fournisseur de service à valeur ajoutée doit-il conserver les coordonnées de ses prestataires après la fin du contrat ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "conserve, pendant un délai minimal de cinq ans après la cessation des relations contractuelles",
+        "article": "L224-50"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Pendant combien de temps un fournisseur de service à valeur ajoutée doit-il conserver les coordonnées de ses prestataires après la fin du contrat ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"conserve, pendant un délai minimal de cinq ans après la cessation des relations contractuelles\",\"article\":\"L224-50\"}],\"doubt\":\"\"}"
+}

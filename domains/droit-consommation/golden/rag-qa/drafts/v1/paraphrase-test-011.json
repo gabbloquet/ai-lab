@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-011",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1982,
+    "output_tokens": 215
+  },
+  "output": {
+    "question": "Mon fournisseur d'électricité veut me faire payer pour voir mes relevés de conso, c'est normal ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "gratuitement"
+        ],
+        "quote": "Le consommateur accède gratuitement à ses données de consommation.",
+        "article": "L224-9"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, organisme décisif) ; il énonce seulement la gratuité, et la question appellerait un oui/non. L'organisme (Commission de régulation de l'énergie) n'est cité que pour l'avis sur un décret."
+  },
+  "raw_text": "{\"question\":\"Mon fournisseur d'électricité veut me faire payer pour voir mes relevés de conso, c'est normal ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"gratuitement\"],\"quote\":\"Le consommateur accède gratuitement à ses données de consommation.\",\"article\":\"L224-9\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, organisme décisif) ; il énonce seulement la gratuité, et la question appellerait un oui/non. L'organisme (Commission de régulation de l'énergie) n'est cité que pour l'avis sur un décret.\"}"
+}

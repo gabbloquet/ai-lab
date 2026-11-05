@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-test-006",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2679,
+    "output_tokens": 331
+  },
+  "output": {
+    "question": "Crédit immobilier : en cas de remboursement anticipé, quel plafond de l'indemnité en % du capital restant dû, et à partir de quel seuil de remboursement peut-on l'interdire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "3 %",
+          "3 pour cent",
+          "3%"
+        ],
+        "quote": "sans pouvoir dépasser 3 % du capital restant dû avant le remboursement",
+        "article": "R313-25"
+      },
+      {
+        "accepted": [
+          "10 %",
+          "10 pour cent",
+          "10%"
+        ],
+        "quote": "Le contrat de prêt peut interdire les remboursements égaux ou inférieurs à 10 % du montant initial du prêt, sauf s'il s'agit de son solde.",
+        "article": "L313-47"
+      }
+    ],
+    "doubt": "La question dépasse légèrement le format idéal et formule le seuil de 10 % de façon un peu ambiguë (remboursements égaux ou inférieurs à ce seuil, en % du montant initial du prêt)."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : en cas de remboursement anticipé, quel plafond de l'indemnité en % du capital restant dû, et à partir de quel seuil de remboursement peut-on l'interdire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"3 %\",\"3 pour cent\",\"3%\"],\"quote\":\"sans pouvoir dépasser 3 % du capital restant dû avant le remboursement\",\"article\":\"R313-25\"},{\"accepted\":[\"10 %\",\"10 pour cent\",\"10%\"],\"quote\":\"Le contrat de prêt peut interdire les remboursements égaux ou inférieurs à 10 % du montant initial du prêt, sauf s'il s'agit de son solde.\",\"article\":\"L313-47\"}],\"doubt\":\"La question dépasse légèrement le format idéal et formule le seuil de 10 % de façon un peu ambiguë (remboursements égaux ou inférieurs à ce seuil, en % du montant initial du prêt).\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-002",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:15+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2273,
+    "output_tokens": 222
+  },
+  "output": {
+    "question": "Surendettement : si la commission n'a pas décidé de l'orientation à temps, quel taux d'intérêt s'applique aux emprunts ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "taux de l'intérêt légal",
+          "intérêt légal",
+          "taux légal"
+        ],
+        "quote": "le taux d'intérêt applicable à tous les emprunts en cours contractés par le débiteur est, au cours des trois mois suivants, le taux de l'intérêt légal",
+        "article": "L721-2"
+      }
+    ],
+    "doubt": "Le taux légal est une notion renvoyant à un autre texte, mais l'article la nomme explicitement comme réponse."
+  },
+  "raw_text": "{\"question\":\"Surendettement : si la commission n'a pas décidé de l'orientation à temps, quel taux d'intérêt s'applique aux emprunts ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"taux de l'intérêt légal\",\"intérêt légal\",\"taux légal\"],\"quote\":\"le taux d'intérêt applicable à tous les emprunts en cours contractés par le débiteur est, au cours des trois mois suivants, le taux de l'intérêt légal\",\"article\":\"L721-2\"}],\"doubt\":\"Le taux légal est une notion renvoyant à un autre texte, mais l'article la nomme explicitement comme réponse.\"}"
+}

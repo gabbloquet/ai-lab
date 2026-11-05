@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-083",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2157,
+    "output_tokens": 558
+  },
+  "output": {
+    "question": "Pour mon prêt immo, quel type d'expert estime le bien sans lien avec la banque ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "évaluateur externe"
+        ],
+        "quote": "Soit un évaluateur externe, personne physique ou morale, expert en évaluation, sans lien avec le prêteur",
+        "article": "R313-17"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il définit seulement deux catégories d'évaluateurs, donc il se prête mal à une question factuelle."
+  },
+  "raw_text": "{\"question\":\"Pour mon prêt immo, quel type d'expert estime le bien sans lien avec la banque ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"évaluateur externe\"],\"quote\":\"Soit un évaluateur externe, personne physique ou morale, expert en évaluation, sans lien avec le prêteur\",\"article\":\"R313-17\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il définit seulement deux catégories d'évaluateurs, donc il se prête mal à une question factuelle.\"}"
+}

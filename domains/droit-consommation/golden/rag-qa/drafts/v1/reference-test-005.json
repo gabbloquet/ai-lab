@@ -1,0 +1,21 @@
+{
+  "task": "reference-test-005",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1993,
+    "output_tokens": 133
+  },
+  "output": {
+    "question": "Que prévoit l'article R. 742-42 comme valeur précise ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date ou organisme) : il décrit seulement la répartition du produit des ventes après déduction d'une provision pour la rémunération du liquidateur et les frais."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article R. 742-42 comme valeur précise ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date ou organisme) : il décrit seulement la répartition du produit des ventes après déduction d'une provision pour la rémunération du liquidateur et les frais.\"}"
+}

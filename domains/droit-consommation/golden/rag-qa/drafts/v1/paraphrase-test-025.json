@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-025",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2200,
+    "output_tokens": 944
+  },
+  "output": {
+    "question": "Prêt viager de papa décédé : à quelle date estime-t-on la maison pour limiter notre dette ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "jour de l'ouverture de la succession",
+          "ouverture de la succession"
+        ],
+        "quote": "les héritiers peuvent payer la dette plafonnée à la valeur de l'immeuble estimée au jour de l'ouverture de la succession",
+        "article": "L315-20"
+      }
+    ],
+    "doubt": "La valeur attendue est un moment de référence (le jour de l'ouverture de la succession) plutôt qu'un chiffre ; l'article contient peu de valeurs précises."
+  },
+  "raw_text": "{\"question\":\"Prêt viager de papa décédé : à quelle date estime-t-on la maison pour limiter notre dette ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"jour de l'ouverture de la succession\",\"ouverture de la succession\"],\"quote\":\"les héritiers peuvent payer la dette plafonnée à la valeur de l'immeuble estimée au jour de l'ouverture de la succession\",\"article\":\"L315-20\"}],\"doubt\":\"La valeur attendue est un moment de référence (le jour de l'ouverture de la succession) plutôt qu'un chiffre ; l'article contient peu de valeurs précises.\"}"
+}

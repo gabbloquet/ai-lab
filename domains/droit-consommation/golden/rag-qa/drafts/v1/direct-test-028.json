@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-028",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2056,
+    "output_tokens": 292
+  },
+  "output": {
+    "question": "Quel organisme doit donner son avis sur les décrets de sécurité qui visent à prévenir des risques sanitaires ou nutritionnels ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "Agence nationale chargée de la sécurité sanitaire de l'alimentation, de l'environnement et du travail",
+          "ANSES"
+        ],
+        "quote": "De l'Agence nationale chargée de la sécurité sanitaire de l'alimentation, de l'environnement et du travail mentionnée à l'article L. 1313-1 du code de la santé publique lorsqu'ils comportent des dispositions visant à prévenir des risques sanitaires ou nutritionnels.",
+        "article": "R422-1"
+      }
+    ],
+    "doubt": "La question dépasse légèrement 15 mots ; l'article est une règle d'avis préalable, de portée assez procédurale."
+  },
+  "raw_text": "{\"question\":\"Quel organisme doit donner son avis sur les décrets de sécurité qui visent à prévenir des risques sanitaires ou nutritionnels ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"Agence nationale chargée de la sécurité sanitaire de l'alimentation, de l'environnement et du travail\",\"ANSES\"],\"quote\":\"De l'Agence nationale chargée de la sécurité sanitaire de l'alimentation, de l'environnement et du travail mentionnée à l'article L. 1313-1 du code de la santé publique lorsqu'ils comportent des dispositions visant à prévenir des risques sanitaires ou nutritionnels.\",\"article\":\"R422-1\"}],\"doubt\":\"La question dépasse légèrement 15 mots ; l'article est une règle d'avis préalable, de portée assez procédurale.\"}"
+}

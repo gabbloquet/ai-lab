@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-037",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:01:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2026,
+    "output_tokens": 259
+  },
+  "output": {
+    "question": "Réparation de mon fauteuil roulant : quel tarif maximum pour une pièce d'occasion ?",
+    "why_unanswerable": "L'article impose au professionnel de proposer une offre avec pièces issues de l'économie circulaire, de recueillir le choix du consommateur sur support durable et d'ajouter une mention. Il ne fixe aucun prix ni plafond tarifaire pour ces pièces, et le Code de la consommation ne prévoit pas de tarif maximum pour la réparation d'équipements médicaux.",
+    "doubt": "Un autre article du code pourrait encadrer le prix des pièces d'occasion, mais cela paraît peu probable ; le fauteuil roulant est supposé relever des équipements médicaux."
+  },
+  "raw_text": "{\"question\":\"Réparation de mon fauteuil roulant : quel tarif maximum pour une pièce d'occasion ?\",\"why_unanswerable\":\"L'article impose au professionnel de proposer une offre avec pièces issues de l'économie circulaire, de recueillir le choix du consommateur sur support durable et d'ajouter une mention. Il ne fixe aucun prix ni plafond tarifaire pour ces pièces, et le Code de la consommation ne prévoit pas de tarif maximum pour la réparation d'équipements médicaux.\",\"doubt\":\"Un autre article du code pourrait encadrer le prix des pièces d'occasion, mais cela paraît peu probable ; le fauteuil roulant est supposé relever des équipements médicaux.\"}"
+}

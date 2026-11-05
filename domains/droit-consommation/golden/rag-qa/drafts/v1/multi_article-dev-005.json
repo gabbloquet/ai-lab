@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-dev-005",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2472,
+    "output_tokens": 406
+  },
+  "output": {
+    "question": "Prêt immobilier : en cas de changement d'assurance, que doit transmettre l'emprunteur à son nouvel assureur, et quelle offre le prêteur fournit-il ensuite ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "l'offre de prêt émise ou le contrat de crédit",
+          "offre de prêt",
+          "contrat de crédit"
+        ],
+        "quote": "l'emprunteur transmet à l'assureur de son choix, sur support papier ou sur un autre support durable, l'offre de prêt émise ou le contrat de crédit.",
+        "article": "R313-24"
+      },
+      {
+        "accepted": [
+          "nouvelle offre préalable",
+          "offre modifiée",
+          "nouvelle offre"
+        ],
+        "quote": "donne lieu à la fourniture à l'emprunteur d'une nouvelle offre préalable sur support papier ou sur un autre support durable.",
+        "article": "L313-27"
+      }
+    ],
+    "doubt": "L'article R313-24 mentionne aussi l'avenant au contrat de crédit comme alternative à l'offre modifiée, et L313-27 parle de « nouvelle offre préalable » alors que R313-24 dit « offre modifiée » ; la question reste donc un peu ambiguë."
+  },
+  "raw_text": "{\"question\":\"Prêt immobilier : en cas de changement d'assurance, que doit transmettre l'emprunteur à son nouvel assureur, et quelle offre le prêteur fournit-il ensuite ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"l'offre de prêt émise ou le contrat de crédit\",\"offre de prêt\",\"contrat de crédit\"],\"quote\":\"l'emprunteur transmet à l'assureur de son choix, sur support papier ou sur un autre support durable, l'offre de prêt émise ou le contrat de crédit.\",\"article\":\"R313-24\"},{\"accepted\":[\"nouvelle offre préalable\",\"offre modifiée\",\"nouvelle offre\"],\"quote\":\"donne lieu à la fourniture à l'emprunteur d'une nouvelle offre préalable sur support papier ou sur un autre support durable.\",\"article\":\"L313-27\"}],\"doubt\":\"L'article R313-24 mentionne aussi l'avenant au contrat de crédit comme alternative à l'offre modifiée, et L313-27 parle de « nouvelle offre préalable » alors que R313-24 dit « offre modifiée » ; la question reste donc un peu ambiguë.\"}"
+}

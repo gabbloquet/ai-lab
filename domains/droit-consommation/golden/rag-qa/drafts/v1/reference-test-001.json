@@ -1,0 +1,31 @@
+{
+  "task": "reference-test-001",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2144,
+    "output_tokens": 218
+  },
+  "output": {
+    "question": "Selon l'article R. 713-11, comment le greffe notifie-t-il les jugements au débiteur et aux créanciers ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "lettre recommandée avec demande d'avis de réception",
+          "lettre recommandée avec avis de réception",
+          "lettre recommandée"
+        ],
+        "quote": "par lettre recommandée avec demande d'avis de réception par le greffe du tribunal judiciaire",
+        "article": "R713-11"
+      }
+    ],
+    "doubt": "La réponse est une modalité de notification plutôt qu'une valeur chiffrée, mais l'article ne contient aucun nombre ou montant."
+  },
+  "raw_text": "{\"question\":\"Selon l'article R. 713-11, comment le greffe notifie-t-il les jugements au débiteur et aux créanciers ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"lettre recommandée avec demande d'avis de réception\",\"lettre recommandée avec avis de réception\",\"lettre recommandée\"],\"quote\":\"par lettre recommandée avec demande d'avis de réception par le greffe du tribunal judiciaire\",\"article\":\"R713-11\"}],\"doubt\":\"La réponse est une modalité de notification plutôt qu'une valeur chiffrée, mais l'article ne contient aucun nombre ou montant.\"}"
+}

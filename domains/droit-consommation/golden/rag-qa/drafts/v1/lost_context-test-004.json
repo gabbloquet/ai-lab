@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-test-004",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3281,
+    "output_tokens": 217
+  },
+  "output": {
+    "question": "Blocage géographique en ligne : quels services de paiement du code monétaire visés pour les paiements non discriminés ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "1° à 7° du II de l'article L. 314-1"
+        ],
+        "quote": "mentionné aux 1° à 7° du II de l'article L. 314-1 du code monétaire et financier",
+        "article": "L121-23"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur précise (durée, montant, taux) répondant à une question naturelle ; la seule valeur est un renvoi à un autre code, et la question demande une référence d'article, peu pertinente."
+  },
+  "raw_text": "{\"question\":\"Blocage géographique en ligne : quels services de paiement du code monétaire visés pour les paiements non discriminés ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"1° à 7° du II de l'article L. 314-1\"],\"quote\":\"mentionné aux 1° à 7° du II de l'article L. 314-1 du code monétaire et financier\",\"article\":\"L121-23\"}],\"doubt\":\"L'article ne contient pas de valeur précise (durée, montant, taux) répondant à une question naturelle ; la seule valeur est un renvoi à un autre code, et la question demande une référence d'article, peu pertinente.\"}"
+}

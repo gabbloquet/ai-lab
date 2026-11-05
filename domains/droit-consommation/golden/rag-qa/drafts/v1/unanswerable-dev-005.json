@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-005",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2227,
+    "output_tokens": 265
+  },
+  "output": {
+    "question": "Quelle taille de caractères minimale faut-il pour afficher le TAEG dans une publicité de crédit ?",
+    "why_unanswerable": "L'article impose seulement que les informations (taux débiteur, TAEG, montant total du crédit, durée, etc.) soient mentionnées de façon claire, précise et visible avec un exemple représentatif. Il ne fixe aucune taille de caractères ni aucune mesure typographique chiffrée, et le Code de la consommation ne donne pas cette valeur dans cet article.",
+    "doubt": "Un autre texte réglementaire (arrêté sur la lisibilité des mentions) pourrait fixer une taille de caractères ; je n'ai pas pu vérifier qu'aucun article du code n'en contient une."
+  },
+  "raw_text": "{\"question\":\"Quelle taille de caractères minimale faut-il pour afficher le TAEG dans une publicité de crédit ?\",\"why_unanswerable\":\"L'article impose seulement que les informations (taux débiteur, TAEG, montant total du crédit, durée, etc.) soient mentionnées de façon claire, précise et visible avec un exemple représentatif. Il ne fixe aucune taille de caractères ni aucune mesure typographique chiffrée, et le Code de la consommation ne donne pas cette valeur dans cet article.\",\"doubt\":\"Un autre texte réglementaire (arrêté sur la lisibilité des mentions) pourrait fixer une taille de caractères ; je n'ai pas pu vérifier qu'aucun article du code n'en contient une.\"}"
+}

@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-dev-039",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1952,
+    "output_tokens": 105
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date). Il se limite à autoriser la constitution de partie civile et renvoie au code de procédure pénale ainsi qu'à d'autres articles."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date). Il se limite à autoriser la constitution de partie civile et renvoie au code de procédure pénale ainsi qu'à d'autres articles.\"}"
+}

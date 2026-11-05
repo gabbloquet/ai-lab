@@ -1,0 +1,36 @@
+{
+  "task": "multi_article-test-001",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2819,
+    "output_tokens": 983
+  },
+  "output": {
+    "question": "Saisies sans autorisation judiciaire en Nouvelle-Calédonie : quel point est abrogé, et quel type de marque autre que garantie visait-il ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "5°"
+        ],
+        "quote": "le 5° est abrogé",
+        "article": "L541-2"
+      },
+      {
+        "accepted": [
+          "marque collective"
+        ],
+        "quote": "Les produits présentés sous une marque, une marque collective ou une marque de garantie contrefaisantes.",
+        "article": "L512-29"
+      }
+    ],
+    "doubt": "L541-2 est un article d'adaptation à l'outre-mer qui remplace ou supprime des mots, donc peu probable en question réelle ; la question est aussi un peu artificielle."
+  },
+  "raw_text": "{\"question\":\"Saisies sans autorisation judiciaire en Nouvelle-Calédonie : quel point est abrogé, et quel type de marque autre que garantie visait-il ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"5°\"],\"quote\":\"le 5° est abrogé\",\"article\":\"L541-2\"},{\"accepted\":[\"marque collective\"],\"quote\":\"Les produits présentés sous une marque, une marque collective ou une marque de garantie contrefaisantes.\",\"article\":\"L512-29\"}],\"doubt\":\"L541-2 est un article d'adaptation à l'outre-mer qui remplace ou supprime des mots, donc peu probable en question réelle ; la question est aussi un peu artificielle.\"}"
+}

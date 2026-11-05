@@ -1,0 +1,31 @@
+{
+  "task": "reference-test-022",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1951,
+    "output_tokens": 137
+  },
+  "output": {
+    "question": "Quelle classe de contravention l'article R. 341-11 prévoit-il pour une demande de livraison immédiate irrégulière ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "3e classe",
+          "troisième classe",
+          "3e"
+        ],
+        "quote": "est puni de la peine d'amende prévue pour les contraventions de la 3e classe",
+        "article": "R341-11"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quelle classe de contravention l'article R. 341-11 prévoit-il pour une demande de livraison immédiate irrégulière ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"3e classe\",\"troisième classe\",\"3e\"],\"quote\":\"est puni de la peine d'amende prévue pour les contraventions de la 3e classe\",\"article\":\"R341-11\"}],\"doubt\":\"\"}"
+}

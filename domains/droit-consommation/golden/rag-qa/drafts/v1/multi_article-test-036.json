@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-036",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2374,
+    "output_tokens": 299
+  },
+  "output": {
+    "question": "Crédit immobilier : quelle amende risque le prêteur qui ne respecte pas certaines obligations, et de quoi peut-il être déchu ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "150 000 euros",
+          "150 000 €",
+          "150000 euros"
+        ],
+        "quote": "est puni d'une amende de 150 000 euros",
+        "article": "L341-37"
+      },
+      {
+        "accepted": [
+          "droit aux intérêts",
+          "déchéance du droit aux intérêts"
+        ],
+        "quote": "le prêteur ou le bailleur peut être déchu du droit aux intérêts, en totalité ou dans la proportion fixée par le juge",
+        "article": "L341-34"
+      }
+    ],
+    "doubt": "Le second fait (droit aux intérêts) est une notion plutôt qu'un chiffre, mais c'est la seule valeur précise de l'article A ; la déchéance est facultative et fixée par le juge."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : quelle amende risque le prêteur qui ne respecte pas certaines obligations, et de quoi peut-il être déchu ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"150 000 euros\",\"150 000 €\",\"150000 euros\"],\"quote\":\"est puni d'une amende de 150 000 euros\",\"article\":\"L341-37\"},{\"accepted\":[\"droit aux intérêts\",\"déchéance du droit aux intérêts\"],\"quote\":\"le prêteur ou le bailleur peut être déchu du droit aux intérêts, en totalité ou dans la proportion fixée par le juge\",\"article\":\"L341-34\"}],\"doubt\":\"Le second fait (droit aux intérêts) est une notion plutôt qu'un chiffre, mais c'est la seule valeur précise de l'article A ; la déchéance est facultative et fixée par le juge.\"}"
+}

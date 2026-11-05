@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-032",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2334,
+    "output_tokens": 275
+  },
+  "output": {
+    "question": "Temps partagé : quel délai de rétractation si le formulaire de rétractation n'a pas été fourni ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un an et quatorze jours",
+          "1 an et 14 jours",
+          "un an et 14 jours"
+        ],
+        "quote": "le consommateur dispose d'un délai de rétractation d'un an et quatorze jours à compter du jour de la conclusion du contrat ou du jour de sa réception",
+        "article": "L224-80"
+      }
+    ],
+    "doubt": "L'article prévoit aussi un délai de trois mois et quatorze jours si les informations précontractuelles manquent ; la question précise le formulaire de rétractation pour lever l'ambiguïté. Elle ne mentionne pas explicitement les contrats de produit de vacances, de revente ou d'échange."
+  },
+  "raw_text": "{\"question\":\"Temps partagé : quel délai de rétractation si le formulaire de rétractation n'a pas été fourni ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un an et quatorze jours\",\"1 an et 14 jours\",\"un an et 14 jours\"],\"quote\":\"le consommateur dispose d'un délai de rétractation d'un an et quatorze jours à compter du jour de la conclusion du contrat ou du jour de sa réception\",\"article\":\"L224-80\"}],\"doubt\":\"L'article prévoit aussi un délai de trois mois et quatorze jours si les informations précontractuelles manquent ; la question précise le formulaire de rétractation pour lever l'ambiguïté. Elle ne mentionne pas explicitement les contrats de produit de vacances, de revente ou d'échange.\"}"
+}

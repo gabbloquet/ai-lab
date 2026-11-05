@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-040",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:29+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1952,
+    "output_tokens": 223
+  },
+  "output": {
+    "question": "Au Conseil national de la consommation, quelle part des membres doit demander un sujet pour qu'il soit obligatoirement à l'ordre du jour ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un tiers",
+          "1/3",
+          "au moins un tiers"
+        ],
+        "quote": "Les propositions faites par au moins un tiers des membres du conseil ayant voix délibérative sont inscrites de droit.",
+        "article": "D821-13"
+      }
+    ],
+    "doubt": "La question évoque l'ordre du jour et l'inscription obligatoire, ce qui reste proche du texte, et la situation concrète d'un particulier est peu naturelle pour cet article."
+  },
+  "raw_text": "{\"question\":\"Au Conseil national de la consommation, quelle part des membres doit demander un sujet pour qu'il soit obligatoirement à l'ordre du jour ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un tiers\",\"1/3\",\"au moins un tiers\"],\"quote\":\"Les propositions faites par au moins un tiers des membres du conseil ayant voix délibérative sont inscrites de droit.\",\"article\":\"D821-13\"}],\"doubt\":\"La question évoque l'ordre du jour et l'inscription obligatoire, ce qui reste proche du texte, et la situation concrète d'un particulier est peu naturelle pour cet article.\"}"
+}

@@ -1,0 +1,21 @@
+{
+  "task": "direct-test-016",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1906,
+    "output_tokens": 163
+  },
+  "output": {
+    "question": "Quand plusieurs associations fusionnent en une seule, faut-il redemander l'agrément ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, organisme) : il pose seulement une obligation de redemander l'agrément et écarte la condition d'ancienneté sans la chiffrer. Une question demandant une valeur n'est pas possible sans tomber dans un oui/non."
+  },
+  "raw_text": "{\"question\":\"Quand plusieurs associations fusionnent en une seule, faut-il redemander l'agrément ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, organisme) : il pose seulement une obligation de redemander l'agrément et écarte la condition d'ancienneté sans la chiffrer. Une question demandant une valeur n'est pas possible sans tomber dans un oui/non.\"}"
+}

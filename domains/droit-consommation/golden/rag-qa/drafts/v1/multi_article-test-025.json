@@ -1,0 +1,36 @@
+{
+  "task": "multi_article-test-025",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2327,
+    "output_tokens": 307
+  },
+  "output": {
+    "question": "Surendettement : sans contestation, quelles mesures de la commission s'imposent aux parties, et à quel organisme revient d'aviser les créanciers non signalés ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 733-1, L. 733-4 et L. 733-7"
+        ],
+        "quote": "les mesures mentionnées aux articles L. 733-1, L. 733-4 et L. 733-7 s'imposent aux parties",
+        "article": "L733-9"
+      },
+      {
+        "accepted": [
+          "la commission"
+        ],
+        "quote": "La commission peut imposer que les mesures prévues aux articles L. 733-1 et L. 733-4",
+        "article": "L733-7"
+      }
+    ],
+    "doubt": "Les articles ne contiennent aucune valeur précise (durée, montant, taux) : ils ne citent que des numéros d'articles et la commission ; la question est peu naturelle et ferait citer des numéros d'articles."
+  },
+  "raw_text": "{\"question\":\"Surendettement : sans contestation, quelles mesures de la commission s'imposent aux parties, et à quel organisme revient d'aviser les créanciers non signalés ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 733-1, L. 733-4 et L. 733-7\"],\"quote\":\"les mesures mentionnées aux articles L. 733-1, L. 733-4 et L. 733-7 s'imposent aux parties\",\"article\":\"L733-9\"},{\"accepted\":[\"la commission\"],\"quote\":\"La commission peut imposer que les mesures prévues aux articles L. 733-1 et L. 733-4\",\"article\":\"L733-7\"}],\"doubt\":\"Les articles ne contiennent aucune valeur précise (durée, montant, taux) : ils ne citent que des numéros d'articles et la commission ; la question est peu naturelle et ferait citer des numéros d'articles.\"}"
+}

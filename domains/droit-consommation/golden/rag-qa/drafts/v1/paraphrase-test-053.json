@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-053",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:35+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2076,
+    "output_tokens": 227
+  },
+  "output": {
+    "question": "Surendetté, qui désigne dans chaque département un référent pour coordonner avec la commission les aides sociales ou budgétaires ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "conseil départemental"
+        ],
+        "quote": "le conseil départemental et la caisse d'allocations familiales désignent, chacun pour ce qui le concerne, un correspondant",
+        "article": "R712-20"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, date) ; il énumère seulement des organismes qui désignent un correspondant, et la réponse serait multiple (commission de coordination, conseil départemental, CAF)."
+  },
+  "raw_text": "{\"question\":\"Surendetté, qui désigne dans chaque département un référent pour coordonner avec la commission les aides sociales ou budgétaires ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"conseil départemental\"],\"quote\":\"le conseil départemental et la caisse d'allocations familiales désignent, chacun pour ce qui le concerne, un correspondant\",\"article\":\"R712-20\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, date) ; il énumère seulement des organismes qui désignent un correspondant, et la réponse serait multiple (commission de coordination, conseil départemental, CAF).\"}"
+}

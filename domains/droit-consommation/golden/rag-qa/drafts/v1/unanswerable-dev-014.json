@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-014",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2109,
+    "output_tokens": 254
+  },
+  "output": {
+    "question": "Quelle peine de prison risque un prêteur qui ne respecte pas les règles sur le taux d'intérêt conventionnel ?",
+    "why_unanswerable": "L'article ne prévoit qu'une amende de 150 000 euros et des peines complémentaires d'interdiction d'exercer (cinq ans maximum) pour les personnes physiques. Il ne fixe aucune peine d'emprisonnement, et le Code de la consommation n'en prévoit pas pour ce manquement.",
+    "doubt": "Un lecteur pourrait déduire que l'absence de mention d'emprisonnement signifie qu'il n'y en a pas, ce qui rend la question à la limite de la réponse négative plutôt que sans réponse."
+  },
+  "raw_text": "{\"question\":\"Quelle peine de prison risque un prêteur qui ne respecte pas les règles sur le taux d'intérêt conventionnel ?\",\"why_unanswerable\":\"L'article ne prévoit qu'une amende de 150 000 euros et des peines complémentaires d'interdiction d'exercer (cinq ans maximum) pour les personnes physiques. Il ne fixe aucune peine d'emprisonnement, et le Code de la consommation n'en prévoit pas pour ce manquement.\",\"doubt\":\"Un lecteur pourrait déduire que l'absence de mention d'emprisonnement signifie qu'il n'y en a pas, ce qui rend la question à la limite de la réponse négative plutôt que sans réponse.\"}"
+}

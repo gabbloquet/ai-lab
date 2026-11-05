@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-003",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:06+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2027,
+    "output_tokens": 228
+  },
+  "output": {
+    "question": "Plusieurs clients lésés par la même entreprise veulent qu'un groupe agisse en justice pour eux : quel type de groupe peut les représenter ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "association nationale agréée de consommateurs"
+        ],
+        "quote": "peuvent donner à une association nationale agréée de consommateurs, en application de l'article L. 811-1, le mandat d'agir en leur nom devant les juridictions civiles",
+        "article": "R622-1"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée, seulement un type d'organisme ; la réponse attendue est une désignation d'organisme assez longue."
+  },
+  "raw_text": "{\"question\":\"Plusieurs clients lésés par la même entreprise veulent qu'un groupe agisse en justice pour eux : quel type de groupe peut les représenter ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"association nationale agréée de consommateurs\"],\"quote\":\"peuvent donner à une association nationale agréée de consommateurs, en application de l'article L. 811-1, le mandat d'agir en leur nom devant les juridictions civiles\",\"article\":\"R622-1\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée, seulement un type d'organisme ; la réponse attendue est une désignation d'organisme assez longue.\"}"
+}

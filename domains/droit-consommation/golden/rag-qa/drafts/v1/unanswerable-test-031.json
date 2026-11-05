@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-031",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1904,
+    "output_tokens": 254
+  },
+  "output": {
+    "question": "Quel est le montant de l'indemnité qu'un consommateur peut obtenir quand son contrat contient une clause abusive ?",
+    "why_unanswerable": "L'article L241-1 prévoit seulement que les clauses abusives sont réputées non écrites et que le contrat subsiste sans elles si possible. Le code ne fixe pas de montant d'indemnité forfaitaire pour le consommateur du seul fait d'une clause abusive ; le préjudice éventuel relève de l'appréciation du juge.",
+    "doubt": "D'autres dispositions (amendes civiles ou pénales pour clauses abusives) pourraient être confondues avec une indemnité, mais elles ne visent pas une indemnisation du consommateur."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant de l'indemnité qu'un consommateur peut obtenir quand son contrat contient une clause abusive ?\",\"why_unanswerable\":\"L'article L241-1 prévoit seulement que les clauses abusives sont réputées non écrites et que le contrat subsiste sans elles si possible. Le code ne fixe pas de montant d'indemnité forfaitaire pour le consommateur du seul fait d'une clause abusive ; le préjudice éventuel relève de l'appréciation du juge.\",\"doubt\":\"D'autres dispositions (amendes civiles ou pénales pour clauses abusives) pourraient être confondues avec une indemnité, mais elles ne visent pas une indemnisation du consommateur.\"}"
+}

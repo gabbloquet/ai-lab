@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-034",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2152,
+    "output_tokens": 197
+  },
+  "output": {
+    "question": "Des marchandises suspectes sont bloquées par les contrôleurs : combien de temps au maximum avant renouvellement éventuel ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "La mesure de consignation ne peut excéder quinze jours.",
+        "article": "L512-35"
+      }
+    ],
+    "doubt": "La question évite le mot « consignation » ; le contexte (contrôle par agents habilités, autorisation du juge) pourrait être jugé un peu vague, mais la durée est unique dans cette sous-section."
+  },
+  "raw_text": "{\"question\":\"Des marchandises suspectes sont bloquées par les contrôleurs : combien de temps au maximum avant renouvellement éventuel ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"La mesure de consignation ne peut excéder quinze jours.\",\"article\":\"L512-35\"}],\"doubt\":\"La question évite le mot « consignation » ; le contexte (contrôle par agents habilités, autorisation du juge) pourrait être jugé un peu vague, mais la durée est unique dans cette sous-section.\"}"
+}

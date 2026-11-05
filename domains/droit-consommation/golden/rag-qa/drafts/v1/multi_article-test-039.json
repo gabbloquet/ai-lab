@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-test-039",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:07+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3135,
+    "output_tokens": 292
+  },
+  "output": {
+    "question": "Contrôle des mycotoxines dans les denrées : combien d'échantillon(s) prélevé(s), et quel document établit-on pour le prélèvement ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un échantillon",
+          "1 échantillon",
+          "un seul échantillon"
+        ],
+        "quote": "le prélèvement ne comporte qu'un échantillon",
+        "article": "R512-28"
+      },
+      {
+        "accepted": [
+          "procès-verbal",
+          "rapport"
+        ],
+        "quote": "Le procès-verbal mentionné à l'article R. 512-10 comporte, outre un exposé succinct des modalités de prélèvement",
+        "article": "R512-11"
+      }
+    ],
+    "doubt": "Le fait de B (procès-verbal) est surtout une désignation de document ; A parle de « rapport », B de « procès-verbal », la réponse acceptée pourrait donc varier selon la formulation."
+  },
+  "raw_text": "{\"question\":\"Contrôle des mycotoxines dans les denrées : combien d'échantillon(s) prélevé(s), et quel document établit-on pour le prélèvement ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un échantillon\",\"1 échantillon\",\"un seul échantillon\"],\"quote\":\"le prélèvement ne comporte qu'un échantillon\",\"article\":\"R512-28\"},{\"accepted\":[\"procès-verbal\",\"rapport\"],\"quote\":\"Le procès-verbal mentionné à l'article R. 512-10 comporte, outre un exposé succinct des modalités de prélèvement\",\"article\":\"R512-11\"}],\"doubt\":\"Le fait de B (procès-verbal) est surtout une désignation de document ; A parle de « rapport », B de « procès-verbal », la réponse acceptée pourrait donc varier selon la formulation.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-005",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3155,
+    "output_tokens": 287
+  },
+  "output": {
+    "question": "Contrat d'électricité : jusqu'à quelle puissance un particulier non pro est couvert, et sous quel délai reçoit-il la facture de clôture ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "36 kilovoltampères",
+          "36 kVA"
+        ],
+        "quote": "pour une puissance électrique égale ou inférieure à 36 kilovoltampères",
+        "article": "L224-1"
+      },
+      {
+        "accepted": [
+          "quatre semaines",
+          "4 semaines"
+        ],
+        "quote": "Le consommateur reçoit la facture de clôture dans un délai de quatre semaines à compter de la résiliation du contrat.",
+        "article": "L224-15"
+      }
+    ],
+    "doubt": "Le terme « non-professionnel » est utilisé dans la question sous la forme « particulier non pro », ce qui est familier mais peut prêter à une légère ambiguïté."
+  },
+  "raw_text": "{\"question\":\"Contrat d'électricité : jusqu'à quelle puissance un particulier non pro est couvert, et sous quel délai reçoit-il la facture de clôture ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"36 kilovoltampères\",\"36 kVA\"],\"quote\":\"pour une puissance électrique égale ou inférieure à 36 kilovoltampères\",\"article\":\"L224-1\"},{\"accepted\":[\"quatre semaines\",\"4 semaines\"],\"quote\":\"Le consommateur reçoit la facture de clôture dans un délai de quatre semaines à compter de la résiliation du contrat.\",\"article\":\"L224-15\"}],\"doubt\":\"Le terme « non-professionnel » est utilisé dans la question sous la forme « particulier non pro », ce qui est familier mais peut prêter à une légère ambiguïté.\"}"
+}

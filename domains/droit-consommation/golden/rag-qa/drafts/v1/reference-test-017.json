@@ -1,0 +1,31 @@
+{
+  "task": "reference-test-017",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2083,
+    "output_tokens": 196
+  },
+  "output": {
+    "question": "Selon l'article R. 314-5, où figurent les hypothèses complémentaires pour calculer le taux annuel effectif global ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "en annexe au présent code",
+          "annexe au code",
+          "en annexe"
+        ],
+        "quote": "Des hypothèses complémentaires figurent en annexe au présent code pour le calcul du taux annuel effectif global.",
+        "article": "R314-5"
+      }
+    ],
+    "doubt": "La valeur attendue (une annexe) est peu précise ; l'article ne contient ni durée, ni montant, ni taux."
+  },
+  "raw_text": "{\"question\":\"Selon l'article R. 314-5, où figurent les hypothèses complémentaires pour calculer le taux annuel effectif global ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"en annexe au présent code\",\"annexe au code\",\"en annexe\"],\"quote\":\"Des hypothèses complémentaires figurent en annexe au présent code pour le calcul du taux annuel effectif global.\",\"article\":\"R314-5\"}],\"doubt\":\"La valeur attendue (une annexe) est peu précise ; l'article ne contient ni durée, ni montant, ni taux.\"}"
+}

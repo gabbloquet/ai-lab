@@ -1,0 +1,32 @@
+{
+  "task": "direct-test-048",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1931,
+    "output_tokens": 242
+  },
+  "output": {
+    "question": "Le Laboratoire national de métrologie et d'essais relève de quel décret pour sa gestion budgétaire et comptable ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "décret n° 2012-1246 du 7 novembre 2012",
+          "n° 2012-1246",
+          "2012-1246",
+          "décret du 7 novembre 2012"
+        ],
+        "quote": "décret n° 2012-1246 du 7 novembre 2012 relatif à la gestion budgétaire et comptable publique",
+        "article": "R823-16"
+      }
+    ],
+    "doubt": "L'article renvoie à un autre texte (décret GBCP) ; la valeur est un numéro de décret, ce qui reste un document précis, mais la question est un peu limite."
+  },
+  "raw_text": "{\"question\":\"Le Laboratoire national de métrologie et d'essais relève de quel décret pour sa gestion budgétaire et comptable ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"décret n° 2012-1246 du 7 novembre 2012\",\"n° 2012-1246\",\"2012-1246\",\"décret du 7 novembre 2012\"],\"quote\":\"décret n° 2012-1246 du 7 novembre 2012 relatif à la gestion budgétaire et comptable publique\",\"article\":\"R823-16\"}],\"doubt\":\"L'article renvoie à un autre texte (décret GBCP) ; la valeur est un numéro de décret, ce qui reste un document précis, mais la question est un peu limite.\"}"
+}

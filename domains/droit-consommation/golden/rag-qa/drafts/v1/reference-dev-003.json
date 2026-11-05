@@ -1,0 +1,32 @@
+{
+  "task": "reference-dev-003",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2012,
+    "output_tokens": 220
+  },
+  "output": {
+    "question": "Que prévoit l'article R. 312-5 comme nombre minimal de créances antérieures à rembourser pour la question du prêteur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux",
+          "2",
+          "au moins deux",
+          "deux créances"
+        ],
+        "quote": "le prêteur ou l'intermédiaire de crédit demande à l'emprunteur si l'opération a pour objet le remboursement d'au moins deux créances antérieures dont un crédit en cours",
+        "article": "R312-5"
+      }
+    ],
+    "doubt": "La valeur (deux créances) est simple et peu centrale dans l'article, dont l'objet principal est la fiche d'information."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article R. 312-5 comme nombre minimal de créances antérieures à rembourser pour la question du prêteur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux\",\"2\",\"au moins deux\",\"deux créances\"],\"quote\":\"le prêteur ou l'intermédiaire de crédit demande à l'emprunteur si l'opération a pour objet le remboursement d'au moins deux créances antérieures dont un crédit en cours\",\"article\":\"R312-5\"}],\"doubt\":\"La valeur (deux créances) est simple et peu centrale dans l'article, dont l'objet principal est la fiche d'information.\"}"
+}

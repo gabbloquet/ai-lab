@@ -1,0 +1,31 @@
+{
+  "task": "reference-test-018",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2392,
+    "output_tokens": 299
+  },
+  "output": {
+    "question": "Quel règlement européen l'article R. 412-37 vise-t-il sur l'hygiène des denrées alimentaires, par son numéro ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "852/2004",
+          "n° 852/2004",
+          "règlement (CE) n° 852/2004"
+        ],
+        "quote": "du règlement (CE) n° 852/2004 du Parlement européen et du Conseil du 29 avril 2004 modifié relatif à l'hygiène des denrées alimentaires",
+        "article": "R412-37"
+      }
+    ],
+    "doubt": "L'article liste trois règlements européens ; la question précise « hygiène des denrées alimentaires » pour cibler le 852/2004, mais le 2073/2005 concerne aussi les denrées alimentaires (critères microbiologiques), d'où un risque d'ambiguïté. Valeur peu utile pour un utilisateur."
+  },
+  "raw_text": "{\"question\":\"Quel règlement européen l'article R. 412-37 vise-t-il sur l'hygiène des denrées alimentaires, par son numéro ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"852/2004\",\"n° 852/2004\",\"règlement (CE) n° 852/2004\"],\"quote\":\"du règlement (CE) n° 852/2004 du Parlement européen et du Conseil du 29 avril 2004 modifié relatif à l'hygiène des denrées alimentaires\",\"article\":\"R412-37\"}],\"doubt\":\"L'article liste trois règlements européens ; la question précise « hygiène des denrées alimentaires » pour cibler le 852/2004, mais le 2073/2005 concerne aussi les denrées alimentaires (critères microbiologiques), d'où un risque d'ambiguïté. Valeur peu utile pour un utilisateur.\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-dev-014",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2078,
+    "output_tokens": 214
+  },
+  "output": {
+    "question": "Pour le crédit, quel article du code de commerce s'applique aux lettres de change et billets à ordre souscrits par les emprunteurs ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 511-5",
+          "L511-5",
+          "article L. 511-5"
+        ],
+        "quote": "Les dispositions de l'article L. 511-5 du code de commerce sont applicables aux lettres de change et billets à ordre",
+        "article": "L314-21"
+      }
+    ],
+    "doubt": "L'article ne fait que renvoyer à un article du code de commerce, sans valeur précise propre au Code de la consommation ; la question porterait sur un autre code."
+  },
+  "raw_text": "{\"question\":\"Pour le crédit, quel article du code de commerce s'applique aux lettres de change et billets à ordre souscrits par les emprunteurs ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 511-5\",\"L511-5\",\"article L. 511-5\"],\"quote\":\"Les dispositions de l'article L. 511-5 du code de commerce sont applicables aux lettres de change et billets à ordre\",\"article\":\"L314-21\"}],\"doubt\":\"L'article ne fait que renvoyer à un article du code de commerce, sans valeur précise propre au Code de la consommation ; la question porterait sur un autre code.\"}"
+}

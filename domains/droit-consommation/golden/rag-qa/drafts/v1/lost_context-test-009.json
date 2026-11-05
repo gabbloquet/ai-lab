@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-009",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:20+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2092,
+    "output_tokens": 192
+  },
+  "output": {
+    "question": "Un regroupement de crédits garanti par une hypothèque sur mon logement : quel chapitre s'applique ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "chapitre III",
+          "III",
+          "chapitre 3"
+        ],
+        "quote": "est soumise, quel que soit son objet, aux dispositions du chapitre III du présent titre",
+        "article": "L314-12"
+      }
+    ],
+    "doubt": "La réponse est un numéro de chapitre (crédit immobilier) ; la question ne cite pas le titre du chapitre, et la valeur attendue est peu quantitative."
+  },
+  "raw_text": "{\"question\":\"Un regroupement de crédits garanti par une hypothèque sur mon logement : quel chapitre s'applique ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"chapitre III\",\"III\",\"chapitre 3\"],\"quote\":\"est soumise, quel que soit son objet, aux dispositions du chapitre III du présent titre\",\"article\":\"L314-12\"}],\"doubt\":\"La réponse est un numéro de chapitre (crédit immobilier) ; la question ne cite pas le titre du chapitre, et la valeur attendue est peu quantitative.\"}"
+}

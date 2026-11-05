@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-023",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:24:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2163,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Quel organisme les pouvoirs publics consultent-ils sur leurs orientations politiques concernant les consommateurs ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "Conseil national de la consommation"
+        ],
+        "quote": "Les pouvoirs publics consultent, en tant que de besoin, le Conseil national de la consommation sur les grandes orientations de leur politique",
+        "article": "D821-3"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur chiffrée précise (durée, montant, seuil) ; seul un organisme est nommé, et la question reprend presque les termes du texte, ce qui rend la paraphrase difficile."
+  },
+  "raw_text": "{\"question\":\"Quel organisme les pouvoirs publics consultent-ils sur leurs orientations politiques concernant les consommateurs ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"Conseil national de la consommation\"],\"quote\":\"Les pouvoirs publics consultent, en tant que de besoin, le Conseil national de la consommation sur les grandes orientations de leur politique\",\"article\":\"D821-3\"}],\"doubt\":\"L'article ne contient aucune valeur chiffrée précise (durée, montant, seuil) ; seul un organisme est nommé, et la question reprend presque les termes du texte, ce qui rend la paraphrase difficile.\"}"
+}

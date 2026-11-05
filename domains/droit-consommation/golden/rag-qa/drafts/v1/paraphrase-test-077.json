@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-077",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:08+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1935,
+    "output_tokens": 218
+  },
+  "output": {
+    "question": "Quelles sanctions risque une entreprise de pompes funèbres qui enfreint les règles sur ses contrats ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "chapitre III du titre II du livre II de la deuxième partie du code général des collectivités territoriales"
+        ],
+        "quote": "sont fixées par les dispositions du chapitre III du titre II du livre II de la deuxième partie du code général des collectivités territoriales",
+        "article": "L242-45"
+      }
+    ],
+    "doubt": "L'article ne fait que renvoyer au code général des collectivités territoriales et ne contient aucune valeur précise propre au Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Quelles sanctions risque une entreprise de pompes funèbres qui enfreint les règles sur ses contrats ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"chapitre III du titre II du livre II de la deuxième partie du code général des collectivités territoriales\"],\"quote\":\"sont fixées par les dispositions du chapitre III du titre II du livre II de la deuxième partie du code général des collectivités territoriales\",\"article\":\"L242-45\"}],\"doubt\":\"L'article ne fait que renvoyer au code général des collectivités territoriales et ne contient aucune valeur précise propre au Code de la consommation.\"}"
+}

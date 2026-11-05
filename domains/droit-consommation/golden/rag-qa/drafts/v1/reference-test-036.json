@@ -1,0 +1,31 @@
+{
+  "task": "reference-test-036",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:59:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2564,
+    "output_tokens": 214
+  },
+  "output": {
+    "question": "Quel règlement européen établit le label écologique de l'UE d'après l'article R. 412-33 du code de la consommation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "n° 66/2010",
+          "règlement (CE) n° 66/2010",
+          "66/2010"
+        ],
+        "quote": "du règlement (CE) n° 66/2010 du 25 novembre 2009 établissant le label écologique de l'UE",
+        "article": "R412-33"
+      }
+    ],
+    "doubt": "L'article est une liste de renvois à des règlements européens ; la question est peu naturelle pour un utilisateur, mais la réponse se lit directement dans le texte."
+  },
+  "raw_text": "{\"question\":\"Quel règlement européen établit le label écologique de l'UE d'après l'article R. 412-33 du code de la consommation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"n° 66/2010\",\"règlement (CE) n° 66/2010\",\"66/2010\"],\"quote\":\"du règlement (CE) n° 66/2010 du 25 novembre 2009 établissant le label écologique de l'UE\",\"article\":\"R412-33\"}],\"doubt\":\"L'article est une liste de renvois à des règlements européens ; la question est peu naturelle pour un utilisateur, mais la réponse se lit directement dans le texte.\"}"
+}

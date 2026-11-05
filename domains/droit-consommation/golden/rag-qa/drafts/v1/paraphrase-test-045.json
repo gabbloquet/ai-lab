@@ -1,0 +1,21 @@
+{
+  "task": "paraphrase-test-045",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1919,
+    "output_tokens": 151
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article R223-8 ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il prévoit seulement la désignation d'un représentant du Gouvernement par arrêté du ministre chargé de l'économie, ce qui relève d'une procédure interne à l'administration. Il est peu probable qu'un particulier pose une question à ce sujet."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article R223-8 ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il prévoit seulement la désignation d'un représentant du Gouvernement par arrêté du ministre chargé de l'économie, ce qui relève d'une procédure interne à l'administration. Il est peu probable qu'un particulier pose une question à ce sujet.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-029",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3885,
+    "output_tokens": 304
+  },
+  "output": {
+    "question": "Réparation d'un ordinateur portable : quelle diagonale d'écran minimale en cm, et où le professionnel doit-il afficher l'info sur les pièces d'économie circulaire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "22,86 cm",
+          "9 pouces"
+        ],
+        "quote": "Les ordinateurs portables utilisent un écran intégré d'une diagonale visible d'au moins 22,86 cm (9 pouces)",
+        "article": "R224-32"
+      },
+      {
+        "accepted": [
+          "à l'entrée du local",
+          "entrée du local"
+        ],
+        "quote": "A l'entrée du local où le public est reçu pour effectuer une demande d'entretien ou de réparation",
+        "article": "D224-34"
+      }
+    ],
+    "doubt": "La question est un peu longue et la réponse sur le lieu d'affichage (entrée du local, de l'extérieur) pourrait être formulée de diverses façons."
+  },
+  "raw_text": "{\"question\":\"Réparation d'un ordinateur portable : quelle diagonale d'écran minimale en cm, et où le professionnel doit-il afficher l'info sur les pièces d'économie circulaire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"22,86 cm\",\"9 pouces\"],\"quote\":\"Les ordinateurs portables utilisent un écran intégré d'une diagonale visible d'au moins 22,86 cm (9 pouces)\",\"article\":\"R224-32\"},{\"accepted\":[\"à l'entrée du local\",\"entrée du local\"],\"quote\":\"A l'entrée du local où le public est reçu pour effectuer une demande d'entretien ou de réparation\",\"article\":\"D224-34\"}],\"doubt\":\"La question est un peu longue et la réponse sur le lieu d'affichage (entrée du local, de l'extérieur) pourrait être formulée de diverses façons.\"}"
+}

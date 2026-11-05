@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-test-045",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2131,
+    "output_tokens": 185
+  },
+  "output": {
+    "question": "Contrat de services financiers à distance : quel code régit les entreprises d'assurance concernées ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "code des assurances"
+        ],
+        "quote": "les entreprises régies par le code des assurances",
+        "article": "L222-1"
+      }
+    ],
+    "doubt": "L'article contient surtout des renvois à d'autres codes ; la valeur attendue est un nom de code, et la question pourrait aussi être satisfaite par d'autres codes cités (monétaire et financier, mutualité, sécurité sociale)."
+  },
+  "raw_text": "{\"question\":\"Contrat de services financiers à distance : quel code régit les entreprises d'assurance concernées ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"code des assurances\"],\"quote\":\"les entreprises régies par le code des assurances\",\"article\":\"L222-1\"}],\"doubt\":\"L'article contient surtout des renvois à d'autres codes ; la valeur attendue est un nom de code, et la question pourrait aussi être satisfaite par d'autres codes cités (monétaire et financier, mutualité, sécurité sociale).\"}"
+}

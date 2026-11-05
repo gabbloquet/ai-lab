@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-047",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2005,
+    "output_tokens": 202
+  },
+  "output": {
+    "question": "Quels ministres signent l'arrêté qui fixe les règles de sécurité pour vendre certains produits en vrac ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "ministre chargé de la consommation"
+        ],
+        "quote": "arrêté conjoint du ministre chargé de la consommation et du ministre compétent pour les produits concernés",
+        "article": "D120-8"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il renvoie seulement à un arrêté conjoint, donc peu adapté à une question factuelle."
+  },
+  "raw_text": "{\"question\":\"Quels ministres signent l'arrêté qui fixe les règles de sécurité pour vendre certains produits en vrac ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"ministre chargé de la consommation\"],\"quote\":\"arrêté conjoint du ministre chargé de la consommation et du ministre compétent pour les produits concernés\",\"article\":\"D120-8\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il renvoie seulement à un arrêté conjoint, donc peu adapté à une question factuelle.\"}"
+}

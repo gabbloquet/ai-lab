@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-043",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1929,
+    "output_tokens": 146
+  },
+  "output": {
+    "question": "Crédit conso : emprunteur défaillant sans remboursement immédiat, quelle indemnité sur les échéances impayées ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "8 %",
+          "8 pour cent",
+          "8%"
+        ],
+        "quote": "il peut demander à l'emprunteur défaillant une indemnité égale à 8 % des échéances échues impayées",
+        "article": "D312-17"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Crédit conso : emprunteur défaillant sans remboursement immédiat, quelle indemnité sur les échéances impayées ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"8 %\",\"8 pour cent\",\"8%\"],\"quote\":\"il peut demander à l'emprunteur défaillant une indemnité égale à 8 % des échéances échues impayées\",\"article\":\"D312-17\"}],\"doubt\":\"\"}"
+}

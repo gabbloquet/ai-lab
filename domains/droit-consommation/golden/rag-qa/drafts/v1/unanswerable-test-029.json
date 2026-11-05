@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-029",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2198,
+    "output_tokens": 270
+  },
+  "output": {
+    "question": "Crédit renouvelable : quel taux d'intérêt maximum la banque peut-elle appliquer pendant un report d'échéance ?",
+    "why_unanswerable": "L'article D312-30 autorise les reports d'échéance (au maximum deux fois par an) sans autres frais que les intérêts débiteurs et l'assurance, mais il ne fixe aucun taux d'intérêt applicable pendant le report. Le taux dépend du contrat, dans la limite du taux de l'usure, qui est un autre sujet.",
+    "doubt": "Le taux de l'usure (articles L314-6 et suivants) fixe un plafond général des taux, ce qui pourrait être invoqué comme réponse partielle, bien qu'il ne soit pas propre aux reports d'échéance."
+  },
+  "raw_text": "{\"question\":\"Crédit renouvelable : quel taux d'intérêt maximum la banque peut-elle appliquer pendant un report d'échéance ?\",\"why_unanswerable\":\"L'article D312-30 autorise les reports d'échéance (au maximum deux fois par an) sans autres frais que les intérêts débiteurs et l'assurance, mais il ne fixe aucun taux d'intérêt applicable pendant le report. Le taux dépend du contrat, dans la limite du taux de l'usure, qui est un autre sujet.\",\"doubt\":\"Le taux de l'usure (articles L314-6 et suivants) fixe un plafond général des taux, ce qui pourrait être invoqué comme réponse partielle, bien qu'il ne soit pas propre aux reports d'échéance.\"}"
+}

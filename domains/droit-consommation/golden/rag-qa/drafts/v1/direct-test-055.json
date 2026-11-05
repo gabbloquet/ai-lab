@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-055",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2002,
+    "output_tokens": 219
+  },
+  "output": {
+    "question": "Quel règlement européen définit les dispositifs médicaux pour la disponibilité des pièces détachées de matériel médical ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "règlement (UE) 2017/745",
+          "2017/745"
+        ],
+        "quote": "au sens de l'article 2 du règlement (UE) 2017/745 du Parlement européen et du Conseil du 5 avril 2017",
+        "article": "D224-41"
+      }
+    ],
+    "doubt": "L'article se contente de renvoyer à un règlement européen pour des définitions, sans valeur propre au Code de la consommation ; peu de chances qu'on pose cette question dans un chat."
+  },
+  "raw_text": "{\"question\":\"Quel règlement européen définit les dispositifs médicaux pour la disponibilité des pièces détachées de matériel médical ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"règlement (UE) 2017/745\",\"2017/745\"],\"quote\":\"au sens de l'article 2 du règlement (UE) 2017/745 du Parlement européen et du Conseil du 5 avril 2017\",\"article\":\"D224-41\"}],\"doubt\":\"L'article se contente de renvoyer à un règlement européen pour des définitions, sans valeur propre au Code de la consommation ; peu de chances qu'on pose cette question dans un chat.\"}"
+}

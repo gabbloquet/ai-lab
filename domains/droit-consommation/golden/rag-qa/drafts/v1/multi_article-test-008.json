@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-test-008",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2482,
+    "output_tokens": 313
+  },
+  "output": {
+    "question": "Crédit conso : en cas d'impayé, sur quel support le prêteur m'alerte-t-il, et quel taux d'intérêts de retard s'applique ensuite ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "support papier ou tout autre support durable",
+          "papier ou support durable",
+          "support durable"
+        ],
+        "quote": "le prêteur informe celui-ci, sur support papier ou tout autre support durable des risques qu'il encourt",
+        "article": "L312-36"
+      },
+      {
+        "accepted": [
+          "taux égal à celui du prêt",
+          "le taux du prêt",
+          "celui du prêt"
+        ],
+        "quote": "les sommes restant dues produisent les intérêts de retard à un taux égal à celui du prêt",
+        "article": "L312-39"
+      }
+    ],
+    "doubt": "Le second fait est un taux exprimé par référence (taux du prêt), non par un chiffre ; la formulation de l'alerte pourrait aussi être donnée de façon variée."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : en cas d'impayé, sur quel support le prêteur m'alerte-t-il, et quel taux d'intérêts de retard s'applique ensuite ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"support papier ou tout autre support durable\",\"papier ou support durable\",\"support durable\"],\"quote\":\"le prêteur informe celui-ci, sur support papier ou tout autre support durable des risques qu'il encourt\",\"article\":\"L312-36\"},{\"accepted\":[\"taux égal à celui du prêt\",\"le taux du prêt\",\"celui du prêt\"],\"quote\":\"les sommes restant dues produisent les intérêts de retard à un taux égal à celui du prêt\",\"article\":\"L312-39\"}],\"doubt\":\"Le second fait est un taux exprimé par référence (taux du prêt), non par un chiffre ; la formulation de l'alerte pourrait aussi être donnée de façon variée.\"}"
+}

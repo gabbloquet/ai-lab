@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-017",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2048,
+    "output_tokens": 287
+  },
+  "output": {
+    "question": "Quelle amende risque un boucher qui vend de la viande hachée non conforme aux règles d'hygiène européennes ?",
+    "why_unanswerable": "L'article R412-31 se borne à désigner les dispositions du règlement (CE) n° 853/2004 qui constituent des mesures d'exécution de l'article L. 412-1. Il ne fixe aucune sanction ni aucun montant d'amende. La question porte sur une situation voisine, la sanction du non-respect de ces règles, qu'il ne traite pas.",
+    "doubt": "Les sanctions pénales ou administratives des manquements à l'article L. 412-1 figurent peut-être ailleurs dans le Code de la consommation, par exemple aux articles L. 454-1 ou L. 472-1, de sorte que la question pourrait recevoir une réponse."
+  },
+  "raw_text": "{\"question\":\"Quelle amende risque un boucher qui vend de la viande hachée non conforme aux règles d'hygiène européennes ?\",\"why_unanswerable\":\"L'article R412-31 se borne à désigner les dispositions du règlement (CE) n° 853/2004 qui constituent des mesures d'exécution de l'article L. 412-1. Il ne fixe aucune sanction ni aucun montant d'amende. La question porte sur une situation voisine, la sanction du non-respect de ces règles, qu'il ne traite pas.\",\"doubt\":\"Les sanctions pénales ou administratives des manquements à l'article L. 412-1 figurent peut-être ailleurs dans le Code de la consommation, par exemple aux articles L. 454-1 ou L. 472-1, de sorte que la question pourrait recevoir une réponse.\"}"
+}

@@ -1,0 +1,36 @@
+{
+  "task": "multi_article-test-020",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:55+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2542,
+    "output_tokens": 283
+  },
+  "output": {
+    "question": "Quelle appellation un prêteur peut-il utiliser pour un conseil sans rémunération d'un prêteur, et par quel texte sont fixées les modalités de formation de son personnel ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "conseiller indépendant"
+        ],
+        "quote": "peut se prévaloir de l'appellation de conseiller indépendant",
+        "article": "L313-14"
+      },
+      {
+        "accepted": [
+          "décret"
+        ],
+        "quote": "Les modalités d'application du présent article sont fixées par décret.",
+        "article": "L314-24"
+      }
+    ],
+    "doubt": "Les articles ne contiennent aucune valeur précise (durée, montant, seuil) : seulement une appellation et des renvois à des décrets ; la question est peu naturelle et le renvoi de A vers B ne mène qu'à L. 313-14 par simple citation."
+  },
+  "raw_text": "{\"question\":\"Quelle appellation un prêteur peut-il utiliser pour un conseil sans rémunération d'un prêteur, et par quel texte sont fixées les modalités de formation de son personnel ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"conseiller indépendant\"],\"quote\":\"peut se prévaloir de l'appellation de conseiller indépendant\",\"article\":\"L313-14\"},{\"accepted\":[\"décret\"],\"quote\":\"Les modalités d'application du présent article sont fixées par décret.\",\"article\":\"L314-24\"}],\"doubt\":\"Les articles ne contiennent aucune valeur précise (durée, montant, seuil) : seulement une appellation et des renvois à des décrets ; la question est peu naturelle et le renvoi de A vers B ne mène qu'à L. 313-14 par simple citation.\"}"
+}

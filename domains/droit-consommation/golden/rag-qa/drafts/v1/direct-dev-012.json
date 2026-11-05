@@ -1,0 +1,31 @@
+{
+  "task": "direct-dev-012",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:20+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2045,
+    "output_tokens": 197
+  },
+  "output": {
+    "question": "Outre-mer : quel organisme peut proposer d'imposer l'affichage du prix d'achat au producteur en cas de prix anormalement bas ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "l'observatoire des prix, des marges et des revenus",
+          "observatoire des prix, des marges et des revenus",
+          "OPMR"
+        ],
+        "quote": "l'observatoire des prix, des marges et des revenus mentionné au titre Ier A du livre IX du code de commerce peut proposer au représentant de l'Etat",
+        "article": "L141-1"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Outre-mer : quel organisme peut proposer d'imposer l'affichage du prix d'achat au producteur en cas de prix anormalement bas ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"l'observatoire des prix, des marges et des revenus\",\"observatoire des prix, des marges et des revenus\",\"OPMR\"],\"quote\":\"l'observatoire des prix, des marges et des revenus mentionné au titre Ier A du livre IX du code de commerce peut proposer au représentant de l'Etat\",\"article\":\"L141-1\"}],\"doubt\":\"\"}"
+}

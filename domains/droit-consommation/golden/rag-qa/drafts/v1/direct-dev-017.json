@@ -1,0 +1,30 @@
+{
+  "task": "direct-dev-017",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1990,
+    "output_tokens": 242
+  },
+  "output": {
+    "question": "Quel article du Code de la consommation interdit la prospection par courriel sur la rénovation énergétique des logements ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 223-8",
+          "L223-8"
+        ],
+        "quote": "est interdite, sauf si elle intervient dans le cadre de l'exécution d'un contrat en cours au sens du quatrième alinéa de l'article L. 223-1",
+        "article": "L223-8"
+      }
+    ],
+    "doubt": "L'article n'énonce aucune valeur précise (durée, montant, taux, seuil, date, organisme) : il pose une interdiction avec une exception, et la seule valeur serait son propre numéro, ce que le mode direct ne permet pas de demander."
+  },
+  "raw_text": "{\"question\":\"Quel article du Code de la consommation interdit la prospection par courriel sur la rénovation énergétique des logements ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 223-8\",\"L223-8\"],\"quote\":\"est interdite, sauf si elle intervient dans le cadre de l'exécution d'un contrat en cours au sens du quatrième alinéa de l'article L. 223-1\",\"article\":\"L223-8\"}],\"doubt\":\"L'article n'énonce aucune valeur précise (durée, montant, taux, seuil, date, organisme) : il pose une interdiction avec une exception, et la seule valeur serait son propre numéro, ce que le mode direct ne permet pas de demander.\"}"
+}

@@ -1,0 +1,21 @@
+{
+  "task": "reference-test-033",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:59:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1931,
+    "output_tokens": 133
+  },
+  "output": {
+    "question": "Que prévoit l'article R. 622-7 du code de la consommation comme valeur précise ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il énonce seulement que les consommateurs peuvent mandater une autre association nationale agréée pour poursuivre l'instance."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article R. 622-7 du code de la consommation comme valeur précise ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il énonce seulement que les consommateurs peuvent mandater une autre association nationale agréée pour poursuivre l'instance.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-002",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2211,
+    "output_tokens": 233
+  },
+  "output": {
+    "question": "Quel est le prix maximum d'une batterie de rechange pour un ordinateur portable vendue par le fabricant ?",
+    "why_unanswerable": "L'article impose seulement la disponibilité de certaines pièces détachées (batteries, chargeurs, cartes mères, etc.) et leur durée minimale de disponibilité. Il ne fixe ni prix, ni plafond tarifaire pour ces pièces, et aucun autre article du code ne plafonne le prix d'une batterie de rechange.",
+    "doubt": "Un article général du code sur l'information sur le prix des pièces détachées pourrait exister, mais il ne fixerait pas de plafond de prix."
+  },
+  "raw_text": "{\"question\":\"Quel est le prix maximum d'une batterie de rechange pour un ordinateur portable vendue par le fabricant ?\",\"why_unanswerable\":\"L'article impose seulement la disponibilité de certaines pièces détachées (batteries, chargeurs, cartes mères, etc.) et leur durée minimale de disponibilité. Il ne fixe ni prix, ni plafond tarifaire pour ces pièces, et aucun autre article du code ne plafonne le prix d'une batterie de rechange.\",\"doubt\":\"Un article général du code sur l'information sur le prix des pièces détachées pourrait exister, mais il ne fixerait pas de plafond de prix.\"}"
+}

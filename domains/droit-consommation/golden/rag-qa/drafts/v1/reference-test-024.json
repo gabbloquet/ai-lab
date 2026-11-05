@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-024",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2324,
+    "output_tokens": 195
+  },
+  "output": {
+    "question": "Selon l'article L. 222-5, par quel type de décret est fixée la liste des informations précontractuelles ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "décret en Conseil d'Etat",
+          "Conseil d'Etat"
+        ],
+        "quote": "des informations dont la liste est fixée par décret en Conseil d'Etat",
+        "article": "L222-5"
+      }
+    ],
+    "doubt": "La valeur attendue est une forme de texte (décret en Conseil d'Etat) plutôt qu'un chiffre ; l'article contient peu de valeurs numériques précises."
+  },
+  "raw_text": "{\"question\":\"Selon l'article L. 222-5, par quel type de décret est fixée la liste des informations précontractuelles ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"décret en Conseil d'Etat\",\"Conseil d'Etat\"],\"quote\":\"des informations dont la liste est fixée par décret en Conseil d'Etat\",\"article\":\"L222-5\"}],\"doubt\":\"La valeur attendue est une forme de texte (décret en Conseil d'Etat) plutôt qu'un chiffre ; l'article contient peu de valeurs numériques précises.\"}"
+}

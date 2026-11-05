@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-dev-012",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2725,
+    "output_tokens": 282
+  },
+  "output": {
+    "question": "Prélèvement d'une marchandise rapidement altérable : combien d'échantillons, et qui commet les experts pour l'expertise ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un seul échantillon",
+          "un seul",
+          "1 seul"
+        ],
+        "quote": "Le prélèvement comporte un seul échantillon portant sur tout ou partie de la marchandise lorsque celle-ci est rapidement altérable.",
+        "article": "R512-19"
+      },
+      {
+        "accepted": [
+          "le procureur de la République",
+          "procureur de la République",
+          "la juridiction"
+        ],
+        "quote": "le procureur de la République ou la juridiction commet immédiatement les experts",
+        "article": "L512-47"
+      }
+    ],
+    "doubt": "La réponse B admet deux autorités (procureur ou juridiction) ; la question reste unique mais l'une ou l'autre forme est acceptée."
+  },
+  "raw_text": "{\"question\":\"Prélèvement d'une marchandise rapidement altérable : combien d'échantillons, et qui commet les experts pour l'expertise ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un seul échantillon\",\"un seul\",\"1 seul\"],\"quote\":\"Le prélèvement comporte un seul échantillon portant sur tout ou partie de la marchandise lorsque celle-ci est rapidement altérable.\",\"article\":\"R512-19\"},{\"accepted\":[\"le procureur de la République\",\"procureur de la République\",\"la juridiction\"],\"quote\":\"le procureur de la République ou la juridiction commet immédiatement les experts\",\"article\":\"L512-47\"}],\"doubt\":\"La réponse B admet deux autorités (procureur ou juridiction) ; la question reste unique mais l'une ou l'autre forme est acceptée.\"}"
+}

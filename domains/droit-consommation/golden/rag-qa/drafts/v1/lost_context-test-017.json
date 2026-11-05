@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-017",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2267,
+    "output_tokens": 194
+  },
+  "output": {
+    "question": "Vente de biens : à quel moment au plus tard la garantie commerciale doit-elle être remise au consommateur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "au moment de la délivrance du bien",
+          "moment de la délivrance du bien",
+          "délivrance du bien"
+        ],
+        "quote": "au plus tard au moment de la délivrance du bien",
+        "article": "L217-22"
+      }
+    ],
+    "doubt": "Le texte ne contient pas de chiffre : la valeur attendue est un moment (délivrance du bien), ce qui reste une valeur précise mais non numérique."
+  },
+  "raw_text": "{\"question\":\"Vente de biens : à quel moment au plus tard la garantie commerciale doit-elle être remise au consommateur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"au moment de la délivrance du bien\",\"moment de la délivrance du bien\",\"délivrance du bien\"],\"quote\":\"au plus tard au moment de la délivrance du bien\",\"article\":\"L217-22\"}],\"doubt\":\"Le texte ne contient pas de chiffre : la valeur attendue est un moment (délivrance du bien), ce qui reste une valeur précise mais non numérique.\"}"
+}

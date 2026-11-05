@@ -1,0 +1,38 @@
+{
+  "task": "reference-test-029",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:59:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2256,
+    "output_tokens": 298
+  },
+  "output": {
+    "question": "Selon l'article R. 712-19, que doit assurer le procédé de transmission par voie électronique d'une lettre simple de la commission ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "l'authentification de l'émetteur",
+          "authentification de l'émetteur"
+        ],
+        "quote": "le procédé technique utilisé doit assurer l'authentification de l'émetteur ainsi que l'intégrité du message",
+        "article": "R712-19"
+      },
+      {
+        "accepted": [
+          "l'intégrité du message",
+          "intégrité du message"
+        ],
+        "quote": "le procédé technique utilisé doit assurer l'authentification de l'émetteur ainsi que l'intégrité du message",
+        "article": "R712-19"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée ; les faits sont des exigences techniques (authentification, intégrité), mais restent précis et lisibles dans le texte."
+  },
+  "raw_text": "{\"question\":\"Selon l'article R. 712-19, que doit assurer le procédé de transmission par voie électronique d'une lettre simple de la commission ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"l'authentification de l'émetteur\",\"authentification de l'émetteur\"],\"quote\":\"le procédé technique utilisé doit assurer l'authentification de l'émetteur ainsi que l'intégrité du message\",\"article\":\"R712-19\"},{\"accepted\":[\"l'intégrité du message\",\"intégrité du message\"],\"quote\":\"le procédé technique utilisé doit assurer l'authentification de l'émetteur ainsi que l'intégrité du message\",\"article\":\"R712-19\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée ; les faits sont des exigences techniques (authentification, intégrité), mais restent précis et lisibles dans le texte.\"}"
+}

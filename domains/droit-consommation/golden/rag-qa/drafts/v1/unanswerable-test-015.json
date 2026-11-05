@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-015",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2046,
+    "output_tokens": 236
+  },
+  "output": {
+    "question": "Surendettement : combien de mois de retard de loyer la commission accepte-t-elle avant de proposer un plan ?",
+    "why_unanswerable": "L'article L733-3 fixe seulement la durée maximale des mesures imposées (sept ans, avec exceptions pour la résidence principale). Il ne dit rien d'un nombre de mois de retard de loyer toléré avant un plan, et le code ne fixe pas un tel seuil de tolérance.",
+    "doubt": "D'autres articles du livre VII sur la recevabilité ou les dettes de loyer pourraient aborder un sujet proche, mais aucun ne semble fixer un nombre de mois de retard toléré."
+  },
+  "raw_text": "{\"question\":\"Surendettement : combien de mois de retard de loyer la commission accepte-t-elle avant de proposer un plan ?\",\"why_unanswerable\":\"L'article L733-3 fixe seulement la durée maximale des mesures imposées (sept ans, avec exceptions pour la résidence principale). Il ne dit rien d'un nombre de mois de retard de loyer toléré avant un plan, et le code ne fixe pas un tel seuil de tolérance.\",\"doubt\":\"D'autres articles du livre VII sur la recevabilité ou les dettes de loyer pourraient aborder un sujet proche, mais aucun ne semble fixer un nombre de mois de retard toléré.\"}"
+}

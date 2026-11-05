@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-test-021",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2523,
+    "output_tokens": 327
+  },
+  "output": {
+    "question": "Surendettement : qui publie l'appel aux créanciers avant la décision du juge, et qui désigne la partie qui paie les frais ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "greffe du tribunal judiciaire",
+          "le greffe",
+          "greffe"
+        ],
+        "quote": "L'appel aux créanciers prévu à l'article L. 741-8 est publié par le greffe du tribunal judiciaire",
+        "article": "R741-15"
+      },
+      {
+        "accepted": [
+          "juge des contentieux de la protection",
+          "le juge des contentieux de la protection",
+          "JCP"
+        ],
+        "quote": "le juge des contentieux de la protection désigne, par ordonnance, la ou les parties qui en supporteront les frais",
+        "article": "R741-15"
+      }
+    ],
+    "doubt": "Les deux faits viennent de l'article R741-15 ; l'article L741-8 fournit seulement le contexte (le juge peut faire publier un appel aux créanciers), aucune valeur précise n'en est tirée."
+  },
+  "raw_text": "{\"question\":\"Surendettement : qui publie l'appel aux créanciers avant la décision du juge, et qui désigne la partie qui paie les frais ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"greffe du tribunal judiciaire\",\"le greffe\",\"greffe\"],\"quote\":\"L'appel aux créanciers prévu à l'article L. 741-8 est publié par le greffe du tribunal judiciaire\",\"article\":\"R741-15\"},{\"accepted\":[\"juge des contentieux de la protection\",\"le juge des contentieux de la protection\",\"JCP\"],\"quote\":\"le juge des contentieux de la protection désigne, par ordonnance, la ou les parties qui en supporteront les frais\",\"article\":\"R741-15\"}],\"doubt\":\"Les deux faits viennent de l'article R741-15 ; l'article L741-8 fournit seulement le contexte (le juge peut faire publier un appel aux créanciers), aucune valeur précise n'en est tirée.\"}"
+}

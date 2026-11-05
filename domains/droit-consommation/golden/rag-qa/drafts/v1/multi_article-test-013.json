@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-013",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2772,
+    "output_tokens": 310
+  },
+  "output": {
+    "question": "Substitution d'assurance emprunteur : sous quel délai le prêteur répond-il, et quel taux est recalculé dans l'avenant ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "dix jours ouvrés",
+          "10 jours ouvrés"
+        ],
+        "quote": "dans un délai de dix jours ouvrés à compter de la réception de la demande de substitution",
+        "article": "L313-31"
+      },
+      {
+        "accepted": [
+          "taux annuel effectif global",
+          "TAEG"
+        ],
+        "quote": "le nouveau taux annuel effectif global calculé, conformément aux articles L. 314-1 à L. 314-4",
+        "article": "L313-31"
+      }
+    ],
+    "doubt": "L'article B (L314-1) ne fournit pas de valeur précise exploitable pour la question : les deux faits viennent de A, donc la question ne requiert pas vraiment B et le critère « au moins un fait de B » n'est pas respecté.}"
+  },
+  "raw_text": "{\"question\":\"Substitution d'assurance emprunteur : sous quel délai le prêteur répond-il, et quel taux est recalculé dans l'avenant ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"dix jours ouvrés\",\"10 jours ouvrés\"],\"quote\":\"dans un délai de dix jours ouvrés à compter de la réception de la demande de substitution\",\"article\":\"L313-31\"},{\"accepted\":[\"taux annuel effectif global\",\"TAEG\"],\"quote\":\"le nouveau taux annuel effectif global calculé, conformément aux articles L. 314-1 à L. 314-4\",\"article\":\"L313-31\"}],\"doubt\":\"L'article B (L314-1) ne fournit pas de valeur précise exploitable pour la question : les deux faits viennent de A, donc la question ne requiert pas vraiment B et le critère « au moins un fait de B » n'est pas respecté.}\"}"
+}

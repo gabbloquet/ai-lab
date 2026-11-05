@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-035",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:59+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2005,
+    "output_tokens": 261
+  },
+  "output": {
+    "question": "Combien de temps dure la formation obligatoire des agents de la répression des fraudes avant leur habilitation par commission rogatoire ?",
+    "why_unanswerable": "L'article L511-4 indique seulement que des fonctionnaires de catégorie A, spécialement habilités par le ministre de la justice sur proposition du ministre de l'économie, peuvent recevoir des commissions rogatoires des juges d'instruction. Il ne prévoit aucune formation obligatoire ni aucune durée de formation, et le Code de la consommation ne fixe pas non plus ce détail.",
+    "doubt": "Un autre article du Code de la consommation ou un décret pourrait traiter de la formation des agents, mais je n'en connais pas qui fixe une durée."
+  },
+  "raw_text": "{\"question\":\"Combien de temps dure la formation obligatoire des agents de la répression des fraudes avant leur habilitation par commission rogatoire ?\",\"why_unanswerable\":\"L'article L511-4 indique seulement que des fonctionnaires de catégorie A, spécialement habilités par le ministre de la justice sur proposition du ministre de l'économie, peuvent recevoir des commissions rogatoires des juges d'instruction. Il ne prévoit aucune formation obligatoire ni aucune durée de formation, et le Code de la consommation ne fixe pas non plus ce détail.\",\"doubt\":\"Un autre article du Code de la consommation ou un décret pourrait traiter de la formation des agents, mais je n'en connais pas qui fixe une durée.\"}"
+}

@@ -1,0 +1,29 @@
+{
+  "task": "multi_article-dev-011",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2621,
+    "output_tokens": 262
+  },
+  "output": {
+    "question": "Crédit immobilier : si j'oppose un autre contrat d'assurance, l'offre modifiée peut-elle prolonger les délais ? Et quel délai pour résoudre le prêt si l'agrément est refusé ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "un mois"
+        ],
+        "quote": "Cette demande doit être présentée dans le délai d'un mois à compter de la notification du refus de l'agrément.",
+        "article": "L313-29"
+      }
+    ],
+    "doubt": "L'article A ne contient aucune valeur précise (ni durée, ni montant) : il renvoie seulement à d'autres articles et à un décret, donc impossible de formuler un fait provenant de A. De plus, la question rédigée est un oui/non et dépasse 20 mots."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : si j'oppose un autre contrat d'assurance, l'offre modifiée peut-elle prolonger les délais ? Et quel délai pour résoudre le prêt si l'agrément est refusé ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"un mois\"],\"quote\":\"Cette demande doit être présentée dans le délai d'un mois à compter de la notification du refus de l'agrément.\",\"article\":\"L313-29\"}],\"doubt\":\"L'article A ne contient aucune valeur précise (ni durée, ni montant) : il renvoie seulement à d'autres articles et à un décret, donc impossible de formuler un fait provenant de A. De plus, la question rédigée est un oui/non et dépasse 20 mots.\"}"
+}

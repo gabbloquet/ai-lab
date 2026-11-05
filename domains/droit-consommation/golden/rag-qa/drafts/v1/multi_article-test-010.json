@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-010",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2328,
+    "output_tokens": 279
+  },
+  "output": {
+    "question": "Location-vente immobilière : quelle amende si le bailleur reçoit un chèque avant l'acceptation de l'offre, et jusqu'à quand c'est interdit ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-42"
+      },
+      {
+        "accepted": [
+          "l'acceptation de l'offre",
+          "acceptation de l'offre"
+        ],
+        "quote": "Jusqu'à l'acceptation de l'offre, le preneur ne peut faire aucun dépôt",
+        "article": "L313-59"
+      }
+    ],
+    "doubt": "La question fait 22 mots environ, ce qui dépasse peut-être la limite de 20 mots ; le second fait est une condition (moment) plutôt qu'un chiffre."
+  },
+  "raw_text": "{\"question\":\"Location-vente immobilière : quelle amende si le bailleur reçoit un chèque avant l'acceptation de l'offre, et jusqu'à quand c'est interdit ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-42\"},{\"accepted\":[\"l'acceptation de l'offre\",\"acceptation de l'offre\"],\"quote\":\"Jusqu'à l'acceptation de l'offre, le preneur ne peut faire aucun dépôt\",\"article\":\"L313-59\"}],\"doubt\":\"La question fait 22 mots environ, ce qui dépasse peut-être la limite de 20 mots ; le second fait est une condition (moment) plutôt qu'un chiffre.\"}"
+}

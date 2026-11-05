@@ -1,0 +1,31 @@
+{
+  "task": "reference-dev-008",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2033,
+    "output_tokens": 126
+  },
+  "output": {
+    "question": "Quelle amende prévoit l'article L. 341-43 du code de la consommation en cas de non-restitution des sommes ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €",
+          "300000 euros"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-43"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quelle amende prévoit l'article L. 341-43 du code de la consommation en cas de non-restitution des sommes ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\",\"300000 euros\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-43\"}],\"doubt\":\"\"}"
+}

@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-dev-004",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2631,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Qui donne son avis avant le retrait de l'agrément d'une association de consommateurs, et quel nombre minimal de membres pour une association nationale ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "procureur général",
+          "le procureur général"
+        ],
+        "quote": "L'agrément peut être retiré après avis du procureur général",
+        "article": "R811-7"
+      },
+      {
+        "accepted": [
+          "10 000",
+          "10000",
+          "dix mille"
+        ],
+        "quote": "Au moins égal à 10 000 pour les associations nationales",
+        "article": "R811-1"
+      }
+    ],
+    "doubt": "Le seuil de 10 000 membres est une condition d'octroi (R811-1) ; R811-7 renvoie à ce nombre via « nombre d'adhérents requis », ce qui reste un lien indirect."
+  },
+  "raw_text": "{\"question\":\"Qui donne son avis avant le retrait de l'agrément d'une association de consommateurs, et quel nombre minimal de membres pour une association nationale ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"procureur général\",\"le procureur général\"],\"quote\":\"L'agrément peut être retiré après avis du procureur général\",\"article\":\"R811-7\"},{\"accepted\":[\"10 000\",\"10000\",\"dix mille\"],\"quote\":\"Au moins égal à 10 000 pour les associations nationales\",\"article\":\"R811-1\"}],\"doubt\":\"Le seuil de 10 000 membres est une condition d'octroi (R811-1) ; R811-7 renvoie à ce nombre via « nombre d'adhérents requis », ce qui reste un lien indirect.\"}"
+}

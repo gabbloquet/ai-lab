@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-dev-018",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2402,
+    "output_tokens": 203
+  },
+  "output": {
+    "question": "Si un commerçant est condamné pour certaines fraudes sur des produits, combien de temps peut-on lui interdire de travailler ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.",
+        "article": "L451-15"
+      }
+    ],
+    "doubt": "L'article vise les délits des articles L. 451-9 à L. 451-14, la question reste générale ; d'autres articles du code peuvent prévoir des durées différentes pour d'autres infractions."
+  },
+  "raw_text": "{\"question\":\"Si un commerçant est condamné pour certaines fraudes sur des produits, combien de temps peut-on lui interdire de travailler ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.\",\"article\":\"L451-15\"}],\"doubt\":\"L'article vise les délits des articles L. 451-9 à L. 451-14, la question reste générale ; d'autres articles du code peuvent prévoir des durées différentes pour d'autres infractions.\"}"
+}

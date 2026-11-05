@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-dev-012",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2219,
+    "output_tokens": 628
+  },
+  "output": {
+    "question": "Démarchage à domicile : quel document doit accompagner le contrat remis au consommateur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "formulaire type de rétractation",
+          "formulaire de rétractation"
+        ],
+        "quote": "Le contrat est accompagné du formulaire type de rétractation mentionné au 7° de l'article L. 221-5.",
+        "article": "L221-9"
+      }
+    ],
+    "doubt": "L'article ne contient pas d'expression de contexte perdu ; le contexte (contrat hors établissement) est nommé dans le texte lui-même. Le formulaire est aussi évoqué à L221-5."
+  },
+  "raw_text": "{\"question\":\"Démarchage à domicile : quel document doit accompagner le contrat remis au consommateur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"formulaire type de rétractation\",\"formulaire de rétractation\"],\"quote\":\"Le contrat est accompagné du formulaire type de rétractation mentionné au 7° de l'article L. 221-5.\",\"article\":\"L221-9\"}],\"doubt\":\"L'article ne contient pas d'expression de contexte perdu ; le contexte (contrat hors établissement) est nommé dans le texte lui-même. Le formulaire est aussi évoqué à L221-5.\"}"
+}

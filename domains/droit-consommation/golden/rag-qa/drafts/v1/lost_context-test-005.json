@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-005",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:18+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2574,
+    "output_tokens": 218
+  },
+  "output": {
+    "question": "Contenu numérique acheté en une fois : combien de temps dure la garantie légale de conformité ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "le professionnel répond des défauts de conformité existant au moment de la fourniture et qui apparaissent dans un délai de deux ans à compter de celle-ci",
+        "article": "L224-25-12"
+      }
+    ],
+    "doubt": "Le délai de deux ans vaut pour une fourniture ponctuelle ; la question le précise pour éviter la confusion avec la fourniture continue, et avec la garantie légale des biens (L217-7)."
+  },
+  "raw_text": "{\"question\":\"Contenu numérique acheté en une fois : combien de temps dure la garantie légale de conformité ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"le professionnel répond des défauts de conformité existant au moment de la fourniture et qui apparaissent dans un délai de deux ans à compter de celle-ci\",\"article\":\"L224-25-12\"}],\"doubt\":\"Le délai de deux ans vaut pour une fourniture ponctuelle ; la question le précise pour éviter la confusion avec la fourniture continue, et avec la garantie légale des biens (L217-7).\"}"
+}

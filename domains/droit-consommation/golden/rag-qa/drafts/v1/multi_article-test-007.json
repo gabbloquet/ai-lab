@@ -1,0 +1,36 @@
+{
+  "task": "multi_article-test-007",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3688,
+    "output_tokens": 780
+  },
+  "output": {
+    "question": "Contenu numérique fourni en continu : comment doit-il être fourni, et pendant quelle période les mises à jour sont-elles dues ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "sans interruption"
+        ],
+        "quote": "il est fourni sans interruption tout au long de cette période",
+        "article": "L224-25-14"
+      },
+      {
+        "accepted": [
+          "période pendant laquelle le contenu numérique ou le service numérique est fourni"
+        ],
+        "quote": "Durant la période pendant laquelle le contenu numérique ou le service numérique est fourni en vertu du contrat",
+        "article": "L224-25-25"
+      }
+    ],
+    "doubt": "Aucun des deux articles ne contient de valeur précise (durée, montant, seuil, date) : ils énoncent des critères généraux, et les réponses sont des formulations qualitatives."
+  },
+  "raw_text": "{\"question\":\"Contenu numérique fourni en continu : comment doit-il être fourni, et pendant quelle période les mises à jour sont-elles dues ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"sans interruption\"],\"quote\":\"il est fourni sans interruption tout au long de cette période\",\"article\":\"L224-25-14\"},{\"accepted\":[\"période pendant laquelle le contenu numérique ou le service numérique est fourni\"],\"quote\":\"Durant la période pendant laquelle le contenu numérique ou le service numérique est fourni en vertu du contrat\",\"article\":\"L224-25-25\"}],\"doubt\":\"Aucun des deux articles ne contient de valeur précise (durée, montant, seuil, date) : ils énoncent des critères généraux, et les réponses sont des formulations qualitatives.\"}"
+}

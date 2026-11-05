@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-004",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1884,
+    "output_tokens": 263
+  },
+  "output": {
+    "question": "Action en représentation conjointe : quel est le montant des frais à payer à l'association si je révoque mon mandat ?",
+    "why_unanswerable": "L'article R622-5 prévoit seulement que la partie qui révoque son mandat peut poursuivre l'instance elle-même et doit en aviser aussitôt le juge et la partie adverse. Il ne mentionne aucun frais ni indemnité à verser à l'association en cas de révocation, et le Code de la consommation ne fixe aucun montant à ce sujet.",
+    "doubt": "Un autre article du chapitre sur l'action en représentation conjointe pourrait traiter des frais ou de la rémunération de l'association, mais je n'en connais pas qui fixe un montant dû en cas de révocation."
+  },
+  "raw_text": "{\"question\":\"Action en représentation conjointe : quel est le montant des frais à payer à l'association si je révoque mon mandat ?\",\"why_unanswerable\":\"L'article R622-5 prévoit seulement que la partie qui révoque son mandat peut poursuivre l'instance elle-même et doit en aviser aussitôt le juge et la partie adverse. Il ne mentionne aucun frais ni indemnité à verser à l'association en cas de révocation, et le Code de la consommation ne fixe aucun montant à ce sujet.\",\"doubt\":\"Un autre article du chapitre sur l'action en représentation conjointe pourrait traiter des frais ou de la rémunération de l'association, mais je n'en connais pas qui fixe un montant dû en cas de révocation.\"}"
+}

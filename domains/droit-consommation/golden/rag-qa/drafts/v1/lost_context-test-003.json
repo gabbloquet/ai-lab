@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-003",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2545,
+    "output_tokens": 222
+  },
+  "output": {
+    "question": "Pour constater les pratiques commerciales trompeuses, de quel article les agents de la DGCCRF tirent-ils des pouvoirs supplémentaires ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 512-15",
+          "L512-15"
+        ],
+        "quote": "ils disposent en outre des pouvoirs prévus à l'article L. 512-15",
+        "article": "L511-5"
+      }
+    ],
+    "doubt": "L'article n'énonce que des renvois à d'autres textes, sans valeur précise (durée, montant, taux, seuil) ; la question demanderait de citer un numéro d'article, ce qui est interdit hors mode dédié."
+  },
+  "raw_text": "{\"question\":\"Pour constater les pratiques commerciales trompeuses, de quel article les agents de la DGCCRF tirent-ils des pouvoirs supplémentaires ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 512-15\",\"L512-15\"],\"quote\":\"ils disposent en outre des pouvoirs prévus à l'article L. 512-15\",\"article\":\"L511-5\"}],\"doubt\":\"L'article n'énonce que des renvois à d'autres textes, sans valeur précise (durée, montant, taux, seuil) ; la question demanderait de citer un numéro d'article, ce qui est interdit hors mode dédié.\"}"
+}

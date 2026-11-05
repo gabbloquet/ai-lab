@@ -1,0 +1,21 @@
+{
+  "task": "direct-dev-020",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2137,
+    "output_tokens": 106
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article L512-26 énumère des catégories de produits consignables, mais ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document). Il ne se prête donc pas à une question à réponse courte."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article L512-26 énumère des catégories de produits consignables, mais ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document). Il ne se prête donc pas à une question à réponse courte.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-042",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:01:03+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2147,
+    "output_tokens": 268
+  },
+  "output": {
+    "question": "Bloctel : combien coûte l'adhésion pour une petite entreprise qui démarche par téléphone ?",
+    "why_unanswerable": "L'article R223-5 décrit seulement la composition de la redevance (part fixe et part variable) et renvoie à un arrêté du ministre chargé de l'économie pour en fixer le montant et le taux. Le Code de la consommation ne donne aucun tarif chiffré d'adhésion, ni pour une petite entreprise ni pour une autre.",
+    "doubt": "Un autre article du code pourrait mentionner un tarif, mais cela paraît peu probable car le montant est fixé par arrêté, hors du code. La question suppose aussi que le service d'opposition soit Bloctel, ce que l'article ne nomme pas."
+  },
+  "raw_text": "{\"question\":\"Bloctel : combien coûte l'adhésion pour une petite entreprise qui démarche par téléphone ?\",\"why_unanswerable\":\"L'article R223-5 décrit seulement la composition de la redevance (part fixe et part variable) et renvoie à un arrêté du ministre chargé de l'économie pour en fixer le montant et le taux. Le Code de la consommation ne donne aucun tarif chiffré d'adhésion, ni pour une petite entreprise ni pour une autre.\",\"doubt\":\"Un autre article du code pourrait mentionner un tarif, mais cela paraît peu probable car le montant est fixé par arrêté, hors du code. La question suppose aussi que le service d'opposition soit Bloctel, ce que l'article ne nomme pas.\"}"
+}

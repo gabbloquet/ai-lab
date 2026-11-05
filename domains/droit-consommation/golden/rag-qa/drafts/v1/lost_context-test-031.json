@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-031",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:29+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2177,
+    "output_tokens": 266
+  },
+  "output": {
+    "question": "Contrat de jouissance d'un bien immobilier à temps partagé : où le bien doit-il se situer pour garder la protection malgré une loi d'un pays tiers ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "territoire d'un Etat membre de l'Union européenne",
+          "Etat membre de l'Union européenne",
+          "dans l'Union européenne"
+        ],
+        "quote": "ce bien immobilier est situé sur le territoire d'un Etat membre de l'Union européenne",
+        "article": "L232-6"
+      }
+    ],
+    "doubt": "L'article ne mentionne pas explicitement le temps partagé : il renvoie à l'article L224-70 et à la section 7 du chapitre IV, dont le contenu est supposé connu. La réponse est un lieu et non un chiffre."
+  },
+  "raw_text": "{\"question\":\"Contrat de jouissance d'un bien immobilier à temps partagé : où le bien doit-il se situer pour garder la protection malgré une loi d'un pays tiers ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"territoire d'un Etat membre de l'Union européenne\",\"Etat membre de l'Union européenne\",\"dans l'Union européenne\"],\"quote\":\"ce bien immobilier est situé sur le territoire d'un Etat membre de l'Union européenne\",\"article\":\"L232-6\"}],\"doubt\":\"L'article ne mentionne pas explicitement le temps partagé : il renvoie à l'article L224-70 et à la section 7 du chapitre IV, dont le contenu est supposé connu. La réponse est un lieu et non un chiffre.\"}"
+}

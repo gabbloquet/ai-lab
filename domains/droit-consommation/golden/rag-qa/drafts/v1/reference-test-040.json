@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-040",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:59:03+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2093,
+    "output_tokens": 223
+  },
+  "output": {
+    "question": "Selon l'article R. 512-24, de quoi se compose l'échantillon d'un prélèvement administratif ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "une ou plusieurs unités du produit",
+          "une ou plusieurs unités"
+        ],
+        "quote": "comportent un échantillon constitué d'une ou plusieurs unités du produit en fonction des nécessités des analyses ou des essais",
+        "article": "R512-24"
+      }
+    ],
+    "doubt": "L'article contient peu de valeurs précises (pas de durée ni de montant) ; la réponse attendue est une composition (unités du produit), ce qui reste vérifiable mais peu chiffré."
+  },
+  "raw_text": "{\"question\":\"Selon l'article R. 512-24, de quoi se compose l'échantillon d'un prélèvement administratif ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"une ou plusieurs unités du produit\",\"une ou plusieurs unités\"],\"quote\":\"comportent un échantillon constitué d'une ou plusieurs unités du produit en fonction des nécessités des analyses ou des essais\",\"article\":\"R512-24\"}],\"doubt\":\"L'article contient peu de valeurs précises (pas de durée ni de montant) ; la réponse attendue est une composition (unités du produit), ce qui reste vérifiable mais peu chiffré.\"}"
+}

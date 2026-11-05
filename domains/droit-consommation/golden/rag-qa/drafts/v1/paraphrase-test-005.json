@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-005",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:15+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1957,
+    "output_tokens": 212
+  },
+  "output": {
+    "question": "Ma maison va être vendue aux enchères : qui peut décider de repousser la date de la vente ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "le juge chargé de la saisie immobilière",
+          "juge chargé de la saisie immobilière"
+        ],
+        "quote": "le report de la date d'adjudication ne peut résulter que d'une décision du juge chargé de la saisie immobilière",
+        "article": "L721-7"
+      }
+    ],
+    "doubt": "L'article ne contient ni durée ni montant ; la valeur précise est l'autorité compétente (le juge de la saisie immobilière), saisie par la commission de surendettement."
+  },
+  "raw_text": "{\"question\":\"Ma maison va être vendue aux enchères : qui peut décider de repousser la date de la vente ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"le juge chargé de la saisie immobilière\",\"juge chargé de la saisie immobilière\"],\"quote\":\"le report de la date d'adjudication ne peut résulter que d'une décision du juge chargé de la saisie immobilière\",\"article\":\"L721-7\"}],\"doubt\":\"L'article ne contient ni durée ni montant ; la valeur précise est l'autorité compétente (le juge de la saisie immobilière), saisie par la commission de surendettement.\"}"
+}

@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-test-003",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2226,
+    "output_tokens": 287
+  },
+  "output": {
+    "question": "Surendettement, liquidation judiciaire : le jugement qui arrête les créances peut-il faire l'objet de quel recours, et quels articles listent les mesures du plan évitant la liquidation ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "appel"
+        ],
+        "quote": "Le jugement est susceptible d'appel.",
+        "article": "R742-17"
+      },
+      {
+        "accepted": [
+          "L. 733-1",
+          "L733-1"
+        ],
+        "quote": "un plan comportant les mesures mentionnées aux articles L. 733-1, L. 733-4 et L. 733-7",
+        "article": "L742-24"
+      }
+    ],
+    "doubt": "Les articles ne contiennent pas de valeur chiffrée précise (durée, montant) ; les faits sont des renvois et une voie de recours, donc la question est peu naturelle et la réponse multiple (trois articles listés)."
+  },
+  "raw_text": "{\"question\":\"Surendettement, liquidation judiciaire : le jugement qui arrête les créances peut-il faire l'objet de quel recours, et quels articles listent les mesures du plan évitant la liquidation ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"appel\"],\"quote\":\"Le jugement est susceptible d'appel.\",\"article\":\"R742-17\"},{\"accepted\":[\"L. 733-1\",\"L733-1\"],\"quote\":\"un plan comportant les mesures mentionnées aux articles L. 733-1, L. 733-4 et L. 733-7\",\"article\":\"L742-24\"}],\"doubt\":\"Les articles ne contiennent pas de valeur chiffrée précise (durée, montant) ; les faits sont des renvois et une voie de recours, donc la question est peu naturelle et la réponse multiple (trois articles listés).\"}"
+}

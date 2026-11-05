@@ -1,0 +1,31 @@
+{
+  "task": "direct-test-031",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1969,
+    "output_tokens": 284
+  },
+  "output": {
+    "question": "Qui fixe les modalités de collecte et de consultation du fichier des incidents de paiement caractérisés ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un arrêté du ministre chargé de l'économie",
+          "arrêté du ministre chargé de l'économie",
+          "arrêté du ministre de l'économie"
+        ],
+        "quote": "Un arrêté du ministre chargé de l'économie, pris après avis de la Commission nationale de l'informatique et des libertés et du comité consultatif du secteur financier, fixe les modalités de collecte, d'enregistrement, de conservation et de consultation des informations.",
+        "article": "L751-6"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée, seulement un acte (arrêté) et un auteur ; la question porte sur le type d'acte et l'autorité."
+  },
+  "raw_text": "{\"question\":\"Qui fixe les modalités de collecte et de consultation du fichier des incidents de paiement caractérisés ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un arrêté du ministre chargé de l'économie\",\"arrêté du ministre chargé de l'économie\",\"arrêté du ministre de l'économie\"],\"quote\":\"Un arrêté du ministre chargé de l'économie, pris après avis de la Commission nationale de l'informatique et des libertés et du comité consultatif du secteur financier, fixe les modalités de collecte, d'enregistrement, de conservation et de consultation des informations.\",\"article\":\"L751-6\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée, seulement un acte (arrêté) et un auteur ; la question porte sur le type d'acte et l'autorité.\"}"
+}

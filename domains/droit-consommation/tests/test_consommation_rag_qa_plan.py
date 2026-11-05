@@ -10,6 +10,7 @@ from consommation_rag_qa_plan import (
     V1_QUOTAS,
     allocate,
     eligible,
+    extend_plan,
     lost_context_candidate,
     main,
     make_plan,
@@ -274,3 +275,58 @@ def test_cli_excludes_the_articles_of_another_plan(tmp_path: Path, big_corpus: l
         return {a for line in lines for a in json.loads(line)["articles"]}
 
     assert not used("pilot") & used("v1")
+
+
+# --- Extension d'un plan ------------------------------------------------------------------------
+
+
+def test_extend_appends_tasks_after_the_last_rank(big_corpus: list[dict], plan: list[dict]) -> None:
+    extended = extend_plan(big_corpus, plan, mode="paraphrase", split="dev", n=5, seed=42)
+
+    assert extended[: len(plan)] == plan
+    added = extended[len(plan) :]
+    last = max(t["rank"] for t in plan if t["mode"] == "paraphrase" and t["split"] == "dev")
+    assert [t["rank"] for t in added] == list(range(last + 1, last + 6))
+    assert all(t["mode"] == "paraphrase" and t["split"] == "dev" and t["extension"] for t in added)
+    assert added[0]["task"] == f"paraphrase-dev-{last + 1:03d}"
+
+
+def test_extend_never_reuses_an_article(big_corpus: list[dict], plan: list[dict]) -> None:
+    in_plan = {a for task in plan for a in task["articles"]}
+    excluded = {a["id"] for a in big_corpus if a["id"] not in in_plan}
+    excluded = set(sorted(excluded)[:100])
+    extended = extend_plan(
+        big_corpus, plan, mode="paraphrase", split="test", n=20, seed=42, exclude=excluded
+    )
+    ids = [a for task in extended for a in task["articles"]]
+    assert len(ids) == len(set(ids))
+    assert not excluded & {a for task in extended[len(plan) :] for a in task["articles"]}
+
+
+def test_extend_is_deterministic_and_chains(big_corpus: list[dict], plan: list[dict]) -> None:
+    once = extend_plan(big_corpus, plan, mode="paraphrase", split="dev", n=3, seed=42)
+    assert extend_plan(big_corpus, plan, mode="paraphrase", split="dev", n=3, seed=42) == once
+    twice = extend_plan(big_corpus, once, mode="paraphrase", split="dev", n=3, seed=42)
+    assert twice[: len(once)] == once and len(twice) == len(once) + 3
+
+
+def test_cli_extends_an_existing_plan(tmp_path: Path, big_corpus: list[dict]) -> None:
+    articles = write_corpus(tmp_path, big_corpus)
+    golden = tmp_path / "golden"
+    base = [
+        "--articles",
+        str(articles),
+        "--seed",
+        "42",
+        "--version",
+        "v1",
+        "--golden-dir",
+        str(golden),
+    ]
+    main(base)
+    before = (golden / "v1" / "plan.jsonl").read_text("utf-8").splitlines()
+
+    main([*base, "--extend", "paraphrase:test:4"])
+
+    after = (golden / "v1" / "plan.jsonl").read_text("utf-8").splitlines()
+    assert after[: len(before)] == before and len(after) == len(before) + 4

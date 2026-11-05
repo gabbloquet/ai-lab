@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-046",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:01:04+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1908,
+    "output_tokens": 271
+  },
+  "output": {
+    "question": "Crédit renouvelable : si je refuse les nouvelles conditions à la reconduction, quelle pénalité de remboursement anticipé s'applique ?",
+    "why_unanswerable": "L'article prévoit seulement que l'emprunteur qui refuse les nouvelles conditions rembourse le crédit déjà utilisé aux anciennes conditions, sans nouvelle utilisation. Il ne parle d'aucune pénalité ni indemnité de remboursement anticipé dans ce cas, et ne fixe aucun montant ou taux à ce sujet.",
+    "doubt": "Le Code encadre les indemnités de remboursement anticipé dans d'autres articles, mais pas pour ce cas de refus de reconduction ; un autre article pourrait être jugé applicable."
+  },
+  "raw_text": "{\"question\":\"Crédit renouvelable : si je refuse les nouvelles conditions à la reconduction, quelle pénalité de remboursement anticipé s'applique ?\",\"why_unanswerable\":\"L'article prévoit seulement que l'emprunteur qui refuse les nouvelles conditions rembourse le crédit déjà utilisé aux anciennes conditions, sans nouvelle utilisation. Il ne parle d'aucune pénalité ni indemnité de remboursement anticipé dans ce cas, et ne fixe aucun montant ou taux à ce sujet.\",\"doubt\":\"Le Code encadre les indemnités de remboursement anticipé dans d'autres articles, mais pas pour ce cas de refus de reconduction ; un autre article pourrait être jugé applicable.\"}"
+}

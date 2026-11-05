@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-025",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1963,
+    "output_tokens": 205
+  },
+  "output": {
+    "question": "Association de consommateurs : quel est le montant maximal de l'astreinte en cas d'ajournement par le tribunal pénal ?",
+    "why_unanswerable": "L'article dit seulement que le juge fixe le taux de l'astreinte et sa date de départ, sans plafond ni montant chiffré. Le Code de la consommation ne donne aucun montant maximal pour cette astreinte, qui reste à l'appréciation du juge.",
+    "doubt": "Un autre article du code pourrait fixer un plafond d'astreinte, mais je n'en connais pas pour ce cas précis."
+  },
+  "raw_text": "{\"question\":\"Association de consommateurs : quel est le montant maximal de l'astreinte en cas d'ajournement par le tribunal pénal ?\",\"why_unanswerable\":\"L'article dit seulement que le juge fixe le taux de l'astreinte et sa date de départ, sans plafond ni montant chiffré. Le Code de la consommation ne donne aucun montant maximal pour cette astreinte, qui reste à l'appréciation du juge.\",\"doubt\":\"Un autre article du code pourrait fixer un plafond d'astreinte, mais je n'en connais pas pour ce cas précis.\"}"
+}

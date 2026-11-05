@@ -1,0 +1,21 @@
+{
+  "task": "reference-test-019",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1994,
+    "output_tokens": 153
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 512-7 du code de la consommation comme valeur précise ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, organisme chiffré) : il énonce seulement que les agents peuvent ne décliner leur qualité qu'au moment de la constatation de l'infraction, donc aucune réponse courte n'est attendue."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 512-7 du code de la consommation comme valeur précise ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, organisme chiffré) : il énonce seulement que les agents peuvent ne décliner leur qualité qu'au moment de la constatation de l'infraction, donc aucune réponse courte n'est attendue.\"}"
+}

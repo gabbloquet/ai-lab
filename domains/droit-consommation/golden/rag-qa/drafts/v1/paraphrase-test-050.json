@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-050",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2565,
+    "output_tokens": 173
+  },
+  "output": {
+    "question": "Combien de temps un prestataire doit-il garder les infos d'accessibilité de son service ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "aussi longtemps que le service est disponible"
+        ],
+        "quote": "Les prestataires de services conservent ces informations aussi longtemps que le service est disponible",
+        "article": "D412-57"
+      }
+    ],
+    "doubt": "La réponse est une durée qualitative et non un nombre ; elle est exprimée par une formule plutôt qu'une valeur chiffrée."
+  },
+  "raw_text": "{\"question\":\"Combien de temps un prestataire doit-il garder les infos d'accessibilité de son service ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"aussi longtemps que le service est disponible\"],\"quote\":\"Les prestataires de services conservent ces informations aussi longtemps que le service est disponible\",\"article\":\"D412-57\"}],\"doubt\":\"La réponse est une durée qualitative et non un nombre ; elle est exprimée par une formule plutôt qu'une valeur chiffrée.\"}"
+}

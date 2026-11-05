@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-test-026",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2231,
+    "output_tokens": 172
+  },
+  "output": {
+    "question": "Contenus numériques : un manquement du pro au RGPD est assimilé à quoi, côté garantie de conformité ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "défaut de conformité"
+        ],
+        "quote": "est assimilé à un défaut de conformité",
+        "article": "L224-25-15"
+      }
+    ],
+    "doubt": "La réponse attendue est une expression plutôt qu'une valeur chiffrée ; l'article ne contient pas de durée ni de montant, et la question reste proche du texte."
+  },
+  "raw_text": "{\"question\":\"Contenus numériques : un manquement du pro au RGPD est assimilé à quoi, côté garantie de conformité ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"défaut de conformité\"],\"quote\":\"est assimilé à un défaut de conformité\",\"article\":\"L224-25-15\"}],\"doubt\":\"La réponse attendue est une expression plutôt qu'une valeur chiffrée ; l'article ne contient pas de durée ni de montant, et la question reste proche du texte.\"}"
+}

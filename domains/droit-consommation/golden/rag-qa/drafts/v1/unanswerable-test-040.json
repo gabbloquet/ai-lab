@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-040",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:01:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2040,
+    "output_tokens": 225
+  },
+  "output": {
+    "question": "Quel est le budget annuel de l'Institut national de la consommation ?",
+    "why_unanswerable": "L'article L822-2 énumère seulement les missions de l'Institut national de la consommation (appui technique, diffusion d'informations, campagnes, appui aux commissions). Il ne fixe aucun montant de budget ni de subvention, et le Code de la consommation ne donne pas non plus ce chiffre ailleurs, car il dépend des lois de finances.",
+    "doubt": "Un autre article du livre VIII, sur les ressources de l'institut, pourrait mentionner son financement en termes généraux, mais sans doute pas de montant précis."
+  },
+  "raw_text": "{\"question\":\"Quel est le budget annuel de l'Institut national de la consommation ?\",\"why_unanswerable\":\"L'article L822-2 énumère seulement les missions de l'Institut national de la consommation (appui technique, diffusion d'informations, campagnes, appui aux commissions). Il ne fixe aucun montant de budget ni de subvention, et le Code de la consommation ne donne pas non plus ce chiffre ailleurs, car il dépend des lois de finances.\",\"doubt\":\"Un autre article du livre VIII, sur les ressources de l'institut, pourrait mentionner son financement en termes généraux, mais sans doute pas de montant précis.\"}"
+}

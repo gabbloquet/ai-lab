@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-060",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1911,
+    "output_tokens": 198
+  },
+  "output": {
+    "question": "Un commerçant ignore une mesure de la Commission européenne sur la sécurité d'un produit : il risque quelle classe d'amende ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "5e classe",
+          "cinquième classe",
+          "contraventions de la 5e classe"
+        ],
+        "quote": "sont punies de la peine d'amende prévue pour les contraventions de la 5e classe",
+        "article": "R452-3"
+      }
+    ],
+    "doubt": "La question reste assez technique et suppose que l'on sache qu'il existe des mesures de la Commission européenne en matière de sécurité des produits."
+  },
+  "raw_text": "{\"question\":\"Un commerçant ignore une mesure de la Commission européenne sur la sécurité d'un produit : il risque quelle classe d'amende ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"5e classe\",\"cinquième classe\",\"contraventions de la 5e classe\"],\"quote\":\"sont punies de la peine d'amende prévue pour les contraventions de la 5e classe\",\"article\":\"R452-3\"}],\"doubt\":\"La question reste assez technique et suppose que l'on sache qu'il existe des mesures de la Commission européenne en matière de sécurité des produits.\"}"
+}

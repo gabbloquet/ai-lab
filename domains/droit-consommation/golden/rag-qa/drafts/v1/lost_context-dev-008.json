@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-dev-008",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1974,
+    "output_tokens": 219
+  },
+  "output": {
+    "question": "Crédit à la consommation à Wallis-et-Futuna : par quoi remplace-t-on les références au code du travail ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "dispositions applicables localement ayant le même effet"
+        ],
+        "quote": "les références faites à des dispositions du code du travail sont remplacées par les références aux dispositions applicables localement ayant le même effet",
+        "article": "L351-2"
+      }
+    ],
+    "doubt": "L'article est une simple adaptation outre-mer par remplacement de références, sans valeur précise (durée, montant, taux, organisme) ; personne ne poserait raisonnablement cette question dans un chat."
+  },
+  "raw_text": "{\"question\":\"Crédit à la consommation à Wallis-et-Futuna : par quoi remplace-t-on les références au code du travail ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"dispositions applicables localement ayant le même effet\"],\"quote\":\"les références faites à des dispositions du code du travail sont remplacées par les références aux dispositions applicables localement ayant le même effet\",\"article\":\"L351-2\"}],\"doubt\":\"L'article est une simple adaptation outre-mer par remplacement de références, sans valeur précise (durée, montant, taux, organisme) ; personne ne poserait raisonnablement cette question dans un chat.\"}"
+}

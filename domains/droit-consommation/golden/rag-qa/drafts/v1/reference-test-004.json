@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-004",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2071,
+    "output_tokens": 245
+  },
+  "output": {
+    "question": "Selon l'article R. 822-16, quelles collectivités ou personnes peuvent allouer des subventions à l'Institut national de la consommation ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "l'Etat, les collectivités locales ou toute autre personne publique ou privée"
+        ],
+        "quote": "Les subventions ou participations qui lui sont allouées par l'Etat, les collectivités locales ou toute autre personne publique ou privée",
+        "article": "R822-16"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il énumère seulement des catégories de ressources, donc peu adapté ; la question dépasse aussi 15 mots."
+  },
+  "raw_text": "{\"question\":\"Selon l'article R. 822-16, quelles collectivités ou personnes peuvent allouer des subventions à l'Institut national de la consommation ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"l'Etat, les collectivités locales ou toute autre personne publique ou privée\"],\"quote\":\"Les subventions ou participations qui lui sont allouées par l'Etat, les collectivités locales ou toute autre personne publique ou privée\",\"article\":\"R822-16\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date) : il énumère seulement des catégories de ressources, donc peu adapté ; la question dépasse aussi 15 mots.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-011",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2035,
+    "output_tokens": 255
+  },
+  "output": {
+    "question": "Quel est le montant des dommages-intérêts accordés à un syndicat qui obtient l'interdiction d'une appellation d'origine usurpée ?",
+    "why_unanswerable": "L'article prévoit seulement l'action en justice pour faire interdire l'usage d'une appellation d'origine, ouverte aux personnes lésées et aux syndicats ou associations constitués depuis six mois. Il ne fixe aucun montant ni barème de dommages-intérêts, qui relèvent de l'appréciation du juge.",
+    "doubt": "D'autres articles du code, notamment sur les sanctions, pourraient traiter de réparations ou d'amendes, mais pas de dommages-intérêts chiffrés pour un syndicat."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant des dommages-intérêts accordés à un syndicat qui obtient l'interdiction d'une appellation d'origine usurpée ?\",\"why_unanswerable\":\"L'article prévoit seulement l'action en justice pour faire interdire l'usage d'une appellation d'origine, ouverte aux personnes lésées et aux syndicats ou associations constitués depuis six mois. Il ne fixe aucun montant ni barème de dommages-intérêts, qui relèvent de l'appréciation du juge.\",\"doubt\":\"D'autres articles du code, notamment sur les sanctions, pourraient traiter de réparations ou d'amendes, mais pas de dommages-intérêts chiffrés pour un syndicat.\"}"
+}

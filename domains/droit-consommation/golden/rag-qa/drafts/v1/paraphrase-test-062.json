@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-062",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2929,
+    "output_tokens": 287
+  },
+  "output": {
+    "question": "Quel règlement européen de 2000 encadre l'étiquetage de la viande de bœuf et l'identification des bovins ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "règlement (CE) n° 1760/2000",
+          "n° 1760/2000",
+          "1760/2000"
+        ],
+        "quote": "règlement (CE) n° 1760/2000 du Parlement européen et du Conseil du 17 juillet 2000 modifié établissant un système d'identification et d'enregistrement des bovins et concernant l'étiquetage de la viande bovine et des produits à base de viande bovine",
+        "article": "R412-30"
+      }
+    ],
+    "doubt": "L'article ne fait que renvoyer à des règlements européens listant des dispositions d'exécution, sans valeur propre au Code de la consommation ; personne ne poserait raisonnablement cette question en chat."
+  },
+  "raw_text": "{\"question\":\"Quel règlement européen de 2000 encadre l'étiquetage de la viande de bœuf et l'identification des bovins ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"règlement (CE) n° 1760/2000\",\"n° 1760/2000\",\"1760/2000\"],\"quote\":\"règlement (CE) n° 1760/2000 du Parlement européen et du Conseil du 17 juillet 2000 modifié établissant un système d'identification et d'enregistrement des bovins et concernant l'étiquetage de la viande bovine et des produits à base de viande bovine\",\"article\":\"R412-30\"}],\"doubt\":\"L'article ne fait que renvoyer à des règlements européens listant des dispositions d'exécution, sans valeur propre au Code de la consommation ; personne ne poserait raisonnablement cette question en chat.\"}"
+}

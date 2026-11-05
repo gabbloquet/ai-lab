@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-024",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2043,
+    "output_tokens": 212
+  },
+  "output": {
+    "question": "En crédit à la consommation, qui répond de plein droit de la bonne formation du contrat envers l'emprunteur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "le prêteur",
+          "Le prêteur",
+          "prêteur"
+        ],
+        "quote": "Le prêteur est responsable de plein droit à l'égard de l'emprunteur de la bonne exécution des obligations relatives à la formation du contrat de crédit",
+        "article": "L312-27"
+      }
+    ],
+    "doubt": "La réponse est un acteur (le prêteur) et non une valeur chiffrée ; l'article ne contient aucune durée ni aucun montant."
+  },
+  "raw_text": "{\"question\":\"En crédit à la consommation, qui répond de plein droit de la bonne formation du contrat envers l'emprunteur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"le prêteur\",\"Le prêteur\",\"prêteur\"],\"quote\":\"Le prêteur est responsable de plein droit à l'égard de l'emprunteur de la bonne exécution des obligations relatives à la formation du contrat de crédit\",\"article\":\"L312-27\"}],\"doubt\":\"La réponse est un acteur (le prêteur) et non une valeur chiffrée ; l'article ne contient aucune durée ni aucun montant.\"}"
+}

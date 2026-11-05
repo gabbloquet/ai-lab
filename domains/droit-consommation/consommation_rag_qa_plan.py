@@ -215,6 +215,42 @@ def make_plan(
     return plan
 
 
+def extend_plan(
+    articles: list[dict],
+    plan: list[dict],
+    *,
+    mode: str,
+    split: str,
+    n: int,
+    seed: int,
+    exclude: set[str] | frozenset[str] = frozenset(),
+) -> list[dict]:
+    """Ajoute n tâches à un mode et un split d'un plan existant, sans toucher aux tâches déjà
+    tirées : c'est la seule modification permise d'un plan, quand la réserve ne suffit pas."""
+    used = set(exclude) | {a for task in plan for a in task["articles"]}
+    group = [t for t in plan if t["mode"] == mode and t["split"] == split]
+    last = max((t["rank"] for t in group), default=0)
+    rng = random.Random(f"{seed}-{mode}-{split}-extension-{last}")
+    livre_of = {a["id"]: livre(a) for a in articles}
+    drawn = _draw(_pools(articles)[mode], n, used, livre_of, rng)
+    if len(drawn) < n:
+        raise ValueError(f"{mode} : {len(drawn)} candidats disponibles pour {n} tirages")
+    rng.shuffle(drawn)
+    added = [
+        {
+            "task": f"{mode}-{split}-{rank:03d}",
+            "mode": mode,
+            "split": split,
+            "rank": rank,
+            "articles": list(candidate),
+            "livre": livre_of[candidate[0]],
+            "extension": True,
+        }
+        for rank, candidate in enumerate(drawn, start=last + 1)
+    ]
+    return [*plan, *added]
+
+
 # --- Ligne de commande --------------------------------------------------------------------------
 
 
@@ -230,14 +266,29 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--quotas", choices=["v1", "pilot"], default="v1")
     parser.add_argument("--golden-dir", type=Path, default=DOMAIN_DIR / "golden/rag-qa")
     parser.add_argument("--exclude-plan", type=Path, action="append", default=[])
+    parser.add_argument("--extend", help="mode:split:n, ajoute n tâches à un plan existant")
     args = parser.parse_args(argv)
 
     out = args.golden_dir / args.version / "plan.jsonl"
-    if out.exists():
-        sys.exit(f"{out} existe déjà : un plan ne se retire pas.")
     exclude = {
         a for path in args.exclude_plan for task in _read_jsonl(path) for a in task["articles"]
     }
+    if args.extend:
+        mode, split, n = args.extend.split(":")
+        extended = extend_plan(
+            _read_jsonl(args.articles),
+            _read_jsonl(out),
+            mode=mode,
+            split=split,
+            n=int(n),
+            seed=args.seed,
+            exclude=exclude,
+        )
+        out.write_text("".join(json.dumps(t, ensure_ascii=False) + "\n" for t in extended), "utf-8")
+        print(f"{n} tâches {mode}/{split} ajoutées à {out}")
+        return
+    if out.exists():
+        sys.exit(f"{out} existe déjà : un plan ne se retire pas.")
     quotas, surplus = (PILOT_QUOTAS, 1.0) if args.quotas == "pilot" else (V1_QUOTAS, SURPLUS)
     plan = make_plan(
         _read_jsonl(args.articles), seed=args.seed, quotas=quotas, surplus=surplus, exclude=exclude

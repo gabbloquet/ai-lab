@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-dev-007",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2462,
+    "output_tokens": 219
+  },
+  "output": {
+    "question": "Pour un prêt immobilier à taux fixe renégociable, quelle durée minimale de période initiale pour le TAEG illustratif ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "dans le cadre de la période initiale d'au moins cinq ans",
+        "article": "R314-3"
+      }
+    ],
+    "doubt": "L'article ne mentionne pas explicitement le crédit immobilier ; la précision vient de la fiche d'information standardisée européenne, et la question peut aussi sembler viser un contexte plus large (Chapitre IV commun crédit consommation et immobilier)."
+  },
+  "raw_text": "{\"question\":\"Pour un prêt immobilier à taux fixe renégociable, quelle durée minimale de période initiale pour le TAEG illustratif ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"dans le cadre de la période initiale d'au moins cinq ans\",\"article\":\"R314-3\"}],\"doubt\":\"L'article ne mentionne pas explicitement le crédit immobilier ; la précision vient de la fiche d'information standardisée européenne, et la question peut aussi sembler viser un contexte plus large (Chapitre IV commun crédit consommation et immobilier).\"}"
+}

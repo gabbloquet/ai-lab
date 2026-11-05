@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-013",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1912,
+    "output_tokens": 236
+  },
+  "output": {
+    "question": "Quel est le tarif maximum à l'heure autorisé dans un parking public en ville ?",
+    "why_unanswerable": "Le Code de la consommation impose seulement une tarification par pas de quinze minutes au plus pour les stationnements de moins de douze heures payés à la durée. Il ne fixe aucun prix ni plafond tarifaire horaire, ces tarifs étant librement décidés par l'exploitant ou la collectivité.",
+    "doubt": "Un autre texte (code de la route, code général des collectivités territoriales) pourrait encadrer des tarifs de stationnement sur voirie, mais pas dans le Code de la consommation pour les parcs de stationnement."
+  },
+  "raw_text": "{\"question\":\"Quel est le tarif maximum à l'heure autorisé dans un parking public en ville ?\",\"why_unanswerable\":\"Le Code de la consommation impose seulement une tarification par pas de quinze minutes au plus pour les stationnements de moins de douze heures payés à la durée. Il ne fixe aucun prix ni plafond tarifaire horaire, ces tarifs étant librement décidés par l'exploitant ou la collectivité.\",\"doubt\":\"Un autre texte (code de la route, code général des collectivités territoriales) pourrait encadrer des tarifs de stationnement sur voirie, mais pas dans le Code de la consommation pour les parcs de stationnement.\"}"
+}

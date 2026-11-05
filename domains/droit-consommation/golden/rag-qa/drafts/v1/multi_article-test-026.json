@@ -1,0 +1,29 @@
+{
+  "task": "multi_article-test-026",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T19:00:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3625,
+    "output_tokens": 508
+  },
+  "output": {
+    "question": "Banque : si elle change mon taux sans préavis pour motif légitime, sous quel délai doit-elle m'en informer ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "dans les meilleurs délais"
+        ],
+        "quote": "l'obligation d'en informer la ou les autre parties contractantes dans les meilleurs délais",
+        "article": "R212-4"
+      }
+    ],
+    "doubt": "Aucune valeur précise (durée, montant, taux, seuil) dans ces articles : A ne donne que des délais vagues (« meilleurs délais », « délai raisonnable ») et B énumère des clauses sans chiffre, donc pas de fait tiré de B."
+  },
+  "raw_text": "{\"question\":\"Banque : si elle change mon taux sans préavis pour motif légitime, sous quel délai doit-elle m'en informer ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"dans les meilleurs délais\"],\"quote\":\"l'obligation d'en informer la ou les autre parties contractantes dans les meilleurs délais\",\"article\":\"R212-4\"}],\"doubt\":\"Aucune valeur précise (durée, montant, taux, seuil) dans ces articles : A ne donne que des délais vagues (« meilleurs délais », « délai raisonnable ») et B énumère des clauses sans chiffre, donc pas de fait tiré de B.\"}"
+}

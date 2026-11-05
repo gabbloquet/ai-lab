@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-040",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2039,
+    "output_tokens": 201
+  },
+  "output": {
+    "question": "Surendettement : quelle nationalité faut-il avoir pour en bénéficier si on vit à l'étranger avec des dettes en France ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "française",
+          "nationalité française",
+          "Français"
+        ],
+        "quote": "Les dispositions du présent livre s'appliquent également aux débiteurs de nationalité française en situation de surendettement domiciliés hors de France",
+        "article": "L711-2"
+      }
+    ],
+    "doubt": "La valeur attendue est une nationalité plutôt qu'un chiffre ; la question reste précise mais la réponse est peu technique."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quelle nationalité faut-il avoir pour en bénéficier si on vit à l'étranger avec des dettes en France ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"française\",\"nationalité française\",\"Français\"],\"quote\":\"Les dispositions du présent livre s'appliquent également aux débiteurs de nationalité française en situation de surendettement domiciliés hors de France\",\"article\":\"L711-2\"}],\"doubt\":\"La valeur attendue est une nationalité plutôt qu'un chiffre ; la question reste précise mais la réponse est peu technique.\"}"
+}

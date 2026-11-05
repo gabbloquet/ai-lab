@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-013",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1917,
+    "output_tokens": 323
+  },
+  "output": {
+    "question": "Après un rétablissement personnel avec liquidation, mes dettes fiscales sont-elles effacées, et combien de temps l'inscription au FICP dure-t-elle ensuite ?",
+    "why_unanswerable": "L'article L742-22 énonce seulement que la clôture efface toutes les dettes arrêtées à la date du jugement d'ouverture, sauf celles payées par une caution ou un coobligé personne physique. Il ne traite ni du traitement spécifique des dettes fiscales, ni de la durée d'inscription au FICP après la clôture. La question mêle une situation voisine non couverte et un détail que cet article ne fixe pas.",
+    "doubt": "Le Code de la consommation prévoit une durée d'inscription au FICP (art. L752-3 notamment) ; la question pourrait donc trouver réponse ailleurs dans le code, et il vaut mieux la remplacer par une question sur un point non fixé."
+  },
+  "raw_text": "{\"question\":\"Après un rétablissement personnel avec liquidation, mes dettes fiscales sont-elles effacées, et combien de temps l'inscription au FICP dure-t-elle ensuite ?\",\"why_unanswerable\":\"L'article L742-22 énonce seulement que la clôture efface toutes les dettes arrêtées à la date du jugement d'ouverture, sauf celles payées par une caution ou un coobligé personne physique. Il ne traite ni du traitement spécifique des dettes fiscales, ni de la durée d'inscription au FICP après la clôture. La question mêle une situation voisine non couverte et un détail que cet article ne fixe pas.\",\"doubt\":\"Le Code de la consommation prévoit une durée d'inscription au FICP (art. L752-3 notamment) ; la question pourrait donc trouver réponse ailleurs dans le code, et il vaut mieux la remplacer par une question sur un point non fixé.\"}"
+}

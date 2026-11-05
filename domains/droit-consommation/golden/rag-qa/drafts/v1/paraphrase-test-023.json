@@ -1,0 +1,32 @@
+{
+  "task": "paraphrase-test-023",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1971,
+    "output_tokens": 201
+  },
+  "output": {
+    "question": "Avant de signer mon prêt, comment je m'entends avec le courtier sur ses honoraires ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "par écrit",
+          "écrit",
+          "sur un autre support durable",
+          "support durable"
+        ],
+        "quote": "conviennent par écrit ou sur un autre support durable des frais éventuels dus par l'emprunteur",
+        "article": "L322-4"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il énonce seulement une exigence de forme, donc peu adapté à une question de valeur."
+  },
+  "raw_text": "{\"question\":\"Avant de signer mon prêt, comment je m'entends avec le courtier sur ses honoraires ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"par écrit\",\"écrit\",\"sur un autre support durable\",\"support durable\"],\"quote\":\"conviennent par écrit ou sur un autre support durable des frais éventuels dus par l'emprunteur\",\"article\":\"L322-4\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il énonce seulement une exigence de forme, donc peu adapté à une question de valeur.\"}"
+}

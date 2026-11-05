@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-dev-009",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2160,
+    "output_tokens": 271
+  },
+  "output": {
+    "question": "Coopération entre autorités de protection des consommateurs : plafond de l'amende pour informations inexactes, en % du chiffre d'affaires ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "1 %",
+          "1%",
+          "1 % du chiffre d'affaires mondial"
+        ],
+        "quote": "Le montant de l'amende est toutefois plafonné à 1 % du chiffre d'affaires mondial hors taxes au cours de l'exercice précédent la date des faits pour une personne morale.",
+        "article": "L531-7"
+      }
+    ],
+    "doubt": "Le règlement visé (art. L. 512-66) concerne la coopération entre autorités nationales chargées de l'application de la législation de protection des consommateurs ; le contexte est identifié par ce biais, sans mention du « présent chapitre »."
+  },
+  "raw_text": "{\"question\":\"Coopération entre autorités de protection des consommateurs : plafond de l'amende pour informations inexactes, en % du chiffre d'affaires ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"1 %\",\"1%\",\"1 % du chiffre d'affaires mondial\"],\"quote\":\"Le montant de l'amende est toutefois plafonné à 1 % du chiffre d'affaires mondial hors taxes au cours de l'exercice précédent la date des faits pour une personne morale.\",\"article\":\"L531-7\"}],\"doubt\":\"Le règlement visé (art. L. 512-66) concerne la coopération entre autorités nationales chargées de l'application de la législation de protection des consommateurs ; le contexte est identifié par ce biais, sans mention du « présent chapitre ».\"}"
+}

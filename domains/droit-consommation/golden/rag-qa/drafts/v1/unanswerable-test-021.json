@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-021",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1997,
+    "output_tokens": 248
+  },
+  "output": {
+    "question": "Surendettement : quel est le tarif facturé pour effacer mon inscription au fichier des incidents de paiement ?",
+    "why_unanswerable": "L'article R752-2 impose seulement à la commission d'informer la Banque de France quand elle est saisie, afin que l'inscription soit faite. Il ne mentionne aucun tarif ni frais d'effacement. Le Code de la consommation ne fixe pas non plus de prix pour cette démarche, donc il ne donne aucune réponse chiffrée.",
+    "doubt": "Un autre article du livre VII, titre V, pourrait préciser la gratuité de la consultation ou de la radiation du fichier, ce qui rendrait la question partiellement répondable."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quel est le tarif facturé pour effacer mon inscription au fichier des incidents de paiement ?\",\"why_unanswerable\":\"L'article R752-2 impose seulement à la commission d'informer la Banque de France quand elle est saisie, afin que l'inscription soit faite. Il ne mentionne aucun tarif ni frais d'effacement. Le Code de la consommation ne fixe pas non plus de prix pour cette démarche, donc il ne donne aucune réponse chiffrée.\",\"doubt\":\"Un autre article du livre VII, titre V, pourrait préciser la gratuité de la consultation ou de la radiation du fichier, ce qui rendrait la question partiellement répondable.\"}"
+}

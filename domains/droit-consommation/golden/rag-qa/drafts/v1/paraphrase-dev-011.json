@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-dev-011",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:10+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2149,
+    "output_tokens": 232
+  },
+  "output": {
+    "question": "Des agents sont venus fouiller mon local pro en mon absence : comment me remettent-ils ensuite l'autorisation du juge ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "lettre recommandée avec demande d'avis de réception",
+          "lettre recommandée"
+        ],
+        "quote": "En l'absence de l'occupant des lieux, l'ordonnance est notifiée après les opérations par lettre recommandée avec demande d'avis de réception.",
+        "article": "L512-58"
+      }
+    ],
+    "doubt": "La réponse attendue est un mode de notification (document), pas un chiffre ; la question reste précise mais le fait est une expression plutôt qu'une valeur numérique."
+  },
+  "raw_text": "{\"question\":\"Des agents sont venus fouiller mon local pro en mon absence : comment me remettent-ils ensuite l'autorisation du juge ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"lettre recommandée avec demande d'avis de réception\",\"lettre recommandée\"],\"quote\":\"En l'absence de l'occupant des lieux, l'ordonnance est notifiée après les opérations par lettre recommandée avec demande d'avis de réception.\",\"article\":\"L512-58\"}],\"doubt\":\"La réponse attendue est un mode de notification (document), pas un chiffre ; la question reste précise mais le fait est une expression plutôt qu'une valeur numérique.\"}"
+}

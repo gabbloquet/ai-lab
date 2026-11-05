@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-001",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:36+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2116,
+    "output_tokens": 251
+  },
+  "output": {
+    "question": "Pendant l'immobilisation de mon bien sous garantie, le garant doit-il me prêter un appareil de remplacement gratuit ?",
+    "why_unanswerable": "L'article ne traite que de la suspension du délai de garantie pendant l'immobilisation du bien ou la négociation amiable. Il ne prévoit aucune obligation de prêt d'un bien de remplacement, ni gratuit ni payant, et la question demande une valeur, pas une règle de suspension.",
+    "doubt": "D'autres articles sur la garantie de conformité pourraient évoquer un bien de remplacement ou une indemnisation. Je ne les ai pas vérifiés, mais le sujet reste voisin de l'article et crédible."
+  },
+  "raw_text": "{\"question\":\"Pendant l'immobilisation de mon bien sous garantie, le garant doit-il me prêter un appareil de remplacement gratuit ?\",\"why_unanswerable\":\"L'article ne traite que de la suspension du délai de garantie pendant l'immobilisation du bien ou la négociation amiable. Il ne prévoit aucune obligation de prêt d'un bien de remplacement, ni gratuit ni payant, et la question demande une valeur, pas une règle de suspension.\",\"doubt\":\"D'autres articles sur la garantie de conformité pourraient évoquer un bien de remplacement ou une indemnisation. Je ne les ai pas vérifiés, mais le sujet reste voisin de l'article et crédible.\"}"
+}

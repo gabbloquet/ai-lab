@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-dev-016",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2664,
+    "output_tokens": 290
+  },
+  "output": {
+    "question": "Surendettement : qui paie les frais d'une mesure d'instruction ordonnée par le juge, et qui peut bénéficier de la procédure ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "l'Etat",
+          "l'État",
+          "Etat",
+          "État"
+        ],
+        "quote": "Les frais relatifs à celle-ci sont mis à la charge de l'Etat.",
+        "article": "L733-12"
+      },
+      {
+        "accepted": [
+          "personnes physiques de bonne foi",
+          "personnes physiques"
+        ],
+        "quote": "Le bénéfice des mesures de traitement des situations de surendettement est ouvert aux personnes physiques de bonne foi.",
+        "article": "L711-1"
+      }
+    ],
+    "doubt": "Les articles ne contiennent pas de valeur chiffrée ; les faits sont un organisme (l'État) et une catégorie de personnes, ce qui reste peu précis."
+  },
+  "raw_text": "{\"question\":\"Surendettement : qui paie les frais d'une mesure d'instruction ordonnée par le juge, et qui peut bénéficier de la procédure ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"l'Etat\",\"l'État\",\"Etat\",\"État\"],\"quote\":\"Les frais relatifs à celle-ci sont mis à la charge de l'Etat.\",\"article\":\"L733-12\"},{\"accepted\":[\"personnes physiques de bonne foi\",\"personnes physiques\"],\"quote\":\"Le bénéfice des mesures de traitement des situations de surendettement est ouvert aux personnes physiques de bonne foi.\",\"article\":\"L711-1\"}],\"doubt\":\"Les articles ne contiennent pas de valeur chiffrée ; les faits sont un organisme (l'État) et une catégorie de personnes, ce qui reste peu précis.\"}"
+}

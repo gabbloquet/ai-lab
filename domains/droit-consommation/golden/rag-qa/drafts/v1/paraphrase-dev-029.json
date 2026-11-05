@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-dev-029",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:24:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2086,
+    "output_tokens": 158
+  },
+  "output": {
+    "question": "Je suis surendetté et ma banque conteste la liste de mes dettes : de combien de temps dispose-t-elle pour prouver sa créance ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trente jours",
+          "30 jours"
+        ],
+        "quote": "les créanciers disposent d'un délai de trente jours pour fournir, en cas de désaccord sur cet état, les justifications de leurs créances",
+        "article": "R723-3"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Je suis surendetté et ma banque conteste la liste de mes dettes : de combien de temps dispose-t-elle pour prouver sa créance ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trente jours\",\"30 jours\"],\"quote\":\"les créanciers disposent d'un délai de trente jours pour fournir, en cas de désaccord sur cet état, les justifications de leurs créances\",\"article\":\"R723-3\"}],\"doubt\":\"\"}"
+}

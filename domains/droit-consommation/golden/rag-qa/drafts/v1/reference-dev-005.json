@@ -1,0 +1,30 @@
+{
+  "task": "reference-dev-005",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1944,
+    "output_tokens": 225
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 622-4 du code de la consommation comme juridiction compétente pour se constituer partie civile ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "juridiction du siège social de l'entreprise mise en cause",
+          "siège social de l'entreprise"
+        ],
+        "quote": "du siège social de l'entreprise mise en cause ou, à défaut, du lieu de la première infraction",
+        "article": "L622-4"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur chiffrée précise (durée, montant, seuil, organisme) ; il ne fixe qu'une règle de compétence territoriale, d'où usable à false."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 622-4 du code de la consommation comme juridiction compétente pour se constituer partie civile ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"juridiction du siège social de l'entreprise mise en cause\",\"siège social de l'entreprise\"],\"quote\":\"du siège social de l'entreprise mise en cause ou, à défaut, du lieu de la première infraction\",\"article\":\"L622-4\"}],\"doubt\":\"L'article ne contient aucune valeur chiffrée précise (durée, montant, seuil, organisme) ; il ne fixe qu'une règle de compétence territoriale, d'où usable à false.\"}"
+}

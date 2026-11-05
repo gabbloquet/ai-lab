@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-001",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1946,
+    "output_tokens": 219
+  },
+  "output": {
+    "question": "Quelle matière grasse seule peut contenir un chocolat vendu comme « pur beurre de cacao » ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "graisses tirées des fèves de cacaoyer"
+        ],
+        "quote": "fabriqués à partir des seules graisses tirées des fèves de cacaoyer, sans adjonction de matière grasse végétale",
+        "article": "R412-48"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) ; il énonce seulement une règle de dénomination, et la question reprend des mots du texte."
+  },
+  "raw_text": "{\"question\":\"Quelle matière grasse seule peut contenir un chocolat vendu comme « pur beurre de cacao » ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"graisses tirées des fèves de cacaoyer\"],\"quote\":\"fabriqués à partir des seules graisses tirées des fèves de cacaoyer, sans adjonction de matière grasse végétale\",\"article\":\"R412-48\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) ; il énonce seulement une règle de dénomination, et la question reprend des mots du texte.\"}"
+}

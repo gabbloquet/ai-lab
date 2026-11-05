@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-007",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2108,
+    "output_tokens": 271
+  },
+  "output": {
+    "question": "Pour les règlements européens d'exécution en matière de conformité des produits, qui fixe les modalités d'application ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "arrêtés conjoints du ministre chargé de la consommation et des ministres intéressés",
+          "arrêtés conjoints"
+        ],
+        "quote": "les modalités d'application autorisées par les règlements européens mentionnés à la présente section sont définies par arrêtés conjoints du ministre chargé de la consommation et des ministres intéressés",
+        "article": "R412-17"
+      }
+    ],
+    "doubt": "La valeur attendue est un type d'acte et des autorités plutôt qu'un chiffre ; la forme acceptée est longue (plus de six mots pour la version complète), mais la forme courte « arrêtés conjoints » suffit."
+  },
+  "raw_text": "{\"question\":\"Pour les règlements européens d'exécution en matière de conformité des produits, qui fixe les modalités d'application ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"arrêtés conjoints du ministre chargé de la consommation et des ministres intéressés\",\"arrêtés conjoints\"],\"quote\":\"les modalités d'application autorisées par les règlements européens mentionnés à la présente section sont définies par arrêtés conjoints du ministre chargé de la consommation et des ministres intéressés\",\"article\":\"R412-17\"}],\"doubt\":\"La valeur attendue est un type d'acte et des autorités plutôt qu'un chiffre ; la forme acceptée est longue (plus de six mots pour la version complète), mais la forme courte « arrêtés conjoints » suffit.\"}"
+}

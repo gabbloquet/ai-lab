@@ -1,0 +1,30 @@
+{
+  "task": "reference-dev-015",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2191,
+    "output_tokens": 181
+  },
+  "output": {
+    "question": "Selon l'article R. 742-18, comment le greffe adresse-t-il au liquidateur la copie du jugement ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "par lettre simple",
+          "lettre simple"
+        ],
+        "quote": "une copie du jugement lui est adressée par le greffe par lettre simple",
+        "article": "R742-18"
+      }
+    ],
+    "doubt": "La valeur attendue est un mode d'envoi (lettre simple) plutôt qu'un chiffre, ce qui reste précis mais peu quantitatif."
+  },
+  "raw_text": "{\"question\":\"Selon l'article R. 742-18, comment le greffe adresse-t-il au liquidateur la copie du jugement ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"par lettre simple\",\"lettre simple\"],\"quote\":\"une copie du jugement lui est adressée par le greffe par lettre simple\",\"article\":\"R742-18\"}],\"doubt\":\"La valeur attendue est un mode d'envoi (lettre simple) plutôt qu'un chiffre, ce qui reste précis mais peu quantitatif.\"}"
+}

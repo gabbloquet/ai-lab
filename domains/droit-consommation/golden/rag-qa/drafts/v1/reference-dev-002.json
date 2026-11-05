@@ -1,0 +1,31 @@
+{
+  "task": "reference-dev-002",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1933,
+    "output_tokens": 174
+  },
+  "output": {
+    "question": "Quelle amende prévoit l'article L. 451-4 si la substance alimentaire falsifiée est nuisible à la santé ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €",
+          "300000 euros"
+        ],
+        "quote": "une amende de 300 000 euros",
+        "article": "L451-4"
+      }
+    ],
+    "doubt": "La peine d'emprisonnement de deux ans pourrait aussi être attendue dans la réponse, mais la question ne porte que sur l'amende."
+  },
+  "raw_text": "{\"question\":\"Quelle amende prévoit l'article L. 451-4 si la substance alimentaire falsifiée est nuisible à la santé ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\",\"300000 euros\"],\"quote\":\"une amende de 300 000 euros\",\"article\":\"L451-4\"}],\"doubt\":\"La peine d'emprisonnement de deux ans pourrait aussi être attendue dans la réponse, mais la question ne porte que sur l'amende.\"}"
+}

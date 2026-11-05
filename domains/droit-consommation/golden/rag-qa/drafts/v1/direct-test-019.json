@@ -1,0 +1,38 @@
+{
+  "task": "direct-test-019",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2185,
+    "output_tokens": 279
+  },
+  "output": {
+    "question": "Dans un contrat de multipropriété, qui fixe le modèle du formulaire de rétractation, et par quel type de texte ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "arrêté conjoint",
+          "arrêté"
+        ],
+        "quote": "conforme à un modèle déterminé par arrêté conjoint du ministre chargé de la consommation et du ministre de la justice",
+        "article": "L224-78"
+      },
+      {
+        "accepted": [
+          "ministre chargé de la consommation et ministre de la justice",
+          "ministre de la consommation et ministre de la justice"
+        ],
+        "quote": "du ministre chargé de la consommation et du ministre de la justice",
+        "article": "L224-78"
+      }
+    ],
+    "doubt": "La question vise deux faits (type de texte et autorités) ; l'article contient peu de valeurs chiffrées, seulement un document et des autorités."
+  },
+  "raw_text": "{\"question\":\"Dans un contrat de multipropriété, qui fixe le modèle du formulaire de rétractation, et par quel type de texte ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"arrêté conjoint\",\"arrêté\"],\"quote\":\"conforme à un modèle déterminé par arrêté conjoint du ministre chargé de la consommation et du ministre de la justice\",\"article\":\"L224-78\"},{\"accepted\":[\"ministre chargé de la consommation et ministre de la justice\",\"ministre de la consommation et ministre de la justice\"],\"quote\":\"du ministre chargé de la consommation et du ministre de la justice\",\"article\":\"L224-78\"}],\"doubt\":\"La question vise deux faits (type de texte et autorités) ; l'article contient peu de valeurs chiffrées, seulement un document et des autorités.\"}"
+}

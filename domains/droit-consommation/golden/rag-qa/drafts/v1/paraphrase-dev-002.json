@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-dev-002",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:06+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2297,
+    "output_tokens": 194
+  },
+  "output": {
+    "question": "Surendetté, je dois une pension à mon ex : le dossier peut-il l'effacer ? Quelles dettes sont concernées ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "dettes alimentaires"
+        ],
+        "quote": "1° Les dettes alimentaires ;",
+        "article": "L711-4"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur chiffrée précise (durée, montant, taux) ; il énumère des catégories de dettes exclues, et la question initiale demandait un oui/non, donc je la juge non exploitable."
+  },
+  "raw_text": "{\"question\":\"Surendetté, je dois une pension à mon ex : le dossier peut-il l'effacer ? Quelles dettes sont concernées ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"dettes alimentaires\"],\"quote\":\"1° Les dettes alimentaires ;\",\"article\":\"L711-4\"}],\"doubt\":\"L'article ne contient aucune valeur chiffrée précise (durée, montant, taux) ; il énumère des catégories de dettes exclues, et la question initiale demandait un oui/non, donc je la juge non exploitable.\"}"
+}

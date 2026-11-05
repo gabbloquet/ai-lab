@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-055",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:36+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2313,
+    "output_tokens": 228
+  },
+  "output": {
+    "question": "Un produit semble dangereux et son vendeur ne prouve pas l'avoir testé : à qui doit-il verser une somme couvrant le coût des tests ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "comptable public"
+        ],
+        "quote": "la consignation entre les mains d'un comptable public, avant une date qu'elle détermine, d'une somme correspondant au coût des contrôles à réaliser",
+        "article": "L521-12"
+      }
+    ],
+    "doubt": "La question décrit la consignation sans utiliser le mot, mais elle reste un peu longue (plus de 15 mots) ; la réponse attendue est un organisme, pas une valeur chiffrée."
+  },
+  "raw_text": "{\"question\":\"Un produit semble dangereux et son vendeur ne prouve pas l'avoir testé : à qui doit-il verser une somme couvrant le coût des tests ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"comptable public\"],\"quote\":\"la consignation entre les mains d'un comptable public, avant une date qu'elle détermine, d'une somme correspondant au coût des contrôles à réaliser\",\"article\":\"L521-12\"}],\"doubt\":\"La question décrit la consignation sans utiliser le mot, mais elle reste un peu longue (plus de 15 mots) ; la réponse attendue est un organisme, pas une valeur chiffrée.\"}"
+}

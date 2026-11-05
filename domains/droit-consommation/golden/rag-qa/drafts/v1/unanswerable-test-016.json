@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-016",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2041,
+    "output_tokens": 257
+  },
+  "output": {
+    "question": "Réparation de mon vélo : le réparateur peut-il me facturer des frais pour proposer des pièces d'occasion ?",
+    "why_unanswerable": "L'article R224-69 énumère seulement deux cas où l'obligation de proposer des pièces issues de l'économie circulaire ne s'applique pas (indisponibilité dans le délai, sécurité des utilisateurs). Il ne fixe aucun tarif ni frais pour cette proposition, et le sujet de la facturation n'y est pas traité.",
+    "doubt": "Les articles sur l'information sur les prix ou les devis de réparation pourraient indirectement évoquer la facturation, et la question est formulée comme un oui ou non plutôt que comme une demande de valeur."
+  },
+  "raw_text": "{\"question\":\"Réparation de mon vélo : le réparateur peut-il me facturer des frais pour proposer des pièces d'occasion ?\",\"why_unanswerable\":\"L'article R224-69 énumère seulement deux cas où l'obligation de proposer des pièces issues de l'économie circulaire ne s'applique pas (indisponibilité dans le délai, sécurité des utilisateurs). Il ne fixe aucun tarif ni frais pour cette proposition, et le sujet de la facturation n'y est pas traité.\",\"doubt\":\"Les articles sur l'information sur les prix ou les devis de réparation pourraient indirectement évoquer la facturation, et la question est formulée comme un oui ou non plutôt que comme une demande de valeur.\"}"
+}

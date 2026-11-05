@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-032",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2008,
+    "output_tokens": 197
+  },
+  "output": {
+    "question": "Mon appareil défectueux a été remplacé sous garantie : combien dois-je payer pour la mise en conformité ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "sans aucun frais"
+        ],
+        "quote": "La mise en conformité du bien a lieu sans aucun frais pour le consommateur.",
+        "article": "L217-11"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, organisme) : il énonce seulement la gratuité de la mise en conformité, donc peu adapté à une question de valeur."
+  },
+  "raw_text": "{\"question\":\"Mon appareil défectueux a été remplacé sous garantie : combien dois-je payer pour la mise en conformité ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"sans aucun frais\"],\"quote\":\"La mise en conformité du bien a lieu sans aucun frais pour le consommateur.\",\"article\":\"L217-11\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, organisme) : il énonce seulement la gratuité de la mise en conformité, donc peu adapté à une question de valeur.\"}"
+}

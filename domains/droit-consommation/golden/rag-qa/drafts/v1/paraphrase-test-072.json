@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-072",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:07+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2005,
+    "output_tokens": 231
+  },
+  "output": {
+    "question": "Quelle autorité gère la liste officielle des médiateurs de la consommation et vérifie leur activité ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "commission d'évaluation et de contrôle de la médiation de la consommation"
+        ],
+        "quote": "La commission d'évaluation et de contrôle de la médiation de la consommation, placée auprès du ministre chargé de l'économie",
+        "article": "L615-1"
+      }
+    ],
+    "doubt": "Le fait attendu est un nom d'organisme assez long ; une réponse abrégée (« CECMC ») ne serait pas reconnue, et la question reprend un peu le vocabulaire du texte (« médiateurs »)."
+  },
+  "raw_text": "{\"question\":\"Quelle autorité gère la liste officielle des médiateurs de la consommation et vérifie leur activité ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"commission d'évaluation et de contrôle de la médiation de la consommation\"],\"quote\":\"La commission d'évaluation et de contrôle de la médiation de la consommation, placée auprès du ministre chargé de l'économie\",\"article\":\"L615-1\"}],\"doubt\":\"Le fait attendu est un nom d'organisme assez long ; une réponse abrégée (« CECMC ») ne serait pas reconnue, et la question reprend un peu le vocabulaire du texte (« médiateurs »).\"}"
+}

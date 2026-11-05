@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-013",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2338,
+    "output_tokens": 208
+  },
+  "output": {
+    "question": "Consignation de produits par la répression des fraudes : quel délai pour faire appel de la prolongation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "Cet appel est formé par déclaration remise ou adressée par pli recommandé au greffe de la cour dans un délai de quinze jours.",
+        "article": "L512-38"
+      }
+    ],
+    "doubt": "Le délai de quinze jours vaut aussi pour le pourvoi en cassation, mais la question vise l'appel ; la mention de la consignation est tirée du plan et non du texte de l'article."
+  },
+  "raw_text": "{\"question\":\"Consignation de produits par la répression des fraudes : quel délai pour faire appel de la prolongation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"Cet appel est formé par déclaration remise ou adressée par pli recommandé au greffe de la cour dans un délai de quinze jours.\",\"article\":\"L512-38\"}],\"doubt\":\"Le délai de quinze jours vaut aussi pour le pourvoi en cassation, mais la question vise l'appel ; la mention de la consignation est tirée du plan et non du texte de l'article.\"}"
+}

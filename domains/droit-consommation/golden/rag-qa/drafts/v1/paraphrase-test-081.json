@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-081",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:09+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2108,
+    "output_tokens": 197
+  },
+  "output": {
+    "question": "Un commerçant ne retire pas du rayon un aliment dangereux malgré l'alerte : quelle classe de contravention risque-t-il ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "5e classe",
+          "cinquième classe",
+          "5ème classe"
+        ],
+        "quote": "est puni de la peine d'amende prévue pour les contraventions de la 5e classe",
+        "article": "R451-3"
+      }
+    ],
+    "doubt": "L'article vise les denrées autres que d'origine animale ; la question ne le précise pas, d'autres articles pourraient régir les produits d'origine animale."
+  },
+  "raw_text": "{\"question\":\"Un commerçant ne retire pas du rayon un aliment dangereux malgré l'alerte : quelle classe de contravention risque-t-il ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"5e classe\",\"cinquième classe\",\"5ème classe\"],\"quote\":\"est puni de la peine d'amende prévue pour les contraventions de la 5e classe\",\"article\":\"R451-3\"}],\"doubt\":\"L'article vise les denrées autres que d'origine animale ; la question ne le précise pas, d'autres articles pourraient régir les produits d'origine animale.\"}"
+}

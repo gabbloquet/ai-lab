@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-test-035",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2406,
+    "output_tokens": 197
+  },
+  "output": {
+    "question": "Garantie légale de conformité : pour un bien d'occasion, pendant combien de mois un défaut est-il présumé exister dès la délivrance ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "douze mois",
+          "12 mois"
+        ],
+        "quote": "Pour les biens d'occasion, ce délai est fixé à douze mois.",
+        "article": "L217-7"
+      }
+    ],
+    "doubt": "La question nomme la garantie légale de conformité et les biens d'occasion pour être unique ; le délai de 24 mois pour les biens neufs est une autre valeur dans le même article."
+  },
+  "raw_text": "{\"question\":\"Garantie légale de conformité : pour un bien d'occasion, pendant combien de mois un défaut est-il présumé exister dès la délivrance ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"douze mois\",\"12 mois\"],\"quote\":\"Pour les biens d'occasion, ce délai est fixé à douze mois.\",\"article\":\"L217-7\"}],\"doubt\":\"La question nomme la garantie légale de conformité et les biens d'occasion pour être unique ; le délai de 24 mois pour les biens neufs est une autre valeur dans le même article.\"}"
+}

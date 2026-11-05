@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-009",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1987,
+    "output_tokens": 273
+  },
+  "output": {
+    "question": "Combien de temps un hébergeur a-t-il pour retirer un contenu illicite signalé par les agents de la répression des fraudes ?",
+    "why_unanswerable": "L'article L512-22-1 se borne à lever le secret professionnel et le secret de l'enquête pour que les agents habilités puissent notifier un contenu illicite aux hébergeurs. Il ne fixe aucun délai de retrait. Le Code de la consommation ne contient pas non plus de délai de ce genre, qui relève de la loi du 21 juin 2004 (LCEN).",
+    "doubt": "Un autre article du Code de la consommation, par exemple sur les mesures de blocage ou de retrait ordonnées par l'administration, pourrait fixer un délai, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Combien de temps un hébergeur a-t-il pour retirer un contenu illicite signalé par les agents de la répression des fraudes ?\",\"why_unanswerable\":\"L'article L512-22-1 se borne à lever le secret professionnel et le secret de l'enquête pour que les agents habilités puissent notifier un contenu illicite aux hébergeurs. Il ne fixe aucun délai de retrait. Le Code de la consommation ne contient pas non plus de délai de ce genre, qui relève de la loi du 21 juin 2004 (LCEN).\",\"doubt\":\"Un autre article du Code de la consommation, par exemple sur les mesures de blocage ou de retrait ordonnées par l'administration, pourrait fixer un délai, ce qui rendrait la question répondable.\"}"
+}

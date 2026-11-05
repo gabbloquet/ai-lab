@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-009",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2501,
+    "output_tokens": 342
+  },
+  "output": {
+    "question": "Surendettement : après un jugement d'ouverture de liquidation judiciaire, qui publie l'avis au BODACC, et que doit-il y figurer comme date concernant le débiteur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "le mandataire",
+          "mandataire"
+        ],
+        "quote": "un avis de ce jugement est adressé, pour publication au Bulletin officiel des annonces civiles et commerciales, par le mandataire ou, à défaut de mandataire, par le greffe",
+        "article": "R742-9"
+      },
+      {
+        "accepted": [
+          "date de naissance",
+          "sa date de naissance"
+        ],
+        "quote": "Cette publication comporte les nom et prénoms du débiteur, sa date de naissance, le numéro du département de sa résidence",
+        "article": "R741-13"
+      }
+    ],
+    "doubt": "La question reste un peu ambiguë car la date du jugement figure aussi dans la publication ; le mot « concernant le débiteur » vise la date de naissance. Le greffe est aussi possible à défaut de mandataire."
+  },
+  "raw_text": "{\"question\":\"Surendettement : après un jugement d'ouverture de liquidation judiciaire, qui publie l'avis au BODACC, et que doit-il y figurer comme date concernant le débiteur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"le mandataire\",\"mandataire\"],\"quote\":\"un avis de ce jugement est adressé, pour publication au Bulletin officiel des annonces civiles et commerciales, par le mandataire ou, à défaut de mandataire, par le greffe\",\"article\":\"R742-9\"},{\"accepted\":[\"date de naissance\",\"sa date de naissance\"],\"quote\":\"Cette publication comporte les nom et prénoms du débiteur, sa date de naissance, le numéro du département de sa résidence\",\"article\":\"R741-13\"}],\"doubt\":\"La question reste un peu ambiguë car la date du jugement figure aussi dans la publication ; le mot « concernant le débiteur » vise la date de naissance. Le greffe est aussi possible à défaut de mandataire.\"}"
+}

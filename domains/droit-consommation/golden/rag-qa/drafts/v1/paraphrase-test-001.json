@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-001",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2281,
+    "output_tokens": 162
+  },
+  "output": {
+    "question": "Une pub pour un investissement locatif défiscalisé oublie la mention obligatoire : quelle est l'amende maximale encourue ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "100 000 €",
+          "100 000 euros",
+          "cent mille euros"
+        ],
+        "quote": "Tout manquement aux dispositions du présent article est passible d'une amende administrative dont le montant ne peut excéder 100 000 €.",
+        "article": "L122-23"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Une pub pour un investissement locatif défiscalisé oublie la mention obligatoire : quelle est l'amende maximale encourue ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"100 000 €\",\"100 000 euros\",\"cent mille euros\"],\"quote\":\"Tout manquement aux dispositions du présent article est passible d'une amende administrative dont le montant ne peut excéder 100 000 €.\",\"article\":\"L122-23\"}],\"doubt\":\"\"}"
+}

@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-064",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:03+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2142,
+    "output_tokens": 189
+  },
+  "output": {
+    "question": "Un opérateur qui gère des numéros surtaxés reçoit les signalements des utilisateurs à quel rythme ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quotidiennement"
+        ],
+        "quote": "d'être informés quotidiennement, pour chaque numéro les concernant",
+        "article": "D224-18"
+      }
+    ],
+    "doubt": "La valeur attendue est une fréquence (quotidiennement), formulée en un seul mot ; la question reprend le sens de « numéros à valeur ajoutée » par « numéros surtaxés »."
+  },
+  "raw_text": "{\"question\":\"Un opérateur qui gère des numéros surtaxés reçoit les signalements des utilisateurs à quel rythme ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quotidiennement\"],\"quote\":\"d'être informés quotidiennement, pour chaque numéro les concernant\",\"article\":\"D224-18\"}],\"doubt\":\"La valeur attendue est une fréquence (quotidiennement), formulée en un seul mot ; la question reprend le sens de « numéros à valeur ajoutée » par « numéros surtaxés ».\"}"
+}

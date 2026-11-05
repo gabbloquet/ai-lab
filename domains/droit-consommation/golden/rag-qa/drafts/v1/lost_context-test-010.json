@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-test-010",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2077,
+    "output_tokens": 152
+  },
+  "output": {
+    "question": "Commission de surendettement : quel document fixe ses règles de fonctionnement ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "règlement intérieur"
+        ],
+        "quote": "La commission adopte un règlement intérieur.",
+        "article": "R712-10"
+      }
+    ],
+    "doubt": "L'article contient une valeur de type document (règlement intérieur) mais pas de chiffre ; la question reste simple et la réponse se lit dans le texte."
+  },
+  "raw_text": "{\"question\":\"Commission de surendettement : quel document fixe ses règles de fonctionnement ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"règlement intérieur\"],\"quote\":\"La commission adopte un règlement intérieur.\",\"article\":\"R712-10\"}],\"doubt\":\"L'article contient une valeur de type document (règlement intérieur) mais pas de chiffre ; la question reste simple et la réponse se lit dans le texte.\"}"
+}

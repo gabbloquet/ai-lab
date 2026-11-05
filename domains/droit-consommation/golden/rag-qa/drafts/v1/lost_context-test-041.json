@@ -1,0 +1,31 @@
+{
+  "task": "lost_context-test-041",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2269,
+    "output_tokens": 209
+  },
+  "output": {
+    "question": "Information sur les prix de vente : que vaut le silence de l'administration après la demande de position formelle d'un professionnel ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "rejet",
+          "vaut rejet",
+          "rejet de la demande"
+        ],
+        "quote": "Le silence gardé par l'autorité administrative à l'issue de ce délai vaut rejet de cette demande.",
+        "article": "L112-5"
+      }
+    ],
+    "doubt": "La réponse est une valeur juridique (rejet) plutôt qu'un chiffre ; l'article ne contient aucune valeur chiffrée, le délai étant fixé par décret."
+  },
+  "raw_text": "{\"question\":\"Information sur les prix de vente : que vaut le silence de l'administration après la demande de position formelle d'un professionnel ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"rejet\",\"vaut rejet\",\"rejet de la demande\"],\"quote\":\"Le silence gardé par l'autorité administrative à l'issue de ce délai vaut rejet de cette demande.\",\"article\":\"L112-5\"}],\"doubt\":\"La réponse est une valeur juridique (rejet) plutôt qu'un chiffre ; l'article ne contient aucune valeur chiffrée, le délai étant fixé par décret.\"}"
+}

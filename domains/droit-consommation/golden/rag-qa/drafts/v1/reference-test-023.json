@@ -1,0 +1,21 @@
+{
+  "task": "reference-test-023",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2151,
+    "output_tokens": 125
+  },
+  "output": {
+    "question": "Que prévoit l'article L. 711-7 du code de la consommation ?",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il définit seulement l'application du surendettement à l'EIRL et renvoie à l'article L. 526-7 du code de commerce."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article L. 711-7 du code de la consommation ?\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil) : il définit seulement l'application du surendettement à l'EIRL et renvoie à l'article L. 526-7 du code de commerce.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-014",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2487,
+    "output_tokens": 265
+  },
+  "output": {
+    "question": "Un fabricant refuse de me transmettre une info sur ses conditions de fabrication : à quelle condition, et par quel texte est fixée la liste des conventions ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "motiver les raisons",
+          "en motiver les raisons"
+        ],
+        "quote": "à condition d'en motiver les raisons",
+        "article": "L113-2"
+      },
+      {
+        "accepted": [
+          "décret",
+          "par décret"
+        ],
+        "quote": "La liste des conventions mentionnées au premier alinéa est précisée par décret.",
+        "article": "L113-1"
+      }
+    ],
+    "doubt": "Les articles ne contiennent aucune valeur chiffrée précise (durée, montant, seuil) ; les faits sont des notions générales (motivation, décret), donc peu adaptés à une évaluation par valeur."
+  },
+  "raw_text": "{\"question\":\"Un fabricant refuse de me transmettre une info sur ses conditions de fabrication : à quelle condition, et par quel texte est fixée la liste des conventions ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"motiver les raisons\",\"en motiver les raisons\"],\"quote\":\"à condition d'en motiver les raisons\",\"article\":\"L113-2\"},{\"accepted\":[\"décret\",\"par décret\"],\"quote\":\"La liste des conventions mentionnées au premier alinéa est précisée par décret.\",\"article\":\"L113-1\"}],\"doubt\":\"Les articles ne contiennent aucune valeur chiffrée précise (durée, montant, seuil) ; les faits sont des notions générales (motivation, décret), donc peu adaptés à une évaluation par valeur.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-022",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1951,
+    "output_tokens": 277
+  },
+  "output": {
+    "question": "Contrat d'assurance conclu à distance : quelle peine de prison risque le professionnel qui n'informe pas le consommateur ?",
+    "why_unanswerable": "L'article R242-1 ne prévoit qu'une amende contraventionnelle de cinquième classe pour le défaut d'information dans les contrats à distance de services financiers. Il ne prévoit aucune peine d'emprisonnement, et une contravention de cette classe n'en comporte pas. Le Code de la consommation ne fixe donc aucune peine de prison pour ce manquement précis.",
+    "doubt": "Le code pourrait prévoir une peine d'emprisonnement pour d'autres infractions voisines, comme les pratiques commerciales trompeuses, mais pas pour ce manquement à l'information précontractuelle."
+  },
+  "raw_text": "{\"question\":\"Contrat d'assurance conclu à distance : quelle peine de prison risque le professionnel qui n'informe pas le consommateur ?\",\"why_unanswerable\":\"L'article R242-1 ne prévoit qu'une amende contraventionnelle de cinquième classe pour le défaut d'information dans les contrats à distance de services financiers. Il ne prévoit aucune peine d'emprisonnement, et une contravention de cette classe n'en comporte pas. Le Code de la consommation ne fixe donc aucune peine de prison pour ce manquement précis.\",\"doubt\":\"Le code pourrait prévoir une peine d'emprisonnement pour d'autres infractions voisines, comme les pratiques commerciales trompeuses, mais pas pour ce manquement à l'information précontractuelle.\"}"
+}

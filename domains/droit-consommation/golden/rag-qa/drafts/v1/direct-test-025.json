@@ -1,0 +1,29 @@
+{
+  "task": "direct-test-025",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3231,
+    "output_tokens": 216
+  },
+  "output": {
+    "question": "Quelle est la date du règlement européen de base sur la production biologique et l'étiquetage des produits bio (2018/848) ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "30 mai 2018"
+        ],
+        "quote": "du règlement (UE) 2018/848 du Parlement européen et du Conseil du 30 mai 2018 relatif à la production biologique et à l'étiquetage des produits biologiques",
+        "article": "R412-33-1"
+      }
+    ],
+    "doubt": "L'article est une liste de renvois à des règlements européens ; la valeur demandée (une date) est précise mais l'intérêt pratique de la question est limité."
+  },
+  "raw_text": "{\"question\":\"Quelle est la date du règlement européen de base sur la production biologique et l'étiquetage des produits bio (2018/848) ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"30 mai 2018\"],\"quote\":\"du règlement (UE) 2018/848 du Parlement européen et du Conseil du 30 mai 2018 relatif à la production biologique et à l'étiquetage des produits biologiques\",\"article\":\"R412-33-1\"}],\"doubt\":\"L'article est une liste de renvois à des règlements européens ; la valeur demandée (une date) est précise mais l'intérêt pratique de la question est limité.\"}"
+}

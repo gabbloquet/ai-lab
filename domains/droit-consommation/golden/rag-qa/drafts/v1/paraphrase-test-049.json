@@ -1,0 +1,29 @@
+{
+  "task": "paraphrase-test-049",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1959,
+    "output_tokens": 242
+  },
+  "output": {
+    "question": "Quel organisme doit recevoir la notification d'un accord qui répartit les litiges entre plusieurs médiateurs, quand un médiateur public est compétent ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "commission d'évaluation et de contrôle de la médiation"
+        ],
+        "quote": "notifiée à la commission d'évaluation et de contrôle de la médiation mentionnée à l'article L. 615-1",
+        "article": "L612-5"
+      }
+    ],
+    "doubt": "La question reprend plusieurs mots du texte (médiateur public, répartit), ce qui s'éloigne un peu de la consigne de paraphrase, et la situation concrète d'un particulier est peu naturelle pour cet article."
+  },
+  "raw_text": "{\"question\":\"Quel organisme doit recevoir la notification d'un accord qui répartit les litiges entre plusieurs médiateurs, quand un médiateur public est compétent ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"commission d'évaluation et de contrôle de la médiation\"],\"quote\":\"notifiée à la commission d'évaluation et de contrôle de la médiation mentionnée à l'article L. 615-1\",\"article\":\"L612-5\"}],\"doubt\":\"La question reprend plusieurs mots du texte (médiateur public, répartit), ce qui s'éloigne un peu de la consigne de paraphrase, et la situation concrète d'un particulier est peu naturelle pour cet article.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-042",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1979,
+    "output_tokens": 235
+  },
+  "output": {
+    "question": "Mon prêt immo est déjà signé et je veux emprunter plus : que doit refaire la banque avant d'accepter ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "réévalue la solvabilité",
+          "réévaluation de la solvabilité"
+        ],
+        "quote": "Le prêteur réévalue la solvabilité de l'emprunteur, sur la base d'informations mises à jour",
+        "article": "L313-18"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il énonce seulement un principe de réévaluation de la solvabilité, donc impropre à une question à réponse chiffrée."
+  },
+  "raw_text": "{\"question\":\"Mon prêt immo est déjà signé et je veux emprunter plus : que doit refaire la banque avant d'accepter ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"réévalue la solvabilité\",\"réévaluation de la solvabilité\"],\"quote\":\"Le prêteur réévalue la solvabilité de l'emprunteur, sur la base d'informations mises à jour\",\"article\":\"L313-18\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, taux, seuil, date, organisme ou document) : il énonce seulement un principe de réévaluation de la solvabilité, donc impropre à une question à réponse chiffrée.\"}"
+}

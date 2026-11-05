@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-014",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2084,
+    "output_tokens": 243
+  },
+  "output": {
+    "question": "Quelle indemnité reçoit le délégué du préfet qui siège à la commission de surendettement ?",
+    "why_unanswerable": "L'article R712-3 fixe seulement qui peut représenter le préfet et le directeur départemental des finances publiques (un seul délégué, choisi dans certains corps, avec deux remplaçants possibles). Il ne dit rien d'une indemnité, d'une rémunération ou d'un montant versé aux délégués, et le sujet n'est pas traité dans ce texte.",
+    "doubt": "Un autre article réglementaire du livre VII pourrait traiter de la gratuité ou des indemnités des membres de la commission, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle indemnité reçoit le délégué du préfet qui siège à la commission de surendettement ?\",\"why_unanswerable\":\"L'article R712-3 fixe seulement qui peut représenter le préfet et le directeur départemental des finances publiques (un seul délégué, choisi dans certains corps, avec deux remplaçants possibles). Il ne dit rien d'une indemnité, d'une rémunération ou d'un montant versé aux délégués, et le sujet n'est pas traité dans ce texte.\",\"doubt\":\"Un autre article réglementaire du livre VII pourrait traiter de la gratuité ou des indemnités des membres de la commission, ce qui rendrait la question répondable.\"}"
+}

@@ -38,6 +38,7 @@ Taille de l'échantillon : avec un écart type de la différence par item de 0,4
 - **Un article ne sert qu'une fois** dans tout le golden set, même dans une paire. Surtout, aucun article n'apparaît à la fois en `dev` et en `test` : itérer sur le `dev` ne doit rien apprendre du `test`.
 - **Surplus.** Le script tire deux fois le besoin de chaque mode et de chaque split, pour absorber les rejets (1,5 fois avant le second pilote, voir plus bas). Les items gardés sont les premiers à passer les contrôles, dans l'ordre du tirage seedé.
 - **Les articles des pilotes sont exclus** du tirage de la v1.
+- **Extension.** Si la réserve ne suffit pas, on ajoute des tâches à un mode et un split (`--extend mode:split:n`), tirées avec le même seed parmi les articles encore libres, à la suite des rangs existants. Les tâches déjà tirées ne changent jamais ; les tâches ajoutées portent `"extension": true`. En v1, avec les questions de chat, le mode `paraphrase` a perdu 53 brouillons sur 80, dont environ deux tiers déclarés inutilisables : 20 tâches `dev` et 30 tâches `test` ont été ajoutées, et le mode est complet.
 
 ## Format d'un item (fixé par la spec [`rag-qa/v1`](../../../../evals/spec/rag-qa/v1/SPEC.md))
 

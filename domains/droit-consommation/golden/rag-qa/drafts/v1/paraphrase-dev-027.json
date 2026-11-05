@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-dev-027",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:24:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1978,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Après la clôture de mon dossier de surendettement par le juge, où est publié l'avis du jugement ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "Bulletin officiel des annonces civiles et commerciales",
+          "BODACC"
+        ],
+        "quote": "un avis de celui-ci est adressé pour publication au Bulletin officiel des annonces civiles et commerciales par le greffe",
+        "article": "R742-53"
+      }
+    ],
+    "doubt": "L'article vise l'application de L. 742-20 (clôture pour insuffisance d'actif) ; la question généralise un peu en parlant de clôture du dossier, et la valeur attendue est un organisme de publication."
+  },
+  "raw_text": "{\"question\":\"Après la clôture de mon dossier de surendettement par le juge, où est publié l'avis du jugement ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"Bulletin officiel des annonces civiles et commerciales\",\"BODACC\"],\"quote\":\"un avis de celui-ci est adressé pour publication au Bulletin officiel des annonces civiles et commerciales par le greffe\",\"article\":\"R742-53\"}],\"doubt\":\"L'article vise l'application de L. 742-20 (clôture pour insuffisance d'actif) ; la question généralise un peu en parlant de clôture du dossier, et la valeur attendue est un organisme de publication.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "reference-dev-010",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1976,
+    "output_tokens": 176
+  },
+  "output": {
+    "question": "Dans quelle langue doivent être rédigées les mentions d'étiquetage des denrées selon l'article R. 412-7 ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "langue française",
+          "français"
+        ],
+        "quote": "les mentions d'étiquetage des denrées commercialisées sur le territoire national sont rédigées en langue française",
+        "article": "R412-7"
+      }
+    ],
+    "doubt": "La valeur attendue est une langue, pas un chiffre ; l'article ne contient pas de montant ni de durée."
+  },
+  "raw_text": "{\"question\":\"Dans quelle langue doivent être rédigées les mentions d'étiquetage des denrées selon l'article R. 412-7 ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"langue française\",\"français\"],\"quote\":\"les mentions d'étiquetage des denrées commercialisées sur le territoire national sont rédigées en langue française\",\"article\":\"R412-7\"}],\"doubt\":\"La valeur attendue est une langue, pas un chiffre ; l'article ne contient pas de montant ni de durée.\"}"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "direct-test-002",
+  "mode": "direct",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+  "created_at": "2026-11-04T18:58:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2381,
+    "output_tokens": 137
+  },
+  "output": {
+    "question": "Contrat d'achat de métaux précieux : quelle durée maximale d'interdiction d'exercer comme peine complémentaire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.",
+        "article": "L242-38"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Contrat d'achat de métaux précieux : quelle durée maximale d'interdiction d'exercer comme peine complémentaire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.\",\"article\":\"L242-38\"}],\"doubt\":\"\"}"
+}

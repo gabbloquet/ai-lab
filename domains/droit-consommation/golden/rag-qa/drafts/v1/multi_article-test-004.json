@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-test-004",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-04T18:59:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2333,
+    "output_tokens": 306
+  },
+  "output": {
+    "question": "Pub crédit conso reçue par courrier : où doivent figurer les infos sur le TAEG, et sous quelle forme ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "en en-tête du texte publicitaire",
+          "en-tête"
+        ],
+        "quote": "les informations mentionnées à l'article L. 312-8 figurent, sous forme d'encadré, en en-tête du texte publicitaire",
+        "article": "L312-9"
+      },
+      {
+        "accepted": [
+          "taille de caractère plus importante",
+          "caractères plus gros"
+        ],
+        "quote": "figurent dans une taille de caractère plus importante que celle utilisée pour indiquer toute autre information relative aux caractéristiques du financement",
+        "article": "L312-8"
+      }
+    ],
+    "doubt": "La question mêle placement et forme (encadré, en-tête) tirés de A, et taille de caractère tirée de B ; le fait « encadré » n'est pas listé séparément."
+  },
+  "raw_text": "{\"question\":\"Pub crédit conso reçue par courrier : où doivent figurer les infos sur le TAEG, et sous quelle forme ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"en en-tête du texte publicitaire\",\"en-tête\"],\"quote\":\"les informations mentionnées à l'article L. 312-8 figurent, sous forme d'encadré, en en-tête du texte publicitaire\",\"article\":\"L312-9\"},{\"accepted\":[\"taille de caractère plus importante\",\"caractères plus gros\"],\"quote\":\"figurent dans une taille de caractère plus importante que celle utilisée pour indiquer toute autre information relative aux caractéristiques du financement\",\"article\":\"L312-8\"}],\"doubt\":\"La question mêle placement et forme (encadré, en-tête) tirés de A, et taille de caractère tirée de B ; le fait « encadré » n'est pas listé séparément.\"}"
+}

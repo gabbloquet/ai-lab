@@ -1,0 +1,30 @@
+{
+  "task": "reference-test-044",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:59:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2386,
+    "output_tokens": 198
+  },
+  "output": {
+    "question": "Selon l'article L. 112-8, quel service rend le numéro de téléphone accessible aux personnes sourdes ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "service de traduction simultanée écrite et visuelle",
+          "traduction simultanée écrite et visuelle"
+        ],
+        "quote": "par la mise à disposition d'un service de traduction simultanée écrite et visuelle",
+        "article": "L112-8"
+      }
+    ],
+    "doubt": "Le seuil de chiffre d'affaires est renvoyé à un décret, donc la valeur retenue est un service et non un chiffre."
+  },
+  "raw_text": "{\"question\":\"Selon l'article L. 112-8, quel service rend le numéro de téléphone accessible aux personnes sourdes ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"service de traduction simultanée écrite et visuelle\",\"traduction simultanée écrite et visuelle\"],\"quote\":\"par la mise à disposition d'un service de traduction simultanée écrite et visuelle\",\"article\":\"L112-8\"}],\"doubt\":\"Le seuil de chiffre d'affaires est renvoyé à un décret, donc la valeur retenue est un service et non un chiffre.\"}"
+}

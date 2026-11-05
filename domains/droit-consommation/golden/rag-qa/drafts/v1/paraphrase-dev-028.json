@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-dev-028",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:24:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2303,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Quelle directive européenne définit les produits concernés par les règles d'accessibilité (bornes, liseuses, ordinateurs) ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "directive (UE) 2019/882",
+          "2019/882"
+        ],
+        "quote": "telsque définis à l'article 3 de la directive (UE) 2019/882 du Parlement européen et du Conseil du 17 avril 2019",
+        "article": "D412-49"
+      }
+    ],
+    "doubt": "La quote contient une erreur de copie possible (espacement) ; la question reste proche du texte sur 'directive' et la valeur est un numéro de texte, pas une valeur chiffrée classique."
+  },
+  "raw_text": "{\"question\":\"Quelle directive européenne définit les produits concernés par les règles d'accessibilité (bornes, liseuses, ordinateurs) ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"directive (UE) 2019/882\",\"2019/882\"],\"quote\":\"telsque définis à l'article 3 de la directive (UE) 2019/882 du Parlement européen et du Conseil du 17 avril 2019\",\"article\":\"D412-49\"}],\"doubt\":\"La quote contient une erreur de copie possible (espacement) ; la question reste proche du texte sur 'directive' et la valeur est un numéro de texte, pas une valeur chiffrée classique.\"}"
+}

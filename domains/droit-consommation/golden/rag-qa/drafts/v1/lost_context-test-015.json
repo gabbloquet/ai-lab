@@ -1,0 +1,29 @@
+{
+  "task": "lost_context-test-015",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2329,
+    "output_tokens": 193
+  },
+  "output": {
+    "question": "Qui est concerné par l'obligation de compétence professionnelle des prêteurs en crédit conso et immobilier ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "personnes physiques"
+        ],
+        "quote": "sont les personnes physiques qui travaillent pour le prêteur",
+        "article": "D314-22"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il définit des catégories de personnes et renvoie à d'autres textes, donc peu adapté à une réponse sous forme de fait court."
+  },
+  "raw_text": "{\"question\":\"Qui est concerné par l'obligation de compétence professionnelle des prêteurs en crédit conso et immobilier ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"personnes physiques\"],\"quote\":\"sont les personnes physiques qui travaillent pour le prêteur\",\"article\":\"D314-22\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il définit des catégories de personnes et renvoie à d'autres textes, donc peu adapté à une réponse sous forme de fait court.\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-027",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1978,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Un commerçant d'un salon ne m'a pas rendu mon argent à temps : quel taux d'intérêt s'applique à la somme due ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "taux de l'intérêt légal majoré de moitié",
+          "intérêt légal majoré de moitié",
+          "intérêt légal majoré de 50 %"
+        ],
+        "quote": "la somme due est productive d'intérêts, de plein droit, aux taux de l'intérêt légal majoré de moitié",
+        "article": "L242-22"
+      }
+    ],
+    "doubt": "La question mentionne un salon, mais ne précise pas la foire ou le salon de façon exacte ; les formes acceptées sont un peu longues, la variante « 50 % » est une paraphrase chiffrée."
+  },
+  "raw_text": "{\"question\":\"Un commerçant d'un salon ne m'a pas rendu mon argent à temps : quel taux d'intérêt s'applique à la somme due ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"taux de l'intérêt légal majoré de moitié\",\"intérêt légal majoré de moitié\",\"intérêt légal majoré de 50 %\"],\"quote\":\"la somme due est productive d'intérêts, de plein droit, aux taux de l'intérêt légal majoré de moitié\",\"article\":\"L242-22\"}],\"doubt\":\"La question mentionne un salon, mais ne précise pas la foire ou le salon de façon exacte ; les formes acceptées sont un peu longues, la variante « 50 % » est une paraphrase chiffrée.\"}"
+}

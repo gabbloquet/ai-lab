@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-011",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:58:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2641,
+    "output_tokens": 205
+  },
+  "output": {
+    "question": "Que prévoit l'article D. 351-7 comme niveau de formation pour le diplôme de commerce remplacé localement ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "niveau de formation I"
+        ],
+        "quote": "ou à un diplôme de commerce sanctionnant un cycle d'études supérieures d'un niveau de formation I",
+        "article": "D351-7"
+      }
+    ],
+    "doubt": "Article d'adaptation outre-mer qui remplace des références par des dispositions locales, peu susceptible de faire l'objet d'une question en chat ; la valeur (niveau I) est marginale."
+  },
+  "raw_text": "{\"question\":\"Que prévoit l'article D. 351-7 comme niveau de formation pour le diplôme de commerce remplacé localement ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"niveau de formation I\"],\"quote\":\"ou à un diplôme de commerce sanctionnant un cycle d'études supérieures d'un niveau de formation I\",\"article\":\"D351-7\"}],\"doubt\":\"Article d'adaptation outre-mer qui remplace des références par des dispositions locales, peu susceptible de faire l'objet d'une question en chat ; la valeur (niveau I) est marginale.\"}"
+}

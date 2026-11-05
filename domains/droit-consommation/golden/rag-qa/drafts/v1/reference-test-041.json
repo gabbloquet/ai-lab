@@ -1,0 +1,29 @@
+{
+  "task": "reference-test-041",
+  "mode": "reference",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+  "created_at": "2026-11-04T18:59:04+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2091,
+    "output_tokens": 249
+  },
+  "output": {
+    "question": "Quelles informations minimales l'article L. 221-12 impose-t-il quand la technique à distance limite l'espace ou le temps ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "caractéristiques essentielles, prix, identité, durée du contrat, droit de rétractation"
+        ],
+        "quote": "au moins les informations relatives aux caractéristiques essentielles des biens ou des services, à leur prix, à son identité, à la durée du contrat et au droit de rétractation",
+        "article": "L221-12"
+      }
+    ],
+    "doubt": "L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il énumère seulement des catégories d'informations, donc peu adapté à une réponse courte vérifiable."
+  },
+  "raw_text": "{\"question\":\"Quelles informations minimales l'article L. 221-12 impose-t-il quand la technique à distance limite l'espace ou le temps ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"caractéristiques essentielles, prix, identité, durée du contrat, droit de rétractation\"],\"quote\":\"au moins les informations relatives aux caractéristiques essentielles des biens ou des services, à leur prix, à son identité, à la durée du contrat et au droit de rétractation\",\"article\":\"L221-12\"}],\"doubt\":\"L'article ne contient aucune valeur précise (durée, montant, seuil, date) : il énumère seulement des catégories d'informations, donc peu adapté à une réponse courte vérifiable.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-008",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-04T19:00:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2314,
+    "output_tokens": 253
+  },
+  "output": {
+    "question": "Quelle rémunération touche la personne qualifiée qui ouvre les scellés informatiques lors d'une visite de la DGCCRF ?",
+    "why_unanswerable": "L'article prévoit que les agents peuvent recourir à une personne qualifiée pour ouvrir les scellés, copier les données, établir un inventaire et un rapport, et qu'elle prête serment. Il ne dit rien de sa rémunération, de son tarif ni de la prise en charge de ses frais. Ces détails ne sont fixés par aucun autre article du Code de la consommation connu.",
+    "doubt": "Un autre article du code pourrait traiter des frais d'expertise lors des visites et saisies, même si je n'en connais pas de précis."
+  },
+  "raw_text": "{\"question\":\"Quelle rémunération touche la personne qualifiée qui ouvre les scellés informatiques lors d'une visite de la DGCCRF ?\",\"why_unanswerable\":\"L'article prévoit que les agents peuvent recourir à une personne qualifiée pour ouvrir les scellés, copier les données, établir un inventaire et un rapport, et qu'elle prête serment. Il ne dit rien de sa rémunération, de son tarif ni de la prise en charge de ses frais. Ces détails ne sont fixés par aucun autre article du Code de la consommation connu.\",\"doubt\":\"Un autre article du code pourrait traiter des frais d'expertise lors des visites et saisies, même si je n'en connais pas de précis.\"}"
+}

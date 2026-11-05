@@ -1,0 +1,30 @@
+{
+  "task": "lost_context-dev-005",
+  "mode": "lost_context",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+  "created_at": "2026-11-04T19:00:09+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2278,
+    "output_tokens": 129
+  },
+  "output": {
+    "question": "Contrat de télécom à durée déterminée reconduit automatiquement : quel préavis maximum pour résilier après la prolongation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "dix jours",
+          "10 jours"
+        ],
+        "quote": "moyennant un délai de préavis qui ne peut excéder dix jours",
+        "article": "L224-40"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Contrat de télécom à durée déterminée reconduit automatiquement : quel préavis maximum pour résilier après la prolongation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"dix jours\",\"10 jours\"],\"quote\":\"moyennant un délai de préavis qui ne peut excéder dix jours\",\"article\":\"L224-40\"}],\"doubt\":\"\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "paraphrase-test-037",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-04T18:59:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1999,
+    "output_tokens": 240
+  },
+  "output": {
+    "question": "Perquisition de la répression des fraudes hors du ressort du juge qui l'a autorisée : qui la contrôle ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "juge des libertés et de la détention du tribunal judiciaire",
+          "juge des libertés et de la détention",
+          "JLD"
+        ],
+        "quote": "une commission rogatoire au juge des libertés et de la détention du tribunal judiciaire dans le ressort duquel s'effectue la visite",
+        "article": "L512-53"
+      }
+    ],
+    "doubt": "L'article ne contient pas de valeur chiffrée, seulement une autorité judiciaire désignée ; la question utilise « perquisition » comme paraphrase de « visite et saisies »."
+  },
+  "raw_text": "{\"question\":\"Perquisition de la répression des fraudes hors du ressort du juge qui l'a autorisée : qui la contrôle ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"juge des libertés et de la détention du tribunal judiciaire\",\"juge des libertés et de la détention\",\"JLD\"],\"quote\":\"une commission rogatoire au juge des libertés et de la détention du tribunal judiciaire dans le ressort duquel s'effectue la visite\",\"article\":\"L512-53\"}],\"doubt\":\"L'article ne contient pas de valeur chiffrée, seulement une autorité judiciaire désignée ; la question utilise « perquisition » comme paraphrase de « visite et saisies ».\"}"
+}

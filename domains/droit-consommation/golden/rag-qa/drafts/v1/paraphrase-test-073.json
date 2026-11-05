@@ -1,0 +1,30 @@
+{
+  "task": "paraphrase-test-073",
+  "mode": "paraphrase",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+  "created_at": "2026-11-05T08:25:07+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2011,
+    "output_tokens": 195
+  },
+  "output": {
+    "question": "Ma banque me propose un prêt immobilier : quel document européen doit accompagner l'offre si elle diffère de la fiche reçue avant ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "fiche d'information standardisée européenne",
+          "FISE"
+        ],
+        "quote": "Cette offre est accompagnée de la fiche d'information standardisée européenne mentionnée à l'article L. 313-7",
+        "article": "L313-24"
+      }
+    ],
+    "doubt": "La question reste proche du texte pour identifier le document ; la réponse est un nom de document, pas un chiffre."
+  },
+  "raw_text": "{\"question\":\"Ma banque me propose un prêt immobilier : quel document européen doit accompagner l'offre si elle diffère de la fiche reçue avant ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"fiche d'information standardisée européenne\",\"FISE\"],\"quote\":\"Cette offre est accompagnée de la fiche d'information standardisée européenne mentionnée à l'article L. 313-7\",\"article\":\"L313-24\"}],\"doubt\":\"La question reste proche du texte pour identifier le document ; la réponse est un nom de document, pas un chiffre.\"}"
+}
