@@ -44,3 +44,4 @@ domains/*/.cache/
 
 # 002 : cache des embeddings (retéléchargeable), runs de travail
 experiments/002-rag-naif-vs-modele-seul/.cache/
+experiments/002-rag-naif-vs-modele-seul/runs/
