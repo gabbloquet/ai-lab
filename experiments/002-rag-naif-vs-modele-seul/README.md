@@ -42,7 +42,7 @@ Sur le Code de la consommation, de combien un **RAG naïf** augmente-t-il le tau
 
 | Étape | Choix | Levier que la série pourra tester |
 |---|---|---|
-| Découpage | **Un passage par article** du corpus (2 150). Un article de plus de 8 192 tokens, la limite du modèle d'embedding, est coupé en morceaux qui gardent l'`id` de l'article. Cela ne touche que les plus longues annexes, qui ne sont la réponse d'aucun item. | Découpage à taille fixe ; découpage plus fin des articles longs |
+| Découpage | **Un passage par article** du corpus. Un article de plus de 12 000 caractères est coupé en morceaux qui gardent l'`id` de l'article, sur un saut de ligne quand c'est possible. Ce seuil garde chaque passage sous les 8 192 tokens de `mistral-embed`, même à 3 caractères par token, faute de tokenizer Mistral pour compter exactement. Il ne touche que 3 annexes, qui ne sont la réponse d'aucun item : 2 150 articles donnent 2 155 passages. | Découpage à taille fixe ; découpage plus fin des articles longs |
 | Texte indexé | Le texte de l'article seul : ni numéro, ni titre du plan, ni `nota` | En-tête « Article L221-18 » et plan dans le texte indexé ; contextualisation des passages |
 | Embeddings | `mistral-embed` (1 024 dimensions, 8 192 tokens d'entrée, lus sur l'API `/v1/models` le 2026-11-05), le même pour les deux modèles générateurs | Autre modèle d'embedding |
 | Recherche | Similarité cosinus exacte en mémoire (numpy), sur la question telle quelle | Recherche hybride (BM25 et dense), réécriture de requête, reranking |
