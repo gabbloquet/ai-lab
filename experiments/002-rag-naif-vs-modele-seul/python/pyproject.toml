@@ -1,0 +1,23 @@
+[project]
+name = "exp002-rag"
+version = "0.1.0"
+description = "Expérience 002 : modèle seul (A) contre RAG naïf (B) sur le Code de la consommation"
+requires-python = ">=3.13"
+dependencies = [
+    # Le scorer de la spec rag-qa v1, pour noter les exécutions.
+    "ailab-evals",
+    # Traces et scores des runs, vers le Langfuse local (infra/langfuse).
+    "langfuse==5.1.0",
+    # Embeddings mistral-embed : Pydantic AI 2.65 ne fournit pas d'embedder Mistral.
+    "mistralai==3.7.0",
+    # Index en mémoire : similarité cosinus exacte.
+    "numpy==2.5.4",
+    "pydantic-ai-slim[google,mistral]==2.65.0",
+]
+
+[tool.uv.sources]
+ailab-evals = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"
