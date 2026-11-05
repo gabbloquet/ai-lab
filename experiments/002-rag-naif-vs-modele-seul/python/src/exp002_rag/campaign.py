@@ -27,6 +27,7 @@ from pydantic_ai.models import Model
 
 from ailab_evals.rag_qa import KS, PairedScore, aggregate, score_execution
 from exp002_rag.answering import CLOSED_BOOK, NAIVE_RAG, TOP_K, Retriever, run_item
+from exp002_rag.tracing import NO_TRACING, LangfuseTracing, Tracer
 
 ROOT = Path(__file__).resolve().parents[5]
 EXPERIMENT_DIR = ROOT / "experiments" / "002-rag-naif-vs-modele-seul"
@@ -64,6 +65,7 @@ async def run_campaign(
     concurrency: int = 4,
     max_attempts: int = 5,
     sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
+    tracer: Tracer = NO_TRACING,
 ) -> list[dict]:
     done = {_key(e): e for e in _read_jsonl(out)}
     plan = [(item, v, r) for item in items for v in variants for r in range(repeats)]
@@ -73,21 +75,23 @@ async def run_campaign(
 
     async def one(item: dict, variant: str, repeat: int) -> dict:
         async with semaphore:
-            for attempt in range(1, max_attempts + 1):
-                try:
-                    execution = await run_item(
-                        item,
-                        variant=variant,
-                        model=model,
-                        repeat=repeat,
-                        retrieve=retrieve,
-                        reraise=is_transient,
-                    )
-                    break
-                except ModelHTTPError as error:
-                    if not is_transient(error) or attempt == max_attempts:
-                        raise
-                    await sleep(min(2.0**attempt, 60.0))
+            with tracer.execution(item=item, variant=variant, repeat=repeat) as observe:
+                for attempt in range(1, max_attempts + 1):
+                    try:
+                        execution = await run_item(
+                            item,
+                            variant=variant,
+                            model=model,
+                            repeat=repeat,
+                            retrieve=retrieve,
+                            reraise=is_transient,
+                        )
+                        break
+                    except ModelHTTPError as error:
+                        if not is_transient(error) or attempt == max_attempts:
+                            raise
+                        await sleep(min(2.0**attempt, 60.0))
+                observe(execution, score_execution(item, execution).as_dict())
         async with lock:
             with out.open("a", encoding="utf-8") as f:
                 f.write(json.dumps(execution, ensure_ascii=False) + "\n")
@@ -177,6 +181,12 @@ def summarize(
 # --- Ligne de commande --------------------------------------------------------------------------
 
 
+def display_path(path: Path) -> str:
+    """Le chemin à citer dans un rapport : relatif au dépôt quand il y est."""
+    resolved = path.resolve()
+    return str(resolved.relative_to(ROOT)) if resolved.is_relative_to(ROOT) else str(resolved)
+
+
 def _git_is_clean() -> bool:
     status = subprocess.run(
         ["git", "status", "--porcelain"], cwd=ROOT, capture_output=True, text=True, check=True
@@ -194,6 +204,17 @@ def _retriever() -> Retriever:
     return lambda question: index.search(embedder.embed([question])[0], TOP_K)
 
 
+def _langfuse_tracer(run_id: str, split: str, model: str) -> LangfuseTracing:
+    from langfuse import Langfuse
+
+    from ailab_evals.langfuse_setup import check_reachable, credentials
+
+    base_url, public_key, secret_key = credentials(ROOT / "infra/langfuse/.env")
+    check_reachable(base_url)
+    client = Langfuse(public_key=public_key, secret_key=secret_key, base_url=base_url)
+    return LangfuseTracing(client, run_id=run_id, split=split, model=model)
+
+
 def main(argv: list[str] | None = None, git_is_clean: Callable[[], bool] = _git_is_clean) -> None:
     parser = argparse.ArgumentParser(description="Campagne de la 002")
     parser.add_argument("--split", choices=["dev", "test"], required=True)
@@ -204,6 +225,7 @@ def main(argv: list[str] | None = None, git_is_clean: Callable[[], bool] = _git_
     parser.add_argument("--golden", type=Path, default=GOLDEN)
     parser.add_argument("--run-dir", type=Path, default=None)
     parser.add_argument("--concurrency", type=int, default=4)
+    parser.add_argument("--langfuse", action="store_true", help="tracer le run dans Langfuse")
     args = parser.parse_args(argv)
 
     if args.split == "test" and not args.final:
@@ -215,6 +237,9 @@ def main(argv: list[str] | None = None, git_is_clean: Callable[[], bool] = _git_
     items = [i for i in _read_jsonl(args.golden) if i["split"] == args.split]
     slug = args.model.replace(":", "-").replace("/", "-")
     run_dir = args.run_dir or EXPERIMENT_DIR / "runs" / f"{date.today()}-{slug}-{args.split}"
+    tracer: Tracer = NO_TRACING
+    if args.langfuse:
+        tracer = _langfuse_tracer(run_dir.name, args.split, args.model)
     executions = asyncio.run(
         run_campaign(
             items,
@@ -224,13 +249,17 @@ def main(argv: list[str] | None = None, git_is_clean: Callable[[], bool] = _git_
             retrieve=_retriever(),
             out=run_dir / "executions.jsonl",
             concurrency=args.concurrency,
+            tracer=tracer,
         )
     )
+    if isinstance(tracer, LangfuseTracing):
+        tracer.flush()
     summary = summarize(items, executions, split=args.split)
     summary["run"] = {
         "model": args.model,
         "k": args.k,
-        "golden": str(args.golden.relative_to(ROOT)),
+        "golden": display_path(args.golden),
+        "langfuse": args.langfuse,
     }
     (run_dir / "summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

@@ -9,7 +9,7 @@ from pydantic_ai.messages import ModelMessage, ModelRequest, ModelResponse, Tool
 from pydantic_ai.models.function import AgentInfo, FunctionModel
 
 from exp002_rag.answering import CLOSED_BOOK, NAIVE_RAG
-from exp002_rag.campaign import main, run_campaign, summarize
+from exp002_rag.campaign import ROOT, display_path, main, run_campaign, summarize
 from exp002_rag.corpus import Passage
 
 pytestmark = pytest.mark.anyio
@@ -233,3 +233,12 @@ def test_a_final_run_needs_a_clean_git_tree() -> None:
             ["--split", "test", "--final", "--model", "mistral:mistral-small-2603"],
             git_is_clean=lambda: False,
         )
+
+
+def test_reports_cite_paths_relative_to_the_repository(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.chdir(ROOT)
+    golden = Path("domains/droit-consommation/golden/rag-qa/v1/items.jsonl")
+
+    assert display_path(golden) == "domains/droit-consommation/golden/rag-qa/v1/items.jsonl"
+    assert display_path(ROOT / golden) == "domains/droit-consommation/golden/rag-qa/v1/items.jsonl"
+    assert display_path(tmp_path / "x.jsonl") == str((tmp_path / "x.jsonl").resolve())
