@@ -1,6 +1,6 @@
 import pytest
 
-from exp001_agent.langfuse_setup import credentials
+from ailab_evals.langfuse_setup import credentials
 
 
 @pytest.fixture

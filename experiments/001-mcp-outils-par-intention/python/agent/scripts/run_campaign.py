@@ -25,11 +25,11 @@ from typing import Any
 import anyio
 from scipy import stats
 
+from ailab_evals.langfuse_setup import check_reachable, credentials
 from ailab_evals.tool_selection import PairedScore, aggregate
 from exp001_agent import loop
 from exp001_agent.campaign import Record, run_campaign
 from exp001_agent.golden import load_items
-from exp001_agent.langfuse_setup import check_reachable, credentials
 from exp001_agent.summary import summarize
 from exp001_agent.tracing import NO_TRACING, LangfuseTracing, Tracer
 

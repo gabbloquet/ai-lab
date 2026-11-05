@@ -1,4 +1,5 @@
-"""Connexion au Langfuse local : clés de .env, ou à défaut celles créées par infra/langfuse."""
+"""Connexion au Langfuse local, commune aux expériences : clés de .env, ou à défaut celles créées
+par infra/langfuse."""
 
 import os
 import urllib.request

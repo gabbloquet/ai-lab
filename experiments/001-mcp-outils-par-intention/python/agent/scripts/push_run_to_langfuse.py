@@ -15,9 +15,9 @@ from pathlib import Path
 
 from langfuse import Langfuse
 
+from ailab_evals.langfuse_setup import check_reachable, credentials
 from ailab_evals.tool_selection import ExecutionScore
 from exp001_agent.campaign import Record
-from exp001_agent.langfuse_setup import check_reachable, credentials
 from exp001_agent.loop import Execution
 from exp001_agent.tracing import LangfuseTracing
 
