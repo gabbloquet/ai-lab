@@ -1,0 +1,32 @@
+from exp002_rag.corpus import Passage
+from exp002_rag.prompting import GROUNDING, SYSTEM_PROMPT, closed_book_message, rag_message
+
+QUESTION = "Achat en ligne : j'ai combien de temps pour me rétracter ?"
+P1 = Passage("LEGIARTI000032226842", "L221-18", "Le consommateur dispose de quatorze jours.", 0)
+P2 = Passage("LEGIARTI000032221377", "L221-23", "Il supporte les coûts directs de renvoi.", 0)
+
+
+def test_the_system_prompt_asks_for_a_value_citations_and_abstention() -> None:
+    assert "Code de la consommation" in SYSTEM_PROMPT
+    assert "`cited`" in SYSTEM_PROMPT
+    assert "`abstained`" in SYSTEM_PROMPT
+
+
+def test_closed_book_message_is_the_question_alone() -> None:
+    assert closed_book_message(QUESTION) == f"Question : {QUESTION}"
+
+
+def test_rag_message_shows_each_passage_under_its_article_number_in_order() -> None:
+    message = rag_message(QUESTION, [P2, P1])
+
+    assert "Article L221-23\nIl supporte les coûts directs de renvoi." in message
+    assert "Article L221-18\nLe consommateur dispose de quatorze jours." in message
+    assert message.index("L221-23") < message.index("L221-18")
+
+
+def test_rag_message_only_adds_the_grounding_and_the_extracts_to_the_question() -> None:
+    message = rag_message(QUESTION, [P1])
+
+    assert message.startswith(GROUNDING)
+    assert message.endswith(closed_book_message(QUESTION))
+    assert "abstained" in GROUNDING
