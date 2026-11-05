@@ -46,7 +46,7 @@ Sur le Code de la consommation, de combien un **RAG naïf** augmente-t-il le tau
 | Texte indexé | Le texte de l'article seul : ni numéro, ni titre du plan, ni `nota` | En-tête « Article L221-18 » et plan dans le texte indexé ; contextualisation des passages |
 | Embeddings | `mistral-embed` (1 024 dimensions, 8 192 tokens d'entrée, lus sur l'API `/v1/models` le 2026-11-05), le même pour les deux modèles générateurs | Autre modèle d'embedding |
 | Recherche | Similarité cosinus exacte en mémoire (numpy), sur la question telle quelle | Recherche hybride (BM25 et dense), réécriture de requête, reranking |
-| Contexte | Les **5** articles les plus proches (top-k = 5), chacun précédé de son numéro (« Article L221-18 ») pour que le modèle puisse le citer | Taille du contexte, filtrage par métadonnées |
+| Contexte | Les **5** passages les plus proches (top-k = 5), chacun précédé du numéro de son article (« Article L221-18 ») pour que le modèle puisse le citer. On envoie le passage récupéré tel quel : il est identique à l'article pour 2 147 articles sur 2 150, et seules les 3 annexes coupées en diffèrent. Deux morceaux d'une même annexe peuvent occuper deux places du top-5. | Taille du contexte, filtrage par métadonnées ; « récupérer petit, envoyer grand » (*parent document retrieval*) : chercher dans des morceaux fins, envoyer l'article qui les contient, à tester avec un découpage à taille fixe |
 
 Le numéro de l'article est montré au modèle mais n'est pas indexé : une question qui cite un numéro (mode `reference`) ne profite donc pas du numéro pour la recherche. C'est voulu : le mode `reference` mesure ce manque.
 
