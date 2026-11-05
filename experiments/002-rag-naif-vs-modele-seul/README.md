@@ -1,0 +1,106 @@
+# 002 — RAG naïf ou modèle seul ?
+
+> **Statut :** cadrage
+> **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
+> **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (brouillon)
+
+Première expérience de la série sur le RAG : « notre RAG répond mal, quels sont les plus gros leviers ? ». La 002 pose la baseline de toute la série, le RAG naïf, et mesure ce qu'il apporte par rapport au modèle seul. Les expériences suivantes testeront chacune un levier contre cette même baseline.
+
+Les sections Question, Hypothèse, Protocole, Discipline d'itération et Mesures sont écrites avant le premier run.
+
+## Question
+
+Sur le Code de la consommation, de combien un **RAG naïf** augmente-t-il le taux de réponses justes (`correct`, spec `rag-qa/v1`) par rapport au **même modèle sans récupération** ?
+
+## Hypothèse
+
+- **H1 :** le RAG naïf (B) répond juste plus souvent que le modèle seul (A).
+- **H0 :** pas de différence mesurable entre A et B.
+- **Plus petit écart qui compte en pratique : 10 points de `correct`.** En dessous, un RAG ne justifierait pas son coût d'exploitation.
+
+**Ce que la 002 doit aussi dire, sans que cela porte le verdict :**
+- **Ce que le modèle sait déjà du code.** Le score de A mesure la part des questions auxquelles le modèle répond de mémoire. Un score élevé signalerait que le golden set est contaminé par l'entraînement du modèle.
+- **Où le RAG naïf échoue.** La répartition de `failure` en B (`retrieval_miss` ou `generation_miss`) dit s'il faut d'abord travailler la récupération ou la génération.
+- **Sur quels modes il échoue.** Les scores par mode désignent les premiers leviers à tester dans la série.
+
+## Protocole
+
+| Élément | Valeur |
+|---|---|
+| Baseline (A) | **Modèle seul** : la question, sans aucun passage du code |
+| Variante (B) | **RAG naïf** : la question, suivie des 5 articles les plus proches selon les embeddings |
+| Ce qui change entre A et B | La présence du contexte récupéré, et la phrase du prompt qui l'introduit |
+| Ce qui est fixé | Le modèle, le prompt système hors contexte, le format de sortie, la température (0), les données (`domains/droit-consommation/data/v1`) |
+| Modèles | Un verdict par modèle : `mistral:mistral-small-2603` et `google:gemini-3.5-flash-lite`, les mêmes que dans la 001. Ce sont deux fournisseurs différents du rédacteur du golden set (Claude Sonnet 5.5) : aucun ne profite du style de ses questions. Identifiants à revérifier avant le premier run. |
+| Golden set | `domains/droit-consommation/golden/rag-qa/v1` : 200 items, **n_dev = 50, n_test = 150**, en six modes (direct, référence, paraphrase, plusieurs articles, contexte perdu, sans réponse). [Règles du golden set](../../domains/droit-consommation/golden/rag-qa/README.md) |
+| Répétitions | k = 3 |
+| Implémentation | `python/` uniquement : la boucle de question-réponse (Pydantic AI), l'index et la notation (métrique DeepEval conforme à la spec) |
+
+### Le RAG naïf
+
+« Naïf » veut dire ce qu'on obtient en suivant un tutoriel standard, sans optimisation. Chaque choix laissé simple ici est un levier que la série pourra tester.
+
+| Étape | Choix | Levier que la série pourra tester |
+|---|---|---|
+| Découpage | **Un passage par article** du corpus (2 150). Un article de plus de 8 192 tokens, la limite du modèle d'embedding, est coupé en morceaux qui gardent l'`id` de l'article. Cela ne touche que les plus longues annexes, qui ne sont la réponse d'aucun item. | Découpage à taille fixe ; découpage plus fin des articles longs |
+| Texte indexé | Le texte de l'article seul : ni numéro, ni titre du plan, ni `nota` | En-tête « Article L221-18 » et plan dans le texte indexé ; contextualisation des passages |
+| Embeddings | `mistral-embed` (1 024 dimensions, 8 192 tokens d'entrée, lus sur l'API `/v1/models` le 2026-11-05), le même pour les deux modèles générateurs | Autre modèle d'embedding |
+| Recherche | Similarité cosinus exacte en mémoire (numpy), sur la question telle quelle | Recherche hybride (BM25 et dense), réécriture de requête, reranking |
+| Contexte | Les **5** articles les plus proches (top-k = 5), chacun précédé de son numéro (« Article L221-18 ») pour que le modèle puisse le citer | Taille du contexte, filtrage par métadonnées |
+
+Le numéro de l'article est montré au modèle mais n'est pas indexé : une question qui cite un numéro (mode `reference`) ne profite donc pas du numéro pour la recherche. C'est voulu : le mode `reference` mesure ce manque.
+
+**Conséquence du découpage par article :** le levier « découpage par structure » fait déjà partie de la baseline. La série testera l'inverse, un découpage à taille fixe, qui pourrait faire perdre des points.
+
+### Format de sortie
+
+Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": str, "abstained": bool, "cited": [str]}`, un numéro d'article par élément de `cited` (spec § 3.2). Les deux variantes ont le droit de s'abstenir quand elles ne savent pas : sans ce droit, A serait poussé à inventer. Une sortie illisible compte comme une erreur d'exécution, donc comme une réponse fausse (spec § 6), et son taux est publié par variante.
+
+**Taille de l'échantillon.** MDE = (t₀,₉₇₅ + t₀,₈₀) × s_d / √n_test. Hypothèse : s_d = 0,4, proche de la 001 (0,373 au run 0). Avec n_test = 150 : MDE ≈ (1,976 + 0,844) × 0,4 / √150 ≈ **9,2 points**, sous les 10 points qui comptent.
+
+**Lancer un run :** commande à écrire avec l'implémentation.
+
+## Discipline d'itération
+
+1. **Même effort pour chaque variante.** Seul le prompt est mis au point. La recette du RAG naïf est figée par le tableau ci-dessus.
+2. **Gel avant le run final.** Les deux variantes sont figées par un commit, et plus rien ne change ensuite.
+3. **Un seul run sur le `test`.**
+
+**Budget d'itération :** N = 3 cycles par variante, sur le `dev` uniquement, avec un seul modèle (`mistral-small-2603`).
+
+**Journal d'itération**, sur le `dev` uniquement :
+
+| # | Date | Variante | Modification | Motif | `correct` dev |
+|---|---|---|---|---|---|
+| 1 | | | | | |
+
+**Commit de gel :** à venir
+**Run final sur le `test` :** à venir
+
+## Mesures
+
+- **Métrique principale, qui porte le verdict :** `correct`, telle que définie dans la spec `rag-qa/v1` (§ 5).
+- **Métriques secondaires, publiées sans porter le verdict :**
+  - `correct` restreint aux items avec réponse, `false_abstention`, `hallucination` ;
+  - le taux d'erreur, dont les sorties illisibles ;
+  - pour B seulement : `evidence_recall@k` et `all_evidence@k` (k ∈ {1, 3, 5}) et la répartition de `failure` ;
+  - `correct` par mode, pour A et pour B ;
+  - les citations (`citation_precision`, `citation_recall`) ;
+  - les tokens, comparés seulement à modèle constant.
+- **Règle de verdict :** celle de la spec (§ 8).
+
+## Résultats
+
+À venir.
+
+## Verdict
+
+À venir.
+
+## Limites
+
+À compléter. Déjà connues :
+- **Un seul corpus**, en français, dans un seul domaine du droit, dans son état au 13 juillet 2025.
+- **Questions rédigées par un LLM** (Claude Sonnet 5.5), puis relues : leur style peut différer de celui de vrais utilisateurs.
+- **Réponses courtes uniquement** : aucune question ne demande d'interprétation ni de synthèse longue.
+- **Itération sur un seul modèle** : les prompts sont mis au point avec Mistral Small, ce qui peut avantager ce modèle au run final.
