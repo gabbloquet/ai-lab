@@ -121,6 +121,16 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 
 Delta B − A : +0,05, IC 95 % [−0,13 ; +0,23]. Ce modèle répond juste de mémoire à 71 % des questions qui ont une réponse : le RAG naïf ancré ne l'aide plus sur ces questions et le pénalise en paraphrase, où une récupération ratée (30 % de `retrieval_miss`) le fait s'abstenir. Il réduit en revanche fortement les réponses inventées aux questions sans réponse. Pour la série, la consigne d'ancrage devient un levier à tester : laisser le modèle compléter avec ses connaissances.
 
+**Runs exploratoires sur de plus petits modèles, hors protocole et sans verdict** : la gamme Ministral de Mistral, mêmes conditions, 2026-11-07.
+
+| Modèle | A `correct` | B `correct` | Delta B − A [IC 95 %] | B `retrieval_miss` / `generation_miss` | B `hallucination` | Erreurs |
+|---|---|---|---|---|---|---|
+| `ministral-3b-2512` | 0,17 | 0,63 | +0,47 [+0,30 ; +0,63] | 0,26 / 0,05 | 0,78 | 1 % |
+| `ministral-8b-2512` | 0,25 | 0,67 | +0,43 [+0,27 ; +0,58] | 0,24 / 0,02 | 0,78 | 0 % |
+| `ministral-14b-2512` | 0,29 | 0,69 | +0,39 [+0,23 ; +0,55] | 0,27 / 0,04 | 0,33 | 0 % |
+
+Plus le modèle est petit, moins il sait de mémoire et plus le RAG naïf lui apporte. Avec le contexte, tous atteignent 0,63 à 0,72 : la récupération plafonne le score, quel que soit le modèle.
+
 Détail pour Mistral Small :
 
 | Métrique | A, modèle seul | B, RAG naïf |
