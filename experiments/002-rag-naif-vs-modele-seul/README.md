@@ -29,7 +29,7 @@ Sur le Code de la consommation, de combien un **RAG naïf** augmente-t-il le tau
 |---|---|
 | Baseline (A) | **Modèle seul** : la question, sans aucun passage du code |
 | Variante (B) | **RAG naïf** : la question, suivie des 5 articles les plus proches selon les embeddings |
-| Ce qui change entre A et B | La présence du contexte récupéré, et une phrase propre à chaque variante avant la question : la phrase d'ancrage qui introduit les extraits pour B, une phrase sur ses connaissances pour A (ajoutées au cycle 2 de chaque variante) |
+| Ce qui change entre A et B | La présence du contexte récupéré, et la phrase d'ancrage qui l'introduit (précisée au cycle 2 de B). Une phrase propre à A, essayée à son cycle 2, a été retirée faute de gain |
 | Ce qui est fixé | Le modèle, le prompt système hors contexte, le format de sortie, la température (0), les données (`domains/droit-consommation/data/v1`) |
 | Modèles | Un verdict par modèle : `mistral:mistral-small-2603` et `google:gemini-3.5-flash-lite`, les mêmes que dans la 001, et `mistral:mistral-medium-2604`, ajouté le 2026-11-07 après le run 0 du `dev` et avant tout run `test`, pour voir si l'apport du RAG baisse quand le modèle grandit. Aucun ne vient du fournisseur du rédacteur du golden set (Claude Sonnet 5.5). Identifiants vérifiés le 2026-11-07 sur les API Mistral (`/v1/models`) et Google (`v1beta/models`). |
 | Golden set | `domains/droit-consommation/golden/rag-qa/v1` : 200 items, **n_dev = 50, n_test = 150**, en six modes (direct, référence, paraphrase, plusieurs articles, contexte perdu, sans réponse). [Règles du golden set](../../domains/droit-consommation/golden/rag-qa/README.md) |
