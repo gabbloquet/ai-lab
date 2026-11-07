@@ -1,0 +1,54 @@
+{"task": "direct-dev-001", "verdict": "ok", "note": ""}
+{"task": "direct-dev-003", "verdict": "corrige", "note": "« supérieur à 10 % » : « au-delà de » est plus exact.", "correction": {"question": "Plusieurs prêts immobiliers pour un même achat : au-delà de quel pourcentage du crédit total la condition suspensive joue-t-elle ?"}}
+{"task": "direct-dev-005", "verdict": "ok", "note": ""}
+{"task": "direct-dev-007", "verdict": "ok", "note": ""}
+{"task": "direct-dev-009", "verdict": "ok", "note": ""}
+{"task": "direct-dev-010", "verdict": "ok", "note": ""}
+{"task": "direct-dev-011", "verdict": "ok", "note": ""}
+{"task": "direct-dev-012", "verdict": "ok", "note": ""}
+{"task": "direct-dev-013", "verdict": "ok", "note": ""}
+{"task": "direct-dev-014", "verdict": "ok", "note": ""}
+{"task": "direct-test-001", "verdict": "corrige", "note": "Formes acceptées enrichies ; « deux fois » seul écarté (retrouvé dans « deux fois moins »).", "correction": {"facts": [{"accepted": ["au double", "le double", "deux fois le montant"]}]}}
+{"task": "lost_context-dev-002", "verdict": "ok", "note": ""}
+{"task": "lost_context-dev-004", "verdict": "ok", "note": ""}
+{"task": "lost_context-dev-005", "verdict": "ok", "note": ""}
+{"task": "lost_context-dev-006", "verdict": "ok", "note": ""}
+{"task": "lost_context-dev-007", "verdict": "ok", "note": ""}
+{"task": "lost_context-dev-009", "verdict": "ok", "note": ""}
+{"task": "lost_context-dev-011", "verdict": "ok", "note": ""}
+{"task": "multi_article-dev-002", "verdict": "ok", "note": ""}
+{"task": "multi_article-dev-003", "verdict": "ok", "note": ""}
+{"task": "multi_article-dev-004", "verdict": "ok", "note": ""}
+{"task": "multi_article-dev-005", "verdict": "ok", "note": ""}
+{"task": "multi_article-dev-009", "verdict": "ok", "note": ""}
+{"task": "multi_article-dev-010", "verdict": "ok", "note": ""}
+{"task": "multi_article-dev-012", "verdict": "ok", "note": ""}
+{"task": "multi_article-dev-016", "verdict": "ok", "note": ""}
+{"task": "paraphrase-dev-010", "verdict": "ok", "note": ""}
+{"task": "paraphrase-dev-011", "verdict": "ok", "note": ""}
+{"task": "paraphrase-dev-015", "verdict": "ok", "note": ""}
+{"task": "paraphrase-dev-017", "verdict": "ok", "note": ""}
+{"task": "paraphrase-dev-018", "verdict": "ok", "note": ""}
+{"task": "paraphrase-dev-025", "verdict": "ok", "note": ""}
+{"task": "paraphrase-dev-030", "verdict": "corrige", "note": "Formes acceptées enrichies.", "correction": {"facts": [{"accepted": ["une fois par an", "annuellement", "chaque année", "1 fois par an"]}]}}
+{"task": "paraphrase-dev-033", "verdict": "corrige", "note": "Le texte donne trois critères : non géographique, fixe et non surtaxé.", "correction": {"facts": [{"accepted": ["non géographique"]}, {"accepted": ["fixe"]}, {"accepted": ["non surtaxé"]}]}}
+{"task": "paraphrase-dev-037", "verdict": "ok", "note": ""}
+{"task": "paraphrase-dev-038", "verdict": "ok", "note": ""}
+{"task": "paraphrase-test-027", "verdict": "corrige", "note": "Formes acceptées enrichies, avec et sans espace avant %.", "correction": {"facts": [{"accepted": ["taux de l'intérêt légal majoré de moitié", "intérêt légal majoré de moitié", "intérêt légal majoré de 50 %", "majoré de 50 %", "majoré de 50%"]}]}}
+{"task": "paraphrase-test-037", "verdict": "corrige", "note": "Formes acceptées enrichies.", "correction": {"facts": [{"accepted": ["juge des libertés et de la détention du tribunal judiciaire", "juge des libertés et de la détention", "JLD", "juge des libertés"]}]}}
+{"task": "reference-dev-001", "verdict": "ok", "note": ""}
+{"task": "reference-dev-002", "verdict": "ok", "note": ""}
+{"task": "reference-dev-003", "verdict": "ok", "note": ""}
+{"task": "reference-dev-006", "verdict": "ok", "note": ""}
+{"task": "reference-dev-007", "verdict": "ok", "note": ""}
+{"task": "reference-dev-008", "verdict": "ok", "note": ""}
+{"task": "reference-dev-009", "verdict": "ok", "note": ""}
+{"task": "reference-dev-010", "verdict": "ok", "note": ""}
+{"task": "unanswerable-dev-001", "verdict": "ok", "note": ""}
+{"task": "unanswerable-dev-002", "verdict": "rejete", "note": "L224-31 répond : la fonctionnalité de blocage est gratuite."}
+{"task": "unanswerable-dev-003", "verdict": "ok", "note": ""}
+{"task": "unanswerable-dev-004", "verdict": "ok", "note": ""}
+{"task": "unanswerable-dev-005", "verdict": "ok", "note": ""}
+{"task": "unanswerable-dev-006", "verdict": "ok", "note": ""}
+{"task": "unanswerable-dev-007", "verdict": "ok", "note": ""}
+{"task": "unanswerable-dev-008", "verdict": "ok", "note": "Le Code de la consommation ne fixe aucun plafond ; L454-7 et L621-11 renvoient à l'article 131-35 du code pénal pour l'affichage."}

@@ -7,17 +7,6 @@
   "drafts": 450,
   "selected": 200,
   "pending_review": [
-    "direct-dev-001",
-    "direct-dev-003",
-    "direct-dev-005",
-    "direct-dev-007",
-    "direct-dev-009",
-    "direct-dev-010",
-    "direct-dev-011",
-    "direct-dev-012",
-    "direct-dev-013",
-    "direct-dev-014",
-    "direct-test-001",
     "direct-test-002",
     "direct-test-003",
     "direct-test-007",
@@ -47,14 +36,6 @@
     "direct-test-048",
     "direct-test-049",
     "direct-test-052",
-    "reference-dev-001",
-    "reference-dev-002",
-    "reference-dev-003",
-    "reference-dev-006",
-    "reference-dev-007",
-    "reference-dev-008",
-    "reference-dev-009",
-    "reference-dev-010",
     "reference-test-001",
     "reference-test-002",
     "reference-test-003",
@@ -77,16 +58,6 @@
     "reference-test-035",
     "reference-test-036",
     "reference-test-039",
-    "paraphrase-dev-010",
-    "paraphrase-dev-011",
-    "paraphrase-dev-015",
-    "paraphrase-dev-017",
-    "paraphrase-dev-018",
-    "paraphrase-dev-025",
-    "paraphrase-dev-030",
-    "paraphrase-dev-033",
-    "paraphrase-dev-037",
-    "paraphrase-dev-038",
     "paraphrase-test-001",
     "paraphrase-test-002",
     "paraphrase-test-005",
@@ -97,12 +68,10 @@
     "paraphrase-test-024",
     "paraphrase-test-025",
     "paraphrase-test-026",
-    "paraphrase-test-027",
     "paraphrase-test-028",
     "paraphrase-test-030",
     "paraphrase-test-034",
     "paraphrase-test-036",
-    "paraphrase-test-037",
     "paraphrase-test-044",
     "paraphrase-test-050",
     "paraphrase-test-051",
@@ -117,14 +86,6 @@
     "paraphrase-test-071",
     "paraphrase-test-075",
     "paraphrase-test-081",
-    "multi_article-dev-002",
-    "multi_article-dev-003",
-    "multi_article-dev-004",
-    "multi_article-dev-005",
-    "multi_article-dev-009",
-    "multi_article-dev-010",
-    "multi_article-dev-012",
-    "multi_article-dev-016",
     "multi_article-test-002",
     "multi_article-test-004",
     "multi_article-test-005",
@@ -147,13 +108,6 @@
     "multi_article-test-033",
     "multi_article-test-034",
     "multi_article-test-036",
-    "lost_context-dev-002",
-    "lost_context-dev-004",
-    "lost_context-dev-005",
-    "lost_context-dev-006",
-    "lost_context-dev-007",
-    "lost_context-dev-009",
-    "lost_context-dev-011",
     "lost_context-test-001",
     "lost_context-test-002",
     "lost_context-test-005",
@@ -177,13 +131,6 @@
     "lost_context-test-035",
     "lost_context-test-036",
     "lost_context-test-037",
-    "unanswerable-dev-001",
-    "unanswerable-dev-002",
-    "unanswerable-dev-003",
-    "unanswerable-dev-004",
-    "unanswerable-dev-005",
-    "unanswerable-dev-006",
-    "unanswerable-dev-007",
     "unanswerable-test-001",
     "unanswerable-test-002",
     "unanswerable-test-003",
@@ -799,6 +746,9 @@
     "lost_context-test-042": [
       "question de 22 mots, au-delà de 20",
       "article inutilisable selon le rédacteur"
+    ],
+    "unanswerable-dev-002": [
+      "rejeté à la relecture : L224-31 répond : la fonctionnalité de blocage est gratuite."
     ],
     "unanswerable-test-033": [
       "question de 21 mots, au-delà de 20"
@@ -1457,10 +1407,6 @@
       "doute du rédacteur : D'autres articles sur la garantie de conformité pourraient évoquer un bien de remplacement ou une indemnisation. Je ne les ai pas vérifiés, mais le sujet reste voisin de l'article et crédible.",
       "mode unanswerable : relu systématiquement"
     ],
-    "unanswerable-dev-002": [
-      "doute du rédacteur : La question appelle un oui/non et l'article dit que la fonctionnalité est gratuite, donc le code y répond en partie ; il vaudrait mieux demander par exemple le délai d'activation du blocage, que le code ne fixe pas.",
-      "mode unanswerable : relu systématiquement"
-    ],
     "unanswerable-dev-003": [
       "doute du rédacteur : Le code prévoit que la médiation est gratuite pour le consommateur, et un autre article pourrait mentionner le financement par le professionnel ; il n'existe cependant, à ma connaissance, aucun montant chiffré.",
       "mode unanswerable : relu systématiquement"
@@ -1479,6 +1425,10 @@
     ],
     "unanswerable-dev-007": [
       "doute du rédacteur : D'autres articles du Code de la consommation sur les sanctions de la sécurité des produits pourraient fixer une amende générale applicable, ce qui rendrait la question partiellement répondable.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-dev-008": [
+      "doute du rédacteur : Un autre article du code ou le code pénal (article 131-35) pourrait encadrer les frais d'affichage, mais le Code de la consommation lui-même ne fixe aucun montant.",
       "mode unanswerable : relu systématiquement"
     ],
     "unanswerable-test-001": [

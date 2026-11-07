@@ -501,3 +501,50 @@ def test_cli_writes_a_report_and_a_review_page(tmp_path: Path) -> None:
     report = json.loads((golden / "pilot" / "build_report.json").read_text("utf-8"))
     assert report["selected"] == 1
     assert (tmp_path / "review.html").exists()
+
+
+# --- Publication d'un split ---------------------------------------------------------------------
+
+
+def all_reviewed(plan: list[dict], split: str) -> dict[str, dict]:
+    return {t["task"]: {"task": t["task"], "verdict": "ok"} for t in plan if t["split"] == split}
+
+
+def test_a_split_can_be_published_once_its_own_items_are_reviewed(tmp_path: Path) -> None:
+    outputs = {(s, r): GOOD for s in ("dev", "test") for r in range(1, 4)}
+    plan, drafts = plan_and_drafts(outputs)
+    result = build(
+        plan, drafts, BY_ID, {"direct": (3, 3)}, seed=1, review=all_reviewed(plan, "dev")
+    )
+
+    dev_items = publish(result, tmp_path, seed=1, split="dev")
+
+    assert {i["split"] for i in dev_items} == {"dev"} and len(dev_items) == 3
+    lines = (tmp_path / "items-dev.jsonl").read_text("utf-8").splitlines()
+    assert [json.loads(line) for line in lines] == dev_items
+    assert not (tmp_path / "items.jsonl").exists()
+
+
+def test_dev_ids_do_not_change_when_the_whole_set_is_published(tmp_path: Path) -> None:
+    outputs = {(s, r): GOOD for s in ("dev", "test") for r in range(1, 5)}
+    plan, drafts = plan_and_drafts(outputs)
+    dev_only = build(
+        plan, drafts, BY_ID, {"direct": (3, 3)}, seed=1, review=all_reviewed(plan, "dev")
+    )
+    # Un item test rejeté à la relecture est remplacé par la réserve : les ids dev ne bougent pas.
+    full_review = all_reviewed(plan, "dev") | all_reviewed(plan, "test")
+    full_review["direct-test-001"] = {"task": "direct-test-001", "verdict": "rejete"}
+    full = build(plan, drafts, BY_ID, {"direct": (3, 3)}, seed=1, review=full_review)
+
+    dev_items = publish(dev_only, tmp_path / "dev", seed=1, split="dev")
+    all_items = publish(full, tmp_path / "all", seed=1)
+
+    assert dev_items == [i for i in all_items if i["split"] == "dev"]
+
+
+def test_a_split_with_pending_reviews_is_not_published(tmp_path: Path) -> None:
+    plan, drafts = plan_and_drafts({("dev", 1): GOOD, ("test", 1): GOOD})
+    result = build(plan, drafts, BY_ID, QUOTAS, seed=1, review=all_reviewed(plan, "test"))
+
+    with pytest.raises(ValueError, match="relecture"):
+        publish(result, tmp_path, seed=1, split="dev")

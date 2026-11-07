@@ -9,7 +9,14 @@ from pydantic_ai.messages import ModelMessage, ModelRequest, ModelResponse, Tool
 from pydantic_ai.models.function import AgentInfo, FunctionModel
 
 from exp002_rag.answering import CLOSED_BOOK, NAIVE_RAG
-from exp002_rag.campaign import ROOT, display_path, main, run_campaign, summarize
+from exp002_rag.campaign import (
+    ROOT,
+    default_golden,
+    display_path,
+    main,
+    run_campaign,
+    summarize,
+)
 from exp002_rag.corpus import Passage
 
 pytestmark = pytest.mark.anyio
@@ -242,3 +249,9 @@ def test_reports_cite_paths_relative_to_the_repository(tmp_path: Path, monkeypat
     assert display_path(golden) == "domains/droit-consommation/golden/rag-qa/v1/items.jsonl"
     assert display_path(ROOT / golden) == "domains/droit-consommation/golden/rag-qa/v1/items.jsonl"
     assert display_path(tmp_path / "x.jsonl") == str((tmp_path / "x.jsonl").resolve())
+
+
+def test_dev_runs_read_the_dev_file_and_the_final_run_the_whole_set() -> None:
+    assert default_golden("dev").name == "items-dev.jsonl"
+    assert default_golden("test").name == "items.jsonl"
+    assert default_golden("dev").parent == default_golden("test").parent

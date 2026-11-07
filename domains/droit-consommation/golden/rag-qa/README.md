@@ -116,4 +116,6 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 
 | Version | Données | Seed | Spec | Statut |
 |---|---|---|---|---|
-| `v1` | `data/v1` | 42 | `rag-qa/v1` | règles écrites et calibrées, à générer |
+| `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items retenus. Le `dev` est relu et écrit dans `v1/items-dev.jsonl` (2026-11-07) ; les 150 items `test` restent à relire avant `items.jsonl` |
+
+**`items-dev.jsonl` ne vaut pas publication de la v1.** Il sert à itérer sur la 002 dès que le `dev` est relu. Les identifiants sont attribués sur les 200 items retenus, dans l'ordre (mode, split, rang) : remplacer un item `test` à la relecture ne change aucun identifiant du `dev`. La v1 sera publiée, avec `items.jsonl` et son manifeste, une fois les 200 items relus.

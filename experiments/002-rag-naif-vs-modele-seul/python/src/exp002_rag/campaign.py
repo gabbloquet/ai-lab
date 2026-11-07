@@ -31,7 +31,7 @@ from exp002_rag.tracing import NO_TRACING, LangfuseTracing, Tracer
 
 ROOT = Path(__file__).resolve().parents[5]
 EXPERIMENT_DIR = ROOT / "experiments" / "002-rag-naif-vs-modele-seul"
-GOLDEN = ROOT / "domains/droit-consommation/golden/rag-qa/v1/items.jsonl"
+GOLDEN_DIR = ROOT / "domains/droit-consommation/golden/rag-qa/v1"
 ARTICLES = ROOT / "domains/droit-consommation/data/v1/articles.jsonl"
 TRANSIENT_STATUSES = {429, 500, 502, 503, 504}
 FAILURES = ("correct", "retrieval_miss", "generation_miss", "error")
@@ -187,6 +187,12 @@ def display_path(path: Path) -> str:
     return str(resolved.relative_to(ROOT)) if resolved.is_relative_to(ROOT) else str(resolved)
 
 
+def default_golden(split: str) -> Path:
+    """Le dev itère sur `items-dev.jsonl`, publié dès sa relecture ; le run final lit
+    `items.jsonl`, qui n'existe qu'une fois les 200 items relus."""
+    return GOLDEN_DIR / ("items-dev.jsonl" if split == "dev" else "items.jsonl")
+
+
 def _git_is_clean() -> bool:
     status = subprocess.run(
         ["git", "status", "--porcelain"], cwd=ROOT, capture_output=True, text=True, check=True
@@ -222,7 +228,7 @@ def main(argv: list[str] | None = None, git_is_clean: Callable[[], bool] = _git_
     parser.add_argument("--model", required=True, help="ex. mistral:mistral-small-2603")
     parser.add_argument("--variants", nargs="+", default=[CLOSED_BOOK, NAIVE_RAG])
     parser.add_argument("--k", type=int, default=3)
-    parser.add_argument("--golden", type=Path, default=GOLDEN)
+    parser.add_argument("--golden", type=Path, default=None)
     parser.add_argument("--run-dir", type=Path, default=None)
     parser.add_argument("--concurrency", type=int, default=4)
     parser.add_argument("--langfuse", action="store_true", help="tracer le run dans Langfuse")
@@ -234,7 +240,10 @@ def main(argv: list[str] | None = None, git_is_clean: Callable[[], bool] = _git_
         sys.exit("run final refusé : l'arbre git n'est pas propre, faites d'abord le commit de gel")
 
     os.environ.setdefault("PYDANTIC_AI_NO_BANNER", "1")
-    items = [i for i in _read_jsonl(args.golden) if i["split"] == args.split]
+    golden = args.golden or default_golden(args.split)
+    if not golden.exists():
+        sys.exit(f"{golden} n'existe pas : publiez d'abord le golden set de ce split")
+    items = [i for i in _read_jsonl(golden) if i["split"] == args.split]
     slug = args.model.replace(":", "-").replace("/", "-")
     run_dir = args.run_dir or EXPERIMENT_DIR / "runs" / f"{date.today()}-{slug}-{args.split}"
     tracer: Tracer = NO_TRACING
@@ -258,7 +267,7 @@ def main(argv: list[str] | None = None, git_is_clean: Callable[[], bool] = _git_
     summary["run"] = {
         "model": args.model,
         "k": args.k,
-        "golden": display_path(args.golden),
+        "golden": display_path(golden),
         "langfuse": args.langfuse,
     }
     (run_dir / "summary.json").write_text(

@@ -446,25 +446,37 @@ def build(
 MODE_ORDER = list(V1_QUOTAS)
 
 
-def publish(result: BuildResult, out_dir: Path, *, seed: int) -> list[dict]:
-    """Attribue les identifiants (mélangés, seedés) et écrit `items.jsonl`."""
-    if result.shortages:
-        missing = ", ".join(f"{m}/{s} : {n}" for (m, s), n in sorted(result.shortages.items()))
+def publish(
+    result: BuildResult, out_dir: Path, *, seed: int, split: str | None = None
+) -> list[dict]:
+    """Attribue les identifiants (mélangés, seedés) et écrit `items.jsonl`, ou `items-<split>.jsonl`
+    pour un seul split. Les identifiants sont attribués sur l'ensemble des items retenus, dans
+    l'ordre (mode, split, rang) : remplacer un item `test` ne change pas ceux du `dev`."""
+    shortages = {k: n for k, n in result.shortages.items() if split is None or k[1] == split}
+    if shortages:
+        missing = ", ".join(f"{m}/{s} : {n}" for (m, s), n in sorted(shortages.items()))
         raise ValueError(f"il manque des items : {missing}")
-    if result.pending_review:
-        raise ValueError(f"{len(result.pending_review)} items attendent leur relecture")
+    in_split = {
+        s.task["task"] for s in result.selected if split is None or s.task["split"] == split
+    }
+    pending = [name for name in result.pending_review if name in in_split]
+    if pending:
+        raise ValueError(f"{len(pending)} items attendent leur relecture")
     ordered = sorted(
         result.selected,
         key=lambda s: (MODE_ORDER.index(s.task["mode"]), s.task["split"], s.task["rank"]),
     )
     numbers = list(range(1, len(ordered) + 1))
     random.Random(f"{seed}-ids").shuffle(numbers)
-    items = []
-    for number, chosen in zip(numbers, ordered, strict=True):
-        items.append({**chosen.item, "id": f"rq-{number:03d}"})
+    items = [
+        {**chosen.item, "id": f"rq-{number:03d}"}
+        for number, chosen in zip(numbers, ordered, strict=True)
+        if chosen.task["task"] in in_split
+    ]
     items.sort(key=lambda item: item["id"])
     out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "items.jsonl").write_text(
+    name = "items.jsonl" if split is None else f"items-{split}.jsonl"
+    (out_dir / name).write_text(
         "".join(json.dumps(item, ensure_ascii=False) + "\n" for item in items), encoding="utf-8"
     )
     return items
@@ -621,6 +633,9 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--overlap-threshold", type=float, default=OVERLAP_THRESHOLD)
     parser.add_argument("--max-question-words", type=int, default=MAX_QUESTION_WORDS)
     parser.add_argument("--publish", action="store_true")
+    parser.add_argument(
+        "--publish-split", choices=["dev", "test"], help="écrit items-<split>.jsonl seulement"
+    )
     args = parser.parse_args(argv)
 
     version_dir = args.golden_dir / args.version
@@ -684,6 +699,11 @@ def main(argv: list[str] | None = None) -> None:
         f"{len(result.rejected)} rejetés, manques {report['shortages']} ; page : {page}"
     )
 
+    if args.publish_split:
+        items = publish(result, version_dir, seed=args.seed, split=args.publish_split)
+        print(
+            f"{len(items)} items {args.publish_split} écrits dans items-{args.publish_split}.jsonl"
+        )
     if args.publish:
         items = publish(result, version_dir, seed=args.seed)
         manifest = {
