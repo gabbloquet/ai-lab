@@ -77,17 +77,19 @@ version = "0.1.0"
 source = { editable = "rag/python" }
 dependencies = [
     { name = "ailab-evals" },
+    { name = "langfuse" },
     { name = "mistralai" },
     { name = "numpy" },
-    { name = "pydantic-ai-slim", extra = ["mistral"] },
+    { name = "pydantic-ai-slim", extra = ["google", "mistral"] },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "ailab-evals", editable = "evals/python" },
+    { name = "langfuse", specifier = "==5.1.0" },
     { name = "mistralai", specifier = "==3.7.0" },
     { name = "numpy", specifier = "==2.5.4" },
-    { name = "pydantic-ai-slim", extras = ["mistral"], specifier = "==2.65.0" },
+    { name = "pydantic-ai-slim", extras = ["google", "mistral"], specifier = "==2.65.0" },
 ]
 
 [[package]]

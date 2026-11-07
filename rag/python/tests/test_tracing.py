@@ -8,10 +8,10 @@ import pytest
 from pydantic_ai.messages import ModelMessage, ModelResponse, ToolCallPart
 from pydantic_ai.models.function import AgentInfo, FunctionModel
 
+from ailab_rag.answering import CLOSED_BOOK, NAIVE_RAG
 from ailab_rag.corpus import Passage
-from exp002_rag.answering import CLOSED_BOOK, NAIVE_RAG
+from ailab_rag.tracing import LangfuseTracing
 from exp002_rag.campaign import run_campaign
-from exp002_rag.tracing import LangfuseTracing
 
 pytestmark = pytest.mark.anyio
 

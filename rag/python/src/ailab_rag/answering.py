@@ -18,7 +18,7 @@ from pydantic_ai.models import Model
 from pydantic_ai.settings import ModelSettings
 
 from ailab_rag.corpus import Passage
-from exp002_rag.prompting import SYSTEM_PROMPT, closed_book_message, rag_message
+from ailab_rag.prompting import SYSTEM_PROMPT, closed_book_message, rag_message
 
 CLOSED_BOOK = "closed_book"
 NAIVE_RAG = "naive_rag"

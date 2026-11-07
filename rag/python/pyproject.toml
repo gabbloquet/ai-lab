@@ -11,7 +11,9 @@ dependencies = [
     # Index en mémoire : similarité cosinus exacte.
     "numpy==2.5.4",
     # Réécriture de requête : même client LLM que les expériences.
-    "pydantic-ai-slim[mistral]==2.65.0",
+    "pydantic-ai-slim[google,mistral]==2.65.0",
+    # Traces et scores des campagnes, vers le Langfuse local (infra/langfuse).
+    "langfuse==5.1.0",
 ]
 
 [tool.uv.sources]

@@ -1,5 +1,5 @@
 from ailab_rag.corpus import Passage
-from exp002_rag.prompting import (
+from ailab_rag.prompting import (
     GROUNDING,
     SYSTEM_PROMPT,
     closed_book_message,
