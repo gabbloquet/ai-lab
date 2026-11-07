@@ -66,3 +66,36 @@ def test_passages_follow_the_order_of_the_articles() -> None:
     other = article("LEGIARTI000032221377", "L221-23", "Les coûts directs de renvoi.")
 
     assert [p.num for p in passages([other, SHORT])] == ["L221-23", "L221-18"]
+
+
+# --- En-tête contextuel (levier de la série) -----------------------------------------------------
+
+
+def test_without_header_the_indexed_text_is_the_text() -> None:
+    (passage,) = passages([SHORT])
+
+    assert passage.header == ""
+    assert passage.indexed_text == passage.text
+
+
+def test_the_header_puts_the_number_and_the_plan_before_the_indexed_text() -> None:
+    (passage,) = passages([SHORT], header=True)
+
+    assert passage.header == "Article L221-18\nPartie législative nouvelle > Livre II : CONTRATS"
+    assert passage.indexed_text == f"{passage.header}\n\n{passage.text}"
+
+
+def test_the_header_leaves_the_text_shown_to_the_model_unchanged() -> None:
+    (plain,) = passages([SHORT])
+    (headed,) = passages([SHORT], header=True)
+
+    assert headed.text == plain.text == "Le consommateur dispose de quatorze jours."
+
+
+def test_every_piece_of_a_long_article_carries_the_header() -> None:
+    pieces = passages([article("LEGIARTI000000000001", "R1", "x" * 25)], max_chars=10, header=True)
+
+    assert {p.header for p in pieces} == {
+        "Article R1\nPartie législative nouvelle > Livre II : CONTRATS"
+    }
+    assert "".join(p.text for p in pieces) == "x" * 25

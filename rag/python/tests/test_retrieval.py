@@ -60,6 +60,17 @@ class RecordingEmbedder:
         return np.eye(len(texts), dtype=np.float32)
 
 
+def test_build_index_embeds_the_indexed_text_header_included() -> None:
+    embedder = RecordingEmbedder()
+    headed = Passage(
+        "LEGIARTI000000000001", "L1-1", "Le délai.", 0, header="Article L1-1\nLivre Ier"
+    )
+
+    build_index([headed], embedder)
+
+    assert embedder.texts == ["Article L1-1\nLivre Ier\n\nLe délai."]
+
+
 def test_build_index_embeds_the_text_of_each_passage_only() -> None:
     embedder = RecordingEmbedder()
     passages = [passage(1, "Le délai est de quatorze jours."), passage(2, "Les coûts de renvoi.")]

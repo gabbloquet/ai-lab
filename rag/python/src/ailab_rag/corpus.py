@@ -16,10 +16,24 @@ MAX_CHARS = 12_000
 
 @dataclass(frozen=True)
 class Passage:
+    """`text` est ce que lit le modèle ; `indexed_text` est ce qui est transformé en vecteur.
+    Sans en-tête, les deux sont identiques : c'est la baseline naïve."""
+
     article_id: str
     num: str
     text: str
     part: int
+    header: str = ""
+
+    @property
+    def indexed_text(self) -> str:
+        return f"{self.header}\n\n{self.text}" if self.header else self.text
+
+
+def contextual_header(article: dict) -> str:
+    """Levier « en-tête contextuel » : le numéro de l'article et son plan, tirés des données,
+    sans appel à un LLM. Seul le texte indexé change ; le prompt reste le même."""
+    return f"Article {article['num']}\n{' > '.join(article['path'])}"
 
 
 def _cut(text: str, max_chars: int) -> list[str]:
@@ -37,9 +51,17 @@ def _cut(text: str, max_chars: int) -> list[str]:
     return pieces
 
 
-def passages(articles: list[dict], max_chars: int = MAX_CHARS) -> list[Passage]:
+def passages(
+    articles: list[dict], max_chars: int = MAX_CHARS, header: bool = False
+) -> list[Passage]:
     return [
-        Passage(article_id=a["id"], num=a["num"], text=piece, part=part)
+        Passage(
+            article_id=a["id"],
+            num=a["num"],
+            text=piece,
+            part=part,
+            header=contextual_header(a) if header else "",
+        )
         for a in articles
         for part, piece in enumerate(_cut(a["text"], max_chars))
     ]

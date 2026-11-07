@@ -28,4 +28,4 @@ class Index:
 
 
 def build_index(passages: list[Passage], embedder: Embedder) -> Index:
-    return Index(passages, embedder.embed([p.text for p in passages]))
+    return Index(passages, embedder.embed([p.indexed_text for p in passages]))
