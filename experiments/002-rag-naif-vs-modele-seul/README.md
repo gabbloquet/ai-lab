@@ -31,7 +31,7 @@ Sur le Code de la consommation, de combien un **RAG naïf** augmente-t-il le tau
 | Variante (B) | **RAG naïf** : la question, suivie des 5 articles les plus proches selon les embeddings |
 | Ce qui change entre A et B | La présence du contexte récupéré, et la phrase du prompt qui l'introduit |
 | Ce qui est fixé | Le modèle, le prompt système hors contexte, le format de sortie, la température (0), les données (`domains/droit-consommation/data/v1`) |
-| Modèles | Un verdict par modèle : `mistral:mistral-small-2603` et `google:gemini-3.5-flash-lite`, les mêmes que dans la 001. Ce sont deux fournisseurs différents du rédacteur du golden set (Claude Sonnet 5.5) : aucun ne profite du style de ses questions. Identifiants à revérifier avant le premier run. |
+| Modèles | Un verdict par modèle : `mistral:mistral-small-2603` et `google:gemini-3.5-flash-lite`, les mêmes que dans la 001, et `mistral:mistral-medium-2604`, ajouté le 2026-11-07 après le run 0 du `dev` et avant tout run `test`, pour voir si l'apport du RAG baisse quand le modèle grandit. Aucun ne vient du fournisseur du rédacteur du golden set (Claude Sonnet 5.5). Identifiants vérifiés le 2026-11-07 sur les API Mistral (`/v1/models`) et Google (`v1beta/models`). |
 | Golden set | `domains/droit-consommation/golden/rag-qa/v1` : 200 items, **n_dev = 50, n_test = 150**, en six modes (direct, référence, paraphrase, plusieurs articles, contexte perdu, sans réponse). [Règles du golden set](../../domains/droit-consommation/golden/rag-qa/README.md) |
 | Répétitions | k = 3 |
 | Implémentation | `python/` uniquement : la boucle de question-réponse (Pydantic AI), l'index et la notation (métrique DeepEval conforme à la spec) |
@@ -72,6 +72,7 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 
 | # | Date | Variante | Modification | Motif | `correct` dev |
 |---|---|---|---|---|---|
+| 0 | 2026-11-07 | A et B | aucune : mesure de départ, hors budget | point de départ des cycles | A 0,28 · B 0,67 (Mistral Small, k = 3) |
 | 1 | | | | | |
 
 **Commit de gel :** à venir
@@ -91,7 +92,39 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 
 ## Résultats
 
-À venir.
+À venir : seul le run final sur le `test` portera le verdict.
+
+### Résultats `dev` (hors verdict)
+
+**Runs 0, 2026-11-07, par modèle** : 50 items `dev`, k = 3, 300 exécutions par modèle, aucune erreur ni sortie illisible. Golden set : `v1/items-dev.jsonl`, relu.
+
+| Modèle | A `correct` | B `correct` | Delta B − A [IC 95 %] | A, avec réponse | B `retrieval_miss` / `generation_miss` | B `hallucination` | B `false_abstention` |
+|---|---|---|---|---|---|---|---|
+| `mistral-small-2603` | 0,28 | 0,67 | +0,39 [+0,24 ; +0,54] | 0,32 | 0,22 / 0,02 | 0,86 | 0,13 |
+| `mistral-medium-2604` | 0,29 | 0,70 | +0,41 [+0,24 ; +0,57] | 0,34 | 0,26 / 0,00 | 0,57 | 0,19 |
+| `gemini-3.5-flash-lite` | 0,48 | 0,68 | +0,20 [+0,02 ; +0,38] | 0,53 | 0,30 / 0,02 | 0,29 | 0,28 |
+
+- **Gemini Flash-Lite connaît bien mieux le code** (53 % de bonnes réponses de mémoire sur les items avec réponse) : l'apport du RAG est deux fois plus faible. En paraphrase, B fait moins bien que A (0,40 contre 0,50) : quand la récupération rate, la consigne d'ancrage le fait s'abstenir là où sa mémoire suffisait.
+- **Mistral Medium ne sait pas plus de choses que Mistral Small** sans contexte (0,29 contre 0,28), mais il invente moins en B (0,57 contre 0,86).
+- **Pour les trois modèles, la récupération est le goulot** : 22 à 30 % de `retrieval_miss`, 0 à 2 % de `generation_miss`.
+
+Détail pour Mistral Small :
+
+| Métrique | A, modèle seul | B, RAG naïf |
+|---|---|---|
+| `correct`, tous items | 0,28 | 0,67 |
+| `correct`, items avec réponse | 0,32 | 0,76 |
+| `hallucination` (items sans réponse) | 0,95 | 0,86 |
+| `false_abstention` | 0,00 | 0,13 |
+| Citations, précision / rappel | 0,21 / 0,20 | 0,73 / 0,67 |
+| Tokens par exécution | 321 | 1 219 |
+
+Delta B − A : +0,39, IC 95 % [+0,24 ; +0,54] sur 50 items `dev`.
+
+- **Ce que le modèle sait déjà.** Mistral Small répond juste de mémoire à 32 % des questions qui ont une réponse, et à 53 % en mode `direct`.
+- **Où le RAG naïf échoue.** Sur les items avec réponse, B se trompe à 22 % par `retrieval_miss` (l'article attendu manquait au contexte) et à 2 % par `generation_miss`. L'article attendu est au rang 1 dans 47 % des cas, dans le top-5 dans 72 %.
+- **Par mode, en B.** `direct` 0,90 · `reference` 0,83 · `lost_context` 0,81 · `paraphrase` 0,73 · `multi_article` 0,50 · `unanswerable` 0,14.
+- **Stabilité.** 10 couples item × variante sur 100 changent de résultat d'une répétition à l'autre, malgré la température 0.
 
 ## Verdict
 
@@ -104,3 +137,5 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 - **Questions rédigées par un LLM** (Claude Sonnet 5.5), puis relues : leur style peut différer de celui de vrais utilisateurs.
 - **Réponses courtes uniquement** : aucune question ne demande d'interprétation ni de synthèse longue.
 - **Itération sur un seul modèle** : les prompts sont mis au point avec Mistral Small, ce qui peut avantager ce modèle au run final.
+- **Puissance** : au run 0 (`dev`, Mistral Small), s_d = 0,529, au-dessus des 0,4 supposés. Le MDE sur 150 items `test` passe d'environ 9,2 à environ 12,2 points, au-dessus des 10 points qui comptent. Sans conséquence pour la 002, dont l'écart attendu est bien plus grand ; à recalculer pour les expériences de la série, qui compareront deux RAG plus corrélés.
+- **Langfuse** : au run 0, le serveur local a coupé plusieurs envois et des scores ont été perdus dans Langfuse. Les fichiers `executions.jsonl` font foi.
