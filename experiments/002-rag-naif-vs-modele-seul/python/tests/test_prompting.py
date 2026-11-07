@@ -36,3 +36,8 @@ def test_saying_the_code_is_silent_means_abstaining() -> None:
     """Cycle 1 : « le code ne prévoit rien » doit aller avec `abstained` à vrai."""
     assert "ne prévoit rien" in SYSTEM_PROMPT
     assert "ne fixe pas la valeur demandée" in SYSTEM_PROMPT
+
+
+def test_the_grounding_asks_to_answer_when_an_extract_holds_the_value() -> None:
+    """Cycle 2 : une formulation différente de la question n'est pas une raison de s'abstenir."""
+    assert "même si sa formulation diffère" in GROUNDING

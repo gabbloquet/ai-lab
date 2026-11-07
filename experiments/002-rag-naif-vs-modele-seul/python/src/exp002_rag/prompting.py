@@ -1,5 +1,5 @@
 """Les prompts des deux variantes, validés le 2026-11-05 ; consigne d'abstention du cycle 1
-validée le 2026-11-07.
+et phrase d'ancrage du cycle 2 validées le 2026-11-07.
 
 Le prompt système est le même pour A et B. Le message de B ajoute seulement, avant la question,
 une phrase d'ancrage et les extraits récupérés : c'est la seule différence d'instruction entre
@@ -21,8 +21,9 @@ SYSTEM_PROMPT = (
 )
 
 GROUNDING = (
-    "Réponds à partir des extraits ci-dessous. S'ils ne permettent pas de répondre, "
-    "mets `abstained` à vrai."
+    "Réponds à partir des extraits ci-dessous. Si un extrait contient la valeur demandée, "
+    "réponds, même si sa formulation diffère de celle de la question. S'ils ne permettent pas "
+    "de répondre, mets `abstained` à vrai."
 )
 
 
