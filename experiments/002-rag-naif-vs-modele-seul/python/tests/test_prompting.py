@@ -30,3 +30,9 @@ def test_rag_message_only_adds_the_grounding_and_the_extracts_to_the_question() 
     assert message.startswith(GROUNDING)
     assert message.endswith(closed_book_message(QUESTION))
     assert "abstained" in GROUNDING
+
+
+def test_saying_the_code_is_silent_means_abstaining() -> None:
+    """Cycle 1 : « le code ne prévoit rien » doit aller avec `abstained` à vrai."""
+    assert "ne prévoit rien" in SYSTEM_PROMPT
+    assert "ne fixe pas la valeur demandée" in SYSTEM_PROMPT
