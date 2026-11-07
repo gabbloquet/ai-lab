@@ -1,0 +1,20 @@
+[project]
+name = "exp003-rag"
+version = "0.1.0"
+description = "Expérience 003 : RAG naïf (A) contre RAG avec reformulation de la question (B)"
+requires-python = ">=3.13"
+dependencies = [
+    "ailab-evals",
+    # Briques RAG partagées par la série : baseline naïve, réécriture, campagne.
+    "ailab-rag",
+    "langfuse==5.1.0",
+    "pydantic-ai-slim[google,mistral]==2.65.0",
+]
+
+[tool.uv.sources]
+ailab-evals = { workspace = true }
+ailab-rag = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"
