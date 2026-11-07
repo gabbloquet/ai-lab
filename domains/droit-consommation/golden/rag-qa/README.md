@@ -101,6 +101,8 @@ Le générateur produit une page de relecture locale, qui n'est pas versionnée.
 
 **Tout est relu, en commençant par le `dev`.** La règle prévue était de relire les items signalés par une alerte, plus 20 % des autres tirés au hasard. En v1, le rédacteur exprime un doute sur 148 des 200 items retenus, et 171 items étaient déjà à relire. Relire les 29 restants coûte peu et rend la règle simple. Ce choix ne dépend d'aucun résultat d'expérience. Les 50 items `dev` sont relus d'abord, pour démarrer la 002 ; les 150 items `test` le sont avant le gel des variantes.
 
+**Critères de relecture.** La question se pose comme dans un chat, par quelqu'un qui ne connaît pas le droit : pas de jargon juridique (« mainlevée », « mesures imposées », « attestation ») quand un mot courant suffit, sauf en mode `reference`, où citer un numéro d'article est déjà une démarche de spécialiste. Elle garde juste assez de contexte pour que la réponse soit unique dans le code, et ne donne jamais un détail faux. Les formes acceptées sont des valeurs courtes ; leurs variantes d'écriture (chiffres ou lettres, sigle, unité) sont voulues, car la notation cherche le fait dans une réponse libre, et une réponse plus complète que le fait attendu n'est pas pénalisée.
+
 Le relecteur donne un verdict par item : `ok`, `corrige` (avec la correction) ou `rejete`. Les verdicts sont versionnés dans `review/v1.jsonl`, pour qu'on puisse retracer qui a validé quoi. Un item rejeté est remplacé par le suivant du surplus, qui passe à son tour en relecture.
 
 Relire des items `test` avant le run final ne biaise pas le verdict : aucune variante n'a encore tourné dessus. Après le premier run, la règle du lab s'applique : on n'analyse pas les échecs du `test` item par item avant le run final.

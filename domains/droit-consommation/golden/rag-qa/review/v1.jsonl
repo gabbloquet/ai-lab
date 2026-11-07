@@ -9,6 +9,12 @@
 {"task": "direct-dev-013", "verdict": "ok", "note": ""}
 {"task": "direct-dev-014", "verdict": "ok", "note": ""}
 {"task": "direct-test-001", "verdict": "corrige", "note": "Formes acceptées enrichies ; « deux fois » seul écarté (retrouvé dans « deux fois moins »).", "correction": {"facts": [{"accepted": ["au double", "le double", "deux fois le montant"]}]}}
+{"task": "direct-test-003", "verdict": "corrige", "note": "Le délai de R733-3 vaut pour les mesures imposées ; d'autres délais existent ailleurs dans le livre VII. Contexte ajouté en langage courant.", "correction": {"question": "Surendettement : si la commission impose des mesures à mes créanciers, combien de temps ont-ils pour réagir ?"}}
+{"task": "direct-test-009", "verdict": "ok", "note": "Une réponse qui ajoute les agents contractuels contient toujours « catégorie A » : pas de faux négatif."}
+{"task": "direct-test-013", "verdict": "ok", "note": "Une réponse qui ajoute le préfet de police à Paris contient toujours « préfet »."}
+{"task": "direct-test-014", "verdict": "corrige", "note": "Le délai court à partir de la remise de l'attestation, pas de l'effacement : point de départ faux retiré, question en langage courant.", "correction": {"question": "Chèque impayé effacé dans mon dossier de surendettement : en combien de temps la banque doit-elle prévenir la Banque de France ?"}}
+{"task": "direct-test-023", "verdict": "ok", "note": "L224-2 vise les fournisseurs d'électricité ou de gaz naturel : la question est exacte."}
+{"task": "direct-test-049", "verdict": "ok", "note": "R713-7 est la règle générale du délai d'appel (quinze jours)."}
 {"task": "lost_context-dev-002", "verdict": "ok", "note": ""}
 {"task": "lost_context-dev-004", "verdict": "ok", "note": ""}
 {"task": "lost_context-dev-005", "verdict": "ok", "note": ""}
@@ -44,6 +50,7 @@
 {"task": "reference-dev-008", "verdict": "ok", "note": ""}
 {"task": "reference-dev-009", "verdict": "ok", "note": ""}
 {"task": "reference-dev-010", "verdict": "ok", "note": ""}
+{"task": "reference-test-015", "verdict": "ok", "note": "« Un mois » est le délai pour statuer ; quarante jours est le délai au-delà duquel les mesures cessent."}
 {"task": "unanswerable-dev-001", "verdict": "ok", "note": ""}
 {"task": "unanswerable-dev-002", "verdict": "rejete", "note": "L224-31 répond : la fonctionnalité de blocage est gratuite."}
 {"task": "unanswerable-dev-003", "verdict": "ok", "note": ""}
