@@ -193,6 +193,14 @@ def default_golden(split: str) -> Path:
     return GOLDEN_DIR / ("items-dev.jsonl" if split == "dev" else "items.jsonl")
 
 
+def current_commit() -> str:
+    """Le commit sur lequel tourne un run : le rapport du run final cite le commit de gel."""
+    head = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True
+    )
+    return head.stdout.strip()
+
+
 def _git_is_clean() -> bool:
     status = subprocess.run(
         ["git", "status", "--porcelain"], cwd=ROOT, capture_output=True, text=True, check=True
@@ -269,6 +277,8 @@ def main(argv: list[str] | None = None, git_is_clean: Callable[[], bool] = _git_
         "k": args.k,
         "golden": display_path(golden),
         "langfuse": args.langfuse,
+        "commit": current_commit(),
+        "final": args.final,
     }
     (run_dir / "summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

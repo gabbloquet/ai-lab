@@ -11,6 +11,7 @@ from pydantic_ai.models.function import AgentInfo, FunctionModel
 from exp002_rag.answering import CLOSED_BOOK, NAIVE_RAG
 from exp002_rag.campaign import (
     ROOT,
+    current_commit,
     default_golden,
     display_path,
     main,
@@ -255,3 +256,9 @@ def test_dev_runs_read_the_dev_file_and_the_final_run_the_whole_set() -> None:
     assert default_golden("dev").name == "items-dev.jsonl"
     assert default_golden("test").name == "items.jsonl"
     assert default_golden("dev").parent == default_golden("test").parent
+
+
+def test_a_run_records_the_commit_it_ran_on() -> None:
+    commit = current_commit()
+
+    assert len(commit) == 40 and all(c in "0123456789abcdef" for c in commit)

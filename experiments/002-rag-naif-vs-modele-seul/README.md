@@ -1,6 +1,6 @@
 # 002 — RAG naïf ou modèle seul ?
 
-> **Statut :** cadrage
+> **Statut :** gelée le 2026-11-07, en attente de la relecture du `test` et du run final
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (brouillon)
 
@@ -78,7 +78,15 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 | 3 | 2026-11-07 | A seulement (phrase propre à A) : cycle 2 de A ; B garde ses exécutions de son cycle 2 | « Réponds avec tes connaissances du Code de la consommation. Si tu connais la valeur demandée, donne-la, même si tu n'es pas sûr du numéro de l'article. » (commit `6204e5b`) | Équilibrer le budget (B avait reçu deux cycles) ; au cycle 1, A s'abstenait sur 17 % des items avec réponse | A 0,39 · B 0,75. Fausse abstention A 0,17 → 0,08, hallucination A 0,22 → 0,33, A sur les items avec réponse 0,36 → 0,35 : pas de gain |
 | 4 | | | | | |
 
-**Commit de gel :** à venir
+**Commit de gel :** le commit « Geler la 002 avant le run final sur le test » (2026-11-07). Son hash est enregistré dans le `summary.json` de chaque run (`run.commit`) et sera cité par le rapport.
+
+**Configuration gelée**, deux cycles utilisés par variante sur les trois du budget :
+- prompt système commun : la consigne d'abstention du cycle 1 ;
+- A : la question seule (configuration de son cycle 1 ; son cycle 2 n'a rien apporté) ;
+- B : la phrase d'ancrage du cycle 2, puis les 5 extraits récupérés, puis la question ;
+- la recette du RAG naïf et la notation sont celles du protocole, inchangées.
+
+**Seule modification permise après le gel :** la relecture des 150 items `test` et la publication de la v1 du golden set (`items.jsonl`). Elle ne touche ni aux variantes ni au code ; le rapport citera la version du golden set et son empreinte.
 **Run final sur le `test` :** à venir
 
 ## Mesures
