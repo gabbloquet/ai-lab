@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import asyncio
 import json
-from collections.abc import Awaitable, Callable
+from collections.abc import Awaitable, Callable, Mapping
 from pathlib import Path
 from statistics import mean
 from typing import Any
@@ -51,8 +51,9 @@ async def run_campaign(
     variants: list[str],
     model: str | Model,
     repeats: int,
-    retrieve: Retriever,
     out: Path,
+    retrieve: Retriever | None = None,
+    retrievers: Mapping[str, Retriever] | None = None,
     concurrency: int = 4,
     max_attempts: int = 5,
     sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
@@ -74,7 +75,7 @@ async def run_campaign(
                             variant=variant,
                             model=model,
                             repeat=repeat,
-                            retrieve=retrieve,
+                            retrieve=(retrievers or {}).get(variant, retrieve),
                             reraise=is_transient,
                         )
                         break

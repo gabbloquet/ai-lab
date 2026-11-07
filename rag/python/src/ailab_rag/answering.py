@@ -1,6 +1,7 @@
 """La réponse d'un modèle à un item du golden set, sous la forme canonique de la spec rag-qa.
 
-A (`closed_book`) pose la question seule ; B (`naive_rag`) la pose avec les passages récupérés.
+`closed_book` pose la question seule ; toute autre variante est un RAG, qui pose la question avec
+les passages trouvés par sa propre fonction de recherche (`naive_rag`, ou un levier de la série).
 Le modèle répond par l'outil de sortie de Pydantic AI, dont le schéma est `ModelAnswer`. Une sortie
 invalide n'a pas de seconde chance : elle compte comme une erreur, donc comme une réponse fausse
 (spec § 6), et son taux est publié.
@@ -56,16 +57,15 @@ async def run_item(
     la campagne relance alors l'exécution, au lieu de la compter comme une mauvaise réponse."""
     question = item["question"]
     context: list[str] | None = None
-    if variant == NAIVE_RAG:
+    if variant == CLOSED_BOOK:
+        prompt = closed_book_message(question)
+    else:
+        # Toute autre variante est un RAG : naive_rag, ou un levier de la série (query_rewrite…).
         if retrieve is None:
-            raise ValueError("la variante naive_rag demande une fonction retrieve")
+            raise ValueError(f"la variante {variant} demande une fonction retrieve")
         passages = retrieve(question)
         prompt = rag_message(question, passages)
         context = list(dict.fromkeys(p.article_id for p in passages))
-    elif variant == CLOSED_BOOK:
-        prompt = closed_book_message(question)
-    else:
-        raise ValueError(f"variante inconnue : {variant}")
 
     agent = Agent(
         model,

@@ -90,6 +90,18 @@ async def test_naive_rag_sends_the_passages_and_reports_their_articles() -> None
     assert execution["context"] == ["LEGIARTI000032221377", "LEGIARTI000032226842"]
 
 
+async def test_any_other_variant_is_a_rag_with_its_own_retriever() -> None:
+    recorder = Recorder()
+
+    execution = await run_item(
+        ITEM, variant="query_rewrite", model=recorder.model(), repeat=0, retrieve=lambda q: [P1]
+    )
+
+    assert recorder.prompts == [rag_message(ITEM["question"], [P1])]
+    assert execution["variant"] == "query_rewrite"
+    assert execution["context"] == [P1.article_id]
+
+
 async def test_naive_rag_needs_a_retriever() -> None:
     with pytest.raises(ValueError, match="retrieve"):
         await run_item(ITEM, variant=NAIVE_RAG, model=Recorder().model(), repeat=0)

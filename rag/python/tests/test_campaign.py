@@ -215,3 +215,25 @@ async def test_summary_on_dev_uses_dev_items_only(tmp_path: Path) -> None:
 
     assert summary["n_items"] == 1
     assert summary["comparison"] is None  # moins de deux items : pas d'intervalle
+
+
+async def test_each_variant_searches_with_its_own_retriever(tmp_path: Path) -> None:
+    seen: dict[str, list[str]] = {"naive_rag": [], "query_rewrite": []}
+
+    def recording(name: str):
+        def retrieve(question: str) -> list[Passage]:
+            seen[name].append(question)
+            return [GOLD]
+
+        return retrieve
+
+    await run_campaign(
+        ITEMS[:1],
+        variants=[CLOSED_BOOK, NAIVE_RAG, "query_rewrite"],
+        model=knows_only_with_context(),
+        repeats=1,
+        retrievers={NAIVE_RAG: recording("naive_rag"), "query_rewrite": recording("query_rewrite")},
+        out=tmp_path / "e.jsonl",
+    )
+
+    assert seen == {"naive_rag": ["Question rq-001 ?"], "query_rewrite": ["Question rq-001 ?"]}
