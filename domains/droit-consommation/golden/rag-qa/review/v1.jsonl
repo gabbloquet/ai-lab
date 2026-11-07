@@ -49,6 +49,6 @@
 {"task": "unanswerable-dev-003", "verdict": "ok", "note": ""}
 {"task": "unanswerable-dev-004", "verdict": "ok", "note": ""}
 {"task": "unanswerable-dev-005", "verdict": "ok", "note": ""}
-{"task": "unanswerable-dev-006", "verdict": "ok", "note": ""}
+{"task": "unanswerable-dev-006", "verdict": "corrige", "note": "Le code répond : L217-17 fixe le remboursement au plus tard dans les quatorze jours. Item transformé en item avec réponse (mode direct).", "correction": {"answerable": true, "mode": "direct", "facts": [{"accepted": ["quatorze jours", "14 jours"]}], "articles": ["L217-17"], "evidence": [{"article": "L217-17", "quote": "au plus tard dans les quatorze jours suivants"}]}}
 {"task": "unanswerable-dev-007", "verdict": "ok", "note": ""}
 {"task": "unanswerable-dev-008", "verdict": "ok", "note": "Le Code de la consommation ne fixe aucun plafond ; L454-7 et L621-11 renvoient à l'article 131-35 du code pénal pour l'affichage."}

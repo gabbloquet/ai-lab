@@ -548,3 +548,63 @@ def test_a_split_with_pending_reviews_is_not_published(tmp_path: Path) -> None:
 
     with pytest.raises(ValueError, match="relecture"):
         publish(result, tmp_path, seed=1, split="dev")
+
+
+# --- Correction qui change le statut d'un item ---------------------------------------------------
+
+
+UNANSWERABLE = {
+    "question": "Combien de temps pour se rétracter ?",
+    "why_unanswerable": "x",
+    "doubt": "",
+}
+
+
+def turned_answerable() -> dict:
+    return {
+        "answerable": True,
+        "mode": "direct",
+        "facts": [{"accepted": ["quatorze jours", "14 jours"]}],
+        "articles": ["L221-18"],
+        "evidence": [{"article": "L221-18", "quote": "délai de quatorze jours"}],
+    }
+
+
+def test_a_correction_can_turn_an_unanswerable_item_into_an_answerable_one() -> None:
+    t = task("unanswerable", (B,))
+    review = {
+        t["task"]: {"task": t["task"], "verdict": "corrige", "correction": turned_answerable()}
+    }
+    result = build(
+        [t],
+        {t["task"]: draft(t, UNANSWERABLE)},
+        BY_ID,
+        {"unanswerable": (1, 0)},
+        seed=1,
+        review=review,
+    )
+
+    item = result.selected[0].item
+    assert item["answerable"] is True
+    assert item["mode"] == "direct"
+    assert item["expected"]["articles"] == [{"id": A["id"], "num": "L221-18"}]
+    assert item["evidence"] == [{"article": A["id"], "quote": "délai de quatorze jours"}]
+    assert "source_article" not in item
+    assert list(schema_validator().iter_errors({**item, "id": "rq-001"})) == []
+
+
+def test_a_correction_quote_must_be_copied_from_its_article() -> None:
+    t = task("unanswerable", (B,))
+    correction = turned_answerable()
+    correction["evidence"] = [{"article": "L221-18", "quote": "délai de 14 jours"}]
+    review = {t["task"]: {"task": t["task"], "verdict": "corrige", "correction": correction}}
+
+    with pytest.raises(ValueError, match="extrait"):
+        build(
+            [t],
+            {t["task"]: draft(t, UNANSWERABLE)},
+            BY_ID,
+            {"unanswerable": (1, 0)},
+            seed=1,
+            review=review,
+        )

@@ -72,7 +72,7 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 
 | # | Date | Variante | Modification | Motif | `correct` dev |
 |---|---|---|---|---|---|
-| 0 | 2026-11-07 | A et B | aucune : mesure de départ, hors budget | point de départ des cycles | A 0,28 · B 0,67 (Mistral Small, k = 3) |
+| 0 | 2026-11-07 | A et B | aucune : mesure de départ, hors budget | point de départ des cycles | A 0,30 · B 0,69 (Mistral Small, k = 3, `dev` corrigé) |
 | 1 | | | | | |
 
 **Commit de gel :** à venir
@@ -96,26 +96,26 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 
 ### Résultats `dev` (hors verdict)
 
-**Runs 0, 2026-11-07, par modèle** : 50 items `dev`, k = 3, 300 exécutions par modèle, aucune erreur ni sortie illisible. Golden set : `v1/items-dev.jsonl`, relu.
+**Runs 0, 2026-11-07, par modèle** : 50 items `dev`, k = 3, 300 exécutions par modèle, aucune erreur ni sortie illisible. Golden set : `v1/items-dev.jsonl`, relu. Les chiffres sont ceux du `dev` corrigé : `rq-133`, d'abord classé sans réponse, a une réponse dans le code (L217-17) et a été transformé en item avec réponse ; sa question n'a pas changé, les exécutions ont été renotées sans nouvel appel.
 
 | Modèle | A `correct` | B `correct` | Delta B − A [IC 95 %] | A, avec réponse | B `retrieval_miss` / `generation_miss` | B `hallucination` | B `false_abstention` |
 |---|---|---|---|---|---|---|---|
-| `mistral-small-2603` | 0,28 | 0,67 | +0,39 [+0,24 ; +0,54] | 0,32 | 0,22 / 0,02 | 0,86 | 0,13 |
-| `mistral-medium-2604` | 0,29 | 0,70 | +0,41 [+0,24 ; +0,57] | 0,34 | 0,26 / 0,00 | 0,57 | 0,19 |
-| `gemini-3.5-flash-lite` | 0,48 | 0,68 | +0,20 [+0,02 ; +0,38] | 0,53 | 0,30 / 0,02 | 0,29 | 0,28 |
+| `mistral-small-2603` | 0,30 | 0,69 | +0,39 [+0,24 ; +0,54] | 0,33 | 0,21 / 0,02 | 0,83 | 0,13 |
+| `mistral-medium-2604` | 0,31 | 0,72 | +0,41 [+0,24 ; +0,57] | 0,36 | 0,25 / 0,00 | 0,50 | 0,19 |
+| `gemini-3.5-flash-lite` | 0,48 | 0,70 | +0,22 [+0,04 ; +0,40] | 0,52 | 0,30 / 0,02 | 0,17 | 0,27 |
 
-- **Gemini Flash-Lite connaît bien mieux le code** (53 % de bonnes réponses de mémoire sur les items avec réponse) : l'apport du RAG est deux fois plus faible. En paraphrase, B fait moins bien que A (0,40 contre 0,50) : quand la récupération rate, la consigne d'ancrage le fait s'abstenir là où sa mémoire suffisait.
-- **Mistral Medium ne sait pas plus de choses que Mistral Small** sans contexte (0,29 contre 0,28), mais il invente moins en B (0,57 contre 0,86).
-- **Pour les trois modèles, la récupération est le goulot** : 22 à 30 % de `retrieval_miss`, 0 à 2 % de `generation_miss`.
+- **Gemini Flash-Lite connaît bien mieux le code** (52 % de bonnes réponses de mémoire sur les items avec réponse) : l'apport du RAG est deux fois plus faible. En paraphrase, B fait moins bien que A (0,40 contre 0,50) : quand la récupération rate, la consigne d'ancrage le fait s'abstenir là où sa mémoire suffisait.
+- **Mistral Medium ne sait pas plus de choses que Mistral Small** sans contexte (0,31 contre 0,30), mais il invente moins en B (0,50 contre 0,83).
+- **Pour les trois modèles, la récupération est le goulot** : 21 à 30 % de `retrieval_miss`, 0 à 2 % de `generation_miss`.
 
 **Run exploratoire, hors protocole et sans verdict** : `gemini-3.8-flash` (Gemini 3.8 Flash, un modèle qui raisonne, d'un palier au-dessus des trois autres), mêmes conditions, 2026-11-07.
 
 | Métrique | A, modèle seul | B, RAG naïf |
 |---|---|---|
-| `correct`, tous items | 0,63 | 0,67 |
+| `correct`, tous items | 0,65 | 0,69 |
 | `correct`, items avec réponse | 0,71 | 0,67 |
-| `hallucination` (items sans réponse) | 0,86 | 0,29 |
-| `false_abstention` | 0,00 | 0,31 |
+| `hallucination` (items sans réponse) | 0,83 | 0,17 |
+| `false_abstention` | 0,00 | 0,30 |
 | `correct` en `paraphrase` | 0,77 | 0,43 |
 | Tokens par exécution | 3 192 | 1 675 |
 
@@ -125,17 +125,17 @@ Détail pour Mistral Small :
 
 | Métrique | A, modèle seul | B, RAG naïf |
 |---|---|---|
-| `correct`, tous items | 0,28 | 0,67 |
-| `correct`, items avec réponse | 0,32 | 0,76 |
-| `hallucination` (items sans réponse) | 0,95 | 0,86 |
+| `correct`, tous items | 0,30 | 0,69 |
+| `correct`, items avec réponse | 0,33 | 0,77 |
+| `hallucination` (items sans réponse) | 0,94 | 0,83 |
 | `false_abstention` | 0,00 | 0,13 |
 | Citations, précision / rappel | 0,21 / 0,20 | 0,73 / 0,67 |
 | Tokens par exécution | 321 | 1 219 |
 
 Delta B − A : +0,39, IC 95 % [+0,24 ; +0,54] sur 50 items `dev`.
 
-- **Ce que le modèle sait déjà.** Mistral Small répond juste de mémoire à 32 % des questions qui ont une réponse, et à 53 % en mode `direct`.
-- **Où le RAG naïf échoue.** Sur les items avec réponse, B se trompe à 22 % par `retrieval_miss` (l'article attendu manquait au contexte) et à 2 % par `generation_miss`. L'article attendu est au rang 1 dans 47 % des cas, dans le top-5 dans 72 %.
+- **Ce que le modèle sait déjà.** Mistral Small répond juste de mémoire à 33 % des questions qui ont une réponse.
+- **Où le RAG naïf échoue.** Sur les items avec réponse, B se trompe à 21 % par `retrieval_miss` (l'article attendu manquait au contexte) et à 2 % par `generation_miss`. L'article attendu est au rang 1 dans 47 % des cas, dans le top-5 dans 72 %.
 - **Par mode, en B.** `direct` 0,90 · `reference` 0,83 · `lost_context` 0,81 · `paraphrase` 0,73 · `multi_article` 0,50 · `unanswerable` 0,14.
 - **Stabilité.** 10 couples item × variante sur 100 changent de résultat d'une répétition à l'autre, malgré la température 0.
 

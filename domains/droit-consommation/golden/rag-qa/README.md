@@ -118,4 +118,6 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 |---|---|---|---|---|
 | `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items retenus. Le `dev` est relu et écrit dans `v1/items-dev.jsonl` (2026-11-07) ; les 150 items `test` restent à relire avant `items.jsonl` |
 
+**Composition du `dev` après relecture : 6 items sans réponse et 11 en mode `direct`**, au lieu de 7 et 10. `rq-133` (« Garantie de conformité : quel délai a le vendeur pour me rembourser après la résolution du contrat ? ») avait été classé sans réponse, mais L217-17 y répond (« au plus tard dans les quatorze jours ») ; il a été transformé en item avec réponse, en mode `direct`, plutôt que remplacé (décision du 2026-11-07). La correction d'un relecteur peut désormais changer le statut, le mode, les articles et les extraits d'un item, et chaque extrait est vérifié dans son article.
+
 **`items-dev.jsonl` ne vaut pas publication de la v1.** Il sert à itérer sur la 002 dès que le `dev` est relu. Les identifiants sont attribués sur les 200 items retenus, dans l'ordre (mode, split, rang) : remplacer un item `test` à la relecture ne change aucun identifiant du `dev`. La v1 sera publiée, avec `items.jsonl` et son manifeste, une fois les 200 items relus.

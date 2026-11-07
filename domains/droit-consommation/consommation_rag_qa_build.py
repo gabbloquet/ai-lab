@@ -339,14 +339,37 @@ def make_item(task: dict, output: dict, by_id: dict[str, dict]) -> dict:
     return item
 
 
-def _apply_correction(item: dict, correction: dict) -> dict:
+def _apply_correction(item: dict, correction: dict, by_num: dict[str, dict]) -> dict:
+    """Applique la correction d'un relecteur. Elle peut changer la question et les formes
+    acceptées, et aussi le statut d'un item : `answerable`, `mode`, `articles` (par numéro) et
+    `evidence`, dont chaque extrait est vérifié dans son article."""
     item = json.loads(json.dumps(item))
     if "question" in correction:
         item["question"] = correction["question"]
+    if "mode" in correction:
+        item["mode"] = correction["mode"]
+    if "answerable" in correction:
+        item["answerable"] = correction["answerable"]
+        if item["answerable"]:
+            item.pop("source_article", None)
     if "facts" in correction:
         item["expected"]["facts"] = [
             {"accepted": _unique_forms(f["accepted"])} for f in correction["facts"]
         ]
+    if "articles" in correction:
+        item["expected"]["articles"] = [
+            {"id": by_num[num]["id"], "num": num} for num in correction["articles"]
+        ]
+    if "evidence" in correction:
+        evidence = []
+        for entry in correction["evidence"]:
+            article = by_num[entry["article"]]
+            if not quote_in_text(entry["quote"], article["text"]):
+                raise ValueError(
+                    f"correction : extrait introuvable dans l'article {article['num']}"
+                )
+            evidence.append({"article": article["id"], "quote": entry["quote"]})
+        item["evidence"] = evidence
     return item
 
 
@@ -387,6 +410,7 @@ def build(
     max_question_words: int | None = MAX_QUESTION_WORDS,
 ) -> BuildResult:
     review = review or {}
+    by_num = {article["num"]: article for article in by_id.values()}
     checks: dict[str, tuple[dict, dict | None, Check]] = {}
     rejected: dict[str, list[str]] = {}
     passing: dict[str, Selected] = {}
@@ -411,7 +435,7 @@ def build(
         assert draft is not None
         item = make_item(task, draft["output"], by_id)
         if verdict.get("verdict") == "corrige":
-            item = _apply_correction(item, verdict.get("correction", {}))
+            item = _apply_correction(item, verdict.get("correction", {}), by_num)
         passing[name] = Selected(task, item, result.alerts, result.overlap)
 
     selected: list[Selected] = []
