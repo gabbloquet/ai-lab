@@ -14,6 +14,7 @@
 {"task": "direct-test-013", "verdict": "ok", "note": "Une réponse qui ajoute le préfet de police à Paris contient toujours « préfet »."}
 {"task": "direct-test-014", "verdict": "corrige", "note": "Le délai court à partir de la remise de l'attestation, pas de l'effacement : point de départ faux retiré, question en langage courant.", "correction": {"question": "Chèque impayé effacé dans mon dossier de surendettement : en combien de temps la banque doit-elle prévenir la Banque de France ?"}}
 {"task": "direct-test-023", "verdict": "ok", "note": "L224-2 vise les fournisseurs d'électricité ou de gaz naturel : la question est exacte."}
+{"task": "direct-test-040", "verdict": "ok", "note": "Les formes en lettres sont des variantes voulues."}
 {"task": "direct-test-049", "verdict": "ok", "note": "R713-7 est la règle générale du délai d'appel (quinze jours)."}
 {"task": "lost_context-dev-002", "verdict": "ok", "note": ""}
 {"task": "lost_context-dev-004", "verdict": "ok", "note": ""}
@@ -30,6 +31,8 @@
 {"task": "multi_article-dev-010", "verdict": "ok", "note": ""}
 {"task": "multi_article-dev-012", "verdict": "ok", "note": ""}
 {"task": "multi_article-dev-016", "verdict": "ok", "note": ""}
+{"task": "multi_article-test-018", "verdict": "corrige", "note": "Type de personne non précisé alors que la réponse est 3 000 € ; la question contenait presque la réponse (« pièces d'économie circulaire »).", "correction": {"question": "Réparateur indépendant d'équipement médical : quelle alternative aux pièces neuves doit-il proposer, et quelle amende maximale sinon ?"}}
+{"task": "multi_article-test-034", "verdict": "corrige", "note": "L441-1 énumère plusieurs objets de tromperie : chacun est une bonne réponse.", "correction": {"facts": [{"accepted": ["sept ans", "7 ans"]}, {"accepted": ["750 000 euros", "750 000 €"]}, {"accepted": ["nature", "espèce", "origine", "qualités substantielles", "composition", "teneur en principes utiles", "quantité", "identité", "aptitude à l'emploi", "risques inhérents", "contrôles effectués", "modes d'emploi", "précautions à prendre"]}]}}
 {"task": "paraphrase-dev-010", "verdict": "ok", "note": ""}
 {"task": "paraphrase-dev-011", "verdict": "ok", "note": ""}
 {"task": "paraphrase-dev-015", "verdict": "ok", "note": ""}
@@ -41,7 +44,11 @@
 {"task": "paraphrase-dev-037", "verdict": "ok", "note": ""}
 {"task": "paraphrase-dev-038", "verdict": "ok", "note": ""}
 {"task": "paraphrase-test-027", "verdict": "corrige", "note": "Formes acceptées enrichies, avec et sans espace avant %.", "correction": {"facts": [{"accepted": ["taux de l'intérêt légal majoré de moitié", "intérêt légal majoré de moitié", "intérêt légal majoré de 50 %", "majoré de 50 %", "majoré de 50%"]}]}}
+{"task": "paraphrase-test-028", "verdict": "ok", "note": "« Société » désigne bien une personne morale (15 000 €)."}
 {"task": "paraphrase-test-037", "verdict": "corrige", "note": "Formes acceptées enrichies.", "correction": {"facts": [{"accepted": ["juge des libertés et de la détention du tribunal judiciaire", "juge des libertés et de la détention", "JLD", "juge des libertés"]}]}}
+{"task": "paraphrase-test-044", "verdict": "corrige", "note": "« Entreprise » couvre l'entrepreneur individuel (personne physique, 3 000 €) ; la réponse attendue vise la personne morale.", "correction": {"question": "Un vendeur ne m'a pas donné les infos obligatoires avant l'achat : quelle amende maximale risque-t-il s'il est une société ?"}}
+{"task": "paraphrase-test-068", "verdict": "ok", "note": "La forme « Trésor » est déjà acceptée."}
+{"task": "paraphrase-test-071", "verdict": "corrige", "note": "Forme unique de 10 mots ; un non-juriste répondra « la DGCCRF ».", "correction": {"facts": [{"accepted": ["l'autorité administrative chargée de la concurrence et de la consommation", "autorité administrative chargée de la concurrence", "DGCCRF"]}]}}
 {"task": "reference-dev-001", "verdict": "ok", "note": ""}
 {"task": "reference-dev-002", "verdict": "ok", "note": ""}
 {"task": "reference-dev-003", "verdict": "ok", "note": ""}
@@ -51,6 +58,7 @@
 {"task": "reference-dev-009", "verdict": "ok", "note": ""}
 {"task": "reference-dev-010", "verdict": "ok", "note": ""}
 {"task": "reference-test-015", "verdict": "ok", "note": "« Un mois » est le délai pour statuer ; quarante jours est le délai au-delà duquel les mesures cessent."}
+{"task": "reference-test-022", "verdict": "ok", "note": "Les formes en lettres sont des variantes voulues."}
 {"task": "unanswerable-dev-001", "verdict": "ok", "note": ""}
 {"task": "unanswerable-dev-002", "verdict": "rejete", "note": "L224-31 répond : la fonctionnalité de blocage est gratuite."}
 {"task": "unanswerable-dev-003", "verdict": "ok", "note": ""}
