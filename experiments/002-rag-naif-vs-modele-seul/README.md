@@ -108,6 +108,19 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 - **Mistral Medium ne sait pas plus de choses que Mistral Small** sans contexte (0,29 contre 0,28), mais il invente moins en B (0,57 contre 0,86).
 - **Pour les trois modèles, la récupération est le goulot** : 22 à 30 % de `retrieval_miss`, 0 à 2 % de `generation_miss`.
 
+**Run exploratoire, hors protocole et sans verdict** : `gemini-3.8-flash` (Gemini 3.8 Flash, un modèle qui raisonne, d'un palier au-dessus des trois autres), mêmes conditions, 2026-11-07.
+
+| Métrique | A, modèle seul | B, RAG naïf |
+|---|---|---|
+| `correct`, tous items | 0,63 | 0,67 |
+| `correct`, items avec réponse | 0,71 | 0,67 |
+| `hallucination` (items sans réponse) | 0,86 | 0,29 |
+| `false_abstention` | 0,00 | 0,31 |
+| `correct` en `paraphrase` | 0,77 | 0,43 |
+| Tokens par exécution | 3 192 | 1 675 |
+
+Delta B − A : +0,05, IC 95 % [−0,13 ; +0,23]. Ce modèle répond juste de mémoire à 71 % des questions qui ont une réponse : le RAG naïf ancré ne l'aide plus sur ces questions et le pénalise en paraphrase, où une récupération ratée (30 % de `retrieval_miss`) le fait s'abstenir. Il réduit en revanche fortement les réponses inventées aux questions sans réponse. Pour la série, la consigne d'ancrage devient un levier à tester : laisser le modèle compléter avec ses connaissances.
+
 Détail pour Mistral Small :
 
 | Métrique | A, modèle seul | B, RAG naïf |
