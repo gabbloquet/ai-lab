@@ -122,7 +122,7 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 
 | Version | Données | Seed | Spec | Statut |
 |---|---|---|---|---|
-| `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items relus et écrits dans `v1/items.jsonl`, avec `MANIFEST.json` (2026-11-07). Pas encore publiée : elle le sera dès qu'un rapport de la 002 la citera |
+| `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items relus, écrits dans `v1/items.jsonl` avec `MANIFEST.json` (2026-11-07). **Publiée** : citée par le [run final de la 002](../../../../experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), donc immuable |
 
 **Composition du `dev` après relecture : 6 items sans réponse et 11 en mode `direct`**, au lieu de 7 et 10. `rq-133` (« Garantie de conformité : quel délai a le vendeur pour me rembourser après la résolution du contrat ? ») avait été classé sans réponse, mais L217-17 y répond (« au plus tard dans les quatorze jours ») ; il a été transformé en item avec réponse, en mode `direct`, plutôt que remplacé (décision du 2026-11-07). La correction d'un relecteur peut désormais changer le statut, le mode, les articles et les extraits d'un item, et chaque extrait est vérifié dans son article.
 

@@ -1,6 +1,6 @@
 # 002 — RAG naïf ou modèle seul ?
 
-> **Statut :** gelée le 2026-11-07, en attente de la relecture du `test` et du run final
+> **Statut :** conclue le 2026-11-07 — [rapport du run final](results/2026-11-07-run-final-test.md)
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (brouillon)
 
@@ -87,7 +87,7 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 - la recette du RAG naïf et la notation sont celles du protocole, inchangées.
 
 **Seule modification permise après le gel :** la relecture des 150 items `test` et la publication de la v1 du golden set (`items.jsonl`). Elle ne touche ni aux variantes ni au code ; le rapport citera la version du golden set et son empreinte.
-**Run final sur le `test` :** à venir
+**Run final sur le `test` :** 2026-11-07, rapport [`results/2026-11-07-run-final-test.md`](results/2026-11-07-run-final-test.md)
 
 ## Mesures
 
@@ -103,7 +103,15 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 
 ## Résultats
 
-À venir : seul le run final sur le `test` portera le verdict.
+Split `test`, n = 150, k = 3, une table par modèle. Détail et provenance : [rapport du run final](results/2026-11-07-run-final-test.md).
+
+| Modèle | `correct` A | `correct` B | Delta | IC 95 % |
+|---|---|---|---|---|
+| `mistral-small-2603` | 0,418 | 0,791 | +0,373 | [+0,276 ; +0,470] |
+| `ministral-14b-2512` | 0,320 | 0,762 | +0,442 | [+0,354 ; +0,531] |
+| `gemini-3.5-flash-lite` | 0,420 | 0,787 | +0,367 | [+0,273 ; +0,460] |
+
+En B, sur les items avec réponse, 15 à 21 % d'échecs viennent de la récupération (`retrieval_miss`) et 2 à 3 % de la génération (`generation_miss`). L'article attendu est au rang 1 dans 43 % des cas, dans le top-5 dans 81 %.
 
 ### Résultats `dev` (hors verdict)
 
@@ -162,11 +170,13 @@ Delta B − A : +0,39, IC 95 % [+0,24 ; +0,54] sur 50 items `dev`.
 
 ## Verdict
 
-À venir.
+- **`mistral-small-2603` : B meilleure**, +37,3 points de `correct` (IC 95 % [+27,6 ; +47,0]).
+- **`ministral-14b-2512` : B meilleure**, +44,2 points (IC 95 % [+35,4 ; +53,1]).
+- **`gemini-3.5-flash-lite` : B meilleure**, +36,7 points (IC 95 % [+27,3 ; +46,0]).
+
+Le RAG naïf apporte 37 à 44 points à ces modèles sur le Code de la consommation, et c'est sa récupération qui limite le score : c'est le premier levier à tester dans la série.
 
 ## Limites
-
-À compléter. Déjà connues :
 - **Un seul corpus**, en français, dans un seul domaine du droit, dans son état au 13 juillet 2025.
 - **Questions rédigées par un LLM** (Claude Sonnet 5.5), puis relues : leur style peut différer de celui de vrais utilisateurs.
 - **Relecture assistée par un LLM.** Le golden set a été relu par un assistant IA non nommé ; chaque remarque a été vérifiée sur le texte des articles puis tranchée par le propriétaire, mais les items sans remarque n'ont pas été relus par un humain un par un. Une erreur de statut (`rq-133`, classé sans réponse alors que le code y répond) avait échappé à la première relecture du `dev`.
@@ -174,4 +184,6 @@ Delta B − A : +0,39, IC 95 % [+0,24 ; +0,54] sur 50 items `dev`.
 - **Itération sur un seul modèle** : les prompts sont mis au point avec Mistral Small, ce qui peut avantager ce modèle au run final.
 - **Puissance** : au run 0 (`dev`, Mistral Small), s_d = 0,529, au-dessus des 0,4 supposés. Le MDE sur 150 items `test` passe d'environ 9,2 à environ 12,2 points, au-dessus des 10 points qui comptent. Sans conséquence pour la 002, dont l'écart attendu est bien plus grand ; à recalculer pour les expériences de la série, qui compareront deux RAG plus corrélés.
 - **Choix des modèles après le `dev`** : la liste des modèles du run final a changé après le gel (Ministral 14B à la place de Mistral Medium), en connaissant leurs scores `dev`. Les variantes et le code n'ont pas changé, et chaque modèle a son propre verdict, mais le choix des modèles n'était pas fixé avant de voir des résultats.
-- **Langfuse** : au run 0, le serveur local a coupé plusieurs envois et des scores ont été perdus dans Langfuse. Les fichiers `executions.jsonl` font foi.
+- **Langfuse** : au run 0 comme au run final, le serveur local a coupé une partie des envois (86 lots de traces ou de scores perdus au run final). Les fichiers `executions.jsonl` font foi ; Langfuse ne sert qu'à explorer un run.
+- **Puissance** : au run final, s_d vaut 0,55 à 0,60, soit un MDE d'environ 13 points sur 150 items. Les écarts mesurés (37 à 44 points) le dépassent largement.
+- **Contamination** : les modèles répondent juste de mémoire à 26 à 37 % des questions qui ont une réponse. Le gain du RAG est mesuré par rapport à ce qu'ils savent déjà, et serait plus faible avec un modèle qui connaît mieux le code (voir le run exploratoire de Gemini 3.8 Flash sur le `dev`).
