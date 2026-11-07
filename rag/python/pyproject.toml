@@ -10,6 +10,8 @@ dependencies = [
     "mistralai==3.7.0",
     # Index en mémoire : similarité cosinus exacte.
     "numpy==2.5.4",
+    # Réécriture de requête : même client LLM que les expériences.
+    "pydantic-ai-slim[mistral]==2.65.0",
 ]
 
 [tool.uv.sources]

@@ -79,6 +79,7 @@ dependencies = [
     { name = "ailab-evals" },
     { name = "mistralai" },
     { name = "numpy" },
+    { name = "pydantic-ai-slim", extra = ["mistral"] },
 ]
 
 [package.metadata]
@@ -86,6 +87,7 @@ requires-dist = [
     { name = "ailab-evals", editable = "evals/python" },
     { name = "mistralai", specifier = "==3.7.0" },
     { name = "numpy", specifier = "==2.5.4" },
+    { name = "pydantic-ai-slim", extras = ["mistral"], specifier = "==2.65.0" },
 ]
 
 [[package]]
