@@ -1,5 +1,12 @@
 from exp002_rag.corpus import Passage
-from exp002_rag.prompting import GROUNDING, SYSTEM_PROMPT, closed_book_message, rag_message
+from exp002_rag.prompting import (
+    GROUNDING,
+    KNOWLEDGE,
+    SYSTEM_PROMPT,
+    closed_book_message,
+    question_line,
+    rag_message,
+)
 
 QUESTION = "Achat en ligne : j'ai combien de temps pour me rétracter ?"
 P1 = Passage("LEGIARTI000032226842", "L221-18", "Le consommateur dispose de quatorze jours.", 0)
@@ -12,8 +19,10 @@ def test_the_system_prompt_asks_for_a_value_citations_and_abstention() -> None:
     assert "`abstained`" in SYSTEM_PROMPT
 
 
-def test_closed_book_message_is_the_question_alone() -> None:
-    assert closed_book_message(QUESTION) == f"Question : {QUESTION}"
+def test_closed_book_message_adds_its_own_instruction_before_the_question() -> None:
+    """Cycle 2 de A : sa propre phrase, comme B a sa phrase d'ancrage."""
+    assert closed_book_message(QUESTION) == f"{KNOWLEDGE}\n\nQuestion : {QUESTION}"
+    assert "donne-la" in KNOWLEDGE
 
 
 def test_rag_message_shows_each_passage_under_its_article_number_in_order() -> None:
@@ -28,7 +37,8 @@ def test_rag_message_only_adds_the_grounding_and_the_extracts_to_the_question() 
     message = rag_message(QUESTION, [P1])
 
     assert message.startswith(GROUNDING)
-    assert message.endswith(closed_book_message(QUESTION))
+    assert message.endswith(question_line(QUESTION))
+    assert KNOWLEDGE not in message
     assert "abstained" in GROUNDING
 
 
