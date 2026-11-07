@@ -4,7 +4,7 @@ from types import SimpleNamespace
 import numpy as np
 import pytest
 
-from exp002_rag.embeddings import CachedEmbedder, MistralEmbedder
+from ailab_rag.embeddings import CachedEmbedder, MistralEmbedder
 
 
 class FakeEmbeddingsApi:

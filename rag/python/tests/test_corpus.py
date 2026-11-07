@@ -1,4 +1,4 @@
-from exp002_rag.corpus import Passage, passages
+from ailab_rag.corpus import Passage, passages
 
 
 def article(article_id: str, num: str, text: str) -> dict:

@@ -8,6 +8,7 @@ from pydantic_ai.exceptions import ModelHTTPError
 from pydantic_ai.messages import ModelMessage, ModelRequest, ModelResponse, ToolCallPart
 from pydantic_ai.models.function import AgentInfo, FunctionModel
 
+from ailab_rag.corpus import Passage
 from exp002_rag.answering import CLOSED_BOOK, NAIVE_RAG
 from exp002_rag.campaign import (
     ROOT,
@@ -18,7 +19,6 @@ from exp002_rag.campaign import (
     run_campaign,
     summarize,
 )
-from exp002_rag.corpus import Passage
 
 pytestmark = pytest.mark.anyio
 

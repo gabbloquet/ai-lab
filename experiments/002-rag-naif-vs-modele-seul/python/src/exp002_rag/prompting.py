@@ -8,7 +8,7 @@ d'instruction entre les variantes (README de la 002, « Protocole »).
 
 from __future__ import annotations
 
-from exp002_rag.corpus import Passage
+from ailab_rag.corpus import Passage
 
 SYSTEM_PROMPT = (
     "Tu réponds à des questions sur le Code de la consommation français. Réponds en français, "

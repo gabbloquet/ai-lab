@@ -84,6 +84,7 @@ ai-lab/
 │   ├── spec/       # par famille et par version : SPEC.md, JSON Schema, vecteurs de conformance
 │   ├── java/       # scorer Java (JUnit), testé contre les vecteurs
 │   └── python/     # scorer Python (métrique DeepEval), testé contre les vecteurs
+├── rag/python/     # briques RAG communes à la série (corpus, embeddings, recherche) : baseline naïve, leviers en option
 ├── domains/        # un dossier par domaine : données versionnées, golden sets, générateur seedé
 └── experiments/    # une expérience par dossier : cadrage, implémentations (java/, python/), results/
 ```

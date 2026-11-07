@@ -8,8 +8,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from exp002_rag.corpus import Passage
-from exp002_rag.embeddings import Embedder
+from ailab_rag.corpus import Passage
+from ailab_rag.embeddings import Embedder
 
 
 class Index:

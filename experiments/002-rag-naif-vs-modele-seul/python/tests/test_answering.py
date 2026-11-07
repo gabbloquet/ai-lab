@@ -11,8 +11,8 @@ from pydantic_ai.messages import (
 from pydantic_ai.models.function import AgentInfo, FunctionModel
 
 from ailab_evals.rag_qa import score_execution
+from ailab_rag.corpus import Passage
 from exp002_rag.answering import CLOSED_BOOK, NAIVE_RAG, run_item
-from exp002_rag.corpus import Passage
 from exp002_rag.prompting import SYSTEM_PROMPT, closed_book_message, rag_message
 
 pytestmark = pytest.mark.anyio

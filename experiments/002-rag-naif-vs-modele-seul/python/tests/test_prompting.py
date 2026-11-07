@@ -1,4 +1,4 @@
-from exp002_rag.corpus import Passage
+from ailab_rag.corpus import Passage
 from exp002_rag.prompting import (
     GROUNDING,
     SYSTEM_PROMPT,

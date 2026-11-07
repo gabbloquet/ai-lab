@@ -8,15 +8,14 @@ dependencies = [
     "ailab-evals",
     # Traces et scores des runs, vers le Langfuse local (infra/langfuse).
     "langfuse==5.1.0",
-    # Embeddings mistral-embed : Pydantic AI 2.65 ne fournit pas d'embedder Mistral.
-    "mistralai==3.7.0",
-    # Index en mémoire : similarité cosinus exacte.
-    "numpy==2.5.4",
+    # Briques RAG partagées par la série (corpus, embeddings, recherche).
+    "ailab-rag",
     "pydantic-ai-slim[google,mistral]==2.65.0",
 ]
 
 [tool.uv.sources]
 ailab-evals = { workspace = true }
+ailab-rag = { workspace = true }
 
 [build-system]
 requires = ["uv_build>=0.13.5,<0.14"]

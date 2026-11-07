@@ -1,0 +1,15 @@
+[project]
+name = "ailab-rag"
+version = "0.1.0"
+description = "Briques RAG communes à la série d'expériences : corpus, embeddings, recherche (baseline naïve et leviers en option)"
+requires-python = ">=3.13"
+dependencies = [
+    # Embeddings mistral-embed : Pydantic AI 2.65 ne fournit pas d'embedder Mistral.
+    "mistralai==3.7.0",
+    # Index en mémoire : similarité cosinus exacte.
+    "numpy==2.5.4",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"

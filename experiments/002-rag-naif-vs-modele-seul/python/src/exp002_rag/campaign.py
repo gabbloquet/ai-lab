@@ -209,9 +209,9 @@ def _git_is_clean() -> bool:
 
 
 def _retriever() -> Retriever:
-    from exp002_rag.corpus import passages
-    from exp002_rag.embeddings import CachedEmbedder, MistralEmbedder
-    from exp002_rag.retrieval import build_index
+    from ailab_rag.corpus import passages
+    from ailab_rag.embeddings import CachedEmbedder, MistralEmbedder
+    from ailab_rag.retrieval import build_index
 
     embedder = CachedEmbedder(MistralEmbedder(), EXPERIMENT_DIR / ".cache" / "embeddings")
     index = build_index(passages(_read_jsonl(ARTICLES)), embedder)

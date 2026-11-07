@@ -1,8 +1,8 @@
 import numpy as np
 import pytest
 
-from exp002_rag.corpus import Passage
-from exp002_rag.retrieval import Index, build_index
+from ailab_rag.corpus import Passage
+from ailab_rag.retrieval import Index, build_index
 
 
 def passage(i: int, text: str = "") -> Passage:
