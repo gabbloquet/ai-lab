@@ -4,11 +4,16 @@ version = "0.1.0"
 description = "Briques RAG communes à la série d'expériences : corpus, embeddings, recherche (baseline naïve et leviers en option)"
 requires-python = ">=3.13"
 dependencies = [
+    # Le banc de mesure note les contextes avec le scorer de la spec rag-qa v1.
+    "ailab-evals",
     # Embeddings mistral-embed : Pydantic AI 2.65 ne fournit pas d'embedder Mistral.
     "mistralai==3.7.0",
     # Index en mémoire : similarité cosinus exacte.
     "numpy==2.5.4",
 ]
+
+[tool.uv.sources]
+ailab-evals = { workspace = true }
 
 [build-system]
 requires = ["uv_build>=0.13.5,<0.14"]

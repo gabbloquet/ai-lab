@@ -76,12 +76,14 @@ name = "ailab-rag"
 version = "0.1.0"
 source = { editable = "rag/python" }
 dependencies = [
+    { name = "ailab-evals" },
     { name = "mistralai" },
     { name = "numpy" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "ailab-evals", editable = "evals/python" },
     { name = "mistralai", specifier = "==3.7.0" },
     { name = "numpy", specifier = "==2.5.4" },
 ]
