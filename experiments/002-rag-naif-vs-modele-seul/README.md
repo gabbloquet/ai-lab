@@ -73,7 +73,8 @@ Le modèle répond en JSON, avec la même consigne en A et en B : `{"answer": st
 | # | Date | Variante | Modification | Motif | `correct` dev |
 |---|---|---|---|---|---|
 | 0 | 2026-11-07 | A et B | aucune : mesure de départ, hors budget | point de départ des cycles | A 0,30 · B 0,69 (Mistral Small, k = 3, `dev` corrigé) |
-| 1 | | | | | |
+| 1 | 2026-11-07 | A et B (prompt système commun) | Consigne d'abstention : « Si le Code de la consommation ne fixe pas la valeur demandée, ou si tu ne la connais pas avec certitude, mets `abstained` à vrai. Dès que ta réponse revient à dire que le code ne prévoit rien ou ne précise pas cette valeur, `abstained` doit être vrai. » (commit `9e537b3`) | Au run 0, le modèle écrivait « le code ne prévoit pas » en laissant `abstained` à faux : 83 à 94 % d'hallucinations sur les items sans réponse | A 0,41 · B 0,71. Hallucination A 0,94 → 0,22, B 0,83 → 0,33 ; fausse abstention A 0,00 → 0,17, B 0,13 → 0,20 ; B sur les items avec réponse 0,77 → 0,71 |
+| 2 | | | | | |
 
 **Commit de gel :** à venir
 **Run final sur le `test` :** à venir
