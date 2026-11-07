@@ -169,6 +169,7 @@ Delta B − A : +0,39, IC 95 % [+0,24 ; +0,54] sur 50 items `dev`.
 À compléter. Déjà connues :
 - **Un seul corpus**, en français, dans un seul domaine du droit, dans son état au 13 juillet 2025.
 - **Questions rédigées par un LLM** (Claude Sonnet 5.5), puis relues : leur style peut différer de celui de vrais utilisateurs.
+- **Relecture assistée par un LLM.** Le golden set a été relu par un assistant IA non nommé ; chaque remarque a été vérifiée sur le texte des articles puis tranchée par le propriétaire, mais les items sans remarque n'ont pas été relus par un humain un par un. Une erreur de statut (`rq-133`, classé sans réponse alors que le code y répond) avait échappé à la première relecture du `dev`.
 - **Réponses courtes uniquement** : aucune question ne demande d'interprétation ni de synthèse longue.
 - **Itération sur un seul modèle** : les prompts sont mis au point avec Mistral Small, ce qui peut avantager ce modèle au run final.
 - **Puissance** : au run 0 (`dev`, Mistral Small), s_d = 0,529, au-dessus des 0,4 supposés. Le MDE sur 150 items `test` passe d'environ 9,2 à environ 12,2 points, au-dessus des 10 points qui comptent. Sans conséquence pour la 002, dont l'écart attendu est bien plus grand ; à recalculer pour les expériences de la série, qui compareront deux RAG plus corrélés.

@@ -1,0 +1,43 @@
+{
+  "dataset": "droit-consommation/golden/rag-qa",
+  "version": "v1",
+  "generators": [
+    "domains/droit-consommation/consommation_rag_qa_plan.py",
+    "domains/droit-consommation/consommation_rag_qa_draft.py",
+    "domains/droit-consommation/consommation_rag_qa_build.py"
+  ],
+  "seed": 42,
+  "data_version": "v1",
+  "spec": "evals/spec/rag-qa/v1",
+  "writer_models": [
+    "claude-sonnet-5-5"
+  ],
+  "prompt_sha256": [
+    "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+    "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+    "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+    "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+    "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+    "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8"
+  ],
+  "overlap_threshold": 0.4,
+  "counts": {
+    "lost_context/test": 23,
+    "paraphrase/test": 30,
+    "reference/dev": 8,
+    "direct/test": 30,
+    "paraphrase/dev": 10,
+    "unanswerable/test": 23,
+    "direct/dev": 11,
+    "multi_article/dev": 8,
+    "lost_context/dev": 7,
+    "reference/test": 22,
+    "multi_article/test": 22,
+    "unanswerable/dev": 6
+  },
+  "files": {
+    "items.jsonl": "1df25172a69b336e203896ab60a6bfbff8d2d0e18cc90f86e299a8a34ea5b5c3",
+    "plan.jsonl": "548044f72f665c03d822a92d140f9814dd82ad8d50c4b6a6de84a9ae883d2299",
+    "review/v1.jsonl": "07188b665348f869f48c95051e2f566e0803478761d84a81d2f3e44e116caff9"
+  }
+}

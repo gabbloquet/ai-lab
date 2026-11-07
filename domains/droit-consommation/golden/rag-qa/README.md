@@ -11,7 +11,7 @@ Ici, aucun oracle ne peut calculer la réponse à une question sur un texte juri
 1. **Tirage seedé des articles.** C'est le script qui choisit les articles, pas le LLM. Laissé libre, un LLM choisirait les articles les plus connus, ce qui gonflerait le score du modèle sans récupération.
 2. **Rédaction d'un brouillon par un LLM** : Claude Sonnet 5.5 (`claude-sonnet-5-5`), un fournisseur différent du modèle évalué dans la 002 (Mistral Small). Le prompt du rédacteur est versionné dans le dépôt.
 3. **Contrôles automatiques.** Un brouillon qui échoue à un contrôle bloquant est rejeté ; un brouillon qui échoue à un contrôle d'alerte est signalé pour la relecture.
-4. **Relecture humaine de tous les items retenus** (voir « Relecture »).
+4. **Relecture de tous les items retenus**, assistée par un LLM et arbitrée par le propriétaire (voir « Relecture »).
 5. **Gel.** Les réponses du rédacteur sont enregistrées dans `drafts/v1/`, et le générateur les rejoue sans appeler l'API. La sélection et le split se rejouent à l'identique ; la rédaction, elle, ne se rejoue pas. Une nouvelle rédaction donne une nouvelle version.
 
 ## Composition
@@ -99,6 +99,10 @@ Avant la v1, trois pilotes de 20 brouillons chacun ont servi à mettre au point 
 
 Le générateur produit une page de relecture locale, qui n'est pas versionnée. Pour chaque item, elle montre la question, les faits, les citations surlignées dans l'article et, pour `unanswerable`, les articles les plus proches.
 
+**Comment la relecture a été faite (2026-11-07).** Le propriétaire a fait relire les items par un assistant IA (non nommé), sur la page de relecture. Chaque remarque de l'assistant a été vérifiée sur le texte des articles par Claude, puis tranchée par le propriétaire. Les items que l'assistant a lus sans remarque sont notés `ok` ; le propriétaire a confirmé que tous les items avaient été lus. Ce n'est donc pas une relecture humaine item par item : c'est une limite des expériences qui utilisent ce jeu.
+
+Bilan : `dev` 46 `ok`, 4 corrigés (dont `rq-133`, transformé en item avec réponse), 1 rejeté et remplacé ; `test` 137 `ok`, 13 corrigés. Une part des remarques de l'assistant demandait de retirer des formes absentes du texte (« ANSES », « cinquième classe ») : elles ont été gardées, car la notation cherche le fait dans une réponse libre.
+
 **Tout est relu, en commençant par le `dev`.** La règle prévue était de relire les items signalés par une alerte, plus 20 % des autres tirés au hasard. En v1, le rédacteur exprime un doute sur 148 des 200 items retenus, et 171 items étaient déjà à relire. Relire les 29 restants coûte peu et rend la règle simple. Ce choix ne dépend d'aucun résultat d'expérience. Les 50 items `dev` sont relus d'abord, pour démarrer la 002 ; les 150 items `test` le sont avant le gel des variantes.
 
 **Critères de relecture.** La question se pose comme dans un chat, par quelqu'un qui ne connaît pas le droit : pas de jargon juridique (« mainlevée », « mesures imposées », « attestation ») quand un mot courant suffit, sauf en mode `reference`, où citer un numéro d'article est déjà une démarche de spécialiste. Elle garde juste assez de contexte pour que la réponse soit unique dans le code, et ne donne jamais un détail faux. Les formes acceptées sont des valeurs courtes ; leurs variantes d'écriture (chiffres ou lettres, sigle, unité) sont voulues, car la notation cherche le fait dans une réponse libre, et une réponse plus complète que le fait attendu n'est pas pénalisée.
@@ -118,7 +122,7 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 
 | Version | Données | Seed | Spec | Statut |
 |---|---|---|---|---|
-| `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items retenus. Le `dev` est relu et écrit dans `v1/items-dev.jsonl` (2026-11-07) ; les 150 items `test` restent à relire avant `items.jsonl` |
+| `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items relus et écrits dans `v1/items.jsonl`, avec `MANIFEST.json` (2026-11-07). Pas encore publiée : elle le sera dès qu'un rapport de la 002 la citera |
 
 **Composition du `dev` après relecture : 6 items sans réponse et 11 en mode `direct`**, au lieu de 7 et 10. `rq-133` (« Garantie de conformité : quel délai a le vendeur pour me rembourser après la résolution du contrat ? ») avait été classé sans réponse, mais L217-17 y répond (« au plus tard dans les quatorze jours ») ; il a été transformé en item avec réponse, en mode `direct`, plutôt que remplacé (décision du 2026-11-07). La correction d'un relecteur peut désormais changer le statut, le mode, les articles et les extraits d'un item, et chaque extrait est vérifié dans son article.
 
