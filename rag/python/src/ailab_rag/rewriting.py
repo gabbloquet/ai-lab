@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import hashlib
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from pydantic_ai import Agent
@@ -54,6 +55,13 @@ class QueryRewriter:
         self._cache_dir.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
         return text
+
+    def rewrite_all(self, questions: list[str], workers: int = 8) -> None:
+        """Réécrit d'avance toutes les questions, en parallèle, hors de la boucle asyncio de la
+        campagne : pendant les runs, la recherche ne lit plus que le cache."""
+        pending = list(dict.fromkeys(q for q in questions if not self._path(q).exists()))
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            list(pool.map(self.rewrite, pending))
 
 
 class RewritingRetriever:

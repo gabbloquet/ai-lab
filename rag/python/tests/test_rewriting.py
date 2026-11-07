@@ -76,3 +76,13 @@ def test_the_retriever_searches_with_the_rewrite(tmp_path: Path) -> None:
 
     assert RewritingRetriever(rewriter, inner).retrieve(QUESTION, 5) == found
     assert seen == [("droit de rétractation", 5)]
+
+
+def test_rewrite_all_fills_the_cache_before_a_campaign(tmp_path: Path) -> None:
+    writer = Writer("réécrit")
+    rewriter = QueryRewriter(writer.model(), REFORMULATE, tmp_path)
+
+    rewriter.rewrite_all(["q1", "q2", "q1"], workers=2)
+    rewriter.rewrite("q2")
+
+    assert writer.calls == 2
