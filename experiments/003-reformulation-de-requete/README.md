@@ -76,7 +76,10 @@ Sur le Code de la consommation, **reformuler la question dans la langue du code 
 | # | Date | Variante | Modification | Motif | `correct` dev |
 |---|---|---|---|---|---|
 | 0 | 2026-11-07 | A et B | aucune : mesure de départ | vérifier la chaîne, estimer s_d | A 0,74 · B 0,72 ; delta −0,02 [−0,14 ; +0,10]. B : rang 1 0,45 → 0,52, top-5 0,73 → 0,77 ; paraphrase 0,73 → 0,80, référence 0,88 → 0,75, plusieurs articles 0,50 → 0,38. s_d = 0,417 |
-| 1 | | | | | |
+| 1 | 2026-11-08 | B seulement (prompt de reformulation) ; A garde ses exécutions du run 0 | « … Garde tel quel tout numéro d'article cité, et garde tous les sujets de la question. » (`REFORMULATE_KEEP`, commit `75654d5`) | Au run 0, la reformulation perdait le numéro cité et l'un des sujets des questions sur plusieurs articles | A 0,74 · B 0,707 ; delta −0,03 [−0,15 ; +0,08]. Les reformulations gardent désormais numéros et sujets ; top-5 0,77 → 0,80, mais `generation_miss` 0,07 → 0,08 et référence toujours à 0,75. s_d = 0,411 |
+| 2 | | | | | |
+
+**Run exploratoire, hors budget** : Ministral 14B comme générateur, prompt du cycle 1, 2026-11-08 : A 0,713 · B 0,733, delta +0,02 [−0,12 ; +0,16] ; paraphrase 0,60 → 0,90, référence 0,75 → 0,88, contexte perdu 0,86 → 0,57 ; aucune erreur de format, comme Mistral Small.
 
 **Commit de gel :** à venir
 **Run final sur le `test` :** à venir
