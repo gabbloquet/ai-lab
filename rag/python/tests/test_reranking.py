@@ -1,12 +1,16 @@
 """Levier « reclassement » : la recherche dense propose un lot de candidats, un modèle de
 reclassement les note, et seuls les mieux notés vont au générateur."""
 
+import json
+from collections.abc import Callable
 from pathlib import Path
 
+import httpx
 import numpy as np
+import pytest
 
 from ailab_rag.corpus import Passage
-from ailab_rag.reranking import RerankingRetriever
+from ailab_rag.reranking import CohereReranker, CrossEncoderReranker, RerankingRetriever
 
 # 25 passages, du plus proche au moins proche de la question en recherche dense.
 PASSAGES = [Passage(f"LEGIARTI{i:012d}", f"L{i}", f"texte {i}", 0) for i in range(25)]
@@ -87,3 +91,95 @@ def test_the_cache_depends_on_the_reranker(tmp_path: Path) -> None:
     retriever(other, tmp_path, pool=10, k=1)("une question")
 
     assert len(other.calls) == 1
+
+
+# --- Les deux modèles de la pré-étude ---------------------------------------------------------
+
+
+def cohere(handler: Callable[[httpx.Request], httpx.Response]) -> CohereReranker:
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    return CohereReranker("rerank-v5.0-pro", api_key="test-key", client=client)
+
+
+def test_cohere_receives_the_query_and_every_document_with_the_api_key() -> None:
+    seen: list[httpx.Request] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request)
+        return httpx.Response(200, json={"results": [{"index": 0, "relevance_score": 0.5}]})
+
+    cohere(handler).score("une question", ["doc a"])
+
+    (request,) = seen
+    assert request.url == "https://api.cohere.com/v2/rerank"
+    assert request.headers["authorization"] == "Bearer test-key"
+    assert json.loads(request.content) == {
+        "model": "rerank-v5.0-pro",
+        "query": "une question",
+        "documents": ["doc a"],
+    }
+
+
+def test_cohere_scores_are_put_back_in_the_order_of_the_documents() -> None:
+    """L'API renvoie les résultats du plus au moins pertinent ; `index` donne leur place."""
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            200,
+            json={
+                "results": [
+                    {"index": 2, "relevance_score": 0.9},
+                    {"index": 0, "relevance_score": 0.4},
+                    {"index": 1, "relevance_score": 0.1},
+                ]
+            },
+        )
+
+    assert cohere(handler).score("q", ["a", "b", "c"]) == [0.4, 0.1, 0.9]
+
+
+def test_cohere_must_score_every_document() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json={"results": [{"index": 0, "relevance_score": 0.4}]})
+
+    with pytest.raises(ValueError, match="2 documents"):
+        cohere(handler).score("q", ["a", "b"])
+
+
+def test_a_cohere_http_error_is_raised() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(429, json={"message": "trop de requêtes"})
+
+    with pytest.raises(httpx.HTTPStatusError):
+        cohere(handler).score("q", ["a"])
+
+
+def test_the_cohere_reranker_is_named_after_its_model() -> None:
+    assert cohere(lambda r: httpx.Response(200)).name == "cohere:rerank-v5.0-pro"
+
+
+class FakeCrossEncoder:
+    def __init__(self) -> None:
+        self.pairs: list[tuple[str, str]] = []
+
+    def predict(self, pairs: list[tuple[str, str]]) -> list[float]:
+        self.pairs = pairs
+        return [float(len(d)) for _, d in pairs]
+
+
+def test_the_cross_encoder_scores_each_question_document_pair() -> None:
+    model = FakeCrossEncoder()
+    reranker = CrossEncoderReranker(
+        "BAAI/bge-reranker-v2-m3", revision="abc123", model_object=model
+    )
+
+    assert reranker.score("q", ["a", "bbb"]) == [1.0, 3.0]
+    assert model.pairs == [("q", "a"), ("q", "bbb")]
+
+
+def test_the_cross_encoder_is_named_after_its_model_and_its_weights_revision() -> None:
+    reranker = CrossEncoderReranker(
+        "BAAI/bge-reranker-v2-m3", revision="abc123", model_object=FakeCrossEncoder()
+    )
+
+    assert reranker.name == "hf:BAAI/bge-reranker-v2-m3@abc123"

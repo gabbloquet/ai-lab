@@ -11,8 +11,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Protocol
+from typing import Any, Protocol
+
+import httpx
 
 from ailab_rag.answering import TOP_K
 from ailab_rag.corpus import Passage
@@ -31,6 +34,58 @@ class Reranker(Protocol):
     name: str
 
     def score(self, query: str, documents: list[str]) -> list[float]: ...
+
+
+class CohereReranker:
+    """L'API de reclassement de Cohere (`POST /v2/rerank`, vérifiée le 2026-11-08)."""
+
+    URL = "https://api.cohere.com/v2/rerank"
+
+    def __init__(
+        self, model: str, *, api_key: str, client: httpx.Client | None = None, timeout: float = 60.0
+    ) -> None:
+        self.name = f"cohere:{model}"
+        self._model = model
+        self._api_key = api_key
+        self._client = client or httpx.Client(timeout=timeout)
+
+    def score(self, query: str, documents: list[str]) -> list[float]:
+        response = self._client.post(
+            self.URL,
+            headers={"Authorization": f"Bearer {self._api_key}"},
+            json={"model": self._model, "query": query, "documents": documents},
+        )
+        response.raise_for_status()
+        # Les résultats viennent du plus au moins pertinent : `index` les replace dans l'ordre
+        # des documents envoyés.
+        scores = {r["index"]: float(r["relevance_score"]) for r in response.json()["results"]}
+        if sorted(scores) != list(range(len(documents))):
+            raise ValueError(
+                f"Cohere a noté {len(scores)} documents sur {len(documents)} documents"
+            )
+        return [scores[i] for i in range(len(documents))]
+
+
+class _Predictor(Protocol):
+    def predict(self, pairs: list[tuple[str, str]]) -> Sequence[float] | Any: ...
+
+
+class CrossEncoderReranker:
+    """Un modèle ouvert lancé en local (`sentence_transformers.CrossEncoder`), à une révision
+    figée de ses poids sur Hugging Face. Dépendance optionnelle : `ailab-rag[rerank-local]`."""
+
+    def __init__(
+        self, model: str, *, revision: str, model_object: _Predictor | None = None
+    ) -> None:
+        self.name = f"hf:{model}@{revision}"
+        if model_object is None:
+            from sentence_transformers import CrossEncoder
+
+            model_object = CrossEncoder(model, revision=revision)
+        self._model = model_object
+
+    def score(self, query: str, documents: list[str]) -> list[float]:
+        return [float(s) for s in self._model.predict([(query, d) for d in documents])]
 
 
 def document(passage: Passage) -> str:

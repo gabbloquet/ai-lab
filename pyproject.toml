@@ -7,7 +7,8 @@ dependencies = [
     # Rédacteur du golden set rag-qa (domains/droit-consommation) ; déjà tiré par Pydantic AI.
     "anthropic==2.4.0",
     "ailab-evals",
-    "ailab-rag",
+    # Pré-étude de la 005 : le reclassement local tourne dans le workspace.
+    "ailab-rag[rerank-local]",
     "exp001-agent",
     "exp001-mcp-server",
     "exp002-rag",

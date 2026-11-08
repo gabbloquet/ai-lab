@@ -14,6 +14,15 @@ dependencies = [
     "pydantic-ai-slim[google,mistral]==2.65.0",
     # Traces et scores des campagnes, vers le Langfuse local (infra/langfuse).
     "langfuse==5.1.0",
+    # Reclassement par l'API Cohere : appel HTTP direct, sans le SDK.
+    "httpx==0.28.1",
+]
+
+[project.optional-dependencies]
+# Reclassement par un modèle ouvert lancé en local (bge-reranker-v2-m3) : tire torch.
+rerank-local = [
+    "sentence-transformers==6.2.0",
+    "torch==2.15.0",
 ]
 
 [tool.uv.sources]
