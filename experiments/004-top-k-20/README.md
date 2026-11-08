@@ -1,6 +1,6 @@
 # 004 — Envoyer 20 passages au lieu de 5 ?
 
-> **Statut :** cadrage
+> **Statut :** gelée le 2026-11-08, run final en cours
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -55,7 +55,7 @@ Sur le Code de la consommation, **envoyer au générateur les 20 passages les pl
 | Variante (B) | A avec **top-k = 20** |
 | Ce qui change entre A et B | Le nombre de passages envoyés au générateur, et lui seul |
 | Ce qui est fixé | Le générateur, les prompts, le format de sortie, la température (0), l'index, la requête de recherche (la question seule), les données (`data/v1`) |
-| Générateurs | Un verdict par modèle : `mistral:mistral-small-2603`, `mistral:ministral-14b-2512` et `google:gemini-3.5-flash-lite`, ceux des 002 et 003. Identifiants à revérifier avant le run final |
+| Générateurs | Un verdict par modèle : `mistral:mistral-small-2603`, `mistral:ministral-14b-2512` et `google:gemini-3.5-flash-lite`, ceux des 002 et 003. Identifiants vérifiés le 2026-11-08 (API Mistral `/v1/models`, API Google `v1beta/models`) |
 | Golden set | `domains/droit-consommation/golden/rag-qa/v1` (publié) : n_dev = 50, n_test = 150. Le même `test` que les 002 et 003 |
 | Répétitions | k = 3 |
 | Implémentation | `python/`, sur les briques partagées `ailab_rag` |
@@ -88,7 +88,9 @@ Le run final ajoute `--split test --final --langfuse` ; il refuse de partir si l
 |---|---|---|---|---|---|
 | 0 | 2026-11-08 | A et B | aucune : mesure de départ (commit `8164964`) | vérifier la chaîne, estimer s_d | A 0,767 · **B 0,867** ; delta +0,10 [−0,002 ; +0,20]. `retrieval_miss` 0,18 → 0,03 ; `generation_miss` 0,04 → 0,08 ; `false_abstention` 0,15 → 0,02 ; `hallucination` 0,33 → 0,28 ; plusieurs articles 0,54 → 0,88 ; tokens 1 280 → 4 233. Items B > A : 7, B < A : 3 (abstentions isolées sur une répétition). s_d = 0,358 |
 
-**Commit de gel :** à venir
+**Commit de gel :** le commit « Geler la 004 avant le run final sur le test » (2026-11-08). Son hash est enregistré dans le `summary.json` de chaque run (`run.commit`).
+
+**Configuration gelée :** A, le RAG naïf de la 002, inchangé ; B, le même avec top-k = 20. Le prompt de génération est celui du gel de la 002 pour les deux variantes (`ailab_rag.prompting`, identique à `exp002_rag/prompting.py` du commit `8d082ad` à l'import près). **Budget utilisé : 0 cycle sur 2 pour B.** Les cycles étaient réservés à une hausse des réponses inventées, qui ne s'est pas produite au run 0 (0,33 → 0,28) ; corriger les quelques abstentions à tort aurait ajusté B sur 3 items du `dev`.
 **Run final sur le `test` :** à venir
 
 ## Mesures
@@ -108,6 +110,7 @@ Le run final ajoute `--split test --final --langfuse` ; il refuse de partir si l
 ## Limites
 
 Déjà connues avant le run :
+- **B moins travaillée que A** : A a reçu deux cycles de mise au point dans la 002, B aucun (gel au run 0, voir Configuration gelée). L'écart, s'il joue, joue contre B.
 - **Profondeur choisie sur le `dev`**, parmi six valeurs mesurées : le gain de rappel de la pré-étude peut être en partie optimiste, même si la courbe est régulière.
 - **Puissance insuffisante pour 3 points** (voir Taille de l'échantillon).
 - **Les limites de la 002 s'appliquent** : un seul corpus, questions rédigées par un LLM, golden set relu avec l'aide d'un LLM.
