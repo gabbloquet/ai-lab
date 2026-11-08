@@ -1,6 +1,6 @@
 # 003 — Reformuler la question avant la recherche ?
 
-> **Statut :** gelée le 2026-11-08, run final en cours
+> **Statut :** terminée le 2026-11-08 ([rapport](results/2026-11-08-run-final-test.md))
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -60,7 +60,14 @@ Sur le Code de la consommation, **reformuler la question dans la langue du code 
 
 **Taille de l'échantillon.** Au run 0 du `dev`, s_d = 0,417 : le MDE sur 150 items vaut (1,976 + 0,844) × 0,417 / √150 ≈ **9,6 points**, au-dessus des 5 points qui comptent. **L'expérience manque de puissance pour un gain de 5 points** : un résultat non concluant ne prouvera pas l'absence d'effet. Écrit avant le run final.
 
-**Lancer un run :** commande à écrire avec l'implémentation.
+**Lancer un run** (depuis `python/`) :
+
+```sh
+uv run --env-file ../../../.env python -m exp003_rag.campaign \
+    --split dev --model mistral:mistral-small-2603 --k 3 --run-dir ../runs/<nom>
+```
+
+Le run final ajoute `--split test --final --langfuse` ; il refuse de partir si l'arbre git n'est pas propre.
 
 ## Discipline d'itération
 
@@ -84,7 +91,7 @@ Sur le Code de la consommation, **reformuler la question dans la langue du code 
 **Commit de gel :** le commit « Geler la 003 avant le run final sur le test » (2026-11-08). Son hash est enregistré dans le `summary.json` de chaque run (`run.commit`).
 
 **Configuration gelée :** A, le RAG naïf de la 002, inchangé ; B, la question reformulée par `google:gemini-3.8-flash` avec le prompt du cycle 1 (`REFORMULATE_KEEP`), puis recherche avec la question et avec la reformulation, classements fusionnés par RRF (cycle 2). Budget utilisé : 2 cycles pour B, comme A dans la 002.
-**Run final sur le `test` :** à venir
+**Run final sur le `test` :** le 2026-11-08, [rapport](results/2026-11-08-run-final-test.md)
 
 ## Mesures
 
@@ -94,14 +101,29 @@ Sur le Code de la consommation, **reformuler la question dans la langue du code 
 
 ## Résultats
 
-À venir.
+Run final du 2026-11-08 sur les 150 items `test`, k = 3, 900 exécutions par générateur, aucune erreur. Détail dans le [rapport](results/2026-11-08-run-final-test.md).
+
+| Générateur | `correct` A | `correct` B | Delta B − A [IC 95 %] |
+|---|---|---|---|
+| `mistral-small-2603` | 0,791 | 0,782 | −0,009 [−0,059 ; +0,042] |
+| `ministral-14b-2512` | 0,767 | 0,760 | −0,007 [−0,062 ; +0,049] |
+| `gemini-3.5-flash-lite` | 0,791 | 0,782 | −0,009 [−0,059 ; +0,041] |
+
+- **A reproduit la 002** à 0,5 point près pour les trois générateurs.
+- **La récupération ne gagne rien au top-5** : rang 1 0,43 → 0,48, top-5 0,81 → 0,80. La reformulation change le top-5 de 108 items sur 150 ; B retrouve tous les articles attendus pour 6 items que A ratait, et en perd 7.
+- **Les gains et les pertes s'annulent par mode** : paraphrase et référence montent, contexte perdu (0,94-0,96 → 0,83 pour les trois générateurs) et questions directes baissent. Les reformulations perdantes sont fidèles mais longues, et leur vocabulaire juridique générique attire des articles voisins.
+- **s_d ≈ 0,31 à 0,34**, plus bas qu'au `dev` (0,417) : les intervalles font environ ±5 points.
 
 ## Verdict
 
-À venir.
+**Non concluant pour les trois générateurs, et un gain utile est exclu.** Le delta est de −0,7 à −0,9 point ; les trois bornes hautes (+4,1 à +4,9 points) restent sous les 5 points qui comptent. Sur ce corpus, reformuler la question avant la recherche ne vaut pas l'appel supplémentaire qu'il coûte.
+
+Leçon pour la série : un gain de récupération mesuré sur le `dev` (+4 points au top-5 en pré-étude) ne survit pas forcément au `test`, et un gain au rang 1 ne sert à rien quand le contexte garde 5 passages. Le levier suivant doit agir sur le top-5 lui-même, ou sur sa taille.
 
 ## Limites
 
+- **Arrêt pendant l'envoi à Langfuse (run final).** Les trois processus ont écrit leurs 900 exécutions, puis sont restés bloqués à l'envoi des traces, le serveur Langfuse ne répondant plus ; ils ont été arrêtés avant d'écrire leur `summary.json`. Les résumés ont été recalculés hors ligne depuis les `executions.jsonl`, avec la même fonction et sans appel d'API. Ministral 14B et Gemini Flash-Lite, coupés avant leur départ, ont été lancés ensuite sur le même commit : chaque générateur a fait un seul run sur le `test`. Une grande partie des traces manque dans Langfuse ; les JSONL font foi.
+- **Coût de la reformulation non mesuré** : le cache ne garde que le texte des reformulations, pas leurs tokens ni leur latence.
 - **Incident technique au premier lancement du run final (2026-11-08).** Les trois runs ont échoué au démarrage, pendant le calcul anticipé des reformulations du `test` : des threads ayant chacun leur boucle asyncio partageaient le même client Gemini. Aucune exécution n'a été enregistrée ni lue. Le correctif (les reformulations tournent dans une seule boucle asyncio) a été commité après le gel ; il ne change ni les variantes, ni les prompts, ni les reformulations produites. Le run final a été relancé en entier sur ce commit, comme le prévoit la discipline d'itération.
 
 Déjà connues avant le run :
