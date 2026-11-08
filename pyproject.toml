@@ -12,6 +12,7 @@ dependencies = [
     "exp001-mcp-server",
     "exp002-rag",
     "exp003-rag",
+    "exp004-rag",
 ]
 
 [dependency-groups]
@@ -33,6 +34,7 @@ exp001-agent = { workspace = true }
 exp001-mcp-server = { workspace = true }
 exp002-rag = { workspace = true }
 exp003-rag = { workspace = true }
+exp004-rag = { workspace = true }
 
 [tool.uv.workspace]
 members = [
@@ -42,6 +44,7 @@ members = [
     "experiments/001-mcp-outils-par-intention/python/mcp_server",
     "experiments/002-rag-naif-vs-modele-seul/python",
     "experiments/003-reformulation-de-requete/python",
+    "experiments/004-top-k-20/python",
 ]
 
 [tool.pytest.ini_options]
@@ -58,7 +61,7 @@ select = ["E", "F", "W", "I", "UP", "B", "SIM"]
 
 [tool.ruff.lint.isort]
 # Paquets du workspace : ruff ne les trouve pas seul, ils vivent sous experiments/.
-known-first-party = ["ailab_evals", "ailab_rag", "exp001_agent", "exp001_mcp_server", "exp002_rag", "exp003_rag"]
+known-first-party = ["ailab_evals", "ailab_rag", "exp001_agent", "exp001_mcp_server", "exp002_rag", "exp003_rag", "exp004_rag"]
 
 [tool.mypy]
 # Vérifie que les adaptateurs du jumeau respectent les ports (typing.Protocol) du domaine.
