@@ -58,17 +58,25 @@ Sur le Code de la consommation, **reformuler la question dans la langue du code 
 
 **Deux modèles dans B.** La reformulation est faite par Gemini 3.8 Flash quel que soit le générateur. Pour le générateur Gemini Flash-Lite, les deux modèles sont du même fournisseur ; pour les générateurs Mistral, non. La comparaison reste à générateur constant, comme le veut la règle du lab.
 
-**Taille de l'échantillon.** Deux RAG sont plus proches l'un de l'autre qu'un RAG et un modèle seul : s_d devrait être bien plus faible qu'en 002 (0,55 à 0,60). Il sera estimé au run 0 du `dev`. Avec s_d = 0,3, le MDE sur 150 items vaut (1,976 + 0,844) × 0,3 / √150 ≈ 6,9 points, au-dessus des 5 points qui comptent : **l'expérience risque de manquer de puissance**, et le verdict le dira.
+**Taille de l'échantillon.** Au run 0 du `dev`, s_d = 0,417 : le MDE sur 150 items vaut (1,976 + 0,844) × 0,417 / √150 ≈ **9,6 points**, au-dessus des 5 points qui comptent. **L'expérience manque de puissance pour un gain de 5 points** : un résultat non concluant ne prouvera pas l'absence d'effet. Écrit avant le run final.
 
 **Lancer un run :** commande à écrire avec l'implémentation.
 
 ## Discipline d'itération
 
-1. **Pas d'itération sur les prompts.** A est le RAG naïf gelé de la 002 et n'a rien à mettre au point. Itérer sur le prompt de reformulation donnerait à B un effort que A n'a pas. Le prompt et le modèle de reformulation sont donc fixés par la pré-étude.
-2. **Un run 0 sur le `dev`**, pour vérifier la chaîne et estimer s_d, puis le gel.
-3. **Un seul run sur le `test`.**
+1. **Même effort pour chaque variante.** A est le RAG naïf gelé de la 002, qui y a reçu deux cycles de mise au point (consigne d'abstention, phrase d'ancrage). B a droit au même nombre de cycles sur le `dev`, pour mettre au point sa reformulation. A ne change pas.
+2. **Gel avant le run final**, puis **un seul run sur le `test`**.
 
-**Budget d'itération :** N = 0 cycle par variante.
+**Budget d'itération :** A, 2 cycles reçus dans la 002, gelé ; B, N = 2 cycles sur le `dev`, avec Mistral Small.
+
+**Écart au protocole d'origine (2026-11-08).** Le cadrage prévoyait aucun cycle pour B. C'était traiter B moins bien que A, qui a reçu deux cycles dans la 002. Le budget a été porté à deux cycles pour B après le run 0 du `dev` et avant tout run sur le `test` ; la règle est désormais écrite dans le `CLAUDE.md` du dépôt.
+
+**Journal d'itération**, sur le `dev` uniquement (Mistral Small, k = 3) :
+
+| # | Date | Variante | Modification | Motif | `correct` dev |
+|---|---|---|---|---|---|
+| 0 | 2026-11-07 | A et B | aucune : mesure de départ | vérifier la chaîne, estimer s_d | A 0,74 · B 0,72 ; delta −0,02 [−0,14 ; +0,10]. B : rang 1 0,45 → 0,52, top-5 0,73 → 0,77 ; paraphrase 0,73 → 0,80, référence 0,88 → 0,75, plusieurs articles 0,50 → 0,38. s_d = 0,417 |
+| 1 | | | | | |
 
 **Commit de gel :** à venir
 **Run final sur le `test` :** à venir

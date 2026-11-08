@@ -17,6 +17,7 @@ Dépôt public : le laboratoire et la vitrine d'un AI Engineer freelance (Java /
 - Chaque expérience répond à UNE question et se conclut par un verdict chiffré (baseline / variante / delta, avec la dispersion sur plusieurs répétitions). Elle suit le gabarit `experiments/_template/README.md`, et son protocole est écrit avant les résultats.
 - Le README d'une expérience indique le ou les domaines sur lesquels elle tourne.
 - Discipline d'itération : même budget d'itération sur `dev` pour chaque variante, commit de gel avant le run `test`, un seul run final. Claude signale tout écart, par exemple une variante plus travaillée que l'autre ou une demande de relancer le `test`.
+- Quand un levier est comparé à une baseline gelée de la série, la baseline compte les cycles qu'elle a déjà reçus, et le levier a droit au même nombre de cycles sur `dev`.
 - Les comparaisons se font à modèle constant. Les tokens ne se comparent jamais d'un fournisseur à l'autre.
 
 ## Évaluation : spec partagée, implémentations par langage
