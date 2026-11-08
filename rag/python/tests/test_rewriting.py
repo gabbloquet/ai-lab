@@ -86,3 +86,10 @@ def test_rewrite_all_fills_the_cache_before_a_campaign(tmp_path: Path) -> None:
     rewriter.rewrite("q2")
 
     assert writer.calls == 2
+
+
+def test_the_cycle_one_prompt_keeps_article_numbers_and_every_subject() -> None:
+    from ailab_rag.rewriting import REFORMULATE_KEEP
+
+    assert REFORMULATE_KEEP.startswith(REFORMULATE)
+    assert "numéro d'article" in REFORMULATE_KEEP and "tous les sujets" in REFORMULATE_KEEP

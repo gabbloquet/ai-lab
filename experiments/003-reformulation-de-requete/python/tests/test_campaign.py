@@ -60,3 +60,10 @@ def test_a_final_run_needs_a_clean_git_tree() -> None:
             ["--split", "test", "--final", "--model", "mistral:mistral-small-2603"],
             git_is_clean=lambda: False,
         )
+
+
+def test_b_uses_the_cycle_one_reformulation_prompt() -> None:
+    from ailab_rag.rewriting import REFORMULATE_KEEP
+    from exp003_rag.campaign import REWRITE_PROMPT
+
+    assert REWRITE_PROMPT == REFORMULATE_KEEP

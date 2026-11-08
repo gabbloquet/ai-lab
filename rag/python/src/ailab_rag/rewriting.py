@@ -25,6 +25,12 @@ REFORMULATE = (
     "Réécris cette question d'un particulier avec le vocabulaire juridique du Code de la "
     "consommation français, en une seule phrase, sans y répondre."
 )
+# Cycle 1 de B dans la 003 (2026-11-08) : au run 0, la reformulation perdait le numéro d'article
+# cité et l'un des sujets des questions sur plusieurs articles.
+REFORMULATE_KEEP = (
+    REFORMULATE
+    + " Garde tel quel tout numéro d'article cité, et garde tous les sujets de la question."
+)
 HYDE = (
     "Écris en deux ou trois phrases l'extrait d'article du Code de la consommation français qui "
     "répondrait à cette question, dans le style du code."

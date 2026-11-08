@@ -25,7 +25,7 @@ from ailab_rag.campaign import read_jsonl, run_campaign, summarize
 from ailab_rag.corpus import Passage
 from ailab_rag.embeddings import Embedder
 from ailab_rag.retrieval import Index
-from ailab_rag.rewriting import REFORMULATE, QueryRewriter
+from ailab_rag.rewriting import REFORMULATE_KEEP, QueryRewriter
 from ailab_rag.tracing import NO_TRACING, LangfuseTracing, Tracer
 
 ROOT = Path(__file__).resolve().parents[5]
@@ -37,6 +37,8 @@ CACHE_DIR = ROOT / ".cache" / "ailab_rag"
 BASELINE = NAIVE_RAG
 VARIANT = "query_rewrite"
 REWRITER = "google:gemini-3.8-flash"
+# Prompt de reformulation de B : celui du cycle 1 (journal d'itération du README).
+REWRITE_PROMPT = REFORMULATE_KEEP
 
 
 def build_retrievers(
@@ -106,7 +108,7 @@ def main(argv: list[str] | None = None, git_is_clean: Callable[[], bool] = _git_
     items = [i for i in read_jsonl(golden) if i["split"] == args.split]
     embedder = CachedEmbedder(MistralEmbedder(), CACHE_DIR / "embeddings")
     index = build_index(passages(read_jsonl(ARTICLES)), embedder)
-    rewriter = QueryRewriter(args.rewriter, REFORMULATE, CACHE_DIR / "rewrites")
+    rewriter = QueryRewriter(args.rewriter, REWRITE_PROMPT, CACHE_DIR / "rewrites")
     rewriter.rewrite_all([i["question"] for i in items])
 
     slug = args.model.replace(":", "-").replace("/", "-")
