@@ -102,7 +102,9 @@ Sur le Code de la consommation, **reformuler la question dans la langue du code 
 
 ## Limites
 
-À compléter. Déjà connues :
+- **Incident technique au premier lancement du run final (2026-11-08).** Les trois runs ont échoué au démarrage, pendant le calcul anticipé des reformulations du `test` : des threads ayant chacun leur boucle asyncio partageaient le même client Gemini. Aucune exécution n'a été enregistrée ni lue. Le correctif (les reformulations tournent dans une seule boucle asyncio) a été commité après le gel ; il ne change ni les variantes, ni les prompts, ni les reformulations produites. Le run final a été relancé en entier sur ce commit, comme le prévoit la discipline d'itération.
+
+Déjà connues avant le run :
 - **Levier choisi sur le `dev`**, parmi huit configurations : le gain de la pré-étude est en partie optimiste (sélection du meilleur sur 44 items).
 - **Deux fournisseurs dans B** pour les générateurs Mistral.
 - **Les limites de la 002 s'appliquent** : un seul corpus, questions rédigées par un LLM, golden set relu avec l'aide d'un LLM.

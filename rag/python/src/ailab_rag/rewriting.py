@@ -9,9 +9,9 @@ par prompt, et toutes les répétitions cherchent avec la même réécriture.
 
 from __future__ import annotations
 
+import asyncio
 import hashlib
 from collections.abc import Callable
-from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from pydantic_ai import Agent
@@ -50,24 +50,38 @@ class QueryRewriter:
         key = f"{self._model_name}\n{self._instructions}\n{question}"
         return self._cache_dir / f"{hashlib.sha256(key.encode()).hexdigest()}.txt"
 
+    def _store(self, question: str, output: object) -> str:
+        text = str(output).strip()
+        if not text:
+            return question
+        self._cache_dir.mkdir(parents=True, exist_ok=True)
+        self._path(question).write_text(text, encoding="utf-8")
+        return text
+
     def rewrite(self, question: str) -> str:
         """La réécriture, ou la question d'origine si le modèle ne renvoie rien d'utile."""
         path = self._path(question)
         if path.exists():
             return path.read_text(encoding="utf-8")
-        text = str(self._agent.run_sync(question).output).strip()
-        if not text:
-            return question
-        self._cache_dir.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding="utf-8")
-        return text
+        return self._store(question, self._agent.run_sync(question).output)
 
     def rewrite_all(self, questions: list[str], workers: int = 8) -> None:
-        """Réécrit d'avance toutes les questions, en parallèle, hors de la boucle asyncio de la
-        campagne : pendant les runs, la recherche ne lit plus que le cache."""
+        """Réécrit d'avance toutes les questions, en parallèle, avant la campagne : pendant les
+        runs, la recherche ne lit plus que le cache. Une seule boucle asyncio : le client du
+        modèle ne peut pas être partagé entre plusieurs boucles (incident du 2026-11-08, où des
+        threads ayant chacun leur boucle se le partageaient)."""
         pending = list(dict.fromkeys(q for q in questions if not self._path(q).exists()))
-        with ThreadPoolExecutor(max_workers=workers) as pool:
-            list(pool.map(self.rewrite, pending))
+        if pending:
+            asyncio.run(self._rewrite_all(pending, workers))
+
+    async def _rewrite_all(self, questions: list[str], workers: int) -> None:
+        semaphore = asyncio.Semaphore(workers)
+
+        async def one(question: str) -> None:
+            async with semaphore:
+                self._store(question, (await self._agent.run(question)).output)
+
+        await asyncio.gather(*(one(q) for q in questions))
 
 
 class RewritingRetriever:
