@@ -1,7 +1,8 @@
 """La campagne de la 003 : RAG naïf (A) contre RAG qui reformule la question avant la recherche (B).
 
 A est exactement le RAG naïf de la 002 (briques `ailab_rag`). B passe la question au réécrivain,
-puis lance la même recherche dense ; le générateur reçoit dans les deux cas la question d'origine.
+cherche avec la question et avec sa reformulation, et fusionne les deux classements par RRF
+(cycle 2) ; le générateur reçoit dans les deux cas la question d'origine.
 Les réécritures sont calculées d'avance, avant la campagne, et gardées en cache.
 
     uv run --env-file .env python -m exp003_rag.campaign \\
@@ -24,6 +25,7 @@ from ailab_rag.answering import NAIVE_RAG, TOP_K, Retriever
 from ailab_rag.campaign import read_jsonl, run_campaign, summarize
 from ailab_rag.corpus import Passage
 from ailab_rag.embeddings import Embedder
+from ailab_rag.hybrid import DEPTH, reciprocal_rank_fusion
 from ailab_rag.retrieval import Index
 from ailab_rag.rewriting import REFORMULATE_KEEP, QueryRewriter
 from ailab_rag.tracing import NO_TRACING, LangfuseTracing, Tracer
@@ -48,7 +50,10 @@ def build_retrievers(
         return index.search(embedder.embed([question])[0], k)
 
     def rewriting(question: str) -> list[Passage]:
-        return index.search(embedder.embed([rewriter.rewrite(question)])[0], k)
+        # Cycle 2 : fusion RRF du classement de la question et de celui de la reformulation.
+        vectors = embedder.embed([question, rewriter.rewrite(question)])
+        rankings = [index.search(vector, DEPTH) for vector in vectors]
+        return reciprocal_rank_fusion(rankings)[:k]
 
     return {BASELINE: naive, VARIANT: rewriting}
 

@@ -36,6 +36,17 @@ def test_the_two_variants_are_the_naive_rag_and_the_rewriting_rag() -> None:
     assert (BASELINE, VARIANT) == ("naive_rag", "query_rewrite")
 
 
+def test_the_variant_fuses_the_rankings_of_the_question_and_of_its_rewrite(tmp_path: Path) -> None:
+    """Cycle 2 : la recherche de B combine, par RRF, celle de la question et celle de la
+    reformulation."""
+    index = Index([P1, P2], np.array([[1.0, 0.0], [0.0, 1.0]], dtype=np.float32))
+
+    retrievers = build_retrievers(index, FixedEmbedder(), rewriter(tmp_path), k=2)
+
+    # Question : P2 puis P1 ; reformulation : P1 puis P2. Égalité RRF : P2, vu en premier.
+    assert retrievers[VARIANT]("changer d'avis ?") == [P2, P1]
+
+
 def test_the_baseline_searches_with_the_question_and_the_variant_with_its_rewrite(
     tmp_path: Path,
 ) -> None:
@@ -44,7 +55,8 @@ def test_the_baseline_searches_with_the_question_and_the_variant_with_its_rewrit
     retrievers = build_retrievers(index, FixedEmbedder(), rewriter(tmp_path), k=1)
 
     assert retrievers[BASELINE]("changer d'avis ?") == [P2]
-    assert retrievers[VARIANT]("changer d'avis ?") == [P1]
+    # Avec un seul passage gardé, l'égalité RRF est départagée par l'ordre de la question.
+    assert retrievers[VARIANT]("changer d'avis ?") == [P2]
 
 
 def test_the_test_split_needs_the_final_flag() -> None:
