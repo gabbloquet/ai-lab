@@ -86,7 +86,7 @@ Le run final ajoute `--split test --final --langfuse` ; il refuse de partir si l
 
 | # | Date | Variante | Modification | Motif | `correct` dev |
 |---|---|---|---|---|---|
-| 0 | | A et B | aucune : mesure de départ | vérifier la chaîne, estimer s_d | |
+| 0 | 2026-11-08 | A et B | aucune : mesure de départ (commit `8164964`) | vérifier la chaîne, estimer s_d | A 0,767 · **B 0,867** ; delta +0,10 [−0,002 ; +0,20]. `retrieval_miss` 0,18 → 0,03 ; `generation_miss` 0,04 → 0,08 ; `false_abstention` 0,15 → 0,02 ; `hallucination` 0,33 → 0,28 ; plusieurs articles 0,54 → 0,88 ; tokens 1 280 → 4 233. Items B > A : 7, B < A : 3 (abstentions isolées sur une répétition). s_d = 0,358 |
 
 **Commit de gel :** à venir
 **Run final sur le `test` :** à venir

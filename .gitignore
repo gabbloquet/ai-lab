@@ -49,3 +49,6 @@ experiments/002-rag-naif-vs-modele-seul/runs/
 # Caches partagés de la série RAG (embeddings, réécritures), recalculables
 .cache/
 experiments/003-reformulation-de-requete/runs/
+
+# 004 : runs de travail (JSONL bruts, traces)
+experiments/004-top-k-20/runs/
