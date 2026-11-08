@@ -1,11 +1,13 @@
 """Les utilitaires communs aux lignes de commande des campagnes : chemins affichés, état git."""
 
 import subprocess
+import threading
+import time
 from pathlib import Path
 
 import pytest
 
-from ailab_rag.cli import current_commit, display_path, git_is_clean
+from ailab_rag.cli import current_commit, display_path, flush_with_deadline, git_is_clean
 
 
 def git_repo(path: Path) -> Path:
@@ -59,3 +61,26 @@ def test_the_current_commit_is_the_full_hash_of_head(tmp_path: Path) -> None:
 
     assert current_commit(repo) == head
     assert len(head) == 40
+
+
+def test_a_flush_that_finishes_in_time_is_reported_as_done() -> None:
+    calls = []
+
+    assert flush_with_deadline(lambda: calls.append("flushed"), seconds=1.0)
+    assert calls == ["flushed"]
+
+
+def test_a_flush_that_hangs_is_abandoned_at_the_deadline() -> None:
+    """Leçon de la 003 : un Langfuse qui ne répond plus ne doit pas bloquer la campagne."""
+    never = threading.Event()
+    start = time.monotonic()
+
+    assert not flush_with_deadline(never.wait, seconds=0.1)
+    assert time.monotonic() - start < 1.0
+
+
+def test_a_flush_that_fails_is_reported_as_not_done() -> None:
+    def fail() -> None:
+        raise ConnectionError("Langfuse injoignable")
+
+    assert not flush_with_deadline(fail, seconds=1.0)

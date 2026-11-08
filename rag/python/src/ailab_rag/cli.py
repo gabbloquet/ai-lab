@@ -7,6 +7,8 @@ ce qui a tourné pour leurs runs finaux. Chaque fonction reçoit la racine du d�
 from __future__ import annotations
 
 import subprocess
+import threading
+from collections.abc import Callable
 from pathlib import Path
 
 from ailab_rag.tracing import LangfuseTracing
@@ -43,3 +45,26 @@ def langfuse_tracer(root: Path, *, run_id: str, split: str, model: str) -> Langf
     check_reachable(base_url)
     client = Langfuse(public_key=public_key, secret_key=secret_key, base_url=base_url)
     return LangfuseTracing(client, run_id=run_id, split=split, model=model)
+
+
+def flush_with_deadline(flush: Callable[[], object], *, seconds: float) -> bool:
+    """Lance `flush` et l'abandonne après `seconds` : vrai s'il a fini sans erreur à temps.
+
+    `flush()` de Langfuse n'a pas de délai ; dans la 003, un serveur qui ne répondait plus a
+    bloqué les campagnes après leur dernière exécution. Le fil d'envoi est un démon : il ne
+    retient pas le processus s'il est abandonné.
+    """
+    outcome: list[bool] = []
+
+    def run() -> None:
+        try:
+            flush()
+        except Exception:
+            outcome.append(False)
+        else:
+            outcome.append(True)
+
+    thread = threading.Thread(target=run, name="langfuse-flush", daemon=True)
+    thread.start()
+    thread.join(seconds)
+    return outcome == [True]

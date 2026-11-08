@@ -66,7 +66,14 @@ Sur le Code de la consommation, **envoyer au générateur les 20 passages les pl
 
 **Taille de l'échantillon.** Au run final de la 003, sur ce même `test` et avec ce même A, s_d valait 0,31 à 0,34. Avec s_d = 0,33, le MDE sur 150 items vaut (1,976 + 0,844) × 0,33 / √150 ≈ **7,6 points**, au-dessus des 3 points qui comptent. **L'expérience manque de puissance pour un gain de 3 points** : un résultat non concluant ne prouvera pas l'absence d'effet, et exclure un gain utile demanderait une borne haute sous +3 points. Écrit avant le premier run.
 
-**Lancer un run :** commande à écrire avec l'implémentation.
+**Lancer un run** (depuis `python/`) :
+
+```sh
+uv run --env-file ../../../.env python -m exp004_rag.campaign \
+    --split dev --model mistral:mistral-small-2603 --k 3 --run-dir ../runs/<nom>
+```
+
+Le run final ajoute `--split test --final --langfuse` ; il refuse de partir si l'arbre git n'est pas propre. Le `summary.json` est écrit avant l'envoi des traces à Langfuse, qui est abandonné après 120 s (`run.langfuse_flushed` le signale).
 
 ## Discipline d'itération
 

@@ -1,10 +1,11 @@
 """La campagne de la 004 : le même RAG naïf, avec 5 passages (A) ou 20 (B)."""
 
 import numpy as np
+import pytest
 
 from ailab_rag.corpus import Passage
 from ailab_rag.retrieval import Index
-from exp004_rag.campaign import BASELINE, VARIANT, build_retrievers
+from exp004_rag.campaign import BASELINE, VARIANT, build_retrievers, main
 
 # 25 passages, du plus proche au moins proche de la question : le passage i a pour vecteur
 # (25 − i, 1), et la question (1, 0).
@@ -35,3 +36,18 @@ def test_the_variant_starts_with_exactly_the_passages_of_the_baseline() -> None:
     retrievers = build_retrievers(INDEX, FixedEmbedder())
 
     assert retrievers[VARIANT]("une question")[:5] == retrievers[BASELINE]("une question")
+
+
+def test_the_test_split_needs_the_final_flag() -> None:
+    with pytest.raises(SystemExit, match="--final"):
+        main(
+            ["--split", "test", "--model", "mistral:mistral-small-2603"], git_is_clean=lambda: True
+        )
+
+
+def test_a_final_run_needs_a_clean_git_tree() -> None:
+    with pytest.raises(SystemExit, match="gel"):
+        main(
+            ["--split", "test", "--final", "--model", "mistral:mistral-small-2603"],
+            git_is_clean=lambda: False,
+        )
