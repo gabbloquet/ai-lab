@@ -1,6 +1,6 @@
 # 004 — Envoyer 20 passages au lieu de 5 ?
 
-> **Statut :** gelée le 2026-11-08, run final en cours
+> **Statut :** terminée le 2026-11-08 ([rapport](results/2026-11-08-run-final-test.md))
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -91,7 +91,7 @@ Le run final ajoute `--split test --final --langfuse` ; il refuse de partir si l
 **Commit de gel :** le commit « Geler la 004 avant le run final sur le test » (2026-11-08). Son hash est enregistré dans le `summary.json` de chaque run (`run.commit`).
 
 **Configuration gelée :** A, le RAG naïf de la 002, inchangé ; B, le même avec top-k = 20. Le prompt de génération est celui du gel de la 002 pour les deux variantes (`ailab_rag.prompting`, identique à `exp002_rag/prompting.py` du commit `8d082ad` à l'import près). **Budget utilisé : 0 cycle sur 2 pour B.** Les cycles étaient réservés à une hausse des réponses inventées, qui ne s'est pas produite au run 0 (0,33 → 0,28) ; corriger les quelques abstentions à tort aurait ajusté B sur 3 items du `dev`.
-**Run final sur le `test` :** à venir
+**Run final sur le `test` :** le 2026-11-08, [rapport](results/2026-11-08-run-final-test.md)
 
 ## Mesures
 
@@ -101,13 +101,33 @@ Le run final ajoute `--split test --final --langfuse` ; il refuse de partir si l
 
 ## Résultats
 
-À venir.
+Run final du 2026-11-08 sur les 150 items `test`, k = 3, 900 exécutions par générateur, aucune erreur. Détail dans le [rapport](results/2026-11-08-run-final-test.md).
+
+| Générateur | `correct` A | `correct` B | Delta B − A [IC 95 %] |
+|---|---|---|---|
+| `mistral-small-2603` | 0,798 | 0,838 | +0,040 [−0,016 ; +0,096] |
+| `ministral-14b-2512` | 0,767 | 0,840 | +0,073 [+0,019 ; +0,128] |
+| `gemini-3.5-flash-lite` | 0,784 | 0,864 | +0,080 [+0,030 ; +0,130] |
+
+- **Les échecs de récupération baissent de moitié ou plus** pour les trois générateurs (`retrieval_miss` 0,14-0,21 → 0,06-0,09) ; les questions à plusieurs articles gagnent de 8 à 26 points.
+- **Sur les questions avec réponse, B gagne partout** : +6,6 (Mistral Small), +7,9 (Ministral 14B), +10,8 points (Gemini Flash-Lite).
+- **Sur les questions sans réponse, les articles voisins font inventer** Mistral Small (`hallucination` 0,39 → 0,49) et Gemini Flash-Lite (0,04 → 0,12) ; pas Ministral 14B (0,45 → 0,41).
+- **Tokens d'entrée × 3,1**, sans appel supplémentaire.
+- **A reproduit les 002 et 003** à 0,7 point près.
 
 ## Verdict
 
-À venir.
+- **Ministral 14B : B meilleure**, +7,3 points [+1,9 ; +12,8]. Le gain est réel ; il peut être sous les 3 points qui comptent.
+- **Gemini Flash-Lite : B meilleure**, +8,0 points [+3,0 ; +13,0]. Le gain est réel et atteint l'écart qui compte.
+- **Mistral Small : non concluant**, +4,0 points [−1,6 ; +9,6]. Son gain sur les questions avec réponse est mangé par les réponses inventées sur les questions sans réponse.
+
+Envoyer 20 passages est le premier levier de la série à battre le RAG naïf. Son coût se paie sur l'abstention : la prochaine expérience peut soit garder 20 passages en renforçant la consigne d'abstention, soit chercher à mettre les bons articles dans 5 passages (reclassement).
 
 ## Limites
+
+- **Traces Langfuse incomplètes** : le serveur n'a pas tout reçu dans les 120 s laissées après chaque run (`run.langfuse_flushed: false`). Les résumés étaient écrits avant l'envoi et les processus sont sortis normalement ; les JSONL font foi.
+- **Hausse des réponses inventées invisible sur le `dev`** : le `dev` n'a que 6 items sans réponse, contre 23 dans le `test`. Le gel sans cycle s'est appuyé sur ces 6 items.
+- **La spec ne mesure pas le rappel au-delà du top-10** : l'apport des passages 11 à 20 ne se lit qu'à travers `retrieval_miss`.
 
 Déjà connues avant le run :
 - **B moins travaillée que A** : A a reçu deux cycles de mise au point dans la 002, B aucun (gel au run 0, voir Configuration gelée). L'écart, s'il joue, joue contre B.
