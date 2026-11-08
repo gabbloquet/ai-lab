@@ -146,12 +146,16 @@ def test_cohere_must_score_every_document() -> None:
         cohere(handler).score("q", ["a", "b"])
 
 
-def test_a_cohere_http_error_is_raised() -> None:
+def test_a_cohere_http_error_is_raised_without_retry() -> None:
+    calls = []
+
     def handler(request: httpx.Request) -> httpx.Response:
-        return httpx.Response(429, json={"message": "trop de requêtes"})
+        calls.append(request)
+        return httpx.Response(401, json={"message": "clé refusée"})
 
     with pytest.raises(httpx.HTTPStatusError):
         cohere(handler).score("q", ["a"])
+    assert len(calls) == 1
 
 
 def test_the_cohere_reranker_is_named_after_its_model() -> None:
@@ -183,3 +187,69 @@ def test_the_cross_encoder_is_named_after_its_model_and_its_weights_revision() -
     )
 
     assert reranker.name == "hf:BAAI/bge-reranker-v2-m3@abc123"
+
+
+class FakeClock:
+    """Horloge et sommeil factices : `sleep` avance l'horloge et garde trace des attentes."""
+
+    def __init__(self) -> None:
+        self.now = 0.0
+        self.slept: list[float] = []
+
+    def time(self) -> float:
+        return self.now
+
+    def sleep(self, seconds: float) -> None:
+        self.slept.append(seconds)
+        self.now += seconds
+
+
+def paced_cohere(
+    handler: Callable[[httpx.Request], httpx.Response], clock: FakeClock
+) -> CohereReranker:
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    return CohereReranker(
+        "rerank-v5.0-pro",
+        api_key="test-key",
+        client=client,
+        min_interval=6.0,
+        retry_wait=60.0,
+        max_attempts=3,
+        clock=clock.time,
+        sleep=clock.sleep,
+    )
+
+
+def ok(request: httpx.Request) -> httpx.Response:
+    return httpx.Response(200, json={"results": [{"index": 0, "relevance_score": 0.5}]})
+
+
+def test_cohere_calls_are_spaced_by_the_minimum_interval() -> None:
+    """La clé d'essai de Cohere accepte 10 requêtes par minute pour le reclassement."""
+    clock = FakeClock()
+    reranker = paced_cohere(ok, clock)
+
+    reranker.score("q", ["a"])
+    clock.now += 2.0
+    reranker.score("q", ["a"])
+
+    assert clock.slept == [4.0]
+
+
+def test_a_rate_limited_call_waits_and_is_retried() -> None:
+    clock = FakeClock()
+    answers = iter([httpx.Response(429), ok(httpx.Request("POST", CohereReranker.URL))])
+
+    reranker = paced_cohere(lambda request: next(answers), clock)
+
+    assert reranker.score("q", ["a"]) == [0.5]
+    assert clock.slept == [60.0]
+
+
+def test_a_call_still_rate_limited_after_the_last_attempt_is_raised() -> None:
+    clock = FakeClock()
+    reranker = paced_cohere(lambda request: httpx.Response(429), clock)
+
+    with pytest.raises(httpx.HTTPStatusError):
+        reranker.score("q", ["a"])
+    assert clock.slept == [60.0, 60.0]

@@ -11,7 +11,8 @@ from __future__ import annotations
 
 import hashlib
 import json
-from collections.abc import Sequence
+import time
+from collections.abc import Callable, Sequence
 from pathlib import Path
 from typing import Any, Protocol
 
@@ -37,25 +38,41 @@ class Reranker(Protocol):
 
 
 class CohereReranker:
-    """L'API de reclassement de Cohere (`POST /v2/rerank`, vérifiée le 2026-11-08)."""
+    """L'API de reclassement de Cohere (`POST /v2/rerank`, vérifiée le 2026-11-08).
+
+    La clé d'essai accepte 10 requêtes par minute et 1 000 par mois (vérifié le 2026-11-08) :
+    les appels sont espacés d'au moins `min_interval` secondes, et un refus pour quota (429)
+    est relancé après `retry_wait` secondes, `max_attempts` fois au plus.
+    """
 
     URL = "https://api.cohere.com/v2/rerank"
 
     def __init__(
-        self, model: str, *, api_key: str, client: httpx.Client | None = None, timeout: float = 60.0
+        self,
+        model: str,
+        *,
+        api_key: str,
+        client: httpx.Client | None = None,
+        timeout: float = 60.0,
+        min_interval: float = 6.0,
+        retry_wait: float = 60.0,
+        max_attempts: int = 5,
+        clock: Callable[[], float] = time.monotonic,
+        sleep: Callable[[float], None] = time.sleep,
     ) -> None:
         self.name = f"cohere:{model}"
         self._model = model
         self._api_key = api_key
         self._client = client or httpx.Client(timeout=timeout)
+        self._min_interval = min_interval
+        self._retry_wait = retry_wait
+        self._max_attempts = max_attempts
+        self._clock = clock
+        self._sleep = sleep
+        self._last_call: float | None = None
 
     def score(self, query: str, documents: list[str]) -> list[float]:
-        response = self._client.post(
-            self.URL,
-            headers={"Authorization": f"Bearer {self._api_key}"},
-            json={"model": self._model, "query": query, "documents": documents},
-        )
-        response.raise_for_status()
+        response = self._post({"model": self._model, "query": query, "documents": documents})
         # Les résultats viennent du plus au moins pertinent : `index` les replace dans l'ordre
         # des documents envoyés.
         scores = {r["index"]: float(r["relevance_score"]) for r in response.json()["results"]}
@@ -64,6 +81,22 @@ class CohereReranker:
                 f"Cohere a noté {len(scores)} documents sur {len(documents)} documents"
             )
         return [scores[i] for i in range(len(documents))]
+
+    def _post(self, body: dict[str, Any]) -> httpx.Response:
+        for attempt in range(1, self._max_attempts + 1):
+            if self._last_call is not None:
+                wait = self._last_call + self._min_interval - self._clock()
+                if wait > 0:
+                    self._sleep(wait)
+            self._last_call = self._clock()
+            response = self._client.post(
+                self.URL, headers={"Authorization": f"Bearer {self._api_key}"}, json=body
+            )
+            if response.status_code != 429 or attempt == self._max_attempts:
+                response.raise_for_status()
+                return response
+            self._sleep(self._retry_wait)
+        raise AssertionError("inatteignable")
 
 
 class _Predictor(Protocol):
