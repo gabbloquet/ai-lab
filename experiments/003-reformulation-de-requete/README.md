@@ -1,6 +1,6 @@
 # 003 — Reformuler la question avant la recherche ?
 
-> **Statut :** cadrage
+> **Statut :** gelée le 2026-11-08, run final en cours
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -47,8 +47,8 @@ Sur le Code de la consommation, **reformuler la question dans la langue du code 
 | Élément | Valeur |
 |---|---|
 | Baseline (A) | Le **RAG naïf de la 002**, gelé : un passage par article, texte seul indexé, `mistral-embed`, cosinus exact, top-k = 5, prompts du gel de la 002 |
-| Variante (B) | A, avec la question **reformulée par `google:gemini-3.8-flash`** avant la recherche. Le texte embarqué pour la recherche est la reformulation ; le générateur reçoit la question d'origine et les extraits trouvés |
-| Ce qui change entre A et B | Le texte de la requête de recherche, et lui seul |
+| Variante (B) | A, avec la question **reformulée par `google:gemini-3.8-flash`** avant la recherche. Version gelée (cycle 2) : recherche avec la question et avec la reformulation, classements fusionnés par RRF. Le générateur reçoit la question d'origine et les extraits trouvés |
+| Ce qui change entre A et B | La requête de recherche, et elle seule : la question seule pour A ; la question et sa reformulation, fusionnées, pour B |
 | Ce qui est fixé | Le générateur, les prompts de génération, le format de sortie, la température (0), l'index, le top-k, les données (`data/v1`) |
 | Prompt de reformulation | « Réécris cette question d'un particulier avec le vocabulaire juridique du Code de la consommation français, en une seule phrase, sans y répondre. » (`ailab_rag.rewriting.REFORMULATE`, validé le 2026-11-07), température 0, réécritures en cache : une seule par question |
 | Générateurs | Un verdict par modèle : `mistral:mistral-small-2603`, `mistral:ministral-14b-2512` et `google:gemini-3.5-flash-lite`, les trois modèles du run final de la 002. Identifiants à revérifier avant le run final |
@@ -81,7 +81,9 @@ Sur le Code de la consommation, **reformuler la question dans la langue du code 
 
 **Run exploratoire, hors budget** : Ministral 14B comme générateur, prompt du cycle 1, 2026-11-08 : A 0,713 · B 0,733, delta +0,02 [−0,12 ; +0,16] ; paraphrase 0,60 → 0,90, référence 0,75 → 0,88, contexte perdu 0,86 → 0,57 ; aucune erreur de format, comme Mistral Small.
 
-**Commit de gel :** à venir
+**Commit de gel :** le commit « Geler la 003 avant le run final sur le test » (2026-11-08). Son hash est enregistré dans le `summary.json` de chaque run (`run.commit`).
+
+**Configuration gelée :** A, le RAG naïf de la 002, inchangé ; B, la question reformulée par `google:gemini-3.8-flash` avec le prompt du cycle 1 (`REFORMULATE_KEEP`), puis recherche avec la question et avec la reformulation, classements fusionnés par RRF (cycle 2). Budget utilisé : 2 cycles pour B, comme A dans la 002.
 **Run final sur le `test` :** à venir
 
 ## Mesures
