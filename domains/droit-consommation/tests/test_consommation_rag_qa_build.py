@@ -1047,3 +1047,11 @@ def test_the_false_value_is_of_the_same_kind_as_the_fact() -> None:
 def test_a_false_value_found_elsewhere_in_the_code_raises_an_alert() -> None:
     alerts = v4_check("false_premise", (FP,), FALSE_PREMISE_OK).alerts
     assert "la valeur fausse figure dans d'autres articles : L312-19" in alerts
+
+
+def test_mode_order_knows_every_mode_and_keeps_the_v1_order() -> None:
+    from consommation_rag_qa_build import MODE_ORDER
+    from consommation_rag_qa_plan import DRAW_ORDER, V1_QUOTAS
+
+    assert set(MODE_ORDER) == set(DRAW_ORDER)
+    assert MODE_ORDER[: len(V1_QUOTAS)] == list(V1_QUOTAS)

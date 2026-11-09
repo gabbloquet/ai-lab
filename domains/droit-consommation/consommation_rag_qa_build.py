@@ -630,7 +630,8 @@ def build(
 
 # Les modes de la v4 viennent après ceux de la v1 : l'ordre relatif des anciens, donc leurs
 # identifiants, ne change pas.
-MODE_ORDER = list(V4_QUOTAS)
+# `bridge`, retiré de la v4, reste connu : ses pilotes se reconstruisent.
+MODE_ORDER = [*V4_QUOTAS, "bridge"]
 QUOTAS: dict[str, dict[str, tuple[int, int]]] = {
     "v1": V1_QUOTAS,
     "v2": V2_QUOTAS,
