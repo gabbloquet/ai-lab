@@ -120,7 +120,7 @@ La campagne reclasse d'abord toutes les questions du split (un appel à Cohere p
 
 | # | Date | Variante | Modification | Motif | `correct` dev |
 |---|---|---|---|---|---|
-| 0 | | A et B | aucune : mesure de départ | vérifier la chaîne, estimer s_d | |
+| 0 | 2026-11-09 | A et B | aucune : mesure de départ (commit `3947d71`, sans Langfuse : serveur arrêté) | vérifier la chaîne, estimer s_d | A 0,873 · B 0,827 ; delta −0,047 [−0,113 ; +0,020]. Items avec réponse 0,894 → 0,871 ; `hallucination` 0,28 → **0,50** (6 items sans réponse : 5 exécutions sur 18 → 9) ; `retrieval_miss` 0,02 → 0,05 ; rappel au rang 1 0,45 → 0,69 ; tokens 4 234 → 1 508. Items B > A : 2, B < A : 4. Sur rq-146 (sans réponse), le reclassement place en tête des articles qui ressemblent à une réponse (un plafond d'amende voisin), et le modèle les reprend. s_d = 0,233 |
 
 **Commit de gel :** à venir
 **Run final sur le `test` :** à venir
