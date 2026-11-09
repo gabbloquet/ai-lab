@@ -118,6 +118,34 @@ Consigne d'abstention, critères de l'étape 5 : **non concluant** avec Mistral 
 
 **Configuration recommandée sur ce corpus** : 20 passages, ou le reclassement en 5 pour réduire les tokens au prix d'un fournisseur de plus. Pas de consigne d'abstention commune aux modèles.
 
+## Pré-étude après le run consolidé : d'autres types de recherche (2026-11-09, `dev` seulement)
+
+**Question** : un autre type de recherche que la recherche dense ferait-il mieux sur la v4 ? Seule la pré-étude de l'étape 2 l'avait mesuré, sur la v1, à 5 et 10 passages. Changer la mesure de similarité ne sert à rien : les vecteurs sont normalisés, et le cosinus, le produit scalaire et la distance euclidienne donnent le même classement. La recherche est déjà exacte.
+
+**Mesure** : récupération seule, sans générateur, sur les 63 items du `dev` de `rag-qa/v4` qui ont une réponse. Rappel des articles attendus (`evidence_recall`, spec § 6) et part des items dont tous les articles attendus sont trouvés. Le script est `prestudy/search_v4_dev.py`. Il ne lit que les caches, sans clé d'API, donc sans aucun appel. Le `test` n'a pas été mesuré.
+
+| Recherche | Rappel @5 | @10 | @20 | Tous les articles @5 | Tous @20 |
+|---|---|---|---|---|---|
+| Dense, cosinus (configurations du run consolidé) | 0,778 | 0,833 | 0,929 | 0,762 | 0,921 |
+| Hybride BM25 + dense (fusion RRF, k = 60) | 0,690 | 0,841 | 0,865 | 0,651 | 0,841 |
+| Dense + en-tête (numéro et plan indexés) | 0,762 | 0,873 | 0,937 | 0,730 | 0,921 |
+| Hybride + en-tête | 0,825 | 0,857 | 0,905 | 0,794 | 0,889 |
+| Reclassement Cohere de 50 candidats (étape 4) | **0,913** | 0,913 | **0,960** | **0,889** | **0,952** |
+
+| Recherche, contre la dense | Items gagnés / perdus @5 | @20 |
+|---|---|---|
+| Hybride | 4 / 10 | 0 / 5 |
+| Dense + en-tête | 4 / 5 | 3 / 3 |
+| Hybride + en-tête | 8 / 4 | 1 / 3 |
+| Reclassement Cohere | 12 / 1 | 3 / 0 |
+
+- **L'hybride seul dégrade**, surtout en paraphrase (0,50 → 0,20 @5) : BM25 ne retrouve pas une question posée avec d'autres mots que l'article. On retrouve le constat de la pré-étude de l'étape 2.
+- **Hybride + en-tête gagne un peu à 5 passages** (+4,7 points) et perd à 20. Il reste loin du reclassement, déjà jugé au run consolidé.
+- **À 20 passages, la récupération est presque saturée sur le `dev`** : 93 % des articles attendus avec la recherche dense, 96 % avec le reclassement. Les articles manqués sont surtout en paraphrase (0,70 @20) et en comparaison (0,75, sur 4 items).
+- **63 items** : un item vaut 1,6 point. Seuls les écarts du reclassement sont nets.
+
+**Recommandation** (2026-11-09, non tranchée par le propriétaire) : pas d'étape sur le type de recherche. Les erreurs qui restent avec 20 passages ne viennent plus surtout de la récupération. Une piste n'est pas couverte, parce qu'elle demande un appel : un autre modèle d'embedding, qui obligerait à encoder les 2 150 articles chez un autre fournisseur.
+
 ## Limites
 
 - Celles de chaque étape. Les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention. Le run consolidé écarte ces 12 questions.
