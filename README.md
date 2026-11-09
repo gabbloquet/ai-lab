@@ -57,13 +57,14 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 | RAG | [002 — RAG naïf ou modèle seul ?](experiments/002-rag-naif-vs-modele-seul/README.md) | Terminée : le RAG naïf apporte +37 à +44 pts de réponses justes (Mistral Small, Ministral 14B, Gemini Flash-Lite) ; la récupération est le premier goulot |
 | RAG | [003 — Reformuler la question avant la recherche ?](experiments/003-reformulation-de-requete/README.md) | Terminée : non concluant pour les trois générateurs (−0,7 à −0,9 pt), gain de 5 pts exclu ; les gains en paraphrase s'annulent avec les pertes en contexte perdu |
 | RAG | [004 — Envoyer 20 passages au lieu de 5 ?](experiments/004-top-k-20/README.md) | Terminée : B meilleure avec Ministral 14B (+7,3 pts) et Gemini Flash-Lite (+8,0 pts), non concluant avec Mistral Small (+4,0 pts) ; moins d'échecs de récupération, plus de réponses inventées sur les questions sans réponse |
+| RAG | [005 — Reclasser 50 candidats pour n'en envoyer que 5 ?](experiments/005-reclassement/README.md) | Terminée : non concluant pour les trois générateurs (−0,4 à −2,0 pts face à 20 passages) ; 2,6 fois moins de tokens, mais +0,3 à 0,4 s par question pour l'appel à Cohere |
 
 ### Par domaine
 
 | Domaine | Contenu | Expériences |
 |---|---|---|
 | [magasin](domains/magasin/README.md) | Catalogue d'environ 50 produits, 5 magasins, stocks (synthétiques) | 001 |
-| [droit-consommation](domains/droit-consommation/README.md) | Code de la consommation, 2 150 articles en vigueur au 13/07/2025 (LEGI, Licence Ouverte) ; golden set de 200 questions | 002, 003, 004 |
+| [droit-consommation](domains/droit-consommation/README.md) | Code de la consommation, 2 150 articles en vigueur au 13/07/2025 (LEGI, Licence Ouverte) ; golden set de 200 questions | 002, 003, 004, 005 |
 
 ## Résultats clés
 
@@ -83,6 +84,9 @@ Chaque ligne renvoie au rapport daté qui l'a produite.
 | [004](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `mistral-small-2603` | `correct` | 0,798 | 0,838 | +0,040 [−0,016 ; +0,096] | non concluant |
 | [004](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,767 | 0,840 | +0,073 [+0,019 ; +0,128] | B meilleure |
 | [004](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,784 | 0,864 | +0,080 [+0,030 ; +0,130] | B meilleure |
+| [005](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `mistral-small-2603` | `correct` | 0,847 | 0,833 | −0,013 [−0,056 ; +0,029] | non concluant |
+| [005](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,840 | 0,836 | −0,004 [−0,056 ; +0,047] | non concluant |
+| [005](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,878 | 0,858 | −0,020 [−0,065 ; +0,025] | non concluant |
 
 ## Organisation du dépôt
 

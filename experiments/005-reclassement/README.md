@@ -1,6 +1,6 @@
 # 005 — Reclasser 50 candidats pour n'en envoyer que 5 ?
 
-> **Statut :** gelée le 2026-11-09, run final en cours
+> **Statut :** terminée le 2026-11-09 ([rapport](results/2026-11-09-run-final-test.md))
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -125,7 +125,7 @@ La campagne reclasse d'abord toutes les questions du split (un appel à Cohere p
 **Commit de gel :** le commit « Geler la 005 avant le run final sur le test » (2026-11-09). Son hash est enregistré dans le `summary.json` de chaque run (`run.commit`).
 
 **Configuration gelée :** A, le RAG à 20 passages de la 004, inchangé ; B, les 50 premiers passages denses reclassés par Cohere `rerank-v5.0-pro`, 5 envoyés. Prompts de génération du gel de la 002 pour les deux variantes. **Budget utilisé : 0 cycle sur 2 pour B.** Au run 0, B perdait surtout sur les questions sans réponse (2 items sur 6) ; un cycle sur la consigne d'abstention aurait mêlé à cette expérience le levier « consigne d'abstention », prévu ensuite, et ajusté B sur 6 items du `dev`.
-**Run final sur le `test` :** à venir
+**Run final sur le `test` :** le 2026-11-09, [rapport](results/2026-11-09-run-final-test.md)
 
 ## Mesures
 
@@ -141,13 +141,30 @@ La campagne reclasse d'abord toutes les questions du split (un appel à Cohere p
 
 ## Résultats
 
-À venir.
+Run final du 2026-11-09 sur les 150 items `test`, k = 3, 900 exécutions par générateur, aucune erreur. Détail dans le [rapport](results/2026-11-09-run-final-test.md).
+
+| Générateur | `correct` A | `correct` B | Delta B − A [IC 95 %] | Temps médian A → B | Tokens A → B |
+|---|---|---|---|---|---|
+| `mistral-small-2603` | 0,847 | 0,833 | −0,013 [−0,056 ; +0,029] | 0,84 → ≈ 1,24 s | 3 962 → 1 531 |
+| `ministral-14b-2512` | 0,840 | 0,836 | −0,004 [−0,056 ; +0,047] | 1,50 → ≈ 1,77 s | 3 972 → 1 540 |
+| `gemini-3.5-flash-lite` | 0,878 | 0,858 | −0,020 [−0,065 ; +0,025] | 0,77 → ≈ 1,19 s | 4 106 → 1 594 |
+
+- **Jeu égal sur la qualité** : B est à 0,4 à 2 points de A, sans que l'écart soit établi dans un sens ou dans l'autre.
+- **B coûte 2,6 fois moins de tokens, mais répond plus lentement** : l'appel à Cohere (0,46 s en médiane) coûte plus que ce que la génération gagne à lire 5 passages au lieu de 20 (0,04 à 0,19 s).
+- **Pas moins de réponses inventées** sur les questions sans réponse (0,49 → 0,46 pour Mistral Small, inchangées pour les deux autres).
+- **A reproduit la 004** à 1,4 point près.
 
 ## Verdict
 
-À venir.
+**Non concluant pour les trois générateurs**, deltas de −0,4 à −2,0 points. La non-infériorité à −3 points n'est établie pour aucun ; une perte de plus de 3 points ne l'est pas non plus. Pour Gemini Flash-Lite, un gain utile de B est exclu (borne haute +2,5 points).
+
+Reclasser 50 candidats en 5 donne à peu près la même qualité qu'envoyer 20 passages : c'est un échange entre tokens (2,6 fois moins) et latence (+0,3 à 0,4 s par question, un fournisseur de plus), pas un gain de qualité. Aucun des deux ne fait moins inventer sur les questions sans réponse : c'est le levier suivant de la série.
 
 ## Limites
+
+- **Ministral 14B et Gemini Flash-Lite sans Langfuse** : deux échecs au démarrage, avant toute exécution, faute de mémoire dans la machine virtuelle de Docker (2,35 Go) ; relancés sans Langfuse sur le même commit, à la décision du propriétaire. Journaux dans `runs/incident-2026-11-09/`. Les JSONL font foi.
+- **Docker redémarré avant le run** : deux conteneurs d'un autre projet occupaient les ports de Langfuse ; ils ont été arrêtés et la pile Langfuse recréée en gardant ses volumes.
+- **Temps de réponse mesurés depuis un seul poste**, sous la charge des API ce jour-là.
 
 Déjà connues avant le run :
 - **B moins travaillée que A** : A a reçu deux cycles dans la 002, B aucun (gel au run 0).
