@@ -36,6 +36,10 @@ V1_QUOTAS: dict[str, tuple[int, int]] = {
 # d'abstention) ; le `test` est celui de la v1. 31 tâches `dev` retenues en mode `unanswerable` :
 # 30 items sans réponse, plus rq-133, transformé en item avec réponse à la relecture de la v1.
 V2_QUOTAS: dict[str, tuple[int, int]] = {**V1_QUOTAS, "unanswerable": (31, 23)}
+# v3 : la v2, plus 40 questions sans réponse dans le `test` (expérience 006) ; les 150 items `test`
+# de la v1 restent identiques. Avec 11 questions sans réponse valides sur 138 (audit de la v1),
+# un effet de la consigne d'abstention sur `correct` ne pouvait pas dépasser quelques points.
+V3_QUOTAS: dict[str, tuple[int, int]] = {**V1_QUOTAS, "unanswerable": (31, 63)}
 # Pilote : 20 brouillons jetés après la mise au point du prompt, sans surplus.
 PILOT_QUOTAS: dict[str, tuple[int, int]] = {
     "direct": (4, 0),

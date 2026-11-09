@@ -710,3 +710,48 @@ def test_cli_publishes_an_extension_that_keeps_its_base(
     manifest = json.loads((golden / "v2" / "MANIFEST.json").read_text("utf-8"))
     assert manifest["base_version"] == "v1"
     assert manifest["counts"] == {"direct/dev": 2, "direct/test": 1}
+
+
+def test_cli_chains_extensions_and_keeps_every_published_id(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """v3 étend v2, qui étend v1 : les identifiants de v2 (y compris ses ajouts) sont repris."""
+    import consommation_rag_qa_build as build_module
+
+    monkeypatch.setitem(build_module.QUOTAS, "v1", {"direct": (1, 1)})
+    monkeypatch.setitem(build_module.QUOTAS, "v2", {"direct": (2, 1)})
+    monkeypatch.setitem(build_module.QUOTAS, "v3", {"direct": (2, 2)})
+    golden, articles = tmp_path / "golden", tmp_path / "articles.jsonl"
+    articles.write_text("".join(json.dumps(a) + "\n" for a in (A, B, C)), "utf-8")
+    plan, drafts = plan_and_drafts(
+        {("dev", 1): GOOD, ("test", 1): GOOD, ("dev", 2): GOOD, ("test", 2): GOOD}
+    )
+    tasks = {"v1": plan[:2], "v2": plan[2:3], "v3": plan[3:]}
+    for version, own in tasks.items():
+        (golden / version).mkdir(parents=True, exist_ok=True)
+        (golden / "drafts" / version).mkdir(parents=True)
+        for t in own:
+            (golden / "drafts" / version / f"{t['task']}.json").write_text(
+                json.dumps(drafts[t["task"]]), "utf-8"
+            )
+        (golden / "review").mkdir(exist_ok=True)
+        (golden / "review" / f"{version}.jsonl").write_text(
+            "".join(json.dumps({"task": t["task"], "verdict": "ok"}) + "\n" for t in own), "utf-8"
+        )
+    cumulative = {"v1": plan[:2], "v2": plan[:3], "v3": plan}
+    for version, rows in cumulative.items():
+        (golden / version / "plan.jsonl").write_text("".join(json.dumps(t) + "\n" for t in rows))
+    common = ["--seed", "1", "--articles", str(articles), "--golden-dir", str(golden), "--publish"]
+    main(["--version", "v1", "--quotas", "v1", *common])
+    main(["--version", "v2", "--quotas", "v2", "--base-version", "v1", *common])
+
+    main(["--version", "v3", "--quotas", "v3", "--base-version", "v2", *common])
+
+    def read(version: str) -> list[dict]:
+        return [
+            json.loads(line) for line in (golden / version / "items.jsonl").read_text().splitlines()
+        ]
+
+    v2, v3 = read("v2"), read("v3")
+    assert [i for i in v3 if i["id"] in {x["id"] for x in v2}] == v2
+    assert [i["id"] for i in v3 if i["id"] not in {x["id"] for x in v2}] == ["rq-004"]

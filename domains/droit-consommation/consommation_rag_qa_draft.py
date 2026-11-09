@@ -245,13 +245,18 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--golden-dir", type=Path, default=GOLDEN_DIR)
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--limit", type=int, default=None, help="au plus N nouvelles tâches")
-    parser.add_argument("--base-version", help="version étendue, dont les brouillons sont repris")
+    parser.add_argument(
+        "--base-version",
+        action="append",
+        default=[],
+        help="version étendue, dont les brouillons sont repris (répétable : v1, puis v2…)",
+    )
     args = parser.parse_args(argv)
 
     plan = _read_jsonl(args.golden_dir / args.version / "plan.jsonl")
     by_id = {a["id"]: a for a in _read_jsonl(args.articles)}
     drafts_dir = args.golden_dir / "drafts" / args.version
-    base_dirs = [args.golden_dir / "drafts" / args.base_version] if args.base_version else []
+    base_dirs = [args.golden_dir / "drafts" / base for base in args.base_version]
     written = run_drafts(
         plan,
         by_id,

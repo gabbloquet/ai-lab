@@ -220,3 +220,19 @@ def test_run_drafts_skips_tasks_drafted_in_the_base_version(
 
     assert written == ["t-2"]
     assert len(writer.requests) == 1
+
+
+def test_run_drafts_skips_tasks_drafted_in_any_base_version(
+    tmp_path: Path, prompts: dict[str, str]
+) -> None:
+    v1, v2 = tmp_path / "v1", tmp_path / "v2"
+    for directory, name in ((v1, "t-1"), (v2, "t-2")):
+        directory.mkdir()
+        (directory / f"{name}.json").write_text("{}", "utf-8")
+    plan = [task("direct", name=n) for n in ("t-1", "t-2", "t-3")]
+
+    written = run_drafts(
+        plan, BY_ID, FakeWriter(ok()), tmp_path / "v3", prompts, workers=1, base_dirs=[v1, v2]
+    )
+
+    assert written == ["t-3"]

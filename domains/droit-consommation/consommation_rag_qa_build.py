@@ -25,7 +25,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from string import Template
 
-from consommation_rag_qa_plan import PILOT_QUOTAS, V1_QUOTAS, V2_QUOTAS
+from consommation_rag_qa_plan import PILOT_QUOTAS, V1_QUOTAS, V2_QUOTAS, V3_QUOTAS
 
 from ailab_evals.rag_qa import fact_found, normalize
 
@@ -471,6 +471,7 @@ MODE_ORDER = list(V1_QUOTAS)
 QUOTAS: dict[str, dict[str, tuple[int, int]]] = {
     "v1": V1_QUOTAS,
     "v2": V2_QUOTAS,
+    "v3": V3_QUOTAS,
     "pilot": PILOT_QUOTAS,
 }
 
@@ -708,10 +709,53 @@ def _drafts_and_review(golden_dir: Path, version: str) -> tuple[dict, dict]:
     return drafts, review
 
 
+def _load_version(
+    golden_dir: Path,
+    version: str,
+    by_id: dict[str, dict],
+    *,
+    seed: int,
+    overlap_threshold: float | None,
+    max_question_words: int | None,
+) -> tuple[dict, dict, BuildResult, dict[str, str]]:
+    """Reconstruit une version publiée : ses brouillons et verdicts (avec ceux de sa base, lue dans
+    son `MANIFEST.json`, et ainsi de suite), sa sélection et les identifiants qu'elle a publiés."""
+    manifest_path = golden_dir / version / "MANIFEST.json"
+    manifest = json.loads(manifest_path.read_text("utf-8")) if manifest_path.exists() else {}
+    drafts, review = _drafts_and_review(golden_dir, version)
+    base_ids: dict[str, str] | None = None
+    if manifest.get("base_version"):
+        base_drafts, base_review, _, base_ids = _load_version(
+            golden_dir,
+            manifest["base_version"],
+            by_id,
+            seed=seed,
+            overlap_threshold=overlap_threshold,
+            max_question_words=max_question_words,
+        )
+        drafts, review = base_drafts | drafts, base_review | review
+    result = build(
+        _read_jsonl(golden_dir / version / "plan.jsonl"),
+        drafts,
+        by_id,
+        QUOTAS[version],
+        seed=seed,
+        review=review,
+        overlap_threshold=overlap_threshold,
+        max_question_words=max_question_words,
+    )
+    ids = (
+        assign_ids(result, seed=seed)
+        if base_ids is None
+        else _extension_ids(result, seed=seed, base_ids=base_ids)
+    )
+    return drafts, review, result, ids
+
+
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
     parser.add_argument("--version", required=True)
-    parser.add_argument("--quotas", choices=["v1", "v2", "pilot"], default="v1")
+    parser.add_argument("--quotas", choices=["v1", "v2", "v3", "pilot"], default="v1")
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--articles", type=Path, default=DOMAIN_DIR / "data/v1/articles.jsonl")
     parser.add_argument("--golden-dir", type=Path, default=GOLDEN_DIR)
@@ -726,7 +770,6 @@ def main(argv: list[str] | None = None) -> None:
         "--base-version",
         help="version publiée que celle-ci étend : brouillons, relecture et identifiants repris",
     )
-    parser.add_argument("--base-quotas", choices=["v1", "v2", "pilot"], default="v1")
     args = parser.parse_args(argv)
 
     version_dir = args.golden_dir / args.version
@@ -738,20 +781,15 @@ def main(argv: list[str] | None = None) -> None:
     base_ids: dict[str, str] | None = None
     base_items: list[dict] | None = None
     if args.base_version:
-        base_dir = args.golden_dir / args.base_version
-        base_drafts, base_review = _drafts_and_review(args.golden_dir, args.base_version)
-        base = build(
-            _read_jsonl(base_dir / "plan.jsonl"),
-            base_drafts,
+        base_drafts, base_review, _, base_ids = _load_version(
+            args.golden_dir,
+            args.base_version,
             by_id,
-            QUOTAS[args.base_quotas],
             seed=args.seed,
-            review=base_review,
             overlap_threshold=args.overlap_threshold,
             max_question_words=args.max_question_words,
         )
-        base_ids = assign_ids(base, seed=args.seed)
-        base_items = _read_jsonl(base_dir / "items.jsonl")
+        base_items = _read_jsonl(args.golden_dir / args.base_version / "items.jsonl")
         # La version étendue reprend les brouillons et les verdicts de sa base ; les siens
         # s'y ajoutent, et l'emportent pour une même tâche.
         drafts, review = base_drafts | drafts, base_review | review
