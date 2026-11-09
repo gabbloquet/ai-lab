@@ -100,7 +100,9 @@ class CohereReranker:
 
 
 class _Predictor(Protocol):
-    def predict(self, pairs: list[tuple[str, str]]) -> Sequence[float] | Any: ...
+    def predict(
+        self, pairs: list[tuple[str, str]], *, batch_size: int
+    ) -> Sequence[float] | Any: ...
 
 
 class CrossEncoderReranker:
@@ -108,9 +110,18 @@ class CrossEncoderReranker:
     figée de ses poids sur Hugging Face. Dépendance optionnelle : `ailab-rag[rerank-local]`."""
 
     def __init__(
-        self, model: str, *, revision: str, model_object: _Predictor | None = None
+        self,
+        model: str,
+        *,
+        revision: str,
+        batch_size: int = 8,
+        model_object: _Predictor | None = None,
     ) -> None:
         self.name = f"hf:{model}@{revision}"
+        # 8 paires par lot : à 32 (défaut de sentence-transformers), les annexes longues font
+        # déborder la mémoire d'un Mac de 18 Go et le temps par question passe de 4 à 66 s
+        # (pré-étude de la 005). La taille du lot ne change pas les notes.
+        self._batch_size = batch_size
         if model_object is None:
             from sentence_transformers import CrossEncoder
 
@@ -118,7 +129,8 @@ class CrossEncoderReranker:
         self._model = model_object
 
     def score(self, query: str, documents: list[str]) -> list[float]:
-        return [float(s) for s in self._model.predict([(query, d) for d in documents])]
+        pairs = [(query, d) for d in documents]
+        return [float(s) for s in self._model.predict(pairs, batch_size=self._batch_size)]
 
 
 def document(passage: Passage) -> str:

@@ -165,9 +165,11 @@ def test_the_cohere_reranker_is_named_after_its_model() -> None:
 class FakeCrossEncoder:
     def __init__(self) -> None:
         self.pairs: list[tuple[str, str]] = []
+        self.batch_size: int | None = None
 
-    def predict(self, pairs: list[tuple[str, str]]) -> list[float]:
+    def predict(self, pairs: list[tuple[str, str]], *, batch_size: int) -> list[float]:
         self.pairs = pairs
+        self.batch_size = batch_size
         return [float(len(d)) for _, d in pairs]
 
 
@@ -253,3 +255,13 @@ def test_a_call_still_rate_limited_after_the_last_attempt_is_raised() -> None:
     with pytest.raises(httpx.HTTPStatusError):
         reranker.score("q", ["a"])
     assert clock.slept == [60.0, 60.0]
+
+
+def test_the_cross_encoder_sends_small_batches_by_default() -> None:
+    """À 32 paires par lot, les annexes longues font déborder la mémoire d'un Mac de 18 Go."""
+    model = FakeCrossEncoder()
+    reranker = CrossEncoderReranker("m", revision="r", model_object=model)
+
+    reranker.score("q", ["a"])
+
+    assert model.batch_size == 8
