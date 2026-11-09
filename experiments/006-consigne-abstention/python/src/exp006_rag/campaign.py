@@ -44,17 +44,15 @@ VARIANT = "abstain_strict"
 TOP_K = 20
 # Hausse tolérée des abstentions à tort (garde du verdict), fixée avant le premier run (README).
 GUARD_MARGIN = 0.03
-# Phrase d'ancrage de B, cycle 1 (2026-11-09). Au run 0 du dev, les réponses inventées
-# appliquaient une règle écrite pour un cas voisin (frais de dossier d'un crédit immobilier, corps
-# huit du contrat de crédit) ; la consigne de départ (« un extrait sur un cas voisin ne suffit
-# pas ») ne les arrêtait pas. Le cycle 1 fait vérifier le champ d'application de la règle.
+# Phrase d'ancrage gelée de B (2026-11-09) : le point de départ du README, celui du run 0. Il vise
+# l'échec observé au run 0 du dev de la 005 (rq-146, un plafond d'amende voisin repris comme
+# réponse). Le cycle 1 (vérifier le champ d'application de la règle) a fait pire au dev ; B est
+# gelée sur la version au meilleur verdict à deux critères du dev, celle-ci (journal du README).
 STRICT_GROUNDING = (
     GROUNDING
-    + " La valeur doit valoir pour la situation exacte de la question : même type de contrat ou "
-    "de produit, même professionnel, même étape. Une règle écrite pour un autre cas (un crédit "
-    "immobilier quand la question porte sur un autre produit, un contrat de crédit quand elle "
-    "porte sur une multipropriété) ne répond pas : mets alors `abstained` à vrai, même si la règle "
-    "semble proche."
+    + " Avant de répondre, vérifie qu'un extrait donne exactement la valeur demandée, pour la "
+    "situation de la question. Un extrait sur un cas voisin (autre acteur, autre procédure, autre "
+    "contrat) ne suffit pas : mets alors `abstained` à vrai."
 )
 GROUNDINGS = {VARIANT: STRICT_GROUNDING}
 
