@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-101",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2269,
+    "output_tokens": 213
+  },
+  "output": {
+    "question": "Combien de personnes extérieures peuvent accompagner les agents de la répression des fraudes lors d'un contrôle ?",
+    "why_unanswerable": "L'article liste les catégories de personnes pouvant accompagner les agents (fonctionnaires, agents contractuels, stagiaires de certaines directions) mais ne fixe aucun nombre maximal d'accompagnants par contrôle, et aucun autre article du code ne le prévoit.",
+    "doubt": "Un autre article du Code de la consommation pourrait théoriquement limiter le nombre d'accompagnants, mais cela paraît peu probable."
+  },
+  "raw_text": "{\"question\":\"Combien de personnes extérieures peuvent accompagner les agents de la répression des fraudes lors d'un contrôle ?\",\"why_unanswerable\":\"L'article liste les catégories de personnes pouvant accompagner les agents (fonctionnaires, agents contractuels, stagiaires de certaines directions) mais ne fixe aucun nombre maximal d'accompagnants par contrôle, et aucun autre article du code ne le prévoit.\",\"doubt\":\"Un autre article du Code de la consommation pourrait théoriquement limiter le nombre d'accompagnants, mais cela paraît peu probable.\"}"
+}

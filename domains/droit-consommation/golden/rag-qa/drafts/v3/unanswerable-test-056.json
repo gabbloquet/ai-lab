@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-056",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2008,
+    "output_tokens": 235
+  },
+  "output": {
+    "question": "Combien de personnes peuvent assister l'agent lors d'une visite domiciliaire chez un professionnel ?",
+    "why_unanswerable": "L'article fixe seulement les horaires (pas avant 6 heures ni après 21 heures) et les conditions de dérogation. Il ne précise aucun nombre maximal de personnes pouvant assister l'agent lors de la visite ; ce détail n'est pas fixé par ce texte.",
+    "doubt": "D'autres articles de la même section (présence de l'occupant, officier de police judiciaire, témoins) pourraient mentionner des personnes présentes, ce qui pourrait donner une réponse partielle sur le nombre."
+  },
+  "raw_text": "{\"question\":\"Combien de personnes peuvent assister l'agent lors d'une visite domiciliaire chez un professionnel ?\",\"why_unanswerable\":\"L'article fixe seulement les horaires (pas avant 6 heures ni après 21 heures) et les conditions de dérogation. Il ne précise aucun nombre maximal de personnes pouvant assister l'agent lors de la visite ; ce détail n'est pas fixé par ce texte.\",\"doubt\":\"D'autres articles de la même section (présence de l'occupant, officier de police judiciaire, témoins) pourraient mentionner des personnes présentes, ce qui pourrait donner une réponse partielle sur le nombre.\"}"
+}

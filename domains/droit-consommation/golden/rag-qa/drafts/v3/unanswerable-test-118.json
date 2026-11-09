@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-118",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2305,
+    "output_tokens": 203
+  },
+  "output": {
+    "question": "Contrôle d'un achat en ligne : sous quel délai le professionnel doit-il rembourser l'administration si la marchandise est non conforme ?",
+    "why_unanswerable": "L'article prévoit seulement que les marchandises commandées devront être remboursées à l'administration en cas de non-conformité. Il ne fixe aucun délai de remboursement, et le code ne semble pas en prévoir un pour ce cas précis.",
+    "doubt": "Un autre article du code pourrait fixer un délai pour ce remboursement, mais je n'en connais pas. Le risque est faible."
+  },
+  "raw_text": "{\"question\":\"Contrôle d'un achat en ligne : sous quel délai le professionnel doit-il rembourser l'administration si la marchandise est non conforme ?\",\"why_unanswerable\":\"L'article prévoit seulement que les marchandises commandées devront être remboursées à l'administration en cas de non-conformité. Il ne fixe aucun délai de remboursement, et le code ne semble pas en prévoir un pour ce cas précis.\",\"doubt\":\"Un autre article du code pourrait fixer un délai pour ce remboursement, mais je n'en connais pas. Le risque est faible.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-107",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1945,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Quel taux maximum de pénalités de retard un professionnel peut-il appliquer à un consommateur qui paie en retard ?",
+    "why_unanswerable": "Le Code de la consommation interdit seulement de solliciter ou percevoir des frais de recouvrement contraires au code des procédures civiles d'exécution, sans fixer de taux ni de plafond de pénalités de retard ni de montant de frais.",
+    "doubt": "L'article L121-21 renvoie à un autre code et ne contient aucune valeur précise ; un autre article du Code de la consommation (intérêts de retard, taux légal) pourrait traiter partiellement le sujet."
+  },
+  "raw_text": "{\"question\":\"Quel taux maximum de pénalités de retard un professionnel peut-il appliquer à un consommateur qui paie en retard ?\",\"why_unanswerable\":\"Le Code de la consommation interdit seulement de solliciter ou percevoir des frais de recouvrement contraires au code des procédures civiles d'exécution, sans fixer de taux ni de plafond de pénalités de retard ni de montant de frais.\",\"doubt\":\"L'article L121-21 renvoie à un autre code et ne contient aucune valeur précise ; un autre article du Code de la consommation (intérêts de retard, taux légal) pourrait traiter partiellement le sujet.\"}"
+}

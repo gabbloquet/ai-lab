@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-099",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2009,
+    "output_tokens": 259
+  },
+  "output": {
+    "question": "Abonnement à un service numérique avec engagement : quels frais en cas de résiliation anticipée ?",
+    "why_unanswerable": "L'article se limite à imposer que les factures indiquent la durée d'engagement restante, la date de fin de l'engagement ou l'échéance de la durée minimale. Il ne fixe aucun montant ni barème de frais de résiliation anticipée. Ce point relève du contrat ou d'autres dispositions, sans valeur précise fixée par cet article.",
+    "doubt": "D'autres articles du Code de la consommation (par exemple sur la résiliation des contrats de services de communications électroniques) pourraient encadrer des frais de résiliation, même si ce n'est pas pour les contenus et services numériques en général."
+  },
+  "raw_text": "{\"question\":\"Abonnement à un service numérique avec engagement : quels frais en cas de résiliation anticipée ?\",\"why_unanswerable\":\"L'article se limite à imposer que les factures indiquent la durée d'engagement restante, la date de fin de l'engagement ou l'échéance de la durée minimale. Il ne fixe aucun montant ni barème de frais de résiliation anticipée. Ce point relève du contrat ou d'autres dispositions, sans valeur précise fixée par cet article.\",\"doubt\":\"D'autres articles du Code de la consommation (par exemple sur la résiliation des contrats de services de communications électroniques) pourraient encadrer des frais de résiliation, même si ce n'est pas pour les contenus et services numériques en général.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-090",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2025,
+    "output_tokens": 230
+  },
+  "output": {
+    "question": "Quel montant maximal de frais de dossier une banque peut-elle facturer pour un prêt immobilier ?",
+    "why_unanswerable": "Le Code de la consommation interdit tout versement avant l'acceptation de l'offre de crédit immobilier, mais il ne plafonne pas les frais de dossier d'un prêt immobilier. Ces frais sont fixés librement par chaque prêteur et doivent seulement figurer dans l'offre.",
+    "doubt": "D'autres articles du code sur le TAEG ou les frais du crédit immobilier pourraient mentionner les frais de dossier, mais sans en fixer de plafond à ma connaissance."
+  },
+  "raw_text": "{\"question\":\"Quel montant maximal de frais de dossier une banque peut-elle facturer pour un prêt immobilier ?\",\"why_unanswerable\":\"Le Code de la consommation interdit tout versement avant l'acceptation de l'offre de crédit immobilier, mais il ne plafonne pas les frais de dossier d'un prêt immobilier. Ces frais sont fixés librement par chaque prêteur et doivent seulement figurer dans l'offre.\",\"doubt\":\"D'autres articles du code sur le TAEG ou les frais du crédit immobilier pourraient mentionner les frais de dossier, mais sans en fixer de plafond à ma connaissance.\"}"
+}

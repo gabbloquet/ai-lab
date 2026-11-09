@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-125",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:59+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2288,
+    "output_tokens": 209
+  },
+  "output": {
+    "question": "Combien de réunions par an le conseil d'administration du Laboratoire national de métrologie et d'essais doit-il tenir ?",
+    "why_unanswerable": "L'article R823-6 fixe le quorum, les pouvoirs, la majorité, le délai de nouvelle convocation et la signature des délibérations, mais n'indique pas le nombre minimal de séances annuelles du conseil d'administration. Ce point n'y figure pas.",
+    "doubt": "Un autre article de la section sur l'organisation du LNE pourrait fixer une fréquence de réunion, même si je ne le pense pas."
+  },
+  "raw_text": "{\"question\":\"Combien de réunions par an le conseil d'administration du Laboratoire national de métrologie et d'essais doit-il tenir ?\",\"why_unanswerable\":\"L'article R823-6 fixe le quorum, les pouvoirs, la majorité, le délai de nouvelle convocation et la signature des délibérations, mais n'indique pas le nombre minimal de séances annuelles du conseil d'administration. Ce point n'y figure pas.\",\"doubt\":\"Un autre article de la section sur l'organisation du LNE pourrait fixer une fréquence de réunion, même si je ne le pense pas.\"}"
+}

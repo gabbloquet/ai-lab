@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-057",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2892,
+    "output_tokens": 204
+  },
+  "output": {
+    "question": "Achat en ligne : quel montant maximum de caution le professionnel peut-il exiger du consommateur ?",
+    "why_unanswerable": "Le code exige seulement que le professionnel informe le consommateur de l'existence d'une caution ou d'autres garanties financières et de leurs conditions. Il ne fixe aucun plafond ni montant maximal pour une telle caution dans ce cadre.",
+    "doubt": "Un autre article du code pourrait fixer un plafond de caution pour un type de contrat particulier, par exemple la location ; la question vise le cas général de la vente à distance."
+  },
+  "raw_text": "{\"question\":\"Achat en ligne : quel montant maximum de caution le professionnel peut-il exiger du consommateur ?\",\"why_unanswerable\":\"Le code exige seulement que le professionnel informe le consommateur de l'existence d'une caution ou d'autres garanties financières et de leurs conditions. Il ne fixe aucun plafond ni montant maximal pour une telle caution dans ce cadre.\",\"doubt\":\"Un autre article du code pourrait fixer un plafond de caution pour un type de contrat particulier, par exemple la location ; la question vise le cas général de la vente à distance.\"}"
+}

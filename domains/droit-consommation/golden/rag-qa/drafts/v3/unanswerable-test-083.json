@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-083",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2182,
+    "output_tokens": 267
+  },
+  "output": {
+    "question": "À Saint-Martin, quel est le délai pour que la commission de surendettement rende sa décision de recevabilité ?",
+    "why_unanswerable": "L'article R771-4 se borne à adapter la composition et les références de la commission de surendettement à Saint-Barthélemy et Saint-Martin. Il ne fixe aucun délai propre à ces collectivités. Le délai de décision sur la recevabilité d'un dossier relève des règles générales du livre VII. Un délai spécifique à Saint-Martin n'existe donc pas dans le code.",
+    "doubt": "Les règles générales du livre VII pourraient fixer un délai de recevabilité applicable aussi à Saint-Martin par renvoi. La question risque alors de ne pas être strictement sans réponse."
+  },
+  "raw_text": "{\"question\":\"À Saint-Martin, quel est le délai pour que la commission de surendettement rende sa décision de recevabilité ?\",\"why_unanswerable\":\"L'article R771-4 se borne à adapter la composition et les références de la commission de surendettement à Saint-Barthélemy et Saint-Martin. Il ne fixe aucun délai propre à ces collectivités. Le délai de décision sur la recevabilité d'un dossier relève des règles générales du livre VII. Un délai spécifique à Saint-Martin n'existe donc pas dans le code.\",\"doubt\":\"Les règles générales du livre VII pourraient fixer un délai de recevabilité applicable aussi à Saint-Martin par renvoi. La question risque alors de ne pas être strictement sans réponse.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-068",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2208,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Quel montant d'astreinte journalière le juge fixe-t-il si un vendeur ne respecte pas l'injonction de ne plus prendre de paiement ?",
+    "why_unanswerable": "L'article L521-3 prévoit seulement que l'autorité administrative peut demander au juge civil d'ordonner la suspension de la prise des paiements sous astreinte. Il ne fixe aucun montant ni barème d'astreinte, qui relève de l'appréciation du juge. Les modalités d'application sont renvoyées à un décret en Conseil d'État.",
+    "doubt": "Un autre article du code, sur les astreintes ou les amendes administratives, pourrait mentionner un montant, mais il ne viserait pas cette situation précise."
+  },
+  "raw_text": "{\"question\":\"Quel montant d'astreinte journalière le juge fixe-t-il si un vendeur ne respecte pas l'injonction de ne plus prendre de paiement ?\",\"why_unanswerable\":\"L'article L521-3 prévoit seulement que l'autorité administrative peut demander au juge civil d'ordonner la suspension de la prise des paiements sous astreinte. Il ne fixe aucun montant ni barème d'astreinte, qui relève de l'appréciation du juge. Les modalités d'application sont renvoyées à un décret en Conseil d'État.\",\"doubt\":\"Un autre article du code, sur les astreintes ou les amendes administratives, pourrait mentionner un montant, mais il ne viserait pas cette situation précise.\"}"
+}

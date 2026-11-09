@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-115",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2088,
+    "output_tokens": 297
+  },
+  "output": {
+    "question": "Quelle peine encourt-on pour l'exportation de denrées alimentaires dangereuses hors UE si l'entreprise est une récidiviste ?",
+    "why_unanswerable": "L'article L452-1 fixe seulement la peine de base (cinq ans d'emprisonnement, 600 000 euros d'amende, avec un plafond alternatif de 10 % du chiffre d'affaires moyen annuel). Il ne prévoit aucune aggravation spécifique en cas de récidive ni de chiffre applicable aux récidivistes, et la question ne trouve pas de réponse chiffrée dans le texte.",
+    "doubt": "Le droit pénal général (code pénal) régit la récidive, mais le Code de la consommation ne la précise pas ici ; un autre article du code pourrait toutefois prévoir une aggravation pour certaines infractions."
+  },
+  "raw_text": "{\"question\":\"Quelle peine encourt-on pour l'exportation de denrées alimentaires dangereuses hors UE si l'entreprise est une récidiviste ?\",\"why_unanswerable\":\"L'article L452-1 fixe seulement la peine de base (cinq ans d'emprisonnement, 600 000 euros d'amende, avec un plafond alternatif de 10 % du chiffre d'affaires moyen annuel). Il ne prévoit aucune aggravation spécifique en cas de récidive ni de chiffre applicable aux récidivistes, et la question ne trouve pas de réponse chiffrée dans le texte.\",\"doubt\":\"Le droit pénal général (code pénal) régit la récidive, mais le Code de la consommation ne la précise pas ici ; un autre article du code pourrait toutefois prévoir une aggravation pour certaines infractions.\"}"
+}

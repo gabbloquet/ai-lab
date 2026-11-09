@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-117",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2163,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Quelle durée de prison risque un commerçant qui ne respecte pas un rappel de produit alimentaire non animal ?",
+    "why_unanswerable": "L'article R452-3-1 ne prévoit qu'une amende contraventionnelle de 5e classe et aucune peine d'emprisonnement. Les contraventions ne sont pas punies de prison, et le Code de la consommation ne fixe aucune durée d'emprisonnement pour ce manquement.",
+    "doubt": "Un lecteur pourrait considérer que l'absence de prison se déduit de l'article (simple amende), ce qui rendrait la question partiellement répondable par la négative."
+  },
+  "raw_text": "{\"question\":\"Quelle durée de prison risque un commerçant qui ne respecte pas un rappel de produit alimentaire non animal ?\",\"why_unanswerable\":\"L'article R452-3-1 ne prévoit qu'une amende contraventionnelle de 5e classe et aucune peine d'emprisonnement. Les contraventions ne sont pas punies de prison, et le Code de la consommation ne fixe aucune durée d'emprisonnement pour ce manquement.\",\"doubt\":\"Un lecteur pourrait considérer que l'absence de prison se déduit de l'article (simple amende), ce qui rendrait la question partiellement répondable par la négative.\"}"
+}

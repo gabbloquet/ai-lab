@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-108",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2264,
+    "output_tokens": 236
+  },
+  "output": {
+    "question": "Pendant combien de temps un site doit-il conserver les avis en ligne de consommateurs qu'il a rejetés ?",
+    "why_unanswerable": "L'article impose d'indiquer aux consommateurs les raisons du rejet d'un avis non publié, mais ne fixe aucune durée de conservation des avis rejetés. Le renvoi à un décret ne porte que sur les modalités et le contenu des informations, pas sur une durée de conservation.",
+    "doubt": "Un décret ou un autre article du code (par exemple sur les avis en ligne, D111-17 et suivants) pourrait évoquer une durée de conservation, ce qui est peu probable mais pas certain."
+  },
+  "raw_text": "{\"question\":\"Pendant combien de temps un site doit-il conserver les avis en ligne de consommateurs qu'il a rejetés ?\",\"why_unanswerable\":\"L'article impose d'indiquer aux consommateurs les raisons du rejet d'un avis non publié, mais ne fixe aucune durée de conservation des avis rejetés. Le renvoi à un décret ne porte que sur les modalités et le contenu des informations, pas sur une durée de conservation.\",\"doubt\":\"Un décret ou un autre article du code (par exemple sur les avis en ligne, D111-17 et suivants) pourrait évoquer une durée de conservation, ce qui est peu probable mais pas certain.\"}"
+}

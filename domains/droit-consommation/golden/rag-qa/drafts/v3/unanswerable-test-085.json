@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-085",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2233,
+    "output_tokens": 206
+  },
+  "output": {
+    "question": "Combien de temps maximum peut durer l'audition d'une personne convoquée par les agents de la répression des fraudes ?",
+    "why_unanswerable": "L'article L512-10 prévoit les auditions et le procès-verbal (lecture, observations, signature) mais ne fixe aucune durée maximale d'audition ni de délai de convocation. Le code ne donne donc pas cette valeur.",
+    "doubt": "Un autre article du code (ou le code de procédure pénale) pourrait fixer une durée pour l'audition libre, mais je n'en connais pas dans le Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Combien de temps maximum peut durer l'audition d'une personne convoquée par les agents de la répression des fraudes ?\",\"why_unanswerable\":\"L'article L512-10 prévoit les auditions et le procès-verbal (lecture, observations, signature) mais ne fixe aucune durée maximale d'audition ni de délai de convocation. Le code ne donne donc pas cette valeur.\",\"doubt\":\"Un autre article du code (ou le code de procédure pénale) pourrait fixer une durée pour l'audition libre, mais je n'en connais pas dans le Code de la consommation.\"}"
+}

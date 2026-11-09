@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-095",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1879,
+    "output_tokens": 202
+  },
+  "output": {
+    "question": "Quel est le coût d'une formation obligatoire pour un intermédiaire en crédit à la consommation ?",
+    "why_unanswerable": "L'article D314-29 impose seulement à l'employeur de veiller à la mise à jour régulière des connaissances acquises en formation. Il ne fixe ni tarif ni coût de formation, et le Code de la consommation laisse ce prix aux organismes de formation et au marché.",
+    "doubt": "Un autre article de la section sur la formation pourrait mentionner une durée ou un contenu, mais pas un coût ; le risque est faible."
+  },
+  "raw_text": "{\"question\":\"Quel est le coût d'une formation obligatoire pour un intermédiaire en crédit à la consommation ?\",\"why_unanswerable\":\"L'article D314-29 impose seulement à l'employeur de veiller à la mise à jour régulière des connaissances acquises en formation. Il ne fixe ni tarif ni coût de formation, et le Code de la consommation laisse ce prix aux organismes de formation et au marché.\",\"doubt\":\"Un autre article de la section sur la formation pourrait mentionner une durée ou un contenu, mais pas un coût ; le risque est faible.\"}"
+}

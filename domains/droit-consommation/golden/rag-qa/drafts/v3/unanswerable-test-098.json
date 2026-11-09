@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-098",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2083,
+    "output_tokens": 235
+  },
+  "output": {
+    "question": "Quel est le tarif maximal qu'un vendeur peut facturer pour une réparation forfaitaire d'un lave-linge ?",
+    "why_unanswerable": "L'article impose seulement au vendeur d'informer le consommateur par écrit ou sur support durable (origine de la panne, nature de l'intervention, pièces à remplacer). Le Code de la consommation ne fixe aucun plafond ni tarif pour les réparations forfaitaires : les prix sont libres.",
+    "doubt": "Un autre article pourrait évoquer des plafonds de prix pour certaines prestations, mais je n'en connais aucun pour les réparations forfaitaires d'électroménager."
+  },
+  "raw_text": "{\"question\":\"Quel est le tarif maximal qu'un vendeur peut facturer pour une réparation forfaitaire d'un lave-linge ?\",\"why_unanswerable\":\"L'article impose seulement au vendeur d'informer le consommateur par écrit ou sur support durable (origine de la panne, nature de l'intervention, pièces à remplacer). Le Code de la consommation ne fixe aucun plafond ni tarif pour les réparations forfaitaires : les prix sont libres.\",\"doubt\":\"Un autre article pourrait évoquer des plafonds de prix pour certaines prestations, mais je n'en connais aucun pour les réparations forfaitaires d'électroménager.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-065",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2062,
+    "output_tokens": 236
+  },
+  "output": {
+    "question": "Surendettement : quel est le coût pour le débiteur d'une saisine du juge pour vérifier une créance ?",
+    "why_unanswerable": "L'article décrit seulement le contenu de la lettre de saisine du juge par la commission (identité des parties, objet et motifs, documents annexés) et l'information des créanciers et du débiteur. Il ne fixe aucun coût ni frais de saisine pour le débiteur, et on ne voit pas d'autre article du code qui en donne un.",
+    "doubt": "Le Code de la consommation prévoit la gratuité de la procédure de surendettement ailleurs, ce qui pourrait fournir une réponse partielle sur les frais."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quel est le coût pour le débiteur d'une saisine du juge pour vérifier une créance ?\",\"why_unanswerable\":\"L'article décrit seulement le contenu de la lettre de saisine du juge par la commission (identité des parties, objet et motifs, documents annexés) et l'information des créanciers et du débiteur. Il ne fixe aucun coût ni frais de saisine pour le débiteur, et on ne voit pas d'autre article du code qui en donne un.\",\"doubt\":\"Le Code de la consommation prévoit la gratuité de la procédure de surendettement ailleurs, ce qui pourrait fournir une réponse partielle sur les frais.\"}"
+}

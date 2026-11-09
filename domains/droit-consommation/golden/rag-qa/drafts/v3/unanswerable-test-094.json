@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-094",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2166,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Quel est le tarif habituel d'un évaluateur pour estimer un bien immobilier avant un prêt ?",
+    "why_unanswerable": "L'article R313-18 fixe seulement les compétences professionnelles de l'évaluateur (diplômes, durées d'expérience). Le Code de la consommation ne fixe ni ne réglemente le tarif ou les honoraires d'une évaluation immobilière, qui relèvent du libre accord entre les parties.",
+    "doubt": "Un autre article du code pourrait mentionner la prise en charge des frais d'évaluation par le prêteur ou l'emprunteur, mais sans fixer de montant précis."
+  },
+  "raw_text": "{\"question\":\"Quel est le tarif habituel d'un évaluateur pour estimer un bien immobilier avant un prêt ?\",\"why_unanswerable\":\"L'article R313-18 fixe seulement les compétences professionnelles de l'évaluateur (diplômes, durées d'expérience). Le Code de la consommation ne fixe ni ne réglemente le tarif ou les honoraires d'une évaluation immobilière, qui relèvent du libre accord entre les parties.\",\"doubt\":\"Un autre article du code pourrait mentionner la prise en charge des frais d'évaluation par le prêteur ou l'emprunteur, mais sans fixer de montant précis.\"}"
+}

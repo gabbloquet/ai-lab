@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-087",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:36+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1886,
+    "output_tokens": 256
+  },
+  "output": {
+    "question": "Crédit immobilier refusé : la banque peut-elle me facturer des frais de dossier en plus des frais d'étude, de quel montant ?",
+    "why_unanswerable": "L'article R313-22 ne plafonne que les frais d'étude (0,75 % du prêt, 150 euros maximum) dus quand le contrat n'est pas conclu. Le code ne fixe pas de montant pour d'éventuels frais de dossier distincts, qui relèvent de la tarification libre de chaque banque.",
+    "doubt": "Un autre article du code pourrait encadrer les frais de dossier lors d'une offre de prêt acceptée, mais pas dans le cas d'un contrat non conclu. La question reste donc un peu ambiguë."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier refusé : la banque peut-elle me facturer des frais de dossier en plus des frais d'étude, de quel montant ?\",\"why_unanswerable\":\"L'article R313-22 ne plafonne que les frais d'étude (0,75 % du prêt, 150 euros maximum) dus quand le contrat n'est pas conclu. Le code ne fixe pas de montant pour d'éventuels frais de dossier distincts, qui relèvent de la tarification libre de chaque banque.\",\"doubt\":\"Un autre article du code pourrait encadrer les frais de dossier lors d'une offre de prêt acceptée, mais pas dans le cas d'un contrat non conclu. La question reste donc un peu ambiguë.\"}"
+}

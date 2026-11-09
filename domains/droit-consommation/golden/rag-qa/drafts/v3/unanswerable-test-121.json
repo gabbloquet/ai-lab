@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-121",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1926,
+    "output_tokens": 267
+  },
+  "output": {
+    "question": "Crédit conso avec reconstitution du capital : quel taux maximal d'intérêt le prêteur peut-il appliquer ?",
+    "why_unanswerable": "L'article impose seulement au contrat de préciser que la reconstitution du capital par les échéances ne garantit pas le remboursement du crédit. Il ne fixe aucun taux d'intérêt maximal propre à cette modalité. Le plafonnement des taux (usure) relève d'un autre régime, et il ne dépend pas du mode de reconstitution du capital.",
+    "doubt": "Le code contient des règles sur le taux de l'usure dans d'autres articles, donc la question pourrait être jugée partiellement couverte ailleurs, même si ce n'est pas spécifique à ce type de crédit."
+  },
+  "raw_text": "{\"question\":\"Crédit conso avec reconstitution du capital : quel taux maximal d'intérêt le prêteur peut-il appliquer ?\",\"why_unanswerable\":\"L'article impose seulement au contrat de préciser que la reconstitution du capital par les échéances ne garantit pas le remboursement du crédit. Il ne fixe aucun taux d'intérêt maximal propre à cette modalité. Le plafonnement des taux (usure) relève d'un autre régime, et il ne dépend pas du mode de reconstitution du capital.\",\"doubt\":\"Le code contient des règles sur le taux de l'usure dans d'autres articles, donc la question pourrait être jugée partiellement couverte ailleurs, même si ce n'est pas spécifique à ce type de crédit.\"}"
+}

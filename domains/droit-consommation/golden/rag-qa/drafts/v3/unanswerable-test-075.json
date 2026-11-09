@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-075",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2081,
+    "output_tokens": 217
+  },
+  "output": {
+    "question": "Garantie de conformité : quel transporteur précis le vendeur doit-il imposer pour le renvoi d'un bien défectueux ?",
+    "why_unanswerable": "L'article prévoit seulement que le vendeur indique les modalités pratiques de renvoi et que l'envoi postal est utilisé si possible. Le code ne désigne aucun transporteur, aucune société ni aucune marque à utiliser pour ce renvoi.",
+    "doubt": "Un autre article pourrait préciser les frais de renvoi, mais pas le choix d'un transporteur nommé ; la question reste donc sans réponse dans le code."
+  },
+  "raw_text": "{\"question\":\"Garantie de conformité : quel transporteur précis le vendeur doit-il imposer pour le renvoi d'un bien défectueux ?\",\"why_unanswerable\":\"L'article prévoit seulement que le vendeur indique les modalités pratiques de renvoi et que l'envoi postal est utilisé si possible. Le code ne désigne aucun transporteur, aucune société ni aucune marque à utiliser pour ce renvoi.\",\"doubt\":\"Un autre article pourrait préciser les frais de renvoi, mais pas le choix d'un transporteur nommé ; la question reste donc sans réponse dans le code.\"}"
+}

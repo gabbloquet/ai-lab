@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-048",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1986,
+    "output_tokens": 275
+  },
+  "output": {
+    "question": "Quelle est la durée de prescription pour sanctionner un professionnel qui n'a pas fourni les mises à jour d'un service numérique ?",
+    "why_unanswerable": "L'article fixe seulement les plafonds de l'amende administrative (3 000 € pour une personne physique, 15 000 € pour une personne morale) et renvoie au livre V pour la procédure. Il ne prévoit aucun délai de prescription de cette sanction pour défaut de mises à jour, et la question porte sur une valeur que ce texte ne donne pas.",
+    "doubt": "Un autre article du Code de la consommation (livre V, procédure d'amende administrative) pourrait fixer un délai de prescription ou de recouvrement applicable aux amendes, ce qui rendrait la question partiellement répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle est la durée de prescription pour sanctionner un professionnel qui n'a pas fourni les mises à jour d'un service numérique ?\",\"why_unanswerable\":\"L'article fixe seulement les plafonds de l'amende administrative (3 000 € pour une personne physique, 15 000 € pour une personne morale) et renvoie au livre V pour la procédure. Il ne prévoit aucun délai de prescription de cette sanction pour défaut de mises à jour, et la question porte sur une valeur que ce texte ne donne pas.\",\"doubt\":\"Un autre article du Code de la consommation (livre V, procédure d'amende administrative) pourrait fixer un délai de prescription ou de recouvrement applicable aux amendes, ce qui rendrait la question partiellement répondable.\"}"
+}

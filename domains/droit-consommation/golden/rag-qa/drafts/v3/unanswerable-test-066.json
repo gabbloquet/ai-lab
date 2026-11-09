@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-066",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2007,
+    "output_tokens": 316
+  },
+  "output": {
+    "question": "Quelle amende risque un restaurateur dont le congélateur dépasse la température autorisée pour les surgelés ?",
+    "why_unanswerable": "L'article se borne à désigner les articles 1 à 3 du règlement (CE) n° 37/2005 comme mesures d'exécution de l'article L. 412-1. Il ne fixe ni température maximale ni sanction. Le montant d'une amende pour un dépassement de température dans un congélateur ne s'y trouve donc pas, et la question vise une situation voisine (restaurateur, amende) que le texte ne couvre pas.",
+    "doubt": "L'article ne contient aucune valeur précise (il ne fait que renvoyer à un règlement européen), donc il n'est guère adapté ; en outre, un autre article du Code de la consommation sur les sanctions des manquements à la conformité pourrait fixer une amende, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle amende risque un restaurateur dont le congélateur dépasse la température autorisée pour les surgelés ?\",\"why_unanswerable\":\"L'article se borne à désigner les articles 1 à 3 du règlement (CE) n° 37/2005 comme mesures d'exécution de l'article L. 412-1. Il ne fixe ni température maximale ni sanction. Le montant d'une amende pour un dépassement de température dans un congélateur ne s'y trouve donc pas, et la question vise une situation voisine (restaurateur, amende) que le texte ne couvre pas.\",\"doubt\":\"L'article ne contient aucune valeur précise (il ne fait que renvoyer à un règlement européen), donc il n'est guère adapté ; en outre, un autre article du Code de la consommation sur les sanctions des manquements à la conformité pourrait fixer une amende, ce qui rendrait la question répondable.\"}"
+}

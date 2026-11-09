@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-058",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1859,
+    "output_tokens": 242
+  },
+  "output": {
+    "question": "Crédit conso : quel est le montant des frais que la banque peut garder si je me rétracte ?",
+    "why_unanswerable": "L'article L312-19 fixe seulement le délai de rétractation de quatorze jours. Il ne prévoit aucun montant de frais que le prêteur pourrait conserver. Le code de la consommation n'indique pas de tarif de ce type, et la question porte sur un détail que l'article ne fixe pas.",
+    "doubt": "D'autres articles du code (sur les conséquences de la rétractation, notamment le remboursement du capital et des intérêts) pourraient traiter des sommes dues après rétractation, donc la question pourrait être jugée partiellement couverte."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : quel est le montant des frais que la banque peut garder si je me rétracte ?\",\"why_unanswerable\":\"L'article L312-19 fixe seulement le délai de rétractation de quatorze jours. Il ne prévoit aucun montant de frais que le prêteur pourrait conserver. Le code de la consommation n'indique pas de tarif de ce type, et la question porte sur un détail que l'article ne fixe pas.\",\"doubt\":\"D'autres articles du code (sur les conséquences de la rétractation, notamment le remboursement du capital et des intérêts) pourraient traiter des sommes dues après rétractation, donc la question pourrait être jugée partiellement couverte.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-109",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2073,
+    "output_tokens": 238
+  },
+  "output": {
+    "question": "Combien de produits un fabricant doit-il tester par lot pour garantir leur sécurité ?",
+    "why_unanswerable": "L'article se borne à définir la notion d'opérateur économique par renvoi au règlement (UE) 2023/988. Aucun article du Code de la consommation ne fixe un nombre ou un pourcentage de produits à tester par lot : les modalités d'évaluation de la sécurité relèvent du règlement européen et des normes techniques.",
+    "doubt": "Un autre article du titre sur la sécurité pourrait mentionner des contrôles ou des échantillons, mais je ne pense pas qu'il fixe un nombre précis de produits à tester par lot."
+  },
+  "raw_text": "{\"question\":\"Combien de produits un fabricant doit-il tester par lot pour garantir leur sécurité ?\",\"why_unanswerable\":\"L'article se borne à définir la notion d'opérateur économique par renvoi au règlement (UE) 2023/988. Aucun article du Code de la consommation ne fixe un nombre ou un pourcentage de produits à tester par lot : les modalités d'évaluation de la sécurité relèvent du règlement européen et des normes techniques.\",\"doubt\":\"Un autre article du titre sur la sécurité pourrait mentionner des contrôles ou des échantillons, mais je ne pense pas qu'il fixe un nombre précis de produits à tester par lot.\"}"
+}

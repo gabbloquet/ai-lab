@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-054",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2011,
+    "output_tokens": 252
+  },
+  "output": {
+    "question": "Combien de signalements faut-il pour qu'un numéro surtaxé soit suspendu par mon opérateur ?",
+    "why_unanswerable": "L'article D224-19 prévoit seulement que les opérateurs sont informés quotidiennement des signalements reçus pour chaque numéro à valeur ajoutée. Il ne fixe aucun nombre minimal de signalements ni aucun seuil déclenchant une suspension du numéro. Le Code de la consommation ne répond donc pas à cette question.",
+    "doubt": "Un autre article réglementaire sur les numéros à valeur ajoutée pourrait éventuellement prévoir des conséquences aux signalements, mais aucun seuil chiffré n'est connu."
+  },
+  "raw_text": "{\"question\":\"Combien de signalements faut-il pour qu'un numéro surtaxé soit suspendu par mon opérateur ?\",\"why_unanswerable\":\"L'article D224-19 prévoit seulement que les opérateurs sont informés quotidiennement des signalements reçus pour chaque numéro à valeur ajoutée. Il ne fixe aucun nombre minimal de signalements ni aucun seuil déclenchant une suspension du numéro. Le Code de la consommation ne répond donc pas à cette question.\",\"doubt\":\"Un autre article réglementaire sur les numéros à valeur ajoutée pourrait éventuellement prévoir des conséquences aux signalements, mais aucun seuil chiffré n'est connu.\"}"
+}

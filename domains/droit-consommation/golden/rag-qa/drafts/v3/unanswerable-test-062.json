@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-062",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:20+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1930,
+    "output_tokens": 219
+  },
+  "output": {
+    "question": "Prêt viager hypothécaire : quelle peine de prison risque le prêteur qui accorde le prêt sans offre préalable ?",
+    "why_unanswerable": "L'article ne prévoit qu'une amende de 150 000 euros pour ce manquement, sans peine d'emprisonnement. Le code ne fixe aucune durée de prison pour le prêteur dans ce cas, donc aucune réponse ne s'y trouve.",
+    "doubt": "Un autre article de sanctions pourrait prévoir une peine d'emprisonnement pour des infractions voisines, mais pas pour celle-ci à ma connaissance."
+  },
+  "raw_text": "{\"question\":\"Prêt viager hypothécaire : quelle peine de prison risque le prêteur qui accorde le prêt sans offre préalable ?\",\"why_unanswerable\":\"L'article ne prévoit qu'une amende de 150 000 euros pour ce manquement, sans peine d'emprisonnement. Le code ne fixe aucune durée de prison pour le prêteur dans ce cas, donc aucune réponse ne s'y trouve.\",\"doubt\":\"Un autre article de sanctions pourrait prévoir une peine d'emprisonnement pour des infractions voisines, mais pas pour celle-ci à ma connaissance.\"}"
+}

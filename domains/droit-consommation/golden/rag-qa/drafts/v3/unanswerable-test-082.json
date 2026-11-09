@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-082",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2124,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Quelle amende risque un restaurateur qui affiche « fait maison » sur un plat industriel ?",
+    "why_unanswerable": "L'article L122-20 définit seulement le plat « fait maison » (élaboré sur place à partir de produits bruts) et renvoie à un décret pour les modalités. Il ne fixe aucune sanction ni montant d'amende, et la question porte sur la sanction pénale ou administrative, non sur la définition. Le montant exact de l'amende n'est pas donné par cet article.",
+    "doubt": "D'autres articles du code (pratiques commerciales trompeuses, L132-2 et suivants) pourraient donner une amende applicable à une fausse mention « fait maison », donc la question pourrait être répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle amende risque un restaurateur qui affiche « fait maison » sur un plat industriel ?\",\"why_unanswerable\":\"L'article L122-20 définit seulement le plat « fait maison » (élaboré sur place à partir de produits bruts) et renvoie à un décret pour les modalités. Il ne fixe aucune sanction ni montant d'amende, et la question porte sur la sanction pénale ou administrative, non sur la définition. Le montant exact de l'amende n'est pas donné par cet article.\",\"doubt\":\"D'autres articles du code (pratiques commerciales trompeuses, L132-2 et suivants) pourraient donner une amende applicable à une fausse mention « fait maison », donc la question pourrait être répondable.\"}"
+}

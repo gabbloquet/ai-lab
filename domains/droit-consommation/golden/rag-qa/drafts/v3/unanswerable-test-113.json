@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-113",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2032,
+    "output_tokens": 273
+  },
+  "output": {
+    "question": "Quel est le taux d'usure actuel pour un prêt immobilier sur 20 ans ?",
+    "why_unanswerable": "L'article indique seulement que la Banque de France calcule les taux effectifs moyens chaque trimestre et que le ministre publie les seuils de l'usure au Journal officiel. Il ne fixe aucune valeur chiffrée de seuil. Le taux d'usure applicable change chaque trimestre, donc le Code de la consommation ne donne pas de taux précis pour une durée de prêt donnée.",
+    "doubt": "Un autre article pourrait fixer le mode de calcul du seuil (par exemple un taux moyen majoré d'un tiers), mais pas de valeur chiffrée actuelle ; la question reste donc sans réponse dans le code."
+  },
+  "raw_text": "{\"question\":\"Quel est le taux d'usure actuel pour un prêt immobilier sur 20 ans ?\",\"why_unanswerable\":\"L'article indique seulement que la Banque de France calcule les taux effectifs moyens chaque trimestre et que le ministre publie les seuils de l'usure au Journal officiel. Il ne fixe aucune valeur chiffrée de seuil. Le taux d'usure applicable change chaque trimestre, donc le Code de la consommation ne donne pas de taux précis pour une durée de prêt donnée.\",\"doubt\":\"Un autre article pourrait fixer le mode de calcul du seuil (par exemple un taux moyen majoré d'un tiers), mais pas de valeur chiffrée actuelle ; la question reste donc sans réponse dans le code.\"}"
+}

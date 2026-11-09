@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-092",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2085,
+    "output_tokens": 228
+  },
+  "output": {
+    "question": "Quel est le taux maximal d'assurance emprunteur autorisé dans une publicité pour un crédit conso ?",
+    "why_unanswerable": "L'article impose seulement de mentionner le coût de l'assurance (taux annuel effectif de l'assurance, montant total, montant mensuel) dans la publicité. Il ne fixe aucun plafond ni taux maximal pour l'assurance. Le code ne donne donc aucune valeur à cette question.",
+    "doubt": "Un autre article du Code de la consommation pourrait traiter d'un plafond de taux, mais l'assurance n'est a priori pas plafonnée comme le taux d'usure."
+  },
+  "raw_text": "{\"question\":\"Quel est le taux maximal d'assurance emprunteur autorisé dans une publicité pour un crédit conso ?\",\"why_unanswerable\":\"L'article impose seulement de mentionner le coût de l'assurance (taux annuel effectif de l'assurance, montant total, montant mensuel) dans la publicité. Il ne fixe aucun plafond ni taux maximal pour l'assurance. Le code ne donne donc aucune valeur à cette question.\",\"doubt\":\"Un autre article du Code de la consommation pourrait traiter d'un plafond de taux, mais l'assurance n'est a priori pas plafonnée comme le taux d'usure.\"}"
+}

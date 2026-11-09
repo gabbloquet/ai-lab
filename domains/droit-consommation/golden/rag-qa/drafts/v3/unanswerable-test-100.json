@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-100",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1907,
+    "output_tokens": 238
+  },
+  "output": {
+    "question": "Refus de vente par un commerçant : quel est le montant exact de l'amende en euros ?",
+    "why_unanswerable": "L'article R132-1 renvoie seulement à la peine d'amende des contraventions de la 5e classe, sans indiquer de somme en euros. Le montant chiffré figure dans le code pénal, qui n'est pas le Code de la consommation. Le Code de la consommation ne fournit donc pas ce montant.",
+    "doubt": "Le montant de l'amende de 5e classe est fixé par le code pénal, ce qui peut conduire certains systèmes à répondre avec ce chiffre. La question reste cependant sans réponse dans le Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Refus de vente par un commerçant : quel est le montant exact de l'amende en euros ?\",\"why_unanswerable\":\"L'article R132-1 renvoie seulement à la peine d'amende des contraventions de la 5e classe, sans indiquer de somme en euros. Le montant chiffré figure dans le code pénal, qui n'est pas le Code de la consommation. Le Code de la consommation ne fournit donc pas ce montant.\",\"doubt\":\"Le montant de l'amende de 5e classe est fixé par le code pénal, ce qui peut conduire certains systèmes à répondre avec ce chiffre. La question reste cependant sans réponse dans le Code de la consommation.\"}"
+}

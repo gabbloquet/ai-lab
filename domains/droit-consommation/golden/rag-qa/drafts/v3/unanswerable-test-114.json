@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-114",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1949,
+    "output_tokens": 257
+  },
+  "output": {
+    "question": "Démarchage téléphonique avec numéro masqué : l'entreprise peut-elle être condamnée à une peine de prison ?",
+    "why_unanswerable": "L'article ne prévoit qu'une amende administrative (plafonnée à 75 000 € pour une personne physique et 375 000 € pour une personne morale) pour le non-respect de l'interdiction des numéros masqués. Il ne fixe aucune peine d'emprisonnement et le Code de la consommation ne contient pas de réponse sur ce point pour ce manquement.",
+    "doubt": "La question appelle un oui/non et un autre article pénal pourrait éventuellement prévoir des sanctions voisines, ce qui rend l'absence de réponse un peu moins nette."
+  },
+  "raw_text": "{\"question\":\"Démarchage téléphonique avec numéro masqué : l'entreprise peut-elle être condamnée à une peine de prison ?\",\"why_unanswerable\":\"L'article ne prévoit qu'une amende administrative (plafonnée à 75 000 € pour une personne physique et 375 000 € pour une personne morale) pour le non-respect de l'interdiction des numéros masqués. Il ne fixe aucune peine d'emprisonnement et le Code de la consommation ne contient pas de réponse sur ce point pour ce manquement.\",\"doubt\":\"La question appelle un oui/non et un autre article pénal pourrait éventuellement prévoir des sanctions voisines, ce qui rend l'absence de réponse un peu moins nette.\"}"
+}

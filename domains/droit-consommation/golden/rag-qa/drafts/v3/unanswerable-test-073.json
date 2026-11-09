@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-073",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1920,
+    "output_tokens": 251
+  },
+  "output": {
+    "question": "Quel est le tarif exact du kWh d'électricité que mon fournisseur doit afficher sur ma facture ?",
+    "why_unanswerable": "L'article R242-13 prévoit seulement une contravention de 5e classe pour une facture d'électricité ou de gaz dont la présentation n'est pas conforme à l'arrêté. Il ne fixe aucun prix du kWh. Les tarifs sont fixés librement par les fournisseurs ou par des arrêtés tarifaires, pas par le Code de la consommation.",
+    "doubt": "Un article sur les tarifs réglementés de vente pourrait exister ailleurs, mais ce serait dans le code de l'énergie, pas dans le Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Quel est le tarif exact du kWh d'électricité que mon fournisseur doit afficher sur ma facture ?\",\"why_unanswerable\":\"L'article R242-13 prévoit seulement une contravention de 5e classe pour une facture d'électricité ou de gaz dont la présentation n'est pas conforme à l'arrêté. Il ne fixe aucun prix du kWh. Les tarifs sont fixés librement par les fournisseurs ou par des arrêtés tarifaires, pas par le Code de la consommation.\",\"doubt\":\"Un article sur les tarifs réglementés de vente pourrait exister ailleurs, mais ce serait dans le code de l'énergie, pas dans le Code de la consommation.\"}"
+}

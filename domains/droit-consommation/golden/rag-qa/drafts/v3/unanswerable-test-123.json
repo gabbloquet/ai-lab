@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-123",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:15:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2052,
+    "output_tokens": 285
+  },
+  "output": {
+    "question": "Quelle amende risque une personne qui refuse de donner son identité à un agent de la répression des fraudes ?",
+    "why_unanswerable": "L'article L512-13 prévoit seulement que les agents peuvent relever l'identité et, en cas de refus ou d'impossibilité de justifier, en rendent compte à un officier de police judiciaire qui peut procéder à une vérification d'identité. Il ne fixe aucune amende ni sanction pour le refus de décliner son identité. Le montant d'une telle sanction n'est pas indiqué ici.",
+    "doubt": "Un autre article du Code de la consommation (par exemple sur l'obstacle aux contrôles, L512-51 ou suivants) pourrait prévoir une sanction pour obstacle à fonction, ce qui rendrait la question partiellement répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle amende risque une personne qui refuse de donner son identité à un agent de la répression des fraudes ?\",\"why_unanswerable\":\"L'article L512-13 prévoit seulement que les agents peuvent relever l'identité et, en cas de refus ou d'impossibilité de justifier, en rendent compte à un officier de police judiciaire qui peut procéder à une vérification d'identité. Il ne fixe aucune amende ni sanction pour le refus de décliner son identité. Le montant d'une telle sanction n'est pas indiqué ici.\",\"doubt\":\"Un autre article du Code de la consommation (par exemple sur l'obstacle aux contrôles, L512-51 ou suivants) pourrait prévoir une sanction pour obstacle à fonction, ce qui rendrait la question partiellement répondable.\"}"
+}

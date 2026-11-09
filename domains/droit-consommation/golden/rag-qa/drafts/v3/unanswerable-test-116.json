@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-116",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2439,
+    "output_tokens": 275
+  },
+  "output": {
+    "question": "Quelle est la dose journalière admissible fixée pour le colorant E102 (tartrazine) dans les aliments ?",
+    "why_unanswerable": "L'article R412-22 se borne à énumérer les dispositions de règlements européens (arômes de fumée, enzymes, additifs, arômes) qui constituent des mesures d'exécution de l'article L. 412-1. Il ne fixe aucune dose journalière admissible ni aucune limite pour un additif précis. Ces valeurs relèvent des annexes des règlements européens et des avis scientifiques, pas du Code de la consommation.",
+    "doubt": "Un lecteur pourrait penser que les annexes du règlement 1333/2008, mentionnées par l'article, sont reprises dans le code, mais elles n'y figurent pas."
+  },
+  "raw_text": "{\"question\":\"Quelle est la dose journalière admissible fixée pour le colorant E102 (tartrazine) dans les aliments ?\",\"why_unanswerable\":\"L'article R412-22 se borne à énumérer les dispositions de règlements européens (arômes de fumée, enzymes, additifs, arômes) qui constituent des mesures d'exécution de l'article L. 412-1. Il ne fixe aucune dose journalière admissible ni aucune limite pour un additif précis. Ces valeurs relèvent des annexes des règlements européens et des avis scientifiques, pas du Code de la consommation.\",\"doubt\":\"Un lecteur pourrait penser que les annexes du règlement 1333/2008, mentionnées par l'article, sont reprises dans le code, mais elles n'y figurent pas.\"}"
+}

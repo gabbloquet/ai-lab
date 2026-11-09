@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-060",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2069,
+    "output_tokens": 298
+  },
+  "output": {
+    "question": "Quel montant d'amende encourt un intermédiaire en crédit qui exerce sans être immatriculé à l'ORIAS ?",
+    "why_unanswerable": "L'article L342-6 ne traite que des peines complémentaires d'interdiction d'exercer (durée maximale de cinq ans) et ne fixe aucun montant d'amende. Il ne désigne pas non plus de peine pour le défaut d'immatriculation à l'ORIAS, donc la question n'est pas couverte par cet article. Le montant précis pour ce cas n'est pas établi par un texte que j'ai pu vérifier ici.",
+    "doubt": "Un autre article de la section sur les sanctions pénales (L342-2 à L342-5) pourrait fixer une amende pour l'exercice sans immatriculation ; la question risque donc d'avoir une réponse dans le code."
+  },
+  "raw_text": "{\"question\":\"Quel montant d'amende encourt un intermédiaire en crédit qui exerce sans être immatriculé à l'ORIAS ?\",\"why_unanswerable\":\"L'article L342-6 ne traite que des peines complémentaires d'interdiction d'exercer (durée maximale de cinq ans) et ne fixe aucun montant d'amende. Il ne désigne pas non plus de peine pour le défaut d'immatriculation à l'ORIAS, donc la question n'est pas couverte par cet article. Le montant précis pour ce cas n'est pas établi par un texte que j'ai pu vérifier ici.\",\"doubt\":\"Un autre article de la section sur les sanctions pénales (L342-2 à L342-5) pourrait fixer une amende pour l'exercice sans immatriculation ; la question risque donc d'avoir une réponse dans le code.\"}"
+}

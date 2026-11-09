@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-049",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2541,
+    "output_tokens": 261
+  },
+  "output": {
+    "question": "Quel délai maximum le professionnel a-t-il pour accuser réception d'une résiliation faite en ligne sur son site ?",
+    "why_unanswerable": "L'article D215-2 ne fixe que les rubriques d'information de la fonctionnalité de résiliation (identité, adresse, référence du contrat, date souhaitée, numéro de ligne, motif légitime). Il ne prévoit aucun délai pour accuser réception de la résiliation, il dit seulement que l'adresse de contact permet de confirmer la réception.",
+    "doubt": "L'article L215-1-1 ou D215-3 pourrait contenir une règle sur l'accusé de réception ou sa date, donc la question risque d'avoir une réponse ailleurs dans le code."
+  },
+  "raw_text": "{\"question\":\"Quel délai maximum le professionnel a-t-il pour accuser réception d'une résiliation faite en ligne sur son site ?\",\"why_unanswerable\":\"L'article D215-2 ne fixe que les rubriques d'information de la fonctionnalité de résiliation (identité, adresse, référence du contrat, date souhaitée, numéro de ligne, motif légitime). Il ne prévoit aucun délai pour accuser réception de la résiliation, il dit seulement que l'adresse de contact permet de confirmer la réception.\",\"doubt\":\"L'article L215-1-1 ou D215-3 pourrait contenir une règle sur l'accusé de réception ou sa date, donc la question risque d'avoir une réponse ailleurs dans le code.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-122",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1889,
+    "output_tokens": 269
+  },
+  "output": {
+    "question": "Crédit affecté : quel pourcentage d'acompte le vendeur peut-il demander avant que j'accepte le crédit ?",
+    "why_unanswerable": "Le Code de la consommation n'autorise aucun acompte ni fixe de pourcentage à ce stade : l'article L312-46 interdit au vendeur de recevoir tout paiement ou dépôt tant que l'acheteur n'a pas accepté le contrat de crédit. La question suppose un taux d'acompte que le code ne prévoit pas.",
+    "doubt": "Question à prémisse fausse : un lecteur pourrait répondre qu'aucun acompte n'est permis, ce qui revient à une réponse négative tirée de l'article. Elle reste donc sans valeur chiffrée à donner."
+  },
+  "raw_text": "{\"question\":\"Crédit affecté : quel pourcentage d'acompte le vendeur peut-il demander avant que j'accepte le crédit ?\",\"why_unanswerable\":\"Le Code de la consommation n'autorise aucun acompte ni fixe de pourcentage à ce stade : l'article L312-46 interdit au vendeur de recevoir tout paiement ou dépôt tant que l'acheteur n'a pas accepté le contrat de crédit. La question suppose un taux d'acompte que le code ne prévoit pas.\",\"doubt\":\"Question à prémisse fausse : un lecteur pourrait répondre qu'aucun acompte n'est permis, ce qui revient à une réponse négative tirée de l'article. Elle reste donc sans valeur chiffrée à donner.\"}"
+}

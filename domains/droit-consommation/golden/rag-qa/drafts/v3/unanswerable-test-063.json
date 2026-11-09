@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-063",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1991,
+    "output_tokens": 221
+  },
+  "output": {
+    "question": "Action en représentation conjointe : combien l'association peut-elle facturer à un mandant pour une copie de l'assignation ?",
+    "why_unanswerable": "Le texte prévoit seulement que la copie de l'acte introductif d'instance et des conclusions est délivrée aux frais du mandant qui la demande. Il ne fixe aucun tarif, plafond ou barème de ces frais, et le Code de la consommation ne contient pas d'autre disposition à ce sujet.",
+    "doubt": "Un autre article du Code de la consommation pourrait encadrer les frais de copie, même si je n'en connais pas. Le risque est faible."
+  },
+  "raw_text": "{\"question\":\"Action en représentation conjointe : combien l'association peut-elle facturer à un mandant pour une copie de l'assignation ?\",\"why_unanswerable\":\"Le texte prévoit seulement que la copie de l'acte introductif d'instance et des conclusions est délivrée aux frais du mandant qui la demande. Il ne fixe aucun tarif, plafond ou barème de ces frais, et le Code de la consommation ne contient pas d'autre disposition à ce sujet.\",\"doubt\":\"Un autre article du Code de la consommation pourrait encadrer les frais de copie, même si je n'en connais pas. Le risque est faible.\"}"
+}

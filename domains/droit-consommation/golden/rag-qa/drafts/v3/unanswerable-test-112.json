@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-112",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2049,
+    "output_tokens": 292
+  },
+  "output": {
+    "question": "Surendettement : quel est le montant du barème des dépenses courantes pour un couple avec deux enfants ?",
+    "why_unanswerable": "L'article prévoit seulement que la commission apprécie les dépenses courantes soit au montant réel, soit selon un barème fixé par son règlement intérieur tenant compte de la composition de la famille. Il ne fixe aucun montant chiffré pour ce barème, qui relève du règlement intérieur de chaque commission. Le code ne donne donc pas de somme pour un couple avec deux enfants.",
+    "doubt": "Un autre article (par exemple sur le reste à vivre, R731-1 ou L731-2) pourrait fixer un montant de référence, mais il ne concerne pas le barème des dépenses courantes de la commission. Un lecteur pourrait toutefois confondre les deux notions."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quel est le montant du barème des dépenses courantes pour un couple avec deux enfants ?\",\"why_unanswerable\":\"L'article prévoit seulement que la commission apprécie les dépenses courantes soit au montant réel, soit selon un barème fixé par son règlement intérieur tenant compte de la composition de la famille. Il ne fixe aucun montant chiffré pour ce barème, qui relève du règlement intérieur de chaque commission. Le code ne donne donc pas de somme pour un couple avec deux enfants.\",\"doubt\":\"Un autre article (par exemple sur le reste à vivre, R731-1 ou L731-2) pourrait fixer un montant de référence, mais il ne concerne pas le barème des dépenses courantes de la commission. Un lecteur pourrait toutefois confondre les deux notions.\"}"
+}

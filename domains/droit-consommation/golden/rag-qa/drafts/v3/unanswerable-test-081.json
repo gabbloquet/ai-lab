@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-081",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1874,
+    "output_tokens": 283
+  },
+  "output": {
+    "question": "Médiation de consommation : combien coûte la saisine d'un médiateur pour le consommateur en moyenne ?",
+    "why_unanswerable": "Le Code de la consommation ne fixe aucun montant moyen de la saisine d'un médiateur. Il prévoit seulement que la médiation est gratuite pour le consommateur, sans donner de coût moyen ni de tarif chiffré. L'article R612-5 ne traite que du délai de l'issue de la médiation (quatre-vingt-dix jours, prolongeable en cas de litige complexe).",
+    "doubt": "Le Code affirmant la gratuité de la médiation pour le consommateur (L612-1), la question pourrait trouver une réponse (« rien, c'est gratuit »), ce qui la rendrait répondable ; à reformuler si besoin."
+  },
+  "raw_text": "{\"question\":\"Médiation de consommation : combien coûte la saisine d'un médiateur pour le consommateur en moyenne ?\",\"why_unanswerable\":\"Le Code de la consommation ne fixe aucun montant moyen de la saisine d'un médiateur. Il prévoit seulement que la médiation est gratuite pour le consommateur, sans donner de coût moyen ni de tarif chiffré. L'article R612-5 ne traite que du délai de l'issue de la médiation (quatre-vingt-dix jours, prolongeable en cas de litige complexe).\",\"doubt\":\"Le Code affirmant la gratuité de la médiation pour le consommateur (L612-1), la question pourrait trouver une réponse (« rien, c'est gratuit »), ce qui la rendrait répondable ; à reformuler si besoin.\"}"
+}

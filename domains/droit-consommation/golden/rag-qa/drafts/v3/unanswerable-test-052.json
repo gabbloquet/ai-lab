@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-052",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2169,
+    "output_tokens": 231
+  },
+  "output": {
+    "question": "Prêt viager hypothécaire : quel est le tarif maximal d'un expert pour estimer l'immeuble en cas de vente ?",
+    "why_unanswerable": "L'article prévoit seulement qu'un expert est choisi d'un commun accord ou désigné sur requête en cas de contestation de la valeur. Il ne fixe ni honoraires, ni tarif, ni plafond de rémunération de l'expert, et le Code de la consommation ne donne pas non plus cette information.",
+    "doubt": "Un autre article ou un texte réglementaire pourrait mentionner la rémunération des experts, mais cela semble peu probable dans le Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Prêt viager hypothécaire : quel est le tarif maximal d'un expert pour estimer l'immeuble en cas de vente ?\",\"why_unanswerable\":\"L'article prévoit seulement qu'un expert est choisi d'un commun accord ou désigné sur requête en cas de contestation de la valeur. Il ne fixe ni honoraires, ni tarif, ni plafond de rémunération de l'expert, et le Code de la consommation ne donne pas non plus cette information.\",\"doubt\":\"Un autre article ou un texte réglementaire pourrait mentionner la rémunération des experts, mais cela semble peu probable dans le Code de la consommation.\"}"
+}

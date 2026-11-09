@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-088",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2046,
+    "output_tokens": 237
+  },
+  "output": {
+    "question": "Surendettement : combien de temps la commission a-t-elle pour obtenir les renseignements demandés à ma banque ?",
+    "why_unanswerable": "L'article L712-6 autorise la commission de surendettement à obtenir communication de renseignements auprès des administrations, établissements de crédit, organismes sociaux, etc., mais il ne fixe aucun délai de réponse imposé à ces organismes. Le texte ne donne donc aucune durée à ce sujet.",
+    "doubt": "Un autre article du Code de la consommation (partie réglementaire) pourrait fixer un délai de réponse aux demandes de renseignements de la commission, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Surendettement : combien de temps la commission a-t-elle pour obtenir les renseignements demandés à ma banque ?\",\"why_unanswerable\":\"L'article L712-6 autorise la commission de surendettement à obtenir communication de renseignements auprès des administrations, établissements de crédit, organismes sociaux, etc., mais il ne fixe aucun délai de réponse imposé à ces organismes. Le texte ne donne donc aucune durée à ce sujet.\",\"doubt\":\"Un autre article du Code de la consommation (partie réglementaire) pourrait fixer un délai de réponse aux demandes de renseignements de la commission, ce qui rendrait la question répondable.\"}"
+}

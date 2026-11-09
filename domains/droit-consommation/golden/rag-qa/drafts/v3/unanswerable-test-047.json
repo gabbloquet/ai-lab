@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-047",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1928,
+    "output_tokens": 236
+  },
+  "output": {
+    "question": "Combien d'associations de consommateurs ont la reconnaissance spécifique en ce moment ?",
+    "why_unanswerable": "Le code prévoit seulement que la liste des associations bénéficiant de la reconnaissance spécifique est mise à jour et publiée sur un site internet du ministre chargé de la consommation. Il ne fixe ni le nombre d'associations concernées ni leur identité, qui varient selon les décisions et ne figurent pas dans le code.",
+    "doubt": "Un autre article pourrait fixer un nombre maximal d'associations reconnues, mais cela paraît peu probable ; la question vise le nombre actuel, qui n'est pas dans le code."
+  },
+  "raw_text": "{\"question\":\"Combien d'associations de consommateurs ont la reconnaissance spécifique en ce moment ?\",\"why_unanswerable\":\"Le code prévoit seulement que la liste des associations bénéficiant de la reconnaissance spécifique est mise à jour et publiée sur un site internet du ministre chargé de la consommation. Il ne fixe ni le nombre d'associations concernées ni leur identité, qui varient selon les décisions et ne figurent pas dans le code.\",\"doubt\":\"Un autre article pourrait fixer un nombre maximal d'associations reconnues, mais cela paraît peu probable ; la question vise le nombre actuel, qui n'est pas dans le code.\"}"
+}

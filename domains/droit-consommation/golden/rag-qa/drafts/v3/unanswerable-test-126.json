@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-126",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:15:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2396,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Quel niveau de complexité maximal des informations bancaires l'ACPR doit-elle faire respecter aux banques ?",
+    "why_unanswerable": "L'article dit seulement que le niveau de complexité ne doit pas dépasser un niveau fixé par arrêté conjoint des ministres chargés de l'économie et des personnes handicapées. Le Code de la consommation ne donne aucun niveau chiffré ni échelle précise : cette valeur relève de l'arrêté, qui n'est pas dans le code.",
+    "doubt": "La question pourrait sembler appeler le renvoi à l'arrêté, mais aucune valeur n'est fournie dans le code ; vérifier qu'aucun autre article ne fixe ce niveau."
+  },
+  "raw_text": "{\"question\":\"Quel niveau de complexité maximal des informations bancaires l'ACPR doit-elle faire respecter aux banques ?\",\"why_unanswerable\":\"L'article dit seulement que le niveau de complexité ne doit pas dépasser un niveau fixé par arrêté conjoint des ministres chargés de l'économie et des personnes handicapées. Le Code de la consommation ne donne aucun niveau chiffré ni échelle précise : cette valeur relève de l'arrêté, qui n'est pas dans le code.\",\"doubt\":\"La question pourrait sembler appeler le renvoi à l'arrêté, mais aucune valeur n'est fournie dans le code ; vérifier qu'aucun autre article ne fixe ce niveau.\"}"
+}

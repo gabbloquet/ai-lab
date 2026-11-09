@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-061",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2599,
+    "output_tokens": 209
+  },
+  "output": {
+    "question": "Après rétractation d'un service numérique, sous combien de jours exacts le professionnel doit-il me rendre mes contenus ?",
+    "why_unanswerable": "L'article prévoit seulement que le consommateur récupère son contenu « dans un délai raisonnable », sans fixer de nombre de jours précis. Le Code de la consommation ne donne donc pas de durée chiffrée pour cette restitution.",
+    "doubt": "Un autre article du code pourrait fixer un délai chiffré pour la restitution des contenus numériques après rétractation, ce qui est peu probable mais pas vérifié."
+  },
+  "raw_text": "{\"question\":\"Après rétractation d'un service numérique, sous combien de jours exacts le professionnel doit-il me rendre mes contenus ?\",\"why_unanswerable\":\"L'article prévoit seulement que le consommateur récupère son contenu « dans un délai raisonnable », sans fixer de nombre de jours précis. Le Code de la consommation ne donne donc pas de durée chiffrée pour cette restitution.\",\"doubt\":\"Un autre article du code pourrait fixer un délai chiffré pour la restitution des contenus numériques après rétractation, ce qui est peu probable mais pas vérifié.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-051",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2020,
+    "output_tokens": 263
+  },
+  "output": {
+    "question": "Action de groupe : quel est le délai maximal pour adhérer au groupe après le jugement sur la responsabilité ?",
+    "why_unanswerable": "L'article R623-17 ne précise que la forme et le contenu de l'adhésion (moyen donnant accusé de réception, nom, prénoms, domicile, montant demandé). Il ne fixe aucun délai d'adhésion : celui-ci est déterminé par le juge dans son jugement, et non par une valeur chiffrée générale de cet article.",
+    "doubt": "Un autre article du Code de la consommation (par exemple L623-5 ou R623-13) mentionne peut-être un délai encadré pour l'adhésion (entre deux et six mois), ce qui pourrait rendre la question répondable."
+  },
+  "raw_text": "{\"question\":\"Action de groupe : quel est le délai maximal pour adhérer au groupe après le jugement sur la responsabilité ?\",\"why_unanswerable\":\"L'article R623-17 ne précise que la forme et le contenu de l'adhésion (moyen donnant accusé de réception, nom, prénoms, domicile, montant demandé). Il ne fixe aucun délai d'adhésion : celui-ci est déterminé par le juge dans son jugement, et non par une valeur chiffrée générale de cet article.\",\"doubt\":\"Un autre article du Code de la consommation (par exemple L623-5 ou R623-13) mentionne peut-être un délai encadré pour l'adhésion (entre deux et six mois), ce qui pourrait rendre la question répondable.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-053",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:14+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2715,
+    "output_tokens": 231
+  },
+  "output": {
+    "question": "À Wallis-et-Futuna, combien de membres compte la commission de surendettement ?",
+    "why_unanswerable": "L'article R771-2 se contente de remplacer des références (représentant de l'Institut d'émission d'outre-mer, administrateur supérieur, tribunal de première instance) et ne fixe aucun nombre de membres de la commission de surendettement locale. Le nombre de membres n'y figure pas.",
+    "doubt": "Un autre article du Code, comme R712-1 ou R712-2 sur la composition des commissions, pourrait donner une composition générale, qui serait alors applicable par renvoi. La question risque donc d'avoir une réponse."
+  },
+  "raw_text": "{\"question\":\"À Wallis-et-Futuna, combien de membres compte la commission de surendettement ?\",\"why_unanswerable\":\"L'article R771-2 se contente de remplacer des références (représentant de l'Institut d'émission d'outre-mer, administrateur supérieur, tribunal de première instance) et ne fixe aucun nombre de membres de la commission de surendettement locale. Le nombre de membres n'y figure pas.\",\"doubt\":\"Un autre article du Code, comme R712-1 ou R712-2 sur la composition des commissions, pourrait donner une composition générale, qui serait alors applicable par renvoi. La question risque donc d'avoir une réponse.\"}"
+}

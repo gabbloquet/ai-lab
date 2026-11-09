@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-102",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2750,
+    "output_tokens": 259
+  },
+  "output": {
+    "question": "Quelle amende civile risque un professionnel qui garde des clauses abusives déjà condamnées, en cas de récidive sur trois contrats ?",
+    "why_unanswerable": "Le code fixe seulement des plafonds d'amende civile (15 000 € pour une personne physique, 75 000 € pour une personne morale, avec des plafonds spécifiques pour les infractions de grande ampleur). Il ne prévoit aucun barème ni montant en fonction du nombre de contrats concernés ou de la récidive ; le juge fixe librement le montant sous le plafond.",
+    "doubt": "La question pourrait être jugée partiellement répondable car les plafonds existent, mais le calcul par nombre de contrats n'est pas prévu par le code."
+  },
+  "raw_text": "{\"question\":\"Quelle amende civile risque un professionnel qui garde des clauses abusives déjà condamnées, en cas de récidive sur trois contrats ?\",\"why_unanswerable\":\"Le code fixe seulement des plafonds d'amende civile (15 000 € pour une personne physique, 75 000 € pour une personne morale, avec des plafonds spécifiques pour les infractions de grande ampleur). Il ne prévoit aucun barème ni montant en fonction du nombre de contrats concernés ou de la récidive ; le juge fixe librement le montant sous le plafond.\",\"doubt\":\"La question pourrait être jugée partiellement répondable car les plafonds existent, mais le calcul par nombre de contrats n'est pas prévu par le code.\"}"
+}

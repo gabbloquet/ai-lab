@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-076",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:29+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1996,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Quel délai a une entreprise pour répondre à une publicité comparative la visant dans un journal ?",
+    "why_unanswerable": "L'article précise seulement que les insertions publicitaires dans la presse ne donnent pas lieu au droit de réponse de la loi de 1881 ou de 1982. Il ne fixe aucun délai de réponse pour une entreprise visée par une publicité comparative, et le Code de la consommation n'en prévoit pas.",
+    "doubt": "Un lecteur pourrait chercher un délai dans les textes sur la publicité comparative, mais le code n'en fixe pas ; la question reste proche du thème du droit de réponse."
+  },
+  "raw_text": "{\"question\":\"Quel délai a une entreprise pour répondre à une publicité comparative la visant dans un journal ?\",\"why_unanswerable\":\"L'article précise seulement que les insertions publicitaires dans la presse ne donnent pas lieu au droit de réponse de la loi de 1881 ou de 1982. Il ne fixe aucun délai de réponse pour une entreprise visée par une publicité comparative, et le Code de la consommation n'en prévoit pas.\",\"doubt\":\"Un lecteur pourrait chercher un délai dans les textes sur la publicité comparative, mais le code n'en fixe pas ; la question reste proche du thème du droit de réponse.\"}"
+}

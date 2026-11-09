@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-120",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1957,
+    "output_tokens": 223
+  },
+  "output": {
+    "question": "Combien de personnes siègent au conseil d'administration de l'Institut national de la consommation ?",
+    "why_unanswerable": "L'article R822-6 dit seulement que les fonctions d'administrateur de l'INC sont gratuites et ouvrent droit à des indemnités de déplacement et de séjour. Il ne fixe pas le nombre de membres du conseil. Cette donnée ne figure pas dans l'article fourni.",
+    "doubt": "Un autre article du chapitre sur l'INC (par exemple sur la composition du conseil d'administration) pourrait fixer le nombre de membres, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Combien de personnes siègent au conseil d'administration de l'Institut national de la consommation ?\",\"why_unanswerable\":\"L'article R822-6 dit seulement que les fonctions d'administrateur de l'INC sont gratuites et ouvrent droit à des indemnités de déplacement et de séjour. Il ne fixe pas le nombre de membres du conseil. Cette donnée ne figure pas dans l'article fourni.\",\"doubt\":\"Un autre article du chapitre sur l'INC (par exemple sur la composition du conseil d'administration) pourrait fixer le nombre de membres, ce qui rendrait la question répondable.\"}"
+}

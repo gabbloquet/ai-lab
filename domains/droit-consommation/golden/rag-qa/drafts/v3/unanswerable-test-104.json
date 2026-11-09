@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-104",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1976,
+    "output_tokens": 236
+  },
+  "output": {
+    "question": "Quelle hauteur minimale en millimètres doit avoir le marquage CE sur un produit ?",
+    "why_unanswerable": "L'article impose seulement que le marquage CE soit visible, lisible et indélébile, apposé avant la mise sur le marché. Il ne fixe aucune dimension minimale en millimètres, et le Code de la consommation n'en donne pas non plus ailleurs sur ce point.",
+    "doubt": "Le règlement (CE) n° 765/2008 ou une autre réglementation européenne fixe peut-être une dimension minimale, mais ce n'est pas le Code de la consommation. Un autre article du code pourrait toutefois la mentionner."
+  },
+  "raw_text": "{\"question\":\"Quelle hauteur minimale en millimètres doit avoir le marquage CE sur un produit ?\",\"why_unanswerable\":\"L'article impose seulement que le marquage CE soit visible, lisible et indélébile, apposé avant la mise sur le marché. Il ne fixe aucune dimension minimale en millimètres, et le Code de la consommation n'en donne pas non plus ailleurs sur ce point.\",\"doubt\":\"Le règlement (CE) n° 765/2008 ou une autre réglementation européenne fixe peut-être une dimension minimale, mais ce n'est pas le Code de la consommation. Un autre article du code pourrait toutefois la mentionner.\"}"
+}

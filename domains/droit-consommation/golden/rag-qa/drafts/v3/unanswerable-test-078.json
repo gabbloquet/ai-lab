@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-078",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2006,
+    "output_tokens": 224
+  },
+  "output": {
+    "question": "Combien coûte l'inscription sur la liste d'opposition au démarchage téléphonique pour un particulier ?",
+    "why_unanswerable": "Le code décrit la finalité du traitement automatisé de la liste d'opposition au démarchage téléphonique et le retrait des numéros des fichiers de prospection, mais il ne fixe aucun tarif d'inscription pour le consommateur. Aucune valeur de prix n'y figure.",
+    "doubt": "Le code précise ailleurs que l'inscription est gratuite, sans la chiffrer ; un autre article pourrait donc répondre par « gratuit ». La question est donc risquée."
+  },
+  "raw_text": "{\"question\":\"Combien coûte l'inscription sur la liste d'opposition au démarchage téléphonique pour un particulier ?\",\"why_unanswerable\":\"Le code décrit la finalité du traitement automatisé de la liste d'opposition au démarchage téléphonique et le retrait des numéros des fichiers de prospection, mais il ne fixe aucun tarif d'inscription pour le consommateur. Aucune valeur de prix n'y figure.\",\"doubt\":\"Le code précise ailleurs que l'inscription est gratuite, sans la chiffrer ; un autre article pourrait donc répondre par « gratuit ». La question est donc risquée.\"}"
+}

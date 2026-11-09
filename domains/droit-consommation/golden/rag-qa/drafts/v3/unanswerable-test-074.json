@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-074",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2093,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Quel délai en jours un professionnel a-t-il pour contester devant le juge une amende pour non-respect d'une injonction ?",
+    "why_unanswerable": "L'article fixe seulement les plafonds de l'amende administrative (15 000 € pour une personne physique, 75 000 € pour une personne morale) et renvoie à la procédure du chapitre II du titre II. Il ne donne aucun délai de recours juridictionnel contre l'amende. Cette question voisine n'est donc pas couverte par l'article.",
+    "doubt": "Le chapitre II du titre II sur la procédure d'amende pourrait mentionner un délai de recours ou y renvoyer. Le délai de droit commun du contentieux administratif relève d'un autre code."
+  },
+  "raw_text": "{\"question\":\"Quel délai en jours un professionnel a-t-il pour contester devant le juge une amende pour non-respect d'une injonction ?\",\"why_unanswerable\":\"L'article fixe seulement les plafonds de l'amende administrative (15 000 € pour une personne physique, 75 000 € pour une personne morale) et renvoie à la procédure du chapitre II du titre II. Il ne donne aucun délai de recours juridictionnel contre l'amende. Cette question voisine n'est donc pas couverte par l'article.\",\"doubt\":\"Le chapitre II du titre II sur la procédure d'amende pourrait mentionner un délai de recours ou y renvoyer. Le délai de droit commun du contentieux administratif relève d'un autre code.\"}"
+}

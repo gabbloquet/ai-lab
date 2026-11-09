@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-111",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2131,
+    "output_tokens": 232
+  },
+  "output": {
+    "question": "Rétablissement personnel : quelle est la mise à prix minimale d'une maison vendue aux enchères ?",
+    "why_unanswerable": "L'article se contente de soumettre la vente par adjudication d'un bien immobilier aux règles du code des procédures civiles d'exécution et à la loi de 1924 pour l'Alsace-Moselle. Le Code de la consommation ne fixe aucun montant minimal de mise à prix pour ces ventes.",
+    "doubt": "L'article ne contient aucune valeur précise, il ne fait que renvoyer à d'autres textes, donc il se prête mal à la question. La question est volontairement sans réponse dans le code."
+  },
+  "raw_text": "{\"question\":\"Rétablissement personnel : quelle est la mise à prix minimale d'une maison vendue aux enchères ?\",\"why_unanswerable\":\"L'article se contente de soumettre la vente par adjudication d'un bien immobilier aux règles du code des procédures civiles d'exécution et à la loi de 1924 pour l'Alsace-Moselle. Le Code de la consommation ne fixe aucun montant minimal de mise à prix pour ces ventes.\",\"doubt\":\"L'article ne contient aucune valeur précise, il ne fait que renvoyer à d'autres textes, donc il se prête mal à la question. La question est volontairement sans réponse dans le code.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-093",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2376,
+    "output_tokens": 299
+  },
+  "output": {
+    "question": "Un boulanger condamné pour usage abusif de l'appellation boulanger doit-il payer combien de dommages-intérêts à ses concurrents ?",
+    "why_unanswerable": "L'article L132-28 ne traite que des peines complémentaires (interdictions d'exercer pour cinq ans au plus, peines applicables aux personnes morales). Il ne fixe aucun montant de dommages-intérêts à verser aux concurrents. Ces sommes relèvent de l'appréciation du juge en réparation du préjudice, et le Code de la consommation n'en donne pas de barème.",
+    "doubt": "Le code renvoie à L132-27 pour l'amende, donc une question sur l'amende aurait une réponse ; ici on cible volontairement les dommages-intérêts, mais un lecteur pourrait y voir une question de droit commun de la responsabilité."
+  },
+  "raw_text": "{\"question\":\"Un boulanger condamné pour usage abusif de l'appellation boulanger doit-il payer combien de dommages-intérêts à ses concurrents ?\",\"why_unanswerable\":\"L'article L132-28 ne traite que des peines complémentaires (interdictions d'exercer pour cinq ans au plus, peines applicables aux personnes morales). Il ne fixe aucun montant de dommages-intérêts à verser aux concurrents. Ces sommes relèvent de l'appréciation du juge en réparation du préjudice, et le Code de la consommation n'en donne pas de barème.\",\"doubt\":\"Le code renvoie à L132-27 pour l'amende, donc une question sur l'amende aurait une réponse ; ici on cible volontairement les dommages-intérêts, mais un lecteur pourrait y voir une question de droit commun de la responsabilité.\"}"
+}

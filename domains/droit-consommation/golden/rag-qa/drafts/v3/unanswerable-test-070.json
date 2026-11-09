@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-070",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2120,
+    "output_tokens": 261
+  },
+  "output": {
+    "question": "Crédit conso : quel est le montant maximal des frais de relance que la banque peut me facturer si je rate une mensualité ?",
+    "why_unanswerable": "L'article interdit toute indemnité ou frais hors ceux des articles L. 312-39 et L. 312-40, et exclut le remboursement forfaitaire de frais de recouvrement, mais il ne fixe aucun montant plafond de frais de relance. Le Code de la consommation ne donne donc aucun chiffre pour ce point.",
+    "doubt": "Un autre article du code (par exemple sur les intérêts de retard ou l'indemnité de L. 312-39) pourrait être jugé voisin, mais aucun ne fixe un plafond de frais de relance par mensualité impayée."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : quel est le montant maximal des frais de relance que la banque peut me facturer si je rate une mensualité ?\",\"why_unanswerable\":\"L'article interdit toute indemnité ou frais hors ceux des articles L. 312-39 et L. 312-40, et exclut le remboursement forfaitaire de frais de recouvrement, mais il ne fixe aucun montant plafond de frais de relance. Le Code de la consommation ne donne donc aucun chiffre pour ce point.\",\"doubt\":\"Un autre article du code (par exemple sur les intérêts de retard ou l'indemnité de L. 312-39) pourrait être jugé voisin, mais aucun ne fixe un plafond de frais de relance par mensualité impayée.\"}"
+}

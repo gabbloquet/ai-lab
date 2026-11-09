@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-080",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2336,
+    "output_tokens": 226
+  },
+  "output": {
+    "question": "Polynésie : quel plafond de crédit fait déclarer un incident de paiement à la Banque de France ?",
+    "why_unanswerable": "L'article impose la déclaration des incidents de paiement liés aux crédits aux particuliers pour des besoins non professionnels, sans fixer de montant minimal d'impayé ou de plafond de crédit déclenchant la déclaration. Le code ne donne donc pas de seuil.",
+    "doubt": "Un autre article (par exemple dans le chapitre sur le fichier national des incidents, L751-1 et suivants) pourrait préciser un seuil d'incident, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Polynésie : quel plafond de crédit fait déclarer un incident de paiement à la Banque de France ?\",\"why_unanswerable\":\"L'article impose la déclaration des incidents de paiement liés aux crédits aux particuliers pour des besoins non professionnels, sans fixer de montant minimal d'impayé ou de plafond de crédit déclenchant la déclaration. Le code ne donne donc pas de seuil.\",\"doubt\":\"Un autre article (par exemple dans le chapitre sur le fichier national des incidents, L751-1 et suivants) pourrait préciser un seuil d'incident, ce qui rendrait la question répondable.\"}"
+}

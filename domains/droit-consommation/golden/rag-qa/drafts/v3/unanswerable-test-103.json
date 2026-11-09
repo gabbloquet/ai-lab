@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-103",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1900,
+    "output_tokens": 261
+  },
+  "output": {
+    "question": "Quelle valeur maximale peut avoir un cadeau offert pour la souscription d'un crédit à la consommation ?",
+    "why_unanswerable": "L'article D312-1 se limite à définir les lots promotionnels comme des primes en nature de produits ou biens offertes à titre gratuit lors de la conclusion d'un crédit. Il ne fixe aucun plafond de valeur ni montant maximal pour ces cadeaux, et je ne vois pas d'autre article du Code de la consommation qui en prévoie un.",
+    "doubt": "L'article L312-11 encadre la publicité sur les lots promotionnels, et il pourrait contenir une limite de valeur que je n'ai pas vérifiée, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle valeur maximale peut avoir un cadeau offert pour la souscription d'un crédit à la consommation ?\",\"why_unanswerable\":\"L'article D312-1 se limite à définir les lots promotionnels comme des primes en nature de produits ou biens offertes à titre gratuit lors de la conclusion d'un crédit. Il ne fixe aucun plafond de valeur ni montant maximal pour ces cadeaux, et je ne vois pas d'autre article du Code de la consommation qui en prévoie un.\",\"doubt\":\"L'article L312-11 encadre la publicité sur les lots promotionnels, et il pourrait contenir une limite de valeur que je n'ai pas vérifiée, ce qui rendrait la question répondable.\"}"
+}

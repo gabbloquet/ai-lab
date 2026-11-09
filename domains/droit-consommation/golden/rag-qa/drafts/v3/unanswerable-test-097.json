@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-097",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2702,
+    "output_tokens": 246
+  },
+  "output": {
+    "question": "Quel est le prix maximum d'une boîte de six œufs vendue en supermarché ?",
+    "why_unanswerable": "L'article R412-27 se borne à énumérer des dispositions de règlements européens (hygiène des œufs, normes de commercialisation des œufs et de la volaille) qui constituent des mesures d'exécution de l'article L. 412-1. Il ne fixe aucun prix. Le Code de la consommation ne prévoit pas de prix maximum pour les œufs, dont les prix sont libres.",
+    "doubt": "Un autre article du code sur les prix réglementés pourrait être invoqué, mais aucun ne fixe de prix plafond pour les œufs, à ma connaissance."
+  },
+  "raw_text": "{\"question\":\"Quel est le prix maximum d'une boîte de six œufs vendue en supermarché ?\",\"why_unanswerable\":\"L'article R412-27 se borne à énumérer des dispositions de règlements européens (hygiène des œufs, normes de commercialisation des œufs et de la volaille) qui constituent des mesures d'exécution de l'article L. 412-1. Il ne fixe aucun prix. Le Code de la consommation ne prévoit pas de prix maximum pour les œufs, dont les prix sont libres.\",\"doubt\":\"Un autre article du code sur les prix réglementés pourrait être invoqué, mais aucun ne fixe de prix plafond pour les œufs, à ma connaissance.\"}"
+}

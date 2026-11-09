@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-110",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2262,
+    "output_tokens": 250
+  },
+  "output": {
+    "question": "Quelle amende risque un télévendeur qui m'appelle un dimanche pour du démarchage ?",
+    "why_unanswerable": "L'article D223-9 fixe les jours et horaires autorisés pour le démarchage téléphonique, le nombre maximal d'appels et le délai après refus, mais n'indique aucun montant d'amende. Les sanctions figurent dans d'autres dispositions et ne sont pas fixées par cet article, donc la réponse ne s'y lit pas.",
+    "doubt": "Un autre article du code (partie sanctions, par exemple L242-16 ou L242-17) pourrait fixer une amende administrative pour le démarchage téléphonique, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle amende risque un télévendeur qui m'appelle un dimanche pour du démarchage ?\",\"why_unanswerable\":\"L'article D223-9 fixe les jours et horaires autorisés pour le démarchage téléphonique, le nombre maximal d'appels et le délai après refus, mais n'indique aucun montant d'amende. Les sanctions figurent dans d'autres dispositions et ne sont pas fixées par cet article, donc la réponse ne s'y lit pas.\",\"doubt\":\"Un autre article du code (partie sanctions, par exemple L242-16 ou L242-17) pourrait fixer une amende administrative pour le démarchage téléphonique, ce qui rendrait la question répondable.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-071",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1961,
+    "output_tokens": 259
+  },
+  "output": {
+    "question": "Quelle peine de travaux d'intérêt général risque-t-on si on empêche un contrôleur de la répression des fraudes de faire son travail ?",
+    "why_unanswerable": "L'article prévoit seulement deux ans d'emprisonnement et une amende de 300 000 euros, pouvant aller jusqu'à 10 % du chiffre d'affaires. Il ne mentionne aucune peine de travaux d'intérêt général ni leur durée. Le Code de la consommation ne fixe pas ce détail pour ce délit.",
+    "doubt": "Le code pénal ou le code de procédure pénale pourrait traiter des peines complémentaires ou alternatives comme le travail d'intérêt général, mais pas le Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Quelle peine de travaux d'intérêt général risque-t-on si on empêche un contrôleur de la répression des fraudes de faire son travail ?\",\"why_unanswerable\":\"L'article prévoit seulement deux ans d'emprisonnement et une amende de 300 000 euros, pouvant aller jusqu'à 10 % du chiffre d'affaires. Il ne mentionne aucune peine de travaux d'intérêt général ni leur durée. Le Code de la consommation ne fixe pas ce détail pour ce délit.\",\"doubt\":\"Le code pénal ou le code de procédure pénale pourrait traiter des peines complémentaires ou alternatives comme le travail d'intérêt général, mais pas le Code de la consommation.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-106",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2211,
+    "output_tokens": 208
+  },
+  "output": {
+    "question": "Sur un site de vente en ligne, de quelle couleur doit être le bouton de validation de commande ?",
+    "why_unanswerable": "L'article impose seulement que le bouton de validation porte une mention claire du type « commande avec obligation de paiement » ou une formule analogue. Il ne dit rien de la couleur, de la taille ni de la présentation graphique du bouton, et aucun autre article du Code de la consommation ne les fixe.",
+    "doubt": "Un autre article pourrait encadrer la présentation graphique du bouton, mais je n'en connais aucun dans le Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Sur un site de vente en ligne, de quelle couleur doit être le bouton de validation de commande ?\",\"why_unanswerable\":\"L'article impose seulement que le bouton de validation porte une mention claire du type « commande avec obligation de paiement » ou une formule analogue. Il ne dit rien de la couleur, de la taille ni de la présentation graphique du bouton, et aucun autre article du Code de la consommation ne les fixe.\",\"doubt\":\"Un autre article pourrait encadrer la présentation graphique du bouton, mais je n'en connais aucun dans le Code de la consommation.\"}"
+}

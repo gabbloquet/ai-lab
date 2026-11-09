@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-050",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1993,
+    "output_tokens": 255
+  },
+  "output": {
+    "question": "Quelle est la rémunération des rapporteurs de la commission d'évaluation de la médiation de la consommation ?",
+    "why_unanswerable": "L'article R615-4 prévoit seulement que la commission peut faire appel à des rapporteurs issus des services de l'Etat, saisir pour avis des autorités indépendantes et coopérer avec ses homologues étrangers. Il ne dit rien de la rémunération des rapporteurs, et aucun autre article du Code de la consommation ne la fixe à ma connaissance.",
+    "doubt": "Un autre article réglementaire sur le fonctionnement de la commission pourrait mentionner une indemnisation des rapporteurs ou des membres, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle est la rémunération des rapporteurs de la commission d'évaluation de la médiation de la consommation ?\",\"why_unanswerable\":\"L'article R615-4 prévoit seulement que la commission peut faire appel à des rapporteurs issus des services de l'Etat, saisir pour avis des autorités indépendantes et coopérer avec ses homologues étrangers. Il ne dit rien de la rémunération des rapporteurs, et aucun autre article du Code de la consommation ne la fixe à ma connaissance.\",\"doubt\":\"Un autre article réglementaire sur le fonctionnement de la commission pourrait mentionner une indemnisation des rapporteurs ou des membres, ce qui rendrait la question répondable.\"}"
+}

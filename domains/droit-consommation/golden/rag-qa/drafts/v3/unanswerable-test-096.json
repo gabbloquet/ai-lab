@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-096",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1858,
+    "output_tokens": 286
+  },
+  "output": {
+    "question": "Combien coûte en moyenne une médiation de la consommation pour un particulier devant un médiateur agréé ?",
+    "why_unanswerable": "L'article R612-3 porte sur la communication des pièces du dossier, sur la possibilité de recevoir les parties ensemble ou séparément et sur la proposition de solution. Il ne fixe aucun tarif. Le code énonce par ailleurs que la médiation est gratuite pour le consommateur, il n'existe donc pas de coût moyen à chiffrer, et aucun montant n'est prévu.",
+    "doubt": "Le Code de la consommation prévoit la gratuité de la médiation pour le consommateur (article L612-1), donc la question pourrait recevoir une réponse du type « c'est gratuit » ; elle est peut-être répondable ailleurs dans le code."
+  },
+  "raw_text": "{\"question\":\"Combien coûte en moyenne une médiation de la consommation pour un particulier devant un médiateur agréé ?\",\"why_unanswerable\":\"L'article R612-3 porte sur la communication des pièces du dossier, sur la possibilité de recevoir les parties ensemble ou séparément et sur la proposition de solution. Il ne fixe aucun tarif. Le code énonce par ailleurs que la médiation est gratuite pour le consommateur, il n'existe donc pas de coût moyen à chiffrer, et aucun montant n'est prévu.\",\"doubt\":\"Le Code de la consommation prévoit la gratuité de la médiation pour le consommateur (article L612-1), donc la question pourrait recevoir une réponse du type « c'est gratuit » ; elle est peut-être répondable ailleurs dans le code.\"}"
+}

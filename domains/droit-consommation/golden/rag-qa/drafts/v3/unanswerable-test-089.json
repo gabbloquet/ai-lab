@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-test-089",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T12:14:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2360,
+    "output_tokens": 248
+  },
+  "output": {
+    "question": "Quel pourcentage de réduction de prix puis-je exiger si mon bien est non conforme ?",
+    "why_unanswerable": "L'article L217-14 reconnaît le droit à une réduction du prix ou à la résolution du contrat, mais il ne fixe aucun pourcentage ni barème de réduction. Le montant dépend de la situation et se négocie ou est apprécié par le juge. Le code ne donne donc aucune valeur chiffrée à ce sujet.",
+    "doubt": "L'article L217-16 ou L217-15 pourrait être lu comme traitant du montant de la réduction (proportionnelle à la différence de valeur), mais il ne donne pas non plus de pourcentage chiffré."
+  },
+  "raw_text": "{\"question\":\"Quel pourcentage de réduction de prix puis-je exiger si mon bien est non conforme ?\",\"why_unanswerable\":\"L'article L217-14 reconnaît le droit à une réduction du prix ou à la résolution du contrat, mais il ne fixe aucun pourcentage ni barème de réduction. Le montant dépend de la situation et se négocie ou est apprécié par le juge. Le code ne donne donc aucune valeur chiffrée à ce sujet.\",\"doubt\":\"L'article L217-16 ou L217-15 pourrait être lu comme traitant du montant de la réduction (proportionnelle à la différence de valeur), mais il ne donne pas non plus de pourcentage chiffré.\"}"
+}
