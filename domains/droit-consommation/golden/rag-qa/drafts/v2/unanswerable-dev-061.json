@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-061",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1874,
+    "output_tokens": 246
+  },
+  "output": {
+    "question": "Crédit renouvelable : quelle peine de prison risque un prêteur qui ne respecte pas ses obligations d'information ?",
+    "why_unanswerable": "L'article R341-16 prévoit seulement une amende contraventionnelle de 5e classe pour le prêteur ou l'intermédiaire. Le Code de la consommation ne fixe aucune peine d'emprisonnement pour cette contravention, et la question ne trouve donc pas de réponse dans le code.",
+    "doubt": "Un autre article du code (par exemple sur les pratiques commerciales trompeuses) pourrait prévoir une peine d'emprisonnement dans une situation voisine, ce qui pourrait prêter à confusion."
+  },
+  "raw_text": "{\"question\":\"Crédit renouvelable : quelle peine de prison risque un prêteur qui ne respecte pas ses obligations d'information ?\",\"why_unanswerable\":\"L'article R341-16 prévoit seulement une amende contraventionnelle de 5e classe pour le prêteur ou l'intermédiaire. Le Code de la consommation ne fixe aucune peine d'emprisonnement pour cette contravention, et la question ne trouve donc pas de réponse dans le code.\",\"doubt\":\"Un autre article du code (par exemple sur les pratiques commerciales trompeuses) pourrait prévoir une peine d'emprisonnement dans une situation voisine, ce qui pourrait prêter à confusion.\"}"
+}

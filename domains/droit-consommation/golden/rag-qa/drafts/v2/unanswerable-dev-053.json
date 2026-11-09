@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-053",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2105,
+    "output_tokens": 242
+  },
+  "output": {
+    "question": "Quelle amende encourt une plateforme en ligne qui ne respecte pas le règlement sur les services numériques ?",
+    "why_unanswerable": "L'article ne fait que donner aux agents l'habilitation de rechercher et constater les infractions des fournisseurs de plateforme en ligne au règlement sur les services numériques. Il ne fixe aucune sanction ni aucun montant d'amende, et la question porte sur une situation voisine que le texte ne couvre pas.",
+    "doubt": "Un autre article du Code de la consommation (par exemple sur les sanctions liées au règlement sur les services numériques) pourrait fixer un montant d'amende, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Quelle amende encourt une plateforme en ligne qui ne respecte pas le règlement sur les services numériques ?\",\"why_unanswerable\":\"L'article ne fait que donner aux agents l'habilitation de rechercher et constater les infractions des fournisseurs de plateforme en ligne au règlement sur les services numériques. Il ne fixe aucune sanction ni aucun montant d'amende, et la question porte sur une situation voisine que le texte ne couvre pas.\",\"doubt\":\"Un autre article du Code de la consommation (par exemple sur les sanctions liées au règlement sur les services numériques) pourrait fixer un montant d'amende, ce qui rendrait la question répondable.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-072",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2330,
+    "output_tokens": 203
+  },
+  "output": {
+    "question": "Quelle surface minimale de cuisine doit avoir un restaurant pour afficher la mention « fait maison » ?",
+    "why_unanswerable": "L'article D122-1 définit le produit brut et liste les produits pouvant entrer dans les plats « faits maison », mais ni lui ni aucun autre article du Code de la consommation n'impose de surface minimale de cuisine pour utiliser la mention.",
+    "doubt": "Un autre article sur le « fait maison » pourrait évoquer l'équipement de cuisine, mais je n'en connais aucun qui fixe une surface."
+  },
+  "raw_text": "{\"question\":\"Quelle surface minimale de cuisine doit avoir un restaurant pour afficher la mention « fait maison » ?\",\"why_unanswerable\":\"L'article D122-1 définit le produit brut et liste les produits pouvant entrer dans les plats « faits maison », mais ni lui ni aucun autre article du Code de la consommation n'impose de surface minimale de cuisine pour utiliser la mention.\",\"doubt\":\"Un autre article sur le « fait maison » pourrait évoquer l'équipement de cuisine, mais je n'en connais aucun qui fixe une surface.\"}"
+}

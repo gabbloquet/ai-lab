@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-076",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2005,
+    "output_tokens": 263
+  },
+  "output": {
+    "question": "Quelle est la peine de prison encourue si on ne respecte pas un retrait de produit ordonné et qu'on a récidivé ?",
+    "why_unanswerable": "L'article L532-3 fixe seulement une peine de base de deux ans d'emprisonnement et 15 000 euros d'amende, portée à 30 000 euros d'amende si le danger concerne la santé ou la sécurité. Il ne prévoit aucune aggravation de la peine d'emprisonnement en cas de récidive. Ce point relève des règles générales du code pénal, pas du Code de la consommation.",
+    "doubt": "Un autre article du Code de la consommation pourrait prévoir une aggravation en cas de récidive, mais je n'en connais pas pour ce délit précis."
+  },
+  "raw_text": "{\"question\":\"Quelle est la peine de prison encourue si on ne respecte pas un retrait de produit ordonné et qu'on a récidivé ?\",\"why_unanswerable\":\"L'article L532-3 fixe seulement une peine de base de deux ans d'emprisonnement et 15 000 euros d'amende, portée à 30 000 euros d'amende si le danger concerne la santé ou la sécurité. Il ne prévoit aucune aggravation de la peine d'emprisonnement en cas de récidive. Ce point relève des règles générales du code pénal, pas du Code de la consommation.\",\"doubt\":\"Un autre article du Code de la consommation pourrait prévoir une aggravation en cas de récidive, mais je n'en connais pas pour ce délit précis.\"}"
+}

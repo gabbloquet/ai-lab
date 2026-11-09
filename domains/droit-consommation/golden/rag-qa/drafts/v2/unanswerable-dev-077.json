@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-077",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1958,
+    "output_tokens": 271
+  },
+  "output": {
+    "question": "Quel tribunal d'un autre pays est compétent pour un litige sur un contrat de multipropriété conclu à l'étranger ?",
+    "why_unanswerable": "L'article L232-5 garantit seulement que le consommateur ne peut être privé de la protection issue de la directive 2008/122/CE sur les contrats de temps partagé. Il ne désigne aucune juridiction étrangère compétente et ne traite pas de la compétence juridictionnelle ; le Code de la consommation ne fixe pas quel tribunal d'un autre pays est compétent.",
+    "doubt": "Un article voisin sur la compétence ou la loi applicable pourrait être invoqué, mais il ne désigne pas de tribunal étranger précis ; la question reste donc sans réponse dans le code."
+  },
+  "raw_text": "{\"question\":\"Quel tribunal d'un autre pays est compétent pour un litige sur un contrat de multipropriété conclu à l'étranger ?\",\"why_unanswerable\":\"L'article L232-5 garantit seulement que le consommateur ne peut être privé de la protection issue de la directive 2008/122/CE sur les contrats de temps partagé. Il ne désigne aucune juridiction étrangère compétente et ne traite pas de la compétence juridictionnelle ; le Code de la consommation ne fixe pas quel tribunal d'un autre pays est compétent.\",\"doubt\":\"Un article voisin sur la compétence ou la loi applicable pourrait être invoqué, mais il ne désigne pas de tribunal étranger précis ; la question reste donc sans réponse dans le code.\"}"
+}

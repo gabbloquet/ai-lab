@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-056",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:36+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1970,
+    "output_tokens": 257
+  },
+  "output": {
+    "question": "Quel est le montant maximal de la somme qu'un professionnel peut devoir payer au Trésor public dans une transaction pénale ?",
+    "why_unanswerable": "L'article R523-2 indique seulement que la proposition de transaction précise la somme à payer, le délai de paiement et les autres obligations éventuelles. Il ne fixe aucun plafond ni barème de montant. Le montant est déterminé au cas par cas, et le Code de la consommation ne donne pas de maximum général dans les articles de ce chapitre.",
+    "doubt": "Un autre article du Code de la consommation (par exemple L523-1 ou R523-1) pourrait fixer un plafond lié au montant de l'amende encourue ; ce point est à vérifier."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant maximal de la somme qu'un professionnel peut devoir payer au Trésor public dans une transaction pénale ?\",\"why_unanswerable\":\"L'article R523-2 indique seulement que la proposition de transaction précise la somme à payer, le délai de paiement et les autres obligations éventuelles. Il ne fixe aucun plafond ni barème de montant. Le montant est déterminé au cas par cas, et le Code de la consommation ne donne pas de maximum général dans les articles de ce chapitre.\",\"doubt\":\"Un autre article du Code de la consommation (par exemple L523-1 ou R523-1) pourrait fixer un plafond lié au montant de l'amende encourue ; ce point est à vérifier.\"}"
+}

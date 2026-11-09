@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-070",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2001,
+    "output_tokens": 196
+  },
+  "output": {
+    "question": "Combien coûte la copie d'un référentiel de certification demandée à l'organisme certificateur ?",
+    "why_unanswerable": "L'article prévoit seulement que la consultation des référentiels est gratuite ou que les exemplaires sont délivrés aux frais du demandeur. Le code ne fixe aucun tarif ni montant pour ces copies, le prix dépend de l'organisme.",
+    "doubt": "Un autre article du code pourrait fixer des tarifs de certification, mais je n'en connais aucun qui traite du coût des copies de référentiels."
+  },
+  "raw_text": "{\"question\":\"Combien coûte la copie d'un référentiel de certification demandée à l'organisme certificateur ?\",\"why_unanswerable\":\"L'article prévoit seulement que la consultation des référentiels est gratuite ou que les exemplaires sont délivrés aux frais du demandeur. Le code ne fixe aucun tarif ni montant pour ces copies, le prix dépend de l'organisme.\",\"doubt\":\"Un autre article du code pourrait fixer des tarifs de certification, mais je n'en connais aucun qui traite du coût des copies de référentiels.\"}"
+}

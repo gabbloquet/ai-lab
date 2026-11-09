@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-063",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1884,
+    "output_tokens": 234
+  },
+  "output": {
+    "question": "Quel délai a l'assureur pour informer la banque d'un changement de mon assurance emprunteur en crédit conso ?",
+    "why_unanswerable": "L'article L312-33 impose seulement à l'assureur choisi par l'emprunteur d'informer le prêteur de toute modification substantielle du contrat d'assurance. Il ne fixe aucun délai ni aucune forme pour cette information, et le Code de la consommation ne précise pas non plus ces éléments ailleurs, à ma connaissance.",
+    "doubt": "Un autre article du chapitre sur le crédit à la consommation pourrait préciser un délai ou une forme, même si je n'en connais pas."
+  },
+  "raw_text": "{\"question\":\"Quel délai a l'assureur pour informer la banque d'un changement de mon assurance emprunteur en crédit conso ?\",\"why_unanswerable\":\"L'article L312-33 impose seulement à l'assureur choisi par l'emprunteur d'informer le prêteur de toute modification substantielle du contrat d'assurance. Il ne fixe aucun délai ni aucune forme pour cette information, et le Code de la consommation ne précise pas non plus ces éléments ailleurs, à ma connaissance.\",\"doubt\":\"Un autre article du chapitre sur le crédit à la consommation pourrait préciser un délai ou une forme, même si je n'en connais pas.\"}"
+}

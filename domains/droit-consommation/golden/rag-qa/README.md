@@ -2,7 +2,7 @@
 
 Des questions posées sur le Code de la consommation, avec leur réponse attendue et les articles qui la justifient. Ce jeu sert à la série d'expériences sur le RAG, à commencer par la 002 (modèle seul ou RAG naïf). Le format d'un item et les règles de notation sont fixés par la spec [`rag-qa/v1`](../../../../evals/spec/rag-qa/v1/SPEC.md).
 
-**Statut : règles de construction, rien n'est encore généré.** Ces règles sont écrites avant le générateur. Une règle qui change après le pilote est signalée ici.
+**Statut : v1 publiée (2026-11-07), v2 écrite (2026-11-09), voir « Versions ».** Ces règles sont écrites avant le générateur. Une règle qui change après le pilote est signalée ici.
 
 ## Principe : construction hybride
 
@@ -123,7 +123,37 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 | Version | Données | Seed | Spec | Statut |
 |---|---|---|---|---|
 | `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items relus, écrits dans `v1/items.jsonl` avec `MANIFEST.json` (2026-11-07). **Publiée** : citée par le [run final de la 002](../../../../experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), donc immuable |
+| `v2` | `data/v1` | 42 | `rag-qa/v1` | La v1, plus 24 questions sans réponse dans le `dev` (`rq-201` à `rq-224`) : 224 items, `dev` 74 dont 30 sans réponse, **`test` identique à celui de la v1**. Écrite le 2026-11-09 dans `v2/items.jsonl` avec `MANIFEST.json` (`base_version: v1`). Pas encore citée par un rapport |
 
 **Composition du `dev` après relecture : 6 items sans réponse et 11 en mode `direct`**, au lieu de 7 et 10. `rq-133` (« Garantie de conformité : quel délai a le vendeur pour me rembourser après la résolution du contrat ? ») avait été classé sans réponse, mais L217-17 y répond (« au plus tard dans les quatorze jours ») ; il a été transformé en item avec réponse, en mode `direct`, plutôt que remplacé (décision du 2026-11-07). La correction d'un relecteur peut désormais changer le statut, le mode, les articles et les extraits d'un item, et chaque extrait est vérifié dans son article.
 
 **`items-dev.jsonl` ne vaut pas publication de la v1.** Il sert à itérer sur la 002 dès que le `dev` est relu. Les identifiants sont attribués sur les 200 items retenus, dans l'ordre (mode, split, rang) : remplacer un item `test` à la relecture ne change aucun identifiant du `dev`. La v1 sera publiée, avec `items.jsonl` et son manifeste, une fois les 200 items relus.
+
+## v2 : plus de questions sans réponse dans le `dev` (2026-11-09)
+
+**Pourquoi.** L'expérience 006 met au point une consigne d'abstention sur le `dev`. Avec 6 questions sans réponse, un cycle d'itération s'y jouait sur 2 items. La v2 en ajoute 24 au `dev` et ne touche pas au `test`, pour que ses chiffres restent comparables à ceux des 002 à 005.
+
+**Construction : une version qui en étend une autre.** Le plan v2 reprend celui de la v1 à l'identique et lui ajoute des tâches `unanswerable/dev` (`--extend`, même seed, articles encore libres, pilotes exclus) : 36 puis 30 tâches, `unanswerable-dev-015` à `-080`. La construction (`--quotas v2 --base-version v1`) reprend les brouillons, la relecture et les identifiants de la v1 ; les nouveaux items sont numérotés à la suite (`rq-201` et au-delà). La publication vérifie que chaque item de la v1 est présent et identique : le `test` de la v2 est celui de la v1, ligne pour ligne (vérifié le 2026-11-09). Quotas : ceux de la v1, avec 31 tâches `unanswerable` retenues en `dev` (30 items sans réponse, plus `rq-133`, transformé en item avec réponse à la relecture de la v1). Rédaction : 66 brouillons de Claude Sonnet 5.5 avec les prompts de la v1, environ 0,7 $ (estimation, non vérifiée sur la facture).
+
+**Relecture, plus poussée que celle de la v1.** Le rédacteur ne voit que l'article de départ ; une question qu'il juge sans réponse peut trouver sa réponse ailleurs dans le code. Chaque candidat a donc été relu par un relecteur IA (sous-agent Claude) qui cherchait activement une réponse **dans tout le corpus** (grep sur les 2 150 articles, voisins BM25, articles de la même section), et non sur la seule page de relecture. Chaque preuve est un extrait copié du texte d'un article ; Claude a vérifié par script qu'elle s'y trouve mot pour mot. Le propriétaire a tranché sur les propositions, en les suivant en bloc après lecture d'une page qui les réunissait toutes, et a fixé la règle des cas limites. Ce n'est toujours pas une relecture humaine item par item.
+
+**Règle des cas limites** (décision du propriétaire, 2026-11-09) : une question n'est pas « sans réponse » si le code donne une classe d'amende sans montant (« contravention de la 5e classe »), une règle de calcul sans valeur (« à proportion de la durée écoulée »), un renvoi à un autre texte (« dans les conditions prévues au code de procédure pénale ») ou une réponse négative explicite (« sans frais »). Un modèle qui répond ainsi répond juste ; compter sa réponse comme inventée serait injuste.
+
+**Bilan.** 72 brouillons candidats : les 6 de réserve de la v1 (`unanswerable-dev-009` à `-014`, rédigés en 2026-11 et jamais relus) et 66 nouveaux. 6 nouveaux sont rejetés par les contrôles automatiques (questions de plus de 20 mots) ; les 66 autres sont relus : 36 rejetés (le code y répond, ou la question est mal posée), 11 corrigés (reformulation), 19 acceptés tels quels. Les 24 premiers acceptés, dans l'ordre du tirage, sont retenus ; les autres restent dans le plan. Verdicts : `review/v2.jsonl`.
+
+## Audit des questions sans réponse de la v1 (2026-11-09)
+
+Le taux de rejet de la v2 (plus de la moitié des candidats ont en fait une réponse dans le code) a conduit à relire les 29 items sans réponse publiés de la v1, avec la même méthode et la même règle. La v1 est publiée, donc immuable : l'audit ne la corrige pas, il mesure le défaut.
+
+| Split | Items sans réponse | Ont en fait une réponse | Dont une valeur chiffrée | Renvoi, classe d'amende ou règle de calcul |
+|---|---|---|---|---|
+| `dev` | 6 | 2 (`rq-129`, `rq-146`) | 0 | 2 |
+| `test` | 23 | **12** | 6 | 6 |
+
+Items concernés : `rq-006`, `rq-010`, `rq-045`, `rq-049`, `rq-055`, `rq-086`, `rq-096`, `rq-119`, `rq-138`, `rq-164`, `rq-198`, `rq-200` (`test`) ; `rq-129`, `rq-146` (`dev`). Détail, preuves et niveau de confiance : `audit/v1-unanswerable.jsonl`. Pour `rq-086`, la preuve s'appuie en partie sur un code absent du corpus (procédures civiles d'exécution), cité de mémoire par le relecteur : non vérifié.
+
+**Conséquences.**
+- Pour ces items, un modèle qui donne la réponse du code est compté comme ayant inventé, et un modèle qui s'abstient est compté juste. Les métriques `hallucination` et `false_abstention`, et dans une moindre mesure `correct`, des expériences qui utilisent ce `test` sont donc biaisées en faveur de l'abstention.
+- Les verdicts des 002 à 005 restent des comparaisons appariées sur les mêmes items ; leurs limites portent une note d'audit datée.
+- Pour une expérience qui fait varier l'abstention (006), le biais porte sur la question elle-même : son verdict doit écarter ces items, ce qu'elle annonce avant son run.
+- L'audit a lu des items du `test` un par un : leur contenu, pas des réponses de modèle. La règle du lab (ne pas analyser le `test` avant un run final) est respectée pour les expériences terminées ; pour la 006, la consigne d'abstention ne doit s'appuyer que sur le `dev`.

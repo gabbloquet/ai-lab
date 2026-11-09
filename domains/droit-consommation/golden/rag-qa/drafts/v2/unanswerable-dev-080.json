@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-080",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1864,
+    "output_tokens": 208
+  },
+  "output": {
+    "question": "Quel est le tarif d'une consultation du fichier des incidents de remboursement des crédits aux particuliers ?",
+    "why_unanswerable": "Le Code de la consommation encadre l'accès au fichier (FICP) et sanctionne sa collecte par des personnes non autorisées, mais il ne fixe aucun tarif de consultation. Aucun article du code ne donne de prix pour cette consultation.",
+    "doubt": "Un article réglementaire sur les modalités d'accès au FICP pourrait mentionner des frais de consultation, mais je n'en connais pas. Le risque est faible."
+  },
+  "raw_text": "{\"question\":\"Quel est le tarif d'une consultation du fichier des incidents de remboursement des crédits aux particuliers ?\",\"why_unanswerable\":\"Le Code de la consommation encadre l'accès au fichier (FICP) et sanctionne sa collecte par des personnes non autorisées, mais il ne fixe aucun tarif de consultation. Aucun article du code ne donne de prix pour cette consultation.\",\"doubt\":\"Un article réglementaire sur les modalités d'accès au FICP pourrait mentionner des frais de consultation, mais je n'en connais pas. Le risque est faible.\"}"
+}

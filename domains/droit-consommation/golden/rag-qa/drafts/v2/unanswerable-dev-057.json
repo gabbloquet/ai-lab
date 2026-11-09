@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-057",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1889,
+    "output_tokens": 230
+  },
+  "output": {
+    "question": "Combien coûte une demande d'accréditation pour un organisme de certification de services ?",
+    "why_unanswerable": "L'article L433-5 permet seulement à un organisme non encore accrédité de certifier s'il a déposé une demande d'accréditation, dans des conditions fixées par décret. Le Code de la consommation ne fixe aucun tarif ni frais d'accréditation. Ces éléments relèvent de l'organisme d'accréditation, et non du code.",
+    "doubt": "Le code de la consommation ne mentionne pas de coût d'accréditation, mais un autre article pourrait y faire allusion de façon marginale, ce qui paraît improbable."
+  },
+  "raw_text": "{\"question\":\"Combien coûte une demande d'accréditation pour un organisme de certification de services ?\",\"why_unanswerable\":\"L'article L433-5 permet seulement à un organisme non encore accrédité de certifier s'il a déposé une demande d'accréditation, dans des conditions fixées par décret. Le Code de la consommation ne fixe aucun tarif ni frais d'accréditation. Ces éléments relèvent de l'organisme d'accréditation, et non du code.\",\"doubt\":\"Le code de la consommation ne mentionne pas de coût d'accréditation, mais un autre article pourrait y faire allusion de façon marginale, ce qui paraît improbable.\"}"
+}

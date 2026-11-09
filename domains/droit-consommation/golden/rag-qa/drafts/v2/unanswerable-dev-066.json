@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-066",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2009,
+    "output_tokens": 209
+  },
+  "output": {
+    "question": "Garantie de conformité : quel est le montant maximal des frais d'envoi remboursables au consommateur pour un colis renvoyé ?",
+    "why_unanswerable": "L'article impose au professionnel de rembourser les frais d'envoi supportés par le consommateur, avec un délai et des majorations de retard, mais il ne fixe aucun plafond en euros pour ces frais. Le code ne prévoit donc pas de montant maximal remboursable.",
+    "doubt": "Un autre article du code pourrait encadrer les frais de renvoi, mais aucun plafond chiffré n'y est connu."
+  },
+  "raw_text": "{\"question\":\"Garantie de conformité : quel est le montant maximal des frais d'envoi remboursables au consommateur pour un colis renvoyé ?\",\"why_unanswerable\":\"L'article impose au professionnel de rembourser les frais d'envoi supportés par le consommateur, avec un délai et des majorations de retard, mais il ne fixe aucun plafond en euros pour ces frais. Le code ne prévoit donc pas de montant maximal remboursable.\",\"doubt\":\"Un autre article du code pourrait encadrer les frais de renvoi, mais aucun plafond chiffré n'y est connu.\"}"
+}

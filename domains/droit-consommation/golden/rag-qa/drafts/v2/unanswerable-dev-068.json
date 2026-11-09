@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-068",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1974,
+    "output_tokens": 238
+  },
+  "output": {
+    "question": "Surendettement : quel est le coût des frais de dossier pour un rétablissement personnel sans liquidation ?",
+    "why_unanswerable": "Le Code de la consommation ne fixe aucun montant de frais de dossier pour la procédure de rétablissement personnel : la procédure devant la commission de surendettement est gratuite et l'article L741-3 traite seulement de l'extinction des créances non contestées. Aucune somme n'est donc prévue.",
+    "doubt": "Le code (L712-... ou dispositions réglementaires) pourrait mentionner la gratuité de la procédure, ce qui donnerait une réponse « aucun frais » ; la question est donc un peu risquée."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quel est le coût des frais de dossier pour un rétablissement personnel sans liquidation ?\",\"why_unanswerable\":\"Le Code de la consommation ne fixe aucun montant de frais de dossier pour la procédure de rétablissement personnel : la procédure devant la commission de surendettement est gratuite et l'article L741-3 traite seulement de l'extinction des créances non contestées. Aucune somme n'est donc prévue.\",\"doubt\":\"Le code (L712-... ou dispositions réglementaires) pourrait mentionner la gratuité de la procédure, ce qui donnerait une réponse « aucun frais » ; la question est donc un peu risquée.\"}"
+}

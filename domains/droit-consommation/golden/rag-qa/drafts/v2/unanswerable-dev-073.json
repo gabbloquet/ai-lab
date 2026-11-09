@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-073",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2155,
+    "output_tokens": 255
+  },
+  "output": {
+    "question": "Prêt immobilier en devise : quels frais la banque peut-elle facturer pour convertir mon crédit en euros ?",
+    "why_unanswerable": "L'article R313-32 impose un avertissement lorsque la variation dépasse 20 % et précise que la conversion se fait au taux de change du marché du jour de la demande, sauf clause contraire. Il ne fixe ni montant, ni plafond, ni barème des frais de conversion, qui relèvent du contrat de crédit et de la tarification de la banque.",
+    "doubt": "Un autre article du Code de la consommation sur les frais de remboursement anticipé ou les frais de dossier pourrait être jugé proche, mais aucun ne fixe de frais de conversion en euros."
+  },
+  "raw_text": "{\"question\":\"Prêt immobilier en devise : quels frais la banque peut-elle facturer pour convertir mon crédit en euros ?\",\"why_unanswerable\":\"L'article R313-32 impose un avertissement lorsque la variation dépasse 20 % et précise que la conversion se fait au taux de change du marché du jour de la demande, sauf clause contraire. Il ne fixe ni montant, ni plafond, ni barème des frais de conversion, qui relèvent du contrat de crédit et de la tarification de la banque.\",\"doubt\":\"Un autre article du Code de la consommation sur les frais de remboursement anticipé ou les frais de dossier pourrait être jugé proche, mais aucun ne fixe de frais de conversion en euros.\"}"
+}

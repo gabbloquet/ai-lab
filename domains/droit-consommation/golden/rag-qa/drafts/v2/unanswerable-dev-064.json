@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-064",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2109,
+    "output_tokens": 245
+  },
+  "output": {
+    "question": "Quel est le montant exact de l'amende si un importateur n'informe pas les autorités d'un retrait de denrées alimentaires dangereuses ?",
+    "why_unanswerable": "L'article renvoie seulement à l'amende des contraventions de la cinquième classe sans en donner le montant en euros. Le montant chiffré figure dans le code pénal, pas dans le Code de la consommation, qui ne le fixe donc pas.",
+    "doubt": "Le montant de la 5e classe est défini dans le code pénal (article 131-13), donc la question reste voisine d'une réponse trouvable hors du Code de la consommation ; l'évaluateur pourrait juger qu'elle porte sur un autre code."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant exact de l'amende si un importateur n'informe pas les autorités d'un retrait de denrées alimentaires dangereuses ?\",\"why_unanswerable\":\"L'article renvoie seulement à l'amende des contraventions de la cinquième classe sans en donner le montant en euros. Le montant chiffré figure dans le code pénal, pas dans le Code de la consommation, qui ne le fixe donc pas.\",\"doubt\":\"Le montant de la 5e classe est défini dans le code pénal (article 131-13), donc la question reste voisine d'une réponse trouvable hors du Code de la consommation ; l'évaluateur pourrait juger qu'elle porte sur un autre code.\"}"
+}

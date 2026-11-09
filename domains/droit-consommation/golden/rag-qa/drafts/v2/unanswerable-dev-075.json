@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-075",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2220,
+    "output_tokens": 239
+  },
+  "output": {
+    "question": "Surendettement : quel est le délai pour que le bailleur conteste le jugement qui lui est notifié ?",
+    "why_unanswerable": "L'article R733-17-1 se borne à décrire le contenu de la lettre recommandée adressée au bailleur. Il ne fixe aucun délai de contestation, il renvoie à d'autres mentions, et le délai dépend du texte sur la contestation des mesures. La question reste voisine du thème, mais l'article ne fournit pas de valeur pour y répondre.",
+    "doubt": "Un autre article du code (par exemple R733-6 ou R713-11) pourrait fixer un délai de contestation, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quel est le délai pour que le bailleur conteste le jugement qui lui est notifié ?\",\"why_unanswerable\":\"L'article R733-17-1 se borne à décrire le contenu de la lettre recommandée adressée au bailleur. Il ne fixe aucun délai de contestation, il renvoie à d'autres mentions, et le délai dépend du texte sur la contestation des mesures. La question reste voisine du thème, mais l'article ne fournit pas de valeur pour y répondre.\",\"doubt\":\"Un autre article du code (par exemple R733-6 ou R713-11) pourrait fixer un délai de contestation, ce qui rendrait la question répondable.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-079",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1935,
+    "output_tokens": 252
+  },
+  "output": {
+    "question": "Quel organisme public gère la plateforme en ligne où signaler un manquement à l'information sur le prix des produits ?",
+    "why_unanswerable": "L'article fixe seulement le plafond de l'amende administrative (75 000 euros pour une personne physique, 1 % du chiffre d'affaires pour une personne morale) et renvoie à la procédure du livre V. Il ne désigne aucune plateforme de signalement ni l'organisme qui la gère, et le code ne le précise pas non plus à propos de ce manquement.",
+    "doubt": "Le livre V du code désigne les agents habilités à constater les manquements, mais pas une plateforme de signalement. Il reste un petit risque qu'un autre article y fasse référence."
+  },
+  "raw_text": "{\"question\":\"Quel organisme public gère la plateforme en ligne où signaler un manquement à l'information sur le prix des produits ?\",\"why_unanswerable\":\"L'article fixe seulement le plafond de l'amende administrative (75 000 euros pour une personne physique, 1 % du chiffre d'affaires pour une personne morale) et renvoie à la procédure du livre V. Il ne désigne aucune plateforme de signalement ni l'organisme qui la gère, et le code ne le précise pas non plus à propos de ce manquement.\",\"doubt\":\"Le livre V du code désigne les agents habilités à constater les manquements, mais pas une plateforme de signalement. Il reste un petit risque qu'un autre article y fasse référence.\"}"
+}

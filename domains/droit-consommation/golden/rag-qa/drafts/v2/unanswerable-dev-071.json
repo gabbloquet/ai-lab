@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-071",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2059,
+    "output_tokens": 265
+  },
+  "output": {
+    "question": "Achat en ligne : quel montant de dommages-intérêts le vendeur doit-il verser si le prestataire de livraison est en faute ?",
+    "why_unanswerable": "L'article L221-15 pose seulement le principe de la responsabilité de plein droit du professionnel pour les contrats à distance, avec ses causes d'exonération. Il ne fixe aucun montant, barème ou plafond d'indemnisation. Le préjudice est évalué au cas par cas, donc le code ne donne pas de valeur chiffrée.",
+    "doubt": "Un autre article du code (par exemple sur les pénalités de retard de livraison) pourrait donner un taux d'indemnisation dans un cas voisin, mais pas pour une faute du prestataire de livraison en général."
+  },
+  "raw_text": "{\"question\":\"Achat en ligne : quel montant de dommages-intérêts le vendeur doit-il verser si le prestataire de livraison est en faute ?\",\"why_unanswerable\":\"L'article L221-15 pose seulement le principe de la responsabilité de plein droit du professionnel pour les contrats à distance, avec ses causes d'exonération. Il ne fixe aucun montant, barème ou plafond d'indemnisation. Le préjudice est évalué au cas par cas, donc le code ne donne pas de valeur chiffrée.\",\"doubt\":\"Un autre article du code (par exemple sur les pénalités de retard de livraison) pourrait donner un taux d'indemnisation dans un cas voisin, mais pas pour une faute du prestataire de livraison en général.\"}"
+}

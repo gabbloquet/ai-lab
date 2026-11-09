@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-059",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1918,
+    "output_tokens": 215
+  },
+  "output": {
+    "question": "Quel salaire mensuel minimum un médiateur de la consommation doit-il percevoir ?",
+    "why_unanswerable": "Le Code de la consommation exige seulement que le médiateur salarié d'un organisme ou d'une fédération professionnelle dispose d'un budget distinct et suffisant. Il ne fixe aucun montant de rémunération ni de salaire minimum pour le médiateur, et rien dans le code ne répond à cette question.",
+    "doubt": "Un autre article sur la rémunération du médiateur pourrait exister, mais le code ne semble pas fixer de montant. Le risque est faible."
+  },
+  "raw_text": "{\"question\":\"Quel salaire mensuel minimum un médiateur de la consommation doit-il percevoir ?\",\"why_unanswerable\":\"Le Code de la consommation exige seulement que le médiateur salarié d'un organisme ou d'une fédération professionnelle dispose d'un budget distinct et suffisant. Il ne fixe aucun montant de rémunération ni de salaire minimum pour le médiateur, et rien dans le code ne répond à cette question.\",\"doubt\":\"Un autre article sur la rémunération du médiateur pourrait exister, mais le code ne semble pas fixer de montant. Le risque est faible.\"}"
+}

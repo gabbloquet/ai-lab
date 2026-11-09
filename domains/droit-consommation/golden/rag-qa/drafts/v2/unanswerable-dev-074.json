@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-074",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2129,
+    "output_tokens": 280
+  },
+  "output": {
+    "question": "En cas de réitération des enchères en rétablissement personnel, quel est le taux d'intérêt dû par l'adjudicataire défaillant ?",
+    "why_unanswerable": "L'article R742-39 prévoit seulement une injonction par lettre recommandée à payer sous huit jours et renvoie au code des procédures civiles d'exécution pour la réitération. Le Code de la consommation ne fixe aucun taux d'intérêt applicable à l'adjudicataire défaillant dans cette procédure.",
+    "doubt": "Le code des procédures civiles d'exécution pourrait traiter de la différence de prix ou des intérêts, mais cela ne relève pas du Code de la consommation. Un autre article du Code de la consommation pourrait toutefois mentionner un taux, ce qui est peu probable."
+  },
+  "raw_text": "{\"question\":\"En cas de réitération des enchères en rétablissement personnel, quel est le taux d'intérêt dû par l'adjudicataire défaillant ?\",\"why_unanswerable\":\"L'article R742-39 prévoit seulement une injonction par lettre recommandée à payer sous huit jours et renvoie au code des procédures civiles d'exécution pour la réitération. Le Code de la consommation ne fixe aucun taux d'intérêt applicable à l'adjudicataire défaillant dans cette procédure.\",\"doubt\":\"Le code des procédures civiles d'exécution pourrait traiter de la différence de prix ou des intérêts, mais cela ne relève pas du Code de la consommation. Un autre article du Code de la consommation pourrait toutefois mentionner un taux, ce qui est peu probable.\"}"
+}

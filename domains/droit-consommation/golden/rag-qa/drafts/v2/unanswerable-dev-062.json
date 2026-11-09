@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-062",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1875,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Crédit affecté signé à domicile : quel taux d'intérêt maximum peut-on me demander pendant le délai de rétractation ?",
+    "why_unanswerable": "L'article fixe seulement le délai de rétractation de quatorze jours et interdit tout paiement comptant avant son expiration. Il ne prévoit aucun taux d'intérêt applicable pendant ce délai. Les règles sur le taux effectif global et le taux de l'usure relèvent d'autres dispositions et ne visent pas cette période précise.",
+    "doubt": "Le Code de la consommation encadre le taux de l'usure dans d'autres articles. Une réponse pourrait citer ce plafond général, même s'il n'est pas propre à la période de rétractation."
+  },
+  "raw_text": "{\"question\":\"Crédit affecté signé à domicile : quel taux d'intérêt maximum peut-on me demander pendant le délai de rétractation ?\",\"why_unanswerable\":\"L'article fixe seulement le délai de rétractation de quatorze jours et interdit tout paiement comptant avant son expiration. Il ne prévoit aucun taux d'intérêt applicable pendant ce délai. Les règles sur le taux effectif global et le taux de l'usure relèvent d'autres dispositions et ne visent pas cette période précise.\",\"doubt\":\"Le Code de la consommation encadre le taux de l'usure dans d'autres articles. Une réponse pourrait citer ce plafond général, même s'il n'est pas propre à la période de rétractation.\"}"
+}

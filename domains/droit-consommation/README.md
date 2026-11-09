@@ -97,7 +97,7 @@ L'archive (1,1 Go) n'est pas versionnée : `.cache/` est ignoré par git. L'extr
 
 ## Golden set
 
-À venir : `golden/rag-qa/v1/`, avec un split `dev` et un split `test`. Les règles de construction seront décrites dans `golden/rag-qa/README.md`. Elles reposent sur quatre principes :
+`golden/rag-qa/v1/` (publiée) et `golden/rag-qa/v2/`, chacune avec un split `dev` et un split `test`. Les règles de construction sont décrites dans [`golden/rag-qa/README.md`](golden/rag-qa/README.md). Elles reposent sur quatre principes :
 - une réponse courte, présente dans le texte : un délai, un montant, un oui ou un non accompagné de son fait clé ;
 - les `id` des articles qui justifient la réponse ;
 - des questions sans réponse dans le code ;
@@ -108,6 +108,6 @@ L'archive (1,1 Go) n'est pas versionnée : `.cache/` est ignoré par git. L'extr
 | Jeu | Chemin | Statut |
 |---|---|---|
 | Données | `data/v1/` | extraites le 2026-11-04 par `consommation_extract.py`. **Publiées** : citées par le run final de la 002 |
-| Golden set RAG | `golden/rag-qa/v1/` | à construire |
+| Golden set RAG | `golden/rag-qa/v1/`, `golden/rag-qa/v2/` | v1 publiée (2026-11-07), citée par les 002 à 005 ; v2 (2026-11-09) : la v1 plus 24 questions sans réponse dans le `dev`, même `test`. Audit des questions sans réponse de la v1 : `golden/rag-qa/audit/` |
 
 Un jeu publié ne change plus ; une correction donne une `v2`.

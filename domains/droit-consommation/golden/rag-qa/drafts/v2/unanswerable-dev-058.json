@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-058",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2435,
+    "output_tokens": 248
+  },
+  "output": {
+    "question": "Combien de membres siègent au conseil d'administration de l'Institut national de la consommation ?",
+    "why_unanswerable": "L'article R822-10 ne traite que de la présence du commissaire du Gouvernement aux séances et du régime d'exécution des délibérations (délais de suspension, approbation ministérielle). Il ne fixe pas le nombre de membres du conseil d'administration. La question reste voisine du thème, mais l'article ne donne aucun nombre de sièges.",
+    "doubt": "Un autre article du chapitre sur l'Institut national de la consommation (composition du conseil d'administration) pourrait fixer ce nombre, donc la question risque d'avoir une réponse ailleurs dans le code."
+  },
+  "raw_text": "{\"question\":\"Combien de membres siègent au conseil d'administration de l'Institut national de la consommation ?\",\"why_unanswerable\":\"L'article R822-10 ne traite que de la présence du commissaire du Gouvernement aux séances et du régime d'exécution des délibérations (délais de suspension, approbation ministérielle). Il ne fixe pas le nombre de membres du conseil d'administration. La question reste voisine du thème, mais l'article ne donne aucun nombre de sièges.\",\"doubt\":\"Un autre article du chapitre sur l'Institut national de la consommation (composition du conseil d'administration) pourrait fixer ce nombre, donc la question risque d'avoir une réponse ailleurs dans le code.\"}"
+}

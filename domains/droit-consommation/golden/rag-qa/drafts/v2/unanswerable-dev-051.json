@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-051",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:46:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1955,
+    "output_tokens": 243
+  },
+  "output": {
+    "question": "Quel est le prix maximum d'une pièce d'occasion pour la réparation de ma trottinette électrique ?",
+    "why_unanswerable": "Le Code de la consommation définit seulement les pièces issues de l'économie circulaire comme des pièces issues d'une préparation en vue de leur réutilisation. Il ne fixe aucun prix maximum ni aucun plafond tarifaire pour ces pièces ou pour la réparation d'un engin de déplacement personnel motorisé.",
+    "doubt": "L'article ne contient aucune valeur précise (seulement une définition renvoyant au code de l'environnement), donc il se prête mal au mode normal, mais convient pour une question sans réponse."
+  },
+  "raw_text": "{\"question\":\"Quel est le prix maximum d'une pièce d'occasion pour la réparation de ma trottinette électrique ?\",\"why_unanswerable\":\"Le Code de la consommation définit seulement les pièces issues de l'économie circulaire comme des pièces issues d'une préparation en vue de leur réutilisation. Il ne fixe aucun prix maximum ni aucun plafond tarifaire pour ces pièces ou pour la réparation d'un engin de déplacement personnel motorisé.\",\"doubt\":\"L'article ne contient aucune valeur précise (seulement une définition renvoyant au code de l'environnement), donc il se prête mal au mode normal, mais convient pour une question sans réponse.\"}"
+}
