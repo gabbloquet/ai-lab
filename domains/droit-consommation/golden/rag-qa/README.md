@@ -125,7 +125,7 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 | `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items relus, écrits dans `v1/items.jsonl` avec `MANIFEST.json` (2026-11-07). **Publiée** : citée par le [run final de la 002](../../../../experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), donc immuable |
 | `v2` | `data/v1` | 42 | `rag-qa/v1` | La v1, plus 24 questions sans réponse dans le `dev` (`rq-201` à `rq-224`) : 224 items, `dev` 74 dont 30 sans réponse, **`test` identique à celui de la v1**. Écrite le 2026-11-09 dans `v2/items.jsonl` avec `MANIFEST.json` (`base_version: v1`). Pas encore citée par un rapport |
 | `v3` | `data/v1` | 42 | `rag-qa/v1` | La v2, plus 40 questions sans réponse dans le `test` (`rq-225` à `rq-264`) : 264 items, `test` 190 dont 178 valides (audit), 51 sans réponse valides. Les 224 items de la v2, dont les 150 `test` de la v1, sont repris à l'identique. Écrite le 2026-11-09 (`base_version: v2`). Pas encore citée par un rapport |
-| `v4` | `data/v1` | 42 | `rag-qa/v1` | **En préparation.** La v3, plus quatre modes : `bridge`, `comparison`, `set`, `false_premise` (114 items, dont 84 `test`). Design et protocole des pilotes écrits avant chaque pilote (section « v4 ») |
+| `v4` | `data/v1` | 42 | `rag-qa/v1` | **En préparation.** La v3, plus trois modes : `comparison`, `set`, `false_premise` (87 items, dont 64 `test`). `bridge`, essayé aux pilotes, est retiré. Design et protocole des pilotes écrits avant chaque pilote (section « v4 ») |
 
 **Composition du `dev` après relecture : 6 items sans réponse et 11 en mode `direct`**, au lieu de 7 et 10. `rq-133` (« Garantie de conformité : quel délai a le vendeur pour me rembourser après la résolution du contrat ? ») avait été classé sans réponse, mais L217-17 y répond (« au plus tard dans les quatorze jours ») ; il a été transformé en item avec réponse, en mode `direct`, plutôt que remplacé (décision du 2026-11-07). La correction d'un relecteur peut désormais changer le statut, le mode, les articles et les extraits d'un item, et chaque extrait est vérifié dans son article.
 
@@ -176,22 +176,21 @@ Items concernés : `rq-006`, `rq-010`, `rq-045`, `rq-049`, `rq-055`, `rq-086`, `
 
 **Pourquoi.** Les benchmarks RAG publics ([CRAG](https://arxiv.org/abs/2406.04744), [MultiHop-RAG](https://arxiv.org/abs/2401.15391), [CRUMQs](https://arxiv.org/abs/2510.11956), les générateurs de [Ragas](https://docs.ragas.io/en/latest/concepts/test_data_generation/rag/)) distinguent des types de questions que la v3 ne couvre pas : comparaison, ensemble, vrai multi-hop, fausse prémisse, post-traitement. Le mode `multi_article` ne fait pas office de multi-hop : sur le `dev` (8 items, mesure du 2026-11-09 avec le retriever de la 002), la question seule remonte A et B dans le top-5 dense pour 4 items et dans le top-20 pour 7 ; pour 2 items, le texte de A contient tous les faits. Il mesure « deux articles liés », pas un saut. Ses items restent identiques : la v4 étend la v3 et ne modifie aucun item.
 
-**Construction.** Le plan v4 reprend celui de la v3 et lui ajoute des tâches par extension (`--extend`, seed 42, `--reuse-rejected v3`, articles des pilotes exclus), dans cet ordre : `bridge`, `comparison`, `set`, `false_premise`, chaque mode `dev` puis `test`. La construction se fait avec `--quotas v4 --base-version v3`. Les quatre modes se disputent les articles qui portent une valeur ; leurs tailles suivent la capacité du corpus, revue après le premier pilote (voir plus bas) et vérifiée en simulant tout le tirage sur le vrai corpus :
+**Construction.** Le plan v4 reprend celui de la v3 et lui ajoute des tâches par extension (`--extend`, seed 42, `--reuse-rejected v3`, articles des pilotes exclus), dans cet ordre : `comparison`, `set`, `false_premise`, chaque mode `dev` puis `test`. La construction se fait avec `--quotas v4 --base-version v3`. Les quatre modes se disputent les articles qui portent une valeur ; leurs tailles suivent la capacité du corpus, revue après le premier pilote (voir plus bas) et vérifiée en simulant tout le tirage sur le vrai corpus :
 
-| Mode | `dev` + `test` | Tâches tirées (`dev` + `test`) | Candidats libres au 2026-11-09 (règles révisées) |
-|---|---|---|---|
-| `bridge` | 10 + 30 | 20 + 60 (surplus × 2) | 208 paires |
-| `comparison` | 6 + 16 | 12 + 29 (le vivier n'en donne pas plus) | 727 paires |
-| `set` | 6 + 16 | 12 + 32 (surplus × 2) | 72 articles |
-| `false_premise` | 8 + 22 | 12 + 33 (surplus × 1,5 : 10 % de rejets au pilote) | 267 articles |
+| Mode | `dev` + `test` | Tâches tirées (`dev` + `test`) |
+|---|---|---|
+| `comparison` | 8 + 22 | 16 + 44 (surplus × 2) |
+| `set` | 5 + 12 | 15 + 36 (surplus × 3 : 60 à 67 % de rejets aux pilotes) |
+| `false_premise` | 10 + 30 | 15 + 45 (surplus × 1,5 : 10 % de rejets au premier pilote) |
 
-`bridge`, le vrai multi-hop, est tiré en premier et garde la plus grande taille.
+Ces tailles sont celles d'après le second pilote (voir plus bas) ; le tirage complet a été simulé sur le vrai corpus le 2026-11-09.
 
 **Réutilisation des articles des tâches rejetées** (décision du propriétaire, 2026-11-09). La règle « un article ne sert qu'une fois » excluait tout article déjà tiré, y compris celui d'une tâche rejetée qui n'a jamais donné d'item. En v1 à v3, 288 tâches sur 596 ont été rejetées. Leurs articles peuvent être tirés à nouveau par la v4, **une seule fois**, sauf ceux qu'un item utilise (y compris par une correction de relecture). Les articles des 264 items et des 44 tâches de réserve qui passent les contrôles restent exclus, comme ceux des pilotes. Aucun item ne partage donc d'article avec un autre, et la séparation `dev`/`test` est intacte. Sans cette règle, la v4 ne tenait pas dans le corpus : 902 articles éligibles libres au lieu de 1 216. Avec 22 à 30 items `test`, les scores par mode restent des résultats secondaires (IC à 95 % d'environ ± 18 à 21 points).
 
 **Règles communes.** Spec `rag-qa/v1` inchangée : elle laisse les modes libres et n'a pas de limite de faits. Le rédacteur, les règles du prompt système et la relecture sont ceux de la v3 : relecteurs IA qui cherchent une réponse concurrente dans tout le corpus, et arbitrage du propriétaire. S'y ajoute un échantillon de 40 items tirés au hasard et relus par le propriétaire seul, pour mesurer le taux d'erreur du relecteur IA. Aucun contrôle n'utilise un retriever : rejeter les items qu'un modèle de recherche trouve biaiserait le bench contre ce modèle. Les rangs dense et BM25 ne servent que de diagnostic, sur les pilotes et sur le `dev`.
 
-### `bridge` : suivre un renvoi
+### `bridge` : suivre un renvoi (essayé aux pilotes, retiré)
 
 La question part de la situation décrite par A ; la valeur demandée ne figure que dans B, et A renvoie à B par son numéro. C'est le *bridge* de HotpotQA, sous sa forme naturelle dans un code.
 - **Tirage** : l'un des deux articles cite l'autre dans les liens LEGI, **et son texte écrit le numéro de l'autre** (« L. 312-25 » ou « L312-25 », pas « L. 312-25-1 »). Deux sens (règle révisée après le premier pilote) :
@@ -258,4 +257,23 @@ En `bridge`, les 5 brouillons utilisables vont de 0,12 à 0,67 de recouvrement q
 - **Mesures** : celles du premier pilote, plus la part de `bridge` inversé parmi les items retenus.
 - **Seuil de `bridge`** : fixé après ce pilote, sur les deux pilotes réunis, à la lecture des brouillons, puis gelé avant le plan v4.
 - **Suite** : un mode rejeté à plus de 50 % ici passe à la taille réduite de la règle de capacité. Il n'y a pas de troisième pilote : le corpus ne le permet plus.
+
+### Second pilote : résultats et retrait de `bridge` (2026-11-09)
+
+Plan `pilot2-v4` (seed 11, 22 tâches, règles du commit `04a29ef`), brouillons dans `drafts/pilot2-v4/`. Environ 64 000 tokens en entrée et 7 000 en sortie.
+
+| Mode | Rejetés | Lecture |
+|---|---|---|
+| `bridge` | 8/10 | 6 rejets par le seul seuil de recouvrement question/B |
+| `comparison` | 3/6 | 2 rejets pour des plafonds identiques, qu'un défaut du tirage laissait passer : « 3 000 € » et « 3 000 euros » comptaient comme deux valeurs |
+| `set` | 4/6 | éléments trop longs pour avoir un mot-clé propre |
+
+**`bridge` est retiré** (décision du propriétaire, 2026-11-09). Sur les 12 questions jugées utilisables par le rédacteur dans les deux pilotes, l'article de la réponse (B) arrive **directement dans le top-5 dense pour 10**, quel que soit le recouvrement lexical (rang 5 à 0,12, rang 1 de 0,43 à 0,78). Dans ce code, l'article qui porte la valeur se décrit lui-même : un article de sanction rappelle l'objet de l'obligation qu'il punit (« relatifs aux modalités de calcul du prix »), un article de délai nomme la procédure. Le saut n'est presque jamais nécessaire, et aucun seuil lexical n'y change rien ; filtrer avec le retriever biaiserait le bench. Garder le mode, c'était annoncer un multi-hop qu'on peut contourner, le défaut même de `multi_article`. **Constat** : dans le Code de la consommation seul, un multi-hop qu'on ne peut pas contourner est presque introuvable. Il faudrait des renvois vers d'autres codes, qui ne sont pas dans le corpus. Le code de `bridge` reste en place, pour que ses pilotes se reconstruisent.
+
+**Suites, selon les règles écrites avant ce pilote.**
+- `set` dépasse 50 % de rejets : il passe à la taille réduite, 5 + 12, avec un surplus × 3.
+- `comparison` (3/6) ne dépasse pas 50 % : sa taille ne baisse pas. Le défaut de graphie est corrigé (valeurs normalisées : chiffres et lettres, « € » et « euros », singulier et pluriel ; commit `fdeff6e`). C'est une correction de défaut, pas une nouvelle règle : il n'y a pas de troisième pilote.
+- La capacité libérée par `bridge` revient à `comparison` (8 + 22) et `false_premise` (10 + 30).
+- Part des questions sans réponse valides dans le `test` de la v4 : 51 sur 242 items valides, soit environ 21 %.
+- Le multi-hop reste une limite du golden set : `multi_article` mesure « deux articles liés », et rien ne mesure un saut qu'on ne peut pas contourner.
 
