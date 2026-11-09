@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-023",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1861,
+    "output_tokens": 269
+  },
+  "output": {
+    "question": "Crédit affecté : sous combien de jours le vendeur doit-il me rembourser l'acompte après résolution de la vente ?",
+    "why_unanswerable": "L'article prévoit seulement que le vendeur ou le prestataire rembourse « sur simple demande » les sommes versées d'avance sur le prix, sans fixer de délai chiffré de remboursement. Aucun autre article du Code de la consommation sur le crédit affecté ne donne de nombre de jours pour ce remboursement précis.",
+    "doubt": "Un autre article du code (par exemple sur les pénalités de retard ou les délais de remboursement en cas de rétractation) pourrait fixer un délai voisin, mais pas pour ce cas de résolution du contrat de vente liée au crédit affecté."
+  },
+  "raw_text": "{\"question\":\"Crédit affecté : sous combien de jours le vendeur doit-il me rembourser l'acompte après résolution de la vente ?\",\"why_unanswerable\":\"L'article prévoit seulement que le vendeur ou le prestataire rembourse « sur simple demande » les sommes versées d'avance sur le prix, sans fixer de délai chiffré de remboursement. Aucun autre article du Code de la consommation sur le crédit affecté ne donne de nombre de jours pour ce remboursement précis.\",\"doubt\":\"Un autre article du code (par exemple sur les pénalités de retard ou les délais de remboursement en cas de rétractation) pourrait fixer un délai voisin, mais pas pour ce cas de résolution du contrat de vente liée au crédit affecté.\"}"
+}

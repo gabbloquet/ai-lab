@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-030",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1878,
+    "output_tokens": 260
+  },
+  "output": {
+    "question": "Crédit conso : quelle indemnité le prêteur doit-il verser à l'emprunteur s'il n'a pas remis la fiche d'information précontractuelle ?",
+    "why_unanswerable": "Le code prévoit pour ce manquement une amende contraventionnelle de 5e classe (sanction pénale) et, ailleurs, la déchéance du droit aux intérêts. Il ne fixe aucun montant d'indemnité due à l'emprunteur, qui dépend de l'appréciation du juge au vu du préjudice.",
+    "doubt": "Un autre article sur la déchéance du droit aux intérêts pourrait être jugé proche, mais il ne prévoit pas d'indemnité chiffrée versée à l'emprunteur."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : quelle indemnité le prêteur doit-il verser à l'emprunteur s'il n'a pas remis la fiche d'information précontractuelle ?\",\"why_unanswerable\":\"Le code prévoit pour ce manquement une amende contraventionnelle de 5e classe (sanction pénale) et, ailleurs, la déchéance du droit aux intérêts. Il ne fixe aucun montant d'indemnité due à l'emprunteur, qui dépend de l'appréciation du juge au vu du préjudice.\",\"doubt\":\"Un autre article sur la déchéance du droit aux intérêts pourrait être jugé proche, mais il ne prévoit pas d'indemnité chiffrée versée à l'emprunteur.\"}"
+}

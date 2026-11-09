@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-047",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2281,
+    "output_tokens": 234
+  },
+  "output": {
+    "question": "Falsification d'un produit : quelle durée maximale d'interdiction d'exercer pour un commerçant condamné ?",
+    "why_unanswerable": "L'article L451-6 prévoit seulement l'existence de peines complémentaires d'interdiction d'exercer et renvoie aux modalités de l'article 131-27 du code pénal. Il ne fixe aucune durée dans le Code de la consommation, la durée relève du code pénal.",
+    "doubt": "La durée maximale figure dans le code pénal, qui n'est pas le Code de la consommation. Un système pourrait y répondre en citant ce code, mais la question reste sans réponse dans le Code de la consommation."
+  },
+  "raw_text": "{\"question\":\"Falsification d'un produit : quelle durée maximale d'interdiction d'exercer pour un commerçant condamné ?\",\"why_unanswerable\":\"L'article L451-6 prévoit seulement l'existence de peines complémentaires d'interdiction d'exercer et renvoie aux modalités de l'article 131-27 du code pénal. Il ne fixe aucune durée dans le Code de la consommation, la durée relève du code pénal.\",\"doubt\":\"La durée maximale figure dans le code pénal, qui n'est pas le Code de la consommation. Un système pourrait y répondre en citant ce code, mais la question reste sans réponse dans le Code de la consommation.\"}"
+}

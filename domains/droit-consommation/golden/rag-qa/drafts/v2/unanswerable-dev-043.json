@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-043",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1947,
+    "output_tokens": 259
+  },
+  "output": {
+    "question": "Quel est le montant maximal de l'astreinte que le juge peut fixer à un professionnel qui continue ses pratiques illicites ?",
+    "why_unanswerable": "L'article L524-2 prévoit seulement que l'administration peut demander au juge civil d'ordonner des mesures, le cas échéant sous astreinte, sans fixer de montant ni de plafond. Le montant est laissé à l'appréciation du juge, et le Code de la consommation n'indique aucun plafond d'astreinte.",
+    "doubt": "Un autre article du code (par exemple sur les sanctions) pourrait mentionner un plafond d'astreinte administrative, ce qui est distinct de l'astreinte judiciaire, mais le risque de confusion existe."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant maximal de l'astreinte que le juge peut fixer à un professionnel qui continue ses pratiques illicites ?\",\"why_unanswerable\":\"L'article L524-2 prévoit seulement que l'administration peut demander au juge civil d'ordonner des mesures, le cas échéant sous astreinte, sans fixer de montant ni de plafond. Le montant est laissé à l'appréciation du juge, et le Code de la consommation n'indique aucun plafond d'astreinte.\",\"doubt\":\"Un autre article du code (par exemple sur les sanctions) pourrait mentionner un plafond d'astreinte administrative, ce qui est distinct de l'astreinte judiciaire, mais le risque de confusion existe.\"}"
+}

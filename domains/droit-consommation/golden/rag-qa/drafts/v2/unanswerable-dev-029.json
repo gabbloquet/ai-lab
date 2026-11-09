@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-029",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2223,
+    "output_tokens": 211
+  },
+  "output": {
+    "question": "Quelle taille minimale de police doit avoir l'affichage sur les pièces issues de l'économie circulaire chez un réparateur d'équipements médicaux ?",
+    "why_unanswerable": "L'article exige seulement un affichage clair, visible et lisible depuis l'extérieur du local, sans fixer de taille de police, de dimensions ni de format précis. Le Code de la consommation ne donne aucune valeur chiffrée à ce sujet.",
+    "doubt": "Un autre article réglementaire pourrait fixer des dimensions d'affichage, mais je n'en connais pas pour cette section."
+  },
+  "raw_text": "{\"question\":\"Quelle taille minimale de police doit avoir l'affichage sur les pièces issues de l'économie circulaire chez un réparateur d'équipements médicaux ?\",\"why_unanswerable\":\"L'article exige seulement un affichage clair, visible et lisible depuis l'extérieur du local, sans fixer de taille de police, de dimensions ni de format précis. Le Code de la consommation ne donne aucune valeur chiffrée à ce sujet.\",\"doubt\":\"Un autre article réglementaire pourrait fixer des dimensions d'affichage, mais je n'en connais pas pour cette section.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-044",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2875,
+    "output_tokens": 208
+  },
+  "output": {
+    "question": "Quelle commission maximale une place de marché en ligne peut-elle prélever sur chaque vente ?",
+    "why_unanswerable": "L'article impose seulement d'indiquer le prix du service de mise en relation ou son mode de calcul, lorsqu'il est à la charge du consommateur. Le code ne fixe aucun plafond ni taux de commission pour les places de marché ; ce tarif est libre et relève du fournisseur.",
+    "doubt": "Un autre article du code pourrait encadrer les frais de plateforme, mais je n'en connais aucun qui fixe un plafond de commission."
+  },
+  "raw_text": "{\"question\":\"Quelle commission maximale une place de marché en ligne peut-elle prélever sur chaque vente ?\",\"why_unanswerable\":\"L'article impose seulement d'indiquer le prix du service de mise en relation ou son mode de calcul, lorsqu'il est à la charge du consommateur. Le code ne fixe aucun plafond ni taux de commission pour les places de marché ; ce tarif est libre et relève du fournisseur.\",\"doubt\":\"Un autre article du code pourrait encadrer les frais de plateforme, mais je n'en connais aucun qui fixe un plafond de commission.\"}"
+}

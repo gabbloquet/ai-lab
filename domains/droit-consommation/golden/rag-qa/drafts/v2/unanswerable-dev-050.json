@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-050",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2057,
+    "output_tokens": 242
+  },
+  "output": {
+    "question": "Crédit affecté : quel mode de livraison le vendeur doit-il utiliser pour un bien livré avant la fin de la rétractation ?",
+    "why_unanswerable": "L'article dit que la livraison ou fourniture anticipée est aux frais et risques du vendeur, et fixe les bornes du délai de rétractation, mais ne précise ni le transporteur ni le mode de livraison à utiliser. Le code ne traite pas ce détail pratique.",
+    "doubt": "Un autre article sur la livraison (L216-1) pourrait toucher aux modalités de livraison, mais il ne vise pas le mode ou le transporteur à choisir dans le cadre d'un crédit affecté."
+  },
+  "raw_text": "{\"question\":\"Crédit affecté : quel mode de livraison le vendeur doit-il utiliser pour un bien livré avant la fin de la rétractation ?\",\"why_unanswerable\":\"L'article dit que la livraison ou fourniture anticipée est aux frais et risques du vendeur, et fixe les bornes du délai de rétractation, mais ne précise ni le transporteur ni le mode de livraison à utiliser. Le code ne traite pas ce détail pratique.\",\"doubt\":\"Un autre article sur la livraison (L216-1) pourrait toucher aux modalités de livraison, mais il ne vise pas le mode ou le transporteur à choisir dans le cadre d'un crédit affecté.\"}"
+}

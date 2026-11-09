@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-026",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1952,
+    "output_tokens": 249
+  },
+  "output": {
+    "question": "Après un effacement de dettes en surendettement, combien de temps dure l'inscription au FICP de mon dossier ?",
+    "why_unanswerable": "L'article L733-17 dit seulement que l'effacement de la créance vaut régularisation de l'incident de paiement au sens du code monétaire et financier. Il ne fixe aucune durée d'inscription au FICP après un effacement. Le Code de la consommation ne donne donc pas la réponse dans cet article.",
+    "doubt": "Le Code de la consommation (L752-3 et suivants) fixe des durées d'inscription au FICP, donc un autre article pourrait répondre à cette question ; la question est probablement répondable ailleurs et devrait être remplacée."
+  },
+  "raw_text": "{\"question\":\"Après un effacement de dettes en surendettement, combien de temps dure l'inscription au FICP de mon dossier ?\",\"why_unanswerable\":\"L'article L733-17 dit seulement que l'effacement de la créance vaut régularisation de l'incident de paiement au sens du code monétaire et financier. Il ne fixe aucune durée d'inscription au FICP après un effacement. Le Code de la consommation ne donne donc pas la réponse dans cet article.\",\"doubt\":\"Le Code de la consommation (L752-3 et suivants) fixe des durées d'inscription au FICP, donc un autre article pourrait répondre à cette question ; la question est probablement répondable ailleurs et devrait être remplacée.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-034",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2032,
+    "output_tokens": 211
+  },
+  "output": {
+    "question": "Courtage matrimonial : quel pourcentage du prix le professionnel peut-il retenir en cas de résiliation pour motif légitime ?",
+    "why_unanswerable": "L'article prévoit seulement une réduction du prix proportionnelle à la durée écoulée et à la durée restante, sans fixer de pourcentage ni de montant de retenue forfaitaire. Le Code de la consommation ne donne aucun taux précis de retenue.",
+    "doubt": "Un autre article du code pourrait fixer une indemnité forfaitaire pour ce type de contrat, mais cela paraît peu probable."
+  },
+  "raw_text": "{\"question\":\"Courtage matrimonial : quel pourcentage du prix le professionnel peut-il retenir en cas de résiliation pour motif légitime ?\",\"why_unanswerable\":\"L'article prévoit seulement une réduction du prix proportionnelle à la durée écoulée et à la durée restante, sans fixer de pourcentage ni de montant de retenue forfaitaire. Le Code de la consommation ne donne aucun taux précis de retenue.\",\"doubt\":\"Un autre article du code pourrait fixer une indemnité forfaitaire pour ce type de contrat, mais cela paraît peu probable.\"}"
+}

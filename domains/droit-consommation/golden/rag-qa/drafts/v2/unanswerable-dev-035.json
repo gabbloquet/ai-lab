@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-035",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2103,
+    "output_tokens": 268
+  },
+  "output": {
+    "question": "Quel est le délai de prescription de l'action de l'emprunteur pour demander la déchéance des intérêts du prêteur en crédit immobilier ?",
+    "why_unanswerable": "L'article fixe seulement le plafond de la déchéance du droit aux intérêts (30 % des intérêts, 30 000 euros) et le rôle du juge. Il ne prévoit aucun délai de prescription ni de point de départ pour l'action de l'emprunteur. Le Code de la consommation ne donne pas cette durée dans cette section.",
+    "doubt": "Un autre article du code ou le droit commun de la prescription pourrait traiter ce délai ; le risque est qu'une réponse existe ailleurs, par exemple à l'article L218-2 ou dans le Code civil."
+  },
+  "raw_text": "{\"question\":\"Quel est le délai de prescription de l'action de l'emprunteur pour demander la déchéance des intérêts du prêteur en crédit immobilier ?\",\"why_unanswerable\":\"L'article fixe seulement le plafond de la déchéance du droit aux intérêts (30 % des intérêts, 30 000 euros) et le rôle du juge. Il ne prévoit aucun délai de prescription ni de point de départ pour l'action de l'emprunteur. Le Code de la consommation ne donne pas cette durée dans cette section.\",\"doubt\":\"Un autre article du code ou le droit commun de la prescription pourrait traiter ce délai ; le risque est qu'une réponse existe ailleurs, par exemple à l'article L218-2 ou dans le Code civil.\"}"
+}

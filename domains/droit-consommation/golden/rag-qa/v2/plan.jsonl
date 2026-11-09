@@ -1,0 +1,486 @@
+{"task": "direct-dev-001", "mode": "direct", "split": "dev", "rank": 1, "articles": ["LEGIARTI000032807268"], "livre": "Livre II"}
+{"task": "direct-dev-002", "mode": "direct", "split": "dev", "rank": 2, "articles": ["LEGIARTI000043545713"], "livre": "Livre II"}
+{"task": "direct-dev-003", "mode": "direct", "split": "dev", "rank": 3, "articles": ["LEGIARTI000032433187"], "livre": "Livre III"}
+{"task": "direct-dev-004", "mode": "direct", "split": "dev", "rank": 4, "articles": ["LEGIARTI000034130290"], "livre": "Livre III"}
+{"task": "direct-dev-005", "mode": "direct", "split": "dev", "rank": 5, "articles": ["LEGIARTI000043977221"], "livre": "Livre III"}
+{"task": "direct-dev-006", "mode": "direct", "split": "dev", "rank": 6, "articles": ["LEGIARTI000032808506"], "livre": "Livre VI"}
+{"task": "direct-dev-007", "mode": "direct", "split": "dev", "rank": 7, "articles": ["LEGIARTI000032226510"], "livre": "Livre II"}
+{"task": "direct-dev-008", "mode": "direct", "split": "dev", "rank": 8, "articles": ["LEGIARTI000032808208"], "livre": "Livre V"}
+{"task": "direct-dev-009", "mode": "direct", "split": "dev", "rank": 9, "articles": ["LEGIARTI000032225031"], "livre": "Livre V"}
+{"task": "direct-dev-010", "mode": "direct", "split": "dev", "rank": 10, "articles": ["LEGIARTI000034671775"], "livre": "Livre VII"}
+{"task": "direct-dev-011", "mode": "direct", "split": "dev", "rank": 11, "articles": ["LEGIARTI000046012777"], "livre": "Livre IV"}
+{"task": "direct-dev-012", "mode": "direct", "split": "dev", "rank": 12, "articles": ["LEGIARTI000034131262"], "livre": "Livre Ier"}
+{"task": "direct-dev-013", "mode": "direct", "split": "dev", "rank": 13, "articles": ["LEGIARTI000032807976"], "livre": "Livre IV"}
+{"task": "direct-dev-014", "mode": "direct", "split": "dev", "rank": 14, "articles": ["LEGIARTI000032303060"], "livre": "Livre III"}
+{"task": "direct-dev-015", "mode": "direct", "split": "dev", "rank": 15, "articles": ["LEGIARTI000032226629"], "livre": "Livre II"}
+{"task": "direct-dev-016", "mode": "direct", "split": "dev", "rank": 16, "articles": ["LEGIARTI000044133269"], "livre": "Livre II"}
+{"task": "direct-dev-017", "mode": "direct", "split": "dev", "rank": 17, "articles": ["LEGIARTI000051828335"], "livre": "Livre II"}
+{"task": "direct-dev-018", "mode": "direct", "split": "dev", "rank": 18, "articles": ["LEGIARTI000032224717"], "livre": "Livre VI"}
+{"task": "direct-dev-019", "mode": "direct", "split": "dev", "rank": 19, "articles": ["LEGIARTI000032226615"], "livre": "Livre II"}
+{"task": "direct-dev-020", "mode": "direct", "split": "dev", "rank": 20, "articles": ["LEGIARTI000039382259"], "livre": "Livre V"}
+{"task": "direct-test-001", "mode": "direct", "split": "test", "rank": 1, "articles": ["LEGIARTI000032226990"], "livre": "Livre II"}
+{"task": "direct-test-002", "mode": "direct", "split": "test", "rank": 2, "articles": ["LEGIARTI000032226254"], "livre": "Livre II"}
+{"task": "direct-test-003", "mode": "direct", "split": "test", "rank": 3, "articles": ["LEGIARTI000032808718"], "livre": "Livre VII"}
+{"task": "direct-test-004", "mode": "direct", "split": "test", "rank": 4, "articles": ["LEGIARTI000032224725"], "livre": "Livre VI"}
+{"task": "direct-test-005", "mode": "direct", "split": "test", "rank": 5, "articles": ["LEGIARTI000035208387"], "livre": "Livre VIII"}
+{"task": "direct-test-006", "mode": "direct", "split": "test", "rank": 6, "articles": ["LEGIARTI000032224762"], "livre": "Livre VI"}
+{"task": "direct-test-007", "mode": "direct", "split": "test", "rank": 7, "articles": ["LEGIARTI000032808330"], "livre": "Livre VI"}
+{"task": "direct-test-008", "mode": "direct", "split": "test", "rank": 8, "articles": ["LEGIARTI000033613611"], "livre": "Livre Ier"}
+{"task": "direct-test-009", "mode": "direct", "split": "test", "rank": 9, "articles": ["LEGIARTI000050952582"], "livre": "Livre V"}
+{"task": "direct-test-010", "mode": "direct", "split": "test", "rank": 10, "articles": ["LEGIARTI000037798788"], "livre": "Livre V"}
+{"task": "direct-test-011", "mode": "direct", "split": "test", "rank": 11, "articles": ["LEGIARTI000044175620"], "livre": "Livre VIII"}
+{"task": "direct-test-012", "mode": "direct", "split": "test", "rank": 12, "articles": ["LEGIARTI000039375582"], "livre": "Livre VII"}
+{"task": "direct-test-013", "mode": "direct", "split": "test", "rank": 13, "articles": ["LEGIARTI000032808240"], "livre": "Livre V"}
+{"task": "direct-test-014", "mode": "direct", "split": "test", "rank": 14, "articles": ["LEGIARTI000034671778"], "livre": "Livre VII"}
+{"task": "direct-test-015", "mode": "direct", "split": "test", "rank": 15, "articles": ["LEGIARTI000034072964"], "livre": "Livre V"}
+{"task": "direct-test-016", "mode": "direct", "split": "test", "rank": 16, "articles": ["LEGIARTI000032808962"], "livre": "Livre VIII"}
+{"task": "direct-test-017", "mode": "direct", "split": "test", "rank": 17, "articles": ["LEGIARTI000037556691"], "livre": "Livre Ier"}
+{"task": "direct-test-018", "mode": "direct", "split": "test", "rank": 18, "articles": ["LEGIARTI000032808256"], "livre": "Livre V"}
+{"task": "direct-test-019", "mode": "direct", "split": "test", "rank": 19, "articles": ["LEGIARTI000032226529"], "livre": "Livre II"}
+{"task": "direct-test-020", "mode": "direct", "split": "test", "rank": 20, "articles": ["LEGIARTI000032226988"], "livre": "Livre II"}
+{"task": "direct-test-021", "mode": "direct", "split": "test", "rank": 21, "articles": ["LEGIARTI000032309768"], "livre": "Livre III"}
+{"task": "direct-test-022", "mode": "direct", "split": "test", "rank": 22, "articles": ["LEGIARTI000045418591"], "livre": "Livre II"}
+{"task": "direct-test-023", "mode": "direct", "split": "test", "rank": 23, "articles": ["LEGIARTI000032807350"], "livre": "Livre II"}
+{"task": "direct-test-024", "mode": "direct", "split": "test", "rank": 24, "articles": ["LEGIARTI000044809298"], "livre": "Livre II"}
+{"task": "direct-test-025", "mode": "direct", "split": "test", "rank": 25, "articles": ["LEGIARTI000050920839"], "livre": "Livre IV"}
+{"task": "direct-test-026", "mode": "direct", "split": "test", "rank": 26, "articles": ["LEGIARTI000032303299"], "livre": "Livre III"}
+{"task": "direct-test-027", "mode": "direct", "split": "test", "rank": 27, "articles": ["LEGIARTI000032225765"], "livre": "Livre III"}
+{"task": "direct-test-028", "mode": "direct", "split": "test", "rank": 28, "articles": ["LEGIARTI000046012786"], "livre": "Livre IV"}
+{"task": "direct-test-029", "mode": "direct", "split": "test", "rank": 29, "articles": ["LEGIARTI000034072854"], "livre": "Livre IV"}
+{"task": "direct-test-030", "mode": "direct", "split": "test", "rank": 30, "articles": ["LEGIARTI000035731376"], "livre": "Livre III"}
+{"task": "direct-test-031", "mode": "direct", "split": "test", "rank": 31, "articles": ["LEGIARTI000049398709"], "livre": "Livre VII"}
+{"task": "direct-test-032", "mode": "direct", "split": "test", "rank": 32, "articles": ["LEGIARTI000032226525"], "livre": "Livre II"}
+{"task": "direct-test-033", "mode": "direct", "split": "test", "rank": 33, "articles": ["LEGIARTI000038613855"], "livre": "Livre III"}
+{"task": "direct-test-034", "mode": "direct", "split": "test", "rank": 34, "articles": ["LEGIARTI000032315994"], "livre": "Livre III"}
+{"task": "direct-test-035", "mode": "direct", "split": "test", "rank": 35, "articles": ["LEGIARTI000032226008"], "livre": "Livre III"}
+{"task": "direct-test-036", "mode": "direct", "split": "test", "rank": 36, "articles": ["LEGIARTI000039382262"], "livre": "Livre IV"}
+{"task": "direct-test-037", "mode": "direct", "split": "test", "rank": 37, "articles": ["LEGIARTI000032808658"], "livre": "Livre VII"}
+{"task": "direct-test-038", "mode": "direct", "split": "test", "rank": 38, "articles": ["LEGIARTI000032227053"], "livre": "Livre Ier"}
+{"task": "direct-test-039", "mode": "direct", "split": "test", "rank": 39, "articles": ["LEGIARTI000044129074"], "livre": "Livre Ier"}
+{"task": "direct-test-040", "mode": "direct", "split": "test", "rank": 40, "articles": ["LEGIARTI000032807366"], "livre": "Livre II"}
+{"task": "direct-test-041", "mode": "direct", "split": "test", "rank": 41, "articles": ["LEGIARTI000032225257"], "livre": "Livre IV"}
+{"task": "direct-test-042", "mode": "direct", "split": "test", "rank": 42, "articles": ["LEGIARTI000032807200"], "livre": "Livre II"}
+{"task": "direct-test-043", "mode": "direct", "split": "test", "rank": 43, "articles": ["LEGIARTI000032807448"], "livre": "Livre III"}
+{"task": "direct-test-044", "mode": "direct", "split": "test", "rank": 44, "articles": ["LEGIARTI000032808016"], "livre": "Livre IV"}
+{"task": "direct-test-045", "mode": "direct", "split": "test", "rank": 45, "articles": ["LEGIARTI000039066285"], "livre": "Livre VII"}
+{"task": "direct-test-046", "mode": "direct", "split": "test", "rank": 46, "articles": ["LEGIARTI000032226246"], "livre": "Livre II"}
+{"task": "direct-test-047", "mode": "direct", "split": "test", "rank": 47, "articles": ["LEGIARTI000032225309"], "livre": "Livre IV"}
+{"task": "direct-test-048", "mode": "direct", "split": "test", "rank": 48, "articles": ["LEGIARTI000033978873"], "livre": "Livre VIII"}
+{"task": "direct-test-049", "mode": "direct", "split": "test", "rank": 49, "articles": ["LEGIARTI000032808590"], "livre": "Livre VII"}
+{"task": "direct-test-050", "mode": "direct", "split": "test", "rank": 50, "articles": ["LEGIARTI000032227159"], "livre": "Livre Ier"}
+{"task": "direct-test-051", "mode": "direct", "split": "test", "rank": 51, "articles": ["LEGIARTI000046012811"], "livre": "Livre V"}
+{"task": "direct-test-052", "mode": "direct", "split": "test", "rank": 52, "articles": ["LEGIARTI000035731417"], "livre": "Livre III"}
+{"task": "direct-test-053", "mode": "direct", "split": "test", "rank": 53, "articles": ["LEGIARTI000032227264"], "livre": "Livre Ier"}
+{"task": "direct-test-054", "mode": "direct", "split": "test", "rank": 54, "articles": ["LEGIARTI000032807462"], "livre": "Livre III"}
+{"task": "direct-test-055", "mode": "direct", "split": "test", "rank": 55, "articles": ["LEGIARTI000045073439"], "livre": "Livre II"}
+{"task": "direct-test-056", "mode": "direct", "split": "test", "rank": 56, "articles": ["LEGIARTI000051829071"], "livre": "Livre V"}
+{"task": "direct-test-057", "mode": "direct", "split": "test", "rank": 57, "articles": ["LEGIARTI000038481629"], "livre": "Livre VII"}
+{"task": "direct-test-058", "mode": "direct", "split": "test", "rank": 58, "articles": ["LEGIARTI000032807636"], "livre": "Livre III"}
+{"task": "direct-test-059", "mode": "direct", "split": "test", "rank": 59, "articles": ["LEGIARTI000032432430"], "livre": "Livre III"}
+{"task": "direct-test-060", "mode": "direct", "split": "test", "rank": 60, "articles": ["LEGIARTI000032224292"], "livre": "Livre VII"}
+{"task": "reference-dev-001", "mode": "reference", "split": "dev", "rank": 1, "articles": ["LEGIARTI000045073531"], "livre": "Livre II"}
+{"task": "reference-dev-002", "mode": "reference", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032225311"], "livre": "Livre IV"}
+{"task": "reference-dev-003", "mode": "reference", "split": "dev", "rank": 3, "articles": ["LEGIARTI000036769071"], "livre": "Livre III"}
+{"task": "reference-dev-004", "mode": "reference", "split": "dev", "rank": 4, "articles": ["LEGIARTI000039382265"], "livre": "Livre IV"}
+{"task": "reference-dev-005", "mode": "reference", "split": "dev", "rank": 5, "articles": ["LEGIARTI000032224715"], "livre": "Livre VI"}
+{"task": "reference-dev-006", "mode": "reference", "split": "dev", "rank": 6, "articles": ["LEGIARTI000048027098"], "livre": "Livre Ier"}
+{"task": "reference-dev-007", "mode": "reference", "split": "dev", "rank": 7, "articles": ["LEGIARTI000032224532"], "livre": "Livre VII"}
+{"task": "reference-dev-008", "mode": "reference", "split": "dev", "rank": 8, "articles": ["LEGIARTI000032395734"], "livre": "Livre III"}
+{"task": "reference-dev-009", "mode": "reference", "split": "dev", "rank": 9, "articles": ["LEGIARTI000043545819"], "livre": "Livre II"}
+{"task": "reference-dev-010", "mode": "reference", "split": "dev", "rank": 10, "articles": ["LEGIARTI000032807834"], "livre": "Livre IV"}
+{"task": "reference-dev-011", "mode": "reference", "split": "dev", "rank": 11, "articles": ["LEGIARTI000051829644"], "livre": "Livre V"}
+{"task": "reference-dev-012", "mode": "reference", "split": "dev", "rank": 12, "articles": ["LEGIARTI000032226475"], "livre": "Livre II"}
+{"task": "reference-dev-013", "mode": "reference", "split": "dev", "rank": 13, "articles": ["LEGIARTI000032808960"], "livre": "Livre VIII"}
+{"task": "reference-dev-014", "mode": "reference", "split": "dev", "rank": 14, "articles": ["LEGIARTI000032226287"], "livre": "Livre II"}
+{"task": "reference-dev-015", "mode": "reference", "split": "dev", "rank": 15, "articles": ["LEGIARTI000039066312"], "livre": "Livre VII"}
+{"task": "reference-dev-016", "mode": "reference", "split": "dev", "rank": 16, "articles": ["LEGIARTI000032807626"], "livre": "Livre III"}
+{"task": "reference-test-001", "mode": "reference", "split": "test", "rank": 1, "articles": ["LEGIARTI000039347947"], "livre": "Livre VII"}
+{"task": "reference-test-002", "mode": "reference", "split": "test", "rank": 2, "articles": ["LEGIARTI000045073449"], "livre": "Livre II"}
+{"task": "reference-test-003", "mode": "reference", "split": "test", "rank": 3, "articles": ["LEGIARTI000032303072"], "livre": "Livre III"}
+{"task": "reference-test-004", "mode": "reference", "split": "test", "rank": 4, "articles": ["LEGIARTI000032809062"], "livre": "Livre VIII"}
+{"task": "reference-test-005", "mode": "reference", "split": "test", "rank": 5, "articles": ["LEGIARTI000032808894"], "livre": "Livre VII"}
+{"task": "reference-test-006", "mode": "reference", "split": "test", "rank": 6, "articles": ["LEGIARTI000038782736"], "livre": "Livre III"}
+{"task": "reference-test-007", "mode": "reference", "split": "test", "rank": 7, "articles": ["LEGIARTI000032309756"], "livre": "Livre III"}
+{"task": "reference-test-008", "mode": "reference", "split": "test", "rank": 8, "articles": ["LEGIARTI000032224979"], "livre": "Livre V"}
+{"task": "reference-test-009", "mode": "reference", "split": "test", "rank": 9, "articles": ["LEGIARTI000032808122"], "livre": "Livre V"}
+{"task": "reference-test-010", "mode": "reference", "split": "test", "rank": 10, "articles": ["LEGIARTI000032807144"], "livre": "Livre Ier"}
+{"task": "reference-test-011", "mode": "reference", "split": "test", "rank": 11, "articles": ["LEGIARTI000035190277"], "livre": "Livre III"}
+{"task": "reference-test-012", "mode": "reference", "split": "test", "rank": 12, "articles": ["LEGIARTI000044142527"], "livre": "Livre II"}
+{"task": "reference-test-013", "mode": "reference", "split": "test", "rank": 13, "articles": ["LEGIARTI000049571070"], "livre": "Livre V"}
+{"task": "reference-test-014", "mode": "reference", "split": "test", "rank": 14, "articles": ["LEGIARTI000032227282"], "livre": "Livre Ier"}
+{"task": "reference-test-015", "mode": "reference", "split": "test", "rank": 15, "articles": ["LEGIARTI000032225222"], "livre": "Livre IV"}
+{"task": "reference-test-016", "mode": "reference", "split": "test", "rank": 16, "articles": ["LEGIARTI000049239065"], "livre": "Livre VIII"}
+{"task": "reference-test-017", "mode": "reference", "split": "test", "rank": 17, "articles": ["LEGIARTI000032807612"], "livre": "Livre III"}
+{"task": "reference-test-018", "mode": "reference", "split": "test", "rank": 18, "articles": ["LEGIARTI000032807944"], "livre": "Livre IV"}
+{"task": "reference-test-019", "mode": "reference", "split": "test", "rank": 19, "articles": ["LEGIARTI000032225117"], "livre": "Livre V"}
+{"task": "reference-test-020", "mode": "reference", "split": "test", "rank": 20, "articles": ["LEGIARTI000042155954"], "livre": "Livre II"}
+{"task": "reference-test-021", "mode": "reference", "split": "test", "rank": 21, "articles": ["LEGIARTI000032224546"], "livre": "Livre VII"}
+{"task": "reference-test-022", "mode": "reference", "split": "test", "rank": 22, "articles": ["LEGIARTI000032807740"], "livre": "Livre III"}
+{"task": "reference-test-023", "mode": "reference", "split": "test", "rank": 23, "articles": ["LEGIARTI000032224589"], "livre": "Livre VII"}
+{"task": "reference-test-024", "mode": "reference", "split": "test", "rank": 24, "articles": ["LEGIARTI000032226799"], "livre": "Livre II"}
+{"task": "reference-test-025", "mode": "reference", "split": "test", "rank": 25, "articles": ["LEGIARTI000032227250"], "livre": "Livre Ier"}
+{"task": "reference-test-026", "mode": "reference", "split": "test", "rank": 26, "articles": ["LEGIARTI000032225649"], "livre": "Livre III"}
+{"task": "reference-test-027", "mode": "reference", "split": "test", "rank": 27, "articles": ["LEGIARTI000032303407"], "livre": "Livre III"}
+{"task": "reference-test-028", "mode": "reference", "split": "test", "rank": 28, "articles": ["LEGIARTI000045073441"], "livre": "Livre II"}
+{"task": "reference-test-029", "mode": "reference", "split": "test", "rank": 29, "articles": ["LEGIARTI000032808572"], "livre": "Livre VII"}
+{"task": "reference-test-030", "mode": "reference", "split": "test", "rank": 30, "articles": ["LEGIARTI000032808466"], "livre": "Livre VI"}
+{"task": "reference-test-031", "mode": "reference", "split": "test", "rank": 31, "articles": ["LEGIARTI000044139707"], "livre": "Livre II"}
+{"task": "reference-test-032", "mode": "reference", "split": "test", "rank": 32, "articles": ["LEGIARTI000032224300"], "livre": "Livre VII"}
+{"task": "reference-test-033", "mode": "reference", "split": "test", "rank": 33, "articles": ["LEGIARTI000032808402"], "livre": "Livre VI"}
+{"task": "reference-test-034", "mode": "reference", "split": "test", "rank": 34, "articles": ["LEGIARTI000032432037"], "livre": "Livre III"}
+{"task": "reference-test-035", "mode": "reference", "split": "test", "rank": 35, "articles": ["LEGIARTI000032808404"], "livre": "Livre VI"}
+{"task": "reference-test-036", "mode": "reference", "split": "test", "rank": 36, "articles": ["LEGIARTI000050925518"], "livre": "Livre IV"}
+{"task": "reference-test-037", "mode": "reference", "split": "test", "rank": 37, "articles": ["LEGIARTI000051830394"], "livre": "Livre V"}
+{"task": "reference-test-038", "mode": "reference", "split": "test", "rank": 38, "articles": ["LEGIARTI000047479678"], "livre": "Livre II"}
+{"task": "reference-test-039", "mode": "reference", "split": "test", "rank": 39, "articles": ["LEGIARTI000044142438"], "livre": "Livre Ier"}
+{"task": "reference-test-040", "mode": "reference", "split": "test", "rank": 40, "articles": ["LEGIARTI000032808184"], "livre": "Livre V"}
+{"task": "reference-test-041", "mode": "reference", "split": "test", "rank": 41, "articles": ["LEGIARTI000044563215"], "livre": "Livre II"}
+{"task": "reference-test-042", "mode": "reference", "split": "test", "rank": 42, "articles": ["LEGIARTI000032226348"], "livre": "Livre II"}
+{"task": "reference-test-043", "mode": "reference", "split": "test", "rank": 43, "articles": ["LEGIARTI000032226533"], "livre": "Livre II"}
+{"task": "reference-test-044", "mode": "reference", "split": "test", "rank": 44, "articles": ["LEGIARTI000049571108"], "livre": "Livre Ier"}
+{"task": "paraphrase-dev-001", "mode": "paraphrase", "split": "dev", "rank": 1, "articles": ["LEGIARTI000032807980"], "livre": "Livre IV"}
+{"task": "paraphrase-dev-002", "mode": "paraphrase", "split": "dev", "rank": 2, "articles": ["LEGIARTI000046811357"], "livre": "Livre VII"}
+{"task": "paraphrase-dev-003", "mode": "paraphrase", "split": "dev", "rank": 3, "articles": ["LEGIARTI000032808390"], "livre": "Livre VI"}
+{"task": "paraphrase-dev-004", "mode": "paraphrase", "split": "dev", "rank": 4, "articles": ["LEGIARTI000032808012"], "livre": "Livre IV"}
+{"task": "paraphrase-dev-005", "mode": "paraphrase", "split": "dev", "rank": 5, "articles": ["LEGIARTI000043211256"], "livre": "Livre II"}
+{"task": "paraphrase-dev-006", "mode": "paraphrase", "split": "dev", "rank": 6, "articles": ["LEGIARTI000032808992"], "livre": "Livre VIII"}
+{"task": "paraphrase-dev-007", "mode": "paraphrase", "split": "dev", "rank": 7, "articles": ["LEGIARTI000049239001"], "livre": "Livre VIII"}
+{"task": "paraphrase-dev-008", "mode": "paraphrase", "split": "dev", "rank": 8, "articles": ["LEGIARTI000044563156"], "livre": "Livre II"}
+{"task": "paraphrase-dev-009", "mode": "paraphrase", "split": "dev", "rank": 9, "articles": ["LEGIARTI000045981012"], "livre": "Livre Ier"}
+{"task": "paraphrase-dev-010", "mode": "paraphrase", "split": "dev", "rank": 10, "articles": ["LEGIARTI000032807764"], "livre": "Livre III"}
+{"task": "paraphrase-dev-011", "mode": "paraphrase", "split": "dev", "rank": 11, "articles": ["LEGIARTI000032224993"], "livre": "Livre V"}
+{"task": "paraphrase-dev-012", "mode": "paraphrase", "split": "dev", "rank": 12, "articles": ["LEGIARTI000032807138"], "livre": "Livre Ier"}
+{"task": "paraphrase-dev-013", "mode": "paraphrase", "split": "dev", "rank": 13, "articles": ["LEGIARTI000033613383"], "livre": "Livre V"}
+{"task": "paraphrase-dev-014", "mode": "paraphrase", "split": "dev", "rank": 14, "articles": ["LEGIARTI000051829649"], "livre": "Livre V"}
+{"task": "paraphrase-dev-015", "mode": "paraphrase", "split": "dev", "rank": 15, "articles": ["LEGIARTI000042155944"], "livre": "Livre II"}
+{"task": "paraphrase-dev-016", "mode": "paraphrase", "split": "dev", "rank": 16, "articles": ["LEGIARTI000048180379"], "livre": "Livre IV"}
+{"task": "paraphrase-dev-017", "mode": "paraphrase", "split": "dev", "rank": 17, "articles": ["LEGIARTI000032225634"], "livre": "Livre III"}
+{"task": "paraphrase-dev-018", "mode": "paraphrase", "split": "dev", "rank": 18, "articles": ["LEGIARTI000032225285"], "livre": "Livre IV"}
+{"task": "paraphrase-dev-019", "mode": "paraphrase", "split": "dev", "rank": 19, "articles": ["LEGIARTI000032808882"], "livre": "Livre VII"}
+{"task": "paraphrase-dev-020", "mode": "paraphrase", "split": "dev", "rank": 20, "articles": ["LEGIARTI000032224518"], "livre": "Livre VII"}
+{"task": "paraphrase-test-001", "mode": "paraphrase", "split": "test", "rank": 1, "articles": ["LEGIARTI000033576988"], "livre": "Livre Ier"}
+{"task": "paraphrase-test-002", "mode": "paraphrase", "split": "test", "rank": 2, "articles": ["LEGIARTI000032808276"], "livre": "Livre V"}
+{"task": "paraphrase-test-003", "mode": "paraphrase", "split": "test", "rank": 3, "articles": ["LEGIARTI000034129993"], "livre": "Livre VI"}
+{"task": "paraphrase-test-004", "mode": "paraphrase", "split": "test", "rank": 4, "articles": ["LEGIARTI000039119564"], "livre": "Livre III"}
+{"task": "paraphrase-test-005", "mode": "paraphrase", "split": "test", "rank": 5, "articles": ["LEGIARTI000032224544"], "livre": "Livre VII"}
+{"task": "paraphrase-test-006", "mode": "paraphrase", "split": "test", "rank": 6, "articles": ["LEGIARTI000044563220"], "livre": "Livre II"}
+{"task": "paraphrase-test-007", "mode": "paraphrase", "split": "test", "rank": 7, "articles": ["LEGIARTI000033461192"], "livre": "Livre VII"}
+{"task": "paraphrase-test-008", "mode": "paraphrase", "split": "test", "rank": 8, "articles": ["LEGIARTI000035190164"], "livre": "Livre III"}
+{"task": "paraphrase-test-009", "mode": "paraphrase", "split": "test", "rank": 9, "articles": ["LEGIARTI000032315894"], "livre": "Livre III"}
+{"task": "paraphrase-test-010", "mode": "paraphrase", "split": "test", "rank": 10, "articles": ["LEGIARTI000044142516"], "livre": "Livre II"}
+{"task": "paraphrase-test-011", "mode": "paraphrase", "split": "test", "rank": 11, "articles": ["LEGIARTI000032226717"], "livre": "Livre II"}
+{"task": "paraphrase-test-012", "mode": "paraphrase", "split": "test", "rank": 12, "articles": ["LEGIARTI000039382281"], "livre": "Livre Ier"}
+{"task": "paraphrase-test-013", "mode": "paraphrase", "split": "test", "rank": 13, "articles": ["LEGIARTI000044133066"], "livre": "Livre II"}
+{"task": "paraphrase-test-014", "mode": "paraphrase", "split": "test", "rank": 14, "articles": ["LEGIARTI000032808624"], "livre": "Livre VII"}
+{"task": "paraphrase-test-015", "mode": "paraphrase", "split": "test", "rank": 15, "articles": ["LEGIARTI000032890830"], "livre": "Livre III"}
+{"task": "paraphrase-test-016", "mode": "paraphrase", "split": "test", "rank": 16, "articles": ["LEGIARTI000032807960"], "livre": "Livre IV"}
+{"task": "paraphrase-test-017", "mode": "paraphrase", "split": "test", "rank": 17, "articles": ["LEGIARTI000032226039"], "livre": "Livre III"}
+{"task": "paraphrase-test-018", "mode": "paraphrase", "split": "test", "rank": 18, "articles": ["LEGIARTI000032224782"], "livre": "Livre VI"}
+{"task": "paraphrase-test-019", "mode": "paraphrase", "split": "test", "rank": 19, "articles": ["LEGIARTI000032224811"], "livre": "Livre VI"}
+{"task": "paraphrase-test-020", "mode": "paraphrase", "split": "test", "rank": 20, "articles": ["LEGIARTI000043545700"], "livre": "Livre II"}
+{"task": "paraphrase-test-021", "mode": "paraphrase", "split": "test", "rank": 21, "articles": ["LEGIARTI000032807122"], "livre": "Livre Ier"}
+{"task": "paraphrase-test-022", "mode": "paraphrase", "split": "test", "rank": 22, "articles": ["LEGIARTI000032226041"], "livre": "Livre III"}
+{"task": "paraphrase-test-023", "mode": "paraphrase", "split": "test", "rank": 23, "articles": ["LEGIARTI000032225700"], "livre": "Livre III"}
+{"task": "paraphrase-test-024", "mode": "paraphrase", "split": "test", "rank": 24, "articles": ["LEGIARTI000032226168"], "livre": "Livre III"}
+{"task": "paraphrase-test-025", "mode": "paraphrase", "split": "test", "rank": 25, "articles": ["LEGIARTI000032225724"], "livre": "Livre III"}
+{"task": "paraphrase-test-026", "mode": "paraphrase", "split": "test", "rank": 26, "articles": ["LEGIARTI000032808870"], "livre": "Livre VII"}
+{"task": "paraphrase-test-027", "mode": "paraphrase", "split": "test", "rank": 27, "articles": ["LEGIARTI000032226312"], "livre": "Livre II"}
+{"task": "paraphrase-test-028", "mode": "paraphrase", "split": "test", "rank": 28, "articles": ["LEGIARTI000044138529"], "livre": "Livre II"}
+{"task": "paraphrase-test-029", "mode": "paraphrase", "split": "test", "rank": 29, "articles": ["LEGIARTI000032225021"], "livre": "Livre V"}
+{"task": "paraphrase-test-030", "mode": "paraphrase", "split": "test", "rank": 30, "articles": ["LEGIARTI000032226685"], "livre": "Livre II"}
+{"task": "paraphrase-test-031", "mode": "paraphrase", "split": "test", "rank": 31, "articles": ["LEGIARTI000050008706"], "livre": "Livre II"}
+{"task": "paraphrase-test-032", "mode": "paraphrase", "split": "test", "rank": 32, "articles": ["LEGIARTI000044142610"], "livre": "Livre II"}
+{"task": "paraphrase-test-033", "mode": "paraphrase", "split": "test", "rank": 33, "articles": ["LEGIARTI000049238979"], "livre": "Livre VIII"}
+{"task": "paraphrase-test-034", "mode": "paraphrase", "split": "test", "rank": 34, "articles": ["LEGIARTI000039279970"], "livre": "Livre V"}
+{"task": "paraphrase-test-035", "mode": "paraphrase", "split": "test", "rank": 35, "articles": ["LEGIARTI000032316048"], "livre": "Livre III"}
+{"task": "paraphrase-test-036", "mode": "paraphrase", "split": "test", "rank": 36, "articles": ["LEGIARTI000032224935"], "livre": "Livre V"}
+{"task": "paraphrase-test-037", "mode": "paraphrase", "split": "test", "rank": 37, "articles": ["LEGIARTI000039279959"], "livre": "Livre V"}
+{"task": "paraphrase-test-038", "mode": "paraphrase", "split": "test", "rank": 38, "articles": ["LEGIARTI000041557387"], "livre": "Livre Ier"}
+{"task": "paraphrase-test-039", "mode": "paraphrase", "split": "test", "rank": 39, "articles": ["LEGIARTI000034130276"], "livre": "Livre III"}
+{"task": "paraphrase-test-040", "mode": "paraphrase", "split": "test", "rank": 40, "articles": ["LEGIARTI000032809014"], "livre": "Livre VIII"}
+{"task": "paraphrase-test-041", "mode": "paraphrase", "split": "test", "rank": 41, "articles": ["LEGIARTI000032226597"], "livre": "Livre II"}
+{"task": "paraphrase-test-042", "mode": "paraphrase", "split": "test", "rank": 42, "articles": ["LEGIARTI000032315937"], "livre": "Livre III"}
+{"task": "paraphrase-test-043", "mode": "paraphrase", "split": "test", "rank": 43, "articles": ["LEGIARTI000039347923"], "livre": "Livre VII"}
+{"task": "paraphrase-test-044", "mode": "paraphrase", "split": "test", "rank": 44, "articles": ["LEGIARTI000044526142"], "livre": "Livre Ier"}
+{"task": "paraphrase-test-045", "mode": "paraphrase", "split": "test", "rank": 45, "articles": ["LEGIARTI000032807270"], "livre": "Livre II"}
+{"task": "paraphrase-test-046", "mode": "paraphrase", "split": "test", "rank": 46, "articles": ["LEGIARTI000051560099"], "livre": "Livre II"}
+{"task": "paraphrase-test-047", "mode": "paraphrase", "split": "test", "rank": 47, "articles": ["LEGIARTI000048027106"], "livre": "Livre Ier"}
+{"task": "paraphrase-test-048", "mode": "paraphrase", "split": "test", "rank": 48, "articles": ["LEGIARTI000032225113"], "livre": "Livre V"}
+{"task": "paraphrase-test-049", "mode": "paraphrase", "split": "test", "rank": 49, "articles": ["LEGIARTI000032224796"], "livre": "Livre VI"}
+{"task": "paraphrase-test-050", "mode": "paraphrase", "split": "test", "rank": 50, "articles": ["LEGIARTI000048180389"], "livre": "Livre IV"}
+{"task": "paraphrase-test-051", "mode": "paraphrase", "split": "test", "rank": 51, "articles": ["LEGIARTI000044520182"], "livre": "Livre II"}
+{"task": "paraphrase-test-052", "mode": "paraphrase", "split": "test", "rank": 52, "articles": ["LEGIARTI000032225242"], "livre": "Livre IV"}
+{"task": "paraphrase-test-053", "mode": "paraphrase", "split": "test", "rank": 53, "articles": ["LEGIARTI000036603149"], "livre": "Livre VII"}
+{"task": "paraphrase-test-054", "mode": "paraphrase", "split": "test", "rank": 54, "articles": ["LEGIARTI000047479215"], "livre": "Livre II"}
+{"task": "paraphrase-test-055", "mode": "paraphrase", "split": "test", "rank": 55, "articles": ["LEGIARTI000032224945"], "livre": "Livre V"}
+{"task": "paraphrase-test-056", "mode": "paraphrase", "split": "test", "rank": 56, "articles": ["LEGIARTI000032225706"], "livre": "Livre III"}
+{"task": "paraphrase-test-057", "mode": "paraphrase", "split": "test", "rank": 57, "articles": ["LEGIARTI000044138726"], "livre": "Livre II"}
+{"task": "paraphrase-test-058", "mode": "paraphrase", "split": "test", "rank": 58, "articles": ["LEGIARTI000035731420"], "livre": "Livre III"}
+{"task": "paraphrase-test-059", "mode": "paraphrase", "split": "test", "rank": 59, "articles": ["LEGIARTI000038482484"], "livre": "Livre VII"}
+{"task": "paraphrase-test-060", "mode": "paraphrase", "split": "test", "rank": 60, "articles": ["LEGIARTI000038375884"], "livre": "Livre IV"}
+{"task": "multi_article-dev-001", "mode": "multi_article", "split": "dev", "rank": 1, "articles": ["LEGIARTI000043545835", "LEGIARTI000042155988"], "livre": "Livre II"}
+{"task": "multi_article-dev-002", "mode": "multi_article", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032808884", "LEGIARTI000039066293"], "livre": "Livre VII"}
+{"task": "multi_article-dev-003", "mode": "multi_article", "split": "dev", "rank": 3, "articles": ["LEGIARTI000032227112", "LEGIARTI000032227118"], "livre": "Livre Ier"}
+{"task": "multi_article-dev-004", "mode": "multi_article", "split": "dev", "rank": 4, "articles": ["LEGIARTI000032808970", "LEGIARTI000032808958"], "livre": "Livre VIII"}
+{"task": "multi_article-dev-005", "mode": "multi_article", "split": "dev", "rank": 5, "articles": ["LEGIARTI000036769102", "LEGIARTI000035731495"], "livre": "Livre III"}
+{"task": "multi_article-dev-006", "mode": "multi_article", "split": "dev", "rank": 6, "articles": ["LEGIARTI000034131273", "LEGIARTI000032226783"], "livre": "Livre II"}
+{"task": "multi_article-dev-007", "mode": "multi_article", "split": "dev", "rank": 7, "articles": ["LEGIARTI000037670142", "LEGIARTI000039119611"], "livre": "Livre VII"}
+{"task": "multi_article-dev-008", "mode": "multi_article", "split": "dev", "rank": 8, "articles": ["LEGIARTI000043545748", "LEGIARTI000043545746"], "livre": "Livre II"}
+{"task": "multi_article-dev-009", "mode": "multi_article", "split": "dev", "rank": 9, "articles": ["LEGIARTI000034671806", "LEGIARTI000034671767"], "livre": "Livre VII"}
+{"task": "multi_article-dev-010", "mode": "multi_article", "split": "dev", "rank": 10, "articles": ["LEGIARTI000044138537", "LEGIARTI000044142523"], "livre": "Livre II"}
+{"task": "multi_article-dev-011", "mode": "multi_article", "split": "dev", "rank": 11, "articles": ["LEGIARTI000045271938", "LEGIARTI000032433144"], "livre": "Livre III"}
+{"task": "multi_article-dev-012", "mode": "multi_article", "split": "dev", "rank": 12, "articles": ["LEGIARTI000032808172", "LEGIARTI000032225019"], "livre": "Livre V"}
+{"task": "multi_article-dev-013", "mode": "multi_article", "split": "dev", "rank": 13, "articles": ["LEGIARTI000032225996", "LEGIARTI000035731432"], "livre": "Livre III"}
+{"task": "multi_article-dev-014", "mode": "multi_article", "split": "dev", "rank": 14, "articles": ["LEGIARTI000043978835", "LEGIARTI000043978841"], "livre": "Livre Ier"}
+{"task": "multi_article-dev-015", "mode": "multi_article", "split": "dev", "rank": 15, "articles": ["LEGIARTI000037798845", "LEGIARTI000050925526"], "livre": "Livre V"}
+{"task": "multi_article-dev-016", "mode": "multi_article", "split": "dev", "rank": 16, "articles": ["LEGIARTI000033461177", "LEGIARTI000045178302"], "livre": "Livre VII"}
+{"task": "multi_article-test-001", "mode": "multi_article", "split": "test", "rank": 1, "articles": ["LEGIARTI000034129962", "LEGIARTI000039382255"], "livre": "Livre V"}
+{"task": "multi_article-test-002", "mode": "multi_article", "split": "test", "rank": 2, "articles": ["LEGIARTI000039347953", "LEGIARTI000039119641"], "livre": "Livre VII"}
+{"task": "multi_article-test-003", "mode": "multi_article", "split": "test", "rank": 3, "articles": ["LEGIARTI000032808838", "LEGIARTI000033461061"], "livre": "Livre VII"}
+{"task": "multi_article-test-004", "mode": "multi_article", "split": "test", "rank": 4, "articles": ["LEGIARTI000032226190", "LEGIARTI000032226192"], "livre": "Livre III"}
+{"task": "multi_article-test-005", "mode": "multi_article", "split": "test", "rank": 5, "articles": ["LEGIARTI000051560284", "LEGIARTI000043214818"], "livre": "Livre II"}
+{"task": "multi_article-test-006", "mode": "multi_article", "split": "test", "rank": 6, "articles": ["LEGIARTI000032807572", "LEGIARTI000035731469"], "livre": "Livre III"}
+{"task": "multi_article-test-007", "mode": "multi_article", "split": "test", "rank": 7, "articles": ["LEGIARTI000044132967", "LEGIARTI000044133273"], "livre": "Livre II"}
+{"task": "multi_article-test-008", "mode": "multi_article", "split": "test", "rank": 8, "articles": ["LEGIARTI000035731409", "LEGIARTI000032890824"], "livre": "Livre III"}
+{"task": "multi_article-test-009", "mode": "multi_article", "split": "test", "rank": 9, "articles": ["LEGIARTI000032225169", "LEGIARTI000051830385"], "livre": "Livre V"}
+{"task": "multi_article-test-010", "mode": "multi_article", "split": "test", "rank": 10, "articles": ["LEGIARTI000032395726", "LEGIARTI000032309786"], "livre": "Livre III"}
+{"task": "multi_article-test-011", "mode": "multi_article", "split": "test", "rank": 11, "articles": ["LEGIARTI000044563252", "LEGIARTI000032226374"], "livre": "Livre II"}
+{"task": "multi_article-test-012", "mode": "multi_article", "split": "test", "rank": 12, "articles": ["LEGIARTI000039347964", "LEGIARTI000033612441"], "livre": "Livre III"}
+{"task": "multi_article-test-013", "mode": "multi_article", "split": "test", "rank": 13, "articles": ["LEGIARTI000045271953", "LEGIARTI000032303351"], "livre": "Livre III"}
+{"task": "multi_article-test-014", "mode": "multi_article", "split": "test", "rank": 14, "articles": ["LEGIARTI000034671847", "LEGIARTI000038482463"], "livre": "Livre VII"}
+{"task": "multi_article-test-015", "mode": "multi_article", "split": "test", "rank": 15, "articles": ["LEGIARTI000044809323", "LEGIARTI000044330854"], "livre": "Livre Ier"}
+{"task": "multi_article-test-016", "mode": "multi_article", "split": "test", "rank": 16, "articles": ["LEGIARTI000032226723", "LEGIARTI000046197680"], "livre": "Livre II"}
+{"task": "multi_article-test-017", "mode": "multi_article", "split": "test", "rank": 17, "articles": ["LEGIARTI000032808356", "LEGIARTI000032808354"], "livre": "Livre VI"}
+{"task": "multi_article-test-018", "mode": "multi_article", "split": "test", "rank": 18, "articles": ["LEGIARTI000041556204", "LEGIARTI000041556167"], "livre": "Livre II"}
+{"task": "multi_article-test-019", "mode": "multi_article", "split": "test", "rank": 19, "articles": ["LEGIARTI000041598772", "LEGIARTI000032227331"], "livre": "Livre II"}
+{"task": "multi_article-test-020", "mode": "multi_article", "split": "test", "rank": 20, "articles": ["LEGIARTI000032303357", "LEGIARTI000034072731"], "livre": "Livre III"}
+{"task": "multi_article-test-021", "mode": "multi_article", "split": "test", "rank": 21, "articles": ["LEGIARTI000039066332", "LEGIARTI000033461072"], "livre": "Livre VII"}
+{"task": "multi_article-test-022", "mode": "multi_article", "split": "test", "rank": 22, "articles": ["LEGIARTI000051560139", "LEGIARTI000051560155"], "livre": "Livre Ier"}
+{"task": "multi_article-test-023", "mode": "multi_article", "split": "test", "rank": 23, "articles": ["LEGIARTI000032395782", "LEGIARTI000032890850"], "livre": "Livre III"}
+{"task": "multi_article-test-024", "mode": "multi_article", "split": "test", "rank": 24, "articles": ["LEGIARTI000039119574", "LEGIARTI000039119619"], "livre": "Livre VII"}
+{"task": "multi_article-test-025", "mode": "multi_article", "split": "test", "rank": 25, "articles": ["LEGIARTI000033461220", "LEGIARTI000033461232"], "livre": "Livre VII"}
+{"task": "multi_article-test-026", "mode": "multi_article", "split": "test", "rank": 26, "articles": ["LEGIARTI000032807202", "LEGIARTI000032807196"], "livre": "Livre II"}
+{"task": "multi_article-test-027", "mode": "multi_article", "split": "test", "rank": 27, "articles": ["LEGIARTI000032809004", "LEGIARTI000032809008"], "livre": "Livre VIII"}
+{"task": "multi_article-test-028", "mode": "multi_article", "split": "test", "rank": 28, "articles": ["LEGIARTI000034671856", "LEGIARTI000033461275"], "livre": "Livre VII"}
+{"task": "multi_article-test-029", "mode": "multi_article", "split": "test", "rank": 29, "articles": ["LEGIARTI000044809294", "LEGIARTI000044809466"], "livre": "Livre II"}
+{"task": "multi_article-test-030", "mode": "multi_article", "split": "test", "rank": 30, "articles": ["LEGIARTI000032226860", "LEGIARTI000044563141"], "livre": "Livre II"}
+{"task": "multi_article-test-031", "mode": "multi_article", "split": "test", "rank": 31, "articles": ["LEGIARTI000032315888", "LEGIARTI000032315900"], "livre": "Livre III"}
+{"task": "multi_article-test-032", "mode": "multi_article", "split": "test", "rank": 32, "articles": ["LEGIARTI000032808542", "LEGIARTI000032808536"], "livre": "Livre VII"}
+{"task": "multi_article-test-033", "mode": "multi_article", "split": "test", "rank": 33, "articles": ["LEGIARTI000050759576", "LEGIARTI000049464034"], "livre": "Livre IV"}
+{"task": "multi_article-test-034", "mode": "multi_article", "split": "test", "rank": 34, "articles": ["LEGIARTI000034072929", "LEGIARTI000032225327"], "livre": "Livre IV"}
+{"task": "multi_article-test-035", "mode": "multi_article", "split": "test", "rank": 35, "articles": ["LEGIARTI000036769159", "LEGIARTI000032315988"], "livre": "Livre III"}
+{"task": "multi_article-test-036", "mode": "multi_article", "split": "test", "rank": 36, "articles": ["LEGIARTI000038782704", "LEGIARTI000032395415"], "livre": "Livre III"}
+{"task": "multi_article-test-037", "mode": "multi_article", "split": "test", "rank": 37, "articles": ["LEGIARTI000044550239", "LEGIARTI000044563261"], "livre": "Livre II"}
+{"task": "multi_article-test-038", "mode": "multi_article", "split": "test", "rank": 38, "articles": ["LEGIARTI000032808444", "LEGIARTI000032808442"], "livre": "Livre VI"}
+{"task": "multi_article-test-039", "mode": "multi_article", "split": "test", "rank": 39, "articles": ["LEGIARTI000032808194", "LEGIARTI000037798803"], "livre": "Livre V"}
+{"task": "multi_article-test-040", "mode": "multi_article", "split": "test", "rank": 40, "articles": ["LEGIARTI000044142717", "LEGIARTI000044142531"], "livre": "Livre II"}
+{"task": "multi_article-test-041", "mode": "multi_article", "split": "test", "rank": 41, "articles": ["LEGIARTI000033461343", "LEGIARTI000033461110"], "livre": "Livre VII"}
+{"task": "multi_article-test-042", "mode": "multi_article", "split": "test", "rank": 42, "articles": ["LEGIARTI000035190651", "LEGIARTI000044982385"], "livre": "Livre V"}
+{"task": "multi_article-test-043", "mode": "multi_article", "split": "test", "rank": 43, "articles": ["LEGIARTI000046190610", "LEGIARTI000032227285"], "livre": "Livre Ier"}
+{"task": "multi_article-test-044", "mode": "multi_article", "split": "test", "rank": 44, "articles": ["LEGIARTI000051830367", "LEGIARTI000032224906"], "livre": "Livre V"}
+{"task": "lost_context-dev-001", "mode": "lost_context", "split": "dev", "rank": 1, "articles": ["LEGIARTI000049239025"], "livre": "Livre VIII"}
+{"task": "lost_context-dev-002", "mode": "lost_context", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032224593"], "livre": "Livre VII"}
+{"task": "lost_context-dev-003", "mode": "lost_context", "split": "dev", "rank": 3, "articles": ["LEGIARTI000044142567"], "livre": "Livre II"}
+{"task": "lost_context-dev-004", "mode": "lost_context", "split": "dev", "rank": 4, "articles": ["LEGIARTI000032808474"], "livre": "Livre VI"}
+{"task": "lost_context-dev-005", "mode": "lost_context", "split": "dev", "rank": 5, "articles": ["LEGIARTI000043545721"], "livre": "Livre II"}
+{"task": "lost_context-dev-006", "mode": "lost_context", "split": "dev", "rank": 6, "articles": ["LEGIARTI000034072650"], "livre": "Livre II"}
+{"task": "lost_context-dev-007", "mode": "lost_context", "split": "dev", "rank": 7, "articles": ["LEGIARTI000032807608"], "livre": "Livre III"}
+{"task": "lost_context-dev-008", "mode": "lost_context", "split": "dev", "rank": 8, "articles": ["LEGIARTI000034130270"], "livre": "Livre III"}
+{"task": "lost_context-dev-009", "mode": "lost_context", "split": "dev", "rank": 9, "articles": ["LEGIARTI000049567538"], "livre": "Livre V"}
+{"task": "lost_context-dev-010", "mode": "lost_context", "split": "dev", "rank": 10, "articles": ["LEGIARTI000033461386"], "livre": "Livre VII"}
+{"task": "lost_context-dev-011", "mode": "lost_context", "split": "dev", "rank": 11, "articles": ["LEGIARTI000032807850"], "livre": "Livre IV"}
+{"task": "lost_context-dev-012", "mode": "lost_context", "split": "dev", "rank": 12, "articles": ["LEGIARTI000044563126"], "livre": "Livre II"}
+{"task": "lost_context-dev-013", "mode": "lost_context", "split": "dev", "rank": 13, "articles": ["LEGIARTI000032226555"], "livre": "Livre II"}
+{"task": "lost_context-dev-014", "mode": "lost_context", "split": "dev", "rank": 14, "articles": ["LEGIARTI000032225791"], "livre": "Livre III"}
+{"task": "lost_context-test-001", "mode": "lost_context", "split": "test", "rank": 1, "articles": ["LEGIARTI000032225775"], "livre": "Livre III"}
+{"task": "lost_context-test-002", "mode": "lost_context", "split": "test", "rank": 2, "articles": ["LEGIARTI000032224554"], "livre": "Livre VII"}
+{"task": "lost_context-test-003", "mode": "lost_context", "split": "test", "rank": 3, "articles": ["LEGIARTI000051830296"], "livre": "Livre V"}
+{"task": "lost_context-test-004", "mode": "lost_context", "split": "test", "rank": 4, "articles": ["LEGIARTI000042615545"], "livre": "Livre Ier"}
+{"task": "lost_context-test-005", "mode": "lost_context", "split": "test", "rank": 5, "articles": ["LEGIARTI000044132956"], "livre": "Livre II"}
+{"task": "lost_context-test-006", "mode": "lost_context", "split": "test", "rank": 6, "articles": ["LEGIARTI000032225354"], "livre": "Livre IV"}
+{"task": "lost_context-test-007", "mode": "lost_context", "split": "test", "rank": 7, "articles": ["LEGIARTI000032807864"], "livre": "Livre IV"}
+{"task": "lost_context-test-008", "mode": "lost_context", "split": "test", "rank": 8, "articles": ["LEGIARTI000032225134"], "livre": "Livre V"}
+{"task": "lost_context-test-009", "mode": "lost_context", "split": "test", "rank": 9, "articles": ["LEGIARTI000032303327"], "livre": "Livre III"}
+{"task": "lost_context-test-010", "mode": "lost_context", "split": "test", "rank": 10, "articles": ["LEGIARTI000032808552"], "livre": "Livre VII"}
+{"task": "lost_context-test-011", "mode": "lost_context", "split": "test", "rank": 11, "articles": ["LEGIARTI000032303309"], "livre": "Livre III"}
+{"task": "lost_context-test-012", "mode": "lost_context", "split": "test", "rank": 12, "articles": ["LEGIARTI000044139944"], "livre": "Livre II"}
+{"task": "lost_context-test-013", "mode": "lost_context", "split": "test", "rank": 13, "articles": ["LEGIARTI000039279966"], "livre": "Livre V"}
+{"task": "lost_context-test-014", "mode": "lost_context", "split": "test", "rank": 14, "articles": ["LEGIARTI000032224910"], "livre": "Livre V"}
+{"task": "lost_context-test-015", "mode": "lost_context", "split": "test", "rank": 15, "articles": ["LEGIARTI000045928305"], "livre": "Livre III"}
+{"task": "lost_context-test-016", "mode": "lost_context", "split": "test", "rank": 16, "articles": ["LEGIARTI000049464042"], "livre": "Livre IV"}
+{"task": "lost_context-test-017", "mode": "lost_context", "split": "test", "rank": 17, "articles": ["LEGIARTI000044564974"], "livre": "Livre II"}
+{"task": "lost_context-test-018", "mode": "lost_context", "split": "test", "rank": 18, "articles": ["LEGIARTI000032808366"], "livre": "Livre VI"}
+{"task": "lost_context-test-019", "mode": "lost_context", "split": "test", "rank": 19, "articles": ["LEGIARTI000036769093"], "livre": "Livre III"}
+{"task": "lost_context-test-020", "mode": "lost_context", "split": "test", "rank": 20, "articles": ["LEGIARTI000032226497"], "livre": "Livre II"}
+{"task": "lost_context-test-021", "mode": "lost_context", "split": "test", "rank": 21, "articles": ["LEGIARTI000044133345"], "livre": "Livre II"}
+{"task": "lost_context-test-022", "mode": "lost_context", "split": "test", "rank": 22, "articles": ["LEGIARTI000042012864"], "livre": "Livre V"}
+{"task": "lost_context-test-023", "mode": "lost_context", "split": "test", "rank": 23, "articles": ["LEGIARTI000034072975"], "livre": "Livre V"}
+{"task": "lost_context-test-024", "mode": "lost_context", "split": "test", "rank": 24, "articles": ["LEGIARTI000032226142"], "livre": "Livre III"}
+{"task": "lost_context-test-025", "mode": "lost_context", "split": "test", "rank": 25, "articles": ["LEGIARTI000032226721"], "livre": "Livre II"}
+{"task": "lost_context-test-026", "mode": "lost_context", "split": "test", "rank": 26, "articles": ["LEGIARTI000044132994"], "livre": "Livre II"}
+{"task": "lost_context-test-027", "mode": "lost_context", "split": "test", "rank": 27, "articles": ["LEGIARTI000032224768"], "livre": "Livre VI"}
+{"task": "lost_context-test-028", "mode": "lost_context", "split": "test", "rank": 28, "articles": ["LEGIARTI000032807450"], "livre": "Livre III"}
+{"task": "lost_context-test-029", "mode": "lost_context", "split": "test", "rank": 29, "articles": ["LEGIARTI000032224805"], "livre": "Livre VI"}
+{"task": "lost_context-test-030", "mode": "lost_context", "split": "test", "rank": 30, "articles": ["LEGIARTI000032807502"], "livre": "Livre III"}
+{"task": "lost_context-test-031", "mode": "lost_context", "split": "test", "rank": 31, "articles": ["LEGIARTI000032226427"], "livre": "Livre II"}
+{"task": "lost_context-test-032", "mode": "lost_context", "split": "test", "rank": 32, "articles": ["LEGIARTI000032225206"], "livre": "Livre V"}
+{"task": "lost_context-test-033", "mode": "lost_context", "split": "test", "rank": 33, "articles": ["LEGIARTI000044133321"], "livre": "Livre II"}
+{"task": "lost_context-test-034", "mode": "lost_context", "split": "test", "rank": 34, "articles": ["LEGIARTI000032808048"], "livre": "Livre IV"}
+{"task": "lost_context-test-035", "mode": "lost_context", "split": "test", "rank": 35, "articles": ["LEGIARTI000044152587"], "livre": "Livre II"}
+{"task": "lost_context-test-036", "mode": "lost_context", "split": "test", "rank": 36, "articles": ["LEGIARTI000032808652"], "livre": "Livre VII"}
+{"task": "lost_context-test-037", "mode": "lost_context", "split": "test", "rank": 37, "articles": ["LEGIARTI000032807472"], "livre": "Livre III"}
+{"task": "lost_context-test-038", "mode": "lost_context", "split": "test", "rank": 38, "articles": ["LEGIARTI000044133271"], "livre": "Livre II"}
+{"task": "lost_context-test-039", "mode": "lost_context", "split": "test", "rank": 39, "articles": ["LEGIARTI000048180184"], "livre": "Livre IV"}
+{"task": "lost_context-test-040", "mode": "lost_context", "split": "test", "rank": 40, "articles": ["LEGIARTI000045178298"], "livre": "Livre VII"}
+{"task": "lost_context-test-041", "mode": "lost_context", "split": "test", "rank": 41, "articles": ["LEGIARTI000032227323"], "livre": "Livre Ier"}
+{"task": "lost_context-test-042", "mode": "lost_context", "split": "test", "rank": 42, "articles": ["LEGIARTI000035725224"], "livre": "Livre III"}
+{"task": "lost_context-test-043", "mode": "lost_context", "split": "test", "rank": 43, "articles": ["LEGIARTI000037557005"], "livre": "Livre V"}
+{"task": "lost_context-test-044", "mode": "lost_context", "split": "test", "rank": 44, "articles": ["LEGIARTI000034072779"], "livre": "Livre III"}
+{"task": "lost_context-test-045", "mode": "lost_context", "split": "test", "rank": 45, "articles": ["LEGIARTI000032226809"], "livre": "Livre II"}
+{"task": "lost_context-test-046", "mode": "lost_context", "split": "test", "rank": 46, "articles": ["LEGIARTI000032226499"], "livre": "Livre II"}
+{"task": "unanswerable-dev-001", "mode": "unanswerable", "split": "dev", "rank": 1, "articles": ["LEGIARTI000044139957"], "livre": "Livre II"}
+{"task": "unanswerable-dev-002", "mode": "unanswerable", "split": "dev", "rank": 2, "articles": ["LEGIARTI000043545676"], "livre": "Livre II"}
+{"task": "unanswerable-dev-003", "mode": "unanswerable", "split": "dev", "rank": 3, "articles": ["LEGIARTI000032808362"], "livre": "Livre VI"}
+{"task": "unanswerable-dev-004", "mode": "unanswerable", "split": "dev", "rank": 4, "articles": ["LEGIARTI000032808398"], "livre": "Livre VI"}
+{"task": "unanswerable-dev-005", "mode": "unanswerable", "split": "dev", "rank": 5, "articles": ["LEGIARTI000032226196"], "livre": "Livre III"}
+{"task": "unanswerable-dev-006", "mode": "unanswerable", "split": "dev", "rank": 6, "articles": ["LEGIARTI000044142535"], "livre": "Livre II"}
+{"task": "unanswerable-dev-007", "mode": "unanswerable", "split": "dev", "rank": 7, "articles": ["LEGIARTI000045456089"], "livre": "Livre IV"}
+{"task": "unanswerable-dev-008", "mode": "unanswerable", "split": "dev", "rank": 8, "articles": ["LEGIARTI000032225226"], "livre": "Livre IV"}
+{"task": "unanswerable-dev-009", "mode": "unanswerable", "split": "dev", "rank": 9, "articles": ["LEGIARTI000045981020"], "livre": "Livre Ier"}
+{"task": "unanswerable-dev-010", "mode": "unanswerable", "split": "dev", "rank": 10, "articles": ["LEGIARTI000042662565"], "livre": "Livre IV"}
+{"task": "unanswerable-dev-011", "mode": "unanswerable", "split": "dev", "rank": 11, "articles": ["LEGIARTI000032226537"], "livre": "Livre II"}
+{"task": "unanswerable-dev-012", "mode": "unanswerable", "split": "dev", "rank": 12, "articles": ["LEGIARTI000032808544"], "livre": "Livre VII"}
+{"task": "unanswerable-dev-013", "mode": "unanswerable", "split": "dev", "rank": 13, "articles": ["LEGIARTI000032226561"], "livre": "Livre II"}
+{"task": "unanswerable-dev-014", "mode": "unanswerable", "split": "dev", "rank": 14, "articles": ["LEGIARTI000032302972"], "livre": "Livre III"}
+{"task": "unanswerable-test-001", "mode": "unanswerable", "split": "test", "rank": 1, "articles": ["LEGIARTI000049915027"], "livre": "Livre Ier"}
+{"task": "unanswerable-test-002", "mode": "unanswerable", "split": "test", "rank": 2, "articles": ["LEGIARTI000044809325"], "livre": "Livre Ier"}
+{"task": "unanswerable-test-003", "mode": "unanswerable", "split": "test", "rank": 3, "articles": ["LEGIARTI000032808886"], "livre": "Livre VII"}
+{"task": "unanswerable-test-004", "mode": "unanswerable", "split": "test", "rank": 4, "articles": ["LEGIARTI000032807424"], "livre": "Livre III"}
+{"task": "unanswerable-test-005", "mode": "unanswerable", "split": "test", "rank": 5, "articles": ["LEGIARTI000045271325"], "livre": "Livre III"}
+{"task": "unanswerable-test-006", "mode": "unanswerable", "split": "test", "rank": 6, "articles": ["LEGIARTI000032808164"], "livre": "Livre V"}
+{"task": "unanswerable-test-007", "mode": "unanswerable", "split": "test", "rank": 7, "articles": ["LEGIARTI000044175595"], "livre": "Livre V"}
+{"task": "unanswerable-test-008", "mode": "unanswerable", "split": "test", "rank": 8, "articles": ["LEGIARTI000051829133"], "livre": "Livre V"}
+{"task": "unanswerable-test-009", "mode": "unanswerable", "split": "test", "rank": 9, "articles": ["LEGIARTI000042616510"], "livre": "Livre V"}
+{"task": "unanswerable-test-010", "mode": "unanswerable", "split": "test", "rank": 10, "articles": ["LEGIARTI000032225408"], "livre": "Livre IV"}
+{"task": "unanswerable-test-011", "mode": "unanswerable", "split": "test", "rank": 11, "articles": ["LEGIARTI000032225392"], "livre": "Livre IV"}
+{"task": "unanswerable-test-012", "mode": "unanswerable", "split": "test", "rank": 12, "articles": ["LEGIARTI000038905864"], "livre": "Livre VIII"}
+{"task": "unanswerable-test-013", "mode": "unanswerable", "split": "test", "rank": 13, "articles": ["LEGIARTI000042012847"], "livre": "Livre VII"}
+{"task": "unanswerable-test-014", "mode": "unanswerable", "split": "test", "rank": 14, "articles": ["LEGIARTI000032808538"], "livre": "Livre VII"}
+{"task": "unanswerable-test-015", "mode": "unanswerable", "split": "test", "rank": 15, "articles": ["LEGIARTI000032224447"], "livre": "Livre VII"}
+{"task": "unanswerable-test-016", "mode": "unanswerable", "split": "test", "rank": 16, "articles": ["LEGIARTI000047479291"], "livre": "Livre II"}
+{"task": "unanswerable-test-017", "mode": "unanswerable", "split": "test", "rank": 17, "articles": ["LEGIARTI000032807920"], "livre": "Livre IV"}
+{"task": "unanswerable-test-018", "mode": "unanswerable", "split": "test", "rank": 18, "articles": ["LEGIARTI000032225073"], "livre": "Livre V"}
+{"task": "unanswerable-test-019", "mode": "unanswerable", "split": "test", "rank": 19, "articles": ["LEGIARTI000039066276"], "livre": "Livre VII"}
+{"task": "unanswerable-test-020", "mode": "unanswerable", "split": "test", "rank": 20, "articles": ["LEGIARTI000032226172"], "livre": "Livre III"}
+{"task": "unanswerable-test-021", "mode": "unanswerable", "split": "test", "rank": 21, "articles": ["LEGIARTI000045919452"], "livre": "Livre VII"}
+{"task": "unanswerable-test-022", "mode": "unanswerable", "split": "test", "rank": 22, "articles": ["LEGIARTI000032807336"], "livre": "Livre II"}
+{"task": "unanswerable-test-023", "mode": "unanswerable", "split": "test", "rank": 23, "articles": ["LEGIARTI000044175614"], "livre": "Livre VIII"}
+{"task": "unanswerable-test-024", "mode": "unanswerable", "split": "test", "rank": 24, "articles": ["LEGIARTI000032303066"], "livre": "Livre III"}
+{"task": "unanswerable-test-025", "mode": "unanswerable", "split": "test", "rank": 25, "articles": ["LEGIARTI000032224743"], "livre": "Livre VI"}
+{"task": "unanswerable-test-026", "mode": "unanswerable", "split": "test", "rank": 26, "articles": ["LEGIARTI000048524556"], "livre": "Livre III"}
+{"task": "unanswerable-test-027", "mode": "unanswerable", "split": "test", "rank": 27, "articles": ["LEGIARTI000035731457"], "livre": "Livre III"}
+{"task": "unanswerable-test-028", "mode": "unanswerable", "split": "test", "rank": 28, "articles": ["LEGIARTI000049915002"], "livre": "Livre Ier"}
+{"task": "unanswerable-test-029", "mode": "unanswerable", "split": "test", "rank": 29, "articles": ["LEGIARTI000032807478"], "livre": "Livre III"}
+{"task": "unanswerable-test-030", "mode": "unanswerable", "split": "test", "rank": 30, "articles": ["LEGIARTI000032808408"], "livre": "Livre VI"}
+{"task": "unanswerable-test-031", "mode": "unanswerable", "split": "test", "rank": 31, "articles": ["LEGIARTI000032226417"], "livre": "Livre II"}
+{"task": "unanswerable-test-032", "mode": "unanswerable", "split": "test", "rank": 32, "articles": ["LEGIARTI000032226515"], "livre": "Livre II"}
+{"task": "unanswerable-test-033", "mode": "unanswerable", "split": "test", "rank": 33, "articles": ["LEGIARTI000032433243"], "livre": "Livre III"}
+{"task": "unanswerable-test-034", "mode": "unanswerable", "split": "test", "rank": 34, "articles": ["LEGIARTI000047479523"], "livre": "Livre II"}
+{"task": "unanswerable-test-035", "mode": "unanswerable", "split": "test", "rank": 35, "articles": ["LEGIARTI000034073034"], "livre": "Livre V"}
+{"task": "unanswerable-test-036", "mode": "unanswerable", "split": "test", "rank": 36, "articles": ["LEGIARTI000044549592"], "livre": "Livre Ier"}
+{"task": "unanswerable-test-037", "mode": "unanswerable", "split": "test", "rank": 37, "articles": ["LEGIARTI000045073529"], "livre": "Livre II"}
+{"task": "unanswerable-test-038", "mode": "unanswerable", "split": "test", "rank": 38, "articles": ["LEGIARTI000032227110"], "livre": "Livre Ier"}
+{"task": "unanswerable-test-039", "mode": "unanswerable", "split": "test", "rank": 39, "articles": ["LEGIARTI000044142766"], "livre": "Livre V"}
+{"task": "unanswerable-test-040", "mode": "unanswerable", "split": "test", "rank": 40, "articles": ["LEGIARTI000032224241"], "livre": "Livre VIII"}
+{"task": "unanswerable-test-041", "mode": "unanswerable", "split": "test", "rank": 41, "articles": ["LEGIARTI000034731377"], "livre": "Livre II"}
+{"task": "unanswerable-test-042", "mode": "unanswerable", "split": "test", "rank": 42, "articles": ["LEGIARTI000032807264"], "livre": "Livre II"}
+{"task": "unanswerable-test-043", "mode": "unanswerable", "split": "test", "rank": 43, "articles": ["LEGIARTI000032807446"], "livre": "Livre III"}
+{"task": "unanswerable-test-044", "mode": "unanswerable", "split": "test", "rank": 44, "articles": ["LEGIARTI000033461093"], "livre": "Livre VII"}
+{"task": "unanswerable-test-045", "mode": "unanswerable", "split": "test", "rank": 45, "articles": ["LEGIARTI000051828342"], "livre": "Livre II"}
+{"task": "unanswerable-test-046", "mode": "unanswerable", "split": "test", "rank": 46, "articles": ["LEGIARTI000034072741"], "livre": "Livre III"}
+{"task": "paraphrase-dev-021", "mode": "paraphrase", "split": "dev", "rank": 21, "articles": ["LEGIARTI000032227071"], "livre": "Livre Ier", "extension": true}
+{"task": "paraphrase-dev-022", "mode": "paraphrase", "split": "dev", "rank": 22, "articles": ["LEGIARTI000036769189"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-dev-023", "mode": "paraphrase", "split": "dev", "rank": 23, "articles": ["LEGIARTI000032808990"], "livre": "Livre VIII", "extension": true}
+{"task": "paraphrase-dev-024", "mode": "paraphrase", "split": "dev", "rank": 24, "articles": ["LEGIARTI000033461038"], "livre": "Livre VII", "extension": true}
+{"task": "paraphrase-dev-025", "mode": "paraphrase", "split": "dev", "rank": 25, "articles": ["LEGIARTI000032807780"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-dev-026", "mode": "paraphrase", "split": "dev", "rank": 26, "articles": ["LEGIARTI000050759586"], "livre": "Livre V", "extension": true}
+{"task": "paraphrase-dev-027", "mode": "paraphrase", "split": "dev", "rank": 27, "articles": ["LEGIARTI000034671797"], "livre": "Livre VII", "extension": true}
+{"task": "paraphrase-dev-028", "mode": "paraphrase", "split": "dev", "rank": 28, "articles": ["LEGIARTI000048180182"], "livre": "Livre IV", "extension": true}
+{"task": "paraphrase-dev-029", "mode": "paraphrase", "split": "dev", "rank": 29, "articles": ["LEGIARTI000032808662"], "livre": "Livre VII", "extension": true}
+{"task": "paraphrase-dev-030", "mode": "paraphrase", "split": "dev", "rank": 30, "articles": ["LEGIARTI000035731472"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-dev-031", "mode": "paraphrase", "split": "dev", "rank": 31, "articles": ["LEGIARTI000032808460"], "livre": "Livre VI", "extension": true}
+{"task": "paraphrase-dev-032", "mode": "paraphrase", "split": "dev", "rank": 32, "articles": ["LEGIARTI000044872394"], "livre": "Livre Ier", "extension": true}
+{"task": "paraphrase-dev-033", "mode": "paraphrase", "split": "dev", "rank": 33, "articles": ["LEGIARTI000043545725"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-dev-034", "mode": "paraphrase", "split": "dev", "rank": 34, "articles": ["LEGIARTI000043539612"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-dev-035", "mode": "paraphrase", "split": "dev", "rank": 35, "articles": ["LEGIARTI000044056431"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-dev-036", "mode": "paraphrase", "split": "dev", "rank": 36, "articles": ["LEGIARTI000044563153"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-dev-037", "mode": "paraphrase", "split": "dev", "rank": 37, "articles": ["LEGIARTI000044133355"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-dev-038", "mode": "paraphrase", "split": "dev", "rank": 38, "articles": ["LEGIARTI000032433263"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-dev-039", "mode": "paraphrase", "split": "dev", "rank": 39, "articles": ["LEGIARTI000032225390"], "livre": "Livre IV", "extension": true}
+{"task": "paraphrase-dev-040", "mode": "paraphrase", "split": "dev", "rank": 40, "articles": ["LEGIARTI000048092977"], "livre": "Livre V", "extension": true}
+{"task": "paraphrase-test-061", "mode": "paraphrase", "split": "test", "rank": 61, "articles": ["LEGIARTI000039119599"], "livre": "Livre VII", "extension": true}
+{"task": "paraphrase-test-062", "mode": "paraphrase", "split": "test", "rank": 62, "articles": ["LEGIARTI000032807916"], "livre": "Livre IV", "extension": true}
+{"task": "paraphrase-test-063", "mode": "paraphrase", "split": "test", "rank": 63, "articles": ["LEGIARTI000049454922"], "livre": "Livre Ier", "extension": true}
+{"task": "paraphrase-test-064", "mode": "paraphrase", "split": "test", "rank": 64, "articles": ["LEGIARTI000046739275"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-test-065", "mode": "paraphrase", "split": "test", "rank": 65, "articles": ["LEGIARTI000032226134"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-test-066", "mode": "paraphrase", "split": "test", "rank": 66, "articles": ["LEGIARTI000032808428"], "livre": "Livre VI", "extension": true}
+{"task": "paraphrase-test-067", "mode": "paraphrase", "split": "test", "rank": 67, "articles": ["LEGIARTI000032226433"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-test-068", "mode": "paraphrase", "split": "test", "rank": 68, "articles": ["LEGIARTI000032808814"], "livre": "Livre VII", "extension": true}
+{"task": "paraphrase-test-069", "mode": "paraphrase", "split": "test", "rank": 69, "articles": ["LEGIARTI000032224331"], "livre": "Livre VII", "extension": true}
+{"task": "paraphrase-test-070", "mode": "paraphrase", "split": "test", "rank": 70, "articles": ["LEGIARTI000034072627"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-test-071", "mode": "paraphrase", "split": "test", "rank": 71, "articles": ["LEGIARTI000032224874"], "livre": "Livre V", "extension": true}
+{"task": "paraphrase-test-072", "mode": "paraphrase", "split": "test", "rank": 72, "articles": ["LEGIARTI000032224772"], "livre": "Livre VI", "extension": true}
+{"task": "paraphrase-test-073", "mode": "paraphrase", "split": "test", "rank": 73, "articles": ["LEGIARTI000035731498"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-test-074", "mode": "paraphrase", "split": "test", "rank": 74, "articles": ["LEGIARTI000032809112"], "livre": "Livre VIII", "extension": true}
+{"task": "paraphrase-test-075", "mode": "paraphrase", "split": "test", "rank": 75, "articles": ["LEGIARTI000037798749"], "livre": "Livre V", "extension": true}
+{"task": "paraphrase-test-076", "mode": "paraphrase", "split": "test", "rank": 76, "articles": ["LEGIARTI000032395420"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-test-077", "mode": "paraphrase", "split": "test", "rank": 77, "articles": ["LEGIARTI000032226230"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-test-078", "mode": "paraphrase", "split": "test", "rank": 78, "articles": ["LEGIARTI000045205500"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-test-079", "mode": "paraphrase", "split": "test", "rank": 79, "articles": ["LEGIARTI000044563210"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-test-080", "mode": "paraphrase", "split": "test", "rank": 80, "articles": ["LEGIARTI000032226029"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-test-081", "mode": "paraphrase", "split": "test", "rank": 81, "articles": ["LEGIARTI000032808076"], "livre": "Livre IV", "extension": true}
+{"task": "paraphrase-test-082", "mode": "paraphrase", "split": "test", "rank": 82, "articles": ["LEGIARTI000032808592"], "livre": "Livre VII", "extension": true}
+{"task": "paraphrase-test-083", "mode": "paraphrase", "split": "test", "rank": 83, "articles": ["LEGIARTI000032807550"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-test-084", "mode": "paraphrase", "split": "test", "rank": 84, "articles": ["LEGIARTI000032807256"], "livre": "Livre II", "extension": true}
+{"task": "paraphrase-test-085", "mode": "paraphrase", "split": "test", "rank": 85, "articles": ["LEGIARTI000032225305"], "livre": "Livre IV", "extension": true}
+{"task": "paraphrase-test-086", "mode": "paraphrase", "split": "test", "rank": 86, "articles": ["LEGIARTI000051830271"], "livre": "Livre Ier", "extension": true}
+{"task": "paraphrase-test-087", "mode": "paraphrase", "split": "test", "rank": 87, "articles": ["LEGIARTI000051831248"], "livre": "Livre V", "extension": true}
+{"task": "paraphrase-test-088", "mode": "paraphrase", "split": "test", "rank": 88, "articles": ["LEGIARTI000032655788"], "livre": "Livre V", "extension": true}
+{"task": "paraphrase-test-089", "mode": "paraphrase", "split": "test", "rank": 89, "articles": ["LEGIARTI000032225818"], "livre": "Livre III", "extension": true}
+{"task": "paraphrase-test-090", "mode": "paraphrase", "split": "test", "rank": 90, "articles": ["LEGIARTI000042615606"], "livre": "Livre Ier", "extension": true}
+{"task": "unanswerable-dev-015", "mode": "unanswerable", "split": "dev", "rank": 15, "articles": ["LEGIARTI000037523669"], "livre": "Livre VIII", "extension": true}
+{"task": "unanswerable-dev-016", "mode": "unanswerable", "split": "dev", "rank": 16, "articles": ["LEGIARTI000039119626"], "livre": "Livre VII", "extension": true}
+{"task": "unanswerable-dev-017", "mode": "unanswerable", "split": "dev", "rank": 17, "articles": ["LEGIARTI000041983639"], "livre": "Livre IV", "extension": true}
+{"task": "unanswerable-dev-018", "mode": "unanswerable", "split": "dev", "rank": 18, "articles": ["LEGIARTI000032227240"], "livre": "Livre Ier", "extension": true}
+{"task": "unanswerable-dev-019", "mode": "unanswerable", "split": "dev", "rank": 19, "articles": ["LEGIARTI000032225023"], "livre": "Livre V", "extension": true}
+{"task": "unanswerable-dev-020", "mode": "unanswerable", "split": "dev", "rank": 20, "articles": ["LEGIARTI000032808340"], "livre": "Livre VI", "extension": true}
+{"task": "unanswerable-dev-021", "mode": "unanswerable", "split": "dev", "rank": 21, "articles": ["LEGIARTI000032224345"], "livre": "Livre VII", "extension": true}
+{"task": "unanswerable-dev-022", "mode": "unanswerable", "split": "dev", "rank": 22, "articles": ["LEGIARTI000032226749"], "livre": "Livre II", "extension": true}
+{"task": "unanswerable-dev-023", "mode": "unanswerable", "split": "dev", "rank": 23, "articles": ["LEGIARTI000032226074"], "livre": "Livre III", "extension": true}
+{"task": "unanswerable-dev-024", "mode": "unanswerable", "split": "dev", "rank": 24, "articles": ["LEGIARTI000032808168"], "livre": "Livre V", "extension": true}
+{"task": "unanswerable-dev-025", "mode": "unanswerable", "split": "dev", "rank": 25, "articles": ["LEGIARTI000032226647"], "livre": "Livre II", "extension": true}
+{"task": "unanswerable-dev-026", "mode": "unanswerable", "split": "dev", "rank": 26, "articles": ["LEGIARTI000033461142"], "livre": "Livre VII", "extension": true}
+{"task": "unanswerable-dev-027", "mode": "unanswerable", "split": "dev", "rank": 27, "articles": ["LEGIARTI000044142587"], "livre": "Livre II", "extension": true}
+{"task": "unanswerable-dev-028", "mode": "unanswerable", "split": "dev", "rank": 28, "articles": ["LEGIARTI000033915902"], "livre": "Livre VIII", "extension": true}
+{"task": "unanswerable-dev-029", "mode": "unanswerable", "split": "dev", "rank": 29, "articles": ["LEGIARTI000047480962"], "livre": "Livre II", "extension": true}
+{"task": "unanswerable-dev-030", "mode": "unanswerable", "split": "dev", "rank": 30, "articles": ["LEGIARTI000032807710"], "livre": "Livre III", "extension": true}
+{"task": "unanswerable-dev-031", "mode": "unanswerable", "split": "dev", "rank": 31, "articles": ["LEGIARTI000032808684"], "livre": "Livre VII", "extension": true}
+{"task": "unanswerable-dev-032", "mode": "unanswerable", "split": "dev", "rank": 32, "articles": ["LEGIARTI000032807706"], "livre": "Livre III", "extension": true}
+{"task": "unanswerable-dev-033", "mode": "unanswerable", "split": "dev", "rank": 33, "articles": ["LEGIARTI000049567028"], "livre": "Livre V", "extension": true}
+{"task": "unanswerable-dev-034", "mode": "unanswerable", "split": "dev", "rank": 34, "articles": ["LEGIARTI000032807278"], "livre": "Livre II", "extension": true}
+{"task": "unanswerable-dev-035", "mode": "unanswerable", "split": "dev", "rank": 35, "articles": ["LEGIARTI000045272001"], "livre": "Livre III", "extension": true}
+{"task": "unanswerable-dev-036", "mode": "unanswerable", "split": "dev", "rank": 36, "articles": ["LEGIARTI000034072866"], "livre": "Livre IV", "extension": true}
+{"task": "unanswerable-dev-037", "mode": "unanswerable", "split": "dev", "rank": 37, "articles": ["LEGIARTI000044142579"], "livre": "Livre II", "extension": true}
+{"task": "unanswerable-dev-038", "mode": "unanswerable", "split": "dev", "rank": 38, "articles": ["LEGIARTI000032226805"], "livre": "Livre II", "extension": true}
+{"task": "unanswerable-dev-039", "mode": "unanswerable", "split": "dev", "rank": 39, "articles": ["LEGIARTI000032225647"], "livre": "Livre III", "extension": true}
+{"task": "unanswerable-dev-040", "mode": "unanswerable", "split": "dev", "rank": 40, "articles": ["LEGIARTI000032224510"], "livre": "Livre VII", "extension": true}
+{"task": "unanswerable-dev-041", "mode": "unanswerable", "split": "dev", "rank": 41, "articles": ["LEGIARTI000032227301"], "livre": "Livre Ier", "extension": true}
+{"task": "unanswerable-dev-042", "mode": "unanswerable", "split": "dev", "rank": 42, "articles": ["LEGIARTI000032226527"], "livre": "Livre II", "extension": true}
+{"task": "unanswerable-dev-043", "mode": "unanswerable", "split": "dev", "rank": 43, "articles": ["LEGIARTI000032224872"], "livre": "Livre V", "extension": true}
+{"task": "unanswerable-dev-044", "mode": "unanswerable", "split": "dev", "rank": 44, "articles": ["LEGIARTI000049914996"], "livre": "Livre Ier", "extension": true}
+{"task": "unanswerable-dev-045", "mode": "unanswerable", "split": "dev", "rank": 45, "articles": ["LEGIARTI000032808440"], "livre": "Livre VI", "extension": true}
+{"task": "unanswerable-dev-046", "mode": "unanswerable", "split": "dev", "rank": 46, "articles": ["LEGIARTI000032225402"], "livre": "Livre IV", "extension": true}
+{"task": "unanswerable-dev-047", "mode": "unanswerable", "split": "dev", "rank": 47, "articles": ["LEGIARTI000032225307"], "livre": "Livre IV", "extension": true}
+{"task": "unanswerable-dev-048", "mode": "unanswerable", "split": "dev", "rank": 48, "articles": ["LEGIARTI000032226773"], "livre": "Livre II", "extension": true}
+{"task": "unanswerable-dev-049", "mode": "unanswerable", "split": "dev", "rank": 49, "articles": ["LEGIARTI000048623789"], "livre": "Livre III", "extension": true}
+{"task": "unanswerable-dev-050", "mode": "unanswerable", "split": "dev", "rank": 50, "articles": ["LEGIARTI000032226086"], "livre": "Livre III", "extension": true}

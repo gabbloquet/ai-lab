@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-037",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2597,
+    "output_tokens": 238
+  },
+  "output": {
+    "question": "Garantie de conformité : quel est le prix maximal de réparation que le vendeur doit prendre en charge ?",
+    "why_unanswerable": "L'article L217-3 fixe seulement la durée pendant laquelle le vendeur répond des défauts de conformité (deux ans, ou la durée de fourniture du contenu numérique). Il ne prévoit aucun plafond de coût de réparation, et le code n'en fixe pas ailleurs pour cette garantie.",
+    "doubt": "Un autre article sur la mise en conformité (réparation ou remplacement, disproportion des coûts) pourrait être jugé voisin, mais il ne fixe pas de montant maximal chiffré."
+  },
+  "raw_text": "{\"question\":\"Garantie de conformité : quel est le prix maximal de réparation que le vendeur doit prendre en charge ?\",\"why_unanswerable\":\"L'article L217-3 fixe seulement la durée pendant laquelle le vendeur répond des défauts de conformité (deux ans, ou la durée de fourniture du contenu numérique). Il ne prévoit aucun plafond de coût de réparation, et le code n'en fixe pas ailleurs pour cette garantie.\",\"doubt\":\"Un autre article sur la mise en conformité (réparation ou remplacement, disproportion des coûts) pourrait être jugé voisin, mais il ne fixe pas de montant maximal chiffré.\"}"
+}

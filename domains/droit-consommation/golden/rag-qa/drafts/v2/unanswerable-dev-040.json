@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-040",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1922,
+    "output_tokens": 292
+  },
+  "output": {
+    "question": "Surendettement : combien de temps mon compte bancaire reste-t-il fiché au FICP après la décision de recevabilité ?",
+    "why_unanswerable": "L'article L722-11 dit seulement que la décision de recevabilité n'entraîne pas à elle seule l'indivisibilité, la résiliation ou la résolution d'un contrat en cours. Il ne dit rien du fichage au FICP ni de sa durée. Cette durée ne relève pas des règles de cet article et il n'est pas établi que le Code de la consommation la fixe pour ce cas précis.",
+    "doubt": "Le Code de la consommation traite du FICP (articles L752-1 et suivants), qui précisent des durées d'inscription. Une réponse pourrait donc exister ailleurs dans le code, et la question risque de ne pas être réellement sans réponse."
+  },
+  "raw_text": "{\"question\":\"Surendettement : combien de temps mon compte bancaire reste-t-il fiché au FICP après la décision de recevabilité ?\",\"why_unanswerable\":\"L'article L722-11 dit seulement que la décision de recevabilité n'entraîne pas à elle seule l'indivisibilité, la résiliation ou la résolution d'un contrat en cours. Il ne dit rien du fichage au FICP ni de sa durée. Cette durée ne relève pas des règles de cet article et il n'est pas établi que le Code de la consommation la fixe pour ce cas précis.\",\"doubt\":\"Le Code de la consommation traite du FICP (articles L752-1 et suivants), qui précisent des durées d'inscription. Une réponse pourrait donc exister ailleurs dans le code, et la question risque de ne pas être réellement sans réponse.\"}"
+}

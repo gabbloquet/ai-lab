@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-048",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2072,
+    "output_tokens": 233
+  },
+  "output": {
+    "question": "Rétractation d'un contrat bancaire à distance : le remboursement peut-il se faire par virement uniquement ?",
+    "why_unanswerable": "L'article L222-15 fixe seulement le délai de remboursement (trente jours) et le point de départ de ce délai. Il ne précise ni le moyen de paiement, ni le mode de remboursement (virement, chèque, etc.). Le code ne répond donc pas sur ce point.",
+    "doubt": "La question est formulée en oui/non pour paraître plausible, mais en mode sans réponse aucun fait n'est attendu. D'autres articles sur les moyens de paiement pourraient aborder le sujet de loin."
+  },
+  "raw_text": "{\"question\":\"Rétractation d'un contrat bancaire à distance : le remboursement peut-il se faire par virement uniquement ?\",\"why_unanswerable\":\"L'article L222-15 fixe seulement le délai de remboursement (trente jours) et le point de départ de ce délai. Il ne précise ni le moyen de paiement, ni le mode de remboursement (virement, chèque, etc.). Le code ne répond donc pas sur ce point.\",\"doubt\":\"La question est formulée en oui/non pour paraître plausible, mais en mode sans réponse aucun fait n'est attendu. D'autres articles sur les moyens de paiement pourraient aborder le sujet de loin.\"}"
+}

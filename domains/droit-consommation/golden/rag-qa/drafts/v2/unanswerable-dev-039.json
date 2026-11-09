@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-039",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1919,
+    "output_tokens": 259
+  },
+  "output": {
+    "question": "Crédit conso : si le contrat de vente est résolu, le vendeur doit-il aussi rembourser mes frais de déplacement ?",
+    "why_unanswerable": "L'article ne traite que des intérêts de plein droit dus sur les sommes versées d'avance après la demande de remboursement. Il ne prévoit aucune indemnisation des frais annexes de l'acheteur comme les frais de déplacement, et le Code de la consommation ne fixe pas de règle à ce sujet pour la résolution liée au crédit.",
+    "doubt": "La question appelle une réponse de type oui/non, et un article sur les dommages et intérêts généraux pourrait être invoqué, mais le code de la consommation ne prévoit pas expressément ces frais."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : si le contrat de vente est résolu, le vendeur doit-il aussi rembourser mes frais de déplacement ?\",\"why_unanswerable\":\"L'article ne traite que des intérêts de plein droit dus sur les sommes versées d'avance après la demande de remboursement. Il ne prévoit aucune indemnisation des frais annexes de l'acheteur comme les frais de déplacement, et le Code de la consommation ne fixe pas de règle à ce sujet pour la résolution liée au crédit.\",\"doubt\":\"La question appelle une réponse de type oui/non, et un article sur les dommages et intérêts généraux pourrait être invoqué, mais le code de la consommation ne prévoit pas expressément ces frais.\"}"
+}

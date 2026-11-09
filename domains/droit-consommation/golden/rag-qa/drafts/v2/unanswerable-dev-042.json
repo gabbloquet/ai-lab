@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-042",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2028,
+    "output_tokens": 231
+  },
+  "output": {
+    "question": "Multipropriété : combien coûte en moyenne un séjour à temps partagé dans une résidence de vacances ?",
+    "why_unanswerable": "L'article fixe seulement le délai de rétractation de quatorze jours francs pour les contrats de temps partagé et assimilés. Le Code de la consommation ne fixe aucun prix ni tarif moyen de ces séjours, qui dépendent librement du professionnel et du marché.",
+    "doubt": "La question porte sur un prix de marché, donc hors du champ du code. D'autres articles sur l'information précontractuelle mentionnent le prix du contrat, mais pas un prix moyen ou un montant fixé."
+  },
+  "raw_text": "{\"question\":\"Multipropriété : combien coûte en moyenne un séjour à temps partagé dans une résidence de vacances ?\",\"why_unanswerable\":\"L'article fixe seulement le délai de rétractation de quatorze jours francs pour les contrats de temps partagé et assimilés. Le Code de la consommation ne fixe aucun prix ni tarif moyen de ces séjours, qui dépendent librement du professionnel et du marché.\",\"doubt\":\"La question porte sur un prix de marché, donc hors du champ du code. D'autres articles sur l'information précontractuelle mentionnent le prix du contrat, mais pas un prix moyen ou un montant fixé.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-016",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1934,
+    "output_tokens": 273
+  },
+  "output": {
+    "question": "Combien de temps dure en moyenne la suspension d'une expulsion après une demande de surendettement recevable ?",
+    "why_unanswerable": "L'article L722-6 prévoit seulement que la commission peut saisir le juge des contentieux de la protection pour suspendre les mesures d'expulsion après la décision de recevabilité. Il ne fixe aucune durée de suspension, et le code n'indique pas de durée moyenne. La durée relève de la décision du juge.",
+    "doubt": "Un autre article du Code de la consommation sur les effets de la recevabilité ou sur la suspension pourrait mentionner une durée maximale, comme le plan de 7 ans ou la suspension des procédures. Mais cette durée ne concernerait pas la suspension de l'expulsion elle-même."
+  },
+  "raw_text": "{\"question\":\"Combien de temps dure en moyenne la suspension d'une expulsion après une demande de surendettement recevable ?\",\"why_unanswerable\":\"L'article L722-6 prévoit seulement que la commission peut saisir le juge des contentieux de la protection pour suspendre les mesures d'expulsion après la décision de recevabilité. Il ne fixe aucune durée de suspension, et le code n'indique pas de durée moyenne. La durée relève de la décision du juge.\",\"doubt\":\"Un autre article du Code de la consommation sur les effets de la recevabilité ou sur la suspension pourrait mentionner une durée maximale, comme le plan de 7 ans ou la suspension des procédures. Mais cette durée ne concernerait pas la suspension de l'expulsion elle-même.\"}"
+}

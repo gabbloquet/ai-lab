@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-022",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1893,
+    "output_tokens": 252
+  },
+  "output": {
+    "question": "Quel est le tarif maximal par minute d'un appel de démarchage téléphonique vers un particulier ?",
+    "why_unanswerable": "Le Code de la consommation encadre le démarchage téléphonique (opposition, consentement, horaires, etc.) mais ne fixe aucun tarif par minute pour les appels de démarchage. L'article L223-7 renvoie seulement, pour les automates d'appel, télécopieurs et courriers électroniques, au code des postes et des communications électroniques.",
+    "doubt": "L'article ne contient aucune valeur précise et ne fait que renvoyer à un autre code, donc il n'est pas adapté aux questions avec réponse ; la question est conçue pour rester sans réponse."
+  },
+  "raw_text": "{\"question\":\"Quel est le tarif maximal par minute d'un appel de démarchage téléphonique vers un particulier ?\",\"why_unanswerable\":\"Le Code de la consommation encadre le démarchage téléphonique (opposition, consentement, horaires, etc.) mais ne fixe aucun tarif par minute pour les appels de démarchage. L'article L223-7 renvoie seulement, pour les automates d'appel, télécopieurs et courriers électroniques, au code des postes et des communications électroniques.\",\"doubt\":\"L'article ne contient aucune valeur précise et ne fait que renvoyer à un autre code, donc il n'est pas adapté aux questions avec réponse ; la question est conçue pour rester sans réponse.\"}"
+}

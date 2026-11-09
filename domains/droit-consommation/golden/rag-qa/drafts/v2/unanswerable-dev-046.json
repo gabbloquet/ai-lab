@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-046",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2078,
+    "output_tokens": 216
+  },
+  "output": {
+    "question": "Quelle est la taille minimale du logo AOC sur l'étiquette d'un fromage ?",
+    "why_unanswerable": "L'article prévoit seulement que le logo « appellation d'origine contrôlée » est utilisé pour les produits agricoles et denrées alimentaires, et renvoie à un décret en Conseil d'Etat pour le modèle et les modalités d'utilisation. Le Code de la consommation ne fixe aucune taille minimale du logo.",
+    "doubt": "Un décret d'application pourrait fixer des dimensions, mais il ne figure pas dans le Code de la consommation lui-même."
+  },
+  "raw_text": "{\"question\":\"Quelle est la taille minimale du logo AOC sur l'étiquette d'un fromage ?\",\"why_unanswerable\":\"L'article prévoit seulement que le logo « appellation d'origine contrôlée » est utilisé pour les produits agricoles et denrées alimentaires, et renvoie à un décret en Conseil d'Etat pour le modèle et les modalités d'utilisation. Le Code de la consommation ne fixe aucune taille minimale du logo.\",\"doubt\":\"Un décret d'application pourrait fixer des dimensions, mais il ne figure pas dans le Code de la consommation lui-même.\"}"
+}

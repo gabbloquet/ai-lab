@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-015",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1895,
+    "output_tokens": 225
+  },
+  "output": {
+    "question": "Combien de membres siègent au Conseil national de l'alimentation ?",
+    "why_unanswerable": "L'article D824-1 indique seulement que le Conseil national de l'alimentation est placé auprès de quatre ministres (agriculture, santé, environnement, consommation). Il ne fixe aucun effectif. Une question sur le nombre de membres est voisine du thème, mais le texte ne donne aucun chiffre.",
+    "doubt": "Un autre article du chapitre IV, par exemple sur la composition du Conseil, pourrait fixer le nombre de membres. Je n'ai pas pu le vérifier à partir du seul article fourni."
+  },
+  "raw_text": "{\"question\":\"Combien de membres siègent au Conseil national de l'alimentation ?\",\"why_unanswerable\":\"L'article D824-1 indique seulement que le Conseil national de l'alimentation est placé auprès de quatre ministres (agriculture, santé, environnement, consommation). Il ne fixe aucun effectif. Une question sur le nombre de membres est voisine du thème, mais le texte ne donne aucun chiffre.\",\"doubt\":\"Un autre article du chapitre IV, par exemple sur la composition du Conseil, pourrait fixer le nombre de membres. Je n'ai pas pu le vérifier à partir du seul article fourni.\"}"
+}

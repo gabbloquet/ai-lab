@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-049",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2071,
+    "output_tokens": 227
+  },
+  "output": {
+    "question": "Crédit immobilier : de combien de jours dispose l'emprunteur pour contester une modification du contrat proposée par la banque ?",
+    "why_unanswerable": "L'article impose seulement d'indiquer dans l'information le délai fixé pour déposer une réclamation (4°), sans fixer lui-même de durée. Le délai est laissé à l'appréciation du prêteur, donc aucune valeur chiffrée ne figure dans le code.",
+    "doubt": "Un autre article du Code de la consommation pourrait fixer un délai de réclamation ou de préavis pour les modifications de crédit immobilier, ce qui rendrait la question répondable."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : de combien de jours dispose l'emprunteur pour contester une modification du contrat proposée par la banque ?\",\"why_unanswerable\":\"L'article impose seulement d'indiquer dans l'information le délai fixé pour déposer une réclamation (4°), sans fixer lui-même de durée. Le délai est laissé à l'appréciation du prêteur, donc aucune valeur chiffrée ne figure dans le code.\",\"doubt\":\"Un autre article du Code de la consommation pourrait fixer un délai de réclamation ou de préavis pour les modifications de crédit immobilier, ce qui rendrait la question répondable.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-033",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2008,
+    "output_tokens": 270
+  },
+  "output": {
+    "question": "Quel est le montant de l'amende encourue par une plateforme en ligne qui refuse un contrôle des agents de la DGCCRF ?",
+    "why_unanswerable": "L'article L512-66 se borne à dire que les agents habilités agissent dans les conditions prévues par certaines dispositions du règlement sur les services numériques. Il ne fixe aucune sanction ni aucun montant d'amende pour un refus de contrôle. Le montant n'y figure donc pas, et la question vise une valeur que cet article ne donne pas.",
+    "doubt": "D'autres articles du Code de la consommation prévoient peut-être des sanctions pour obstacle aux contrôles (par exemple L512-51 ou les dispositions pénales), ce qui pourrait fournir une réponse."
+  },
+  "raw_text": "{\"question\":\"Quel est le montant de l'amende encourue par une plateforme en ligne qui refuse un contrôle des agents de la DGCCRF ?\",\"why_unanswerable\":\"L'article L512-66 se borne à dire que les agents habilités agissent dans les conditions prévues par certaines dispositions du règlement sur les services numériques. Il ne fixe aucune sanction ni aucun montant d'amende pour un refus de contrôle. Le montant n'y figure donc pas, et la question vise une valeur que cet article ne donne pas.\",\"doubt\":\"D'autres articles du Code de la consommation prévoient peut-être des sanctions pour obstacle aux contrôles (par exemple L512-51 ou les dispositions pénales), ce qui pourrait fournir une réponse.\"}"
+}

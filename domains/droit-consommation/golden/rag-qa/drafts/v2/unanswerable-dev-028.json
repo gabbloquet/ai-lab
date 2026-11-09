@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-028",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1959,
+    "output_tokens": 233
+  },
+  "output": {
+    "question": "Combien de membres siègent à la commission chargée de diffuser les avis de l'Institut national de la consommation ?",
+    "why_unanswerable": "L'article L822-9 dit seulement que la commission diffuse informations, avis et recommandations sans identifier de situations individuelles. Il ne donne ni nombre de membres ni composition. Ces points relèvent d'autres textes, probablement réglementaires, et la question ne trouve donc pas de réponse chiffrée dans l'article.",
+    "doubt": "Le nombre de membres pourrait figurer dans un autre article du code, comme L822-4 ou la partie réglementaire. Je ne l'ai pas vérifié."
+  },
+  "raw_text": "{\"question\":\"Combien de membres siègent à la commission chargée de diffuser les avis de l'Institut national de la consommation ?\",\"why_unanswerable\":\"L'article L822-9 dit seulement que la commission diffuse informations, avis et recommandations sans identifier de situations individuelles. Il ne donne ni nombre de membres ni composition. Ces points relèvent d'autres textes, probablement réglementaires, et la question ne trouve donc pas de réponse chiffrée dans l'article.\",\"doubt\":\"Le nombre de membres pourrait figurer dans un autre article du code, comme L822-4 ou la partie réglementaire. Je ne l'ai pas vérifié.\"}"
+}

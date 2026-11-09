@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-021",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1986,
+    "output_tokens": 275
+  },
+  "output": {
+    "question": "En rétablissement personnel, combien de temps le liquidateur a-t-il pour vendre mes biens ?",
+    "why_unanswerable": "L'article L742-14 dit seulement que le juge prononce la liquidation judiciaire, exclut certains biens (insaisissables, frais de vente disproportionnés, biens professionnels indispensables) et désigne un liquidateur, qui peut être le mandataire. Il ne fixe aucun délai de vente des biens. Une question sur un délai imposé au liquidateur est voisine du thème mais le texte n'y répond pas.",
+    "doubt": "D'autres articles de la section sur la liquidation (par exemple sur la vente des biens) pourraient mentionner un délai ; je n'ai pas pu le vérifier à partir du seul article fourni."
+  },
+  "raw_text": "{\"question\":\"En rétablissement personnel, combien de temps le liquidateur a-t-il pour vendre mes biens ?\",\"why_unanswerable\":\"L'article L742-14 dit seulement que le juge prononce la liquidation judiciaire, exclut certains biens (insaisissables, frais de vente disproportionnés, biens professionnels indispensables) et désigne un liquidateur, qui peut être le mandataire. Il ne fixe aucun délai de vente des biens. Une question sur un délai imposé au liquidateur est voisine du thème mais le texte n'y répond pas.\",\"doubt\":\"D'autres articles de la section sur la liquidation (par exemple sur la vente des biens) pourraient mentionner un délai ; je n'ai pas pu le vérifier à partir du seul article fourni.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-032",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1923,
+    "output_tokens": 249
+  },
+  "output": {
+    "question": "Pub de crédit conso non conforme : quel montant exact d'amende en euros risque l'annonceur ?",
+    "why_unanswerable": "L'article se borne à renvoyer à la peine d'amende des contraventions de la 5e classe, sans indiquer de montant en euros. Le montant chiffré de cette amende n'est pas fixé dans le Code de la consommation, il relève du code pénal. Le code ne répond donc pas à la question du montant exact.",
+    "doubt": "Un autre article du Code de la consommation pourrait rappeler le montant de l'amende de 5e classe, ce qui rendrait la question répondable. De plus, la réponse se trouve dans le code pénal, ce qui est une situation limite."
+  },
+  "raw_text": "{\"question\":\"Pub de crédit conso non conforme : quel montant exact d'amende en euros risque l'annonceur ?\",\"why_unanswerable\":\"L'article se borne à renvoyer à la peine d'amende des contraventions de la 5e classe, sans indiquer de montant en euros. Le montant chiffré de cette amende n'est pas fixé dans le Code de la consommation, il relève du code pénal. Le code ne répond donc pas à la question du montant exact.\",\"doubt\":\"Un autre article du Code de la consommation pourrait rappeler le montant de l'amende de 5e classe, ce qui rendrait la question répondable. De plus, la réponse se trouve dans le code pénal, ce qui est une situation limite.\"}"
+}

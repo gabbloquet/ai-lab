@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-017",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:27+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2267,
+    "output_tokens": 254
+  },
+  "output": {
+    "question": "Vente de denrées alimentaires en ligne : quelle police de caractères minimale pour afficher les informations obligatoires ?",
+    "why_unanswerable": "L'article exige que les informations du règlement européen soient communiquées de manière lisible et compréhensible, sur le support de vente ou par un autre moyen approprié. Il ne fixe aucune taille ni police de caractères minimale. Les modalités d'application sont renvoyées à un décret en Conseil d'État, et le code ne chiffre pas ce détail.",
+    "doubt": "Un décret d'application pourrait préciser des modalités, mais il ne figure pas dans le Code de la consommation lui-même, et la taille de police n'y est pas fixée à ma connaissance."
+  },
+  "raw_text": "{\"question\":\"Vente de denrées alimentaires en ligne : quelle police de caractères minimale pour afficher les informations obligatoires ?\",\"why_unanswerable\":\"L'article exige que les informations du règlement européen soient communiquées de manière lisible et compréhensible, sur le support de vente ou par un autre moyen approprié. Il ne fixe aucune taille ni police de caractères minimale. Les modalités d'application sont renvoyées à un décret en Conseil d'État, et le code ne chiffre pas ce détail.\",\"doubt\":\"Un décret d'application pourrait préciser des modalités, mais il ne figure pas dans le Code de la consommation lui-même, et la taille de police n'y est pas fixée à ma connaissance.\"}"
+}

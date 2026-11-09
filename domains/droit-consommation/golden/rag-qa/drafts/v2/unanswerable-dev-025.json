@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-025",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2008,
+    "output_tokens": 319
+  },
+  "output": {
+    "question": "Quelle pénalité maximale un opérateur peut-il facturer si j'oublie de résilier mon forfait avant la fin de l'engagement ?",
+    "why_unanswerable": "L'article L224-36 impose seulement que les factures mentionnent la durée d'engagement restante, la date de fin d'engagement ou l'échéance de la durée minimum. Il ne prévoit aucune pénalité en cas d'oubli de résiliation, ni aucun plafond de pénalité. Ce sujet n'est pas fixé par cet article, et la question ne vise pas les frais de résiliation anticipée, dont le régime est distinct.",
+    "doubt": "D'autres articles du code encadrent les frais de résiliation anticipée, donc une question voisine pourrait trouver une réponse ailleurs. Ici la situation visée (oubli de résiliation à l'échéance) semble non couverte, mais ce n'est pas certain."
+  },
+  "raw_text": "{\"question\":\"Quelle pénalité maximale un opérateur peut-il facturer si j'oublie de résilier mon forfait avant la fin de l'engagement ?\",\"why_unanswerable\":\"L'article L224-36 impose seulement que les factures mentionnent la durée d'engagement restante, la date de fin d'engagement ou l'échéance de la durée minimum. Il ne prévoit aucune pénalité en cas d'oubli de résiliation, ni aucun plafond de pénalité. Ce sujet n'est pas fixé par cet article, et la question ne vise pas les frais de résiliation anticipée, dont le régime est distinct.\",\"doubt\":\"D'autres articles du code encadrent les frais de résiliation anticipée, donc une question voisine pourrait trouver une réponse ailleurs. Ici la situation visée (oubli de résiliation à l'échéance) semble non couverte, mais ce n'est pas certain.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-045",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2306,
+    "output_tokens": 261
+  },
+  "output": {
+    "question": "Action de groupe simplifiée : quelle police de caractères doit utiliser le professionnel pour l'information individuelle des consommateurs ?",
+    "why_unanswerable": "L'article énumère seulement les mentions obligatoires de l'information individuelle (dispositif du jugement, coordonnées, modalités d'acceptation, effets sur l'action individuelle). Il ne dit rien de la police, de la taille de caractères ni de la mise en forme graphique, et aucun autre article du Code de la consommation ne les fixe.",
+    "doubt": "Le jugement peut prescrire des mentions supplémentaires, mais le code ne fixe pas de règles de typographie ; un lecteur pourrait chercher ailleurs une exigence de lisibilité."
+  },
+  "raw_text": "{\"question\":\"Action de groupe simplifiée : quelle police de caractères doit utiliser le professionnel pour l'information individuelle des consommateurs ?\",\"why_unanswerable\":\"L'article énumère seulement les mentions obligatoires de l'information individuelle (dispositif du jugement, coordonnées, modalités d'acceptation, effets sur l'action individuelle). Il ne dit rien de la police, de la taille de caractères ni de la mise en forme graphique, et aucun autre article du Code de la consommation ne les fixe.\",\"doubt\":\"Le jugement peut prescrire des mentions supplémentaires, mais le code ne fixe pas de règles de typographie ; un lecteur pourrait chercher ailleurs une exigence de lisibilité.\"}"
+}

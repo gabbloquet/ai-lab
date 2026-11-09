@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-019",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:29+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1986,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Quel est le tarif d'un expert désigné pour analyser un échantillon prélevé lors d'un contrôle de la DGCCRF ?",
+    "why_unanswerable": "L'article ne traite que de la mise en demeure du détenteur de fournir les échantillons intacts aux experts sous huitaine et de leurs conséquences. Il ne fixe aucun tarif ni honoraire d'expert, et la rémunération des experts ne figure pas dans cette partie du Code de la consommation.",
+    "doubt": "Un autre article du code ou un texte réglementaire pourrait évoquer les frais d'expertise, mais pas un barème précis des honoraires."
+  },
+  "raw_text": "{\"question\":\"Quel est le tarif d'un expert désigné pour analyser un échantillon prélevé lors d'un contrôle de la DGCCRF ?\",\"why_unanswerable\":\"L'article ne traite que de la mise en demeure du détenteur de fournir les échantillons intacts aux experts sous huitaine et de leurs conséquences. Il ne fixe aucun tarif ni honoraire d'expert, et la rémunération des experts ne figure pas dans cette partie du Code de la consommation.\",\"doubt\":\"Un autre article du code ou un texte réglementaire pourrait évoquer les frais d'expertise, mais pas un barème précis des honoraires.\"}"
+}

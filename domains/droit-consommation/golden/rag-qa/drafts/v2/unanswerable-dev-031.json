@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-031",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2059,
+    "output_tokens": 220
+  },
+  "output": {
+    "question": "Surendettement : combien coûte un recours contre la décision de la commission ?",
+    "why_unanswerable": "L'article R724-4 fixe le délai (quinze jours) et la forme du recours contre la décision de la commission, mais ne dit rien d'un éventuel coût ou de frais de recours. Le Code de la consommation ne fixe aucun montant à ce sujet dans cet article, et la question ne relève pas d'un autre article identifiable.",
+    "doubt": "D'autres articles du livre VII pourraient évoquer la gratuité de la procédure de surendettement, ce qui permettrait peut-être de répondre indirectement."
+  },
+  "raw_text": "{\"question\":\"Surendettement : combien coûte un recours contre la décision de la commission ?\",\"why_unanswerable\":\"L'article R724-4 fixe le délai (quinze jours) et la forme du recours contre la décision de la commission, mais ne dit rien d'un éventuel coût ou de frais de recours. Le Code de la consommation ne fixe aucun montant à ce sujet dans cet article, et la question ne relève pas d'un autre article identifiable.\",\"doubt\":\"D'autres articles du livre VII pourraient évoquer la gratuité de la procédure de surendettement, ce qui permettrait peut-être de répondre indirectement.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-024",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1983,
+    "output_tokens": 228
+  },
+  "output": {
+    "question": "Lors d'un contrôle, quel est le coût de l'analyse d'un échantillon prélevé que doit payer le commerçant ?",
+    "why_unanswerable": "L'article ne traite que des cas où le prélèvement se fait en deux échantillons au lieu de trois (valeur, nature, quantité, poids ou volume). Il ne dit rien du coût de l'analyse ni de la personne qui le supporte, et ne fixe aucun montant.",
+    "doubt": "D'autres articles du code sur les prélèvements ou les frais d'analyse pourraient traiter de la prise en charge des frais, ce qui rendrait la question partiellement répondable."
+  },
+  "raw_text": "{\"question\":\"Lors d'un contrôle, quel est le coût de l'analyse d'un échantillon prélevé que doit payer le commerçant ?\",\"why_unanswerable\":\"L'article ne traite que des cas où le prélèvement se fait en deux échantillons au lieu de trois (valeur, nature, quantité, poids ou volume). Il ne dit rien du coût de l'analyse ni de la personne qui le supporte, et ne fixe aucun montant.\",\"doubt\":\"D'autres articles du code sur les prélèvements ou les frais d'analyse pourraient traiter de la prise en charge des frais, ce qui rendrait la question partiellement répondable.\"}"
+}

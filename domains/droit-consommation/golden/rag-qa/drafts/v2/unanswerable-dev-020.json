@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-020",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 1979,
+    "output_tokens": 298
+  },
+  "output": {
+    "question": "Quelle indemnité un médiateur de la consommation doit-il verser à une partie qui refuse de poursuivre la médiation pour conflit d'intérêts ?",
+    "why_unanswerable": "L'article prévoit seulement que le médiateur informe les parties sans délai d'un possible conflit d'intérêts, que le refus d'une partie met fin à sa mission et qu'une personne morale remplace la personne physique chargée de la médiation. Il ne prévoit aucune indemnité ni compensation financière due à une partie. Le Code de la consommation ne fixe pas non plus de montant de ce type dans un autre article sur le statut du médiateur.",
+    "doubt": "Un autre article sur la responsabilité du médiateur ou ses frais pourrait traiter d'une indemnisation, mais je n'en connais aucun qui fixe une telle indemnité."
+  },
+  "raw_text": "{\"question\":\"Quelle indemnité un médiateur de la consommation doit-il verser à une partie qui refuse de poursuivre la médiation pour conflit d'intérêts ?\",\"why_unanswerable\":\"L'article prévoit seulement que le médiateur informe les parties sans délai d'un possible conflit d'intérêts, que le refus d'une partie met fin à sa mission et qu'une personne morale remplace la personne physique chargée de la médiation. Il ne prévoit aucune indemnité ni compensation financière due à une partie. Le Code de la consommation ne fixe pas non plus de montant de ce type dans un autre article sur le statut du médiateur.\",\"doubt\":\"Un autre article sur la responsabilité du médiateur ou ses frais pourrait traiter d'une indemnisation, mais je n'en connais aucun qui fixe une telle indemnité.\"}"
+}

@@ -1,0 +1,20 @@
+{
+  "task": "unanswerable-dev-041",
+  "mode": "unanswerable",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+  "created_at": "2026-11-09T11:35:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2212,
+    "output_tokens": 259
+  },
+  "output": {
+    "question": "Pratique commerciale déloyale : quelle amende en euros une entreprise risque-t-elle pour une publicité mensongère ?",
+    "why_unanswerable": "L'article L121-1 se borne à interdire les pratiques commerciales déloyales et à les définir, sans prévoir de sanction ni de montant d'amende. Le texte ne donne donc aucun montant. Les sanctions figurent dans d'autres articles, mais la question est jugée sans réponse dans l'article fourni.",
+    "doubt": "Le Code de la consommation prévoit des sanctions pénales pour les pratiques trompeuses dans un autre article (L132-2), donc la question a probablement une réponse dans le code ; il vaudrait mieux choisir une autre question."
+  },
+  "raw_text": "{\"question\":\"Pratique commerciale déloyale : quelle amende en euros une entreprise risque-t-elle pour une publicité mensongère ?\",\"why_unanswerable\":\"L'article L121-1 se borne à interdire les pratiques commerciales déloyales et à les définir, sans prévoir de sanction ni de montant d'amende. Le texte ne donne donc aucun montant. Les sanctions figurent dans d'autres articles, mais la question est jugée sans réponse dans l'article fourni.\",\"doubt\":\"Le Code de la consommation prévoit des sanctions pénales pour les pratiques trompeuses dans un autre article (L132-2), donc la question a probablement une réponse dans le code ; il vaudrait mieux choisir une autre question.\"}"
+}
