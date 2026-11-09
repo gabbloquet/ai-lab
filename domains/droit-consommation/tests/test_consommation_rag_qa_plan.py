@@ -5,16 +5,27 @@ from pathlib import Path
 
 import pytest
 from consommation_rag_qa_plan import (
+    DRAW_ORDER,
     PILOT_QUOTAS,
     SURPLUS,
     V1_QUOTAS,
+    V3_QUOTAS,
+    V4_PILOT_QUOTAS,
+    V4_QUOTAS,
     allocate,
+    bridge_candidates,
+    comparison_candidates,
     eligible,
+    enumeration,
     extend_plan,
+    false_premise_candidate,
     lost_context_candidate,
     main,
     make_plan,
     reference_candidate,
+    set_candidate,
+    value_classes,
+    writes_number,
 )
 
 LIVRES = ("Livre Ier", "Livre II", "Livre III")
@@ -330,3 +341,139 @@ def test_cli_extends_an_existing_plan(tmp_path: Path, big_corpus: list[dict]) ->
 
     after = (golden / "v1" / "plan.jsonl").read_text("utf-8").splitlines()
     assert after[: len(before)] == before and len(after) == len(before) + 4
+
+
+# --- Modes de la v4 -----------------------------------------------------------------------------
+
+PAD = " Texte de remplissage." * 12  # au-dessus des 200 caractères d'un article éligible
+
+
+def v4_article(
+    i: int,
+    text: str,
+    *,
+    titre: str = "Titre II",
+    cites: tuple[str, ...] = (),
+    num: str | None = None,
+) -> dict:
+    row = article(i, text=text + PAD, cites=cites, num=num)
+    row["path"] = ["Partie législative nouvelle", "Livre II : X", f"{titre} : Y", "Chapitre Ier"]
+    return row
+
+
+def test_writes_number_accepts_the_usual_spellings() -> None:
+    assert writes_number("Le délai mentionné à l'article L. 312-25.", "L312-25")
+    assert writes_number("Le délai mentionné à l'article L312-25.", "L312-25")
+    assert not writes_number("Le délai mentionné à l'article L. 312-25-1.", "L312-25")
+    assert not writes_number("Le délai mentionné à l'article R. 312-25.", "L312-25")
+
+
+def test_bridge_needs_b_number_in_a_text() -> None:
+    b = v4_article(2, "Un délai de sept jours.", num="L312-25")
+    a = v4_article(1, "Dans le délai mentionné à l'article L. 312-25.", cites=(b["id"],))
+    silent = v4_article(3, "Les dispositions de la présente section.", cites=(b["id"],))
+    assert bridge_candidates([a, b, silent]) == [(a["id"], b["id"])]
+
+
+def test_value_classes_reads_durations_amounts_and_rates() -> None:
+    assert value_classes("quatorze jours ou 30 jours ; 15 000 euros ; 3 % du prix") == {
+        "durée": {"quatorze jours", "30 jours"},
+        "montant": {"15 000 euros"},
+        "taux": {"3 %"},
+    }
+
+
+def test_comparison_pairs_same_title_same_kind_different_values() -> None:
+    a = v4_article(1, "Un délai de quatorze jours.")
+    b = v4_article(2, "Un délai de sept jours.")
+    same = v4_article(3, "Ce délai de quatorze jours court.")
+    fine = v4_article(4, "Une amende de 15 000 euros.")
+    far = v4_article(5, "Un délai de trente jours.", titre="Titre III")
+    expected = [(a["id"], b["id"]), (b["id"], same["id"])]
+    assert comparison_candidates([a, b, same, fine, far]) == expected
+
+
+def test_enumeration_keeps_sub_items_in_their_parent() -> None:
+    text = "Contrat :\n1° Le nom ;\n2° Le prix, qui comprend :\na) Les taxes ;\n3° La durée."
+    items = enumeration(text)
+    assert len(items) == 3 and "Les taxes" in items[1]
+
+
+@pytest.mark.parametrize(
+    ("items", "preamble", "ok"),
+    [
+        (3, "Sont exclus :", True),
+        (6, "Sont exclus :", True),
+        (2, "Sont exclus :", False),
+        (7, "Sont exclus :", False),
+        (3, "Sont notamment exclus :", False),
+    ],
+)
+def test_set_candidates_are_closed_lists_of_three_to_six(
+    items: int, preamble: str, ok: bool
+) -> None:
+    text = preamble + "\n" + "\n".join(f"{k}° Élément {k} ;" for k in range(1, items + 1))
+    assert set_candidate(v4_article(1, text)) is ok
+
+
+def test_false_premise_candidates_carry_a_value() -> None:
+    assert false_premise_candidate(v4_article(1, "Un délai de quatorze jours."))
+    assert not false_premise_candidate(v4_article(1, "Le professionnel informe le consommateur."))
+
+
+def v4_corpus() -> list[dict]:
+    """Assez d'articles pour chaque nouveau vivier : listes, valeurs voisines, renvois."""
+    rows: list[dict] = []
+    for k in range(60):
+        rows.append(v4_article(1000 + k, "Sont exclus :\n1° Un ;\n2° Deux ;\n3° Trois."))
+    for k in range(80):
+        rows.append(v4_article(2000 + k, f"Un délai de {k + 1} jours.", titre=f"Titre {k // 4}"))
+    for k in range(60):
+        b = v4_article(
+            3000 + 2 * k + 1,
+            f"Une amende de {k + 1} 000 euros.",
+            num=f"L{500 + k}-2",
+            titre=f"Titre B{k}",
+        )
+        rows.append(
+            v4_article(
+                3000 + 2 * k,
+                f"L'amende prévue à l'article L. {500 + k}-2.",
+                cites=(b["id"],),
+                titre=f"Titre A{k}",
+            )
+        )
+        rows.append(b)
+    return rows
+
+
+def test_v4_pilot_draws_each_new_mode_once_without_surplus() -> None:
+    pilot = make_plan(v4_corpus(), seed=10, quotas=V4_PILOT_QUOTAS, surplus=1.0)
+    counts = Counter(t["mode"] for t in pilot)
+    assert counts == {mode: dev for mode, (dev, _) in V4_PILOT_QUOTAS.items()}
+    ids = [a for t in pilot for a in t["articles"]]
+    assert len(ids) == len(set(ids))
+
+
+def test_modes_absent_from_the_quotas_are_not_drawn(plan: list[dict]) -> None:
+    assert {t["mode"] for t in plan} == set(V1_QUOTAS)
+
+
+def test_v4_quotas_extend_v3() -> None:
+    assert {m: V4_QUOTAS[m] for m in V3_QUOTAS} == V3_QUOTAS
+    assert {m: V4_QUOTAS[m] for m in V4_PILOT_QUOTAS} == {
+        "comparison": (8, 22),
+        "set": (8, 22),
+        "bridge": (10, 30),
+        "false_premise": (8, 22),
+    }
+    assert DRAW_ORDER[-4:] == ("comparison", "set", "bridge", "false_premise")
+
+
+def test_extend_draws_a_new_mode_from_its_pool() -> None:
+    rows = v4_corpus()
+    extended = extend_plan(rows, [], mode="bridge", split="test", n=5, seed=42)
+    by_id = {a["id"]: a for a in rows}
+    for task in extended:
+        a, b = (by_id[i] for i in task["articles"])
+        assert writes_number(a["text"], b["num"])

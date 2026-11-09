@@ -19,6 +19,7 @@ import re
 import sys
 from collections import defaultdict
 from collections.abc import Callable, Iterable
+from itertools import combinations
 from pathlib import Path
 
 DOMAIN_DIR = Path(__file__).parent
@@ -40,6 +41,16 @@ V2_QUOTAS: dict[str, tuple[int, int]] = {**V1_QUOTAS, "unanswerable": (31, 23)}
 # de la v1 restent identiques. Avec 11 questions sans réponse valides sur 138 (audit de la v1),
 # un effet de la consigne d'abstention sur `correct` ne pouvait pas dépasser quelques points.
 V3_QUOTAS: dict[str, tuple[int, int]] = {**V1_QUOTAS, "unanswerable": (31, 63)}
+# v4 : la v3, plus quatre modes tirés de la littérature RAG (CRAG, CRUMQs, Ragas). Les tailles
+# suivent la capacité du corpus : ces modes se disputent les articles qui portent une valeur, et
+# `bridge`, le vrai multi-hop, garde la plus grande (README du golden set, « v4 »).
+V4_QUOTAS: dict[str, tuple[int, int]] = {
+    **V3_QUOTAS,
+    "comparison": (8, 22),
+    "set": (8, 22),
+    "bridge": (10, 30),
+    "false_premise": (8, 22),
+}
 # Pilote : 20 brouillons jetés après la mise au point du prompt, sans surplus.
 PILOT_QUOTAS: dict[str, tuple[int, int]] = {
     "direct": (4, 0),
@@ -49,11 +60,32 @@ PILOT_QUOTAS: dict[str, tuple[int, int]] = {
     "lost_context": (3, 0),
     "unanswerable": (3, 0),
 }
+# Pilotes des modes de la v4, jetés ensuite. `bridge` en a deux fois plus : son seuil de
+# recouvrement se fixe sur la lecture de ses brouillons.
+V4_PILOT_QUOTAS: dict[str, tuple[int, int]] = {
+    "comparison": (10, 0),
+    "set": (10, 0),
+    "bridge": (20, 0),
+    "false_premise": (10, 0),
+}
 # Réserve : deux fois le besoin. Au second pilote, 4 brouillons sur 20 ont été rejetés.
 SURPLUS = 2.0
 
 # Les modes au vivier le plus étroit tirent en premier : un article ne sert qu'une fois.
-DRAW_ORDER = ("lost_context", "multi_article", "reference", "direct", "paraphrase", "unanswerable")
+# Les modes de la v4 viennent après : ils ne sont tirés qu'en extension d'un plan existant, ou
+# seuls dans leur pilote. Entre eux, les plus contraints d'abord.
+DRAW_ORDER = (
+    "lost_context",
+    "multi_article",
+    "reference",
+    "direct",
+    "paraphrase",
+    "unanswerable",
+    "comparison",
+    "set",
+    "bridge",
+    "false_premise",
+)
 
 MIN_CHARS, MAX_CHARS = 200, 4000
 LOST_CONTEXT = re.compile(
@@ -62,6 +94,25 @@ LOST_CONTEXT = re.compile(
     re.IGNORECASE,
 )
 CITABLE_NUM = re.compile(r"^[LRD]\d")
+_NUM = re.compile(r"^([LRD])(\d.*)$")
+_SPACES = re.compile(r"\s+")
+
+_NUMBER_WORDS = (
+    "un|une|deux|trois|quatre|cinq|six|sept|huit|neuf|dix|onze|douze|treize|quatorze|quinze|"
+    "seize|vingt|trente|quarante|cinquante|soixante|cent|mille"
+)
+_NUMBER = rf"(?:\d+(?:\s\d{{3}})*(?:,\d+)?|(?:{_NUMBER_WORDS})(?:[- ](?:{_NUMBER_WORDS}|et))*)"
+VALUE_CLASSES = {
+    "durée": re.compile(rf"\b{_NUMBER}\s+(?:jours?|mois|ans|années?|semaines?|heures?)\b", re.I),
+    "montant": re.compile(rf"\b{_NUMBER}\s*(?:euros?\b|€)", re.I),
+    "taux": re.compile(rf"\b{_NUMBER}\s*(?:%|pour cent\b)", re.I),
+}
+MIN_SET_ITEMS, MAX_SET_ITEMS = 3, 6
+_ITEM_MARKERS = {
+    "number": re.compile(r"^\s*\d+°"),
+    "letter": re.compile(r"^\s*[a-z]\)"),
+    "dash": re.compile(r"^\s*[-–]\s"),
+}
 
 Candidate = tuple[str, ...]  # les `id` d'articles d'une tâche : un seul, ou une paire A → B
 
@@ -89,6 +140,99 @@ def reference_candidate(article: dict) -> bool:
     return bool(CITABLE_NUM.match(article["num"]))
 
 
+def writes_number(text: str, num: str) -> bool:
+    """Le texte écrit le numéro d'article `num` (« L. 312-25 » ou « L312-25 », pas
+    « L. 312-25-1 »)."""
+    match = _NUM.match(num)
+    if not match:
+        return False
+    letter, rest = match.groups()
+    pattern = rf"(?<![A-Za-z0-9]){letter}\s*\.?\s*{re.escape(rest)}(?![0-9-])"
+    return re.search(pattern, _SPACES.sub(" ", text), re.IGNORECASE) is not None
+
+
+def value_classes(text: str) -> dict[str, set[str]]:
+    """Durées, montants et taux écrits dans un texte, par type. Détection par expression
+    régulière : elle sert au tirage et aux contrôles, pas à la notation."""
+    text = re.sub(r"[\u00a0\u202f]", " ", text)
+    found = {
+        name: {m.group(0).lower() for m in rx.finditer(text)} for name, rx in VALUE_CLASSES.items()
+    }
+    return {name: values for name, values in found.items() if values}
+
+
+def enumeration(text: str) -> list[str]:
+    """Éléments de premier niveau de l'énumération d'un texte (1°… ; à défaut a)… ; à défaut
+    des tirets). Un élément garde ses sous-éléments ; une ligne sans marqueur le clôt."""
+    lines = text.split("\n")
+    top = next(
+        (name for name, rx in _ITEM_MARKERS.items() if any(rx.match(line) for line in lines)),
+        None,
+    )
+    if top is None:
+        return []
+    items: list[list[str]] = []
+    current: list[str] | None = None
+    for line in lines:
+        if _ITEM_MARKERS[top].match(line):
+            current = [line]
+            items.append(current)
+        elif current is not None and any(rx.match(line) for rx in _ITEM_MARKERS.values()):
+            current.append(line)
+        else:
+            current = None
+    return ["\n".join(item) for item in items]
+
+
+def set_candidate(article: dict) -> bool:
+    """Liste fermée de 3 à 6 éléments : au-delà, une réponse juste doit retrouver trop de
+    mots-clés. « notamment » avant la liste la rend ouverte."""
+    items = enumeration(article["text"])
+    if not MIN_SET_ITEMS <= len(items) <= MAX_SET_ITEMS:
+        return False
+    preamble = article["text"][: article["text"].find(items[0])]
+    return "notamment" not in preamble.lower()
+
+
+def false_premise_candidate(article: dict) -> bool:
+    return bool(value_classes(article["text"]))
+
+
+def _title(article: dict) -> tuple:
+    """Le titre du code qui contient l'article ; à défaut, son niveau au-dessus du dernier."""
+    path = article["path"]
+    end = next((i for i, part in enumerate(path) if part.startswith("Titre")), len(path) - 2)
+    return (article["part"], tuple(path[: end + 1]))
+
+
+def bridge_candidates(articles: list[dict]) -> list[Candidate]:
+    """(A, B) : A cite B dans les liens LEGI, et le texte de A écrit le numéro de B."""
+    pool = {a["id"]: a for a in articles if eligible(a)}
+    return [
+        (a["id"], b)
+        for a in pool.values()
+        for b in a["cites"]
+        if b in pool and b != a["id"] and writes_number(a["text"], pool[b]["num"])
+    ]
+
+
+def comparison_candidates(articles: list[dict]) -> list[Candidate]:
+    """(A, B) d'un même titre, avec un type de valeur en commun, chacun portant une valeur de
+    ce type que l'autre n'a pas."""
+    by_title: dict[tuple, list[dict]] = defaultdict(list)
+    for a in articles:
+        if eligible(a):
+            by_title[_title(a)].append(a)
+    pairs: list[Candidate] = []
+    for group in by_title.values():
+        values = {a["id"]: value_classes(a["text"]) for a in group}
+        for a, b in combinations(group, 2):
+            va, vb = values[a["id"]], values[b["id"]]
+            if any(va[c] - vb[c] and vb[c] - va[c] for c in va.keys() & vb.keys()):
+                pairs.append((a["id"], b["id"]))
+    return pairs
+
+
 def livre(article: dict) -> str:
     """Le livre du code, premier niveau sous la partie : « Livre II : … » devient « Livre II »."""
     level = article["path"][1] if len(article["path"]) > 1 else article["path"][0]
@@ -111,6 +255,10 @@ def _pools(articles: list[dict]) -> dict[str, list[Candidate]]:
         "multi_article": pairs,
         "lost_context": singles(lost_context_candidate),
         "unanswerable": everything,
+        "comparison": comparison_candidates(articles),
+        "set": singles(set_candidate),
+        "bridge": bridge_candidates(articles),
+        "false_premise": singles(false_premise_candidate),
     }
 
 
@@ -195,6 +343,8 @@ def make_plan(
     plan: list[dict] = []
     drawn_by_mode: dict[str, list[dict]] = {}
     for mode in DRAW_ORDER:
+        if mode not in quotas:
+            continue
         dev, test = quotas[mode]
         n_dev, n_test = math.ceil(surplus * dev), math.ceil(surplus * test)
         rng = random.Random(f"{seed}-{mode}")
@@ -271,7 +421,7 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--articles", type=Path, default=DOMAIN_DIR / "data/v1/articles.jsonl")
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--version", required=True, help="ex. pilot, v1")
-    parser.add_argument("--quotas", choices=["v1", "pilot"], default="v1")
+    parser.add_argument("--quotas", choices=["v1", "pilot", "pilot-v4"], default="v1")
     parser.add_argument("--golden-dir", type=Path, default=DOMAIN_DIR / "golden/rag-qa")
     parser.add_argument("--exclude-plan", type=Path, action="append", default=[])
     parser.add_argument("--extend", help="mode:split:n, ajoute n tâches à un plan existant")
@@ -297,7 +447,11 @@ def main(argv: list[str] | None = None) -> None:
         return
     if out.exists():
         sys.exit(f"{out} existe déjà : un plan ne se retire pas.")
-    quotas, surplus = (PILOT_QUOTAS, 1.0) if args.quotas == "pilot" else (V1_QUOTAS, SURPLUS)
+    quotas, surplus = {
+        "v1": (V1_QUOTAS, SURPLUS),
+        "pilot": (PILOT_QUOTAS, 1.0),
+        "pilot-v4": (V4_PILOT_QUOTAS, 1.0),
+    }[args.quotas]
     plan = make_plan(
         _read_jsonl(args.articles), seed=args.seed, quotas=quotas, surplus=surplus, exclude=exclude
     )
