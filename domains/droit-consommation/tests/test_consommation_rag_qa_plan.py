@@ -603,3 +603,15 @@ def test_reused_articles_are_no_longer_excluded(tmp_path: Path) -> None:
     plans = [base / "plan.jsonl"]
     assert excluded_articles(plans, [], tmp_path) == {"kept", "rejected"}
     assert excluded_articles(plans, ["v1"], tmp_path) == {"kept"}
+
+
+def test_an_article_reused_by_another_plan_stays_excluded(tmp_path: Path) -> None:
+    base = tmp_path / "v1"
+    base.mkdir()
+    task = {"task": "direct-dev-002", "articles": ["rejected"]}
+    (base / "plan.jsonl").write_text(json.dumps(task) + "\n", "utf-8")
+    (base / "build_report.json").write_text(json.dumps({"rejected": {"direct-dev-002": ["x"]}}))
+    (base / "items.jsonl").write_text("", "utf-8")
+    pilot = tmp_path / "pilot.jsonl"  # un pilote qui a déjà réutilisé l'article
+    pilot.write_text(json.dumps({"task": "set-dev-001", "articles": ["rejected"]}) + "\n")
+    assert excluded_articles([base / "plan.jsonl", pilot], ["v1"], tmp_path) == {"rejected"}

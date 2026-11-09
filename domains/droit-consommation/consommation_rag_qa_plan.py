@@ -549,11 +549,19 @@ def _version_files(golden_dir: Path, version: str) -> tuple[list[dict], dict, li
 def excluded_articles(
     plan_paths: list[Path], reuse_versions: list[str], golden_dir: Path
 ) -> set[str]:
-    """Articles à exclure d'un tirage : ceux des plans donnés, sauf les articles réutilisables
-    des versions de `reuse_versions` ; les articles de leurs items restent exclus."""
-    excluded = {a for path in plan_paths for task in _read_jsonl(path) for a in task["articles"]}
+    """Articles à exclure d'un tirage : ceux des plans donnés. Dans le plan d'une version de
+    `reuse_versions`, les articles réutilisables sont libérés ; un article qu'un autre plan a
+    déjà repris reste exclu. Les articles des items de ces versions restent exclus."""
+    reusable: dict[Path, set[str]] = {
+        (golden_dir / v / "plan.jsonl").resolve(): reusable_articles(*_version_files(golden_dir, v))
+        for v in reuse_versions
+    }
+    excluded: set[str] = set()
+    for path in plan_paths:
+        articles = {a for task in _read_jsonl(path) for a in task["articles"]}
+        excluded |= articles - reusable.get(path.resolve(), set())
     for version in reuse_versions:
-        excluded -= reusable_articles(*_version_files(golden_dir, version))
+        excluded |= _item_articles(_version_files(golden_dir, version)[2])
     return excluded
 
 
