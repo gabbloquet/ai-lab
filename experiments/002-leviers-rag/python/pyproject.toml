@@ -1,0 +1,30 @@
+[project]
+name = "exp002-leviers"
+version = "0.1.0"
+description = "Expérience 002, run consolidé : les six configurations gelées des étapes sur le golden set rag-qa v4"
+requires-python = ">=3.13"
+dependencies = [
+    "ailab-evals",
+    "ailab-rag",
+    # Le code gelé des étapes 1 à 5, repris tel quel.
+    "exp002-rag",
+    "exp003-rag",
+    "exp004-rag",
+    "exp005-rag",
+    "exp006-rag",
+    "langfuse==5.1.0",
+    "pydantic-ai-slim[google,mistral]==2.65.0",
+]
+
+[tool.uv.sources]
+ailab-evals = { workspace = true }
+ailab-rag = { workspace = true }
+exp002-rag = { workspace = true }
+exp003-rag = { workspace = true }
+exp004-rag = { workspace = true }
+exp005-rag = { workspace = true }
+exp006-rag = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"

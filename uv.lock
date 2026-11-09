@@ -14,6 +14,7 @@ members = [
     "ailab-rag",
     "exp001-agent",
     "exp001-mcp-server",
+    "exp002-leviers",
     "exp002-rag",
     "exp003-rag",
     "exp004-rag",
@@ -31,6 +32,7 @@ dependencies = [
     { name = "anthropic" },
     { name = "exp001-agent" },
     { name = "exp001-mcp-server" },
+    { name = "exp002-leviers" },
     { name = "exp002-rag" },
     { name = "exp003-rag" },
     { name = "exp004-rag" },
@@ -53,6 +55,7 @@ requires-dist = [
     { name = "anthropic", specifier = "==2.4.0" },
     { name = "exp001-agent", editable = "experiments/001-mcp-outils-par-intention/python/agent" },
     { name = "exp001-mcp-server", editable = "experiments/001-mcp-outils-par-intention/python/mcp_server" },
+    { name = "exp002-leviers", editable = "experiments/002-leviers-rag/python" },
     { name = "exp002-rag", editable = "experiments/002-rag-naif-vs-modele-seul/python" },
     { name = "exp003-rag", editable = "experiments/003-reformulation-de-requete/python" },
     { name = "exp004-rag", editable = "experiments/004-top-k-20/python" },
@@ -966,6 +969,35 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "mcp", specifier = "==2.3.0" }]
+
+[[package]]
+name = "exp002-leviers"
+version = "0.1.0"
+source = { editable = "experiments/002-leviers-rag/python" }
+dependencies = [
+    { name = "ailab-evals" },
+    { name = "ailab-rag" },
+    { name = "exp002-rag" },
+    { name = "exp003-rag" },
+    { name = "exp004-rag" },
+    { name = "exp005-rag" },
+    { name = "exp006-rag" },
+    { name = "langfuse" },
+    { name = "pydantic-ai-slim", extra = ["google", "mistral"] },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "ailab-evals", editable = "evals/python" },
+    { name = "ailab-rag", editable = "rag/python" },
+    { name = "exp002-rag", editable = "experiments/002-rag-naif-vs-modele-seul/python" },
+    { name = "exp003-rag", editable = "experiments/003-reformulation-de-requete/python" },
+    { name = "exp004-rag", editable = "experiments/004-top-k-20/python" },
+    { name = "exp005-rag", editable = "experiments/005-reclassement/python" },
+    { name = "exp006-rag", editable = "experiments/006-consigne-abstention/python" },
+    { name = "langfuse", specifier = "==5.1.0" },
+    { name = "pydantic-ai-slim", extras = ["google", "mistral"], specifier = "==2.65.0" },
+]
 
 [[package]]
 name = "exp002-rag"
