@@ -1,6 +1,6 @@
 # 006 — Renforcer la consigne d'abstention ?
 
-> **Statut :** gelée le 2026-11-09, run final en cours
+> **Statut :** terminée le 2026-11-09 ([rapport](results/2026-11-09-run-final-test.md))
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 > **Golden set :** [`rag-qa/v3`](../../domains/droit-consommation/golden/rag-qa/README.md#v3--plus-de-questions-sans-réponse-dans-le-test-2026-11-09)
@@ -75,7 +75,7 @@ Les items écartés par l'audit ne tournent pas. Le run final ajoute `--split te
 **Commit de gel :** le commit « Geler la 006 avant le run final sur le test » (2026-11-09). Son hash est enregistré dans le `summary.json` de chaque run (`run.commit`).
 
 **Configuration gelée :** A, le RAG à 20 passages de la 004, inchangé ; B, A avec la phrase d'ancrage du point de départ (`exp006_rag.campaign.STRICT_GROUNDING`, identique au run 0 du `dev`, commit `4ae9382`).
-**Run final sur le `test` :** à venir
+**Run final sur le `test` :** le 2026-11-09, [rapport](results/2026-11-09-run-final-test.md)
 
 ## Mesures
 
@@ -92,13 +92,31 @@ Les items écartés par l'audit ne tournent pas. Le run final ajoute `--split te
 
 ## Résultats
 
-À venir.
+Run final du 2026-11-09 sur les 178 items valides du `test` de la v3, k = 3, 1 068 exécutions par générateur, aucune erreur. Détail dans le [rapport](results/2026-11-09-run-final-test.md).
+
+| Générateur | Réponses inventées A → B | Delta [IC 95 %] | Abstentions à tort A → B | Delta [IC 95 %] |
+|---|---|---|---|---|
+| `mistral-small-2603` | 0,261 → 0,170 | −0,092 [−0,157 ; −0,026] | 0,008 → 0,005 | −0,003 [−0,008 ; +0,003] |
+| `ministral-14b-2512` | 0,255 → 0,203 | −0,052 [−0,135 ; +0,030] | 0,029 → 0,026 | −0,003 [−0,012 ; +0,006] |
+| `gemini-3.5-flash-lite` | 0,026 → 0,020 | −0,007 [−0,020 ; +0,007] | 0,087 → 0,173 | +0,087 [+0,032 ; +0,141] |
+
+- **Mistral Small invente moins** sur 9 des 51 questions sans réponse, et plus sur aucune, sans perdre de réponse juste ailleurs.
+- **Gemini Flash-Lite, déjà prudent, s'abstient à tort deux fois plus souvent** : −10 à −14 points de `correct` sur les questions directes, en paraphrase et à plusieurs articles.
+- **A reproduit la 005** à 0,5 point près sur les 138 items valides de la v1.
+- **Coût nul** : une phrase de plus, environ 50 tokens, aucun effet sur le temps de génération.
 
 ## Verdict
 
-À venir.
+- **Mistral Small : B meilleure**, −9,2 points de réponses inventées [−15,7 ; −2,6], garde tenue. La baisse peut être sous les 10 points qui comptent.
+- **Ministral 14B : non concluant**, −5,2 points [−13,5 ; +3,0], garde tenue.
+- **Gemini Flash-Lite : B moins bonne**, abstentions à tort +8,7 points [+3,2 ; +14,1], au-delà de la marge de 3 points.
+
+Une consigne d'abstention se règle par modèle : le même texte fait moins inventer le générateur qui invente et fait s'abstenir à tort celui qui s'abstient déjà. Le `dev`, itéré avec Mistral Small seul et trop petit, n'a vu ni l'un ni l'autre.
 
 ## Limites
+
+- **Traces Langfuse incomplètes** (`run.langfuse_flushed: false`) : les JSONL font foi.
+- **Itération avec un seul générateur** : l'effet sur Gemini Flash-Lite n'a été vu qu'au run final.
 
 Déjà connues avant le run :
 - **Version de B choisie au `dev` entre deux versions** (run 0 et cycle 1) : un peu optimiste.
