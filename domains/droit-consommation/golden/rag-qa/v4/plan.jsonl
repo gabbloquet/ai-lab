@@ -765,3 +765,8 @@
 {"task": "false_premise-test-043", "mode": "false_premise", "split": "test", "rank": 43, "articles": ["LEGIARTI000037556798"], "livre": "Livre IV", "extension": true}
 {"task": "false_premise-test-044", "mode": "false_premise", "split": "test", "rank": 44, "articles": ["LEGIARTI000032807642"], "livre": "Livre III", "extension": true}
 {"task": "false_premise-test-045", "mode": "false_premise", "split": "test", "rank": 45, "articles": ["LEGIARTI000044521866"], "livre": "Livre III", "extension": true}
+{"task": "set-test-037", "mode": "set", "split": "test", "rank": 37, "articles": ["LEGIARTI000032807852"], "livre": "Livre IV", "extension": true}
+{"task": "set-test-038", "mode": "set", "split": "test", "rank": 38, "articles": ["LEGIARTI000032227222"], "livre": "Livre Ier", "extension": true}
+{"task": "set-test-039", "mode": "set", "split": "test", "rank": 39, "articles": ["LEGIARTI000032809062"], "livre": "Livre VIII", "extension": true}
+{"task": "set-test-040", "mode": "set", "split": "test", "rank": 40, "articles": ["LEGIARTI000032224809"], "livre": "Livre VI", "extension": true}
+{"task": "set-test-041", "mode": "set", "split": "test", "rank": 41, "articles": ["LEGIARTI000050008699"], "livre": "Livre II", "extension": true}

@@ -3,86 +3,10 @@
   "seed": 42,
   "overlap_threshold": 0.4,
   "max_question_words": 20,
-  "tasks": 767,
-  "drafts": 767,
+  "tasks": 772,
+  "drafts": 772,
   "selected": 339,
-  "pending_review": [
-    "comparison-dev-001",
-    "comparison-dev-002",
-    "comparison-dev-013",
-    "comparison-dev-016",
-    "comparison-test-001",
-    "comparison-test-002",
-    "comparison-test-003",
-    "comparison-test-006",
-    "comparison-test-008",
-    "comparison-test-009",
-    "comparison-test-018",
-    "comparison-test-020",
-    "comparison-test-021",
-    "comparison-test-024",
-    "comparison-test-033",
-    "comparison-test-038",
-    "comparison-test-043",
-    "comparison-test-044",
-    "set-dev-002",
-    "set-dev-004",
-    "set-dev-005",
-    "set-dev-006",
-    "set-dev-007",
-    "set-test-001",
-    "set-test-005",
-    "set-test-010",
-    "set-test-011",
-    "set-test-017",
-    "set-test-018",
-    "set-test-019",
-    "set-test-020",
-    "set-test-021",
-    "set-test-022",
-    "set-test-023",
-    "set-test-024",
-    "false_premise-dev-001",
-    "false_premise-dev-002",
-    "false_premise-dev-003",
-    "false_premise-dev-004",
-    "false_premise-dev-005",
-    "false_premise-dev-006",
-    "false_premise-dev-007",
-    "false_premise-dev-008",
-    "false_premise-dev-010",
-    "false_premise-dev-011",
-    "false_premise-test-001",
-    "false_premise-test-002",
-    "false_premise-test-003",
-    "false_premise-test-004",
-    "false_premise-test-005",
-    "false_premise-test-006",
-    "false_premise-test-007",
-    "false_premise-test-008",
-    "false_premise-test-009",
-    "false_premise-test-010",
-    "false_premise-test-011",
-    "false_premise-test-012",
-    "false_premise-test-013",
-    "false_premise-test-015",
-    "false_premise-test-016",
-    "false_premise-test-017",
-    "false_premise-test-018",
-    "false_premise-test-019",
-    "false_premise-test-020",
-    "false_premise-test-022",
-    "false_premise-test-023",
-    "false_premise-test-024",
-    "false_premise-test-027",
-    "false_premise-test-029",
-    "false_premise-test-030",
-    "false_premise-test-032",
-    "false_premise-test-033",
-    "false_premise-test-034",
-    "false_premise-test-035",
-    "false_premise-test-036"
-  ],
+  "pending_review": [],
   "shortages": {},
   "rejected": {
     "direct-dev-002": [
@@ -1234,26 +1158,44 @@
       "article inutilisable selon le rédacteur"
     ],
     "set-dev-001": [
-      "article inutilisable selon le rédacteur"
+      "article inutilisable selon le rédacteur",
+      "fait 3 : la forme « règles déontologiques » figure ailleurs dans l'article",
+      "fait 3 : la forme « exclut » figure ailleurs dans l'article"
     ],
     "set-dev-003": [
       "article inutilisable selon le rédacteur"
+    ],
+    "set-dev-004": [
+      "rejeté à la relecture : Liste interne à l'organisme gestionnaire (données d'open data de Bloctel) : aucun consommateur ne demande cela dans un chat, et la question repose sur un jargon (« données essentielles ») qui ne prend sens qu'avec L223-4. Les formes « transmis » et « retirés » sont en outre trop littérales (une réponse écrira « retirés des fichiers » au mieux, ou « supprimés »). Preuve : L223-4, « rend accessible, dans un format ouvert, aisément réutilisable et exploitable par un système de traitement automatisé, les données essentielles de son activité »."
+    ],
+    "set-dev-007": [
+      "fait 1 : la forme « affichage » figure ailleurs dans l'article"
     ],
     "set-dev-009": [
       "article inutilisable selon le rédacteur"
     ],
     "set-dev-010": [
-      "article inutilisable selon le rédacteur"
+      "article inutilisable selon le rédacteur",
+      "fait 1 : la forme « affichage » figure ailleurs dans l'article"
     ],
     "set-dev-012": [
       "article inutilisable selon le rédacteur",
       "fait 1 : la forme « agent habilité » figure dans un autre élément"
     ],
+    "set-dev-014": [
+      "rejeté à la relecture : Deux autres listes répondent à la question telle quelle : L611-4 (« Ne sont pas considérés comme des litiges de consommation [...] 2° Les services de santé fournis par des professionnels de la santé ») et L612-2 (« Un litige ne peut être examiné par le médiateur de la consommation lorsque : » puis « 3° Le litige a été précédemment examiné ou est en cours d'examen par un autre médiateur ou par un tribunal »). Je précise la question en 19 mots pour écarter les deux (« à part certains secteurs » écarte L611-4, « jamais » écarte les conditions au cas par cas de L612-2) ; « tribunal » seul est retiré du fait 4 car une réponse citant L612-2 le contiendrait, remplacé par « conciliation » ; j'ajoute « contre un consommateur » au fait 5 et des singuliers. Risque résiduel : la frontière avec L612-2 reste fine pour un lecteur non juriste. | Arbitrage du propriétaire : Pour rester univoque, la question a besoin d'une seconde phrase qui dit de quoi elle ne parle pas, et le relecteur IA note lui-même que la frontière avec L612-2 reste fine. Ce n'est plus une question de chat. Le quota set-dev est dépassé (7 pour 5)."
+    ],
     "set-dev-015": [
       "article inutilisable selon le rédacteur"
     ],
+    "set-test-001": [
+      "fait 1 : la forme « diplôme » figure ailleurs dans l'article",
+      "fait 2 : la forme « formation professionnelle adaptée » figure ailleurs dans l'article",
+      "fait 3 : la forme « expérience professionnelle » figure ailleurs dans l'article"
+    ],
     "set-test-002": [
-      "article inutilisable selon le rédacteur"
+      "article inutilisable selon le rédacteur",
+      "fait 1 : la forme « affichage » figure ailleurs dans l'article"
     ],
     "set-test-003": [
       "article inutilisable selon le rédacteur"
@@ -1273,6 +1215,9 @@
     "set-test-009": [
       "article inutilisable selon le rédacteur"
     ],
+    "set-test-011": [
+      "rejeté à la relecture : Contenu d'un rapport quadriennal de la commission : liste administrative qu'aucun consommateur ne demande (le rédacteur le signale lui-même). Les formes « statistiques » et « recommandations » sont en outre assez générales pour une réponse sur la médiation. Preuve : R615-9, « La commission publie sur son site internet, tous les quatre ans, un rapport sur l'évolution et le fonctionnement des médiations de la consommation »."
+    ],
     "set-test-012": [
       "article inutilisable selon le rédacteur"
     ],
@@ -1289,6 +1234,14 @@
       "article inutilisable selon le rédacteur",
       "2 faits pour une liste de 4 éléments"
     ],
+    "set-test-017": [
+      "fait 1 : la forme « déréférencement » figure ailleurs dans l'article",
+      "fait 3 : la forme « lien capitalistique » figure ailleurs dans l'article",
+      "fait 3 : la forme « rémunération » figure ailleurs dans l'article"
+    ],
+    "set-test-023": [
+      "rejeté à la relecture : Liste douanière interne aux contrôles de la DGCCRF (régimes douaniers, zones franches), qu'aucun consommateur ne demande dans un chat, comme le signale le rédacteur. Preuve : L511-18, « Les contrôles mentionnés aux articles L. 511-16 et L. 511-17 sont effectués »."
+    ],
     "set-test-025": [
       "article inutilisable selon le rédacteur",
       "2 faits pour une liste de 6 éléments"
@@ -1296,21 +1249,37 @@
     "set-test-026": [
       "article inutilisable selon le rédacteur"
     ],
+    "set-test-027": [
+      "fait 3 : la forme « cinq ans » figure ailleurs dans l'article"
+    ],
     "set-test-028": [
       "article inutilisable selon le rédacteur"
     ],
     "set-test-029": [
-      "article inutilisable selon le rédacteur"
+      "article inutilisable selon le rédacteur",
+      "fait 3 : la forme « paramètres du procédé » figure ailleurs dans l'article"
+    ],
+    "set-test-031": [
+      "rejeté à la relecture : Composition d'un conseil d'administration : liste purement institutionnelle, sans intérêt pour un consommateur dans un chat. En outre le 4° regroupe trois membres sous un seul fait. Preuve : R822-4, « 4° Le président de la commission des clauses abusives, ainsi qu'un représentant du collège des professionnels du Conseil national de la consommation et un ingénieur des corps de l'Etat »."
     ],
     "set-test-032": [
       "article inutilisable selon le rédacteur"
     ],
+    "set-test-033": [
+      "rejeté à la relecture : Compétences consultatives d'une instance : liste administrative, peu plausible dans un chat de consommateur ; d'autres alinéas complètent d'ailleurs les sujets de consultation. Preuve : D824-2, « Le Conseil peut également être consulté pour contribuer au retour d'expérience à la suite de crises alimentaires d'ampleur nationale ». La forme « qualité » du fait 3 serait en plus trop générale."
+    ],
     "set-test-034": [
       "article inutilisable selon le rédacteur"
+    ],
+    "set-test-035": [
+      "rejeté à la relecture : Missions d'un établissement public : liste institutionnelle sans intérêt pour un consommateur, et « autres missions » ne se comprend pas seul, car il renvoie aux missions principales du même article. Preuve : L823-1, « Cet établissement peut également être chargé : »."
     ],
     "set-test-036": [
       "article inutilisable selon le rédacteur",
       "2 faits pour une liste de 4 éléments"
+    ],
+    "false_premise-dev-001": [
+      "rejeté à la relecture : Le fait est juste et unique : le seul article du corpus sur ce comité est R823-13, et aucun autre article R823 ne donne de durée de mandat. Preuve : R823-13, « nommés pour cinq ans renouvelables par arrêté conjoint du ministre chargé de la recherche et du ministre chargé de l'industrie ». Mais aucun consommateur ne pose cette question sur un organe administratif, et « LNE » est un sigle que le public ne connaît pas ; reformuler ne rendrait pas la question crédible pour un consommateur. Si on garde l'item, remplacer « LNE » par « Laboratoire national de métrologie et d'essais »."
     ],
     "false_premise-dev-009": [
       "question de 21 mots, au-delà de 20"
@@ -1320,6 +1289,9 @@
     ],
     "false_premise-test-014": [
       "la valeur fausse n'est pas du même type que le fait"
+    ],
+    "false_premise-test-016": [
+      "rejeté à la relecture : Le délai de deux semaines ne vaut que pour la consultation sur convocation : la procédure d'urgence n'a aucun délai et la séance plénière n'en fixe pas ; la question doit écarter l'urgence. On ajoute les formes « quatorze jours » et « 14 jours », équivalentes. Preuve : D821-12, « soit selon une procédure d'urgence, sans condition de délai ou de quorum ». | Arbitrage du propriétaire : Même motif que false_premise-dev-001, set-test-031 et set-test-033, rejetés par le relecteur IA : fonctionnement interne d'une instance (délai de convocation du CNC), personne ne le demande dans un chat. Le quota false_premise est dépassé, le rejet ne coûte rien."
     ],
     "false_premise-test-021": [
       "article inutilisable selon le rédacteur",
@@ -1335,9 +1307,23 @@
     "false_premise-test-028": [
       "question de 21 mots, au-delà de 20"
     ],
+    "false_premise-test-030": [
+      "rejeté à la relecture : La durée dépend du régime, que le consommateur ne peut pas distinguer : trois mois renouvelables par l'autorité administrative, jusqu'à un an par arrêté des ministres, ou sans limite jusqu'à la mise en conformité ; de plus, le renouvellement rend six mois possibles. Preuve : L521-23, « pour une durée n'excédant pas trois mois, renouvelable dans les mêmes conditions » ; L521-25, « La prestation de services peut être suspendue dans les conditions fixées à cet article. » ; L521-17, « pour une durée n'excédant pas un an » ; L521-20, « jusqu'à sa mise en conformité avec la réglementation en vigueur »."
+    ],
     "false_premise-test-031": [
       "article inutilisable selon le rédacteur",
       "la valeur fausse n'est pas du même type que le fait"
+    ],
+    "false_premise-test-033": [
+      "rejeté à la relecture : Cinq ans pour l'importateur comme pour le fabricant et le mandataire ; aucune durée de dix ans pour la déclaration UE de conformité dans le corpus. Preuve : D412-53, « Pendant une durée de cinq ans, ils tiennent une copie de la déclaration UE de conformité » ; D412-51, « Ils conservent la documentation technique et la déclaration UE de conformité pendant cinq ans ». | Arbitrage du propriétaire : Quasi-doublon de false_premise-dev-008 entre dev et test : même régime, même objet (déclaration UE de conformité), même valeur fausse (10 ans) et même valeur vraie (5 ans). Un système réglé sur dev connaît déjà la réponse. Le quota est dépassé, autant sortir celui-ci et garder false_premise-test-032 (autre article, autre obligation)."
+    ],
+    "set-test-039": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "set-test-041": [
+      "article inutilisable selon le rédacteur",
+      "fait 5 : aucune forme acceptée ne figure dans l'extrait",
+      "fait 6 : aucune forme acceptée ne figure dans l'extrait"
     ]
   },
   "alerts": {
@@ -2294,9 +2280,6 @@
       "fait 1 : forme longue « établir et mettre à jour la liste »",
       "fait 1 : forme sans chiffre absente du texte « établir et mettre à jour la liste »"
     ],
-    "set-dev-004": [
-      "doute du rédacteur : Les éléments 3°, 4° et 5° partagent beaucoup de vocabulaire, donc les mots-clés distinctifs sont fragiles, et la question est assez spécialisée."
-    ],
     "set-dev-005": [
       "doute du rédacteur : Le mot-clé « taux variable » n'est pas dans le texte ; la forme « taux débiteur n'est pas fixe » est la formulation exacte. Le mot « assurance » pourrait aussi apparaître dans une réponse hors sujet.",
       "fait 3 : forme sans chiffre absente du texte « taux débiteur non fixe »",
@@ -2306,12 +2289,12 @@
       "doute du rédacteur : L'article prévoit aussi un cas hors liste numérotée (défaut si grave qu'il justifie une réduction ou résolution immédiate), non inclus dans les quatre faits. Les éléments 2° et 3° contiennent plusieurs hypothèses.",
       "fait 3 : forme sans chiffre absente du texte « frais d'enlèvement »"
     ],
-    "set-dev-007": [
-      "doute du rédacteur : Les mots-clés 'affichage' et 'diffusion' sont partiellement partagés entre les éléments 1° et 2° (diffusion), donc le mot-clé 'diffusion' seul a été évité ; la question ne cite pas l'article L452-1 et reste un peu vague sur les infractions concernées.",
-      "fait 1 : forme longue « L'affichage et la diffusion de la décision »"
+    "set-dev-008": [
+      "doute du rédacteur : Le dernier alinéa (effets juridiques de l'acceptation, délai) n'est pas un élément numéroté, donc non inclus ; la réponse d'un utilisateur pourrait l'évoquer.",
+      "fait 3 : forme longue « décision qui serait rendue par un juge »"
     ],
-    "set-test-001": [
-      "doute du rédacteur : Les mots-clés ne sont pas strictement propres à chaque élément : « formation professionnelle » apparaît aussi dans le 1° et le 3°, et « diplôme » dans le 1° seulement ; la question vise aussi les prêteurs et intermédiaires, pas un vendeur individuel."
+    "set-dev-011": [
+      "doute du rédacteur : Le mot « marque » apparaît dans plusieurs éléments, donc les mots-clés choisis sont limités à ceux propres à chaque élément."
     ],
     "set-test-005": [
       "doute du rédacteur : Les mots-clés 'débiteur' et 'situation' se recoupent entre éléments, mais les formes retenues sont propres à chaque élément ; la question porte sur une liste fermée mais peu fréquente dans un chat."
@@ -2319,12 +2302,6 @@
     "set-test-010": [
       "doute du rédacteur : Les mots-clés du 2° (« lieux de vente », « consommateur final ») sont assez génériques ; la liste est fermée mais les éléments 1° et 2° ont des sous-éléments.",
       "fait 2 : forme sans chiffre absente du texte « non préemballées »"
-    ],
-    "set-test-011": [
-      "doute du rédacteur : Question de niche, peu probable dans un chat grand public ; mots-clés assez génériques."
-    ],
-    "set-test-017": [
-      "doute du rédacteur : Le mot « référencement » apparaît dans les éléments 1° et 3°, et « classement » dans le 2° et le 3° ; les mots-clés choisis restent toutefois propres à chaque élément."
     ],
     "set-test-018": [
       "doute du rédacteur : Le premier élément concerne le prix, qui n'est complémentaire que s'il n'est pas fixé au préalable ; les mots-clés sont propres à chaque élément mais peu techniques."
@@ -2346,15 +2323,18 @@
       "fait 2 : forme sans chiffre absente du texte « versement de provisions »",
       "fait 3 : forme sans chiffre absente du texte « renonciation au mandat »"
     ],
-    "set-test-023": [
-      "doute du rédacteur : Le 2° contient des sous-éléments (transit, entrepôt douanier, etc.) ; le mot-clé « transit » ou « entrepôt douanier » pourrait être confondu avec le 3° (« entrepôts francs »). Question assez technique, peu probable dans un chat grand public."
-    ],
     "set-test-024": [
       "doute du rédacteur : Les justificatifs sont demandés pour la fiche d'information prévue à L. 312-17 ; la question ne précise pas ce contexte, mais reste unique pour le crédit à la consommation."
     ],
-    "false_premise-dev-001": [
-      "doute du rédacteur : Article très institutionnel, peu susceptible d'être demandé par un consommateur ; la valeur fausse (trois ans) est plausible mais l'article n'a pas d'équivalent ailleurs dans le code.",
-      "la valeur fausse figure dans d'autres articles : L613-2, L531-4, L312-75, L132-14, R223-7 …"
+    "set-test-030": [
+      "doute du rédacteur : Les mots-clés des éléments 1° et 3° se recoupent un peu avec 'avis' ; l'élément 1° partage le mot 'avis' avec les autres, mais ses mots-clés (collecte, modération, diffusion) lui sont propres."
+    ],
+    "set-test-037": [
+      "doute du rédacteur : Le mot-clé « non préemballée » du 1° est proche de « préemballée » du 3° ; la distinction repose sur « vente immédiate » pour le 3°.",
+      "fait 3 : forme longue « préemballée en vue de sa vente immédiate »"
+    ],
+    "set-test-038": [
+      "doute du rédacteur : Les mots-clés « trompeuse » et « induire en erreur » pourraient apparaître dans une réponse à propos d'une autre condition, mais ils sont propres au 1°."
     ],
     "false_premise-dev-002": [
       "doute du rédacteur : La question dépasse légèrement 15 mots ; elle pourrait être raccourcie. Le montant de 15 000 euros est plausible mais doit être vérifié comme absent d'autres sanctions voisines du crédit immobilier.",
@@ -2389,6 +2369,10 @@
     "false_premise-dev-011": [
       "doute du rédacteur : L'article renvoie à L. 312-53 pour le cas de non-remboursement ; la question reste générale sur le crédit à la consommation.",
       "la valeur fausse figure dans d'autres articles : L451-12, L451-3, L342-4, L342-3, L342-2 …"
+    ],
+    "false_premise-dev-012": [
+      "doute du rédacteur : L'article mentionne aussi « trente jours » pour une majoration de 20 %, ce qui pourrait créer une confusion ; la valeur fausse « 30 jours » figure donc dans l'article, mais dans un autre contexte (palier de majoration), pas comme délai de remboursement.",
+      "la valeur fausse figure dans d'autres articles : D732-3"
     ],
     "false_premise-test-001": [
       "doute du rédacteur : Le délai de 30 jours court à compter de la notification ; la question ne le précise pas, mais la valeur reste unique.",
@@ -2438,10 +2422,6 @@
     "false_premise-test-015": [
       "la valeur fausse figure dans d'autres articles : L752-1, L531-2, L454-2, L453-9, L452-1 …"
     ],
-    "false_premise-test-016": [
-      "doute du rédacteur : La question reste un peu elliptique : elle ne précise pas que la convocation concerne une consultation du Conseil ou d'un seul collège.",
-      "la valeur fausse figure dans d'autres articles : L521-3, L455-1, L341-19, L312-90, L312-84 …"
-    ],
     "false_premise-test-017": [
       "doute du rédacteur : L'article L224-66 n'est pas précisé dans le texte fourni ; la question mentionne un contexte de véhicule d'occasion supposé, ce qui peut être inexact. Pour la personne physique, 5 000 € est plausible mais non vérifié ailleurs dans le code.",
       "la valeur fausse figure dans d'autres articles : L452-7"
@@ -2471,15 +2451,8 @@
       "doute du rédacteur : Le manquement visé (suspension du délai de garantie) n'est pas nommé dans la question, qui reste volontairement générale ; la valeur fausse 5 000 € est plausible mais arbitraire.",
       "la valeur fausse figure dans d'autres articles : L452-7"
     ],
-    "false_premise-test-030": [
-      "doute du rédacteur : La suspension est renouvelable, donc une durée cumulée de six mois peut être possible ; la prémisse fausse porte sur la durée maximale par arrêté.",
-      "la valeur fausse figure dans d'autres articles : L431-6, D314-24, R811-5, R822-4, R742-13 …"
-    ],
     "false_premise-test-032": [
       "doute du rédacteur : La durée de 10 ans est plausible par confusion avec d'autres obligations de conservation, mais il faut vérifier qu'aucun autre article ne fixe 10 ans pour la même situation."
-    ],
-    "false_premise-test-033": [
-      "doute du rédacteur : La valeur fausse de 10 ans est plausible (durée de conservation de certains documents, notamment pour les équipements ou le matériel), mais le Code de la consommation pourrait avoir d'autres durées de conservation pour d'autres produits ; la question précise le contexte de l'accessibilité."
     ],
     "false_premise-test-034": [
       "doute du rédacteur : Plusieurs montants figurent dans l'article (3 000 euros pour une personne physique) ; la question vise la personne morale, la société.",
@@ -2492,6 +2465,18 @@
     "false_premise-test-036": [
       "doute du rédacteur : Le montant de 150 000 euros est plausible mais d'autres infractions du code ont des amendes différentes ; la question vise bien le prêteur immobilier.",
       "la valeur fausse figure dans d'autres articles : L451-12, L451-3, L342-4, L342-3, L342-2 …"
+    ],
+    "false_premise-test-037": [
+      "doute du rédacteur : Le contexte de la demande (article R. 112-1, non fourni) n'est pas précisé dans la question ; la question reste donc un peu vague sur l'objet de la demande."
+    ],
+    "false_premise-test-038": [
+      "doute du rédacteur : La question est un peu générale sur le type de délit ; elle ne précise pas qu'il s'agit des délits des articles L453-1 à L453-8. D'autres textes du code pénal peuvent prévoir dix ans pour d'autres infractions.",
+      "la valeur fausse figure dans d'autres articles : D213-2, R315-3, Annexe à l'article R314-3, R111-4-4"
+    ],
+    "false_premise-test-039": [
+      "doute du rédacteur : La question mentionne un retard de 10 jours pour que la tranche applicable soit unique (jusqu'à quatorze jours). Le contexte de non-livraison est déduit du renvoi à L216-7, qui n'apparaît pas dans l'extrait.",
+      "fait 1 : forme sans chiffre absente du texte « dix pour cent »",
+      "la valeur fausse figure dans d'autres articles : L312-34, L242-4, D312-27, L454-6, L133-2 …"
     ]
   },
   "overlap": {
@@ -3224,7 +3209,12 @@
     "false_premise-test-042": 0.556,
     "false_premise-test-043": 0.625,
     "false_premise-test-044": 0.625,
-    "false_premise-test-045": 0.6
+    "false_premise-test-045": 0.6,
+    "set-test-037": 0.4,
+    "set-test-038": 0.2,
+    "set-test-039": 0.2,
+    "set-test-040": 0.5,
+    "set-test-041": 0.4
   },
   "question_words": {
     "direct-dev-001": 14,
@@ -3993,7 +3983,12 @@
     "false_premise-test-042": 19,
     "false_premise-test-043": 15,
     "false_premise-test-044": 16,
-    "false_premise-test-045": 19
+    "false_premise-test-045": 19,
+    "set-test-037": 15,
+    "set-test-038": 10,
+    "set-test-039": 12,
+    "set-test-040": 14,
+    "set-test-041": 12
   },
   "writer_models": [
     "claude-sonnet-5-5"

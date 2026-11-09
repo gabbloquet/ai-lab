@@ -1,0 +1,47 @@
+{
+  "task": "set-test-040",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T17:20:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2342,
+    "output_tokens": 252
+  },
+  "output": {
+    "question": "Quels types de litiges ne comptent pas comme litiges de consommation pour la médiation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "services d'intérêt général non économiques",
+          "intérêt général non économiques"
+        ],
+        "quote": "Les services d'intérêt général non économiques",
+        "article": "L611-4"
+      },
+      {
+        "accepted": [
+          "services de santé",
+          "professionnels de la santé",
+          "médicaments"
+        ],
+        "quote": "Les services de santé fournis par des professionnels de la santé aux patients",
+        "article": "L611-4"
+      },
+      {
+        "accepted": [
+          "enseignement supérieur",
+          "prestataires publics de l'enseignement supérieur"
+        ],
+        "quote": "Les prestataires publics de l'enseignement supérieur",
+        "article": "L611-4"
+      }
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"question\":\"Quels types de litiges ne comptent pas comme litiges de consommation pour la médiation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"services d'intérêt général non économiques\",\"intérêt général non économiques\"],\"quote\":\"Les services d'intérêt général non économiques\",\"article\":\"L611-4\"},{\"accepted\":[\"services de santé\",\"professionnels de la santé\",\"médicaments\"],\"quote\":\"Les services de santé fournis par des professionnels de la santé aux patients\",\"article\":\"L611-4\"},{\"accepted\":[\"enseignement supérieur\",\"prestataires publics de l'enseignement supérieur\"],\"quote\":\"Les prestataires publics de l'enseignement supérieur\",\"article\":\"L611-4\"}],\"doubt\":\"\"}"
+}

@@ -125,7 +125,7 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 | `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items relus, écrits dans `v1/items.jsonl` avec `MANIFEST.json` (2026-11-07). **Publiée** : citée par le [run final de la 002](../../../../experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), donc immuable |
 | `v2` | `data/v1` | 42 | `rag-qa/v1` | La v1, plus 24 questions sans réponse dans le `dev` (`rq-201` à `rq-224`) : 224 items, `dev` 74 dont 30 sans réponse, **`test` identique à celui de la v1**. Écrite le 2026-11-09 dans `v2/items.jsonl` avec `MANIFEST.json` (`base_version: v1`). Pas encore citée par un rapport |
 | `v3` | `data/v1` | 42 | `rag-qa/v1` | La v2, plus 40 questions sans réponse dans le `test` (`rq-225` à `rq-264`) : 264 items, `test` 190 dont 178 valides (audit), 51 sans réponse valides. Les 224 items de la v2, dont les 150 `test` de la v1, sont repris à l'identique. Écrite le 2026-11-09 (`base_version: v2`). Pas encore citée par un rapport |
-| `v4` | `data/v1` | 42 | `rag-qa/v1` | **En préparation.** La v3, plus trois modes : `comparison`, `set`, `false_premise` (87 items, dont 64 `test`). `bridge`, essayé aux pilotes, est retiré. Design et protocole des pilotes écrits avant chaque pilote (section « v4 ») |
+| `v4` | `data/v1` | 42 | `rag-qa/v1` | La v3, plus trois modes : `comparison`, `set`, `false_premise` (`rq-265` à `rq-339`) : 339 items, `test` 246 dont 234 valides (audit), 51 sans réponse valides (22 %). Les 264 items de la v3 sont repris à l'identique. Écrite le 2026-11-09 (`base_version: v3`). Pas encore citée par un rapport |
 
 **Composition du `dev` après relecture : 6 items sans réponse et 11 en mode `direct`**, au lieu de 7 et 10. `rq-133` (« Garantie de conformité : quel délai a le vendeur pour me rembourser après la résolution du contrat ? ») avait été classé sans réponse, mais L217-17 y répond (« au plus tard dans les quatorze jours ») ; il a été transformé en item avec réponse, en mode `direct`, plutôt que remplacé (décision du 2026-11-07). La correction d'un relecteur peut désormais changer le statut, le mode, les articles et les extraits d'un item, et chaque extrait est vérifié dans son article.
 
@@ -276,4 +276,36 @@ Plan `pilot2-v4` (seed 11, 22 tâches, règles du commit `04a29ef`), brouillons 
 - La capacité libérée par `bridge` revient à `comparison` (8 + 22) et `false_premise` (10 + 30).
 - Part des questions sans réponse valides dans le `test` de la v4 : 51 sur 242 items valides, soit environ 21 %.
 - Le multi-hop reste une limite du golden set : `multi_article` mesure « deux articles liés », et rien ne mesure un saut qu'on ne peut pas contourner.
+
+### Relecture de la v4 et composition finale (2026-11-09)
+
+**Méthode.** Celle des v2 et v3, appliquée à 98 items : les 75 retenus au build, plus les items de réserve qui passaient les contrôles. Six relecteurs IA (sous-agents Claude), un par lot, ont cherché dans tout le corpus une réponse concurrente, une liste complétée ailleurs, une prémisse vraie dans un cas voisin ou une forme trop large. Les extraits qu'ils citent en preuve (172 aux premières relectures) ont été vérifiés mot pour mot dans le corpus par script. Le propriétaire a ensuite arbitré sur une page qui réunissait toutes les propositions, avec l'aide d'un assistant IA. Il a changé 15 verdicts sur 98 et amendé 4 corrections. Verdicts : `review/v4.jsonl` (le champ `owner_first_pass` garde le premier passage du propriétaire sur son échantillon).
+
+**Accord entre les deux relectures.** Le propriétaire, assisté d'un assistant IA, a d'abord relu seul un échantillon seedé de 40 items, sans voir les verdicts des relecteurs. Ce n'est donc pas une mesure face à un humain : c'est l'accord entre deux relectures assistées par IA. Il a signalé 10 items, le relecteur IA 33. Ils concordent sur 17 items : 7 jugés ok et 10 signalés des deux côtés. Aucun défaut n'a été vu par le propriétaire seul. Sur les 23 items qu'il jugeait ok et que le relecteur IA signalait, il s'est rangé au relecteur IA pour la plupart à l'arbitrage, faute d'avoir eu le corpus sous les yeux : les défauts venaient d'articles voisins.
+
+**Décisions de l'arbitrage** (propriétaire, 2026-11-09).
+- **Règle de comparabilité non retenue.** Le relecteur IA rejetait les paires de délais d'une même procédure (rétractation de 14 jours face à maintien de l'offre de 15 jours). Cette règle réduisait le mode aux seuls montants d'amende, elle était appliquée de façon incohérente, et elle écartait les questions les plus naturelles. Les 8 items reviennent, dont 2 corrigés.
+- **Un quasi-doublon entre `dev` et `test` rejeté** (`false_premise-test-033`, même objet et mêmes valeurs que `false_premise-dev-008`).
+- **Les questions corrigées restent des questions de chat** : 20 mots au plus (25 en `comparison`). Les premières corrections des relecteurs avaient une médiane de 27 mots, et jusqu'à 44 ; elles ont été raccourcies, comme les questions du propriétaire, sans perdre ce qui rend la réponse unique.
+- **Sélection par l'ordre du tirage.** En `false_premise/test`, 36 items passaient pour 30 places. Ce sont les 30 premiers dans l'ordre du tirage qui sont gardés, et non une sélection au jugement.
+- **`set/test` complété par tirage.** Il y manquait 3 items : les 5 derniers candidats du corpus ont été tirés, rédigés et relus, et 3 sont retenus. Aucun item n'est écrit à la main.
+
+**Composition des items ajoutés** (75) :
+
+| Mode | `dev` | `test` |
+|---|---|---|
+| `comparison` | 4 | 14 |
+| `set` | 5 | 12 |
+| `false_premise` | 10 | 30 |
+
+Rejets à la relecture : 10 en `set` (listes complétées ailleurs dans le code, listes institutionnelles), 4 en `false_premise` (prémisse vraie dans un cas voisin, instance interne, doublon). Une liste `set` de réserve a aussi été écartée par le contrôle durci (`37601c5`).
+
+**Limites propres à la v4.**
+- **Scores par mode indicatifs** : 12 à 30 items `test` par mode, soit un IC à 95 % d'environ ± 18 à 28 points.
+- **`comparison`** : la spec v1 ne voit pas une réponse qui inverse les deux valeurs. Trois questions résument l'obligation visée au lieu de reprendre le texte, pour tenir dans la limite de longueur (`comparison-test-002`, `-021`, `-044`).
+- **`set`** : mode sévère, puisque chaque élément doit être retrouvé par un mot-clé. Les formes ajoutées à la relecture (pluriels, chiffres, « TTC », quelques paraphrases) ne sont pas toutes copiées du texte, comme en v1. `set-test-005` garde une forme générale, « surendettement », avec un risque faible de faux positif.
+- **`false_premise`** : la notation ne vérifie pas que la prémisse est rejetée. L'alerte « la valeur fausse figure dans d'autres articles » s'est révélée peu utile : elle ne cherche que la forme exacte (« 5 ans », pas « cinq ans »), et les vrais conflits venaient d'articles qu'elle ne listait pas.
+- **Code pénal hors corpus.** L'amende d'une personne morale suit l'article 131-38 du code pénal, auquel le Code de la consommation renvoie. Les questions précisent donc « personne physique », « société » ou « en nom propre » quand le montant en dépend. Ce qui relève du code pénal lui-même n'est pas vérifié.
+- **Pourcentages collés.** La normalisation de la spec v1 ne retire que les espaces entre deux chiffres : « 10% » ne retrouve pas « 10 % ». Les formes collées ont été ajoutées pour la v4. Les items des versions précédentes qui attendent un pourcentage n'ont pas été vérifiés : il faudra un vecteur de conformance dans une spec v2.
+- **Aucun multi-hop qu'on ne peut pas contourner** (voir le retrait de `bridge`).
 

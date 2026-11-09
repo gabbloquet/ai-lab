@@ -1,0 +1,46 @@
+{
+  "task": "set-test-037",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T17:20:11+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2525,
+    "output_tokens": 321
+  },
+  "output": {
+    "question": "Dans quels cas l'information sur les allergènes doit-elle figurer sur ou près de la denrée ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "non préemballée",
+          "présentée non préemballée"
+        ],
+        "quote": "Présentée non préemballée sur les lieux de vente au consommateur final et aux collectivités",
+        "article": "R412-13"
+      },
+      {
+        "accepted": [
+          "à la demande du consommateur",
+          "emballée sur les lieux de vente"
+        ],
+        "quote": "Emballée sur les lieux de vente à la demande du consommateur",
+        "article": "R412-13"
+      },
+      {
+        "accepted": [
+          "vente immédiate",
+          "préemballée en vue de sa vente immédiate"
+        ],
+        "quote": "Préemballée en vue de sa vente immédiate",
+        "article": "R412-13"
+      }
+    ],
+    "doubt": "Le mot-clé « non préemballée » du 1° est proche de « préemballée » du 3° ; la distinction repose sur « vente immédiate » pour le 3°."
+  },
+  "raw_text": "{\"question\":\"Dans quels cas l'information sur les allergènes doit-elle figurer sur ou près de la denrée ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"non préemballée\",\"présentée non préemballée\"],\"quote\":\"Présentée non préemballée sur les lieux de vente au consommateur final et aux collectivités\",\"article\":\"R412-13\"},{\"accepted\":[\"à la demande du consommateur\",\"emballée sur les lieux de vente\"],\"quote\":\"Emballée sur les lieux de vente à la demande du consommateur\",\"article\":\"R412-13\"},{\"accepted\":[\"vente immédiate\",\"préemballée en vue de sa vente immédiate\"],\"quote\":\"Préemballée en vue de sa vente immédiate\",\"article\":\"R412-13\"}],\"doubt\":\"Le mot-clé « non préemballée » du 1° est proche de « préemballée » du 3° ; la distinction repose sur « vente immédiate » pour le 3°.\"}"
+}

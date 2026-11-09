@@ -1,0 +1,72 @@
+{
+  "task": "set-test-041",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T17:20:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2752,
+    "output_tokens": 634
+  },
+  "output": {
+    "question": "Pour quelles pièces de rechange le garagiste doit-il proposer des pièces d'occasion ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "pièces de carrosserie amovibles",
+          "carrosserie amovibles"
+        ],
+        "quote": "Les pièces de carrosserie amovibles",
+        "article": "R224-25"
+      },
+      {
+        "accepted": [
+          "garnissage intérieur",
+          "sellerie"
+        ],
+        "quote": "Les pièces de garnissage intérieur pour les véhicules automobiles et de sellerie pour les véhicules motorisés à deux ou trois roues",
+        "article": "R224-25"
+      },
+      {
+        "accepted": [
+          "vitrages non collés",
+          "vitrages"
+        ],
+        "quote": "Les vitrages non collés",
+        "article": "R224-25"
+      },
+      {
+        "accepted": [
+          "pièces optiques",
+          "optiques"
+        ],
+        "quote": "Les pièces optiques",
+        "article": "R224-25"
+      },
+      {
+        "accepted": [
+          "trains roulants",
+          "organes de freinage",
+          "éléments de la direction"
+        ],
+        "quote": "Les pièces mécaniques ou électroniques, à l'exception de celles faisant partie pour les véhicules automobiles",
+        "article": "R224-25"
+      },
+      {
+        "accepted": [
+          "axes de roues",
+          "garnitures de freins",
+          "cadre berceau"
+        ],
+        "quote": "Les pièces mécaniques ou électroniques, à l'exception de celles faisant partie pour les véhicules motorisés à deux ou trois roues",
+        "article": "R224-25"
+      }
+    ],
+    "doubt": "Les éléments 5° et 6° partagent la même formulation d'ouverture et n'ont de mots-clés propres que dans leurs exceptions, ce qui est ambigu. Le paragraphe II ajoute des éléments (rétroviseur, réservoirs) hors de la liste numérotée. L'article ne mentionne pas explicitement des pièces d'occasion : la question est donc imprécise, et l'article est jugé inutilisable pour ce mode."
+  },
+  "raw_text": "{\"question\":\"Pour quelles pièces de rechange le garagiste doit-il proposer des pièces d'occasion ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"pièces de carrosserie amovibles\",\"carrosserie amovibles\"],\"quote\":\"Les pièces de carrosserie amovibles\",\"article\":\"R224-25\"},{\"accepted\":[\"garnissage intérieur\",\"sellerie\"],\"quote\":\"Les pièces de garnissage intérieur pour les véhicules automobiles et de sellerie pour les véhicules motorisés à deux ou trois roues\",\"article\":\"R224-25\"},{\"accepted\":[\"vitrages non collés\",\"vitrages\"],\"quote\":\"Les vitrages non collés\",\"article\":\"R224-25\"},{\"accepted\":[\"pièces optiques\",\"optiques\"],\"quote\":\"Les pièces optiques\",\"article\":\"R224-25\"},{\"accepted\":[\"trains roulants\",\"organes de freinage\",\"éléments de la direction\"],\"quote\":\"Les pièces mécaniques ou électroniques, à l'exception de celles faisant partie pour les véhicules automobiles\",\"article\":\"R224-25\"},{\"accepted\":[\"axes de roues\",\"garnitures de freins\",\"cadre berceau\"],\"quote\":\"Les pièces mécaniques ou électroniques, à l'exception de celles faisant partie pour les véhicules motorisés à deux ou trois roues\",\"article\":\"R224-25\"}],\"doubt\":\"Les éléments 5° et 6° partagent la même formulation d'ouverture et n'ont de mots-clés propres que dans leurs exceptions, ce qui est ambigu. Le paragraphe II ajoute des éléments (rétroviseur, réservoirs) hors de la liste numérotée. L'article ne mentionne pas explicitement des pièces d'occasion : la question est donc imprécise, et l'article est jugé inutilisable pour ce mode.\"}"
+}

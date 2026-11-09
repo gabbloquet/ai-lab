@@ -1,0 +1,62 @@
+{
+  "task": "set-test-039",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T17:20:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2443,
+    "output_tokens": 437
+  },
+  "output": {
+    "question": "De quoi se composent les ressources de l'Institut national de la consommation ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "opérations commerciales",
+          "vente de ses publications"
+        ],
+        "quote": "Le produit de ses opérations commerciales, notamment la vente de ses publications",
+        "article": "R822-16"
+      },
+      {
+        "accepted": [
+          "activités de formation",
+          "formation"
+        ],
+        "quote": "Les ressources provenant de ses activités de formation",
+        "article": "R822-16"
+      },
+      {
+        "accepted": [
+          "subventions",
+          "participations"
+        ],
+        "quote": "Les subventions ou participations qui lui sont allouées par l'Etat, les collectivités locales ou toute autre personne publique ou privée",
+        "article": "R822-16"
+      },
+      {
+        "accepted": [
+          "dons et legs",
+          "libéralités",
+          "fonds de concours"
+        ],
+        "quote": "Les dons et legs, libéralités et fonds de concours de toute nature",
+        "article": "R822-16"
+      },
+      {
+        "accepted": [
+          "toute ressource"
+        ],
+        "quote": "De façon générale, toute ressource que l'établissement tire de son activité ou dont il pourrait légalement disposer",
+        "article": "R822-16"
+      }
+    ],
+    "doubt": "Le point 5° est une clause générale ouverte (toute ressource), sans mot-clé propre, et le 1° contient « notamment » ; la liste n'est donc pas vraiment fermée."
+  },
+  "raw_text": "{\"question\":\"De quoi se composent les ressources de l'Institut national de la consommation ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"opérations commerciales\",\"vente de ses publications\"],\"quote\":\"Le produit de ses opérations commerciales, notamment la vente de ses publications\",\"article\":\"R822-16\"},{\"accepted\":[\"activités de formation\",\"formation\"],\"quote\":\"Les ressources provenant de ses activités de formation\",\"article\":\"R822-16\"},{\"accepted\":[\"subventions\",\"participations\"],\"quote\":\"Les subventions ou participations qui lui sont allouées par l'Etat, les collectivités locales ou toute autre personne publique ou privée\",\"article\":\"R822-16\"},{\"accepted\":[\"dons et legs\",\"libéralités\",\"fonds de concours\"],\"quote\":\"Les dons et legs, libéralités et fonds de concours de toute nature\",\"article\":\"R822-16\"},{\"accepted\":[\"toute ressource\"],\"quote\":\"De façon générale, toute ressource que l'établissement tire de son activité ou dont il pourrait légalement disposer\",\"article\":\"R822-16\"}],\"doubt\":\"Le point 5° est une clause générale ouverte (toute ressource), sans mot-clé propre, et le 1° contient « notamment » ; la liste n'est donc pas vraiment fermée.\"}"
+}

@@ -1,0 +1,54 @@
+{
+  "dataset": "droit-consommation/golden/rag-qa",
+  "version": "v4",
+  "generators": [
+    "domains/droit-consommation/consommation_rag_qa_plan.py",
+    "domains/droit-consommation/consommation_rag_qa_draft.py",
+    "domains/droit-consommation/consommation_rag_qa_build.py"
+  ],
+  "seed": 42,
+  "base_version": "v3",
+  "data_version": "v1",
+  "spec": "evals/spec/rag-qa/v1",
+  "writer_models": [
+    "claude-sonnet-5-5"
+  ],
+  "prompt_sha256": [
+    "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+    "2a3ec26df429bcc326a186d92a6b2f73b1d44ead30d0c1f5ccfc24beb72d9893",
+    "4783939ea3faa7db3ef7e6b1634ff7df982b769bc9998c5615ead1da68f276ad",
+    "610242c26fc081ba534a1f8039cb647d6b1627120f4e88348d8f0d3029152ece",
+    "b830d4a2bd3211c084f3e08e196a9f8505dd5a02163160253658bf8e27e6fe7f",
+    "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+    "d64f2c9eb62d8a858499a8aba83b6c8e5e5391523faac368c51d7cf3af540ef8",
+    "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+    "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c"
+  ],
+  "overlap_threshold": 0.4,
+  "counts": {
+    "lost_context/test": 23,
+    "paraphrase/test": 30,
+    "reference/dev": 8,
+    "direct/test": 30,
+    "paraphrase/dev": 10,
+    "unanswerable/test": 63,
+    "direct/dev": 11,
+    "multi_article/dev": 8,
+    "lost_context/dev": 7,
+    "reference/test": 22,
+    "multi_article/test": 22,
+    "unanswerable/dev": 30,
+    "false_premise/dev": 10,
+    "set/test": 12,
+    "set/dev": 5,
+    "false_premise/test": 30,
+    "comparison/test": 14,
+    "comparison/dev": 4
+  },
+  "files": {
+    "items.jsonl": "3e12a0312384bdd4fd12140ebde41d78fe9d6d9f378d3c9a5c9aa2ac7c3f9f35",
+    "plan.jsonl": "06b99332401e6918ef86e82624f9aeca37003b3cd314d45d0c57e2d796e3fdc9",
+    "review/v4.jsonl": "d8e3c1b4d55abc03666960a7d4b17ee74d58db9aa5b9ce2261532d74a16b2f03",
+    "review/v3.jsonl": "d396e8c1ad93cfe5729c9670ffcb8ebcd34dbeb34bd19802235a3436f10951f3"
+  }
+}
