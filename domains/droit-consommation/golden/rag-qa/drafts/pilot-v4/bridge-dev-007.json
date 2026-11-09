@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-007",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2877,
+    "output_tokens": 306
+  },
+  "output": {
+    "question": "Pratiques commerciales agressives en bande organisée : quelle amende de base est prévue ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "sont punies d'un emprisonnement de deux ans et d'une amende de 300 000 euros",
+        "article": "L132-11"
+      }
+    ],
+    "doubt": "Le renvoi de A vers B porte sur la peine d'emprisonnement (deux ans), mais A ne donne que le chiffre de sept ans. L'amende de 300 000 euros n'est pas visée par le renvoi de A, et la valeur d'emprisonnement de B (deux ans) est exactement la valeur que A porte à sept ans, ce qui rend la question ambiguë. Cette paire se prête mal au mode pont.",
+    "link_quote": "la peine d'emprisonnement prévue à l'article L. 132-11"
+  },
+  "raw_text": "{\"question\":\"Pratiques commerciales agressives en bande organisée : quelle amende de base est prévue ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"sont punies d'un emprisonnement de deux ans et d'une amende de 300 000 euros\",\"article\":\"L132-11\"}],\"doubt\":\"Le renvoi de A vers B porte sur la peine d'emprisonnement (deux ans), mais A ne donne que le chiffre de sept ans. L'amende de 300 000 euros n'est pas visée par le renvoi de A, et la valeur d'emprisonnement de B (deux ans) est exactement la valeur que A porte à sept ans, ce qui rend la question ambiguë. Cette paire se prête mal au mode pont.\",\"link_quote\":\"la peine d'emprisonnement prévue à l'article L. 132-11\"}"
+}

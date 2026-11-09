@@ -1,0 +1,30 @@
+{
+  "task": "bridge-dev-003",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3310,
+    "output_tokens": 277
+  },
+  "output": {
+    "question": "Crédit immobilier : quel fichier la banque doit-elle consulter pour vérifier ma solvabilité ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 751-1"
+        ],
+        "quote": "Le prêteur consulte également le fichier prévu à l'article L. 751-1",
+        "article": "L313-16"
+      }
+    ],
+    "doubt": "B ne fixe aucune valeur applicable à la situation de A : il ne donne pas de délai précis (« dans les meilleurs délais », délais laissés au prêteur). Le seul élément précis est un renvoi vers un autre article, pas une valeur propre à B.",
+    "link_quote": "Lorsqu'en application de l'article L. 313-16 le prêteur sollicite les informations et pièces justificatives nécessaires à la vérification de solvabilité"
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : quel fichier la banque doit-elle consulter pour vérifier ma solvabilité ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 751-1\"],\"quote\":\"Le prêteur consulte également le fichier prévu à l'article L. 751-1\",\"article\":\"L313-16\"}],\"doubt\":\"B ne fixe aucune valeur applicable à la situation de A : il ne donne pas de délai précis (« dans les meilleurs délais », délais laissés au prêteur). Le seul élément précis est un renvoi vers un autre article, pas une valeur propre à B.\",\"link_quote\":\"Lorsqu'en application de l'article L. 313-16 le prêteur sollicite les informations et pièces justificatives nécessaires à la vérification de solvabilité\"}"
+}

@@ -1,0 +1,22 @@
+{
+  "task": "bridge-dev-005",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2827,
+    "output_tokens": 187
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article B (L211-2) ne fixe aucune valeur précise répondant à la situation de A : il renvoie à un décret pour les modalités et énumère seulement des mentions (garanties légales). Les articles 1641 à 1649 du code civil relèvent d'un autre code. Aucun délai, montant, taux ou organisme ne ressort pour l'encadré décrit en A.",
+    "link_quote": "garanties légales mentionnées au 2° de l'article L. 211-2"
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article B (L211-2) ne fixe aucune valeur précise répondant à la situation de A : il renvoie à un décret pour les modalités et énumère seulement des mentions (garanties légales). Les articles 1641 à 1649 du code civil relèvent d'un autre code. Aucun délai, montant, taux ou organisme ne ressort pour l'encadré décrit en A.\",\"link_quote\":\"garanties légales mentionnées au 2° de l'article L. 211-2\"}"
+}

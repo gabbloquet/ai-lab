@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-dev-010",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T14:40:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2350,
+    "output_tokens": 199
+  },
+  "output": {
+    "question": "Location-vente immobilière : le bailleur doit maintenir son offre 15 jours, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trente jours",
+          "30 jours"
+        ],
+        "quote": "pendant une durée minimale de trente jours à compter de sa réception par le preneur",
+        "article": "L313-58"
+      }
+    ],
+    "doubt": "Le code prévoit aussi un délai de réflexion de dix jours avant acceptation, ce qui peut créer de la confusion ; 15 jours reste toutefois absent de l'article.",
+    "false_value": "15 jours"
+  },
+  "raw_text": "{\"question\":\"Location-vente immobilière : le bailleur doit maintenir son offre 15 jours, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trente jours\",\"30 jours\"],\"quote\":\"pendant une durée minimale de trente jours à compter de sa réception par le preneur\",\"article\":\"L313-58\"}],\"doubt\":\"Le code prévoit aussi un délai de réflexion de dix jours avant acceptation, ce qui peut créer de la confusion ; 15 jours reste toutefois absent de l'article.\",\"false_value\":\"15 jours\"}"
+}

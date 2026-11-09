@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-017",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2673,
+    "output_tokens": 271
+  },
+  "output": {
+    "question": "Plan de surendettement : quel est le délai de caducité après une mise en demeure infructueuse ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "caduc quinze jours après une mise en demeure restée infructueuse",
+        "article": "R732-2"
+      }
+    ],
+    "doubt": "La valeur (quinze jours) figure dans l'article A lui-même ; l'article B (L721-1) ne fixe aucune valeur précise applicable à la situation de A, il décrit seulement la saisine de la commission.",
+    "link_quote": "sans préjudice de l'exercice des facultés prévues aux articles L. 721-1, L. 721-4, L. 721-6, L. 721-7, L. 722-3, L. 722-4 et L. 722-6"
+  },
+  "raw_text": "{\"question\":\"Plan de surendettement : quel est le délai de caducité après une mise en demeure infructueuse ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"caduc quinze jours après une mise en demeure restée infructueuse\",\"article\":\"R732-2\"}],\"doubt\":\"La valeur (quinze jours) figure dans l'article A lui-même ; l'article B (L721-1) ne fixe aucune valeur précise applicable à la situation de A, il décrit seulement la saisine de la commission.\",\"link_quote\":\"sans préjudice de l'exercice des facultés prévues aux articles L. 721-1, L. 721-4, L. 721-6, L. 721-7, L. 722-3, L. 722-4 et L. 722-6\"}"
+}

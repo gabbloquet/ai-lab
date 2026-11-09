@@ -1,0 +1,32 @@
+{
+  "task": "bridge-dev-013",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3099,
+    "output_tokens": 278
+  },
+  "output": {
+    "question": "Crédit immobilier : à quel moment au plus tard le prêteur doit-il me remettre la fiche d'information européenne ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "lors de l'émission de l'offre de crédit",
+          "émission de l'offre de crédit",
+          "émission de l'offre"
+        ],
+        "quote": "Au plus tard lors de l'émission de l'offre de crédit, le prêteur ou l'intermédiaire de crédit fournit à l'emprunteur",
+        "article": "L313-7"
+      }
+    ],
+    "doubt": "La question mentionne la fiche d'information européenne, terme présent dans B, mais c'est le mot de A et la valeur attendue est un moment, pas un chiffre précis.",
+    "link_quote": "la fiche d'information standardisée européenne mentionnée à l'article L. 313-7"
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : à quel moment au plus tard le prêteur doit-il me remettre la fiche d'information européenne ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"lors de l'émission de l'offre de crédit\",\"émission de l'offre de crédit\",\"émission de l'offre\"],\"quote\":\"Au plus tard lors de l'émission de l'offre de crédit, le prêteur ou l'intermédiaire de crédit fournit à l'emprunteur\",\"article\":\"L313-7\"}],\"doubt\":\"La question mentionne la fiche d'information européenne, terme présent dans B, mais c'est le mot de A et la valeur attendue est un moment, pas un chiffre précis.\",\"link_quote\":\"la fiche d'information standardisée européenne mentionnée à l'article L. 313-7\"}"
+}

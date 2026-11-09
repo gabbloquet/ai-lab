@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-006",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2908,
+    "output_tokens": 257
+  },
+  "output": {
+    "question": "Vente à distance : quelle amende maximale pour une entreprise qui manque à ses obligations d'information ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "75 000 euros",
+          "75 000 €"
+        ],
+        "quote": "75 000 euros pour une personne morale",
+        "article": "L242-10"
+      }
+    ],
+    "doubt": "Le renvoi de A vers B (« articles L. 242-10 à L. 242-13 ») porte sur une plage d'articles, et A donne déjà sa propre valeur (4 % du chiffre d'affaires). La question ne porte donc pas sur la situation propre à A, et le plafond de B n'est pas la valeur qui règle cette situation.",
+    "link_quote": "en application des articles L. 242-10 à L. 242-13"
+  },
+  "raw_text": "{\"question\":\"Vente à distance : quelle amende maximale pour une entreprise qui manque à ses obligations d'information ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"75 000 euros\",\"75 000 €\"],\"quote\":\"75 000 euros pour une personne morale\",\"article\":\"L242-10\"}],\"doubt\":\"Le renvoi de A vers B (« articles L. 242-10 à L. 242-13 ») porte sur une plage d'articles, et A donne déjà sa propre valeur (4 % du chiffre d'affaires). La question ne porte donc pas sur la situation propre à A, et le plafond de B n'est pas la valeur qui règle cette situation.\",\"link_quote\":\"en application des articles L. 242-10 à L. 242-13\"}"
+}

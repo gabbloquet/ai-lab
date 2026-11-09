@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-012",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2783,
+    "output_tokens": 222
+  },
+  "output": {
+    "question": "Après réception de l'état de mes dettes par la commission de surendettement, j'ai combien de temps pour le contester ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "vingt jours",
+          "20 jours"
+        ],
+        "quote": "Le débiteur peut contester l'état du passif dressé par la commission dans un délai de vingt jours.",
+        "article": "R723-8"
+      }
+    ],
+    "doubt": "Le terme « état du passif » est remplacé par « état de mes dettes » ; la question évite toutefois de reprendre l'intitulé de B.",
+    "link_quote": "La lettre reproduit les dispositions des articles L. 723-3 et R. 723-8"
+  },
+  "raw_text": "{\"question\":\"Après réception de l'état de mes dettes par la commission de surendettement, j'ai combien de temps pour le contester ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"vingt jours\",\"20 jours\"],\"quote\":\"Le débiteur peut contester l'état du passif dressé par la commission dans un délai de vingt jours.\",\"article\":\"R723-8\"}],\"doubt\":\"Le terme « état du passif » est remplacé par « état de mes dettes » ; la question évite toutefois de reprendre l'intitulé de B.\",\"link_quote\":\"La lettre reproduit les dispositions des articles L. 723-3 et R. 723-8\"}"
+}

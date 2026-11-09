@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-004",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T14:40:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2680,
+    "output_tokens": 277
+  },
+  "output": {
+    "question": "Amende maximale : pour un défaut d'info sur la disponibilité des pièces détachées (personne morale), et pour un abus de faiblesse aggravé ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €"
+        ],
+        "quote": "3 000 euros pour une personne physique et 15 000 euros pour une personne morale",
+        "article": "L131-2"
+      },
+      {
+        "accepted": [
+          "500 000 €",
+          "500 000 euros"
+        ],
+        "quote": "sont portées à cinq ans d'emprisonnement et 500 000 € d'amende",
+        "article": "L132-14-1"
+      }
+    ],
+    "doubt": "Une amende administrative et une amende pénale sont comparées ; la question précise la personne morale pour A, et « aggravé » pour B reste un peu vague (cas du 1° de L121-9)."
+  },
+  "raw_text": "{\"question\":\"Amende maximale : pour un défaut d'info sur la disponibilité des pièces détachées (personne morale), et pour un abus de faiblesse aggravé ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"15 000 euros\",\"15 000 €\"],\"quote\":\"3 000 euros pour une personne physique et 15 000 euros pour une personne morale\",\"article\":\"L131-2\"},{\"accepted\":[\"500 000 €\",\"500 000 euros\"],\"quote\":\"sont portées à cinq ans d'emprisonnement et 500 000 € d'amende\",\"article\":\"L132-14-1\"}],\"doubt\":\"Une amende administrative et une amende pénale sont comparées ; la question précise la personne morale pour A, et « aggravé » pour B reste un peu vague (cas du 1° de L121-9).\"}"
+}

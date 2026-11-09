@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-dev-003",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T14:40:55+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2515,
+    "output_tokens": 171
+  },
+  "output": {
+    "question": "Le président du Conseil national de l'alimentation est nommé pour cinq ans, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "Le président du Conseil est désigné, pour une durée de trois ans, renouvelable",
+        "article": "D824-6"
+      }
+    ],
+    "doubt": "Question de niche sur un organisme peu connu, mais la durée du mandat est clairement indiquée.",
+    "false_value": "cinq ans"
+  },
+  "raw_text": "{\"question\":\"Le président du Conseil national de l'alimentation est nommé pour cinq ans, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"Le président du Conseil est désigné, pour une durée de trois ans, renouvelable\",\"article\":\"D824-6\"}],\"doubt\":\"Question de niche sur un organisme peu connu, mais la durée du mandat est clairement indiquée.\",\"false_value\":\"cinq ans\"}"
+}

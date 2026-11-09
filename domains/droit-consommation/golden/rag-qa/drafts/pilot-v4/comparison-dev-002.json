@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-002",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T14:40:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2732,
+    "output_tokens": 262
+  },
+  "output": {
+    "question": "Crédit conso : quel délai a le prêteur pour accorder le crédit, et quel délai avant l'échéance du crédit renouvelable pour renvoyer le document ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "sept jours",
+          "7 jours"
+        ],
+        "quote": "sa décision d'accorder le crédit, dans un délai de sept jours",
+        "article": "L312-24"
+      },
+      {
+        "accepted": [
+          "vingt jours",
+          "20 jours"
+        ],
+        "quote": "au plus tard vingt jours avant la date d'échéance du contrat",
+        "article": "L312-81"
+      }
+    ],
+    "doubt": "Les deux délais portent sur des étapes différentes (décision du prêteur vs renvoi du document de reconduction par l'emprunteur), donc la comparaison est un peu artificielle."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : quel délai a le prêteur pour accorder le crédit, et quel délai avant l'échéance du crédit renouvelable pour renvoyer le document ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"sept jours\",\"7 jours\"],\"quote\":\"sa décision d'accorder le crédit, dans un délai de sept jours\",\"article\":\"L312-24\"},{\"accepted\":[\"vingt jours\",\"20 jours\"],\"quote\":\"au plus tard vingt jours avant la date d'échéance du contrat\",\"article\":\"L312-81\"}],\"doubt\":\"Les deux délais portent sur des étapes différentes (décision du prêteur vs renvoi du document de reconduction par l'emprunteur), donc la comparaison est un peu artificielle.\"}"
+}

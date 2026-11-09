@@ -1,0 +1,340 @@
+{
+  "version": "pilot-v4",
+  "seed": 10,
+  "overlap_threshold": 0.4,
+  "max_question_words": 20,
+  "tasks": 50,
+  "drafts": 50,
+  "selected": 20,
+  "pending_review": [
+    "comparison-dev-002",
+    "comparison-dev-003",
+    "comparison-dev-004",
+    "comparison-dev-005",
+    "comparison-dev-006",
+    "set-dev-003",
+    "set-dev-005",
+    "set-dev-006",
+    "set-dev-010",
+    "bridge-dev-002",
+    "bridge-dev-015",
+    "false_premise-dev-002",
+    "false_premise-dev-003",
+    "false_premise-dev-004",
+    "false_premise-dev-005",
+    "false_premise-dev-006",
+    "false_premise-dev-007",
+    "false_premise-dev-008",
+    "false_premise-dev-009",
+    "false_premise-dev-010"
+  ],
+  "shortages": {
+    "bridge/dev": 18,
+    "comparison/dev": 5,
+    "false_premise/dev": 1,
+    "set/dev": 6
+  },
+  "rejected": {
+    "comparison-dev-001": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "comparison-dev-007": [
+      "article inutilisable selon le rédacteur",
+      "fait 1 : la question contient la réponse « trois jours »",
+      "fait 2 : la question contient la réponse « trois mois »"
+    ],
+    "comparison-dev-008": [
+      "question de 31 mots, au-delà de 25",
+      "article inutilisable selon le rédacteur"
+    ],
+    "comparison-dev-009": [
+      "le fait de L242-23 figure aussi dans L241-13"
+    ],
+    "comparison-dev-010": [
+      "article inutilisable selon le rédacteur",
+      "les deux faits ont la même valeur",
+      "le fait de L241-9 figure aussi dans L242-51",
+      "le fait de L242-51 figure aussi dans L241-9"
+    ],
+    "set-dev-001": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "set-dev-002": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "set-dev-004": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "set-dev-007": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "set-dev-008": [
+      "fait 2 : la question contient la réponse « non encore facturée »"
+    ],
+    "set-dev-009": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "bridge-dev-001": [
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3",
+      "0 faits au lieu d'un seul en mode bridge",
+      "recouvrement question/B 0.43 > 0.40"
+    ],
+    "bridge-dev-003": [
+      "article inutilisable selon le rédacteur",
+      "recouvrement question/B 0.57 > 0.40"
+    ],
+    "bridge-dev-004": [
+      "article inutilisable selon le rédacteur",
+      "recouvrement question/B 0.62 > 0.40"
+    ],
+    "bridge-dev-005": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3",
+      "0 faits au lieu d'un seul en mode bridge"
+    ],
+    "bridge-dev-006": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "bridge-dev-007": [
+      "article inutilisable selon le rédacteur",
+      "recouvrement question/B 0.50 > 0.40"
+    ],
+    "bridge-dev-008": [
+      "article inutilisable selon le rédacteur",
+      "fait 1 : aucune forme acceptée ne figure dans l'extrait"
+    ],
+    "bridge-dev-009": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3",
+      "0 faits au lieu d'un seul en mode bridge"
+    ],
+    "bridge-dev-010": [
+      "article inutilisable selon le rédacteur",
+      "fait 1 : aucune forme acceptée",
+      "fait 1 : extrait introuvable dans l'article L313-11"
+    ],
+    "bridge-dev-011": [
+      "article inutilisable selon le rédacteur",
+      "recouvrement question/B 0.86 > 0.40"
+    ],
+    "bridge-dev-012": [
+      "recouvrement question/B 0.43 > 0.40"
+    ],
+    "bridge-dev-013": [
+      "recouvrement question/B 0.67 > 0.40"
+    ],
+    "bridge-dev-014": [
+      "question de 23 mots, au-delà de 20",
+      "article inutilisable selon le rédacteur"
+    ],
+    "bridge-dev-016": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "bridge-dev-017": [
+      "article inutilisable selon le rédacteur",
+      "le fait vient de R732-2 au lieu de B (L721-1)",
+      "le fait « quinze jours » figure déjà dans A"
+    ],
+    "bridge-dev-018": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "bridge-dev-019": [
+      "article inutilisable selon le rédacteur",
+      "recouvrement question/B 0.50 > 0.40"
+    ],
+    "bridge-dev-020": [
+      "le fait « deux témoins » figure déjà dans A",
+      "recouvrement question/B 0.56 > 0.40"
+    ],
+    "false_premise-dev-001": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3",
+      "0 faits au lieu d'un seul en mode false_premise"
+    ]
+  },
+  "alerts": {
+    "comparison-dev-002": [
+      "doute du rédacteur : Les deux délais portent sur des étapes différentes (décision du prêteur vs renvoi du document de reconduction par l'emprunteur), donc la comparaison est un peu artificielle."
+    ],
+    "comparison-dev-003": [
+      "doute du rédacteur : Les deux valeurs sont des durées mais ne règlent pas exactement la même chose (délai d'orientation et durée maximale de suspension) ; la comparaison est un peu lâche."
+    ],
+    "comparison-dev-004": [
+      "doute du rédacteur : Une amende administrative et une amende pénale sont comparées ; la question précise la personne morale pour A, et « aggravé » pour B reste un peu vague (cas du 1° de L121-9)."
+    ],
+    "comparison-dev-005": [
+      "doute du rédacteur : Les deux articles portent sur des peines d'emprisonnement, mais B est une aggravation de la peine de base de L132-2, ce qui reste comparable."
+    ],
+    "comparison-dev-006": [
+      "doute du rédacteur : Les deux amendes sont de nature différente (pénale d'un côté, administrative de l'autre) ; B a aussi un plafond de 75 000 euros pour une personne morale, d'où la précision « personne physique » dans la question."
+    ],
+    "set-dev-003": [
+      "doute du rédacteur : Le mot « numéro » et le mot « identifiant » sont proches ; la réponse peut être confuse si elle reformule librement."
+    ],
+    "set-dev-005": [
+      "doute du rédacteur : Le 1° et le 5° mentionnent tous deux le conseil d'administration, d'où des mots-clés choisis avec soin ; la question est un peu institutionnelle pour un chat."
+    ],
+    "set-dev-006": [
+      "doute du rédacteur : Le mot-clé « falsifiés » du 2° est proche de « falsification » du 3° ; j'ai donc retenu « objets » et l'expression complète pour le 3°. La question reste assez générale quant au lieu."
+    ],
+    "set-dev-010": [
+      "doute du rédacteur : Les mots-clés du 1° (taux annuel effectif) apparaissent aussi en partie dans le 2° ou 3° de façon indirecte ; la liste est introduite par une phrase unique, ce qui la rend assez technique pour un chat."
+    ],
+    "bridge-dev-002": [
+      "doute du rédacteur : La valeur est un acte (arrêté) plutôt qu'un chiffre ; A renvoie aussi à R. 512-32, donc la question reste centrée sur R. 512-31.",
+      "fait 1 : forme longue « un arrêté du ministre chargé de l'économie »",
+      "la question est plus proche de B que de A"
+    ],
+    "bridge-dev-015": [
+      "doute du rédacteur : A renvoie à L. 221-23 à L. 221-25 (plage d'articles), le renvoi à L221-23 est donc indirect, et la question ne mentionne pas le contrat accessoire de A."
+    ],
+    "false_premise-dev-002": [
+      "doute du rédacteur : Le code prévoit d'autres durées de disponibilité des pièces détachées (par exemple pour d'autres matériels médicaux), mais pas pour les tensiomètres ; 10 ans reste plausible comme confusion."
+    ],
+    "false_premise-dev-003": [
+      "doute du rédacteur : Question de niche sur un organisme peu connu, mais la durée du mandat est clairement indiquée.",
+      "la valeur fausse figure dans d'autres articles : L752-1, L531-2, L454-2, L453-9, L452-1 …"
+    ],
+    "false_premise-dev-004": [
+      "doute du rédacteur : La prolongation de douze mois s'ajoute au délai initial ; la réponse doit donner douze mois, et la question ne cite pas la valeur de 14 jours qui apparaît aussi dans l'article.",
+      "la valeur fausse figure dans d'autres articles : L431-6, D314-24, R811-5, R822-4, R742-13 …"
+    ],
+    "false_premise-dev-005": [
+      "doute du rédacteur : Le taux de 20 % pourrait exister pour d'autres sanctions du code (par exemple pratiques commerciales trompeuses, jusqu'à 10 % aussi), mais pas pour ce cas de fraude ; la question ne précise pas le type de fraude.",
+      "fait 1 : forme sans chiffre absente du texte « dix pour cent »",
+      "la valeur fausse figure dans d'autres articles : L242-4, L224-66, R313-32, Annexe à l'article R313-4, R313-31 …"
+    ],
+    "false_premise-dev-006": [
+      "doute du rédacteur : La durée de dix ans pourrait exister dans d'autres infractions pénales hors du Code de la consommation, mais pas pour cette peine complémentaire.",
+      "la valeur fausse figure dans d'autres articles : D213-2, R315-3, Annexe à l'article R314-3, R111-4-4"
+    ],
+    "false_premise-dev-007": [
+      "doute du rédacteur : Le code prévoit peut-être d'autres délais de prescription pour des manquements plus graves (amendes plus élevées), donc la valeur fausse 3 ans pourrait exister ailleurs, mais pas pour ce seuil.",
+      "fait 1 : forme sans chiffre absente du texte « un an »"
+    ],
+    "false_premise-dev-008": [
+      "doute du rédacteur : Le délai de convocation est exprimé en « un mois au moins » ; la fausse valeur « 15 jours » est plausible mais pourrait être rapprochée d'autres délais de procédure."
+    ],
+    "false_premise-dev-009": [
+      "doute du rédacteur : L'article fixe aussi un plafond de 30 000 euros ; la question vise seulement le pourcentage, mais la réponse pourrait citer les deux valeurs.",
+      "la valeur fausse figure dans d'autres articles : L242-4, L242-18-2, L242-18-3, L241-4, L241-7 …"
+    ],
+    "false_premise-dev-010": [
+      "doute du rédacteur : Le code prévoit aussi un délai de réflexion de dix jours avant acceptation, ce qui peut créer de la confusion ; 15 jours reste toutefois absent de l'article."
+    ]
+  },
+  "overlap": {
+    "comparison-dev-001": 0.214,
+    "comparison-dev-002": 0.444,
+    "comparison-dev-003": 0.3,
+    "comparison-dev-004": 0.5,
+    "comparison-dev-005": 0.182,
+    "comparison-dev-006": 0.167,
+    "comparison-dev-007": 0.417,
+    "comparison-dev-008": 0.5,
+    "comparison-dev-009": 0.444,
+    "comparison-dev-010": 0.455,
+    "set-dev-001": 0.6,
+    "set-dev-002": 0.25,
+    "set-dev-003": 0.875,
+    "set-dev-004": 0.2,
+    "set-dev-005": 0.5,
+    "set-dev-006": 0.6,
+    "set-dev-007": 0.429,
+    "set-dev-008": 0.714,
+    "set-dev-009": 0.333,
+    "set-dev-010": 0.667,
+    "bridge-dev-001": 0.429,
+    "bridge-dev-002": 0.286,
+    "bridge-dev-003": 0.571,
+    "bridge-dev-004": 0.625,
+    "bridge-dev-006": 0.375,
+    "bridge-dev-007": 0.5,
+    "bridge-dev-008": 0.333,
+    "bridge-dev-010": 0.25,
+    "bridge-dev-011": 0.857,
+    "bridge-dev-012": 0.429,
+    "bridge-dev-013": 0.667,
+    "bridge-dev-014": 0.2,
+    "bridge-dev-015": 0.125,
+    "bridge-dev-016": 0.375,
+    "bridge-dev-017": 0.143,
+    "bridge-dev-018": 0.4,
+    "bridge-dev-019": 0.5,
+    "bridge-dev-020": 0.556,
+    "false_premise-dev-002": 0.333,
+    "false_premise-dev-003": 0.286,
+    "false_premise-dev-004": 0.5,
+    "false_premise-dev-005": 0.556,
+    "false_premise-dev-006": 0.375,
+    "false_premise-dev-007": 0.571,
+    "false_premise-dev-008": 0.375,
+    "false_premise-dev-009": 0.4,
+    "false_premise-dev-010": 0.5
+  },
+  "question_words": {
+    "comparison-dev-001": 25,
+    "comparison-dev-002": 23,
+    "comparison-dev-003": 19,
+    "comparison-dev-004": 21,
+    "comparison-dev-005": 19,
+    "comparison-dev-006": 23,
+    "comparison-dev-007": 24,
+    "comparison-dev-008": 31,
+    "comparison-dev-009": 19,
+    "comparison-dev-010": 17,
+    "set-dev-001": 13,
+    "set-dev-002": 15,
+    "set-dev-003": 14,
+    "set-dev-004": 11,
+    "set-dev-005": 13,
+    "set-dev-006": 13,
+    "set-dev-007": 13,
+    "set-dev-008": 15,
+    "set-dev-009": 13,
+    "set-dev-010": 18,
+    "bridge-dev-001": 14,
+    "bridge-dev-002": 15,
+    "bridge-dev-003": 12,
+    "bridge-dev-004": 16,
+    "bridge-dev-005": 0,
+    "bridge-dev-006": 15,
+    "bridge-dev-007": 12,
+    "bridge-dev-008": 17,
+    "bridge-dev-009": 0,
+    "bridge-dev-010": 13,
+    "bridge-dev-011": 13,
+    "bridge-dev-012": 19,
+    "bridge-dev-013": 17,
+    "bridge-dev-014": 23,
+    "bridge-dev-015": 15,
+    "bridge-dev-016": 14,
+    "bridge-dev-017": 15,
+    "bridge-dev-018": 10,
+    "bridge-dev-019": 15,
+    "bridge-dev-020": 16,
+    "false_premise-dev-001": 0,
+    "false_premise-dev-002": 13,
+    "false_premise-dev-003": 15,
+    "false_premise-dev-004": 18,
+    "false_premise-dev-005": 14,
+    "false_premise-dev-006": 15,
+    "false_premise-dev-007": 14,
+    "false_premise-dev-008": 16,
+    "false_premise-dev-009": 19,
+    "false_premise-dev-010": 13
+  },
+  "writer_models": [
+    "claude-sonnet-5-5"
+  ],
+  "prompt_sha256": [
+    "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+    "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+    "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+    "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c"
+  ]
+}

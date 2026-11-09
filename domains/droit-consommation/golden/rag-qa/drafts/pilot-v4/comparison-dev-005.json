@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-005",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T14:40:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2627,
+    "output_tokens": 263
+  },
+  "output": {
+    "question": "Prison encourue : combien pour des frais de recouvrement interdits, et pour une pratique commerciale trompeuse suivie de contrats conclus ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "est punie d'un emprisonnement de deux ans et d'une amende de 300 000 euros",
+        "article": "L132-23"
+      },
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "la peine d'emprisonnement prévue à l'article L. 132-2 est portée à trois ans",
+        "article": "L132-2-1"
+      }
+    ],
+    "doubt": "Les deux articles portent sur des peines d'emprisonnement, mais B est une aggravation de la peine de base de L132-2, ce qui reste comparable."
+  },
+  "raw_text": "{\"question\":\"Prison encourue : combien pour des frais de recouvrement interdits, et pour une pratique commerciale trompeuse suivie de contrats conclus ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"est punie d'un emprisonnement de deux ans et d'une amende de 300 000 euros\",\"article\":\"L132-23\"},{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"la peine d'emprisonnement prévue à l'article L. 132-2 est portée à trois ans\",\"article\":\"L132-2-1\"}],\"doubt\":\"Les deux articles portent sur des peines d'emprisonnement, mais B est une aggravation de la peine de base de L132-2, ce qui reste comparable.\"}"
+}

@@ -1,0 +1,48 @@
+{
+  "task": "set-dev-010",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T14:40:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2687,
+    "output_tokens": 414
+  },
+  "output": {
+    "question": "Comment doit être exprimé le coût de l'assurance emprunteur dans les documents remis avant l'offre de prêt immobilier ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "taux annuel effectif de l'assurance",
+          "taux annuel effectif"
+        ],
+        "quote": "en taux annuel effectif de l'assurance, qui permette la comparaison par l'emprunteur de ce taux avec le taux annuel effectif global du crédit",
+        "article": "L313-8"
+      },
+      {
+        "accepted": [
+          "montant total en euros",
+          "huit ans",
+          "durée totale du prêt"
+        ],
+        "quote": "En montant total en euros dû par l'emprunteur au titre de l'assurance, sur une durée de huit ans et sur la durée totale du prêt",
+        "article": "L313-8"
+      },
+      {
+        "accepted": [
+          "par période",
+          "périodicité de paiement",
+          "échéance de remboursement"
+        ],
+        "quote": "En euros et par période, selon la périodicité de paiement.",
+        "article": "L313-8"
+      }
+    ],
+    "doubt": "Les mots-clés du 1° (taux annuel effectif) apparaissent aussi en partie dans le 2° ou 3° de façon indirecte ; la liste est introduite par une phrase unique, ce qui la rend assez technique pour un chat."
+  },
+  "raw_text": "{\"question\":\"Comment doit être exprimé le coût de l'assurance emprunteur dans les documents remis avant l'offre de prêt immobilier ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"taux annuel effectif de l'assurance\",\"taux annuel effectif\"],\"quote\":\"en taux annuel effectif de l'assurance, qui permette la comparaison par l'emprunteur de ce taux avec le taux annuel effectif global du crédit\",\"article\":\"L313-8\"},{\"accepted\":[\"montant total en euros\",\"huit ans\",\"durée totale du prêt\"],\"quote\":\"En montant total en euros dû par l'emprunteur au titre de l'assurance, sur une durée de huit ans et sur la durée totale du prêt\",\"article\":\"L313-8\"},{\"accepted\":[\"par période\",\"périodicité de paiement\",\"échéance de remboursement\"],\"quote\":\"En euros et par période, selon la périodicité de paiement.\",\"article\":\"L313-8\"}],\"doubt\":\"Les mots-clés du 1° (taux annuel effectif) apparaissent aussi en partie dans le 2° ou 3° de façon indirecte ; la liste est introduite par une phrase unique, ce qui la rend assez technique pour un chat.\"}"
+}

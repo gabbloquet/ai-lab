@@ -1,0 +1,48 @@
+{
+  "task": "set-dev-004",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T14:40:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2483,
+    "output_tokens": 443
+  },
+  "output": {
+    "question": "Comment se calcule le délai de rétractation d'un achat en ligne ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "le jour où le contrat est conclu",
+          "le jour de la réception du bien"
+        ],
+        "quote": "Le jour où le contrat est conclu ou le jour de la réception du bien n'est pas compté dans le délai mentionné à l'article L. 221-18",
+        "article": "L221-19"
+      },
+      {
+        "accepted": [
+          "première heure du premier jour",
+          "dernière heure du dernier jour"
+        ],
+        "quote": "Le délai commence à courir au début de la première heure du premier jour et prend fin à l'expiration de la dernière heure du dernier jour du délai",
+        "article": "L221-19"
+      },
+      {
+        "accepted": [
+          "samedi",
+          "dimanche",
+          "jour férié",
+          "chômé"
+        ],
+        "quote": "Si ce délai expire un samedi, un dimanche ou un jour férié ou chômé, il est prorogé jusqu'au premier jour ouvrable suivant",
+        "article": "L221-19"
+      }
+    ],
+    "doubt": "Les éléments sont des règles de calcul et non des items distincts ; les mots-clés ne sont pas vraiment propres à chaque élément (le 1° et le 2° partagent « jour », « délai »), et la réponse ne se lit pas comme une liste courte, donc l'article se prête mal à ce mode."
+  },
+  "raw_text": "{\"question\":\"Comment se calcule le délai de rétractation d'un achat en ligne ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"le jour où le contrat est conclu\",\"le jour de la réception du bien\"],\"quote\":\"Le jour où le contrat est conclu ou le jour de la réception du bien n'est pas compté dans le délai mentionné à l'article L. 221-18\",\"article\":\"L221-19\"},{\"accepted\":[\"première heure du premier jour\",\"dernière heure du dernier jour\"],\"quote\":\"Le délai commence à courir au début de la première heure du premier jour et prend fin à l'expiration de la dernière heure du dernier jour du délai\",\"article\":\"L221-19\"},{\"accepted\":[\"samedi\",\"dimanche\",\"jour férié\",\"chômé\"],\"quote\":\"Si ce délai expire un samedi, un dimanche ou un jour férié ou chômé, il est prorogé jusqu'au premier jour ouvrable suivant\",\"article\":\"L221-19\"}],\"doubt\":\"Les éléments sont des règles de calcul et non des items distincts ; les mots-clés ne sont pas vraiment propres à chaque élément (le 1° et le 2° partagent « jour », « délai »), et la réponse ne se lit pas comme une liste courte, donc l'article se prête mal à ce mode.\"}"
+}

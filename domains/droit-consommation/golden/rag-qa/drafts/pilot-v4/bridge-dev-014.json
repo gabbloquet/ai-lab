@@ -1,0 +1,30 @@
+{
+  "task": "bridge-dev-014",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2893,
+    "output_tokens": 359
+  },
+  "output": {
+    "question": "Surendettement : un paiement fait en violation des règles peut être annulé, mais pendant combien de temps la suspension et l'interdiction durent-elles au maximum ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans"
+        ],
+        "quote": "Cette suspension et cette interdiction ne peuvent excéder deux ans.",
+        "article": "L724-4"
+      }
+    ],
+    "doubt": "A cite L. 724-4 dans une longue liste d'articles dont la violation entraîne l'annulation ; le renvoi n'est pas spécifique à la durée de suspension. Une question sur la durée maximale ne se rattache pas à la situation décrite par A, et A donne déjà le délai d'un an pour l'annulation, ce qui prête à confusion.",
+    "link_quote": "L. 721-2, L. 722-2, L. 722-3, L. 722-4, L. 722-5, L. 722-12, L. 722-13, L. 722-14, L. 722-16, L. 724-4, L. 732-2, L. 733-1 et L. 733-4"
+  },
+  "raw_text": "{\"question\":\"Surendettement : un paiement fait en violation des règles peut être annulé, mais pendant combien de temps la suspension et l'interdiction durent-elles au maximum ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"deux ans\"],\"quote\":\"Cette suspension et cette interdiction ne peuvent excéder deux ans.\",\"article\":\"L724-4\"}],\"doubt\":\"A cite L. 724-4 dans une longue liste d'articles dont la violation entraîne l'annulation ; le renvoi n'est pas spécifique à la durée de suspension. Une question sur la durée maximale ne se rattache pas à la situation décrite par A, et A donne déjà le délai d'un an pour l'annulation, ce qui prête à confusion.\",\"link_quote\":\"L. 721-2, L. 722-2, L. 722-3, L. 722-4, L. 722-5, L. 722-12, L. 722-13, L. 722-14, L. 722-16, L. 724-4, L. 732-2, L. 733-1 et L. 733-4\"}"
+}

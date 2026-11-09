@@ -1,0 +1,32 @@
+{
+  "task": "false_premise-dev-005",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T14:40:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2250,
+    "output_tokens": 266
+  },
+  "output": {
+    "question": "Fraude : l'amende peut monter jusqu'à 20 % du chiffre d'affaires annuel moyen, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "10 %",
+          "10 pour cent",
+          "dix pour cent"
+        ],
+        "quote": "peuvent être portées, de manière proportionnée aux avantages tirés du délit, à 10 % du chiffre d'affaires moyen annuel",
+        "article": "L454-4"
+      }
+    ],
+    "doubt": "Le taux de 20 % pourrait exister pour d'autres sanctions du code (par exemple pratiques commerciales trompeuses, jusqu'à 10 % aussi), mais pas pour ce cas de fraude ; la question ne précise pas le type de fraude.",
+    "false_value": "20 %"
+  },
+  "raw_text": "{\"question\":\"Fraude : l'amende peut monter jusqu'à 20 % du chiffre d'affaires annuel moyen, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"10 %\",\"10 pour cent\",\"dix pour cent\"],\"quote\":\"peuvent être portées, de manière proportionnée aux avantages tirés du délit, à 10 % du chiffre d'affaires moyen annuel\",\"article\":\"L454-4\"}],\"doubt\":\"Le taux de 20 % pourrait exister pour d'autres sanctions du code (par exemple pratiques commerciales trompeuses, jusqu'à 10 % aussi), mais pas pour ce cas de fraude ; la question ne précise pas le type de fraude.\",\"false_value\":\"20 %\"}"
+}

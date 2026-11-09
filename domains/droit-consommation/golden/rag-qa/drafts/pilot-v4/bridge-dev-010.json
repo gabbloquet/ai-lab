@@ -1,0 +1,28 @@
+{
+  "task": "bridge-dev-010",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3276,
+    "output_tokens": 196
+  },
+  "output": {
+    "question": "Crédit immobilier : le prêteur qui n'explique pas bien le prêt, quelle amende risque-t-il ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [],
+        "quote": "",
+        "article": "L313-11"
+      }
+    ],
+    "doubt": "Le renvoi à L313-11 ne mène pas à une valeur précise : B ne contient aucun montant, délai ou seuil. Le montant de l'amende (30 000 euros) figure dans A lui-même, pas dans B.",
+    "link_quote": "à partir des informations prévues à l'article L. 313-11"
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : le prêteur qui n'explique pas bien le prêt, quelle amende risque-t-il ?\",\"usable\":false,\"facts\":[{\"accepted\":[],\"quote\":\"\",\"article\":\"L313-11\"}],\"doubt\":\"Le renvoi à L313-11 ne mène pas à une valeur précise : B ne contient aucun montant, délai ou seuil. Le montant de l'amende (30 000 euros) figure dans A lui-même, pas dans B.\",\"link_quote\":\"à partir des informations prévues à l'article L. 313-11\"}"
+}

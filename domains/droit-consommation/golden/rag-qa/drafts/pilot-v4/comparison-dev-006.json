@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-006",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T14:40:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2620,
+    "output_tokens": 275
+  },
+  "output": {
+    "question": "Amende max : pub non conforme pour un contrat de temps partagé, et manquement aux règles de mise en conformité d'un bien (personne physique) ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "150 000 euros",
+          "150 000 €"
+        ],
+        "quote": "est puni d'une amende de 150 000 euros",
+        "article": "L242-27"
+      },
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €"
+        ],
+        "quote": "une amende administrative dont le montant ne peut excéder 15 000 euros pour une personne physique",
+        "article": "L241-10"
+      }
+    ],
+    "doubt": "Les deux amendes sont de nature différente (pénale d'un côté, administrative de l'autre) ; B a aussi un plafond de 75 000 euros pour une personne morale, d'où la précision « personne physique » dans la question."
+  },
+  "raw_text": "{\"question\":\"Amende max : pub non conforme pour un contrat de temps partagé, et manquement aux règles de mise en conformité d'un bien (personne physique) ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"150 000 euros\",\"150 000 €\"],\"quote\":\"est puni d'une amende de 150 000 euros\",\"article\":\"L242-27\"},{\"accepted\":[\"15 000 euros\",\"15 000 €\"],\"quote\":\"une amende administrative dont le montant ne peut excéder 15 000 euros pour une personne physique\",\"article\":\"L241-10\"}],\"doubt\":\"Les deux amendes sont de nature différente (pénale d'un côté, administrative de l'autre) ; B a aussi un plafond de 75 000 euros pour une personne morale, d'où la précision « personne physique » dans la question.\"}"
+}

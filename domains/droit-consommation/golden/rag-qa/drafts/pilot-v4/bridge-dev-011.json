@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-011",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:49+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3721,
+    "output_tokens": 290
+  },
+  "output": {
+    "question": "Combien de représentants des associations de consommateurs siègent au Conseil national de l'alimentation ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "neuf",
+          "9"
+        ],
+        "quote": "a) Le collège constitué de neuf représentants des associations nationales de défense des consommateurs ou d'usagers ;",
+        "article": "D824-4"
+      }
+    ],
+    "doubt": "Le renvoi de A vers B porte sur la composition des collèges, pas sur une valeur qui règle la situation de A (nomination des membres par arrêté, mandat de trois ans). La durée du mandat figure déjà dans A, et B ne fixe aucune valeur applicable à la situation de A. La question reprend en outre les termes propres à B.",
+    "link_quote": "Les membres des collèges a à h mentionnés au 1° de l'article D. 824-4 sont nommés"
+  },
+  "raw_text": "{\"question\":\"Combien de représentants des associations de consommateurs siègent au Conseil national de l'alimentation ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"neuf\",\"9\"],\"quote\":\"a) Le collège constitué de neuf représentants des associations nationales de défense des consommateurs ou d'usagers ;\",\"article\":\"D824-4\"}],\"doubt\":\"Le renvoi de A vers B porte sur la composition des collèges, pas sur une valeur qui règle la situation de A (nomination des membres par arrêté, mandat de trois ans). La durée du mandat figure déjà dans A, et B ne fixe aucune valeur applicable à la situation de A. La question reprend en outre les termes propres à B.\",\"link_quote\":\"Les membres des collèges a à h mentionnés au 1° de l'article D. 824-4 sont nommés\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-dev-004",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T14:40:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2397,
+    "output_tokens": 217
+  },
+  "output": {
+    "question": "Achat en ligne sans info sur la rétractation : mon délai est prolongé de six mois, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "douze mois",
+          "12 mois"
+        ],
+        "quote": "le délai de rétractation est prolongé de douze mois à compter de l'expiration du délai de rétractation initial",
+        "article": "L221-20"
+      }
+    ],
+    "doubt": "La prolongation de douze mois s'ajoute au délai initial ; la réponse doit donner douze mois, et la question ne cite pas la valeur de 14 jours qui apparaît aussi dans l'article.",
+    "false_value": "six mois"
+  },
+  "raw_text": "{\"question\":\"Achat en ligne sans info sur la rétractation : mon délai est prolongé de six mois, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"douze mois\",\"12 mois\"],\"quote\":\"le délai de rétractation est prolongé de douze mois à compter de l'expiration du délai de rétractation initial\",\"article\":\"L221-20\"}],\"doubt\":\"La prolongation de douze mois s'ajoute au délai initial ; la réponse doit donner douze mois, et la question ne cite pas la valeur de 14 jours qui apparaît aussi dans l'article.\",\"false_value\":\"six mois\"}"
+}

@@ -1,0 +1,68 @@
+{
+  "task": "set-dev-005",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T14:40:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2686,
+    "output_tokens": 1175
+  },
+  "output": {
+    "question": "Quelles sont les missions du directeur général de l'Institut national de la consommation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "exécute les décisions",
+          "décisions du conseil d'administration"
+        ],
+        "quote": "Prépare et exécute les décisions du conseil d'administration",
+        "article": "R822-11"
+      },
+      {
+        "accepted": [
+          "organisation de l'établissement",
+          "responsable de l'organisation"
+        ],
+        "quote": "Est responsable de l'organisation de l'établissement ainsi que de son fonctionnement",
+        "article": "R822-11"
+      },
+      {
+        "accepted": [
+          "programmes d'activités"
+        ],
+        "quote": "Prépare les programmes d'activités de l'établissement et en assure l'exécution",
+        "article": "R822-11"
+      },
+      {
+        "accepted": [
+          "recrute",
+          "gère le personnel"
+        ],
+        "quote": "Recrute et gère le personnel",
+        "article": "R822-11"
+      },
+      {
+        "accepted": [
+          "représente l'Institut",
+          "actes de la vie civile"
+        ],
+        "quote": "Représente l'Institut en justice et dans tous les actes de la vie civile",
+        "article": "R822-11"
+      },
+      {
+        "accepted": [
+          "ordonnateur"
+        ],
+        "quote": "Est ordonnateur des recettes et des dépenses",
+        "article": "R822-11"
+      }
+    ],
+    "doubt": "Le 1° et le 5° mentionnent tous deux le conseil d'administration, d'où des mots-clés choisis avec soin ; la question est un peu institutionnelle pour un chat."
+  },
+  "raw_text": "{\"question\":\"Quelles sont les missions du directeur général de l'Institut national de la consommation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"exécute les décisions\",\"décisions du conseil d'administration\"],\"quote\":\"Prépare et exécute les décisions du conseil d'administration\",\"article\":\"R822-11\"},{\"accepted\":[\"organisation de l'établissement\",\"responsable de l'organisation\"],\"quote\":\"Est responsable de l'organisation de l'établissement ainsi que de son fonctionnement\",\"article\":\"R822-11\"},{\"accepted\":[\"programmes d'activités\"],\"quote\":\"Prépare les programmes d'activités de l'établissement et en assure l'exécution\",\"article\":\"R822-11\"},{\"accepted\":[\"recrute\",\"gère le personnel\"],\"quote\":\"Recrute et gère le personnel\",\"article\":\"R822-11\"},{\"accepted\":[\"représente l'Institut\",\"actes de la vie civile\"],\"quote\":\"Représente l'Institut en justice et dans tous les actes de la vie civile\",\"article\":\"R822-11\"},{\"accepted\":[\"ordonnateur\"],\"quote\":\"Est ordonnateur des recettes et des dépenses\",\"article\":\"R822-11\"}],\"doubt\":\"Le 1° et le 5° mentionnent tous deux le conseil d'administration, d'où des mots-clés choisis avec soin ; la question est un peu institutionnelle pour un chat.\"}"
+}

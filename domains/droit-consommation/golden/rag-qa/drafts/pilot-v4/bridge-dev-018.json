@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-018",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3782,
+    "output_tokens": 250
+  },
+  "output": {
+    "question": "Quelle est l'amende de base pour une pratique commerciale trompeuse ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "sont punies d'un emprisonnement de deux ans et d'une amende de 300 000 euros",
+        "article": "L132-2"
+      }
+    ],
+    "doubt": "Le renvoi de A vers L. 132-2 n'est qu'une énumération d'articles pour la récidive ; A ne décrit aucune situation à laquelle la valeur de B s'applique, et la question devrait reprendre les termes propres à B (pratiques trompeuses).",
+    "link_quote": "Les articles L. 121-2 à L. 121-4 et L. 132-2"
+  },
+  "raw_text": "{\"question\":\"Quelle est l'amende de base pour une pratique commerciale trompeuse ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"sont punies d'un emprisonnement de deux ans et d'une amende de 300 000 euros\",\"article\":\"L132-2\"}],\"doubt\":\"Le renvoi de A vers L. 132-2 n'est qu'une énumération d'articles pour la récidive ; A ne décrit aucune situation à laquelle la valeur de B s'applique, et la question devrait reprendre les termes propres à B (pratiques trompeuses).\",\"link_quote\":\"Les articles L. 121-2 à L. 121-4 et L. 132-2\"}"
+}

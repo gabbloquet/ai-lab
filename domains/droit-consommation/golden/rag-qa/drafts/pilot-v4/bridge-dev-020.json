@@ -1,0 +1,32 @@
+{
+  "task": "bridge-dev-020",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2783,
+    "output_tokens": 214
+  },
+  "output": {
+    "question": "Visite et saisie par des agents : combien de témoins signent le procès-verbal si l'occupant est absent ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux témoins",
+          "2 témoins",
+          "deux"
+        ],
+        "quote": "l'officier de police judiciaire requiert deux témoins choisis en dehors des personnes relevant de son autorité",
+        "article": "L512-57"
+      }
+    ],
+    "doubt": "La question reprend le mot « témoins » présent dans A, ce qui est inévitable ; la valeur (deux) vient bien de B.",
+    "link_quote": "les deux témoins requis conformément à l'article L. 512-57"
+  },
+  "raw_text": "{\"question\":\"Visite et saisie par des agents : combien de témoins signent le procès-verbal si l'occupant est absent ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux témoins\",\"2 témoins\",\"deux\"],\"quote\":\"l'officier de police judiciaire requiert deux témoins choisis en dehors des personnes relevant de son autorité\",\"article\":\"L512-57\"}],\"doubt\":\"La question reprend le mot « témoins » présent dans A, ce qui est inévitable ; la valeur (deux) vient bien de B.\",\"link_quote\":\"les deux témoins requis conformément à l'article L. 512-57\"}"
+}

@@ -1,0 +1,47 @@
+{
+  "task": "set-dev-003",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T14:40:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2612,
+    "output_tokens": 301
+  },
+  "output": {
+    "question": "Quelles indications figurent sur l'étiquette des échantillons scellés pour l'expertise contradictoire sur les mycotoxines ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "Identifiant de l'échantillon",
+          "identifiant"
+        ],
+        "quote": "1° Identifiant de l'échantillon ;",
+        "article": "R512-22"
+      },
+      {
+        "accepted": [
+          "Numéro attribué par le laboratoire",
+          "numéro attribué"
+        ],
+        "quote": "2° Numéro attribué par le laboratoire ;",
+        "article": "R512-22"
+      },
+      {
+        "accepted": [
+          "Nom et signature de l'analyste",
+          "signature de l'analyste",
+          "signature"
+        ],
+        "quote": "3° Nom et signature de l'analyste.",
+        "article": "R512-22"
+      }
+    ],
+    "doubt": "Le mot « numéro » et le mot « identifiant » sont proches ; la réponse peut être confuse si elle reformule librement."
+  },
+  "raw_text": "{\"question\":\"Quelles indications figurent sur l'étiquette des échantillons scellés pour l'expertise contradictoire sur les mycotoxines ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"Identifiant de l'échantillon\",\"identifiant\"],\"quote\":\"1° Identifiant de l'échantillon ;\",\"article\":\"R512-22\"},{\"accepted\":[\"Numéro attribué par le laboratoire\",\"numéro attribué\"],\"quote\":\"2° Numéro attribué par le laboratoire ;\",\"article\":\"R512-22\"},{\"accepted\":[\"Nom et signature de l'analyste\",\"signature de l'analyste\",\"signature\"],\"quote\":\"3° Nom et signature de l'analyste.\",\"article\":\"R512-22\"}],\"doubt\":\"Le mot « numéro » et le mot « identifiant » sont proches ; la réponse peut être confuse si elle reformule librement.\"}"
+}

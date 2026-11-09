@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-008",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3006,
+    "output_tokens": 264
+  },
+  "output": {
+    "question": "Une association de consommateurs veut agir en justice contre une clause illicite : de quelle procédure doit-elle disposer ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "agrément",
+          "agréée"
+        ],
+        "quote": "si elles ont été agréées à cette fin en application de l'article L. 811-1",
+        "article": "L621-1"
+      }
+    ],
+    "doubt": "B ne fixe aucune valeur chiffrée (durée, montant, taux, seuil) ; il énonce une condition d'agrément et renvoie lui-même à un autre article, donc le pont ne mène pas à une valeur précise applicable à la situation de A.",
+    "link_quote": "Les associations de consommateurs mentionnées à l'article L. 621-1 et agissant dans les conditions précisées à cet article"
+  },
+  "raw_text": "{\"question\":\"Une association de consommateurs veut agir en justice contre une clause illicite : de quelle procédure doit-elle disposer ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"agrément\",\"agréée\"],\"quote\":\"si elles ont été agréées à cette fin en application de l'article L. 811-1\",\"article\":\"L621-1\"}],\"doubt\":\"B ne fixe aucune valeur chiffrée (durée, montant, taux, seuil) ; il énonce une condition d'agrément et renvoie lui-même à un autre article, donc le pont ne mène pas à une valeur précise applicable à la situation de A.\",\"link_quote\":\"Les associations de consommateurs mentionnées à l'article L. 621-1 et agissant dans les conditions précisées à cet article\"}"
+}

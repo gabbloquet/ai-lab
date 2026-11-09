@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-007",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T14:40:36+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2895,
+    "output_tokens": 315
+  },
+  "output": {
+    "question": "Quel délai de trois jours ou trois mois ? Crédit pour un achat livré tout de suite, et changement de contrat d'électricité : combien de temps ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trois jours",
+          "3 jours"
+        ],
+        "quote": "que s'il intervient dans un délai de trois jours à compter de la conclusion du contrat de crédit",
+        "article": "L222-12"
+      },
+      {
+        "accepted": [
+          "trois mois",
+          "3 mois"
+        ],
+        "quote": "dans un délai maximal de trois mois à compter de sa réception",
+        "article": "L224-10"
+      }
+    ],
+    "doubt": "Les deux délais ne règlent pas la même chose : l'un concerne les effets de la rétractation d'un crédit sur le contrat de vente, l'autre la résiliation sans pénalité après modification du contrat d'énergie. La question n'est donc pas une vraie comparaison, et sa formulation laisse apparaître les réponses."
+  },
+  "raw_text": "{\"question\":\"Quel délai de trois jours ou trois mois ? Crédit pour un achat livré tout de suite, et changement de contrat d'électricité : combien de temps ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trois jours\",\"3 jours\"],\"quote\":\"que s'il intervient dans un délai de trois jours à compter de la conclusion du contrat de crédit\",\"article\":\"L222-12\"},{\"accepted\":[\"trois mois\",\"3 mois\"],\"quote\":\"dans un délai maximal de trois mois à compter de sa réception\",\"article\":\"L224-10\"}],\"doubt\":\"Les deux délais ne règlent pas la même chose : l'un concerne les effets de la rétractation d'un crédit sur le contrat de vente, l'autre la résiliation sans pénalité après modification du contrat d'énergie. La question n'est donc pas une vraie comparaison, et sa formulation laisse apparaître les réponses.\"}"
+}

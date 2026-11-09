@@ -1,0 +1,30 @@
+{
+  "task": "bridge-dev-019",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2988,
+    "output_tokens": 302
+  },
+  "output": {
+    "question": "Quel texte fixe les modalités du mécanisme de signalement des anomalies sur les numéros surtaxés ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "arrêté du ministre chargé de l'économie"
+        ],
+        "quote": "Un arrêté du ministre chargé de l'économie précise les modalités de dépôt des signalements par les consommateurs afin d'en assurer la fiabilité.",
+        "article": "L224-47"
+      }
+    ],
+    "doubt": "B ne fixe aucune valeur chiffrée (durée, montant, taux, seuil) : il ne renvoie qu'à un arrêté pour les modalités de dépôt, et A dit déjà que les modalités sont fixées par décret. Le renvoi porte sur une procédure, pas sur une valeur.",
+    "link_quote": "Les modalités du mécanisme de signalement prévu à l'article L. 224-47"
+  },
+  "raw_text": "{\"question\":\"Quel texte fixe les modalités du mécanisme de signalement des anomalies sur les numéros surtaxés ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"arrêté du ministre chargé de l'économie\"],\"quote\":\"Un arrêté du ministre chargé de l'économie précise les modalités de dépôt des signalements par les consommateurs afin d'en assurer la fiabilité.\",\"article\":\"L224-47\"}],\"doubt\":\"B ne fixe aucune valeur chiffrée (durée, montant, taux, seuil) : il ne renvoie qu'à un arrêté pour les modalités de dépôt, et A dit déjà que les modalités sont fixées par décret. Le renvoi porte sur une procédure, pas sur une valeur.\",\"link_quote\":\"Les modalités du mécanisme de signalement prévu à l'article L. 224-47\"}"
+}

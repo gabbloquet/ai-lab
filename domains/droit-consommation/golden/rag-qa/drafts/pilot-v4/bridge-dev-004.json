@@ -1,0 +1,30 @@
+{
+  "task": "bridge-dev-004",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3214,
+    "output_tokens": 264
+  },
+  "output": {
+    "question": "Contrôle d'une commande en ligne par un agent : combien de signatures figurent sur l'étiquette de l'échantillon ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "7° La signature de l'agent habilité"
+        ],
+        "quote": "7° La signature de l'agent habilité.",
+        "article": "R512-16-3"
+      }
+    ],
+    "doubt": "L'article B ne fixe aucune valeur précise (durée, montant, taux, seuil, organisme) mais seulement une liste de mentions d'étiquette ; la question ne se prête pas à une réponse chiffrée unique et le renvoi porte sur une liste de mentions.",
+    "link_quote": "L'échantillon est muni d'une étiquette portant les indications mentionnées à l'article R. 512-16-3."
+  },
+  "raw_text": "{\"question\":\"Contrôle d'une commande en ligne par un agent : combien de signatures figurent sur l'étiquette de l'échantillon ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"7° La signature de l'agent habilité\"],\"quote\":\"7° La signature de l'agent habilité.\",\"article\":\"R512-16-3\"}],\"doubt\":\"L'article B ne fixe aucune valeur précise (durée, montant, taux, seuil, organisme) mais seulement une liste de mentions d'étiquette ; la question ne se prête pas à une réponse chiffrée unique et le renvoi porte sur une liste de mentions.\",\"link_quote\":\"L'échantillon est muni d'une étiquette portant les indications mentionnées à l'article R. 512-16-3.\"}"
+}

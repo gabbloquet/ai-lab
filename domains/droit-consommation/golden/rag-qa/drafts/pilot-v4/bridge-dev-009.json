@@ -1,0 +1,22 @@
+{
+  "task": "bridge-dev-009",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3144,
+    "output_tokens": 190
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "Le renvoi de L222-9 à L321-1 concerne le code monétaire et financier (« du même code »), pas le Code de la consommation. L321-1 du Code de la consommation ne fixe aucune valeur précise (ni délai, ni montant, ni taux, ni organisme) applicable à la situation de L222-9.",
+    "link_quote": "aux services de réception-transmission et exécution d'ordres pour le compte de tiers mentionnés à l'article L. 321-1 du même code"
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"Le renvoi de L222-9 à L321-1 concerne le code monétaire et financier (« du même code »), pas le Code de la consommation. L321-1 du Code de la consommation ne fixe aucune valeur précise (ni délai, ni montant, ni taux, ni organisme) applicable à la situation de L222-9.\",\"link_quote\":\"aux services de réception-transmission et exécution d'ordres pour le compte de tiers mentionnés à l'article L. 321-1 du même code\"}"
+}

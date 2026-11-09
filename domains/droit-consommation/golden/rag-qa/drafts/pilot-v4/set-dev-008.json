@@ -1,0 +1,53 @@
+{
+  "task": "set-dev-008",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T14:40:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2697,
+    "output_tokens": 358
+  },
+  "output": {
+    "question": "Que doit préciser l'évaluation du coût de l'énergie non encore facturée envoyée par mon fournisseur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "à titre informatif",
+          "informatif"
+        ],
+        "quote": "Est fournie au consommateur à titre informatif",
+        "article": "D224-29"
+      },
+      {
+        "accepted": [
+          "non encore facturée"
+        ],
+        "quote": "Concerne une consommation d'énergie non encore facturée",
+        "article": "D224-29"
+      },
+      {
+        "accepted": [
+          "demande de paiement"
+        ],
+        "quote": "Ne constitue pas une demande de paiement",
+        "article": "D224-29"
+      },
+      {
+        "accepted": [
+          "index auto-relevés",
+          "consommation réelle",
+          "estimée"
+        ],
+        "quote": "Est fondée sur la consommation réelle, estimée ou sur les index auto-relevés transmis par le consommateur",
+        "article": "D224-29"
+      }
+    ],
+    "doubt": "Les éléments 2° et 1° partagent des mots proches (informatif, non facturée) ; le mot-clé « non encore facturée » apparaît aussi dans le chapeau de l'article."
+  },
+  "raw_text": "{\"question\":\"Que doit préciser l'évaluation du coût de l'énergie non encore facturée envoyée par mon fournisseur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"à titre informatif\",\"informatif\"],\"quote\":\"Est fournie au consommateur à titre informatif\",\"article\":\"D224-29\"},{\"accepted\":[\"non encore facturée\"],\"quote\":\"Concerne une consommation d'énergie non encore facturée\",\"article\":\"D224-29\"},{\"accepted\":[\"demande de paiement\"],\"quote\":\"Ne constitue pas une demande de paiement\",\"article\":\"D224-29\"},{\"accepted\":[\"index auto-relevés\",\"consommation réelle\",\"estimée\"],\"quote\":\"Est fondée sur la consommation réelle, estimée ou sur les index auto-relevés transmis par le consommateur\",\"article\":\"D224-29\"}],\"doubt\":\"Les éléments 2° et 1° partagent des mots proches (informatif, non facturée) ; le mot-clé « non encore facturée » apparaît aussi dans le chapeau de l'article.\"}"
+}

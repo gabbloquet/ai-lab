@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-016",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2819,
+    "output_tokens": 283
+  },
+  "output": {
+    "question": "Quelle surface minimale pour qu'un magasin doive afficher la saisonnalité des fruits et légumes ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "400 mètres carrés",
+          "400 m²"
+        ],
+        "quote": "Les magasins de vente au détail de plus de 400 mètres carrés qui commercialisent des denrées alimentaires",
+        "article": "L113-3"
+      }
+    ],
+    "doubt": "A ne renvoie à B que pour l'obligation d'affichage, et la valeur recherchée (400 m²) concerne le champ d'application de B, non la sanction de A ; A donne lui-même les montants d'amende, et la question reprend les termes propres à B (saisonnalité, fruits et légumes).",
+    "link_quote": "Tout manquement aux obligations d'affichage prévues à l'article L. 113-3"
+  },
+  "raw_text": "{\"question\":\"Quelle surface minimale pour qu'un magasin doive afficher la saisonnalité des fruits et légumes ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"400 mètres carrés\",\"400 m²\"],\"quote\":\"Les magasins de vente au détail de plus de 400 mètres carrés qui commercialisent des denrées alimentaires\",\"article\":\"L113-3\"}],\"doubt\":\"A ne renvoie à B que pour l'obligation d'affichage, et la valeur recherchée (400 m²) concerne le champ d'application de B, non la sanction de A ; A donne lui-même les montants d'amende, et la question reprend les termes propres à B (saisonnalité, fruits et légumes).\",\"link_quote\":\"Tout manquement aux obligations d'affichage prévues à l'article L. 113-3\"}"
+}

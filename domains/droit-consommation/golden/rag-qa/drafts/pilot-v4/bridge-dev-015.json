@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-015",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3116,
+    "output_tokens": 248
+  },
+  "output": {
+    "question": "Après rétractation d'un achat à distance, sous quel délai dois-je renvoyer le bien au vendeur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quatorze jours",
+          "14 jours"
+        ],
+        "quote": "au plus tard, dans les quatorze jours suivant la communication de sa décision de se rétracter",
+        "article": "L221-23"
+      }
+    ],
+    "doubt": "A renvoie à L. 221-23 à L. 221-25 (plage d'articles), le renvoi à L221-23 est donc indirect, et la question ne mentionne pas le contrat accessoire de A.",
+    "link_quote": "sans frais pour le consommateur autres que ceux prévus aux articles L. 221-23 à L. 221-25"
+  },
+  "raw_text": "{\"question\":\"Après rétractation d'un achat à distance, sous quel délai dois-je renvoyer le bien au vendeur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quatorze jours\",\"14 jours\"],\"quote\":\"au plus tard, dans les quatorze jours suivant la communication de sa décision de se rétracter\",\"article\":\"L221-23\"}],\"doubt\":\"A renvoie à L. 221-23 à L. 221-25 (plage d'articles), le renvoi à L221-23 est donc indirect, et la question ne mentionne pas le contrat accessoire de A.\",\"link_quote\":\"sans frais pour le consommateur autres que ceux prévus aux articles L. 221-23 à L. 221-25\"}"
+}

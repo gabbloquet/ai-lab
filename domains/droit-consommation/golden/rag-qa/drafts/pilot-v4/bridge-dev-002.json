@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-002",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "938fd75ee78991a38a0b793fbc0e9088991f063e24c07b6dda396634b6acb847",
+  "created_at": "2026-11-09T14:40:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2796,
+    "output_tokens": 283
+  },
+  "output": {
+    "question": "Lors d'un contrôle de mes produits, qui fixe la compétence du laboratoire où j'envoie l'échantillon ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "arrêté du ministre chargé de l'économie",
+          "un arrêté du ministre chargé de l'économie"
+        ],
+        "quote": "La compétence de chaque laboratoire admis à procéder à ces essais et analyses est fixée par un arrêté du ministre chargé de l'économie.",
+        "article": "R512-31"
+      }
+    ],
+    "doubt": "La valeur est un acte (arrêté) plutôt qu'un chiffre ; A renvoie aussi à R. 512-32, donc la question reste centrée sur R. 512-31.",
+    "link_quote": "à l'un des laboratoires mentionnés aux articles R. 512-31 et R. 512-32"
+  },
+  "raw_text": "{\"question\":\"Lors d'un contrôle de mes produits, qui fixe la compétence du laboratoire où j'envoie l'échantillon ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"arrêté du ministre chargé de l'économie\",\"un arrêté du ministre chargé de l'économie\"],\"quote\":\"La compétence de chaque laboratoire admis à procéder à ces essais et analyses est fixée par un arrêté du ministre chargé de l'économie.\",\"article\":\"R512-31\"}],\"doubt\":\"La valeur est un acte (arrêté) plutôt qu'un chiffre ; A renvoie aussi à R. 512-32, donc la question reste centrée sur R. 512-31.\",\"link_quote\":\"à l'un des laboratoires mentionnés aux articles R. 512-31 et R. 512-32\"}"
+}
