@@ -11,6 +11,7 @@ from pydantic_ai.models.function import AgentInfo, FunctionModel
 from ailab_rag.answering import CLOSED_BOOK, NAIVE_RAG
 from ailab_rag.campaign import run_campaign, summarize
 from ailab_rag.corpus import Passage
+from ailab_rag.prompting import GROUNDING
 
 pytestmark = pytest.mark.anyio
 
@@ -279,3 +280,26 @@ async def test_summary_has_no_generation_time_for_executions_recorded_without_it
     summary = summarize(ITEMS, executions, split="test")
 
     assert summary["variants"][NAIVE_RAG]["generation_s"] is None
+
+
+async def test_each_variant_can_have_its_own_grounding(tmp_path: Path) -> None:
+    prompts: list[str] = []
+
+    def respond(messages: list[ModelMessage], info: AgentInfo) -> ModelResponse:
+        prompts.append(str(messages[-1].parts[-1].content))
+        args = {"answer": "14 jours", "abstained": False, "cited": ["L221-18"]}
+        return ModelResponse(parts=[ToolCallPart(info.output_tools[0].name, args)])
+
+    await run_campaign(
+        ITEMS[:1],
+        variants=[NAIVE_RAG, "abstain_strict"],
+        model=FunctionModel(respond, model_name="fake-model"),
+        repeats=1,
+        retrieve=retrieve,
+        groundings={"abstain_strict": "Consigne plus exigeante."},
+        out=tmp_path / "e.jsonl",
+        concurrency=1,
+    )
+
+    assert sum("Consigne plus exigeante." in p for p in prompts) == 1
+    assert sum(GROUNDING in p for p in prompts) == 1

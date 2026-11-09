@@ -23,6 +23,7 @@ from pydantic_ai.models import Model
 
 from ailab_evals.rag_qa import KS, PairedScore, aggregate, score_execution
 from ailab_rag.answering import CLOSED_BOOK, NAIVE_RAG, Retriever, run_item
+from ailab_rag.prompting import GROUNDING
 from ailab_rag.tracing import NO_TRACING, Tracer
 
 TRANSIENT_STATUSES = {429, 500, 502, 503, 504}
@@ -55,6 +56,7 @@ async def run_campaign(
     out: Path,
     retrieve: Retriever | None = None,
     retrievers: Mapping[str, Retriever] | None = None,
+    groundings: Mapping[str, str] | None = None,
     concurrency: int = 4,
     max_attempts: int = 5,
     sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
@@ -78,6 +80,7 @@ async def run_campaign(
                             repeat=repeat,
                             retrieve=(retrievers or {}).get(variant, retrieve),
                             reraise=is_transient,
+                            grounding=(groundings or {}).get(variant, GROUNDING),
                         )
                         break
                     except ModelHTTPError as error:

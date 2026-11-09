@@ -37,9 +37,11 @@ def closed_book_message(question: str) -> str:
     return question_line(question)
 
 
-def rag_message(question: str, passages: list[Passage]) -> str:
+def rag_message(question: str, passages: list[Passage], grounding: str = GROUNDING) -> str:
+    """`grounding` est la phrase d'ancrage : celle du gel de la 002 par défaut, remplacée par un
+    levier de génération (006, consigne d'abstention)."""
     extracts = "\n\n---\n\n".join(f"Article {p.num}\n{p.text}" for p in passages)
     return (
-        f"{GROUNDING}\n\nExtraits du Code de la consommation :\n\n{extracts}\n\n---\n\n"
+        f"{grounding}\n\nExtraits du Code de la consommation :\n\n{extracts}\n\n---\n\n"
         f"{question_line(question)}"
     )

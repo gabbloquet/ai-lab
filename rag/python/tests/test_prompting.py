@@ -48,3 +48,12 @@ def test_saying_the_code_is_silent_means_abstaining() -> None:
 def test_the_grounding_asks_to_answer_when_an_extract_holds_the_value() -> None:
     """Cycle 2 : une formulation différente de la question n'est pas une raison de s'abstenir."""
     assert "même si sa formulation diffère" in GROUNDING
+
+
+def test_rag_message_can_use_another_grounding() -> None:
+    """Un levier de génération (006) remplace la phrase d'ancrage, et rien d'autre."""
+    other = "Consigne d'ancrage plus exigeante."
+
+    message = rag_message(QUESTION, [P1], grounding=other)
+
+    assert message == rag_message(QUESTION, [P1]).replace(GROUNDING, other)

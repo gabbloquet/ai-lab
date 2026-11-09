@@ -169,3 +169,20 @@ async def test_the_execution_records_how_long_the_generator_took() -> None:
 
     assert execution["latency"] == {"generation_s": 2.5}
     assert score_execution(ITEM, execution).as_dict()["correct"] is True
+
+
+async def test_a_rag_variant_can_send_its_own_grounding() -> None:
+    recorder = Recorder()
+
+    await run_item(
+        ITEM,
+        variant="abstain_strict",
+        model=recorder.model(),
+        repeat=0,
+        retrieve=lambda q: [P1],
+        grounding="Consigne plus exigeante.",
+    )
+
+    assert recorder.prompts == [
+        rag_message(ITEM["question"], [P1], grounding="Consigne plus exigeante.")
+    ]

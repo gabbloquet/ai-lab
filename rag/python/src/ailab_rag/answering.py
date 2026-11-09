@@ -20,7 +20,7 @@ from pydantic_ai.models import Model
 from pydantic_ai.settings import ModelSettings
 
 from ailab_rag.corpus import Passage
-from ailab_rag.prompting import SYSTEM_PROMPT, closed_book_message, rag_message
+from ailab_rag.prompting import GROUNDING, SYSTEM_PROMPT, closed_book_message, rag_message
 
 CLOSED_BOOK = "closed_book"
 NAIVE_RAG = "naive_rag"
@@ -54,6 +54,7 @@ async def run_item(
     retrieve: Retriever | None = None,
     reraise: Callable[[BaseException], bool] = lambda error: False,
     clock: Callable[[], float] = time.perf_counter,
+    grounding: str = GROUNDING,
 ) -> dict[str, Any]:
     """`reraise` laisse passer une erreur d'infrastructure (limite de débit) au lieu de la noter :
     la campagne relance alors l'exécution, au lieu de la compter comme une mauvaise réponse."""
@@ -66,7 +67,7 @@ async def run_item(
         if retrieve is None:
             raise ValueError(f"la variante {variant} demande une fonction retrieve")
         passages = retrieve(question)
-        prompt = rag_message(question, passages)
+        prompt = rag_message(question, passages, grounding)
         context = list(dict.fromkeys(p.article_id for p in passages))
 
     agent = Agent(
