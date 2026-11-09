@@ -11,6 +11,7 @@ from consommation_rag_qa_build import (
     check,
     lexical_overlap,
     main,
+    make_item,
     publish,
     question_words,
     quote_in_text,
@@ -755,3 +756,255 @@ def test_cli_chains_extensions_and_keeps_every_published_id(
     v2, v3 = read("v2"), read("v3")
     assert [i for i in v3 if i["id"] in {x["id"] for x in v2}] == v2
     assert [i["id"] for i in v3 if i["id"] not in {x["id"] for x in v2}] == ["rq-004"]
+
+
+# --- Modes de la v4 -----------------------------------------------------------------------------
+
+
+def v4(id_: str, num: str, text: str) -> dict:
+    return {
+        "id": id_,
+        "num": num,
+        "path": ["Partie législative nouvelle", "Livre III : CRÉDIT"],
+        "text": text,
+    }
+
+
+BR_A = v4(
+    "LEGIARTI000000000101",
+    "L312-30",
+    "L'emprunteur peut se rétracter dans le délai mentionné à l'article L. 312-25. "
+    "Le prêteur informe l'emprunteur de cette faculté.",
+)
+BR_B = v4(
+    "LEGIARTI000000000102",
+    "L312-25",
+    "Pendant un délai de sept jours à compter de l'acceptation de l'offre de crédit "
+    "affecté, aucun paiement ne peut être fait.",
+)
+CMP_A = v4(
+    "LEGIARTI000000000103", "L221-24", "Le professionnel rembourse dans un délai de quatorze jours."
+)
+CMP_B = v4(
+    "LEGIARTI000000000104",
+    "L221-30",
+    "Pour un contrat conclu hors établissement, le délai est de sept jours.",
+)
+SET = v4(
+    "LEGIARTI000000000105",
+    "L221-28",
+    "Le droit de rétractation ne peut être exercé pour les contrats :\n"
+    "1° De fourniture de biens confectionnés selon les spécifications du consommateur ;\n"
+    "2° De fourniture de journaux, de périodiques ou de magazines ;\n"
+    "3° De fourniture de boissons alcoolisées dont la livraison est différée.",
+)
+FP = v4(
+    "LEGIARTI000000000106",
+    "L221-18",
+    "Le consommateur dispose d'un délai de quatorze jours pour exercer son droit de rétractation.",
+)
+FP_ELSEWHERE = v4("LEGIARTI000000000107", "L312-19", "Le délai est de 30 jours pour le crédit.")
+V4_BY_ID = {a["id"]: a for a in (BR_A, BR_B, CMP_A, CMP_B, SET, FP, FP_ELSEWHERE)}
+
+
+def v4_check(mode: str, articles: tuple[dict, ...], output: dict, by_id=V4_BY_ID):
+    t = task(mode, articles)
+    return check(t, draft(t, {"usable": True, "doubt": "", **output}), by_id)
+
+
+BRIDGE_OK = {
+    "question": "Crédit : combien de temps pour me rétracter après avoir signé ?",
+    "link_quote": "dans le délai mentionné à l'article L. 312-25",
+    "facts": [fact(["sept jours", "7 jours"], "Pendant un délai de sept jours", "L312-25")],
+}
+
+
+def bridge_errors(**changes) -> list[str]:
+    return v4_check("bridge", (BR_A, BR_B), {**BRIDGE_OK, **changes}).errors
+
+
+def test_a_valid_bridge_passes() -> None:
+    result = v4_check("bridge", (BR_A, BR_B), BRIDGE_OK)
+    assert (result.errors, result.alerts) == ([], [])
+
+
+def test_bridge_takes_exactly_one_fact_from_b() -> None:
+    assert "2 faits au lieu d'un seul en mode bridge" in bridge_errors(facts=BRIDGE_OK["facts"] * 2)
+    from_a = fact(["faculté"], "cette faculté", "L312-30")
+    assert "le fait vient de L312-30 au lieu de B (L312-25)" in bridge_errors(facts=[from_a])
+
+
+def test_bridge_link_quote_is_copied_from_a_and_cites_b() -> None:
+    assert "renvoi introuvable dans A (L312-30)" in bridge_errors(
+        link_quote="dans le délai prévu à l'article L. 312-25"
+    )
+    assert "le renvoi ne cite pas B (L312-25)" in bridge_errors(
+        link_quote="Le prêteur informe l'emprunteur"
+    )
+
+
+def test_bridge_fact_must_not_be_in_a() -> None:
+    a_with_value = {**BR_A, "text": BR_A["text"] + " Ce délai est de sept jours."}
+    by_id = {**V4_BY_ID, BR_A["id"]: a_with_value}
+    errors = v4_check("bridge", (a_with_value, BR_B), BRIDGE_OK, by_id=by_id).errors
+    assert "le fait « sept jours » figure déjà dans A" in errors
+
+
+def test_bridge_question_close_to_b_is_rejected_and_flagged() -> None:
+    close = "Crédit affecté : délai après acceptation de l'offre avant tout paiement ?"
+    result = v4_check("bridge", (BR_A, BR_B), {**BRIDGE_OK, "question": close})
+    assert any(e.startswith("recouvrement question/B 1.00 > 0.40") for e in result.errors)
+    assert "la question est plus proche de B que de A" in result.alerts
+    assert result.overlap == 1.0  # en bridge, le recouvrement mesuré est celui avec B
+
+
+def test_bridge_item_expects_both_articles_and_quotes_the_link_first() -> None:
+    t = task("bridge", (BR_A, BR_B))
+    item = make_item(t, BRIDGE_OK, V4_BY_ID)
+    assert [a["num"] for a in item["expected"]["articles"]] == ["L312-30", "L312-25"]
+    assert item["evidence"] == [
+        {"article": BR_A["id"], "quote": BRIDGE_OK["link_quote"]},
+        {"article": BR_B["id"], "quote": "Pendant un délai de sept jours"},
+    ]
+
+
+COMPARISON_OK = {
+    "question": "Remboursement en ligne et démarchage à domicile : quels délais dans chaque cas ?",
+    "facts": [
+        fact(["quatorze jours", "14 jours"], "délai de quatorze jours", "L221-24"),
+        fact(["sept jours", "7 jours"], "le délai est de sept jours", "L221-30"),
+    ],
+}
+
+
+def comparison_errors(**changes) -> list[str]:
+    return v4_check("comparison", (CMP_A, CMP_B), {**COMPARISON_OK, **changes}).errors
+
+
+def test_a_valid_comparison_passes() -> None:
+    result = v4_check("comparison", (CMP_A, CMP_B), COMPARISON_OK)
+    assert (result.errors, result.alerts) == ([], [])
+
+
+def test_comparison_takes_one_fact_from_each_article() -> None:
+    one = COMPARISON_OK["facts"][:1]
+    assert "1 faits au lieu de 2 en mode comparison" in comparison_errors(facts=one)
+    both_a = [COMPARISON_OK["facts"][0]] * 2
+    assert "aucun fait tiré de L221-30" in comparison_errors(facts=both_a)
+
+
+def test_comparison_values_differ_and_stay_in_their_article() -> None:
+    same = [COMPARISON_OK["facts"][0], {**COMPARISON_OK["facts"][0], "article": "L221-30"}]
+    assert "les deux faits ont la même valeur" in comparison_errors(facts=same)
+    b_with_a_value = {**CMP_B, "text": CMP_B["text"] + " Sinon, quatorze jours."}
+    by_id = {**V4_BY_ID, CMP_B["id"]: b_with_a_value}
+    errors = v4_check("comparison", (CMP_A, b_with_a_value), COMPARISON_OK, by_id=by_id).errors
+    assert "le fait de L221-24 figure aussi dans L221-30" in errors
+
+
+def test_comparison_alerts_when_the_values_are_of_different_kinds() -> None:
+    fine = fact(["15 000 euros"], "le délai est de sept jours", "L221-30")
+    output = {**COMPARISON_OK, "facts": [COMPARISON_OK["facts"][0], fine]}
+    alerts = v4_check("comparison", (CMP_A, CMP_B), output).alerts
+    assert "les deux faits ne sont pas du même type de valeur" in alerts
+
+
+def test_comparison_questions_get_a_few_more_words() -> None:
+    long = (
+        "Remboursement après une commande en ligne et après un démarchage à domicile : "
+        "quels sont les délais dans chacun des deux cas ?"
+    )
+    assert 20 < question_words(long) <= 25
+    assert not any("mots" in e for e in comparison_errors(question=long))
+
+
+SET_OK = {
+    "question": "Quels achats ne peut-on pas annuler après coup ?",
+    "facts": [
+        fact(
+            ["biens confectionnés selon les spécifications"],
+            "biens confectionnés selon les spécifications du consommateur",
+            "L221-28",
+        ),
+        fact(
+            ["journaux", "périodiques", "magazines"],
+            "journaux, de périodiques ou de magazines",
+            "L221-28",
+        ),
+        fact(
+            ["boissons alcoolisées"],
+            "boissons alcoolisées dont la livraison est différée",
+            "L221-28",
+        ),
+    ],
+}
+
+
+def set_errors(facts) -> list[str]:
+    return v4_check("set", (SET,), {**SET_OK, "facts": facts}).errors
+
+
+def test_a_complete_list_passes() -> None:
+    assert set_errors(SET_OK["facts"]) == []
+
+
+def test_a_set_needs_one_fact_per_item() -> None:
+    assert "2 faits pour une liste de 3 éléments" in set_errors(SET_OK["facts"][:2])
+    twice = [
+        *SET_OK["facts"][:2],
+        fact(["périodiques"], "de périodiques ou de magazines", "L221-28"),
+    ]
+    assert "deux faits dans l'élément 2" in set_errors(twice)
+
+
+def test_a_set_quote_lies_in_the_list() -> None:
+    outside = [*SET_OK["facts"][:2], fact(["rétractation"], "Le droit de rétractation", "L221-28")]
+    assert "fait 3 : extrait hors de la liste" in set_errors(outside)
+
+
+def test_a_set_form_must_be_specific_to_its_item() -> None:
+    vague = [
+        SET_OK["facts"][0],
+        fact(["fourniture"], "De fourniture de journaux", "L221-28"),
+        SET_OK["facts"][2],
+    ]
+    assert "fait 2 : la forme « fourniture » figure dans un autre élément" in set_errors(vague)
+
+
+FALSE_PREMISE_OK = {
+    "question": "Achat en ligne : j'ai bien 30 jours pour me rétracter ?",
+    "false_value": "30 jours",
+    "facts": [fact(["quatorze jours", "14 jours"], "délai de quatorze jours", "L221-18")],
+}
+
+
+def false_premise_errors(**changes) -> list[str]:
+    by_id = {FP["id"]: FP}
+    return v4_check("false_premise", (FP,), {**FALSE_PREMISE_OK, **changes}, by_id=by_id).errors
+
+
+def test_a_valid_false_premise_passes() -> None:
+    assert false_premise_errors() == []
+
+
+def test_the_false_value_is_in_the_question_but_not_in_the_article() -> None:
+    assert "valeur fausse manquante" in false_premise_errors(false_value="")
+    assert "la valeur fausse « 7 jours » ne figure pas dans la question" in false_premise_errors(
+        false_value="7 jours"
+    )
+    q = "Achat en ligne : j'ai bien quatorze jours, ou 14 jours ?"
+    assert "la valeur fausse est une forme acceptée" in false_premise_errors(
+        question=q, false_value="14 jours"
+    )
+
+
+def test_the_false_value_is_of_the_same_kind_as_the_fact() -> None:
+    q = "Achat en ligne : 30 euros pour me rétracter ?"
+    assert "la valeur fausse n'est pas du même type que le fait" in false_premise_errors(
+        question=q, false_value="30 euros"
+    )
+
+
+def test_a_false_value_found_elsewhere_in_the_code_raises_an_alert() -> None:
+    alerts = v4_check("false_premise", (FP,), FALSE_PREMISE_OK).alerts
+    assert "la valeur fausse figure dans d'autres articles : L312-19" in alerts

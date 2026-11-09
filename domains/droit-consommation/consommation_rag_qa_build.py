@@ -25,7 +25,17 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from string import Template
 
-from consommation_rag_qa_plan import PILOT_QUOTAS, V1_QUOTAS, V2_QUOTAS, V3_QUOTAS
+from consommation_rag_qa_plan import (
+    PILOT_QUOTAS,
+    V1_QUOTAS,
+    V2_QUOTAS,
+    V3_QUOTAS,
+    V4_PILOT_QUOTAS,
+    V4_QUOTAS,
+    enumeration,
+    value_classes,
+    writes_number,
+)
 
 from ailab_evals.rag_qa import fact_found, normalize
 
@@ -42,7 +52,15 @@ REVIEW_SHARE = 1.0
 # rédacteur écrit jusqu'à 20. Le mode multi_article demande deux faits : 5 mots de plus.
 MAX_QUESTION_WORDS: int | None = 20
 MULTI_EXTRA_WORDS = 5
+# Modes dont la question nomme deux cas ou demande deux faits : 5 mots de plus.
+EXTRA_WORDS_MODES = frozenset({"multi_article", "comparison"})
 MAX_FACTS = 3
+# Un fait par élément de la liste : 6 au plus (consommation_rag_qa_plan.MAX_SET_ITEMS).
+MAX_FACTS_BY_MODE = {"set": 6}
+# Recouvrement lexical question/B du mode bridge. Valeur de départ, celle de paraphrase : elle se
+# fixe au pilote de la v4, puis ne bouge plus (README du golden set, « v4 »).
+BRIDGE_OVERLAP_THRESHOLD = 0.4
+MAX_LISTED = 5
 LONG_FORM_WORDS = 6
 
 _SPACES = re.compile(r"[\s  ]+")
@@ -224,12 +242,14 @@ def check(
     articles = [by_id[i] for i in task["articles"]]
     by_num = {a["num"]: a for a in articles}
     question = str(output.get("question", ""))
-    overlap = lexical_overlap(question, articles[0]["text"]) if question.strip() else None
+    # En bridge, le recouvrement contrôlé est celui de la question avec B, l'article à atteindre.
+    measured = articles[1] if mode == "bridge" else articles[0]
+    overlap = lexical_overlap(question, measured["text"]) if question.strip() else None
 
     if not question.strip():
         errors.append("question vide")
     if max_question_words is not None:
-        limit = max_question_words + (MULTI_EXTRA_WORDS if mode == "multi_article" else 0)
+        limit = max_question_words + (MULTI_EXTRA_WORDS if mode in EXTRA_WORDS_MODES else 0)
         if question_words(question) > limit:
             errors.append(f"question de {question_words(question)} mots, au-delà de {limit}")
     if draft and draft.get("model") != draft.get("model_requested"):
@@ -256,8 +276,9 @@ def check(
     if output.get("usable") is False:
         errors.append("article inutilisable selon le rédacteur")
     facts = output.get("facts") or []
-    if not 1 <= len(facts) <= MAX_FACTS:
-        errors.append(f"{len(facts)} faits au lieu de 1 à {MAX_FACTS}")
+    max_facts = MAX_FACTS_BY_MODE.get(mode, MAX_FACTS)
+    if not 1 <= len(facts) <= max_facts:
+        errors.append(f"{len(facts)} faits au lieu de 1 à {max_facts}")
     for index, fact in enumerate(facts, start=1):
         forms = [str(f) for f in fact.get("accepted", [])]
         quote = str(fact.get("quote", ""))
@@ -290,6 +311,16 @@ def check(
         missing = [a["num"] for a in articles if a["num"] not in cited]
         if missing:
             errors.append(f"aucun fait tiré de {', '.join(missing)}")
+    v4_checks = {
+        "bridge": lambda: _bridge_checks(output, *articles, question, overlap),
+        "comparison": lambda: _comparison_checks(facts, *articles),
+        "set": lambda: _set_checks(facts, articles[0]),
+        "false_premise": lambda: _false_premise_checks(output, facts, articles[0], by_id),
+    }
+    if mode in v4_checks:
+        more_errors, more_alerts = v4_checks[mode]()
+        errors.extend(more_errors)
+        alerts.extend(more_alerts)
     if (
         mode == "paraphrase"
         and overlap_threshold is not None
@@ -301,6 +332,124 @@ def check(
 
 
 # --- Items --------------------------------------------------------------------------------------
+
+
+# --- Contrôles des modes de la v4 ----------------------------------------------------------------
+# Chacun renvoie (erreurs bloquantes, alertes), en plus des contrôles communs de `check`.
+
+
+def _bridge_checks(
+    output: dict, a: dict, b: dict, question: str, to_b: float | None
+) -> tuple[list[str], list[str]]:
+    """A renvoie à B ; la question part de A, la réponse est un fait de B absent de A."""
+    errors: list[str] = []
+    alerts: list[str] = []
+    facts = output.get("facts") or []
+    if len(facts) != 1:
+        errors.append(f"{len(facts)} faits au lieu d'un seul en mode bridge")
+    for fact in facts:
+        if str(fact.get("article", "")) != b["num"]:
+            errors.append(f"le fait vient de {fact.get('article')} au lieu de B ({b['num']})")
+        for form in fact.get("accepted", []):
+            if normalize(str(form)) and _found(str(form), a["text"]):
+                errors.append(f"le fait « {form} » figure déjà dans A")
+                break
+    link = str(output.get("link_quote", ""))
+    if not link.strip() or not quote_in_text(link, a["text"]):
+        errors.append(f"renvoi introuvable dans A ({a['num']})")
+    elif not writes_number(link, b["num"]):
+        errors.append(f"le renvoi ne cite pas B ({b['num']})")
+    if to_b is not None:
+        if to_b > BRIDGE_OVERLAP_THRESHOLD:
+            errors.append(f"recouvrement question/B {to_b:.2f} > {BRIDGE_OVERLAP_THRESHOLD:.2f}")
+        if lexical_overlap(question, a["text"]) < to_b:
+            alerts.append("la question est plus proche de B que de A")
+    return errors, alerts
+
+
+def _classes_of(fact: dict) -> set[str]:
+    return set(value_classes(" ; ".join(str(f) for f in fact.get("accepted", []))))
+
+
+def _comparison_checks(facts: list[dict], a: dict, b: dict) -> tuple[list[str], list[str]]:
+    """Deux valeurs différentes, une par article, chacune absente de l'autre article."""
+    if len(facts) != 2:
+        return [f"{len(facts)} faits au lieu de 2 en mode comparison"], []
+    errors: list[str] = []
+    alerts: list[str] = []
+    for article in (a, b):
+        if not any(str(f.get("article", "")) == article["num"] for f in facts):
+            errors.append(f"aucun fait tiré de {article['num']}")
+    forms = [{normalize(str(f)) for f in fact.get("accepted", [])} - {""} for fact in facts]
+    if forms[0] & forms[1]:
+        errors.append("les deux faits ont la même valeur")
+    other_of = {a["num"]: b, b["num"]: a}
+    for fact in facts:
+        source = str(fact.get("article", ""))
+        other = other_of.get(source)
+        if other is not None and any(
+            normalize(str(f)) and _found(str(f), other["text"]) for f in fact.get("accepted", [])
+        ):
+            errors.append(f"le fait de {source} figure aussi dans {other['num']}")
+    if not _classes_of(facts[0]) & _classes_of(facts[1]):
+        alerts.append("les deux faits ne sont pas du même type de valeur")
+    return errors, alerts
+
+
+def _set_checks(facts: list[dict], article: dict) -> tuple[list[str], list[str]]:
+    """Un fait par élément de la liste, et des formes propres à leur élément."""
+    items = enumeration(article["text"])
+    if len(facts) != len(items):
+        return [f"{len(facts)} faits pour une liste de {len(items)} éléments"], []
+    errors: list[str] = []
+    taken: set[int] = set()
+    for index, fact in enumerate(facts, start=1):
+        quote = str(fact.get("quote", ""))
+        home = next(
+            (i for i, item in enumerate(items) if quote.strip() and quote_in_text(quote, item)),
+            None,
+        )
+        if home is None:
+            errors.append(f"fait {index} : extrait hors de la liste")
+            continue
+        if home in taken:
+            errors.append(f"deux faits dans l'élément {home + 1}")
+        taken.add(home)
+        for form in fact.get("accepted", []):
+            if any(_found(str(form), item) for i, item in enumerate(items) if i != home):
+                errors.append(f"fait {index} : la forme « {form} » figure dans un autre élément")
+    return errors, []
+
+
+def _false_premise_checks(
+    output: dict, facts: list[dict], article: dict, by_id: dict[str, dict]
+) -> tuple[list[str], list[str]]:
+    """La question avance une valeur fausse du même type que le fait, absente de l'article."""
+    if len(facts) != 1:
+        return [f"{len(facts)} faits au lieu d'un seul en mode false_premise"], []
+    false_value = str(output.get("false_value", "")).strip()
+    if not normalize(false_value):
+        return ["valeur fausse manquante"], []
+    errors: list[str] = []
+    alerts: list[str] = []
+    forms = [str(f) for f in facts[0].get("accepted", [])]
+    if not _found(false_value, str(output.get("question", ""))):
+        errors.append(f"la valeur fausse « {false_value} » ne figure pas dans la question")
+    if _found(false_value, article["text"]):
+        errors.append(f"la valeur fausse « {false_value} » figure dans l'article")
+    if normalize(false_value) in {normalize(f) for f in forms}:
+        errors.append("la valeur fausse est une forme acceptée")
+    if not set(value_classes(false_value)) & {c for f in forms for c in value_classes(f)}:
+        errors.append("la valeur fausse n'est pas du même type que le fait")
+    elsewhere = [
+        a["num"]
+        for a in by_id.values()
+        if a["id"] != article["id"] and _found(false_value, a["text"])
+    ]
+    if elsewhere:
+        listed = ", ".join(elsewhere[:MAX_LISTED]) + (" …" if len(elsewhere) > MAX_LISTED else "")
+        alerts.append(f"la valeur fausse figure dans d'autres articles : {listed}")
+    return errors, alerts
 
 
 def _unique_forms(forms: list[str]) -> list[str]:
@@ -336,6 +485,10 @@ def make_item(task: dict, output: dict, by_id: dict[str, dict]) -> dict:
         "articles": [{"id": a["id"], "num": a["num"]} for a in articles],
     }
     item["evidence"] = [{"article": by_num[f["article"]]["id"], "quote": f["quote"]} for f in facts]
+    if task["mode"] == "bridge":
+        # Le renvoi de A vient en premier : c'est la première étape du chemin.
+        link = {"article": articles[0]["id"], "quote": output["link_quote"]}
+        item["evidence"] = [link, *item["evidence"]]
     return item
 
 
@@ -467,12 +620,16 @@ def build(
 # --- Publication --------------------------------------------------------------------------------
 
 
-MODE_ORDER = list(V1_QUOTAS)
+# Les modes de la v4 viennent après ceux de la v1 : l'ordre relatif des anciens, donc leurs
+# identifiants, ne change pas.
+MODE_ORDER = list(V4_QUOTAS)
 QUOTAS: dict[str, dict[str, tuple[int, int]]] = {
     "v1": V1_QUOTAS,
     "v2": V2_QUOTAS,
     "v3": V3_QUOTAS,
+    "v4": V4_QUOTAS,
     "pilot": PILOT_QUOTAS,
+    "pilot-v4": V4_PILOT_QUOTAS,
 }
 
 
@@ -755,7 +912,7 @@ def _load_version(
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
     parser.add_argument("--version", required=True)
-    parser.add_argument("--quotas", choices=["v1", "v2", "v3", "pilot"], default="v1")
+    parser.add_argument("--quotas", choices=sorted(QUOTAS), default="v1")
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--articles", type=Path, default=DOMAIN_DIR / "data/v1/articles.jsonl")
     parser.add_argument("--golden-dir", type=Path, default=GOLDEN_DIR)
@@ -835,7 +992,9 @@ def main(argv: list[str] | None = None) -> None:
     page = args.page or DOMAIN_DIR / ".cache" / f"rag-qa-review-{args.version}.html"
     page.parent.mkdir(parents=True, exist_ok=True)
     page.write_text(
-        render_review_page(result, by_id, version=args.version, include_all=args.quotas == "pilot"),
+        render_review_page(
+            result, by_id, version=args.version, include_all=args.quotas.startswith("pilot")
+        ),
         encoding="utf-8",
     )
     print(
