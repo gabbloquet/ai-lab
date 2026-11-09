@@ -1,6 +1,6 @@
 # 002 — Notre RAG répond mal : quels sont les plus gros leviers ?
 
-> **Statut :** conclue le 2026-11-09 — [rapport du run consolidé](results/2026-11-09-run-consolide-test.md)
+> **Statut :** run consolidé conclu le 2026-11-09 ([rapport](results/2026-11-09-run-consolide-test.md)) ; étape 6 en cadrage, protocole écrit
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -23,6 +23,7 @@ Toutes les étapes ont tourné sur les trois mêmes générateurs : `mistral-sma
 | 3 — [004](../004-top-k-20/README.md) | 20 passages au lieu de 5 | RAG naïf | v1, `test` 150 | +7,3 et +8,0 pts (Ministral, Gemini) ; non concluant avec Mistral Small (+4,0) | +6,8 et +10,4 pts (Ministral, Gemini) ; non concluant avec Mistral Small (+6,1, p_holm = 0,056) |
 | 4 — [005](../005-reclassement/README.md) | reclassement Cohere, 50 candidats vers 5 | RAG à 20 passages | v1, `test` 150 | non concluant (−0,4 à −2,0 pts), 2,6 fois moins de tokens | non concluant (−1,0 à −2,1 pts), 2,5 fois moins de tokens ; contre 5 passages denses : +5,8 et +8,3 pts (Ministral, Gemini), non concluant avec Mistral Small |
 | 5 — [006](../006-consigne-abstention/README.md) | consigne d'abstention plus exigeante | RAG à 20 passages | v3, `test` 190 | moins de réponses inventées avec Mistral Small (−9,2 pts) ; non concluant avec Ministral ; plus d'abstentions à tort avec Gemini (+8,7 pts) | non concluant avec Mistral Small (−3,3 pts, garde franchie) et Ministral ; plus d'abstentions à tort avec Gemini (+15,1 pts, −9,0 pts de `correct`) |
+| 6 — [ci-dessous](#étape-6--sabstenir-daprès-le-score-de-reclassement) | abstention si le meilleur score Cohere est sous un seuil | RAG à 20 passages | v4, `test` 234 | protocole écrit, pas encore jugée | — |
 
 Les étapes 4 et 5 ont pris pour baseline la meilleure configuration du moment (20 passages) : l'expérience mêle donc des deltas isolés (contre le RAG naïf) et des deltas cumulés (contre 20 passages).
 
@@ -145,6 +146,81 @@ Consigne d'abstention, critères de l'étape 5 : **non concluant** avec Mistral 
 - **63 items** : un item vaut 1,6 point. Seuls les écarts du reclassement sont nets.
 
 **Décision du propriétaire** (2026-11-09) : pas d'étape sur le type de recherche. Les erreurs qui restent avec 20 passages ne viennent plus surtout de la récupération. Une piste n'est pas couverte, parce qu'elle demande un appel : un autre modèle d'embedding, qui obligerait à encoder les 2 150 articles chez un autre fournisseur.
+
+## Pré-étude : s'abstenir d'après le score de reclassement (2026-11-09, `dev` seulement)
+
+**Question** : le meilleur score de reclassement Cohere d'une question sépare-t-il les questions avec réponse des questions sans réponse assez nettement pour décider d'une abstention sans le générateur ? Ce levier vise la plus grosse erreur qui reste aux deux modèles Mistral avec 20 passages : environ 22 % de réponses inventées aux questions sans réponse du `test` (run consolidé). L'étape 5 a montré qu'une consigne ne se transfère pas d'un modèle à l'autre ; un seuil sur la récupération ne dépend pas du générateur.
+
+**Mesure** : les 91 items valides du `dev` de `rag-qa/v4` (63 avec réponse, 28 sans réponse). Pour chaque question, le meilleur score Cohere (`rerank-v5.0-pro`) sur ses 50 candidats denses, lu dans le cache. Pour chaque seuil, une exécution dont la question est sous le seuil est remplacée par une abstention, puis notée par la spec. Les réponses sont celles du run `dev` de contrôle du run consolidé (k = 1, commit `f8ca40f`). Ce run ne devait rien régler pour le run consolidé ; s'en servir ici, une fois le run consolidé conclu, est une décision du propriétaire (2026-11-09). Script : `prestudy/rerank_threshold_v4_dev.py`, caches seuls, sans aucun appel.
+
+Meilleur score Cohere : médiane 0,632 pour les questions avec réponse, 0,270 pour les questions sans réponse ; AUC 0,917.
+
+| Seuil | Questions avec réponse écartées (sur 63) | Questions sans réponse écartées (sur 28) |
+|---|---|---|
+| 0,10 | 0 | 2 |
+| 0,15 | 0 | 6 |
+| **0,20** | **0** | **10** |
+| 0,25 | 2 | 13 |
+| 0,30 | 2 | 15 |
+| 0,40 | 7 | 21 |
+| 0,50 | 15 | 26 |
+
+Effet avec 20 passages (`top_k_20`), sans seuil → seuil 0,20 :
+
+| Générateur | Réponses inventées (28 items) | Abstentions à tort (63 items) | `correct` (91 items) |
+|---|---|---|---|
+| `mistral-small-2603` | 0,321 → **0,179** | 0,016 → 0,016 | 0,791 → 0,835 |
+| `ministral-14b-2512` | 0,179 → 0,143 | 0,000 → 0,000 | 0,879 → 0,890 |
+| `gemini-3.5-flash-lite` | 0,000 → 0,000 | 0,143 → 0,143 | 0,879 → 0,879 |
+
+- **Le seuil 0,20 n'écarte aucune question avec réponse** et en écarte 10 sans réponse. Pour la plupart, le générateur s'abstenait déjà : le gain porte sur 4 questions avec Mistral Small, 1 avec Ministral, aucune avec Gemini, qui n'invente pas.
+- **Au-delà de 0,20, les abstentions à tort montent** (2 questions avec réponse écartées à 0,25, 7 à 0,40). Le palier sans perte va de 0,10 à 0,20.
+- **Reclassement vers 5 passages** (`rerank_cohere`) : même tendance (Mistral Small 0,250 → 0,179 à 0,20).
+- **Petit échantillon** : 28 questions sans réponse et une seule répétition ; une question vaut 3,6 points.
+
+**Décision du propriétaire** (2026-11-09) : rédiger le protocole d'une étape 6 sur ce levier, ci-dessous, à relire avant tout calcul sur le `test`.
+
+## Étape 6 — s'abstenir d'après le score de reclassement
+
+Les sections Question, Hypothèse, Protocole, Discipline d'itération et Mesures sont écrites le 2026-11-09, après la pré-étude et avant tout calcul sur le `test`.
+
+### Question
+
+Sur le golden set v4, s'abstenir quand le meilleur score de reclassement Cohere de la question est sous 0,20 fait-il baisser les réponses inventées aux questions sans réponse du RAG à 20 passages, sans faire augmenter les abstentions à tort, à générateur constant ?
+
+### Hypothèse
+
+- **H1** : moins de réponses inventées avec Mistral Small et Ministral 14B ; aucun effet avec Gemini Flash-Lite, qui n'invente presque pas (0,020 au run consolidé) ; la garde tient pour les trois.
+- **H0** : aucun écart mesurable des réponses inventées.
+- **Plus petit écart qui compte** : 10 points de réponses inventées, comme à l'étape 5.
+
+### Protocole
+
+| Élément | Valeur |
+|---|---|
+| Baseline (A) | `top_k_20` du run consolidé, gelé (commit `f836315`) : ses exécutions `test` telles quelles |
+| Variante (B) | A, sauf pour les questions dont le meilleur score Cohere (`rerank-v5.0-pro`, 50 candidats denses) est sous **0,20** : abstention, sans appel au générateur |
+| Ce qui change entre A et B | la seule décision de s'abstenir sous le seuil |
+| Ce qui est fixé | générateurs, prompts, `temperature = 0`, index, 20 passages, spec `rag-qa/v1` |
+| Générateurs | `mistral:mistral-small-2603`, `mistral:ministral-14b-2512`, `google:gemini-3.5-flash-lite` ; un verdict par modèle |
+| Golden set | `rag-qa/v4`, split `test` : 234 items valides (51 sans réponse, 183 avec réponse), les 12 items de l'audit écartés comme au run consolidé |
+| Répétitions | k = 3, celles du run consolidé |
+
+**Calcul sans appel.** B ne fait aucun appel que A n'ait fait : au-dessus du seuil, sa réponse est celle de A ; en dessous, c'est une abstention. Le résultat de B se calcule donc exactement à partir des exécutions `test` de A et des notes Cohere des 234 questions, toutes en cache (vérifié le 2026-11-09, sans lire leurs valeurs). Coût : 0 $. Refaire tourner le générateur n'ajouterait que son bruit.
+
+**Taille de l'échantillon.** Sur le `dev`, l'écart type de la différence par question vaut 0,356 pour Mistral Small, 0,189 pour Ministral et 0 pour Gemini. Avec n = 51 : MDE ≈ (2,01 + 0,85) × s_d / √51, soit **14 points** pour Mistral Small et 8 pour Ministral. Pour Mistral Small, un effet de 10 points peut passer inaperçu. Les 3 répétitions du `test` lissent un peu la dispersion.
+
+### Discipline d'itération
+
+- **Budget** : A, le RAG à 20 passages, a reçu 2 cycles (ceux du RAG naïf, à l'étape 1) et aucun à l'étape 3. B y a droit aussi, mais B n'a pas de prompt à régler : son seul paramètre, le seuil, est fixé par la pré-étude, comme k = 20 l'a été pour l'étape 3. **Aucun cycle** n'est prévu.
+- **Un écart à signaler** : le seuil a été choisi sur le `dev` parmi 9 valeurs, d'après les réponses du run `dev` de contrôle, avec une seule répétition.
+- **Commit de gel** du code de calcul et du seuil, puis **un seul calcul sur le `test`**.
+
+### Mesures
+
+- **Verdict** : la règle à deux critères de l'étape 5, sans correction. Critère principal : delta apparié des réponses inventées (B − A) sur les 51 questions sans réponse valides, IC de Student à 95 %. Garde : delta des abstentions à tort sur les 183 questions avec réponse, à ne pas augmenter de plus de 0,03 (`ailab_evals.paired.joint_verdict`).
+- **Secondaires, sans porter le verdict** : delta de `correct` (règle de la spec), part des questions écartées par le seuil (avec et sans réponse), `correct` par mode.
+- Rapport daté dans `results/`, qui cite `rag-qa/v4`, la spec `rag-qa/v1`, le commit de gel du run consolidé, celui de l'étape 6, et `uv.lock`.
 
 ## Limites
 
