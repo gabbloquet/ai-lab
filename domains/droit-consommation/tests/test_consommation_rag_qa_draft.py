@@ -4,6 +4,8 @@ from pathlib import Path
 import pytest
 from consommation_rag_qa_draft import (
     ANSWERABLE_SCHEMA,
+    BRIDGE_SCHEMA,
+    FALSE_PREMISE_SCHEMA,
     UNANSWERABLE_SCHEMA,
     WRITER_MODEL,
     WriterResult,
@@ -90,6 +92,10 @@ def test_prompts_exist_for_every_mode(prompts: dict[str, str]) -> None:
         "multi_article",
         "lost_context",
         "unanswerable",
+        "comparison",
+        "set",
+        "bridge",
+        "false_premise",
     }
 
 
@@ -125,6 +131,43 @@ def test_multi_article_mode_shows_both_articles_in_order(prompts: dict[str, str]
     assert user.index("Article A : L221-18") < user.index("Article B : L221-23")
 
 
+@pytest.mark.parametrize("mode", ["bridge", "comparison"])
+def test_two_article_modes_show_both_articles_in_order(prompts: dict[str, str], mode: str) -> None:
+    _, user, _ = render_request(task(mode, (A, B)), BY_ID, prompts)
+
+    assert user.index("Article A : L221-18") < user.index("Article B : L221-23")
+
+
+def test_bridge_mode_gives_b_number_in_its_citation_form(prompts: dict[str, str]) -> None:
+    _, user, schema = render_request(task("bridge", (A, B)), BY_ID, prompts)
+
+    assert "l'article L. 221-23" in user
+    assert "{citation_b}" not in user
+    assert schema == BRIDGE_SCHEMA
+
+
+def test_bridge_asks_for_the_link_quote() -> None:
+    assert BRIDGE_SCHEMA["properties"]["link_quote"] == {"type": "string"}
+    assert {k: v for k, v in BRIDGE_SCHEMA["properties"].items() if k != "link_quote"} == (
+        ANSWERABLE_SCHEMA["properties"]
+    )
+
+
+def test_false_premise_asks_for_the_false_value(prompts: dict[str, str]) -> None:
+    _, _, schema = render_request(task("false_premise"), BY_ID, prompts)
+
+    assert schema == FALSE_PREMISE_SCHEMA
+    assert FALSE_PREMISE_SCHEMA["properties"]["false_value"] == {"type": "string"}
+
+
+@pytest.mark.parametrize("mode", ["comparison", "set"])
+def test_other_v4_modes_use_the_answerable_schema(prompts: dict[str, str], mode: str) -> None:
+    articles = (A, B) if mode == "comparison" else (A,)
+    _, _, schema = render_request(task(mode, articles), BY_ID, prompts)
+
+    assert schema == ANSWERABLE_SCHEMA
+
+
 def test_the_writer_can_declare_an_article_unusable() -> None:
     assert ANSWERABLE_SCHEMA["properties"]["usable"] == {"type": "boolean"}
     assert "usable" in ANSWERABLE_SCHEMA["required"]
@@ -138,7 +181,7 @@ def test_unanswerable_mode_asks_for_no_fact(prompts: dict[str, str]) -> None:
 
 
 def test_schemas_are_strict_objects() -> None:
-    for schema in (ANSWERABLE_SCHEMA, UNANSWERABLE_SCHEMA):
+    for schema in (ANSWERABLE_SCHEMA, UNANSWERABLE_SCHEMA, BRIDGE_SCHEMA, FALSE_PREMISE_SCHEMA):
         assert schema["additionalProperties"] is False
         assert set(schema["required"]) == set(schema["properties"])
 

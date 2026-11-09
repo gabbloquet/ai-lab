@@ -30,7 +30,21 @@ PROMPTS_DIR = GOLDEN_DIR / "prompts"
 WRITER_MODEL = "claude-sonnet-5-5"
 WRITER_EFFORT = "medium"
 MAX_TOKENS = 16000
-MODES = ("direct", "reference", "paraphrase", "multi_article", "lost_context", "unanswerable")
+MODES = (
+    "direct",
+    "reference",
+    "paraphrase",
+    "multi_article",
+    "lost_context",
+    "unanswerable",
+    "comparison",
+    "set",
+    "bridge",
+    "false_premise",
+)
+# Modes à deux articles, A puis B : A renvoie à B (multi_article, bridge), ou A et B fixent une
+# valeur du même type pour deux cas (comparison).
+TWO_ARTICLE_MODES = frozenset({"multi_article", "bridge", "comparison"})
 
 ANSWERABLE_SCHEMA: dict = {
     "type": "object",
@@ -55,6 +69,21 @@ ANSWERABLE_SCHEMA: dict = {
     "required": ["question", "usable", "facts", "doubt"],
     "additionalProperties": False,
 }
+
+
+def _with_field(schema: dict, name: str) -> dict:
+    """Le schéma des items avec réponse, plus un champ texte obligatoire."""
+    return {
+        **schema,
+        "properties": {**schema["properties"], name: {"type": "string"}},
+        "required": [*schema["required"], name],
+    }
+
+
+# bridge : l'extrait de A qui porte le renvoi à B. false_premise : la valeur fausse de la question.
+BRIDGE_SCHEMA: dict = _with_field(ANSWERABLE_SCHEMA, "link_quote")
+FALSE_PREMISE_SCHEMA: dict = _with_field(ANSWERABLE_SCHEMA, "false_value")
+
 UNANSWERABLE_SCHEMA: dict = {
     "type": "object",
     "properties": {
@@ -143,7 +172,9 @@ def render_request(
     mode = task["mode"]
     articles = [by_id[i] for i in task["articles"]]
     instruction = prompts[mode].replace("{citation}", citation_form(articles[0]["num"]))
-    if mode == "multi_article":
+    if len(articles) > 1:
+        instruction = instruction.replace("{citation_b}", citation_form(articles[1]["num"]))
+    if mode in TWO_ARTICLE_MODES:
         blocks = [
             _article_block(articles[0], "Article A : "),
             _article_block(articles[1], "Article B : "),
@@ -151,7 +182,11 @@ def render_request(
     else:
         blocks = [_article_block(articles[0], "Article ")]
     user = "\n\n---\n\n".join([instruction, *blocks])
-    schema = UNANSWERABLE_SCHEMA if mode == "unanswerable" else ANSWERABLE_SCHEMA
+    schema = {
+        "unanswerable": UNANSWERABLE_SCHEMA,
+        "bridge": BRIDGE_SCHEMA,
+        "false_premise": FALSE_PREMISE_SCHEMA,
+    }.get(mode, ANSWERABLE_SCHEMA)
     return prompts["system"], user, schema
 
 
