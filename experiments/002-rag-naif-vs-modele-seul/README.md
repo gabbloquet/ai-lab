@@ -1,5 +1,7 @@
 # 002 — RAG naïf ou modèle seul ?
 
+> **Étape 1 de l'expérience [002 — quels sont les plus gros leviers ?](../002-leviers-rag/README.md).** Présentée jusqu'au 2026-11-09 comme une expérience d'une « série » ; son numéro sert d'identifiant d'étape.
+>
 > **Statut :** conclue le 2026-11-07 — [rapport du run final](results/2026-11-07-run-final-test.md)
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (brouillon)

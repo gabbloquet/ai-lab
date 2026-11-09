@@ -28,7 +28,7 @@ Ce lab traite ces choix comme des hypothèses : une question, un protocole écri
 
 ## Règles du lab
 
-1. **Une expérience répond à une seule question.** Elle se conclut par un verdict chiffré (baseline, variante, delta), avec la dispersion mesurée sur plusieurs répétitions.
+1. **Une expérience répond à une seule question.** Elle se conclut par un verdict chiffré (baseline, variante, delta), avec la dispersion mesurée sur plusieurs répétitions. Une expérience qui compare plusieurs leviers se découpe en étapes, une par levier, chacune jugée contre une baseline gelée ; son verdict est le tableau des deltas.
 2. **Le protocole est écrit avant les résultats.** Chaque expérience suit le gabarit [`experiments/_template`](experiments/_template/README.md) : Question · Hypothèse · Protocole · Discipline d'itération · Mesures · Résultats · Verdict · Limites.
 3. **On itère sur `dev`, on juge sur `test`.** Les variantes reçoivent le même effort d'itération, sont gelées par un commit, puis passent un seul run final sur le split `test`.
 4. **Les domaines sont séparés des expériences.** Un domaine (`domains/<nom>/`) regroupe ses données et ses jeux d'évaluation. Plusieurs expériences peuvent tourner sur le même domaine, et chacune indique les siens dans son README.
@@ -54,18 +54,14 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 | Aspect | Expérience | Statut |
 |---|---|---|
 | Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Terminée : B meilleure de +24,6 pts avec Mistral small ; non concluant (plafond) avec Gemini Flash-Lite et Claude Haiku 5.5 |
-| RAG | [002 — RAG naïf ou modèle seul ?](experiments/002-rag-naif-vs-modele-seul/README.md) | Terminée : le RAG naïf apporte +37 à +44 pts de réponses justes (Mistral Small, Ministral 14B, Gemini Flash-Lite) ; la récupération est le premier goulot |
-| RAG | [003 — Reformuler la question avant la recherche ?](experiments/003-reformulation-de-requete/README.md) | Terminée : non concluant pour les trois générateurs (−0,7 à −0,9 pt), gain de 5 pts exclu ; les gains en paraphrase s'annulent avec les pertes en contexte perdu |
-| RAG | [004 — Envoyer 20 passages au lieu de 5 ?](experiments/004-top-k-20/README.md) | Terminée : B meilleure avec Ministral 14B (+7,3 pts) et Gemini Flash-Lite (+8,0 pts), non concluant avec Mistral Small (+4,0 pts) ; moins d'échecs de récupération, plus de réponses inventées sur les questions sans réponse |
-| RAG | [005 — Reclasser 50 candidats pour n'en envoyer que 5 ?](experiments/005-reclassement/README.md) | Terminée : non concluant pour les trois générateurs (−0,4 à −2,0 pts face à 20 passages) ; 2,6 fois moins de tokens, mais +0,3 à 0,4 s par question pour l'appel à Cohere |
-| RAG | [006 — Renforcer la consigne d'abstention ?](experiments/006-consigne-abstention/README.md) | Terminée : B meilleure avec Mistral Small (−9,2 pts de réponses inventées), non concluant avec Ministral 14B, B moins bonne avec Gemini Flash-Lite (+8,7 pts d'abstentions à tort) |
+| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | 5 étapes conclues : le RAG naïf (+37 à +44 pts), puis 20 passages (+7 à +8 pts pour deux modèles sur trois) ; reformulation et reclassement non concluants ; consigne d'abstention selon le modèle. Run consolidé sur le golden set v4 en cadrage |
 
 ### Par domaine
 
 | Domaine | Contenu | Expériences |
 |---|---|---|
 | [magasin](domains/magasin/README.md) | Catalogue d'environ 50 produits, 5 magasins, stocks (synthétiques) | 001 |
-| [droit-consommation](domains/droit-consommation/README.md) | Code de la consommation, 2 150 articles en vigueur au 13/07/2025 (LEGI, Licence Ouverte) ; golden set de 200 questions (v1), étendu à 264 (v3) | 002, 003, 004, 005, 006 |
+| [droit-consommation](domains/droit-consommation/README.md) | Code de la consommation, 2 150 articles en vigueur au 13/07/2025 (LEGI, Licence Ouverte) ; golden set de 200 questions (v1), étendu à 339 (v4) | 002 (étapes 1 à 5) |
 
 ## Résultats clés
 
@@ -76,21 +72,21 @@ Chaque ligne renvoie au rapport daté qui l'a produite.
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `mistral-small-2603` | `success` | 0,742 | 0,988 | +0,246 [+0,160 ; +0,332] | B meilleure |
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `gemini-3.5-flash-lite` | `success` | 0,994 | 1,000 | +0,006 [−0,006 ; +0,018] | non concluant |
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `claude-haiku-5-5` | `success` | 0,996 | 1,000 | +0,004 [−0,002 ; +0,010] | non concluant |
-| [002](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | `mistral-small-2603` | `correct` | 0,418 | 0,791 | +0,373 [+0,276 ; +0,470] | B meilleure |
-| [002](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,320 | 0,762 | +0,442 [+0,354 ; +0,531] | B meilleure |
-| [002](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,420 | 0,787 | +0,367 [+0,273 ; +0,460] | B meilleure |
-| [003](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | `mistral-small-2603` | `correct` | 0,791 | 0,782 | −0,009 [−0,059 ; +0,042] | non concluant |
-| [003](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,767 | 0,760 | −0,007 [−0,062 ; +0,049] | non concluant |
-| [003](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,791 | 0,782 | −0,009 [−0,059 ; +0,041] | non concluant |
-| [004](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `mistral-small-2603` | `correct` | 0,798 | 0,838 | +0,040 [−0,016 ; +0,096] | non concluant |
-| [004](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,767 | 0,840 | +0,073 [+0,019 ; +0,128] | B meilleure |
-| [004](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,784 | 0,864 | +0,080 [+0,030 ; +0,130] | B meilleure |
-| [005](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `mistral-small-2603` | `correct` | 0,847 | 0,833 | −0,013 [−0,056 ; +0,029] | non concluant |
-| [005](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,840 | 0,836 | −0,004 [−0,056 ; +0,047] | non concluant |
-| [005](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,878 | 0,858 | −0,020 [−0,065 ; +0,025] | non concluant |
-| [006](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | `mistral-small-2603` | `hallucination` (↓) | 0,261 | 0,170 | −0,092 [−0,157 ; −0,026] | B meilleure (garde tenue) |
-| [006](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | `ministral-14b-2512` | `hallucination` (↓) | 0,255 | 0,203 | −0,052 [−0,135 ; +0,030] | non concluant |
-| [006](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | `gemini-3.5-flash-lite` | `false_abstention` (garde) | 0,087 | 0,173 | +0,087 [+0,032 ; +0,141] | B moins bonne |
+| [002 · étape 1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | `mistral-small-2603` | `correct` | 0,418 | 0,791 | +0,373 [+0,276 ; +0,470] | B meilleure |
+| [002 · étape 1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,320 | 0,762 | +0,442 [+0,354 ; +0,531] | B meilleure |
+| [002 · étape 1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,420 | 0,787 | +0,367 [+0,273 ; +0,460] | B meilleure |
+| [002 · étape 2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | `mistral-small-2603` | `correct` | 0,791 | 0,782 | −0,009 [−0,059 ; +0,042] | non concluant |
+| [002 · étape 2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,767 | 0,760 | −0,007 [−0,062 ; +0,049] | non concluant |
+| [002 · étape 2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,791 | 0,782 | −0,009 [−0,059 ; +0,041] | non concluant |
+| [002 · étape 3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `mistral-small-2603` | `correct` | 0,798 | 0,838 | +0,040 [−0,016 ; +0,096] | non concluant |
+| [002 · étape 3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,767 | 0,840 | +0,073 [+0,019 ; +0,128] | B meilleure |
+| [002 · étape 3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,784 | 0,864 | +0,080 [+0,030 ; +0,130] | B meilleure |
+| [002 · étape 4](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `mistral-small-2603` | `correct` | 0,847 | 0,833 | −0,013 [−0,056 ; +0,029] | non concluant |
+| [002 · étape 4](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,840 | 0,836 | −0,004 [−0,056 ; +0,047] | non concluant |
+| [002 · étape 4](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,878 | 0,858 | −0,020 [−0,065 ; +0,025] | non concluant |
+| [002 · étape 5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | `mistral-small-2603` | `hallucination` (↓) | 0,261 | 0,170 | −0,092 [−0,157 ; −0,026] | B meilleure (garde tenue) |
+| [002 · étape 5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | `ministral-14b-2512` | `hallucination` (↓) | 0,255 | 0,203 | −0,052 [−0,135 ; +0,030] | non concluant |
+| [002 · étape 5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | `gemini-3.5-flash-lite` | `false_abstention` (garde) | 0,087 | 0,173 | +0,087 [+0,032 ; +0,141] | B moins bonne |
 
 ## Organisation du dépôt
 
@@ -100,7 +96,7 @@ ai-lab/
 │   ├── spec/       # par famille et par version : SPEC.md, JSON Schema, vecteurs de conformance
 │   ├── java/       # scorer Java (JUnit), testé contre les vecteurs
 │   └── python/     # scorer Python (métrique DeepEval), testé contre les vecteurs
-├── rag/python/     # briques RAG communes à la série (corpus, embeddings, recherche) : baseline naïve, leviers en option
+├── rag/python/     # briques RAG communes aux étapes de l'expérience 002 (corpus, embeddings, recherche) : baseline naïve, leviers en option
 ├── domains/        # un dossier par domaine : données versionnées, golden sets, générateur seedé
 └── experiments/    # une expérience par dossier : cadrage, implémentations (java/, python/), results/
 ```
