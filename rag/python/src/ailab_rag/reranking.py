@@ -70,6 +70,8 @@ class CohereReranker:
         self._clock = clock
         self._sleep = sleep
         self._last_call: float | None = None
+        # Durée de chaque appel réussi, attente imposée par la limite de la clé exclue.
+        self.latencies: list[float] = []
 
     def score(self, query: str, documents: list[str]) -> list[float]:
         response = self._post({"model": self._model, "query": query, "documents": documents})
@@ -94,6 +96,7 @@ class CohereReranker:
             )
             if response.status_code != 429 or attempt == self._max_attempts:
                 response.raise_for_status()
+                self.latencies.append(self._clock() - self._last_call)
                 return response
             self._sleep(self._retry_wait)
         raise AssertionError("inatteignable")

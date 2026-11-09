@@ -237,3 +237,45 @@ async def test_each_variant_searches_with_its_own_retriever(tmp_path: Path) -> N
     )
 
     assert seen == {"naive_rag": ["Question rq-001 ?"], "query_rewrite": ["Question rq-001 ?"]}
+
+
+async def test_summary_reports_the_generation_time_of_each_variant(tmp_path: Path) -> None:
+    executions = await run_campaign(
+        ITEMS,
+        variants=[CLOSED_BOOK, NAIVE_RAG],
+        model=knows_only_with_context(),
+        repeats=2,
+        retrieve=retrieve,
+        out=tmp_path / "e.jsonl",
+    )
+    rag = [e for e in executions if e["variant"] == NAIVE_RAG and e["item_id"] != "rq-003"]
+    for execution, seconds in zip(rag, [1.0, 2.0, 3.0, 10.0], strict=True):
+        execution["latency"] = {"generation_s": seconds}
+
+    summary = summarize(ITEMS, executions, split="test")
+
+    assert summary["variants"][NAIVE_RAG]["generation_s"] == {
+        "mean": 4.0,
+        "median": 2.5,
+        "p90": 10.0,
+    }
+
+
+async def test_summary_has_no_generation_time_for_executions_recorded_without_it(
+    tmp_path: Path,
+) -> None:
+    """Les exécutions des 002 à 004 n'ont pas de champ `latency`."""
+    executions = await run_campaign(
+        ITEMS,
+        variants=[CLOSED_BOOK, NAIVE_RAG],
+        model=knows_only_with_context(),
+        repeats=1,
+        retrieve=retrieve,
+        out=tmp_path / "e.jsonl",
+    )
+    for execution in executions:
+        execution.pop("latency", None)
+
+    summary = summarize(ITEMS, executions, split="test")
+
+    assert summary["variants"][NAIVE_RAG]["generation_s"] is None

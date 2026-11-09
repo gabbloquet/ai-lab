@@ -12,9 +12,10 @@ from __future__ import annotations
 
 import asyncio
 import json
+import math
 from collections.abc import Awaitable, Callable, Mapping
 from pathlib import Path
-from statistics import mean
+from statistics import mean, median
 from typing import Any
 
 from pydantic_ai.exceptions import ModelHTTPError
@@ -103,6 +104,18 @@ def _mean(values: list[Any]) -> float | None:
     return mean(present) if present else None
 
 
+def durations(values: list[float]) -> dict[str, float] | None:
+    """Moyenne, médiane et 90e centile (rang le plus proche) ; `None` sans mesure."""
+    if not values:
+        return None
+    ordered = sorted(values)
+    return {
+        "mean": mean(ordered),
+        "median": median(ordered),
+        "p90": ordered[math.ceil(0.9 * len(ordered)) - 1],
+    }
+
+
 def _variant_summary(rows: list[tuple[dict, dict, dict]]) -> dict[str, Any]:
     """Agrégats d'une variante (spec § 7). `rows` : (item, exécution, score)."""
     scores = [s for _, _, s in rows]
@@ -123,6 +136,9 @@ def _variant_summary(rows: list[tuple[dict, dict, dict]]) -> dict[str, Any]:
         "citation_recall": _mean([s["citation_recall"] for s in scores]),
         "context_size": _mean([s["context_size"] for s in scores]),
         "tokens": _mean([sum(e["usage"].values()) for _, e, _ in rows]),
+        "generation_s": durations(
+            [e["latency"]["generation_s"] for _, e, _ in rows if "latency" in e]
+        ),
     }
     for k in KS:
         summary[f"evidence_recall@{k}"] = _mean([s[f"evidence_recall@{k}"] for s in scores])

@@ -265,3 +265,19 @@ def test_the_cross_encoder_sends_small_batches_by_default() -> None:
     reranker.score("q", ["a"])
 
     assert model.batch_size == 8
+
+
+def test_cohere_records_the_duration_of_each_call_without_the_pacing_wait() -> None:
+    """Le temps de réponse de l'API, pas l'attente imposée par la limite de la clé d'essai."""
+    clock = FakeClock()
+
+    def slow(request: httpx.Request) -> httpx.Response:
+        clock.now += 0.4
+        return ok(request)
+
+    reranker = paced_cohere(slow, clock)
+    reranker.score("q", ["a"])
+    reranker.score("q", ["a"])
+
+    assert reranker.latencies == pytest.approx([0.4, 0.4])
+    assert clock.slept == pytest.approx([5.6])

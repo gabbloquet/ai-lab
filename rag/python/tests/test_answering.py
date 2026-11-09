@@ -157,3 +157,15 @@ async def test_the_execution_goes_through_the_scorer_of_the_spec(args: dict) -> 
     score = score_execution(ITEM, execution)
 
     assert score.correct is (args is GOOD)
+
+
+async def test_the_execution_records_how_long_the_generator_took() -> None:
+    """Hors spec : le scorer l'ignore, le résumé le publie comme métrique secondaire."""
+    ticks = iter([10.0, 12.5])
+
+    execution = await run_item(
+        ITEM, variant=CLOSED_BOOK, model=Recorder().model(), repeat=1, clock=lambda: next(ticks)
+    )
+
+    assert execution["latency"] == {"generation_s": 2.5}
+    assert score_execution(ITEM, execution).as_dict()["correct"] is True

@@ -24,7 +24,7 @@ from typing import Any
 
 from ailab_rag import cli
 from ailab_rag.answering import TOP_K, Retriever
-from ailab_rag.campaign import read_jsonl, run_campaign, summarize
+from ailab_rag.campaign import durations, read_jsonl, run_campaign, summarize
 from ailab_rag.corpus import Passage
 from ailab_rag.embeddings import Embedder
 from ailab_rag.reranking import POOL, CohereReranker, Reranker, RerankingRetriever
@@ -137,6 +137,9 @@ def main(
         "reranker": reranker.name,
         "pool": POOL,
         "variant_top_k": TOP_K,
+        # Appels à Cohere de ce run (questions absentes du cache), attente de rythme exclue.
+        "rerank_calls": len(reranker.latencies),
+        "rerank_s": durations(reranker.latencies),
         "golden": cli.display_path(golden, ROOT),
         "langfuse": args.langfuse,
         "commit": commit,

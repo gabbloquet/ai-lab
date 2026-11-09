@@ -9,6 +9,7 @@ invalide n'a pas de seconde chance : elle compte comme une erreur, donc comme un
 
 from __future__ import annotations
 
+import time
 from collections.abc import Callable
 from typing import Any
 
@@ -52,6 +53,7 @@ async def run_item(
     repeat: int,
     retrieve: Retriever | None = None,
     reraise: Callable[[BaseException], bool] = lambda error: False,
+    clock: Callable[[], float] = time.perf_counter,
 ) -> dict[str, Any]:
     """`reraise` laisse passer une erreur d'infrastructure (limite de débit) au lieu de la noter :
     la campagne relance alors l'exécution, au lieu de la compter comme une mauvaise réponse."""
@@ -77,12 +79,14 @@ async def run_item(
     output: ModelAnswer | None = None
     error: str | None = None
     with capture_run_messages() as messages:
+        start = clock()
         try:
             output = (await agent.run(prompt)).output
         except Exception as exc:
             if reraise(exc):
                 raise
             error = f"{type(exc).__name__}: {exc}"
+        generation_s = clock() - start
 
     return {
         "item_id": item["id"],
@@ -95,4 +99,7 @@ async def run_item(
         "context": context,
         "usage": _usage(messages),
         "error": error,
+        # Hors spec rag-qa (§ 3.2), ignoré par le scorer : durée de l'appel au générateur,
+        # recherche exclue.
+        "latency": {"generation_s": generation_s},
     }
