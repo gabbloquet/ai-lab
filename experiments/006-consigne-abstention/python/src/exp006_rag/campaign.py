@@ -44,10 +44,10 @@ VARIANT = "abstain_strict"
 TOP_K = 20
 # Hausse tolérée des abstentions à tort (garde du verdict), fixée avant le premier run (README).
 GUARD_MARGIN = 0.03
-# Phrase d'ancrage de B, cycle 1 (2026-11-09). Au run 0 du dev, les réponses inventées appliquaient
-# une règle écrite pour un cas voisin (frais de dossier d'un crédit immobilier, corps huit du contrat
-# de crédit) ; la consigne de départ (« un extrait sur un cas voisin ne suffit pas ») ne les arrêtait
-# pas. Le cycle 1 fait vérifier le champ d'application de la règle, exemples à l'appui.
+# Phrase d'ancrage de B, cycle 1 (2026-11-09). Au run 0 du dev, les réponses inventées
+# appliquaient une règle écrite pour un cas voisin (frais de dossier d'un crédit immobilier, corps
+# huit du contrat de crédit) ; la consigne de départ (« un extrait sur un cas voisin ne suffit
+# pas ») ne les arrêtait pas. Le cycle 1 fait vérifier le champ d'application de la règle.
 STRICT_GROUNDING = (
     GROUNDING
     + " La valeur doit valoir pour la situation exacte de la question : même type de contrat ou "
