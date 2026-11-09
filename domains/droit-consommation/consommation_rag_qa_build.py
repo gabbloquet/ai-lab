@@ -421,9 +421,14 @@ def _set_checks(facts: list[dict], article: dict) -> tuple[list[str], list[str]]
         if home in taken:
             errors.append(f"deux faits dans l'élément {home + 1}")
         taken.add(home)
+        # Hors de son élément : les autres éléments, mais aussi le chapeau et les alinéas qui
+        # suivent un élément, que `enumeration` ne rattache à aucun.
+        elsewhere = article["text"].replace(items[home], " ")
         for form in fact.get("accepted", []):
             if any(_found(str(form), item) for i, item in enumerate(items) if i != home):
                 errors.append(f"fait {index} : la forme « {form} » figure dans un autre élément")
+            elif _found(str(form), elsewhere):
+                errors.append(f"fait {index} : la forme « {form} » figure ailleurs dans l'article")
     return errors, []
 
 

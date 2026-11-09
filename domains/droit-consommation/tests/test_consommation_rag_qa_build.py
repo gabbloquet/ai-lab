@@ -1055,3 +1055,15 @@ def test_mode_order_knows_every_mode_and_keeps_the_v1_order() -> None:
 
     assert set(MODE_ORDER) == set(DRAW_ORDER)
     assert MODE_ORDER[: len(V1_QUOTAS)] == list(V1_QUOTAS)
+
+
+def test_a_set_form_must_not_appear_in_an_alinea_outside_its_item() -> None:
+    text = SET["text"].replace(
+        "3° De fourniture de boissons alcoolisées dont la livraison est différée.",
+        "3° De fourniture de boissons alcoolisées dont la livraison est différée.\n"
+        "Il en va de même pour les magazines vendus au numéro.",
+    )
+    with_alinea = {**SET, "text": text}
+    by_id = {**V4_BY_ID, SET["id"]: with_alinea}
+    errors = v4_check("set", (with_alinea,), SET_OK, by_id=by_id).errors
+    assert "fait 2 : la forme « magazines » figure ailleurs dans l'article" in errors
