@@ -125,6 +125,7 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 | `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items relus, écrits dans `v1/items.jsonl` avec `MANIFEST.json` (2026-11-07). **Publiée** : citée par le [run final de la 002](../../../../experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), donc immuable |
 | `v2` | `data/v1` | 42 | `rag-qa/v1` | La v1, plus 24 questions sans réponse dans le `dev` (`rq-201` à `rq-224`) : 224 items, `dev` 74 dont 30 sans réponse, **`test` identique à celui de la v1**. Écrite le 2026-11-09 dans `v2/items.jsonl` avec `MANIFEST.json` (`base_version: v1`). Pas encore citée par un rapport |
 | `v3` | `data/v1` | 42 | `rag-qa/v1` | La v2, plus 40 questions sans réponse dans le `test` (`rq-225` à `rq-264`) : 264 items, `test` 190 dont 178 valides (audit), 51 sans réponse valides. Les 224 items de la v2, dont les 150 `test` de la v1, sont repris à l'identique. Écrite le 2026-11-09 (`base_version: v2`). Pas encore citée par un rapport |
+| `v4` | `data/v1` | 42 | `rag-qa/v1` | **En préparation.** La v3, plus quatre modes : `comparison`, `set`, `bridge`, `false_premise` (130 items, dont 96 `test`). Design et protocole des pilotes écrits le 2026-11-09, avant tout pilote (section « v4 ») |
 
 **Composition du `dev` après relecture : 6 items sans réponse et 11 en mode `direct`**, au lieu de 7 et 10. `rq-133` (« Garantie de conformité : quel délai a le vendeur pour me rembourser après la résolution du contrat ? ») avait été classé sans réponse, mais L217-17 y répond (« au plus tard dans les quatorze jours ») ; il a été transformé en item avec réponse, en mode `direct`, plutôt que remplacé (décision du 2026-11-07). La correction d'un relecteur peut désormais changer le statut, le mode, les articles et les extraits d'un item, et chaque extrait est vérifié dans son article.
 
@@ -170,3 +171,64 @@ Items concernés : `rq-006`, `rq-010`, `rq-045`, `rq-049`, `rq-055`, `rq-086`, `
 **Règle des cas limites, étendue** (décision du propriétaire, 2026-11-09). Trois cas s'ajoutent à ceux de la v2, avec le même motif (le code donne une réponse) : le code désigne qui fixe la valeur sans la donner (« fixé par le juge ») ; la question présuppose une sanction absente du code (« quelle peine de prison ? » quand seule une amende est prévue) ; le code renvoie à un site ou à un document non juridique.
 
 **Composition et équilibre.** Le `test` passe de 15 % de questions sans réponse annoncées (7 % valides après l'audit) à 29 % de questions sans réponse valides (51 sur 178). `correct` calculé sur tout le `test` donnerait donc plus de poids à l'abstention qu'un usage réel. Décision du propriétaire (2026-11-09) : garder les 40 ajouts et ne pas pondérer (une pondération 85/15 reprendrait la proportion de la v1, qui ne reflète pas l'usage réel non plus). Une expérience qui fait varier l'abstention juge sur **deux critères avec une règle conjointe**, fixés avant son run : la baisse des réponses inventées sur les questions sans réponse valides (items défectueux de l'audit écartés), et une garde sur les abstentions à tort des questions avec réponse, à ne pas dépasser au-delà d'une marge. Les chiffres des 002 à 005 restent comparables sur les 150 items `test` de la v1, présents à l'identique. La v4 prévue (nouveaux modes, 96 items `test` avec réponse) ramènera la proportion de questions sans réponse valides à environ 19 % (51 sur 274).
+
+## v4 : quatre modes tirés de la littérature RAG (en préparation, 2026-11-09)
+
+**Pourquoi.** Les benchmarks RAG publics ([CRAG](https://arxiv.org/abs/2406.04744), [MultiHop-RAG](https://arxiv.org/abs/2401.15391), [CRUMQs](https://arxiv.org/abs/2510.11956), les générateurs de [Ragas](https://docs.ragas.io/en/latest/concepts/test_data_generation/rag/)) distinguent des types de questions que la v3 ne couvre pas : comparaison, ensemble, vrai multi-hop, fausse prémisse, post-traitement. Le mode `multi_article` ne fait pas office de multi-hop : sur le `dev` (8 items, mesure du 2026-11-09 avec le retriever de la 002), la question seule remonte A et B dans le top-5 dense pour 4 items et dans le top-20 pour 7 ; pour 2 items, le texte de A contient tous les faits. Il mesure « deux articles liés », pas un saut. Ses items restent identiques : la v4 étend la v3 et ne modifie aucun item.
+
+**Construction.** Le plan v4 reprend celui de la v3 et lui ajoute des tâches par extension (`--extend`, seed 42, articles des pilotes exclus), dans cet ordre : `comparison`, `set`, `bridge`, `false_premise`, chaque mode `dev` puis `test`, avec un surplus × 2. Les modes à paires passent d'abord, car ils sont les plus contraints. La construction se fait avec `--quotas v4 --base-version v3`. Les quatre modes se disputent les articles qui portent une valeur ; leurs tailles suivent la capacité du corpus, mesurée en simulant le tirage sur 3 seeds :
+
+| Mode | `dev` + `test` | Besoin (surplus × 2 + pilote) | Candidats au 2026-11-09 |
+|---|---|---|---|
+| `comparison` | 8 + 22 | 60 paires + 10 | 1 427 paires, environ 105 disjointes |
+| `set` | 8 + 22 | 60 articles + 10 | 91 articles |
+| `bridge` | 10 + 30 | 80 paires + 20 | 351 paires, environ 170 disjointes |
+| `false_premise` | 8 + 22 | 60 articles + 10 | 260 articles |
+
+`bridge`, le vrai multi-hop, garde la plus grande taille. Avec 22 à 30 items `test`, les scores par mode restent des résultats secondaires (IC à 95 % d'environ ± 18 à 21 points).
+
+**Règles communes.** Spec `rag-qa/v1` inchangée : elle laisse les modes libres et n'a pas de limite de faits. Le rédacteur, les règles du prompt système et la relecture sont ceux de la v3 : relecteurs IA qui cherchent une réponse concurrente dans tout le corpus, et arbitrage du propriétaire. S'y ajoute un échantillon de 40 items tirés au hasard et relus par le propriétaire seul, pour mesurer le taux d'erreur du relecteur IA. Aucun contrôle n'utilise un retriever : rejeter les items qu'un modèle de recherche trouve biaiserait le bench contre ce modèle. Les rangs dense et BM25 ne servent que de diagnostic, sur les pilotes et sur le `dev`.
+
+### `bridge` : suivre un renvoi
+
+La question part de la situation décrite par A ; la valeur demandée ne figure que dans B, et A renvoie à B par son numéro. C'est le *bridge* de HotpotQA, sous sa forme naturelle dans un code.
+- **Tirage** : A cite B dans les liens LEGI, **et le texte de A écrit le numéro de B** (« L. 312-25 » ou « L312-25 », pas « L. 312-25-1 »). Le degré entrant de B se calcule à l'analyse : aucun plafond, les renvois vers les articles très cités sont aussi les plus fréquents.
+- **Rédaction** : un seul fait, tiré de B ; la question emploie les mots de A ; `link_quote` copie le renvoi de A.
+- **Contrôles bloquants** : un fait, tiré de B ; `link_quote` copié dans A et contenant le numéro de B ; aucune forme du fait dans A ; recouvrement question/B sous un seuil, fixé au pilote (départ : 0,40, celui de `paraphrase`). **Alerte** : la question est plus proche de B que de A.
+- **Item** : `expected.articles` = [A, B], donc `all_evidence@k` mesure le saut ; `evidence` = le renvoi de A, puis le fait de B.
+
+### `comparison` : deux cas voisins
+
+Deux articles d'un même titre fixent une valeur du même type (durée, montant, taux) pour deux cas. La question nomme les deux cas et demande **les deux valeurs**, et non « lequel est le plus long » : une réponse binaire serait juste une fois sur deux au hasard. La difficulté vient de la ressemblance : deux délais voisins se disputent le top-k.
+- **Tirage** : même titre, un type de valeur en commun, chacun avec une valeur de ce type que l'autre n'a pas.
+- **Contrôles bloquants** : deux faits, un par article ; valeurs différentes ; la valeur de A absente du texte de B, et inversement. **Alerte** : les deux faits ne sont pas du même type. Question : 25 mots au plus, comme `multi_article`.
+- **Limite** : la spec v1 vérifie la présence des faits, pas leur rattachement ; une réponse qui inverse les deux valeurs est comptée juste.
+
+### `set` : toute une liste
+
+L'article énumère une liste fermée de 3 à 6 éléments (1°… ; à défaut a)… ; à défaut des tirets). La question demande toute la liste, sans annoncer le nombre d'éléments. Une liste répartie sur plusieurs articles a été écartée : 29 paires candidates seulement, toutes prises dans le vivier de `bridge`.
+- **Tirage** : liste de 3 à 6 éléments de premier niveau, sans « notamment » avant la liste. Au-delà de 6, une réponse juste devrait retrouver trop de mots-clés.
+- **Rédaction** : un fait par élément ; les formes sont des mots-clés courts copiés dans l'élément et propres à lui, plusieurs par élément si besoin.
+- **Contrôles bloquants** : autant de faits que d'éléments ; un extrait par élément, sans doublon ; aucune forme d'un fait dans un autre élément.
+- **Limite** : un élément reformulé dans la réponse (« la presse » pour « journaux ») n'est pas retrouvé. Ce mode est plus sévère que les autres ; `facts_found` mesure la complétude partielle.
+
+### `false_premise` : corriger une idée reçue
+
+La question tient pour acquise une valeur fausse (« j'ai bien 30 jours pour me rétracter ? »), et le fait attendu est la vraie valeur. C'est la variante compatible avec la spec v1, choisie par le propriétaire. La variante « droit inexistant » (« mon droit de rétractation en magasin »), qui demande de noter le rejet de la prémisse, attend une spec v2.
+- **Tirage** : article qui porte une durée, un montant ou un taux.
+- **Rédaction** : valeur fausse plausible, notée dans `false_value`, qui reste dans le brouillon (le schéma de l'item n'accepte pas de champ en plus). Exception aux règles communes : la question peut demander une confirmation, puisque la notation porte sur la vraie valeur.
+- **Contrôles bloquants** : un fait ; `false_value` présente dans la question, absente de l'article, différente des formes acceptées, du même type que le fait. **Alerte** : `false_value` figure dans d'autres articles (5 listés au plus), et le relecteur vérifie qu'elle ne s'y applique pas à la même situation.
+- **Limite** : la notation ne vérifie pas que la prémisse est rejetée explicitement. Une réponse qui donne les deux valeurs sans trancher est comptée juste. Les rapports comptent en plus la reprise de la prémisse : une réponse qui contient `false_value` sans la vraie valeur.
+
+### Post-traitement : non retenu
+
+Le type *post-processing* de CRAG (une valeur calculée à partir d'une règle) manque de matière dans le corpus. Il n'y a que 27 articles libres avec une règle chiffrée applicable, dont 16 aussi pris par `comparison`, et la plupart répètent « porté à 10 % du chiffre d'affaires moyen annuel ». Les dates limites dépendent de règles de décompte que le code ne donne que pour quelques délais (L221-19, L224-82, L224-92) ; pour les autres, elles viennent du code de procédure civile, absent du corpus. Pistes : un corpus plus riche en barèmes, ou des dates limites en `bridge` vers L221-19.
+
+### Pilotes de la v4 (protocole écrit avant les pilotes)
+
+- **Un plan pilote** `pilot-v4` : seed 10, `--quotas pilot-v4`, sans surplus, articles de la v3 et des pilotes de la v1 exclus. 50 tâches : `comparison` 10, `set` 10, `bridge` 20, `false_premise` 10. Les items sont jetés, et les articles exclus du plan v4.
+- **Mesures** : taux de rejet par motif et par mode ; en `bridge`, distribution du recouvrement question/B et question/A, et part des faits de B déjà dans A ; en `comparison`, part des paires jugées non comparables ; en `set`, part des éléments sans mot-clé propre ; en `false_premise`, part des valeurs fausses peu plausibles et des alertes qui révèlent une prémisse en fait vraie. Rangs dense et BM25 des articles attendus : ces items ne sont dans aucun split, et ce diagnostic ne touche donc ni le `dev` ni le `test`.
+- **Seuil de `bridge`** : fixé après le pilote, à la lecture des brouillons, puis gelé avant le plan v4.
+- **Second pilote**, avec un prompt révisé, pour tout mode dont plus de 40 % des brouillons sont rejetés, ou, en `bridge`, si B est dans le top-5 dense pour plus de la moitié des items retenus.
+- **Capacité** : si plus de 50 % des brouillons d'un mode sont rejetés à la v4, le vivier ne suffit plus. Le mode perd alors un quart de sa taille (`bridge` à 8 + 22, les autres à 6 + 16), et c'est écrit ici.
+
