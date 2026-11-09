@@ -46,7 +46,7 @@ def test_only_the_variant_changes_its_grounding() -> None:
     assert BASELINE not in GROUNDINGS
     assert GROUNDINGS[VARIANT] == STRICT_GROUNDING
     assert STRICT_GROUNDING.startswith(GROUNDING)
-    assert "cas voisin" in STRICT_GROUNDING
+    assert "situation exacte de la question" in STRICT_GROUNDING
 
 
 def test_excluded_items_are_those_the_audit_found_answered(tmp_path: Path) -> None:
