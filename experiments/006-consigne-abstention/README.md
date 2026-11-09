@@ -65,7 +65,7 @@ Les items écartés par l'audit ne tournent pas. Le run final ajoute `--split te
 
 | # | Date | Variante | Modification | Motif | `hallucination` dev (valides) | `false_abstention` dev |
 |---|---|---|---|---|---|---|
-| 0 | | A et B | aucune : mesure de départ | vérifier la chaîne, estimer s_d | | |
+| 0 | 2026-11-09 | A et B | aucune : mesure de départ, B avec le point de départ (commit `4ae9382`, sans Langfuse) | vérifier la chaîne, estimer s_d | A 0,238 · B 0,226 ; delta −0,012 [−0,086 ; +0,063]. s_d = 0,192. Les réponses inventées sont des règles d'un cas voisin appliquées au mauvais cas (frais de dossier d'un crédit immobilier pour un produit à distance, corps huit du crédit pour la multipropriété, même moyen de paiement hors services financiers) : la consigne ne les arrête pas | A 0,015 · B 0,045 ; delta +0,030 [−0,018 ; +0,078] (2 items : une référence, une paraphrase) |
 
 **Commit de gel :** à venir
 **Run final sur le `test` :** à venir
