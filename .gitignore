@@ -42,6 +42,9 @@ experiments/001-mcp-outils-par-intention/runs/
 # Archives sources des domaines (LEGI : 1,1 Go), retéléchargeables et vérifiées par empreinte
 domains/*/.cache/
 
+# 002, run consolidé : runs de travail (JSONL bruts, traces)
+experiments/002-leviers-rag/runs/
+
 # 002 : cache des embeddings (retéléchargeable), runs de travail
 experiments/002-rag-naif-vs-modele-seul/.cache/
 experiments/002-rag-naif-vs-modele-seul/runs/

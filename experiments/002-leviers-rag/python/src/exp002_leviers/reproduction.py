@@ -146,7 +146,8 @@ def check(
     return report
 
 
-def main(argv: list[str] | None = None) -> None:
+def reproduces(golden: Path = GOLDEN) -> bool:
+    """Lance le contrôle sur les caches seuls, affiche son bilan, et dit s'il passe."""
     from ailab_rag.corpus import passages
     from ailab_rag.embeddings import MODEL, CachedEmbedder
     from ailab_rag.retrieval import build_index
@@ -154,11 +155,7 @@ def main(argv: list[str] | None = None) -> None:
     from exp003_rag.campaign import REWRITE_PROMPT, REWRITER
     from exp005_rag.campaign import RERANKER
 
-    parser = argparse.ArgumentParser(description="Contrôle de reproduction du run consolidé")
-    parser.add_argument("--golden", type=Path, default=GOLDEN)
-    args = parser.parse_args(argv)
-
-    items = {i["id"]: i for i in read_jsonl(args.golden)}
+    items = {i["id"]: i for i in read_jsonl(golden)}
     embedder = CachedEmbedder(CacheOnlyEmbedder(MODEL), CACHE_DIR / "embeddings")
     index = build_index(passages(read_jsonl(ARTICLES)), embedder)
     retrievers = build_retrievers(
@@ -184,7 +181,14 @@ def main(argv: list[str] | None = None) -> None:
             f"  ÉCART {m.variant} {m.item_id} : attendu {m.expected}, obtenu {m.got}",
             m.error or "",
         )
-    if report.mismatches:
+    return bool(runs) and not report.mismatches
+
+
+def main(argv: list[str] | None = None) -> None:
+    parser = argparse.ArgumentParser(description="Contrôle de reproduction du run consolidé")
+    parser.add_argument("--golden", type=Path, default=GOLDEN)
+    args = parser.parse_args(argv)
+    if not reproduces(args.golden):
         sys.exit(1)
 
 
