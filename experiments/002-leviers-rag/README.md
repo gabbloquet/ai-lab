@@ -1,6 +1,6 @@
 # 002 — Notre RAG répond mal : quels sont les plus gros leviers ?
 
-> **Statut :** étapes 1 à 5 conclues ; run consolidé sur le golden set v4 en cadrage
+> **Statut :** étapes 1 à 5 conclues ; protocole du run consolidé écrit (2026-11-09), code de campagne à écrire
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -26,17 +26,71 @@ Toutes les étapes ont tourné sur les trois mêmes générateurs : `mistral-sma
 
 Les étapes 4 et 5 ont pris pour baseline la meilleure configuration du moment (20 passages) : l'expérience mêle donc des deltas isolés (contre le RAG naïf) et des deltas cumulés (contre 20 passages).
 
-## Run consolidé sur le golden set v4 (en cadrage)
+## Run consolidé sur le golden set v4
 
-**But.** Mesurer plus finement le gain de chaque levier, sur un même golden set et dans un même run. Le golden set v4 a 234 items `test` valides, au lieu de 138 en v1. Il ajoute trois modes (`comparison`, `set`, `false_premise`) et 51 questions sans réponse valides, au lieu de 11. Les verdicts des étapes restent ceux de leurs runs finaux ; le run consolidé les complète, il ne les remplace pas.
+Les sections Question, Hypothèse, Protocole, Discipline d'itération et Mesures du run consolidé sont écrites le 2026-11-09, avant tout code et tout run. Décisions du propriétaire du même jour : un seul run, configurations gelées sans nouvelle itération, double lecture (isolée et cumulative), k = 3, consigne d'abstention de l'étape 5 telle quelle.
 
-**Principes retenus** (propriétaire, 2026-11-09) :
-- les configurations gelées de chaque étape tournent telles quelles, **sans aucune nouvelle itération** sur le `dev`. Chaque levier a déjà reçu ses cycles ;
-- deux lectures du même run : **chaque levier contre la même baseline** (le RAG naïf), et **une échelle cumulative** (naïf, puis 20 passages, puis reclassement, puis consigne d'abstention). Les deux tableaux sont corrigés pour comparaisons multiples (Holm) ;
-- un seul run final, à modèle constant, sur les trois générateurs ;
-- deltas globaux et par mode, métriques d'abstention calculées sans les items fautifs de l'audit.
+### Question du run
 
-**Reste à fixer avant d'écrire le protocole** : le coût estimé à partir des runs précédents (6 configurations × 3 modèles × k répétitions × 246 items) ; la version gelée de la consigne d'abstention, puisque l'étape 5 conclut qu'elle se règle par modèle ; le nombre de répétitions.
+Sur le golden set v4, de combien chaque levier gelé fait-il varier `correct` : seul, contre le RAG naïf, et en plus des leviers précédents ?
+
+### Hypothèse
+
+- **H1** : chaque verdict d'étape se retrouve dans le même sens. Le RAG naïf bat largement le modèle seul ; 20 passages battent le RAG naïf ; la reformulation et le reclassement ne font rien gagner ; la consigne d'abstention fait moins inventer Mistral Small, sans gain pour les deux autres.
+- **H0** : aucun écart mesurable entre une configuration et celle à laquelle on la compare.
+- **Plus petit écart qui compte** : celui de chaque étape (10 points pour le RAG naïf, 5 pour la reformulation, 3 pour 20 passages et pour le reclassement). Pour la consigne d'abstention, ce sont les critères de l'étape 5.
+
+### Protocole
+
+| Élément | Valeur |
+|---|---|
+| Configurations | six, gelées, reprises **telles quelles** de leurs étapes (voir ci-dessous) |
+| Ce qui change entre deux configurations comparées | un seul levier |
+| Ce qui est fixé | générateurs, prompts, `temperature = 0`, index (`mistral-embed`, un passage par article, texte seul), spec `rag-qa/v1` |
+| Générateurs | `mistral:mistral-small-2603`, `mistral:ministral-14b-2512`, `google:gemini-3.5-flash-lite` ; un verdict par modèle |
+| Golden set | `rag-qa/v4`, split `test` : 246 items, dont 234 valides. Les 12 questions sans réponse de l'audit sont écartées de toutes les métriques du verdict |
+| Répétitions | k = 3 |
+
+| Configuration | Étape d'origine | Source gelée |
+|---|---|---|
+| `closed_book` | 1 (A) | `exp002_rag`, commit de gel `8d082ad` |
+| `naive_rag` (5 passages) | 1 (B) | `exp002_rag`, `8d082ad` |
+| `query_rewrite` | 2 (B) | `exp003_rag`, `13e7cab` (reformulations de `gemini-3.8-flash`, cache) |
+| `top_k_20` | 3 (B) | `exp004_rag`, `b05ab07` |
+| `rerank_cohere` (50 candidats vers 5) | 4 (B) | `exp005_rag`, `0102fde` |
+| `abstain_strict` (20 passages + consigne) | 5 (B) | `exp006_rag`, `28bc317` (`STRICT_GROUNDING`) |
+
+**Comparaisons**, six par modèle, fixées d'avance :
+
+| Lecture | Comparaison | Étape |
+|---|---|---|
+| isolée et cumulative | `naive_rag` − `closed_book` | 1 |
+| isolée | `query_rewrite` − `naive_rag` | 2 |
+| isolée et cumulative | `top_k_20` − `naive_rag` | 3 |
+| cumulative (comme à l'étape 4) | `rerank_cohere` − `top_k_20` | 4 |
+| isolée (nouvelle) | `rerank_cohere` − `naive_rag` : 5 passages reclassés contre 5 passages | 4 |
+| cumulative | `abstain_strict` − `top_k_20` | 5 |
+
+**Taille de l'échantillon.** L'écart type des différences par item, mesuré aux runs finaux des étapes, vaut 0,31 à 0,35 pour les leviers de récupération, 0,26 à 0,32 pour le reclassement et 0,15 à 0,24 pour la consigne. Avec n = 234 et la formule du gabarit, le MDE vaut environ 5,7 à 6,4 points pour la récupération, 4,8 à 5,9 pour le reclassement et 2,8 à 4,4 pour la consigne. La correction de Holm le porte à environ 1,3 fois ces valeurs pour la comparaison la plus exigeante. L'écart de 3 points qui compte pour 20 passages et pour le reclassement reste donc sous le MDE : un « non concluant » n'y exclura pas un petit gain.
+
+**Coût estimé** (2026-11-09, tarifs publics non vérifiés sur facture) : 8 à 13 $ pour les trois modèles, dont 0,6 à 5,5 $ pour Cohere selon son mode de facturation. Durée : environ une heure, les trois modèles en parallèle.
+
+### Discipline d'itération
+
+- **Aucun cycle sur le `dev`** : chaque configuration a reçu ses cycles dans son étape. Un run `dev` unique sert seulement à vérifier que le code de campagne reproduit les configurations gelées. Ses résultats ne servent à rien régler.
+- **Contrôle de reproduction avant le gel** : sur les items de la v1, le code de campagne doit redonner les contextes récupérés des runs finaux des étapes, pour chaque configuration. C'est vérifiable sans appel au générateur.
+- Commit de gel, puis un seul run final sur le `test`.
+
+### Mesures
+
+- **Verdict** : delta de `correct` par comparaison et par modèle, IC à 95 % apparié par item (moyenne sur les répétitions), p-values corrigées par Holm sur les six comparaisons de chaque modèle.
+- **Consigne d'abstention** : critères de l'étape 5 (`hallucination` sur les 51 questions sans réponse valides, garde sur `false_abstention`).
+- **Secondaires, sans porter le verdict** : `correct` par mode, `hallucination`, `false_abstention`, `failure`, `evidence_recall@k`, tokens, latence.
+- Rapport daté dans `results/`, qui cite le golden set `rag-qa/v4`, la spec `rag-qa/v1` et les lockfiles.
+
+### Code de campagne
+
+Il reste à écrire : un lanceur qui fait tourner les six configurations sur le même golden set, en réutilisant les briques gelées de `ailab_rag` et des paquets d'étape. C'est du code d'expérience : il s'écrit avec le propriétaire, une étape à la fois (règles du dépôt).
 
 ## Verdict
 
