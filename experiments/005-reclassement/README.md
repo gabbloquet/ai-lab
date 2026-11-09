@@ -1,6 +1,6 @@
 # 005 — Reclasser 50 candidats pour n'en envoyer que 5 ?
 
-> **Statut :** cadrage (pré-étude conclue le 2026-11-09, protocole écrit)
+> **Statut :** gelée le 2026-11-09, run final en cours
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -87,7 +87,7 @@ Sur le Code de la consommation, **reclasser les 50 premiers passages denses avec
 | Ce qui change entre A et B | Les passages envoyés : les 20 premiers du classement dense pour A, les 5 premiers du classement reclassé pour B |
 | Ce qui est fixé | Le générateur, les prompts de génération, le format de sortie, la température (0), l'index, la requête de recherche (la question seule), les données (`data/v1`) |
 | Reclassement | Une note par candidat et par question, calculée avant la campagne et gardée en cache (`.cache/ailab_rag/rerank`) : les répétitions et les trois générateurs voient le même classement. Clé d'essai Cohere, 10 requêtes par minute ; un appel par question, soit 50 pour le `dev` et 150 pour le `test` |
-| Générateurs | Un verdict par modèle : `mistral:mistral-small-2603`, `mistral:ministral-14b-2512`, `google:gemini-3.5-flash-lite`, ceux des 002 à 004. Identifiants à revérifier avant le run final |
+| Générateurs | Un verdict par modèle : `mistral:mistral-small-2603`, `mistral:ministral-14b-2512`, `google:gemini-3.5-flash-lite`, ceux des 002 à 004. Identifiants vérifiés le 2026-11-09 (API Mistral `/v1/models`, API Google `v1beta/models`) |
 | Golden set | `domains/droit-consommation/golden/rag-qa/v1` (publié) : n_dev = 50, n_test = 150. Le même `test` que les 002 à 004 |
 | Répétitions | k = 3 |
 | Implémentation | `python/`, sur les briques partagées `ailab_rag` |
@@ -122,13 +122,20 @@ La campagne reclasse d'abord toutes les questions du split (un appel à Cohere p
 |---|---|---|---|---|---|
 | 0 | 2026-11-09 | A et B | aucune : mesure de départ (commit `3947d71`, sans Langfuse : serveur arrêté) | vérifier la chaîne, estimer s_d | A 0,873 · B 0,827 ; delta −0,047 [−0,113 ; +0,020]. Items avec réponse 0,894 → 0,871 ; `hallucination` 0,28 → **0,50** (6 items sans réponse : 5 exécutions sur 18 → 9) ; `retrieval_miss` 0,02 → 0,05 ; rappel au rang 1 0,45 → 0,69 ; tokens 4 234 → 1 508. Items B > A : 2, B < A : 4. Sur rq-146 (sans réponse), le reclassement place en tête des articles qui ressemblent à une réponse (un plafond d'amende voisin), et le modèle les reprend. s_d = 0,233 |
 
-**Commit de gel :** à venir
+**Commit de gel :** le commit « Geler la 005 avant le run final sur le test » (2026-11-09). Son hash est enregistré dans le `summary.json` de chaque run (`run.commit`).
+
+**Configuration gelée :** A, le RAG à 20 passages de la 004, inchangé ; B, les 50 premiers passages denses reclassés par Cohere `rerank-v5.0-pro`, 5 envoyés. Prompts de génération du gel de la 002 pour les deux variantes. **Budget utilisé : 0 cycle sur 2 pour B.** Au run 0, B perdait surtout sur les questions sans réponse (2 items sur 6) ; un cycle sur la consigne d'abstention aurait mêlé à cette expérience le levier « consigne d'abstention », prévu ensuite, et ajusté B sur 6 items du `dev`.
 **Run final sur le `test` :** à venir
 
 ## Mesures
 
 - **Métrique principale, qui porte le verdict :** `correct`, spec `rag-qa/v1` (§ 5).
-- **Métriques secondaires, publiées sans porter le verdict :** répartition de `failure` (dont `retrieval_miss` et `generation_miss`), `evidence_recall@k` (k ∈ {1, 3, 5, 10}), `correct` par mode, `hallucination`, `false_abstention`, précision et rappel des citations, tokens du générateur par exécution, temps du reclassement.
+- **Métriques secondaires, publiées sans porter le verdict :** répartition de `failure` (dont `retrieval_miss` et `generation_miss`), `evidence_recall@k` (k ∈ {1, 3, 5, 10}), `correct` par mode, `hallucination`, `false_abstention`, précision et rappel des citations, tokens du générateur par exécution, et **temps de réponse** :
+  - **génération** : durée de l'appel au générateur, par exécution (`latency.generation_s`, champ hors spec ignoré par le scorer), en moyenne, médiane et 90e centile par variante ; les deux variantes tournent en parallèle dans la même campagne (4 exécutions à la fois) ;
+  - **reclassement** (B seulement) : durée de chaque appel à Cohere pendant le reclassement d'avance des 150 questions du `test`, sans l'attente imposée par la clé d'essai (`run.rerank_s`) ;
+  - la recherche dense n'est pas comptée : elle coûte le même appel d'embedding à A et à B.
+
+  Ajouté le 2026-11-09, avant le gel et avant tout run sur le `test`, à la demande du propriétaire : un gain de 20 passages ne vaut que si le temps de réponse reste acceptable. Le run 0 du `dev` a tourné avant cet ajout et n'a pas de temps de génération.
 - **Règle de verdict :** celle de la spec (§ 8) : B meilleure, B moins bonne ou non concluant.
 - **Lecture de non-infériorité**, fixée avant le run et qui ne remplace pas le verdict : si la borne basse de l'IC à 95 % du delta est au-dessus de −0,03, « B ne fait pas moins bien que A de plus de 3 points » ; si la borne haute est sous −0,03, « B fait moins bien de plus de 3 points ».
 
@@ -143,6 +150,8 @@ La campagne reclasse d'abord toutes les questions du split (un appel à Cohere p
 ## Limites
 
 Déjà connues avant le run :
+- **B moins travaillée que A** : A a reçu deux cycles dans la 002, B aucun (gel au run 0).
+- **Run 0 sans Langfuse** : le serveur était arrêté ; les JSONL du `dev` font foi.
 - **Modèle de reclassement choisi sur le `dev`**, parmi trois candidats : son avance de la pré-étude est en partie optimiste.
 - **Puissance faible pour la non-infériorité** (voir Taille de l'échantillon).
 - **Clé d'essai Cohere** : ses conditions d'usage commercial ne sont pas vérifiées ; le modèle servi peut changer côté Cohere, mais les notes de l'expérience sont figées dans le cache.
