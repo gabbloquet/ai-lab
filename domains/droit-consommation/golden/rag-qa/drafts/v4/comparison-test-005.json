@@ -1,0 +1,21 @@
+{
+  "task": "comparison-test-005",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3779,
+    "output_tokens": 93
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article A ne fait que renvoyer à des règlements européens, sans valeur précise comparable, et l'article B fixe seulement une durée de conservation de cinq ans sans équivalent dans A."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article A ne fait que renvoyer à des règlements européens, sans valeur précise comparable, et l'article B fixe seulement une durée de conservation de cinq ans sans équivalent dans A.\"}"
+}

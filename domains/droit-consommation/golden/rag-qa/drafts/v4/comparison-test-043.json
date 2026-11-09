@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-043",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:39:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3350,
+    "output_tokens": 305
+  },
+  "output": {
+    "question": "Après rétractation, en combien de jours le professionnel rembourse-t-il, et pendant combien de jours après un démarchage à domicile ne peut-il rien encaisser ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quatorze jours",
+          "14 jours"
+        ],
+        "quote": "au plus tard dans les quatorze jours à compter de la date à laquelle il est informé de la décision du consommateur de se rétracter",
+        "article": "L221-24"
+      },
+      {
+        "accepted": [
+          "sept jours",
+          "7 jours"
+        ],
+        "quote": "avant l'expiration d'un délai de sept jours à compter de la conclusion du contrat hors établissement",
+        "article": "L221-10"
+      }
+    ],
+    "doubt": "Les deux délais ne règlent pas la même chose (délai de remboursement après rétractation d'un côté, interdiction de paiement avant sept jours de l'autre), donc la comparaison est un peu artificielle."
+  },
+  "raw_text": "{\"question\":\"Après rétractation, en combien de jours le professionnel rembourse-t-il, et pendant combien de jours après un démarchage à domicile ne peut-il rien encaisser ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quatorze jours\",\"14 jours\"],\"quote\":\"au plus tard dans les quatorze jours à compter de la date à laquelle il est informé de la décision du consommateur de se rétracter\",\"article\":\"L221-24\"},{\"accepted\":[\"sept jours\",\"7 jours\"],\"quote\":\"avant l'expiration d'un délai de sept jours à compter de la conclusion du contrat hors établissement\",\"article\":\"L221-10\"}],\"doubt\":\"Les deux délais ne règlent pas la même chose (délai de remboursement après rétractation d'un côté, interdiction de paiement avant sept jours de l'autre), donc la comparaison est un peu artificielle.\"}"
+}

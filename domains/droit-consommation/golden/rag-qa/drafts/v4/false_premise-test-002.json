@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-002",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2340,
+    "output_tokens": 217
+  },
+  "output": {
+    "question": "Remboursement après résolution de la vente : amende max de 5 000 € pour un professionnel personne physique, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €"
+        ],
+        "quote": "une amende administrative dont le montant ne peut excéder 15 000 euros pour une personne physique",
+        "article": "L241-11"
+      }
+    ],
+    "doubt": "Le texte vise les manquements aux obligations du professionnel lors de la résolution du contrat ; la question reformule cela en parlant de remboursement, ce qui est approximatif mais cohérent.",
+    "false_value": "5 000 €"
+  },
+  "raw_text": "{\"question\":\"Remboursement après résolution de la vente : amende max de 5 000 € pour un professionnel personne physique, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"15 000 euros\",\"15 000 €\"],\"quote\":\"une amende administrative dont le montant ne peut excéder 15 000 euros pour une personne physique\",\"article\":\"L241-11\"}],\"doubt\":\"Le texte vise les manquements aux obligations du professionnel lors de la résolution du contrat ; la question reformule cela en parlant de remboursement, ce qui est approximatif mais cohérent.\",\"false_value\":\"5 000 €\"}"
+}

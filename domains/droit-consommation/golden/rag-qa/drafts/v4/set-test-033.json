@@ -1,0 +1,60 @@
+{
+  "task": "set-test-033",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2716,
+    "output_tokens": 445
+  },
+  "output": {
+    "question": "Sur quels sujets le Conseil national de l'alimentation peut-il être consulté en particulier ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "besoins nutritionnels"
+        ],
+        "quote": "1° A l'adaptation de la consommation aux besoins nutritionnels ;",
+        "article": "D824-2"
+      },
+      {
+        "accepted": [
+          "sécurité sanitaire des aliments",
+          "sécurité alimentaire"
+        ],
+        "quote": "2° A la sécurité alimentaire et à la sécurité sanitaire des aliments ;",
+        "article": "D824-2"
+      },
+      {
+        "accepted": [
+          "qualité des denrées alimentaires",
+          "qualité"
+        ],
+        "quote": "3° A la qualité des denrées alimentaires ;",
+        "article": "D824-2"
+      },
+      {
+        "accepted": [
+          "information des consommateurs"
+        ],
+        "quote": "4° A l'information des consommateurs de ces denrées ;",
+        "article": "D824-2"
+      },
+      {
+        "accepted": [
+          "prévention des crises",
+          "communication sur les risques"
+        ],
+        "quote": "5° A la prévention des crises et à la communication sur les risques.",
+        "article": "D824-2"
+      }
+    ],
+    "doubt": "Les mots-clés « sécurité alimentaire » et « qualité » sont courts et pourraient apparaître dans la réponse à d'autres éléments ; le 2° et le 3° se distinguent surtout par leur expression complète."
+  },
+  "raw_text": "{\"question\":\"Sur quels sujets le Conseil national de l'alimentation peut-il être consulté en particulier ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"besoins nutritionnels\"],\"quote\":\"1° A l'adaptation de la consommation aux besoins nutritionnels ;\",\"article\":\"D824-2\"},{\"accepted\":[\"sécurité sanitaire des aliments\",\"sécurité alimentaire\"],\"quote\":\"2° A la sécurité alimentaire et à la sécurité sanitaire des aliments ;\",\"article\":\"D824-2\"},{\"accepted\":[\"qualité des denrées alimentaires\",\"qualité\"],\"quote\":\"3° A la qualité des denrées alimentaires ;\",\"article\":\"D824-2\"},{\"accepted\":[\"information des consommateurs\"],\"quote\":\"4° A l'information des consommateurs de ces denrées ;\",\"article\":\"D824-2\"},{\"accepted\":[\"prévention des crises\",\"communication sur les risques\"],\"quote\":\"5° A la prévention des crises et à la communication sur les risques.\",\"article\":\"D824-2\"}],\"doubt\":\"Les mots-clés « sécurité alimentaire » et « qualité » sont courts et pourraient apparaître dans la réponse à d'autres éléments ; le 2° et le 3° se distinguent surtout par leur expression complète.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-013",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2707,
+    "output_tokens": 265
+  },
+  "output": {
+    "question": "Quelle amende pour des prélèvements bancaires avec clauses interdites en crédit conso, et quel plafond de déchéance d'intérêts en crédit immobilier ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-13"
+      },
+      {
+        "accepted": [
+          "30 000 euros",
+          "30 000 €"
+        ],
+        "quote": "plafonné à 30 000 euros",
+        "article": "L341-25"
+      }
+    ],
+    "doubt": "A fixe une amende pénale et B un plafond de déchéance du droit aux intérêts (sanction civile) : ce ne sont pas deux valeurs qui règlent la même chose, donc la comparaison n'est pas pertinente."
+  },
+  "raw_text": "{\"question\":\"Quelle amende pour des prélèvements bancaires avec clauses interdites en crédit conso, et quel plafond de déchéance d'intérêts en crédit immobilier ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-13\"},{\"accepted\":[\"30 000 euros\",\"30 000 €\"],\"quote\":\"plafonné à 30 000 euros\",\"article\":\"L341-25\"}],\"doubt\":\"A fixe une amende pénale et B un plafond de déchéance du droit aux intérêts (sanction civile) : ce ne sont pas deux valeurs qui règlent la même chose, donc la comparaison n'est pas pertinente.\"}"
+}

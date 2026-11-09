@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-037",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:39:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2793,
+    "output_tokens": 301
+  },
+  "output": {
+    "question": "Contrôle de la répression des fraudes : quel délai pour demander une expertise après un rapport de labo, et quelle durée maximale de consignation sans autorisation du procureur ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trois jours francs",
+          "3 jours francs"
+        ],
+        "quote": "il dispose d'un délai de trois jours francs à compter de la réception du rapport",
+        "article": "L512-40"
+      },
+      {
+        "accepted": [
+          "un mois",
+          "1 mois"
+        ],
+        "quote": "La mesure de consignation ne peut excéder une durée d'un mois que sur autorisation du procureur de la République.",
+        "article": "L512-28"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées mais ne règlent pas la même chose (délai pour demander une expertise contre durée de consignation), donc elles ne se comparent pas vraiment ; de plus, la question dépasse 20 mots."
+  },
+  "raw_text": "{\"question\":\"Contrôle de la répression des fraudes : quel délai pour demander une expertise après un rapport de labo, et quelle durée maximale de consignation sans autorisation du procureur ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trois jours francs\",\"3 jours francs\"],\"quote\":\"il dispose d'un délai de trois jours francs à compter de la réception du rapport\",\"article\":\"L512-40\"},{\"accepted\":[\"un mois\",\"1 mois\"],\"quote\":\"La mesure de consignation ne peut excéder une durée d'un mois que sur autorisation du procureur de la République.\",\"article\":\"L512-28\"}],\"doubt\":\"Les deux valeurs sont des durées mais ne règlent pas la même chose (délai pour demander une expertise contre durée de consignation), donc elles ne se comparent pas vraiment ; de plus, la question dépasse 20 mots.\"}"
+}

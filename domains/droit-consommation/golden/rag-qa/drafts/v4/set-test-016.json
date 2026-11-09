@@ -1,0 +1,38 @@
+{
+  "task": "set-test-016",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2790,
+    "output_tokens": 293
+  },
+  "output": {
+    "question": "Pendant combien de temps dois-je recevoir les mises à jour d'un contenu ou service numérique ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "fourniture ponctuelle",
+          "série d'opérations de fourniture distinctes"
+        ],
+        "quote": "dans le cas d'une opération de fourniture ponctuelle ou d'une série d'opérations de fourniture distinctes",
+        "article": "L224-25-25"
+      },
+      {
+        "accepted": [
+          "fourniture continue",
+          "période donnée"
+        ],
+        "quote": "lorsque celui-ci en prévoit la fourniture continue pendant une période donnée",
+        "article": "L224-25-25"
+      }
+    ],
+    "doubt": "L'article contient deux listes (I et II) et la réponse attendue est une description de périodes, sans mots-clés courts vraiment propres ; le mode liste ne s'applique pas bien, donc peu adapté."
+  },
+  "raw_text": "{\"question\":\"Pendant combien de temps dois-je recevoir les mises à jour d'un contenu ou service numérique ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"fourniture ponctuelle\",\"série d'opérations de fourniture distinctes\"],\"quote\":\"dans le cas d'une opération de fourniture ponctuelle ou d'une série d'opérations de fourniture distinctes\",\"article\":\"L224-25-25\"},{\"accepted\":[\"fourniture continue\",\"période donnée\"],\"quote\":\"lorsque celui-ci en prévoit la fourniture continue pendant une période donnée\",\"article\":\"L224-25-25\"}],\"doubt\":\"L'article contient deux listes (I et II) et la réponse attendue est une description de périodes, sans mots-clés courts vraiment propres ; le mode liste ne s'applique pas bien, donc peu adapté.\"}"
+}

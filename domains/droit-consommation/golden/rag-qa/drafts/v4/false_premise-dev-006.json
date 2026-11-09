@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-dev-006",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2909,
+    "output_tokens": 231
+  },
+  "output": {
+    "question": "Surendettement : mon inscription au fichier des incidents de paiement dure au maximum dix ans, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "sept ans",
+          "7 ans"
+        ],
+        "quote": "L'inscription est conservée pendant toute la durée de l'exécution du plan conventionnel, sans pouvoir excéder sept ans.",
+        "article": "L752-3"
+      }
+    ],
+    "doubt": "La question vise l'inscription liée à un plan conventionnel ou à des mesures imposées ; la radiation après exécution sans incident se fait au bout de cinq ans, ce qui peut prêter à confusion.",
+    "false_value": "dix ans"
+  },
+  "raw_text": "{\"question\":\"Surendettement : mon inscription au fichier des incidents de paiement dure au maximum dix ans, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"sept ans\",\"7 ans\"],\"quote\":\"L'inscription est conservée pendant toute la durée de l'exécution du plan conventionnel, sans pouvoir excéder sept ans.\",\"article\":\"L752-3\"}],\"doubt\":\"La question vise l'inscription liée à un plan conventionnel ou à des mesures imposées ; la radiation après exécution sans incident se fait au bout de cinq ans, ce qui peut prêter à confusion.\",\"false_value\":\"dix ans\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-006",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2874,
+    "output_tokens": 295
+  },
+  "output": {
+    "question": "Abus de faiblesse : quelle amende maximale de base, et quel délai pour la cour d'appel saisie d'un recours contre la mainlevée d'une cessation de pratique trompeuse ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "375 000 euros",
+          "375 000 €"
+        ],
+        "quote": "est puni d'un emprisonnement de trois ans et d'une amende de 375 000 euros",
+        "article": "L132-14"
+      },
+      {
+        "accepted": [
+          "dix jours",
+          "10 jours"
+        ],
+        "quote": "La chambre de l'instruction ou la cour d'appel statue dans un délai de dix jours à compter de la réception des pièces.",
+        "article": "L132-8"
+      }
+    ],
+    "doubt": "Les deux valeurs ne se comparent pas : un montant d'amende d'un côté, un délai de procédure de l'autre ; elles ne règlent pas la même chose."
+  },
+  "raw_text": "{\"question\":\"Abus de faiblesse : quelle amende maximale de base, et quel délai pour la cour d'appel saisie d'un recours contre la mainlevée d'une cessation de pratique trompeuse ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"375 000 euros\",\"375 000 €\"],\"quote\":\"est puni d'un emprisonnement de trois ans et d'une amende de 375 000 euros\",\"article\":\"L132-14\"},{\"accepted\":[\"dix jours\",\"10 jours\"],\"quote\":\"La chambre de l'instruction ou la cour d'appel statue dans un délai de dix jours à compter de la réception des pièces.\",\"article\":\"L132-8\"}],\"doubt\":\"Les deux valeurs ne se comparent pas : un montant d'amende d'un côté, un délai de procédure de l'autre ; elles ne règlent pas la même chose.\"}"
+}

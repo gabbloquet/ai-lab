@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-020",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2798,
+    "output_tokens": 295
+  },
+  "output": {
+    "question": "Rétablissement personnel avec liquidation : quel délai pour contester l'état des créances avant l'audience, et pour demander un relevé de forclusion ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "quinze jours avant l'audience, leurs éventuelles contestations portant sur l'état des créances",
+        "article": "R742-16"
+      },
+      {
+        "accepted": [
+          "six mois",
+          "6 mois"
+        ],
+        "quote": "dans le délai de six mois à compter de la publicité du jugement d'ouverture",
+        "article": "R742-13"
+      }
+    ],
+    "doubt": "Les deux délais ne portent pas sur la même chose (contestation des créances vs relevé de forclusion), mais ils relèvent de la même procédure et sont tous deux des délais ; le point de départ diffère (avant l'audience vs après la publicité du jugement)."
+  },
+  "raw_text": "{\"question\":\"Rétablissement personnel avec liquidation : quel délai pour contester l'état des créances avant l'audience, et pour demander un relevé de forclusion ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"quinze jours avant l'audience, leurs éventuelles contestations portant sur l'état des créances\",\"article\":\"R742-16\"},{\"accepted\":[\"six mois\",\"6 mois\"],\"quote\":\"dans le délai de six mois à compter de la publicité du jugement d'ouverture\",\"article\":\"R742-13\"}],\"doubt\":\"Les deux délais ne portent pas sur la même chose (contestation des créances vs relevé de forclusion), mais ils relèvent de la même procédure et sont tous deux des délais ; le point de départ diffère (avant l'audience vs après la publicité du jugement).\"}"
+}

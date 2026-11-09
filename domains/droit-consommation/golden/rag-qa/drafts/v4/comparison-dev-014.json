@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-014",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2917,
+    "output_tokens": 263
+  },
+  "output": {
+    "question": "Commission des clauses abusives : quelle durée de mandat des membres, et quel seuil de mois de mandat restant pour qu'il ne compte pas dans le renouvellement ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "pour un mandat de trois ans renouvelable une fois",
+        "article": "R822-19"
+      },
+      {
+        "accepted": [
+          "dix-huit mois",
+          "18 mois"
+        ],
+        "quote": "Si cette durée est inférieure à dix-huit mois",
+        "article": "R822-28"
+      }
+    ],
+    "doubt": "Les deux valeurs ne règlent pas la même chose (durée du mandat d'un côté, seuil de remplacement de l'autre) et ne sont pas comparables comme deux cas d'une même règle."
+  },
+  "raw_text": "{\"question\":\"Commission des clauses abusives : quelle durée de mandat des membres, et quel seuil de mois de mandat restant pour qu'il ne compte pas dans le renouvellement ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"pour un mandat de trois ans renouvelable une fois\",\"article\":\"R822-19\"},{\"accepted\":[\"dix-huit mois\",\"18 mois\"],\"quote\":\"Si cette durée est inférieure à dix-huit mois\",\"article\":\"R822-28\"}],\"doubt\":\"Les deux valeurs ne règlent pas la même chose (durée du mandat d'un côté, seuil de remplacement de l'autre) et ne sont pas comparables comme deux cas d'une même règle.\"}"
+}

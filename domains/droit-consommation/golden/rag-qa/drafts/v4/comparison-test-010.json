@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-010",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3150,
+    "output_tokens": 280
+  },
+  "output": {
+    "question": "Quelle durée maximale d'interdiction d'exercer pour un contrat de temps partagé, et quelle majoration si remboursement numérique 14 jours en retard ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.",
+        "article": "L242-31"
+      },
+      {
+        "accepted": [
+          "10 %",
+          "10 pour cent"
+        ],
+        "quote": "majoré de 10 % si le remboursement intervient au plus tard quatorze jours au-delà de ce terme",
+        "article": "L242-18-3"
+      }
+    ],
+    "doubt": "A fixe une durée maximale de peine complémentaire et B un taux de majoration civile : les deux valeurs ne règlent pas la même chose et ne se comparent pas."
+  },
+  "raw_text": "{\"question\":\"Quelle durée maximale d'interdiction d'exercer pour un contrat de temps partagé, et quelle majoration si remboursement numérique 14 jours en retard ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.\",\"article\":\"L242-31\"},{\"accepted\":[\"10 %\",\"10 pour cent\"],\"quote\":\"majoré de 10 % si le remboursement intervient au plus tard quatorze jours au-delà de ce terme\",\"article\":\"L242-18-3\"}],\"doubt\":\"A fixe une durée maximale de peine complémentaire et B un taux de majoration civile : les deux valeurs ne règlent pas la même chose et ne se comparent pas.\"}"
+}

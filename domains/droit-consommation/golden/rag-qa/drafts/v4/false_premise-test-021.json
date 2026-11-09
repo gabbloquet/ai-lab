@@ -1,0 +1,30 @@
+{
+  "task": "false_premise-test-021",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2472,
+    "output_tokens": 242
+  },
+  "output": {
+    "question": "Crédit à Wallis-et-Futuna : le seuil de 75 000 euros vaut-il aussi en francs CFP ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "8 950 000 francs CFP"
+        ],
+        "quote": "les mots : “ 75 000 euros ” sont remplacés par les mots : “ 8 950 000 francs CFP ”",
+        "article": "L351-8"
+      }
+    ],
+    "doubt": "Article d'adaptation outre-mer qui remplace des mots par d'autres ; la question est peu probable dans un chat et la question proposée contient déjà 75 000 euros, qui est la valeur d'origine, pas une valeur fausse.",
+    "false_value": "75 000 euros"
+  },
+  "raw_text": "{\"question\":\"Crédit à Wallis-et-Futuna : le seuil de 75 000 euros vaut-il aussi en francs CFP ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"8 950 000 francs CFP\"],\"quote\":\"les mots : “ 75 000 euros ” sont remplacés par les mots : “ 8 950 000 francs CFP ”\",\"article\":\"L351-8\"}],\"doubt\":\"Article d'adaptation outre-mer qui remplace des mots par d'autres ; la question est peu probable dans un chat et la question proposée contient déjà 75 000 euros, qui est la valeur d'origine, pas une valeur fausse.\",\"false_value\":\"75 000 euros\"}"
+}

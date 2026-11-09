@@ -1,0 +1,40 @@
+{
+  "task": "comparison-test-002",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2556,
+    "output_tokens": 267
+  },
+  "output": {
+    "question": "Amendes pour un prêteur : prêt viager hypothécaire non restitué à l'échéance, et crédit immobilier sans recommandation personnalisée ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €",
+          "300000 euros"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-58"
+      },
+      {
+        "accepted": [
+          "30 000 euros",
+          "30 000 €",
+          "30000 euros"
+        ],
+        "quote": "est puni d'une amende de 30 000 euros",
+        "article": "L341-29"
+      }
+    ],
+    "doubt": "La question dépasse légèrement le style familier et fait 20 mots, à la limite autorisée ; la première situation (sommes non restituées à l'échéance du terme) est décrite de façon un peu elliptique."
+  },
+  "raw_text": "{\"question\":\"Amendes pour un prêteur : prêt viager hypothécaire non restitué à l'échéance, et crédit immobilier sans recommandation personnalisée ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\",\"300000 euros\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-58\"},{\"accepted\":[\"30 000 euros\",\"30 000 €\",\"30000 euros\"],\"quote\":\"est puni d'une amende de 30 000 euros\",\"article\":\"L341-29\"}],\"doubt\":\"La question dépasse légèrement le style familier et fait 20 mots, à la limite autorisée ; la première situation (sommes non restituées à l'échéance du terme) est décrite de façon un peu elliptique.\"}"
+}

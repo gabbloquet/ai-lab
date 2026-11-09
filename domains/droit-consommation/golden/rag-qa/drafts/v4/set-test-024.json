@@ -1,0 +1,46 @@
+{
+  "task": "set-test-024",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2369,
+    "output_tokens": 286
+  },
+  "output": {
+    "question": "Quels justificatifs dois-je fournir pour un crédit à la consommation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "domicile",
+          "justificatif du domicile"
+        ],
+        "quote": "Tout justificatif du domicile de l'emprunteur",
+        "article": "D312-8"
+      },
+      {
+        "accepted": [
+          "revenu",
+          "justificatif du revenu"
+        ],
+        "quote": "Tout justificatif du revenu de l'emprunteur",
+        "article": "D312-8"
+      },
+      {
+        "accepted": [
+          "identité",
+          "justificatif de l'identité"
+        ],
+        "quote": "Tout justificatif de l'identité de l'emprunteur",
+        "article": "D312-8"
+      }
+    ],
+    "doubt": "Les justificatifs sont demandés pour la fiche d'information prévue à L. 312-17 ; la question ne précise pas ce contexte, mais reste unique pour le crédit à la consommation."
+  },
+  "raw_text": "{\"question\":\"Quels justificatifs dois-je fournir pour un crédit à la consommation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"domicile\",\"justificatif du domicile\"],\"quote\":\"Tout justificatif du domicile de l'emprunteur\",\"article\":\"D312-8\"},{\"accepted\":[\"revenu\",\"justificatif du revenu\"],\"quote\":\"Tout justificatif du revenu de l'emprunteur\",\"article\":\"D312-8\"},{\"accepted\":[\"identité\",\"justificatif de l'identité\"],\"quote\":\"Tout justificatif de l'identité de l'emprunteur\",\"article\":\"D312-8\"}],\"doubt\":\"Les justificatifs sont demandés pour la fiche d'information prévue à L. 312-17 ; la question ne précise pas ce contexte, mais reste unique pour le crédit à la consommation.\"}"
+}

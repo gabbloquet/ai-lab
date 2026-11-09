@@ -1,0 +1,36 @@
+{
+  "task": "set-test-036",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2689,
+    "output_tokens": 304
+  },
+  "output": {
+    "question": "Pour un contrat de jouissance à temps partagé, que doit indiquer l'offre en plus ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "système d'échange"
+        ],
+        "quote": "L'existence ou non de la possibilité de participer à un système d'échange et, dans l'affirmative, l'indication du nom de ce système d'échange et de son coût",
+        "article": "L224-74"
+      },
+      {
+        "accepted": [
+          "permis de construire"
+        ],
+        "quote": "Si l'immeuble est en construction, les indications essentielles relatives au permis de construire, à l'état et aux délais d'achèvement du logement et de ses services",
+        "article": "L224-74"
+      }
+    ],
+    "doubt": "L'article contient trois listes distinctes (temps partagé, produit de vacances à long terme, revente) ; la question ne couvre que la première liste, et il est douteux qu'un utilisateur demande cette liste précise dans un chat."
+  },
+  "raw_text": "{\"question\":\"Pour un contrat de jouissance à temps partagé, que doit indiquer l'offre en plus ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"système d'échange\"],\"quote\":\"L'existence ou non de la possibilité de participer à un système d'échange et, dans l'affirmative, l'indication du nom de ce système d'échange et de son coût\",\"article\":\"L224-74\"},{\"accepted\":[\"permis de construire\"],\"quote\":\"Si l'immeuble est en construction, les indications essentielles relatives au permis de construire, à l'état et aux délais d'achèvement du logement et de ses services\",\"article\":\"L224-74\"}],\"doubt\":\"L'article contient trois listes distinctes (temps partagé, produit de vacances à long terme, revente) ; la question ne couvre que la première liste, et il est douteux qu'un utilisateur demande cette liste précise dans un chat.\"}"
+}

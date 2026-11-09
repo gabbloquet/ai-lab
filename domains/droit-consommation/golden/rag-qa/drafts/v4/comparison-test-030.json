@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-030",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:59+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2872,
+    "output_tokens": 321
+  },
+  "output": {
+    "question": "Quel délai pour se rétracter d'un achat de métaux précieux, et combien de temps les pièces de rechange d'un soulève-malade restent-elles disponibles ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "quarante-huit heures",
+          "48 heures"
+        ],
+        "quote": "Si vous souhaitez exercer votre droit de rétractation dans les quarante-huit heures à compter de la signature du contrat",
+        "article": "R224-4"
+      },
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "pendant une durée minimale de cinq ans à compter de la date de mise sur le marché national de la dernière unité du modèle concerné",
+        "article": "D224-47"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées mais ne règlent pas la même chose : un délai de rétractation d'un côté, une durée de disponibilité de pièces détachées de l'autre. Elles ne sont donc pas comparables."
+  },
+  "raw_text": "{\"question\":\"Quel délai pour se rétracter d'un achat de métaux précieux, et combien de temps les pièces de rechange d'un soulève-malade restent-elles disponibles ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"quarante-huit heures\",\"48 heures\"],\"quote\":\"Si vous souhaitez exercer votre droit de rétractation dans les quarante-huit heures à compter de la signature du contrat\",\"article\":\"R224-4\"},{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"pendant une durée minimale de cinq ans à compter de la date de mise sur le marché national de la dernière unité du modèle concerné\",\"article\":\"D224-47\"}],\"doubt\":\"Les deux valeurs sont des durées mais ne règlent pas la même chose : un délai de rétractation d'un côté, une durée de disponibilité de pièces détachées de l'autre. Elles ne sont donc pas comparables.\"}"
+}

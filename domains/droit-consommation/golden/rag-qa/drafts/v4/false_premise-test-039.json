@@ -1,0 +1,32 @@
+{
+  "task": "false_premise-test-039",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2304,
+    "output_tokens": 252
+  },
+  "output": {
+    "question": "Livraison jamais faite, remboursement en retard de 10 jours : je peux exiger une majoration de 5 % ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "10 %",
+          "10 pour cent",
+          "dix pour cent"
+        ],
+        "quote": "cette somme est de plein droit majorée de 10 % si le remboursement intervient au plus tard quatorze jours au-delà de ce terme",
+        "article": "L241-4"
+      }
+    ],
+    "doubt": "La question mentionne un retard de 10 jours pour que la tranche applicable soit unique (jusqu'à quatorze jours). Le contexte de non-livraison est déduit du renvoi à L216-7, qui n'apparaît pas dans l'extrait.",
+    "false_value": "5 %"
+  },
+  "raw_text": "{\"question\":\"Livraison jamais faite, remboursement en retard de 10 jours : je peux exiger une majoration de 5 % ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"10 %\",\"10 pour cent\",\"dix pour cent\"],\"quote\":\"cette somme est de plein droit majorée de 10 % si le remboursement intervient au plus tard quatorze jours au-delà de ce terme\",\"article\":\"L241-4\"}],\"doubt\":\"La question mentionne un retard de 10 jours pour que la tranche applicable soit unique (jusqu'à quatorze jours). Le contexte de non-livraison est déduit du renvoi à L216-7, qui n'apparaît pas dans l'extrait.\",\"false_value\":\"5 %\"}"
+}

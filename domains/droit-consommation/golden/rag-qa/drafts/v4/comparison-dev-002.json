@@ -1,0 +1,40 @@
+{
+  "task": "comparison-dev-002",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2856,
+    "output_tokens": 268
+  },
+  "output": {
+    "question": "Crédit : quelle amende pour non-respect des règles sur le taux d'intérêt, et pour un prêteur immobilier qui reçoit un versement avant l'heure ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "150 000 euros",
+          "150 000 €",
+          "150000 euros"
+        ],
+        "quote": "est puni d'une amende de 150 000 euros",
+        "article": "L341-49"
+      },
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €",
+          "300000 euros"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-42"
+      }
+    ],
+    "doubt": "La question dépasse légèrement le style court et la notion de versement « avant l'heure » est une paraphrase du texte, qui vise un versement reçu en infraction aux règles du crédit immobilier."
+  },
+  "raw_text": "{\"question\":\"Crédit : quelle amende pour non-respect des règles sur le taux d'intérêt, et pour un prêteur immobilier qui reçoit un versement avant l'heure ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"150 000 euros\",\"150 000 €\",\"150000 euros\"],\"quote\":\"est puni d'une amende de 150 000 euros\",\"article\":\"L341-49\"},{\"accepted\":[\"300 000 euros\",\"300 000 €\",\"300000 euros\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-42\"}],\"doubt\":\"La question dépasse légèrement le style court et la notion de versement « avant l'heure » est une paraphrase du texte, qui vise un versement reçu en infraction aux règles du crédit immobilier.\"}"
+}

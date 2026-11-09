@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-dev-014",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2428,
+    "output_tokens": 213
+  },
+  "output": {
+    "question": "Surendettement : j'ai bien 15 jours pour présenter mes observations après le courrier de la commission ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trente jours",
+          "30 jours"
+        ],
+        "quote": "Cette lettre indique que le débiteur et les créanciers disposent d'un délai de trente jours pour présenter leurs observations.",
+        "article": "R733-4"
+      }
+    ],
+    "doubt": "Le contexte (courrier de la commission constatant l'échec probable de la conciliation) est résumé de façon succincte ; d'autres délais de surendettement existent mais diffèrent.",
+    "false_value": "15 jours"
+  },
+  "raw_text": "{\"question\":\"Surendettement : j'ai bien 15 jours pour présenter mes observations après le courrier de la commission ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trente jours\",\"30 jours\"],\"quote\":\"Cette lettre indique que le débiteur et les créanciers disposent d'un délai de trente jours pour présenter leurs observations.\",\"article\":\"R733-4\"}],\"doubt\":\"Le contexte (courrier de la commission constatant l'échec probable de la conciliation) est résumé de façon succincte ; d'autres délais de surendettement existent mais diffèrent.\",\"false_value\":\"15 jours\"}"
+}

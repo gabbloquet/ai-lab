@@ -1,0 +1,46 @@
+{
+  "task": "set-test-002",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2562,
+    "output_tokens": 377
+  },
+  "output": {
+    "question": "Quelles peines complémentaires le tribunal peut-il ajouter en cas de condamnation pour ces infractions ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "affichage",
+          "diffusion de la décision"
+        ],
+        "quote": "L'affichage et la diffusion de la décision dans les conditions prévues à l'article 131-35 du code pénal",
+        "article": "L531-5"
+      },
+      {
+        "accepted": [
+          "diffusion d'un ou plusieurs messages",
+          "messages"
+        ],
+        "quote": "La diffusion d'un ou plusieurs messages.",
+        "article": "L531-5"
+      },
+      {
+        "accepted": [
+          "retrait des produits",
+          "interdiction de la prestation de services"
+        ],
+        "quote": "Le retrait des produits sur lesquels a porté l'infraction et, dans les mêmes conditions, l'interdiction de la prestation de services.",
+        "article": "L531-5"
+      }
+    ],
+    "doubt": "Les éléments 1° et 2° se recoupent sur le mot « diffusion », donc aucun mot-clé n'est propre à chacun ; la question dépend aussi des articles L531-3 et L531-4, non précisés, d'où usable à false."
+  },
+  "raw_text": "{\"question\":\"Quelles peines complémentaires le tribunal peut-il ajouter en cas de condamnation pour ces infractions ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"affichage\",\"diffusion de la décision\"],\"quote\":\"L'affichage et la diffusion de la décision dans les conditions prévues à l'article 131-35 du code pénal\",\"article\":\"L531-5\"},{\"accepted\":[\"diffusion d'un ou plusieurs messages\",\"messages\"],\"quote\":\"La diffusion d'un ou plusieurs messages.\",\"article\":\"L531-5\"},{\"accepted\":[\"retrait des produits\",\"interdiction de la prestation de services\"],\"quote\":\"Le retrait des produits sur lesquels a porté l'infraction et, dans les mêmes conditions, l'interdiction de la prestation de services.\",\"article\":\"L531-5\"}],\"doubt\":\"Les éléments 1° et 2° se recoupent sur le mot « diffusion », donc aucun mot-clé n'est propre à chacun ; la question dépend aussi des articles L531-3 et L531-4, non précisés, d'où usable à false.\"}"
+}

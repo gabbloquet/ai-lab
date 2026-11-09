@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-043",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2579,
+    "output_tokens": 235
+  },
+  "output": {
+    "question": "Rappel produit alimentaire non fait malgré le danger : l'amende est bien de 300 000 euros ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "600 000 euros",
+          "600 000 €"
+        ],
+        "quote": "est puni d'une peine d'emprisonnement de cinq ans et d'une amende de 600 000 euros",
+        "article": "L452-5"
+      }
+    ],
+    "doubt": "Plusieurs articles du code prévoient des amendes différentes pour des infractions voisines ; la question précise le contexte du défaut de retrait ou de rappel, mais la valeur fausse de 300 000 euros pourrait correspondre à un autre article.",
+    "false_value": "300 000 euros"
+  },
+  "raw_text": "{\"question\":\"Rappel produit alimentaire non fait malgré le danger : l'amende est bien de 300 000 euros ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"600 000 euros\",\"600 000 €\"],\"quote\":\"est puni d'une peine d'emprisonnement de cinq ans et d'une amende de 600 000 euros\",\"article\":\"L452-5\"}],\"doubt\":\"Plusieurs articles du code prévoient des amendes différentes pour des infractions voisines ; la question précise le contexte du défaut de retrait ou de rappel, mais la valeur fausse de 300 000 euros pourrait correspondre à un autre article.\",\"false_value\":\"300 000 euros\"}"
+}

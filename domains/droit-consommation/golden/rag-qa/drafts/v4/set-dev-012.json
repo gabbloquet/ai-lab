@@ -1,0 +1,60 @@
+{
+  "task": "set-dev-012",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2603,
+    "output_tokens": 464
+  },
+  "output": {
+    "question": "Que doit contenir le procès-verbal d'un prélèvement de marchandises par un agent ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "qualité et résidence de l'agent",
+          "agent habilité"
+        ],
+        "quote": "Les nom, prénoms, qualité et résidence de l'agent habilité",
+        "article": "R512-10"
+      },
+      {
+        "accepted": [
+          "date, l'heure",
+          "heure et le lieu"
+        ],
+        "quote": "La date, l'heure et le lieu où le prélèvement a été effectué",
+        "article": "R512-10"
+      },
+      {
+        "accepted": [
+          "profession",
+          "personne chez laquelle"
+        ],
+        "quote": "Les nom, prénoms et profession, domicile ou résidence de la personne chez laquelle le prélèvement a été opéré",
+        "article": "R512-10"
+      },
+      {
+        "accepted": [
+          "numéro d'ordre"
+        ],
+        "quote": "Le numéro d'ordre du prélèvement",
+        "article": "R512-10"
+      },
+      {
+        "accepted": [
+          "signature"
+        ],
+        "quote": "La signature de l'agent habilité",
+        "article": "R512-10"
+      }
+    ],
+    "doubt": "Les éléments 1° et 5° mentionnent tous deux l'« agent habilité », et le 1° n'a pas de mot-clé propre sûr (« qualité » est propre mais « résidence » apparaît aussi au 3°) ; la liste est donc peu discriminante et personne ne poserait vraiment cette question dans un chat."
+  },
+  "raw_text": "{\"question\":\"Que doit contenir le procès-verbal d'un prélèvement de marchandises par un agent ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"qualité et résidence de l'agent\",\"agent habilité\"],\"quote\":\"Les nom, prénoms, qualité et résidence de l'agent habilité\",\"article\":\"R512-10\"},{\"accepted\":[\"date, l'heure\",\"heure et le lieu\"],\"quote\":\"La date, l'heure et le lieu où le prélèvement a été effectué\",\"article\":\"R512-10\"},{\"accepted\":[\"profession\",\"personne chez laquelle\"],\"quote\":\"Les nom, prénoms et profession, domicile ou résidence de la personne chez laquelle le prélèvement a été opéré\",\"article\":\"R512-10\"},{\"accepted\":[\"numéro d'ordre\"],\"quote\":\"Le numéro d'ordre du prélèvement\",\"article\":\"R512-10\"},{\"accepted\":[\"signature\"],\"quote\":\"La signature de l'agent habilité\",\"article\":\"R512-10\"}],\"doubt\":\"Les éléments 1° et 5° mentionnent tous deux l'« agent habilité », et le 1° n'a pas de mot-clé propre sûr (« qualité » est propre mais « résidence » apparaît aussi au 3°) ; la liste est donc peu discriminante et personne ne poserait vraiment cette question dans un chat.\"}"
+}

@@ -1,0 +1,47 @@
+{
+  "task": "set-test-027",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:30+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3013,
+    "output_tokens": 326
+  },
+  "output": {
+    "question": "Quand un prestataire doit-il refaire son évaluation du caractère disproportionné de la charge d'accessibilité ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "service proposé est modifié",
+          "service modifié"
+        ],
+        "quote": "Lorsque le service proposé est modifié",
+        "article": "D412-60"
+      },
+      {
+        "accepted": [
+          "demande des agents",
+          "à la demande des agents chargés du contrôle"
+        ],
+        "quote": "A la demande des agents chargés du contrôle de la conformité des services",
+        "article": "D412-60"
+      },
+      {
+        "accepted": [
+          "tous les cinq ans",
+          "au moins tous les cinq ans",
+          "cinq ans"
+        ],
+        "quote": "En tout état de cause, au moins tous les cinq ans.",
+        "article": "D412-60"
+      }
+    ],
+    "doubt": "La liste est celle du III de l'article ; les mots-clés des éléments b) et c) sont des expressions assez courtes, mais propres à chacun. La question est assez spécialisée (accessibilité des services)."
+  },
+  "raw_text": "{\"question\":\"Quand un prestataire doit-il refaire son évaluation du caractère disproportionné de la charge d'accessibilité ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"service proposé est modifié\",\"service modifié\"],\"quote\":\"Lorsque le service proposé est modifié\",\"article\":\"D412-60\"},{\"accepted\":[\"demande des agents\",\"à la demande des agents chargés du contrôle\"],\"quote\":\"A la demande des agents chargés du contrôle de la conformité des services\",\"article\":\"D412-60\"},{\"accepted\":[\"tous les cinq ans\",\"au moins tous les cinq ans\",\"cinq ans\"],\"quote\":\"En tout état de cause, au moins tous les cinq ans.\",\"article\":\"D412-60\"}],\"doubt\":\"La liste est celle du III de l'article ; les mots-clés des éléments b) et c) sont des expressions assez courtes, mais propres à chacun. La question est assez spécialisée (accessibilité des services).\"}"
+}

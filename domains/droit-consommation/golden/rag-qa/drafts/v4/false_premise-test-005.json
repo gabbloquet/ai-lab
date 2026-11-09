@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-005",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2301,
+    "output_tokens": 235
+  },
+  "output": {
+    "question": "Pièces détachées indisponibles : une entreprise risque bien 150 000 € d'amende administrative maximum ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "75 000 €",
+          "75 000 euros"
+        ],
+        "quote": "ne peut excéder 15 000 € pour une personne physique et 75 000 € pour une personne morale",
+        "article": "L131-3"
+      }
+    ],
+    "doubt": "L'article prévoit deux plafonds (15 000 € pour une personne physique, 75 000 € pour une personne morale) ; la question vise l'entreprise, donc la personne morale, mais « entreprise » peut aussi être un entrepreneur individuel.",
+    "false_value": "150 000 €"
+  },
+  "raw_text": "{\"question\":\"Pièces détachées indisponibles : une entreprise risque bien 150 000 € d'amende administrative maximum ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"75 000 €\",\"75 000 euros\"],\"quote\":\"ne peut excéder 15 000 € pour une personne physique et 75 000 € pour une personne morale\",\"article\":\"L131-3\"}],\"doubt\":\"L'article prévoit deux plafonds (15 000 € pour une personne physique, 75 000 € pour une personne morale) ; la question vise l'entreprise, donc la personne morale, mais « entreprise » peut aussi être un entrepreneur individuel.\",\"false_value\":\"150 000 €\"}"
+}

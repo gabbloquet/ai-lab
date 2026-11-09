@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-028",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2325,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Sur ma facture d'achat en magasin, la garantie légale de conformité doit être indiquée pour 6 mois minimum, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "d'une durée minimale de deux ans à compter de sa remise au consommateur",
+        "article": "D211-7"
+      }
+    ],
+    "doubt": "Les catégories de biens concernées dépendent de l'article D211-6 ; la valeur de 6 mois peut correspondre à d'anciennes règles de présomption de défaut de conformité, ce qui la rend plausible comme confusion.",
+    "false_value": "6 mois"
+  },
+  "raw_text": "{\"question\":\"Sur ma facture d'achat en magasin, la garantie légale de conformité doit être indiquée pour 6 mois minimum, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"d'une durée minimale de deux ans à compter de sa remise au consommateur\",\"article\":\"D211-7\"}],\"doubt\":\"Les catégories de biens concernées dépendent de l'article D211-6 ; la valeur de 6 mois peut correspondre à d'anciennes règles de présomption de défaut de conformité, ce qui la rend plausible comme confusion.\",\"false_value\":\"6 mois\"}"
+}

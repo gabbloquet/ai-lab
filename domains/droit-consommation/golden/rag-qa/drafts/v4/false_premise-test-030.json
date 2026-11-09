@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-030",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2442,
+    "output_tokens": 204
+  },
+  "output": {
+    "question": "Service dangereux : l'administration peut le suspendre six mois maximum, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois mois",
+          "3 mois"
+        ],
+        "quote": "elle peut suspendre la prestation de services pour une durée n'excédant pas trois mois, renouvelable dans les mêmes conditions",
+        "article": "L521-23"
+      }
+    ],
+    "doubt": "La suspension est renouvelable, donc une durée cumulée de six mois peut être possible ; la prémisse fausse porte sur la durée maximale par arrêté.",
+    "false_value": "six mois"
+  },
+  "raw_text": "{\"question\":\"Service dangereux : l'administration peut le suspendre six mois maximum, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois mois\",\"3 mois\"],\"quote\":\"elle peut suspendre la prestation de services pour une durée n'excédant pas trois mois, renouvelable dans les mêmes conditions\",\"article\":\"L521-23\"}],\"doubt\":\"La suspension est renouvelable, donc une durée cumulée de six mois peut être possible ; la prémisse fausse porte sur la durée maximale par arrêté.\",\"false_value\":\"six mois\"}"
+}

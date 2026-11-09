@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-015",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2694,
+    "output_tokens": 128
+  },
+  "output": {
+    "question": "Association de consommateurs : la reconnaissance spécifique dure bien cinq ans ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "La reconnaissance spécifique est accordée, pour une durée de trois ans",
+        "article": "R812-1"
+      }
+    ],
+    "doubt": "",
+    "false_value": "cinq ans"
+  },
+  "raw_text": "{\"question\":\"Association de consommateurs : la reconnaissance spécifique dure bien cinq ans ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"La reconnaissance spécifique est accordée, pour une durée de trois ans\",\"article\":\"R812-1\"}],\"doubt\":\"\",\"false_value\":\"cinq ans\"}"
+}

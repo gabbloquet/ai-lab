@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-015",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3410,
+    "output_tokens": 343
+  },
+  "output": {
+    "question": "Remboursement tardif d'un bien non conforme : quelle majoration si c'est payé sous quatorze jours de retard, et au-delà de trente jours ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "10 %",
+          "10 pour cent"
+        ],
+        "quote": "le montant total restant dû est de plein droit majoré de 10 % si le remboursement intervient au plus tard quatorze jours au-delà de ce terme",
+        "article": "L241-7"
+      },
+      {
+        "accepted": [
+          "50 %",
+          "50 pour cent"
+        ],
+        "quote": "de 20 % jusqu'à trente jours et de 50 % ultérieurement",
+        "article": "L241-7"
+      }
+    ],
+    "doubt": "L'article A fixe une majoration en pourcentage pour retard de remboursement, l'article B un plafond d'amende civile pour clauses abusives : ces deux valeurs ne règlent pas la même chose et ne se comparent pas. Les deux faits proposés viennent tous deux de A, ce qui ne respecte pas le mode comparaison."
+  },
+  "raw_text": "{\"question\":\"Remboursement tardif d'un bien non conforme : quelle majoration si c'est payé sous quatorze jours de retard, et au-delà de trente jours ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"10 %\",\"10 pour cent\"],\"quote\":\"le montant total restant dû est de plein droit majoré de 10 % si le remboursement intervient au plus tard quatorze jours au-delà de ce terme\",\"article\":\"L241-7\"},{\"accepted\":[\"50 %\",\"50 pour cent\"],\"quote\":\"de 20 % jusqu'à trente jours et de 50 % ultérieurement\",\"article\":\"L241-7\"}],\"doubt\":\"L'article A fixe une majoration en pourcentage pour retard de remboursement, l'article B un plafond d'amende civile pour clauses abusives : ces deux valeurs ne règlent pas la même chose et ne se comparent pas. Les deux faits proposés viennent tous deux de A, ce qui ne respecte pas le mode comparaison.\"}"
+}

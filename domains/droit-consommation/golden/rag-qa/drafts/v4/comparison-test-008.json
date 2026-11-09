@@ -1,0 +1,40 @@
+{
+  "task": "comparison-test-008",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2621,
+    "output_tokens": 288
+  },
+  "output": {
+    "question": "Amende administrative maximale pour une personne morale : contrat de gaz de pétrole liquéfié, et services via opérateurs de communications électroniques ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €",
+          "15000 euros"
+        ],
+        "quote": "3 000 euros pour une personne physique et 15 000 euros pour une personne morale",
+        "article": "L242-18"
+      },
+      {
+        "accepted": [
+          "375 000 €",
+          "375 000 euros",
+          "375000 euros"
+        ],
+        "quote": "75 000 € pour une personne physique et 375 000 € pour une personne morale",
+        "article": "L242-21"
+      }
+    ],
+    "doubt": "La question suppose que l'utilisateur sache que les services via opérateurs de communications électroniques correspondent aux articles L224-43 à L224-54 (services à valeur ajoutée, SMS surtaxés)."
+  },
+  "raw_text": "{\"question\":\"Amende administrative maximale pour une personne morale : contrat de gaz de pétrole liquéfié, et services via opérateurs de communications électroniques ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"15 000 euros\",\"15 000 €\",\"15000 euros\"],\"quote\":\"3 000 euros pour une personne physique et 15 000 euros pour une personne morale\",\"article\":\"L242-18\"},{\"accepted\":[\"375 000 €\",\"375 000 euros\",\"375000 euros\"],\"quote\":\"75 000 € pour une personne physique et 375 000 € pour une personne morale\",\"article\":\"L242-21\"}],\"doubt\":\"La question suppose que l'utilisateur sache que les services via opérateurs de communications électroniques correspondent aux articles L224-43 à L224-54 (services à valeur ajoutée, SMS surtaxés).\"}"
+}

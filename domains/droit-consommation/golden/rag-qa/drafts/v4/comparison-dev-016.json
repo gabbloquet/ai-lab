@@ -1,0 +1,40 @@
+{
+  "task": "comparison-dev-016",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2493,
+    "output_tokens": 297
+  },
+  "output": {
+    "question": "Crédit immobilier : quel plafond en % pour les frais d'étude si le contrat n'est pas conclu, et pour l'indemnité en cas de défaillance en location-vente ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "0,75 %",
+          "0,75 pour cent",
+          "0,75%"
+        ],
+        "quote": "est limité à 0,75 % du montant du prêt, sans pouvoir excéder 150 euros",
+        "article": "R313-22"
+      },
+      {
+        "accepted": [
+          "2 %",
+          "2 pour cent",
+          "2%"
+        ],
+        "quote": "ne peut excéder 2 % de la part des versements correspondant à la valeur en capital du bien",
+        "article": "D313-29"
+      }
+    ],
+    "doubt": "Les deux plafonds portent sur des frais ou indemnités de nature différente, mais tous deux sont des plafonds en pourcentage ; la question dépasse un peu 20 mots."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : quel plafond en % pour les frais d'étude si le contrat n'est pas conclu, et pour l'indemnité en cas de défaillance en location-vente ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"0,75 %\",\"0,75 pour cent\",\"0,75%\"],\"quote\":\"est limité à 0,75 % du montant du prêt, sans pouvoir excéder 150 euros\",\"article\":\"R313-22\"},{\"accepted\":[\"2 %\",\"2 pour cent\",\"2%\"],\"quote\":\"ne peut excéder 2 % de la part des versements correspondant à la valeur en capital du bien\",\"article\":\"D313-29\"}],\"doubt\":\"Les deux plafonds portent sur des frais ou indemnités de nature différente, mais tous deux sont des plafonds en pourcentage ; la question dépasse un peu 20 mots.\"}"
+}

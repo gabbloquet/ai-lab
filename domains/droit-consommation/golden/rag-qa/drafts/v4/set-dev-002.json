@@ -1,0 +1,47 @@
+{
+  "task": "set-dev-002",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:07+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2381,
+    "output_tokens": 341
+  },
+  "output": {
+    "question": "Quelles sont les missions de la commission d'évaluation et de contrôle de la médiation de la consommation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "liste des médiateurs",
+          "établir et mettre à jour la liste"
+        ],
+        "quote": "D'établir et de mettre à jour la liste des médiateurs, y compris les médiateurs publics",
+        "article": "L615-1"
+      },
+      {
+        "accepted": [
+          "notification",
+          "Commission européenne"
+        ],
+        "quote": "De procéder à la notification des médiateurs inscrits sur cette liste auprès de la Commission européenne",
+        "article": "L615-1"
+      },
+      {
+        "accepted": [
+          "évaluer leur activité",
+          "contrôler la régularité",
+          "régularité"
+        ],
+        "quote": "D'évaluer leur activité de médiation et d'en contrôler la régularité",
+        "article": "L615-1"
+      }
+    ],
+    "doubt": "Les mots-clés du premier élément (« liste des médiateurs ») sont en partie repris dans le deuxième (« cette liste »), mais restent distincts de l'élément 2."
+  },
+  "raw_text": "{\"question\":\"Quelles sont les missions de la commission d'évaluation et de contrôle de la médiation de la consommation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"liste des médiateurs\",\"établir et mettre à jour la liste\"],\"quote\":\"D'établir et de mettre à jour la liste des médiateurs, y compris les médiateurs publics\",\"article\":\"L615-1\"},{\"accepted\":[\"notification\",\"Commission européenne\"],\"quote\":\"De procéder à la notification des médiateurs inscrits sur cette liste auprès de la Commission européenne\",\"article\":\"L615-1\"},{\"accepted\":[\"évaluer leur activité\",\"contrôler la régularité\",\"régularité\"],\"quote\":\"D'évaluer leur activité de médiation et d'en contrôler la régularité\",\"article\":\"L615-1\"}],\"doubt\":\"Les mots-clés du premier élément (« liste des médiateurs ») sont en partie repris dans le deuxième (« cette liste »), mais restent distincts de l'élément 2.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-029",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2709,
+    "output_tokens": 302
+  },
+  "output": {
+    "question": "Délais : combien de temps un fournisseur de service à valeur ajoutée garde-t-il les coordonnées des prestataires, et en combien de jours au plus change-t-on de fournisseur d'énergie ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "conserve, pendant un délai minimal de cinq ans après la cessation des relations contractuelles",
+        "article": "L224-50"
+      },
+      {
+        "accepted": [
+          "vingt et un jours",
+          "21 jours"
+        ],
+        "quote": "ne peut excéder vingt et un jours à compter de sa demande",
+        "article": "L224-14"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées mais ne règlent pas la même chose : l'une est une durée de conservation de données, l'autre un délai de changement de fournisseur d'énergie ; la comparaison n'a donc pas de sens."
+  },
+  "raw_text": "{\"question\":\"Délais : combien de temps un fournisseur de service à valeur ajoutée garde-t-il les coordonnées des prestataires, et en combien de jours au plus change-t-on de fournisseur d'énergie ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"conserve, pendant un délai minimal de cinq ans après la cessation des relations contractuelles\",\"article\":\"L224-50\"},{\"accepted\":[\"vingt et un jours\",\"21 jours\"],\"quote\":\"ne peut excéder vingt et un jours à compter de sa demande\",\"article\":\"L224-14\"}],\"doubt\":\"Les deux valeurs sont des durées mais ne règlent pas la même chose : l'une est une durée de conservation de données, l'autre un délai de changement de fournisseur d'énergie ; la comparaison n'a donc pas de sens.\"}"
+}

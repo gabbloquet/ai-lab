@@ -1,0 +1,47 @@
+{
+  "task": "set-dev-001",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:06+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2878,
+    "output_tokens": 419
+  },
+  "output": {
+    "question": "Dans quels cas l'opérateur peut-il suspendre l'accès à mon numéro à valeur ajoutée ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "absentes",
+          "inexactes",
+          "obsolètes",
+          "incomplètes"
+        ],
+        "quote": "Si une ou plusieurs des informations devant figurer dans l'outil mentionné à l'article L. 224-43 sont absentes, inexactes, obsolètes ou incomplètes",
+        "article": "L224-46"
+      },
+      {
+        "accepted": [
+          "aucun produit ou service réel"
+        ],
+        "quote": "Si aucun produit ou service réel n'est associé à ce numéro",
+        "article": "L224-46"
+      },
+      {
+        "accepted": [
+          "règles déontologiques",
+          "exclut"
+        ],
+        "quote": "Si le produit ou service associé à ce numéro fait partie de ceux que l'opérateur exclut au titre de ses règles déontologiques",
+        "article": "L224-46"
+      }
+    ],
+    "doubt": "Le 3° partage l'expression « règles déontologiques » avec le dernier alinéa du I, mais aucun autre élément de la liste ne la contient ; en revanche, la liste est très technique (numéros à valeur ajoutée) et peu susceptible d'être demandée dans un chat, d'où usable à false."
+  },
+  "raw_text": "{\"question\":\"Dans quels cas l'opérateur peut-il suspendre l'accès à mon numéro à valeur ajoutée ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"absentes\",\"inexactes\",\"obsolètes\",\"incomplètes\"],\"quote\":\"Si une ou plusieurs des informations devant figurer dans l'outil mentionné à l'article L. 224-43 sont absentes, inexactes, obsolètes ou incomplètes\",\"article\":\"L224-46\"},{\"accepted\":[\"aucun produit ou service réel\"],\"quote\":\"Si aucun produit ou service réel n'est associé à ce numéro\",\"article\":\"L224-46\"},{\"accepted\":[\"règles déontologiques\",\"exclut\"],\"quote\":\"Si le produit ou service associé à ce numéro fait partie de ceux que l'opérateur exclut au titre de ses règles déontologiques\",\"article\":\"L224-46\"}],\"doubt\":\"Le 3° partage l'expression « règles déontologiques » avec le dernier alinéa du I, mais aucun autre élément de la liste ne la contient ; en revanche, la liste est très technique (numéros à valeur ajoutée) et peu susceptible d'être demandée dans un chat, d'où usable à false.\"}"
+}

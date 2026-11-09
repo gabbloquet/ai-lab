@@ -1,0 +1,52 @@
+{
+  "task": "set-test-032",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3125,
+    "output_tokens": 460
+  },
+  "output": {
+    "question": "Dans quels cas une pratique commerciale est-elle considérée comme trompeuse ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "confusion"
+        ],
+        "quote": "Lorsqu'elle crée une confusion avec un autre bien ou service, une marque, un nom commercial ou un autre signe distinctif d'un concurrent",
+        "article": "L121-2"
+      },
+      {
+        "accepted": [
+          "allégations fausses",
+          "induire en erreur"
+        ],
+        "quote": "Lorsqu'elle repose sur des allégations, indications ou présentations fausses ou de nature à induire en erreur",
+        "article": "L121-2"
+      },
+      {
+        "accepted": [
+          "pas clairement identifiable"
+        ],
+        "quote": "Lorsque la personne pour le compte de laquelle elle est mise en œuvre n'est pas clairement identifiable",
+        "article": "L121-2"
+      },
+      {
+        "accepted": [
+          "identique",
+          "autres Etats membres"
+        ],
+        "quote": "Lorsqu'un bien est présenté comme étant identique à un bien commercialisé dans un ou plusieurs autres Etats membres",
+        "article": "L121-2"
+      }
+    ],
+    "doubt": "Le point 2° contient une longue sous-liste (a à g) qui fait partie de l'élément, ce qui rend les mots-clés difficiles à fixer et la réponse attendue très longue pour un chat ; la liste est fermée mais peu adaptée à ce mode."
+  },
+  "raw_text": "{\"question\":\"Dans quels cas une pratique commerciale est-elle considérée comme trompeuse ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"confusion\"],\"quote\":\"Lorsqu'elle crée une confusion avec un autre bien ou service, une marque, un nom commercial ou un autre signe distinctif d'un concurrent\",\"article\":\"L121-2\"},{\"accepted\":[\"allégations fausses\",\"induire en erreur\"],\"quote\":\"Lorsqu'elle repose sur des allégations, indications ou présentations fausses ou de nature à induire en erreur\",\"article\":\"L121-2\"},{\"accepted\":[\"pas clairement identifiable\"],\"quote\":\"Lorsque la personne pour le compte de laquelle elle est mise en œuvre n'est pas clairement identifiable\",\"article\":\"L121-2\"},{\"accepted\":[\"identique\",\"autres Etats membres\"],\"quote\":\"Lorsqu'un bien est présenté comme étant identique à un bien commercialisé dans un ou plusieurs autres Etats membres\",\"article\":\"L121-2\"}],\"doubt\":\"Le point 2° contient une longue sous-liste (a à g) qui fait partie de l'élément, ce qui rend les mots-clés difficiles à fixer et la réponse attendue très longue pour un chat ; la liste est fermée mais peu adaptée à ce mode.\"}"
+}

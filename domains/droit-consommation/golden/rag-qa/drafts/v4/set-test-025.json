@@ -1,0 +1,36 @@
+{
+  "task": "set-test-025",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2671,
+    "output_tokens": 283
+  },
+  "output": {
+    "question": "Quelles dispositions du Code de la consommation les agents de la DGCCRF peuvent-ils contrôler pour les contrats et le crédit ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "chapitres Ier, II et IV du titre Ier du livre Ier"
+        ],
+        "quote": "Les chapitres Ier, II et IV du titre Ier du livre Ier",
+        "article": "L511-6"
+      },
+      {
+        "accepted": [
+          "sous-section 9 de la section 3"
+        ],
+        "quote": "la sous-section 9 de la section 3 du chapitre II du titre II du livre Ier",
+        "article": "L511-6"
+      }
+    ],
+    "doubt": "Les éléments de la liste ne sont que des renvois à des numéros de chapitres et sections, sans mot-clé court propre à chaque élément ; personne ne poserait cette question dans un chat."
+  },
+  "raw_text": "{\"question\":\"Quelles dispositions du Code de la consommation les agents de la DGCCRF peuvent-ils contrôler pour les contrats et le crédit ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"chapitres Ier, II et IV du titre Ier du livre Ier\"],\"quote\":\"Les chapitres Ier, II et IV du titre Ier du livre Ier\",\"article\":\"L511-6\"},{\"accepted\":[\"sous-section 9 de la section 3\"],\"quote\":\"la sous-section 9 de la section 3 du chapitre II du titre II du livre Ier\",\"article\":\"L511-6\"}],\"doubt\":\"Les éléments de la liste ne sont que des renvois à des numéros de chapitres et sections, sans mot-clé court propre à chaque élément ; personne ne poserait cette question dans un chat.\"}"
+}

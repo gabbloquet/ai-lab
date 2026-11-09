@@ -1,0 +1,47 @@
+{
+  "task": "set-test-019",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2560,
+    "output_tokens": 377
+  },
+  "output": {
+    "question": "Quelles conditions en plus doit remplir un médiateur de la consommation payé uniquement par le professionnel ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "organe collégial",
+          "procédure transparente"
+        ],
+        "quote": "Il est désigné, selon une procédure transparente, par un organe collégial mis en place par l'entreprise",
+        "article": "L613-2"
+      },
+      {
+        "accepted": [
+          "interdiction de travailler",
+          "au moins trois ans"
+        ],
+        "quote": "A l'issue de son mandat, le médiateur a l'interdiction de travailler pendant au moins trois ans pour le professionnel qui l'a employé",
+        "article": "L613-2"
+      },
+      {
+        "accepted": [
+          "lien hiérarchique",
+          "budget distinct",
+          "clairement séparé"
+        ],
+        "quote": "Aucun lien hiérarchique ou fonctionnel entre le professionnel et le médiateur ne peut exister pendant l'exercice de sa mission de médiation.",
+        "article": "L613-2"
+      }
+    ],
+    "doubt": "Les mots-clés du 2° et du 3° sont des expressions assez longues ; la liste est longue à restituer et la question reste un peu large."
+  },
+  "raw_text": "{\"question\":\"Quelles conditions en plus doit remplir un médiateur de la consommation payé uniquement par le professionnel ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"organe collégial\",\"procédure transparente\"],\"quote\":\"Il est désigné, selon une procédure transparente, par un organe collégial mis en place par l'entreprise\",\"article\":\"L613-2\"},{\"accepted\":[\"interdiction de travailler\",\"au moins trois ans\"],\"quote\":\"A l'issue de son mandat, le médiateur a l'interdiction de travailler pendant au moins trois ans pour le professionnel qui l'a employé\",\"article\":\"L613-2\"},{\"accepted\":[\"lien hiérarchique\",\"budget distinct\",\"clairement séparé\"],\"quote\":\"Aucun lien hiérarchique ou fonctionnel entre le professionnel et le médiateur ne peut exister pendant l'exercice de sa mission de médiation.\",\"article\":\"L613-2\"}],\"doubt\":\"Les mots-clés du 2° et du 3° sont des expressions assez longues ; la liste est longue à restituer et la question reste un peu large.\"}"
+}

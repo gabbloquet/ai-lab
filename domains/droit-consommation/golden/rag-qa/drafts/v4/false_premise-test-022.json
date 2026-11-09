@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-022",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2401,
+    "output_tokens": 182
+  },
+  "output": {
+    "question": "Surendettement : je suis convoqué à la commission, c'est bien huit jours avant la réunion ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "sont convoquées quinze jours au moins avant la date de la réunion par lettre simple",
+        "article": "R712-17"
+      }
+    ],
+    "doubt": "Le délai de huit jours pourrait exister dans d'autres procédures de surendettement, mais pas pour cette convocation à l'audition.",
+    "false_value": "huit jours"
+  },
+  "raw_text": "{\"question\":\"Surendettement : je suis convoqué à la commission, c'est bien huit jours avant la réunion ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"sont convoquées quinze jours au moins avant la date de la réunion par lettre simple\",\"article\":\"R712-17\"}],\"doubt\":\"Le délai de huit jours pourrait exister dans d'autres procédures de surendettement, mais pas pour cette convocation à l'audition.\",\"false_value\":\"huit jours\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-012",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2650,
+    "output_tokens": 332
+  },
+  "output": {
+    "question": "Amende maximale : pour un versement exigé avant la fin du délai de rétractation d'un contrat de temps partagé, et pour une personne morale en prospection commerciale non conforme ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L242-29"
+      },
+      {
+        "accepted": [
+          "375 000 €",
+          "375 000 euros"
+        ],
+        "quote": "375 000 € pour une personne morale",
+        "article": "L242-16-1"
+      }
+    ],
+    "doubt": "Les deux amendes sont comparables en montant, mais elles sanctionnent des manquements sans rapport (versement anticipé dans un contrat de temps partagé, pénale ; manquement à l'article L. 223-8 sur la prospection, administrative). La comparaison n'est donc pas pertinente. Article B : le cas d'une personne morale est aussi à préciser, car le plafond diffère pour une personne physique."
+  },
+  "raw_text": "{\"question\":\"Amende maximale : pour un versement exigé avant la fin du délai de rétractation d'un contrat de temps partagé, et pour une personne morale en prospection commerciale non conforme ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L242-29\"},{\"accepted\":[\"375 000 €\",\"375 000 euros\"],\"quote\":\"375 000 € pour une personne morale\",\"article\":\"L242-16-1\"}],\"doubt\":\"Les deux amendes sont comparables en montant, mais elles sanctionnent des manquements sans rapport (versement anticipé dans un contrat de temps partagé, pénale ; manquement à l'article L. 223-8 sur la prospection, administrative). La comparaison n'est donc pas pertinente. Article B : le cas d'une personne morale est aussi à préciser, car le plafond diffère pour une personne physique.\"}"
+}

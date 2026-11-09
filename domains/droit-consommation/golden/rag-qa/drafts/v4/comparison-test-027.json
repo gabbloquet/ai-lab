@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-027",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3178,
+    "output_tokens": 256
+  },
+  "output": {
+    "question": "Institut national de la consommation : quel délai pour que le commissaire du Gouvernement demande la suspension d'une délibération, et quelle limite d'âge pour le président ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "dix jours",
+          "10 jours"
+        ],
+        "quote": "dans les dix jours qui suivent la délibération",
+        "article": "R822-10"
+      },
+      {
+        "accepted": [
+          "soixante-douze ans",
+          "72 ans"
+        ],
+        "quote": "La limite d'âge applicable au président est fixée à soixante-douze ans.",
+        "article": "R822-5"
+      }
+    ],
+    "doubt": "Un délai de suspension et une limite d'âge sont deux grandeurs sans rapport, donc non comparables (durée vs âge) : la comparaison n'a pas de sens."
+  },
+  "raw_text": "{\"question\":\"Institut national de la consommation : quel délai pour que le commissaire du Gouvernement demande la suspension d'une délibération, et quelle limite d'âge pour le président ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"dix jours\",\"10 jours\"],\"quote\":\"dans les dix jours qui suivent la délibération\",\"article\":\"R822-10\"},{\"accepted\":[\"soixante-douze ans\",\"72 ans\"],\"quote\":\"La limite d'âge applicable au président est fixée à soixante-douze ans.\",\"article\":\"R822-5\"}],\"doubt\":\"Un délai de suspension et une limite d'âge sont deux grandeurs sans rapport, donc non comparables (durée vs âge) : la comparaison n'a pas de sens.\"}"
+}

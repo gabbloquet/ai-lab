@@ -1,0 +1,57 @@
+{
+  "task": "set-test-006",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2621,
+    "output_tokens": 428
+  },
+  "output": {
+    "question": "Dans quels cas les règles sur la certification de conformité des services et produits ne s'appliquent-elles pas ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "produits agricoles",
+          "forestiers",
+          "alimentaires"
+        ],
+        "quote": "A la certification des produits agricoles, forestiers, alimentaires ou de la mer",
+        "article": "L433-8"
+      },
+      {
+        "accepted": [
+          "autorisations de mise sur le marché",
+          "médicaments"
+        ],
+        "quote": "Aux autorisations de mise sur le marché des médicaments à usage humain ou vétérinaire",
+        "article": "L433-8"
+      },
+      {
+        "accepted": [
+          "poinçons",
+          "estampilles",
+          "certificats d'homologation"
+        ],
+        "quote": "A la délivrance des poinçons, estampilles, visas, certificats d'homologation, marques de garantie ou attestations de conformité",
+        "article": "L433-8"
+      },
+      {
+        "accepted": [
+          "maître artisan",
+          "marques d'artisan",
+          "code du travail"
+        ],
+        "quote": "ainsi que des marques d'artisan et de maître artisan",
+        "article": "L433-8"
+      }
+    ],
+    "doubt": "Liste fermée, mais personne ne poserait vraiment cette question dans un chat, et les éléments sont très techniques. Les mots-clés de l'élément 4 (labels du code du travail) sont fragiles."
+  },
+  "raw_text": "{\"question\":\"Dans quels cas les règles sur la certification de conformité des services et produits ne s'appliquent-elles pas ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"produits agricoles\",\"forestiers\",\"alimentaires\"],\"quote\":\"A la certification des produits agricoles, forestiers, alimentaires ou de la mer\",\"article\":\"L433-8\"},{\"accepted\":[\"autorisations de mise sur le marché\",\"médicaments\"],\"quote\":\"Aux autorisations de mise sur le marché des médicaments à usage humain ou vétérinaire\",\"article\":\"L433-8\"},{\"accepted\":[\"poinçons\",\"estampilles\",\"certificats d'homologation\"],\"quote\":\"A la délivrance des poinçons, estampilles, visas, certificats d'homologation, marques de garantie ou attestations de conformité\",\"article\":\"L433-8\"},{\"accepted\":[\"maître artisan\",\"marques d'artisan\",\"code du travail\"],\"quote\":\"ainsi que des marques d'artisan et de maître artisan\",\"article\":\"L433-8\"}],\"doubt\":\"Liste fermée, mais personne ne poserait vraiment cette question dans un chat, et les éléments sont très techniques. Les mots-clés de l'élément 4 (labels du code du travail) sont fragiles.\"}"
+}

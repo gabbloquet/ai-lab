@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-019",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:48+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2587,
+    "output_tokens": 196
+  },
+  "output": {
+    "question": "Transaction pénale en consommation : possible pour les délits punis jusqu'à cinq ans de prison ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "qui sont punis d'une peine d'emprisonnement inférieure ou égale à trois ans",
+        "article": "L523-1"
+      }
+    ],
+    "doubt": "La question vise les délits punis d'emprisonnement, ce qui pourrait prêter à confusion avec les délits non punis d'emprisonnement, également transigeables.",
+    "false_value": "cinq ans"
+  },
+  "raw_text": "{\"question\":\"Transaction pénale en consommation : possible pour les délits punis jusqu'à cinq ans de prison ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"qui sont punis d'une peine d'emprisonnement inférieure ou égale à trois ans\",\"article\":\"L523-1\"}],\"doubt\":\"La question vise les délits punis d'emprisonnement, ce qui pourrait prêter à confusion avec les délits non punis d'emprisonnement, également transigeables.\",\"false_value\":\"cinq ans\"}"
+}

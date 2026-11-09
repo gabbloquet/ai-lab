@@ -1,0 +1,39 @@
+{
+  "task": "comparison-test-006",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2487,
+    "output_tokens": 294
+  },
+  "output": {
+    "question": "Crédit à la consommation : quel délai pour me rétracter, et combien de temps le prêteur maintient-il son offre ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quatorze jours calendaires révolus",
+          "quatorze jours",
+          "14 jours"
+        ],
+        "quote": "L'emprunteur peut se rétracter sans motifs dans un délai de quatorze jours calendaires révolus",
+        "article": "L312-19"
+      },
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "pendant une durée minimale de quinze jours à compter de cette remise ou de cet envoi",
+        "article": "L312-18"
+      }
+    ],
+    "doubt": "Les deux délais portent sur des choses différentes (rétractation de l'emprunteur et maintien de l'offre par le prêteur), même s'il s'agit de deux durées liées à la formation du contrat de crédit."
+  },
+  "raw_text": "{\"question\":\"Crédit à la consommation : quel délai pour me rétracter, et combien de temps le prêteur maintient-il son offre ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quatorze jours calendaires révolus\",\"quatorze jours\",\"14 jours\"],\"quote\":\"L'emprunteur peut se rétracter sans motifs dans un délai de quatorze jours calendaires révolus\",\"article\":\"L312-19\"},{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"pendant une durée minimale de quinze jours à compter de cette remise ou de cet envoi\",\"article\":\"L312-18\"}],\"doubt\":\"Les deux délais portent sur des choses différentes (rétractation de l'emprunteur et maintien de l'offre par le prêteur), même s'il s'agit de deux durées liées à la formation du contrat de crédit.\"}"
+}

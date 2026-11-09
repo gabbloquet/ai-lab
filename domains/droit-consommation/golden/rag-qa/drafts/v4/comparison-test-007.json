@@ -1,0 +1,40 @@
+{
+  "task": "comparison-test-007",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2956,
+    "output_tokens": 351
+  },
+  "output": {
+    "question": "Remboursement des taxes d'un billet d'avion non utilisé : délai maximal en jours ? Et délai pour protester après un déménagement ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trente jours",
+          "30 jours"
+        ],
+        "quote": "Ce remboursement intervient au plus tard trente jours à compter de la date de réception de la demande",
+        "article": "L224-66"
+      },
+      {
+        "accepted": [
+          "dix jours calendaires révolus",
+          "10 jours calendaires",
+          "dix jours",
+          "10 jours"
+        ],
+        "quote": "le délai de forclusion applicable aux contrats de transports de déménagement conclus entre un professionnel et un consommateur est fixé à dix jours calendaires révolus à compter de la réception des objets transportés",
+        "article": "L224-63"
+      }
+    ],
+    "doubt": "Les deux délais portent sur des choses sans rapport : un délai de remboursement par le transporteur aérien et un délai de forclusion pour protester après un déménagement. Ils ne règlent pas la même chose, donc la comparaison n'a pas de sens."
+  },
+  "raw_text": "{\"question\":\"Remboursement des taxes d'un billet d'avion non utilisé : délai maximal en jours ? Et délai pour protester après un déménagement ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trente jours\",\"30 jours\"],\"quote\":\"Ce remboursement intervient au plus tard trente jours à compter de la date de réception de la demande\",\"article\":\"L224-66\"},{\"accepted\":[\"dix jours calendaires révolus\",\"10 jours calendaires\",\"dix jours\",\"10 jours\"],\"quote\":\"le délai de forclusion applicable aux contrats de transports de déménagement conclus entre un professionnel et un consommateur est fixé à dix jours calendaires révolus à compter de la réception des objets transportés\",\"article\":\"L224-63\"}],\"doubt\":\"Les deux délais portent sur des choses sans rapport : un délai de remboursement par le transporteur aérien et un délai de forclusion pour protester après un déménagement. Ils ne règlent pas la même chose, donc la comparaison n'a pas de sens.\"}"
+}

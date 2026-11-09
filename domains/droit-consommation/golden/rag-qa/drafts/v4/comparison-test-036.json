@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-036",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:39:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2891,
+    "output_tokens": 338
+  },
+  "output": {
+    "question": "Quelle durée minimale de disponibilité des embouts de cannes, et quel délai maximal pour qu'un opérateur vérifie un signalement de numéro surtaxé ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "pendant une durée minimale de cinq ans à compter de la date de mise sur le marché national de la dernière unité du modèle concerné",
+        "article": "D224-43"
+      },
+      {
+        "accepted": [
+          "deux jours ouvrés",
+          "2 jours ouvrés"
+        ],
+        "quote": "dans un délai maximal de deux jours ouvrés à compter du jour où l'opérateur de communications électroniques a été informé d'un signalement",
+        "article": "D224-21"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées mais ne règlent pas la même chose : une obligation de disponibilité de pièces détachées d'un côté, un délai de vérification de signalement de l'autre ; la comparaison n'a pas de sens."
+  },
+  "raw_text": "{\"question\":\"Quelle durée minimale de disponibilité des embouts de cannes, et quel délai maximal pour qu'un opérateur vérifie un signalement de numéro surtaxé ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"pendant une durée minimale de cinq ans à compter de la date de mise sur le marché national de la dernière unité du modèle concerné\",\"article\":\"D224-43\"},{\"accepted\":[\"deux jours ouvrés\",\"2 jours ouvrés\"],\"quote\":\"dans un délai maximal de deux jours ouvrés à compter du jour où l'opérateur de communications électroniques a été informé d'un signalement\",\"article\":\"D224-21\"}],\"doubt\":\"Les deux valeurs sont des durées mais ne règlent pas la même chose : une obligation de disponibilité de pièces détachées d'un côté, un délai de vérification de signalement de l'autre ; la comparaison n'a pas de sens.\"}"
+}

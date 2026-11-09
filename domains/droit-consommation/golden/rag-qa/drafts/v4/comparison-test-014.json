@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-014",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2808,
+    "output_tokens": 321
+  },
+  "output": {
+    "question": "Quel délai maximal pour résilier un abonnement mobile/internet, et pour récupérer mon dépôt de garantie après reprise de la citerne de gaz ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "dix jours",
+          "10 jours"
+        ],
+        "quote": "La durée du préavis de résiliation par un consommateur d'un contrat de services de communications électroniques ne peut excéder dix jours",
+        "article": "L224-39"
+      },
+      {
+        "accepted": [
+          "trente jours",
+          "30 jours"
+        ],
+        "quote": "lui sont restituées par le professionnel au plus tard dans un délai de trente jours à compter de la reprise par ce dernier de l'objet garanti",
+        "article": "L224-23"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des délais mais ne règlent pas la même chose (préavis de résiliation d'un côté, restitution d'un dépôt de garantie de l'autre), donc la comparaison n'est pas pertinente."
+  },
+  "raw_text": "{\"question\":\"Quel délai maximal pour résilier un abonnement mobile/internet, et pour récupérer mon dépôt de garantie après reprise de la citerne de gaz ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"dix jours\",\"10 jours\"],\"quote\":\"La durée du préavis de résiliation par un consommateur d'un contrat de services de communications électroniques ne peut excéder dix jours\",\"article\":\"L224-39\"},{\"accepted\":[\"trente jours\",\"30 jours\"],\"quote\":\"lui sont restituées par le professionnel au plus tard dans un délai de trente jours à compter de la reprise par ce dernier de l'objet garanti\",\"article\":\"L224-23\"}],\"doubt\":\"Les deux valeurs sont des délais mais ne règlent pas la même chose (préavis de résiliation d'un côté, restitution d'un dépôt de garantie de l'autre), donc la comparaison n'est pas pertinente.\"}"
+}

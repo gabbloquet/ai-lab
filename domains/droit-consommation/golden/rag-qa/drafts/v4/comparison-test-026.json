@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-026",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3258,
+    "output_tokens": 314
+  },
+  "output": {
+    "question": "Crédit immobilier : quel délai pour demander la résolution du prêt si l'assureur refuse l'emprunteur, et pour le prêteur qui répond à une substitution d'assurance ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "un mois",
+          "1 mois"
+        ],
+        "quote": "Cette demande doit être présentée dans le délai d'un mois à compter de la notification du refus de l'agrément.",
+        "article": "L313-29"
+      },
+      {
+        "accepted": [
+          "dix jours ouvrés",
+          "10 jours ouvrés"
+        ],
+        "quote": "dans un délai de dix jours ouvrés à compter de la réception de la demande de substitution",
+        "article": "L313-31"
+      }
+    ],
+    "doubt": "Les deux délais ne règlent pas la même chose (délai de l'emprunteur pour demander la résolution du prêt, délai du prêteur pour répondre à une substitution d'assurance), donc la comparaison est peu pertinente."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : quel délai pour demander la résolution du prêt si l'assureur refuse l'emprunteur, et pour le prêteur qui répond à une substitution d'assurance ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"un mois\",\"1 mois\"],\"quote\":\"Cette demande doit être présentée dans le délai d'un mois à compter de la notification du refus de l'agrément.\",\"article\":\"L313-29\"},{\"accepted\":[\"dix jours ouvrés\",\"10 jours ouvrés\"],\"quote\":\"dans un délai de dix jours ouvrés à compter de la réception de la demande de substitution\",\"article\":\"L313-31\"}],\"doubt\":\"Les deux délais ne règlent pas la même chose (délai de l'emprunteur pour demander la résolution du prêt, délai du prêteur pour répondre à une substitution d'assurance), donc la comparaison est peu pertinente.\"}"
+}

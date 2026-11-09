@@ -1,0 +1,59 @@
+{
+  "task": "set-test-013",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2679,
+    "output_tokens": 461
+  },
+  "output": {
+    "question": "Quels produits doivent respecter les règles d'accessibilité pour les personnes handicapées ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "systèmes informatiques matériels",
+          "systèmes d'exploitation"
+        ],
+        "quote": "Systèmes informatiques matériels à usage général du grand public et systèmes d'exploitation relatifs à ces systèmes matériels",
+        "article": "D412-49"
+      },
+      {
+        "accepted": [
+          "Terminaux en libre-service"
+        ],
+        "quote": "Terminaux en libre-service suivants",
+        "article": "D412-49"
+      },
+      {
+        "accepted": [
+          "services de communications électroniques"
+        ],
+        "quote": "utilisés pour les services de communications électroniques",
+        "article": "D412-49"
+      },
+      {
+        "accepted": [
+          "services de médias audiovisuels"
+        ],
+        "quote": "utilisés pour accéder à des services de médias audiovisuels",
+        "article": "D412-49"
+      },
+      {
+        "accepted": [
+          "Liseuses numériques",
+          "liseuses"
+        ],
+        "quote": "Liseuses numériques",
+        "article": "D412-49"
+      }
+    ],
+    "doubt": "Les éléments 3° et 4° partagent l'expression « équipements terminaux grand public » ; seuls les mots-clés sur les services les distinguent. Le 2° est un élément à sous-éléments, et « terminaux en libre-service » apparaît aussi dans ses sous-éléments. La liste est donc peu adaptée à ce mode."
+  },
+  "raw_text": "{\"question\":\"Quels produits doivent respecter les règles d'accessibilité pour les personnes handicapées ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"systèmes informatiques matériels\",\"systèmes d'exploitation\"],\"quote\":\"Systèmes informatiques matériels à usage général du grand public et systèmes d'exploitation relatifs à ces systèmes matériels\",\"article\":\"D412-49\"},{\"accepted\":[\"Terminaux en libre-service\"],\"quote\":\"Terminaux en libre-service suivants\",\"article\":\"D412-49\"},{\"accepted\":[\"services de communications électroniques\"],\"quote\":\"utilisés pour les services de communications électroniques\",\"article\":\"D412-49\"},{\"accepted\":[\"services de médias audiovisuels\"],\"quote\":\"utilisés pour accéder à des services de médias audiovisuels\",\"article\":\"D412-49\"},{\"accepted\":[\"Liseuses numériques\",\"liseuses\"],\"quote\":\"Liseuses numériques\",\"article\":\"D412-49\"}],\"doubt\":\"Les éléments 3° et 4° partagent l'expression « équipements terminaux grand public » ; seuls les mots-clés sur les services les distinguent. Le 2° est un élément à sous-éléments, et « terminaux en libre-service » apparaît aussi dans ses sous-éléments. La liste est donc peu adaptée à ce mode.\"}"
+}

@@ -1,0 +1,46 @@
+{
+  "task": "set-test-029",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2515,
+    "output_tokens": 343
+  },
+  "output": {
+    "question": "Quelles conditions doivent être respectées pour irradier des denrées alimentaires ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "courbes de répartition des doses",
+          "positions des doses minimales et maximales"
+        ],
+        "quote": "la détermination des courbes de répartition des doses et les positions des doses minimales et maximales",
+        "article": "R414-6"
+      },
+      {
+        "accepted": [
+          "mesures dosimétriques de routine",
+          "mesures dosimétriques"
+        ],
+        "quote": "des mesures dosimétriques de routine sur chaque lot",
+        "article": "R414-6"
+      },
+      {
+        "accepted": [
+          "enregistrement continu",
+          "paramètres du procédé"
+        ],
+        "quote": "Le contrôle et l'enregistrement continu des paramètres du procédé",
+        "article": "R414-6"
+      }
+    ],
+    "doubt": "Les conditions renvoient à un procédé d'irradiation défini à l'article R. 414-5 et sont très techniques : il est peu probable qu'une personne pose cette question dans un chat de droit de la consommation, d'où usable à false."
+  },
+  "raw_text": "{\"question\":\"Quelles conditions doivent être respectées pour irradier des denrées alimentaires ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"courbes de répartition des doses\",\"positions des doses minimales et maximales\"],\"quote\":\"la détermination des courbes de répartition des doses et les positions des doses minimales et maximales\",\"article\":\"R414-6\"},{\"accepted\":[\"mesures dosimétriques de routine\",\"mesures dosimétriques\"],\"quote\":\"des mesures dosimétriques de routine sur chaque lot\",\"article\":\"R414-6\"},{\"accepted\":[\"enregistrement continu\",\"paramètres du procédé\"],\"quote\":\"Le contrôle et l'enregistrement continu des paramètres du procédé\",\"article\":\"R414-6\"}],\"doubt\":\"Les conditions renvoient à un procédé d'irradiation défini à l'article R. 414-5 et sont très techniques : il est peu probable qu'une personne pose cette question dans un chat de droit de la consommation, d'où usable à false.\"}"
+}

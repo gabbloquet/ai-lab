@@ -1,0 +1,54 @@
+{
+  "task": "set-test-031",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2861,
+    "output_tokens": 463
+  },
+  "output": {
+    "question": "Qui siège au conseil d'administration de l'Institut national de la consommation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "représentants des consommateurs et usagers",
+          "consommateurs et usagers"
+        ],
+        "quote": "Cinq représentants des consommateurs et usagers désignés par le ministre chargé de la consommation",
+        "article": "R822-4"
+      },
+      {
+        "accepted": [
+          "représentants de l'Etat",
+          "représentants de l'État"
+        ],
+        "quote": "Cinq représentants de l'Etat, désignés conjointement par le ministre chargé de l'économie et le ministre chargé de la consommation",
+        "article": "R822-4"
+      },
+      {
+        "accepted": [
+          "représentants élus par le personnel",
+          "élus par le personnel"
+        ],
+        "quote": "Deux représentants élus par le personnel de l'Institut national de la consommation",
+        "article": "R822-4"
+      },
+      {
+        "accepted": [
+          "président de la commission des clauses abusives",
+          "clauses abusives"
+        ],
+        "quote": "Le président de la commission des clauses abusives, ainsi qu'un représentant du collège des professionnels du Conseil national de la consommation et un ingénieur des corps de l'Etat",
+        "article": "R822-4"
+      }
+    ],
+    "doubt": "Le 4° regroupe trois personnes (président de la commission des clauses abusives, représentant des professionnels, ingénieur) en un seul élément ; les mots-clés choisis ne couvrent que le premier."
+  },
+  "raw_text": "{\"question\":\"Qui siège au conseil d'administration de l'Institut national de la consommation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"représentants des consommateurs et usagers\",\"consommateurs et usagers\"],\"quote\":\"Cinq représentants des consommateurs et usagers désignés par le ministre chargé de la consommation\",\"article\":\"R822-4\"},{\"accepted\":[\"représentants de l'Etat\",\"représentants de l'État\"],\"quote\":\"Cinq représentants de l'Etat, désignés conjointement par le ministre chargé de l'économie et le ministre chargé de la consommation\",\"article\":\"R822-4\"},{\"accepted\":[\"représentants élus par le personnel\",\"élus par le personnel\"],\"quote\":\"Deux représentants élus par le personnel de l'Institut national de la consommation\",\"article\":\"R822-4\"},{\"accepted\":[\"président de la commission des clauses abusives\",\"clauses abusives\"],\"quote\":\"Le président de la commission des clauses abusives, ainsi qu'un représentant du collège des professionnels du Conseil national de la consommation et un ingénieur des corps de l'Etat\",\"article\":\"R822-4\"}],\"doubt\":\"Le 4° regroupe trois personnes (président de la commission des clauses abusives, représentant des professionnels, ingénieur) en un seul élément ; les mots-clés choisis ne couvrent que le premier.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-034",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:39:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2583,
+    "output_tokens": 294
+  },
+  "output": {
+    "question": "Crédit renouvelable : jusqu'à quand refuser les modifications à la reconduction, et quel préavis pour résilier un découvert à durée indéterminée ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "vingt jours",
+          "20 jours"
+        ],
+        "quote": "jusqu'au moins vingt jours avant la date où celles-ci deviennent effectives",
+        "article": "L312-77"
+      },
+      {
+        "accepted": [
+          "deux mois",
+          "2 mois"
+        ],
+        "quote": "moyennant un préavis d'au moins deux mois",
+        "article": "L312-91"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées, mais elles ne règlent pas la même chose : l'une est un délai pour s'opposer à des modifications lors de la reconduction, l'autre un préavis de résiliation du découvert par le prêteur. La comparaison n'est pas pertinente."
+  },
+  "raw_text": "{\"question\":\"Crédit renouvelable : jusqu'à quand refuser les modifications à la reconduction, et quel préavis pour résilier un découvert à durée indéterminée ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"vingt jours\",\"20 jours\"],\"quote\":\"jusqu'au moins vingt jours avant la date où celles-ci deviennent effectives\",\"article\":\"L312-77\"},{\"accepted\":[\"deux mois\",\"2 mois\"],\"quote\":\"moyennant un préavis d'au moins deux mois\",\"article\":\"L312-91\"}],\"doubt\":\"Les deux valeurs sont des durées, mais elles ne règlent pas la même chose : l'une est un délai pour s'opposer à des modifications lors de la reconduction, l'autre un préavis de résiliation du découvert par le prêteur. La comparaison n'est pas pertinente.\"}"
+}

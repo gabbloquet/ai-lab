@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-023",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2896,
+    "output_tokens": 184
+  },
+  "output": {
+    "question": "Une mesure de police administrative peut être affichée jusqu'à six mois, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux mois",
+          "2 mois"
+        ],
+        "quote": "Il ne peut excéder deux mois.",
+        "article": "R521-2"
+      }
+    ],
+    "doubt": "La question ne précise pas le contexte (mesure ordonnée après un contrôle), mais l'affichage de la mesure est propre à cet article. La valeur de six mois est plausible mais fausse.",
+    "false_value": "six mois"
+  },
+  "raw_text": "{\"question\":\"Une mesure de police administrative peut être affichée jusqu'à six mois, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux mois\",\"2 mois\"],\"quote\":\"Il ne peut excéder deux mois.\",\"article\":\"R521-2\"}],\"doubt\":\"La question ne précise pas le contexte (mesure ordonnée après un contrôle), mais l'affichage de la mesure est propre à cet article. La valeur de six mois est plausible mais fausse.\",\"false_value\":\"six mois\"}"
+}

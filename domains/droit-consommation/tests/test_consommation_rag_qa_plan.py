@@ -528,7 +528,7 @@ def test_modes_absent_from_the_quotas_are_not_drawn(plan: list[dict]) -> None:
 def test_v4_quotas_extend_v3() -> None:
     assert {m: V4_QUOTAS[m] for m in V3_QUOTAS} == V3_QUOTAS
     assert {m: n for m, n in V4_QUOTAS.items() if m not in V3_QUOTAS} == {
-        "comparison": (8, 22),
+        "comparison": (4, 14),
         "set": (5, 12),
         "false_premise": (10, 30),
     }

@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-032",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:39:00+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3014,
+    "output_tokens": 293
+  },
+  "output": {
+    "question": "Surendettement : quel délai pour saisir la commission après un échec du plan conventionnel, et après sommation de payer un prêt immobilier ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "saisir la commission aux fins de voir imposer les mesures prévues aux articles L. 733-1, L. 733-4 et L. 733-7",
+        "article": "R733-1"
+      },
+      {
+        "accepted": [
+          "deux mois",
+          "2 mois"
+        ],
+        "quote": "ne peut être invoqué plus de deux mois après sommation faite au débiteur",
+        "article": "R733-7"
+      }
+    ],
+    "doubt": "L'ordre des faits suit la question (R733-1 puis R733-7), inverse de A puis B ; la quote de R733-1 ne contient pas la valeur « quinze jours » car elle figure dans une phrase voisine."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quel délai pour saisir la commission après un échec du plan conventionnel, et après sommation de payer un prêt immobilier ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"saisir la commission aux fins de voir imposer les mesures prévues aux articles L. 733-1, L. 733-4 et L. 733-7\",\"article\":\"R733-1\"},{\"accepted\":[\"deux mois\",\"2 mois\"],\"quote\":\"ne peut être invoqué plus de deux mois après sommation faite au débiteur\",\"article\":\"R733-7\"}],\"doubt\":\"L'ordre des faits suit la question (R733-1 puis R733-7), inverse de A puis B ; la quote de R733-1 ne contient pas la valeur « quinze jours » car elle figure dans une phrase voisine.\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-045",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:58+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2312,
+    "output_tokens": 186
+  },
+  "output": {
+    "question": "Prêt avance mutation : l'amortissement démarre bien après une durée minimale de cinq ans si le bien n'est pas vendu ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "dix ans",
+          "10 ans"
+        ],
+        "quote": "prévoir une durée d'au minimum dix ans",
+        "article": "R315-3"
+      }
+    ],
+    "doubt": "La durée est un minimum fixé par l'établissement prêteur (au minimum dix ans), pas une durée unique ; la question peut paraître technique.",
+    "false_value": "cinq ans"
+  },
+  "raw_text": "{\"question\":\"Prêt avance mutation : l'amortissement démarre bien après une durée minimale de cinq ans si le bien n'est pas vendu ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"dix ans\",\"10 ans\"],\"quote\":\"prévoir une durée d'au minimum dix ans\",\"article\":\"R315-3\"}],\"doubt\":\"La durée est un minimum fixé par l'établissement prêteur (au minimum dix ans), pas une durée unique ; la question peut paraître technique.\",\"false_value\":\"cinq ans\"}"
+}

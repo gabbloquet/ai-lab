@@ -1,0 +1,47 @@
+{
+  "task": "set-dev-005",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:08+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2810,
+    "output_tokens": 385
+  },
+  "output": {
+    "question": "Crédit conso : dans quels cas la banque ne peut pas me facturer d'indemnité de remboursement anticipé ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "autorisation de découvert",
+          "découvert"
+        ],
+        "quote": "1° En cas d'autorisation de découvert ;",
+        "article": "L312-34"
+      },
+      {
+        "accepted": [
+          "contrat d'assurance",
+          "assurance"
+        ],
+        "quote": "2° Si le remboursement anticipé a été effectué en exécution d'un contrat d'assurance destiné à garantir le remboursement du crédit ;",
+        "article": "L312-34"
+      },
+      {
+        "accepted": [
+          "taux débiteur n'est pas fixe",
+          "taux débiteur non fixe",
+          "taux variable"
+        ],
+        "quote": "3° Si le remboursement anticipé intervient dans une période où le taux débiteur n'est pas fixe.",
+        "article": "L312-34"
+      }
+    ],
+    "doubt": "Le mot-clé « taux variable » n'est pas dans le texte ; la forme « taux débiteur n'est pas fixe » est la formulation exacte. Le mot « assurance » pourrait aussi apparaître dans une réponse hors sujet."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : dans quels cas la banque ne peut pas me facturer d'indemnité de remboursement anticipé ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"autorisation de découvert\",\"découvert\"],\"quote\":\"1° En cas d'autorisation de découvert ;\",\"article\":\"L312-34\"},{\"accepted\":[\"contrat d'assurance\",\"assurance\"],\"quote\":\"2° Si le remboursement anticipé a été effectué en exécution d'un contrat d'assurance destiné à garantir le remboursement du crédit ;\",\"article\":\"L312-34\"},{\"accepted\":[\"taux débiteur n'est pas fixe\",\"taux débiteur non fixe\",\"taux variable\"],\"quote\":\"3° Si le remboursement anticipé intervient dans une période où le taux débiteur n'est pas fixe.\",\"article\":\"L312-34\"}],\"doubt\":\"Le mot-clé « taux variable » n'est pas dans le texte ; la forme « taux débiteur n'est pas fixe » est la formulation exacte. Le mot « assurance » pourrait aussi apparaître dans une réponse hors sujet.\"}"
+}

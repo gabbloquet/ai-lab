@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-031",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2481,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Wallis-et-Futuna, crédit conso : 15 euros deviennent combien en francs CFP, 2 000 francs CFP ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "1 800 francs CFP",
+          "1 800 F CFP"
+        ],
+        "quote": "Les mots : “ 15 euros ” sont remplacés par les mots : “ 1 800 francs CFP ”",
+        "article": "D351-2"
+      }
+    ],
+    "doubt": "Article d'adaptation outre-mer qui remplace des montants par d'autres ; personne ne poserait raisonnablement cette question dans un chat, donc inutilisable.",
+    "false_value": "2 000 francs CFP"
+  },
+  "raw_text": "{\"question\":\"Wallis-et-Futuna, crédit conso : 15 euros deviennent combien en francs CFP, 2 000 francs CFP ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"1 800 francs CFP\",\"1 800 F CFP\"],\"quote\":\"Les mots : “ 15 euros ” sont remplacés par les mots : “ 1 800 francs CFP ”\",\"article\":\"D351-2\"}],\"doubt\":\"Article d'adaptation outre-mer qui remplace des montants par d'autres ; personne ne poserait raisonnablement cette question dans un chat, donc inutilisable.\",\"false_value\":\"2 000 francs CFP\"}"
+}

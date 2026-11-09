@@ -1,0 +1,57 @@
+{
+  "task": "set-test-007",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:20+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2814,
+    "output_tokens": 503
+  },
+  "output": {
+    "question": "Quels agents, en plus de la DGCCRF, peuvent constater les infractions sur l'accessibilité des services ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "communications électroniques",
+          "Autorité de régulation des communications électroniques",
+          "ARCEP"
+        ],
+        "quote": "S'agissant des services de communications électroniques : les agents de l'Autorité de régulation des communications électroniques, des postes et de la distribution de la presse",
+        "article": "L511-25-1"
+      },
+      {
+        "accepted": [
+          "communication audiovisuelle",
+          "Autorité de régulation de la communication audiovisuelle et numérique",
+          "ARCOM"
+        ],
+        "quote": "les agents de l'Autorité de régulation de la communication audiovisuelle et numérique",
+        "article": "L511-25-1"
+      },
+      {
+        "accepted": [
+          "Autorité de contrôle prudentiel et de résolution",
+          "Autorité des marchés financiers",
+          "ACPR",
+          "AMF"
+        ],
+        "quote": "Les agents de l'Autorité de contrôle prudentiel et de résolution et de l'Autorité des marchés financiers",
+        "article": "L511-25-1"
+      },
+      {
+        "accepted": [
+          "Banque de France"
+        ],
+        "quote": "Les agents de la Banque de France",
+        "article": "L511-25-1"
+      }
+    ],
+    "doubt": "La question mentionne l'accessibilité sans citer l'article L412-13 : le lien avec cette infraction est supposé. Les éléments 3°a et 3°b sont comptés comme deux faits, bien qu'ils relèvent tous deux des services bancaires."
+  },
+  "raw_text": "{\"question\":\"Quels agents, en plus de la DGCCRF, peuvent constater les infractions sur l'accessibilité des services ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"communications électroniques\",\"Autorité de régulation des communications électroniques\",\"ARCEP\"],\"quote\":\"S'agissant des services de communications électroniques : les agents de l'Autorité de régulation des communications électroniques, des postes et de la distribution de la presse\",\"article\":\"L511-25-1\"},{\"accepted\":[\"communication audiovisuelle\",\"Autorité de régulation de la communication audiovisuelle et numérique\",\"ARCOM\"],\"quote\":\"les agents de l'Autorité de régulation de la communication audiovisuelle et numérique\",\"article\":\"L511-25-1\"},{\"accepted\":[\"Autorité de contrôle prudentiel et de résolution\",\"Autorité des marchés financiers\",\"ACPR\",\"AMF\"],\"quote\":\"Les agents de l'Autorité de contrôle prudentiel et de résolution et de l'Autorité des marchés financiers\",\"article\":\"L511-25-1\"},{\"accepted\":[\"Banque de France\"],\"quote\":\"Les agents de la Banque de France\",\"article\":\"L511-25-1\"}],\"doubt\":\"La question mentionne l'accessibilité sans citer l'article L412-13 : le lien avec cette infraction est supposé. Les éléments 3°a et 3°b sont comptés comme deux faits, bien qu'ils relèvent tous deux des services bancaires.\"}"
+}

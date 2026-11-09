@@ -1,0 +1,37 @@
+{
+  "task": "comparison-test-012",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2653,
+    "output_tokens": 286
+  },
+  "output": {
+    "question": "Crédit conso : quel délai maximal de rétractation en livraison immédiate, et au bout de combien de temps un crédit renouvelable est-il inactif ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "quatorze jours",
+          "14 jours"
+        ],
+        "quote": "sans pouvoir être inférieur à trois jours ni supérieur à quatorze jours suivant sa signature",
+        "article": "R312-20"
+      },
+      {
+        "accepted": [
+          "un an"
+        ],
+        "quote": "pendant un an à compter de la date de la souscription",
+        "article": "D312-31"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées, mais elles ne règlent pas la même chose : un délai de rétractation d'un côté, une période d'inactivité d'un crédit renouvelable de l'autre. La comparaison n'a pas de sens, d'où usable à false."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : quel délai maximal de rétractation en livraison immédiate, et au bout de combien de temps un crédit renouvelable est-il inactif ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"quatorze jours\",\"14 jours\"],\"quote\":\"sans pouvoir être inférieur à trois jours ni supérieur à quatorze jours suivant sa signature\",\"article\":\"R312-20\"},{\"accepted\":[\"un an\"],\"quote\":\"pendant un an à compter de la date de la souscription\",\"article\":\"D312-31\"}],\"doubt\":\"Les deux valeurs sont des durées, mais elles ne règlent pas la même chose : un délai de rétractation d'un côté, une période d'inactivité d'un crédit renouvelable de l'autre. La comparaison n'a pas de sens, d'où usable à false.\"}"
+}

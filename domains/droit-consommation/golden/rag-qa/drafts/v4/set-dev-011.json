@@ -1,0 +1,54 @@
+{
+  "task": "set-dev-011",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:12+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2589,
+    "output_tokens": 349
+  },
+  "output": {
+    "question": "Qu'est-ce qui est interdit dans une publicité comparative ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "tirer indûment profit de la notoriété",
+          "indûment profit",
+          "notoriété"
+        ],
+        "quote": "Tirer indûment profit de la notoriété attachée à une marque de produits ou de services",
+        "article": "L122-2"
+      },
+      {
+        "accepted": [
+          "discrédit",
+          "dénigrement"
+        ],
+        "quote": "Entraîner le discrédit ou le dénigrement des marques, noms commerciaux",
+        "article": "L122-2"
+      },
+      {
+        "accepted": [
+          "confusion"
+        ],
+        "quote": "Engendrer de confusion entre l'annonceur et un concurrent",
+        "article": "L122-2"
+      },
+      {
+        "accepted": [
+          "imitation",
+          "reproduction"
+        ],
+        "quote": "Présenter des biens ou des services comme une imitation ou une reproduction",
+        "article": "L122-2"
+      }
+    ],
+    "doubt": "Le mot « marque » apparaît dans plusieurs éléments, donc les mots-clés choisis sont limités à ceux propres à chaque élément."
+  },
+  "raw_text": "{\"question\":\"Qu'est-ce qui est interdit dans une publicité comparative ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"tirer indûment profit de la notoriété\",\"indûment profit\",\"notoriété\"],\"quote\":\"Tirer indûment profit de la notoriété attachée à une marque de produits ou de services\",\"article\":\"L122-2\"},{\"accepted\":[\"discrédit\",\"dénigrement\"],\"quote\":\"Entraîner le discrédit ou le dénigrement des marques, noms commerciaux\",\"article\":\"L122-2\"},{\"accepted\":[\"confusion\"],\"quote\":\"Engendrer de confusion entre l'annonceur et un concurrent\",\"article\":\"L122-2\"},{\"accepted\":[\"imitation\",\"reproduction\"],\"quote\":\"Présenter des biens ou des services comme une imitation ou une reproduction\",\"article\":\"L122-2\"}],\"doubt\":\"Le mot « marque » apparaît dans plusieurs éléments, donc les mots-clés choisis sont limités à ceux propres à chaque élément.\"}"
+}

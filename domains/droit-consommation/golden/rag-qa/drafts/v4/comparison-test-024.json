@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-024",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:56+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3078,
+    "output_tokens": 281
+  },
+  "output": {
+    "question": "Rétablissement personnel avec liquidation : quel délai pour le liquidateur (cahier des conditions de vente) et pour le mandataire (bilan économique et social) ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux mois",
+          "2 mois"
+        ],
+        "quote": "Dans un délai de deux mois à compter de la publication du jugement",
+        "article": "R742-33"
+      },
+      {
+        "accepted": [
+          "six mois",
+          "6 mois"
+        ],
+        "quote": "dans le délai de six mois à compter de la publicité du jugement d'ouverture",
+        "article": "R742-14"
+      }
+    ],
+    "doubt": "Les deux délais ne partent pas du même événement (publication du jugement de liquidation ou mention en marge, contre publicité du jugement d'ouverture), mais portent bien sur un délai d'accomplissement d'une tâche de la procédure."
+  },
+  "raw_text": "{\"question\":\"Rétablissement personnel avec liquidation : quel délai pour le liquidateur (cahier des conditions de vente) et pour le mandataire (bilan économique et social) ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux mois\",\"2 mois\"],\"quote\":\"Dans un délai de deux mois à compter de la publication du jugement\",\"article\":\"R742-33\"},{\"accepted\":[\"six mois\",\"6 mois\"],\"quote\":\"dans le délai de six mois à compter de la publicité du jugement d'ouverture\",\"article\":\"R742-14\"}],\"doubt\":\"Les deux délais ne partent pas du même événement (publication du jugement de liquidation ou mention en marge, contre publicité du jugement d'ouverture), mais portent bien sur un délai d'accomplissement d'une tâche de la procédure.\"}"
+}

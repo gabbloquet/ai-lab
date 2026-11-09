@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-033",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:59+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2873,
+    "output_tokens": 269
+  },
+  "output": {
+    "question": "Surendettement, vente d'un bien immobilier du débiteur : quel délai pour que le liquidateur commette un huissier, et pour que l'adjudicataire paie après injonction ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "Dans un délai de quinze jours à compter de la publication du jugement",
+        "article": "R742-32"
+      },
+      {
+        "accepted": [
+          "huit jours",
+          "8 jours"
+        ],
+        "quote": "dans un délai de huit jours, à peine de réitération des enchères",
+        "article": "R742-39"
+      }
+    ],
+    "doubt": "Les deux délais portent sur des étapes différentes de la vente (huissier pour décrire les lieux, paiement après injonction), mais tous deux sont des délais de la même procédure de vente immobilière."
+  },
+  "raw_text": "{\"question\":\"Surendettement, vente d'un bien immobilier du débiteur : quel délai pour que le liquidateur commette un huissier, et pour que l'adjudicataire paie après injonction ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"Dans un délai de quinze jours à compter de la publication du jugement\",\"article\":\"R742-32\"},{\"accepted\":[\"huit jours\",\"8 jours\"],\"quote\":\"dans un délai de huit jours, à peine de réitération des enchères\",\"article\":\"R742-39\"}],\"doubt\":\"Les deux délais portent sur des étapes différentes de la vente (huissier pour décrire les lieux, paiement après injonction), mais tous deux sont des délais de la même procédure de vente immobilière.\"}"
+}

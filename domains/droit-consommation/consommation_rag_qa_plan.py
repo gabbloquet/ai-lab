@@ -47,9 +47,11 @@ V3_QUOTAS: dict[str, tuple[int, int]] = {**V1_QUOTAS, "unanswerable": (31, 63)}
 # golden set, « v4 »).
 # `bridge` a été retiré après le second pilote : l'article de la réponse se retrouvait presque
 # toujours sans le saut. Sa capacité est revenue à `comparison` et à `false_premise`.
+# `comparison` garde les items qui passent les contrôles, 4 + 14 : 70 % de rejets à la rédaction,
+# et plus aucune paire candidate pour compléter (décision du propriétaire, 2026-11-09).
 V4_QUOTAS: dict[str, tuple[int, int]] = {
     **V3_QUOTAS,
-    "comparison": (8, 22),
+    "comparison": (4, 14),
     "set": (5, 12),
     "false_premise": (10, 30),
 }

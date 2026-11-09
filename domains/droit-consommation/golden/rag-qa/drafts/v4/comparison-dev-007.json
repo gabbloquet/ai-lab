@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-007",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2774,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Quel délai minimal de disponibilité des pièces détachées de matériel médical, et quel préavis pour notifier une modification de contrat de communications électroniques ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "qui ne peut être inférieur à cinq ans",
+        "article": "L224-110"
+      },
+      {
+        "accepted": [
+          "un mois",
+          "1 mois"
+        ],
+        "quote": "au moins un mois avant son entrée en vigueur",
+        "article": "L224-33"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées mais ne règlent pas la même chose : l'une est une durée de disponibilité de pièces détachées, l'autre un préavis de modification contractuelle. Elles ne se comparent pas."
+  },
+  "raw_text": "{\"question\":\"Quel délai minimal de disponibilité des pièces détachées de matériel médical, et quel préavis pour notifier une modification de contrat de communications électroniques ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"qui ne peut être inférieur à cinq ans\",\"article\":\"L224-110\"},{\"accepted\":[\"un mois\",\"1 mois\"],\"quote\":\"au moins un mois avant son entrée en vigueur\",\"article\":\"L224-33\"}],\"doubt\":\"Les deux valeurs sont des durées mais ne règlent pas la même chose : l'une est une durée de disponibilité de pièces détachées, l'autre un préavis de modification contractuelle. Elles ne se comparent pas.\"}"
+}

@@ -1,0 +1,33 @@
+{
+  "task": "false_premise-dev-015",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:43+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2631,
+    "output_tokens": 191
+  },
+  "output": {
+    "question": "Démarchage téléphonique : un même professionnel peut m'appeler jusqu'à 10 fois par mois, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quatre fois",
+          "4 fois",
+          "quatre",
+          "4"
+        ],
+        "quote": "plus de quatre fois au cours d'une période de trente jours calendaires",
+        "article": "D223-9"
+      }
+    ],
+    "doubt": "Le texte vise une période de trente jours calendaires, et non un mois civil ; la question utilise « par mois » familièrement.",
+    "false_value": "10 fois"
+  },
+  "raw_text": "{\"question\":\"Démarchage téléphonique : un même professionnel peut m'appeler jusqu'à 10 fois par mois, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quatre fois\",\"4 fois\",\"quatre\",\"4\"],\"quote\":\"plus de quatre fois au cours d'une période de trente jours calendaires\",\"article\":\"D223-9\"}],\"doubt\":\"Le texte vise une période de trente jours calendaires, et non un mois civil ; la question utilise « par mois » familièrement.\",\"false_value\":\"10 fois\"}"
+}

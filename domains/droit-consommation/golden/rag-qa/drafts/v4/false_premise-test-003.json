@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-003",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2283,
+    "output_tokens": 220
+  },
+  "output": {
+    "question": "Surendettement avec liquidation : le liquidateur a bien six mois pour déposer son rapport au greffe ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois mois",
+          "3 mois"
+        ],
+        "quote": "Dans un délai de trois mois suivant la liquidation des biens du débiteur, le liquidateur dépose au greffe un rapport",
+        "article": "R742-52"
+      }
+    ],
+    "doubt": "Le point de départ du délai (liquidation des biens) est précisé dans l'article mais pas dans la question ; la valeur fausse six mois est supposée absente des articles voisins pour ce rapport.",
+    "false_value": "six mois"
+  },
+  "raw_text": "{\"question\":\"Surendettement avec liquidation : le liquidateur a bien six mois pour déposer son rapport au greffe ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois mois\",\"3 mois\"],\"quote\":\"Dans un délai de trois mois suivant la liquidation des biens du débiteur, le liquidateur dépose au greffe un rapport\",\"article\":\"R742-52\"}],\"doubt\":\"Le point de départ du délai (liquidation des biens) est précisé dans l'article mais pas dans la question ; la valeur fausse six mois est supposée absente des articles voisins pour ce rapport.\",\"false_value\":\"six mois\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-010",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:46+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2243,
+    "output_tokens": 235
+  },
+  "output": {
+    "question": "Médiation de consommation : le médiateur a bien 60 jours pour rendre son issue ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quatre-vingt-dix jours",
+          "90 jours"
+        ],
+        "quote": "L'issue de la médiation intervient, au plus tard, dans un délai de quatre-vingt-dix jours à compter de la date de la notification mentionnée à l'article R. 612-2.",
+        "article": "R612-5"
+      }
+    ],
+    "doubt": "Le délai peut être prolongé en cas de litige complexe ; la question vise le délai de base. Le délai de 60 jours n'a pas été vérifié ailleurs dans le code.",
+    "false_value": "60 jours"
+  },
+  "raw_text": "{\"question\":\"Médiation de consommation : le médiateur a bien 60 jours pour rendre son issue ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quatre-vingt-dix jours\",\"90 jours\"],\"quote\":\"L'issue de la médiation intervient, au plus tard, dans un délai de quatre-vingt-dix jours à compter de la date de la notification mentionnée à l'article R. 612-2.\",\"article\":\"R612-5\"}],\"doubt\":\"Le délai peut être prolongé en cas de litige complexe ; la question vise le délai de base. Le délai de 60 jours n'a pas été vérifié ailleurs dans le code.\",\"false_value\":\"60 jours\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-032",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:54+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2389,
+    "output_tokens": 217
+  },
+  "output": {
+    "question": "Accessibilité des produits : un opérateur doit garder les infos sur ses fournisseurs 10 ans, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "pendant une durée de cinq ans à compter de la date à laquelle le produit leur a été fourni",
+        "article": "D412-56"
+      }
+    ],
+    "doubt": "La durée de 10 ans est plausible par confusion avec d'autres obligations de conservation, mais il faut vérifier qu'aucun autre article ne fixe 10 ans pour la même situation.",
+    "false_value": "10 ans"
+  },
+  "raw_text": "{\"question\":\"Accessibilité des produits : un opérateur doit garder les infos sur ses fournisseurs 10 ans, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"pendant une durée de cinq ans à compter de la date à laquelle le produit leur a été fourni\",\"article\":\"D412-56\"}],\"doubt\":\"La durée de 10 ans est plausible par confusion avec d'autres obligations de conservation, mais il faut vérifier qu'aucun autre article ne fixe 10 ans pour la même situation.\",\"false_value\":\"10 ans\"}"
+}

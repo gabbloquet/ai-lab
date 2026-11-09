@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-003",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2846,
+    "output_tokens": 274
+  },
+  "output": {
+    "question": "Garantie de conformité : de combien est prolongée la garantie après réparation, et quel délai maximum pour la mise en conformité ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "six mois",
+          "6 mois"
+        ],
+        "quote": "Tout bien réparé dans le cadre de la garantie légale de conformité bénéficie d'une extension de cette garantie de six mois.",
+        "article": "L217-13"
+      },
+      {
+        "accepted": [
+          "trente jours",
+          "30 jours"
+        ],
+        "quote": "ne peut être supérieur à trente jours suivant la demande du consommateur",
+        "article": "L217-10"
+      }
+    ],
+    "doubt": "Les deux valeurs sont de natures différentes (extension de garantie et délai de mise en conformité), mais toutes deux sont des durées liées à la mise en œuvre de la garantie de conformité."
+  },
+  "raw_text": "{\"question\":\"Garantie de conformité : de combien est prolongée la garantie après réparation, et quel délai maximum pour la mise en conformité ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"six mois\",\"6 mois\"],\"quote\":\"Tout bien réparé dans le cadre de la garantie légale de conformité bénéficie d'une extension de cette garantie de six mois.\",\"article\":\"L217-13\"},{\"accepted\":[\"trente jours\",\"30 jours\"],\"quote\":\"ne peut être supérieur à trente jours suivant la demande du consommateur\",\"article\":\"L217-10\"}],\"doubt\":\"Les deux valeurs sont de natures différentes (extension de garantie et délai de mise en conformité), mais toutes deux sont des durées liées à la mise en œuvre de la garantie de conformité.\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-016",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2697,
+    "output_tokens": 597
+  },
+  "output": {
+    "question": "Conseil national de la consommation : convocation un mois avant, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deux semaines",
+          "2 semaines"
+        ],
+        "quote": "soit sur convocation du ministre adressée deux semaines au moins avant la date de la séance",
+        "article": "D821-12"
+      }
+    ],
+    "doubt": "La question reste un peu elliptique : elle ne précise pas que la convocation concerne une consultation du Conseil ou d'un seul collège.",
+    "false_value": "un mois"
+  },
+  "raw_text": "{\"question\":\"Conseil national de la consommation : convocation un mois avant, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deux semaines\",\"2 semaines\"],\"quote\":\"soit sur convocation du ministre adressée deux semaines au moins avant la date de la séance\",\"article\":\"D821-12\"}],\"doubt\":\"La question reste un peu elliptique : elle ne précise pas que la convocation concerne une consultation du Conseil ou d'un seul collège.\",\"false_value\":\"un mois\"}"
+}

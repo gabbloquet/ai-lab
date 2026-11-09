@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-dev-013",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2222,
+    "output_tokens": 217
+  },
+  "output": {
+    "question": "Violation des interdictions sur les appellations d'origine : c'est bien 100 000 euros d'amende maximum ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "une peine d'emprisonnement de deux ans et d'une amende de 300 000 euros",
+        "article": "L453-3"
+      }
+    ],
+    "doubt": "L'article renvoie à l'article L. 643-1 du code rural sans en préciser l'objet ; la question reste vague sur la nature exacte des interdictions visées (appellations d'origine, d'après le contexte).",
+    "false_value": "100 000 euros"
+  },
+  "raw_text": "{\"question\":\"Violation des interdictions sur les appellations d'origine : c'est bien 100 000 euros d'amende maximum ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"une peine d'emprisonnement de deux ans et d'une amende de 300 000 euros\",\"article\":\"L453-3\"}],\"doubt\":\"L'article renvoie à l'article L. 643-1 du code rural sans en préciser l'objet ; la question reste vague sur la nature exacte des interdictions visées (appellations d'origine, d'après le contexte).\",\"false_value\":\"100 000 euros\"}"
+}

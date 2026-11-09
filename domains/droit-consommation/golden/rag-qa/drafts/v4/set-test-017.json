@@ -1,0 +1,48 @@
+{
+  "task": "set-test-017",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2959,
+    "output_tokens": 390
+  },
+  "output": {
+    "question": "Que doit contenir la rubrique d'information d'un comparateur en ligne sur le référencement et le classement ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "conditions de référencement et de déréférencement",
+          "référencement et de déréférencement",
+          "déréférencement"
+        ],
+        "quote": "Les conditions de référencement et de déréférencement des contenus et des offres de biens et services",
+        "article": "D111-6"
+      },
+      {
+        "accepted": [
+          "critères de classement par défaut",
+          "critères de classement",
+          "principaux paramètres"
+        ],
+        "quote": "Les critères de classement par défaut des contenus et des offres de biens et services, ainsi que leurs principaux paramètres",
+        "article": "D111-6"
+      },
+      {
+        "accepted": [
+          "lien capitalistique",
+          "rémunération"
+        ],
+        "quote": "l'existence d'un lien capitalistique ou d'une rémunération entre les personnes mentionnées au premier alinéa et les offreurs référencés",
+        "article": "D111-6"
+      }
+    ],
+    "doubt": "Le mot « référencement » apparaît dans les éléments 1° et 3°, et « classement » dans le 2° et le 3° ; les mots-clés choisis restent toutefois propres à chaque élément."
+  },
+  "raw_text": "{\"question\":\"Que doit contenir la rubrique d'information d'un comparateur en ligne sur le référencement et le classement ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"conditions de référencement et de déréférencement\",\"référencement et de déréférencement\",\"déréférencement\"],\"quote\":\"Les conditions de référencement et de déréférencement des contenus et des offres de biens et services\",\"article\":\"D111-6\"},{\"accepted\":[\"critères de classement par défaut\",\"critères de classement\",\"principaux paramètres\"],\"quote\":\"Les critères de classement par défaut des contenus et des offres de biens et services, ainsi que leurs principaux paramètres\",\"article\":\"D111-6\"},{\"accepted\":[\"lien capitalistique\",\"rémunération\"],\"quote\":\"l'existence d'un lien capitalistique ou d'une rémunération entre les personnes mentionnées au premier alinéa et les offreurs référencés\",\"article\":\"D111-6\"}],\"doubt\":\"Le mot « référencement » apparaît dans les éléments 1° et 3°, et « classement » dans le 2° et le 3° ; les mots-clés choisis restent toutefois propres à chaque élément.\"}"
+}

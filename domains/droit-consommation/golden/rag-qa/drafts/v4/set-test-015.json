@@ -1,0 +1,68 @@
+{
+  "task": "set-test-015",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2774,
+    "output_tokens": 519
+  },
+  "output": {
+    "question": "Que doivent contenir les mesures d'information d'une action de groupe pour les consommateurs ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "dispositif de la décision"
+        ],
+        "quote": "La reproduction du dispositif de la décision",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "coordonnées"
+        ],
+        "quote": "Les coordonnées de la personne auprès de laquelle chaque consommateur manifeste son adhésion au groupe",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "mandat aux fins d'indemnisation",
+          "forme, le contenu et le délai"
+        ],
+        "quote": "La forme, le contenu et le délai de cette adhésion",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "défaillant",
+          "plus recevable"
+        ],
+        "quote": "le consommateur défaillant ne sera plus recevable à obtenir une indemnisation dans le cadre de l'action de groupe",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "ne pourra plus agir individuellement",
+          "autres préjudices"
+        ],
+        "quote": "le consommateur ne pourra plus agir individuellement à l'encontre du professionnel concerné",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "tout document utile",
+          "produire"
+        ],
+        "quote": "les consommateurs doivent produire tout document utile au soutien de leur demande",
+        "article": "R623-16"
+      }
+    ],
+    "doubt": "Les éléments 2° et 3° partagent des termes (adhésion, association) et n'ont pas de mot-clé vraiment propre ; liste trop procédurale, peu demandée dans un chat."
+  },
+  "raw_text": "{\"question\":\"Que doivent contenir les mesures d'information d'une action de groupe pour les consommateurs ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"dispositif de la décision\"],\"quote\":\"La reproduction du dispositif de la décision\",\"article\":\"R623-16\"},{\"accepted\":[\"coordonnées\"],\"quote\":\"Les coordonnées de la personne auprès de laquelle chaque consommateur manifeste son adhésion au groupe\",\"article\":\"R623-16\"},{\"accepted\":[\"mandat aux fins d'indemnisation\",\"forme, le contenu et le délai\"],\"quote\":\"La forme, le contenu et le délai de cette adhésion\",\"article\":\"R623-16\"},{\"accepted\":[\"défaillant\",\"plus recevable\"],\"quote\":\"le consommateur défaillant ne sera plus recevable à obtenir une indemnisation dans le cadre de l'action de groupe\",\"article\":\"R623-16\"},{\"accepted\":[\"ne pourra plus agir individuellement\",\"autres préjudices\"],\"quote\":\"le consommateur ne pourra plus agir individuellement à l'encontre du professionnel concerné\",\"article\":\"R623-16\"},{\"accepted\":[\"tout document utile\",\"produire\"],\"quote\":\"les consommateurs doivent produire tout document utile au soutien de leur demande\",\"article\":\"R623-16\"}],\"doubt\":\"Les éléments 2° et 3° partagent des termes (adhésion, association) et n'ont pas de mot-clé vraiment propre ; liste trop procédurale, peu demandée dans un chat.\"}"
+}

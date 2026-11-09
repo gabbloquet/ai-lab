@@ -1,0 +1,59 @@
+{
+  "task": "set-test-008",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:20+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2493,
+    "output_tokens": 421
+  },
+  "output": {
+    "question": "Crédit conso : que doit contenir l'information sur une modification de mon contrat ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "description claire des modifications"
+        ],
+        "quote": "Une description claire des modifications proposées",
+        "article": "R312-14-1"
+      },
+      {
+        "accepted": [
+          "calendrier"
+        ],
+        "quote": "Le calendrier de mise en œuvre des modifications",
+        "article": "R312-14-1"
+      },
+      {
+        "accepted": [
+          "moyens",
+          "adresser une réclamation"
+        ],
+        "quote": "Les moyens dont dispose l'emprunteur pour adresser une réclamation",
+        "article": "R312-14-1"
+      },
+      {
+        "accepted": [
+          "délai"
+        ],
+        "quote": "Le délai fixé pour le dépôt d'une telle réclamation",
+        "article": "R312-14-1"
+      },
+      {
+        "accepted": [
+          "médiateurs",
+          "médiateur"
+        ],
+        "quote": "Le nom et l'adresse du ou des médiateurs compétents",
+        "article": "R312-14-1"
+      }
+    ],
+    "doubt": "Les éléments 3° et 4° partagent le mot « réclamation » ; seuls « moyens » et « délai » les distinguent, et le mot « modifications » apparaît dans les éléments 1° à 3°, d'où des mots-clés fragiles. Liste jugée peu utilisable."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : que doit contenir l'information sur une modification de mon contrat ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"description claire des modifications\"],\"quote\":\"Une description claire des modifications proposées\",\"article\":\"R312-14-1\"},{\"accepted\":[\"calendrier\"],\"quote\":\"Le calendrier de mise en œuvre des modifications\",\"article\":\"R312-14-1\"},{\"accepted\":[\"moyens\",\"adresser une réclamation\"],\"quote\":\"Les moyens dont dispose l'emprunteur pour adresser une réclamation\",\"article\":\"R312-14-1\"},{\"accepted\":[\"délai\"],\"quote\":\"Le délai fixé pour le dépôt d'une telle réclamation\",\"article\":\"R312-14-1\"},{\"accepted\":[\"médiateurs\",\"médiateur\"],\"quote\":\"Le nom et l'adresse du ou des médiateurs compétents\",\"article\":\"R312-14-1\"}],\"doubt\":\"Les éléments 3° et 4° partagent le mot « réclamation » ; seuls « moyens » et « délai » les distinguent, et le mot « modifications » apparaît dans les éléments 1° à 3°, d'où des mots-clés fragiles. Liste jugée peu utilisable.\"}"
+}

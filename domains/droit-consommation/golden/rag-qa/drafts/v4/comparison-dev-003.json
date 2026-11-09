@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-003",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2865,
+    "output_tokens": 293
+  },
+  "output": {
+    "question": "Surendettement : après recevabilité, quel délai porté pour l'assurance de prêt impayée, et durée maximale de suspension des procédures ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "cent vingt jours",
+          "120 jours"
+        ],
+        "quote": "est porté à cent vingt jours pour les assurances ayant pour objet la garantie de remboursement d'un emprunt",
+        "article": "L722-13"
+      },
+      {
+        "accepted": [
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "Cette suspension et cette interdiction ne peuvent excéder deux ans.",
+        "article": "L722-3"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées mais ne règlent pas la même chose (délai de résiliation d'assurance d'un côté, durée maximale de suspension des procédures de l'autre), donc la comparaison n'est pas pertinente."
+  },
+  "raw_text": "{\"question\":\"Surendettement : après recevabilité, quel délai porté pour l'assurance de prêt impayée, et durée maximale de suspension des procédures ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"cent vingt jours\",\"120 jours\"],\"quote\":\"est porté à cent vingt jours pour les assurances ayant pour objet la garantie de remboursement d'un emprunt\",\"article\":\"L722-13\"},{\"accepted\":[\"deux ans\",\"2 ans\"],\"quote\":\"Cette suspension et cette interdiction ne peuvent excéder deux ans.\",\"article\":\"L722-3\"}],\"doubt\":\"Les deux valeurs sont des durées mais ne règlent pas la même chose (délai de résiliation d'assurance d'un côté, durée maximale de suspension des procédures de l'autre), donc la comparaison n'est pas pertinente.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-031",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:59+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3227,
+    "output_tokens": 249
+  },
+  "output": {
+    "question": "Sanctions pénales : quelle amende pour un prêt usuraire, et pour une acceptation d'offre de location-vente sans date ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "est puni d'un emprisonnement de deux ans et d'une amende de 300 000 euros",
+        "article": "L341-50"
+      },
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-41"
+      }
+    ],
+    "doubt": "Les deux amendes sont identiques (300 000 euros), alors que la consigne exige deux valeurs différentes ; la comparaison n'est donc pas utilisable."
+  },
+  "raw_text": "{\"question\":\"Sanctions pénales : quelle amende pour un prêt usuraire, et pour une acceptation d'offre de location-vente sans date ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"est puni d'un emprisonnement de deux ans et d'une amende de 300 000 euros\",\"article\":\"L341-50\"},{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-41\"}],\"doubt\":\"Les deux amendes sont identiques (300 000 euros), alors que la consigne exige deux valeurs différentes ; la comparaison n'est donc pas utilisable.\"}"
+}

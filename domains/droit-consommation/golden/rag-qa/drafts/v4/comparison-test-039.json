@@ -1,0 +1,36 @@
+{
+  "task": "comparison-test-039",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:39:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2536,
+    "output_tokens": 291
+  },
+  "output": {
+    "question": "Crédit renouvelable : à quelle fréquence le prêteur vérifie-t-il la solvabilité avant reconduction, et à quelle fréquence consulte-t-il le fichier ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "tous les trois ans"
+        ],
+        "quote": "tous les trois ans, il vérifie la solvabilité de l'emprunteur",
+        "article": "L312-75"
+      },
+      {
+        "accepted": [
+          "tous les ans"
+        ],
+        "quote": "le prêteur consulte tous les ans le fichier",
+        "article": "L312-75"
+      }
+    ],
+    "doubt": "L'article B (L312-41) ne fixe pas de valeur comparable à A : il porte sur le contenu d'une publicité pour crédit gratuit (durée supérieure à trois mois), pas sur une fréquence de contrôle ; la comparaison n'est donc pas possible."
+  },
+  "raw_text": "{\"question\":\"Crédit renouvelable : à quelle fréquence le prêteur vérifie-t-il la solvabilité avant reconduction, et à quelle fréquence consulte-t-il le fichier ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"tous les trois ans\"],\"quote\":\"tous les trois ans, il vérifie la solvabilité de l'emprunteur\",\"article\":\"L312-75\"},{\"accepted\":[\"tous les ans\"],\"quote\":\"le prêteur consulte tous les ans le fichier\",\"article\":\"L312-75\"}],\"doubt\":\"L'article B (L312-41) ne fixe pas de valeur comparable à A : il porte sur le contenu d'une publicité pour crédit gratuit (durée supérieure à trois mois), pas sur une fréquence de contrôle ; la comparaison n'est donc pas possible.\"}"
+}

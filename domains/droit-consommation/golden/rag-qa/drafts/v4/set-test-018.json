@@ -1,0 +1,56 @@
+{
+  "task": "set-test-018",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2629,
+    "output_tokens": 494
+  },
+  "output": {
+    "question": "Quelles infos complémentaires un prestataire de services doit-il me donner si je les demande ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "devis",
+          "méthode de calcul",
+          "prix du service"
+        ],
+        "quote": "le prix du service ou, lorsqu'un prix exact ne peut pas être indiqué, la méthode de calcul permettant au destinataire de vérifier ce dernier, ou un devis suffisamment détaillé",
+        "article": "R111-3"
+      },
+      {
+        "accepted": [
+          "professions réglementées",
+          "règles professionnelles"
+        ],
+        "quote": "En ce qui concerne les professions réglementées, une référence aux règles professionnelles applicables",
+        "article": "R111-3"
+      },
+      {
+        "accepted": [
+          "activités pluridisciplinaires",
+          "partenariats",
+          "conflits d'intérêts"
+        ],
+        "quote": "Des informations sur ses activités pluridisciplinaires et ses partenariats qui sont directement liés au service concerné",
+        "article": "R111-3"
+      },
+      {
+        "accepted": [
+          "codes de conduite",
+          "versions linguistiques"
+        ],
+        "quote": "Les éventuels codes de conduite auxquels il est soumis, l'adresse électronique à laquelle ces codes peuvent être consultés ainsi que les versions linguistiques disponibles",
+        "article": "R111-3"
+      }
+    ],
+    "doubt": "Le premier élément concerne le prix, qui n'est complémentaire que s'il n'est pas fixé au préalable ; les mots-clés sont propres à chaque élément mais peu techniques."
+  },
+  "raw_text": "{\"question\":\"Quelles infos complémentaires un prestataire de services doit-il me donner si je les demande ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"devis\",\"méthode de calcul\",\"prix du service\"],\"quote\":\"le prix du service ou, lorsqu'un prix exact ne peut pas être indiqué, la méthode de calcul permettant au destinataire de vérifier ce dernier, ou un devis suffisamment détaillé\",\"article\":\"R111-3\"},{\"accepted\":[\"professions réglementées\",\"règles professionnelles\"],\"quote\":\"En ce qui concerne les professions réglementées, une référence aux règles professionnelles applicables\",\"article\":\"R111-3\"},{\"accepted\":[\"activités pluridisciplinaires\",\"partenariats\",\"conflits d'intérêts\"],\"quote\":\"Des informations sur ses activités pluridisciplinaires et ses partenariats qui sont directement liés au service concerné\",\"article\":\"R111-3\"},{\"accepted\":[\"codes de conduite\",\"versions linguistiques\"],\"quote\":\"Les éventuels codes de conduite auxquels il est soumis, l'adresse électronique à laquelle ces codes peuvent être consultés ainsi que les versions linguistiques disponibles\",\"article\":\"R111-3\"}],\"doubt\":\"Le premier élément concerne le prix, qui n'est complémentaire que s'il n'est pas fixé au préalable ; les mots-clés sont propres à chaque élément mais peu techniques.\"}"
+}

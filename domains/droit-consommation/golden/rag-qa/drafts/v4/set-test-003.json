@@ -1,0 +1,53 @@
+{
+  "task": "set-test-003",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:17+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2485,
+    "output_tokens": 439
+  },
+  "output": {
+    "question": "Quelles conditions un médiateur de la consommation doit-il remplir ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "aptitudes dans le domaine de la médiation",
+          "connaissances juridiques"
+        ],
+        "quote": "Posséder des aptitudes dans le domaine de la médiation ainsi que de bonnes connaissances juridiques, notamment dans le domaine de la consommation",
+        "article": "L613-1"
+      },
+      {
+        "accepted": [
+          "durée minimale de trois années",
+          "trois années"
+        ],
+        "quote": "Etre nommé pour une durée minimale de trois années",
+        "article": "L613-1"
+      },
+      {
+        "accepted": [
+          "rémunéré",
+          "sans considération du résultat"
+        ],
+        "quote": "Etre rémunéré sans considération du résultat de la médiation",
+        "article": "L613-1"
+      },
+      {
+        "accepted": [
+          "conflit d'intérêts"
+        ],
+        "quote": "Ne pas être en situation de conflit d'intérêts et le cas échéant le signaler",
+        "article": "L613-1"
+      }
+    ],
+    "doubt": "Le mot-clé de l'élément 1° (« notamment ») n'est pas pertinent, et les éléments 2° et 3° restent peu distincts. Surtout, le 1° contient « notamment » sans que la liste soit ouverte ; la question reste donc peu fiable pour une évaluation par mots-clés."
+  },
+  "raw_text": "{\"question\":\"Quelles conditions un médiateur de la consommation doit-il remplir ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"aptitudes dans le domaine de la médiation\",\"connaissances juridiques\"],\"quote\":\"Posséder des aptitudes dans le domaine de la médiation ainsi que de bonnes connaissances juridiques, notamment dans le domaine de la consommation\",\"article\":\"L613-1\"},{\"accepted\":[\"durée minimale de trois années\",\"trois années\"],\"quote\":\"Etre nommé pour une durée minimale de trois années\",\"article\":\"L613-1\"},{\"accepted\":[\"rémunéré\",\"sans considération du résultat\"],\"quote\":\"Etre rémunéré sans considération du résultat de la médiation\",\"article\":\"L613-1\"},{\"accepted\":[\"conflit d'intérêts\"],\"quote\":\"Ne pas être en situation de conflit d'intérêts et le cas échéant le signaler\",\"article\":\"L613-1\"}],\"doubt\":\"Le mot-clé de l'élément 1° (« notamment ») n'est pas pertinent, et les éléments 2° et 3° restent peu distincts. Surtout, le 1° contient « notamment » sans que la liste soit ouverte ; la question reste donc peu fiable pour une évaluation par mots-clés.\"}"
+}

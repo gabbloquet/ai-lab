@@ -1,0 +1,45 @@
+{
+  "task": "set-test-011",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2371,
+    "output_tokens": 284
+  },
+  "output": {
+    "question": "Que contient le rapport publié par la commission d'évaluation de la médiation de la consommation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "bonnes pratiques",
+          "recensement"
+        ],
+        "quote": "Le recensement des bonnes pratiques des médiateurs",
+        "article": "R615-9"
+      },
+      {
+        "accepted": [
+          "dysfonctionnements",
+          "statistiques"
+        ],
+        "quote": "Les dysfonctionnements des processus de médiation relevés à l'aide de statistiques",
+        "article": "R615-9"
+      },
+      {
+        "accepted": [
+          "recommandations"
+        ],
+        "quote": "Des recommandations en vue de l'amélioration du fonctionnement effectif des médiations et de l'efficacité des médiateurs",
+        "article": "R615-9"
+      }
+    ],
+    "doubt": "Question de niche, peu probable dans un chat grand public ; mots-clés assez génériques."
+  },
+  "raw_text": "{\"question\":\"Que contient le rapport publié par la commission d'évaluation de la médiation de la consommation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"bonnes pratiques\",\"recensement\"],\"quote\":\"Le recensement des bonnes pratiques des médiateurs\",\"article\":\"R615-9\"},{\"accepted\":[\"dysfonctionnements\",\"statistiques\"],\"quote\":\"Les dysfonctionnements des processus de médiation relevés à l'aide de statistiques\",\"article\":\"R615-9\"},{\"accepted\":[\"recommandations\"],\"quote\":\"Des recommandations en vue de l'amélioration du fonctionnement effectif des médiations et de l'efficacité des médiateurs\",\"article\":\"R615-9\"}],\"doubt\":\"Question de niche, peu probable dans un chat grand public ; mots-clés assez génériques.\"}"
+}

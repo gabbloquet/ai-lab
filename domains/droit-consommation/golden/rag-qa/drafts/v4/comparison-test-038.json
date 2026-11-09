@@ -1,0 +1,40 @@
+{
+  "task": "comparison-test-038",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:39:03+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2910,
+    "output_tokens": 308
+  },
+  "output": {
+    "question": "Fraude : quelle amende maximale si tromperie avec faux poids ou instruments inexacts, et pour les délits des articles de falsification simples ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "600 000 euros",
+          "600 000 €",
+          "600000 euros"
+        ],
+        "quote": "est punie d'une peine d'emprisonnement de cinq ans et d'une amende de 600 000 euros",
+        "article": "L454-2"
+      },
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €",
+          "300000 euros"
+        ],
+        "quote": "sont punis d'une peine de deux ans d'emprisonnement et d'une amende de 300 000 euros",
+        "article": "L454-6"
+      }
+    ],
+    "doubt": "Le cas B (délits des articles L441-2 à L441-4) est difficile à décrire sans citer les numéros ni connaître leur objet ; la formulation « falsification simples » est approximative et la question reste ambiguë."
+  },
+  "raw_text": "{\"question\":\"Fraude : quelle amende maximale si tromperie avec faux poids ou instruments inexacts, et pour les délits des articles de falsification simples ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"600 000 euros\",\"600 000 €\",\"600000 euros\"],\"quote\":\"est punie d'une peine d'emprisonnement de cinq ans et d'une amende de 600 000 euros\",\"article\":\"L454-2\"},{\"accepted\":[\"300 000 euros\",\"300 000 €\",\"300000 euros\"],\"quote\":\"sont punis d'une peine de deux ans d'emprisonnement et d'une amende de 300 000 euros\",\"article\":\"L454-6\"}],\"doubt\":\"Le cas B (délits des articles L441-2 à L441-4) est difficile à décrire sans citer les numéros ni connaître leur objet ; la formulation « falsification simples » est approximative et la question reste ambiguë.\"}"
+}

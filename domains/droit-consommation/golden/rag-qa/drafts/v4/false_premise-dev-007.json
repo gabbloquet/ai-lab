@@ -1,0 +1,32 @@
+{
+  "task": "false_premise-dev-007",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2341,
+    "output_tokens": 246
+  },
+  "output": {
+    "question": "Location avec option d'achat : loyers impayés, le bailleur peut me réclamer 10 % des échéances échues ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "8 %",
+          "8%",
+          "huit pour cent"
+        ],
+        "quote": "il peut demander au locataire défaillant une indemnité égale à 8 % des échéances échues impayées",
+        "article": "D312-19"
+      }
+    ],
+    "doubt": "L'article parle de bailleur et locataire sans préciser la location avec option d'achat ; le contexte du crédit à la consommation est déduit de la section. La valeur de 10 % pourrait exister ailleurs (ex. indemnité de 8 % pour le prêteur en crédit classique).",
+    "false_value": "10 %"
+  },
+  "raw_text": "{\"question\":\"Location avec option d'achat : loyers impayés, le bailleur peut me réclamer 10 % des échéances échues ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"8 %\",\"8%\",\"huit pour cent\"],\"quote\":\"il peut demander au locataire défaillant une indemnité égale à 8 % des échéances échues impayées\",\"article\":\"D312-19\"}],\"doubt\":\"L'article parle de bailleur et locataire sans préciser la location avec option d'achat ; le contexte du crédit à la consommation est déduit de la section. La valeur de 10 % pourrait exister ailleurs (ex. indemnité de 8 % pour le prêteur en crédit classique).\",\"false_value\":\"10 %\"}"
+}

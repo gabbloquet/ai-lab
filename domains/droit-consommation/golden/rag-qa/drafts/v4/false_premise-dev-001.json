@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-dev-001",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:35+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2598,
+    "output_tokens": 231
+  },
+  "output": {
+    "question": "Les membres du comité de la métrologie du LNE sont nommés pour trois ans, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "nommés pour cinq ans renouvelables par arrêté conjoint du ministre chargé de la recherche et du ministre chargé de l'industrie",
+        "article": "R823-13"
+      }
+    ],
+    "doubt": "Article très institutionnel, peu susceptible d'être demandé par un consommateur ; la valeur fausse (trois ans) est plausible mais l'article n'a pas d'équivalent ailleurs dans le code.",
+    "false_value": "trois ans"
+  },
+  "raw_text": "{\"question\":\"Les membres du comité de la métrologie du LNE sont nommés pour trois ans, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"nommés pour cinq ans renouvelables par arrêté conjoint du ministre chargé de la recherche et du ministre chargé de l'industrie\",\"article\":\"R823-13\"}],\"doubt\":\"Article très institutionnel, peu susceptible d'être demandé par un consommateur ; la valeur fausse (trois ans) est plausible mais l'article n'a pas d'équivalent ailleurs dans le code.\",\"false_value\":\"trois ans\"}"
+}

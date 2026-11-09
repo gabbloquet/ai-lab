@@ -1,0 +1,32 @@
+{
+  "task": "false_premise-test-026",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2308,
+    "output_tokens": 205
+  },
+  "output": {
+    "question": "Le médiateur de la conso doit transmettre ses informations d'activité à la commission d'évaluation tous les 5 ans, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "tous les deux ans",
+          "deux ans",
+          "2 ans"
+        ],
+        "quote": "au moins tous les deux ans",
+        "article": "R614-4"
+      }
+    ],
+    "doubt": "La formulation « au moins tous les deux ans » fixe une fréquence minimale ; la valeur fausse (5 ans) est plausible mais la question reste un peu technique pour un consommateur.",
+    "false_value": "5 ans"
+  },
+  "raw_text": "{\"question\":\"Le médiateur de la conso doit transmettre ses informations d'activité à la commission d'évaluation tous les 5 ans, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"tous les deux ans\",\"deux ans\",\"2 ans\"],\"quote\":\"au moins tous les deux ans\",\"article\":\"R614-4\"}],\"doubt\":\"La formulation « au moins tous les deux ans » fixe une fréquence minimale ; la valeur fausse (5 ans) est plausible mais la question reste un peu technique pour un consommateur.\",\"false_value\":\"5 ans\"}"
+}

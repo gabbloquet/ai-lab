@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-016",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:51+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2959,
+    "output_tokens": 291
+  },
+  "output": {
+    "question": "Combien de jours pour renoncer à un contrat de courtage matrimonial, et combien d'années de pièces détachées pour un verticalisateur ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "sept jours",
+          "7 jours"
+        ],
+        "quote": "dans le délai de sept jours mentionné par ces mêmes dispositions",
+        "article": "R224-3"
+      },
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "pendant une durée minimale de cinq ans à compter de la date de mise sur le marché national",
+        "article": "D224-45"
+      }
+    ],
+    "doubt": "Les deux valeurs ne se comparent pas : un délai de rétractation d'un côté, une durée minimale de disponibilité de pièces détachées de l'autre. Elles ne règlent pas la même chose, donc la question n'est pas exploitable en mode comparaison."
+  },
+  "raw_text": "{\"question\":\"Combien de jours pour renoncer à un contrat de courtage matrimonial, et combien d'années de pièces détachées pour un verticalisateur ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"sept jours\",\"7 jours\"],\"quote\":\"dans le délai de sept jours mentionné par ces mêmes dispositions\",\"article\":\"R224-3\"},{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"pendant une durée minimale de cinq ans à compter de la date de mise sur le marché national\",\"article\":\"D224-45\"}],\"doubt\":\"Les deux valeurs ne se comparent pas : un délai de rétractation d'un côté, une durée minimale de disponibilité de pièces détachées de l'autre. Elles ne règlent pas la même chose, donc la question n'est pas exploitable en mode comparaison.\"}"
+}

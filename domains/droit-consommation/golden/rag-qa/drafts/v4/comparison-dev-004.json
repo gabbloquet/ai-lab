@@ -1,0 +1,37 @@
+{
+  "task": "comparison-dev-004",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2885,
+    "output_tokens": 262
+  },
+  "output": {
+    "question": "Courtage matrimonial : délai de remboursement après résiliation pour motif légitime, et délai de rétractation pour un achat de métaux précieux ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "deux mois"
+        ],
+        "quote": "est remboursées par le professionnel dans le délai de deux mois",
+        "article": "R224-2"
+      },
+      {
+        "accepted": [
+          "quarante-huit heures",
+          "48 heures"
+        ],
+        "quote": "au plus tard quarante-huit heures à compter du jour et de l'heure de la signature du contrat",
+        "article": "R224-7"
+      }
+    ],
+    "doubt": "Les deux valeurs ne règlent pas la même chose : un délai de remboursement d'un côté, un délai de rétractation de l'autre, donc la comparaison n'est pas pertinente."
+  },
+  "raw_text": "{\"question\":\"Courtage matrimonial : délai de remboursement après résiliation pour motif légitime, et délai de rétractation pour un achat de métaux précieux ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"deux mois\"],\"quote\":\"est remboursées par le professionnel dans le délai de deux mois\",\"article\":\"R224-2\"},{\"accepted\":[\"quarante-huit heures\",\"48 heures\"],\"quote\":\"au plus tard quarante-huit heures à compter du jour et de l'heure de la signature du contrat\",\"article\":\"R224-7\"}],\"doubt\":\"Les deux valeurs ne règlent pas la même chose : un délai de remboursement d'un côté, un délai de rétractation de l'autre, donc la comparaison n'est pas pertinente.\"}"
+}

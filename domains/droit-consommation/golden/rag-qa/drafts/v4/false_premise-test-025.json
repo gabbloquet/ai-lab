@@ -1,0 +1,32 @@
+{
+  "task": "false_premise-test-025",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:52+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3139,
+    "output_tokens": 225
+  },
+  "output": {
+    "question": "Rénovation énergétique : un label RGE peut être suspendu au maximum un an en tout, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "six mois renouvelable une fois",
+          "6 mois renouvelable une fois",
+          "six mois"
+        ],
+        "quote": "pour une durée de six mois renouvelable une fois",
+        "article": "L521-28"
+      }
+    ],
+    "doubt": "La valeur fausse « un an » correspond en fait à douze mois, soit deux périodes de six mois ; elle est donc vraie en cumul maximal. À reformuler, par exemple avec une prémisse de trois mois renouvelable.",
+    "false_value": "un an"
+  },
+  "raw_text": "{\"question\":\"Rénovation énergétique : un label RGE peut être suspendu au maximum un an en tout, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"six mois renouvelable une fois\",\"6 mois renouvelable une fois\",\"six mois\"],\"quote\":\"pour une durée de six mois renouvelable une fois\",\"article\":\"L521-28\"}],\"doubt\":\"La valeur fausse « un an » correspond en fait à douze mois, soit deux périodes de six mois ; elle est donc vraie en cumul maximal. À reformuler, par exemple avec une prémisse de trois mois renouvelable.\",\"false_value\":\"un an\"}"
+}

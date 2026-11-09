@@ -1,0 +1,49 @@
+{
+  "task": "set-test-028",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:32+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2760,
+    "output_tokens": 454
+  },
+  "output": {
+    "question": "Contenu numérique non conforme : dans quels cas puis-je obtenir une réduction du prix ou la résolution ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "refuse toute mise en conformité",
+          "refuse"
+        ],
+        "quote": "Lorsque le professionnel refuse toute mise en conformité du contenu numérique ou du service numérique",
+        "article": "L224-25-20"
+      },
+      {
+        "accepted": [
+          "retardée de manière injustifiée",
+          "retardée",
+          "frais",
+          "inconvénient majeur"
+        ],
+        "quote": "Lorsque la mise en conformité du contenu numérique ou du service numérique est retardée de manière injustifiée ou si elle occasionne des frais ou un inconvénient majeur pour le consommateur",
+        "article": "L224-25-20"
+      },
+      {
+        "accepted": [
+          "persiste",
+          "infructueuse",
+          "tentative de mise en conformité"
+        ],
+        "quote": "Lorsque la non-conformité du contenu numérique ou du service numérique persiste en dépit de la tentative de mise en conformité du professionnel restée infructueuse",
+        "article": "L224-25-20"
+      }
+    ],
+    "doubt": "Les éléments 1° à 3° ont des mots-clés propres, mais la liste est complétée par un cas hors numérotation (défaut si grave) ; la réponse attendue pourrait donc paraître incomplète. Je la marque non utilisable par prudence."
+  },
+  "raw_text": "{\"question\":\"Contenu numérique non conforme : dans quels cas puis-je obtenir une réduction du prix ou la résolution ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"refuse toute mise en conformité\",\"refuse\"],\"quote\":\"Lorsque le professionnel refuse toute mise en conformité du contenu numérique ou du service numérique\",\"article\":\"L224-25-20\"},{\"accepted\":[\"retardée de manière injustifiée\",\"retardée\",\"frais\",\"inconvénient majeur\"],\"quote\":\"Lorsque la mise en conformité du contenu numérique ou du service numérique est retardée de manière injustifiée ou si elle occasionne des frais ou un inconvénient majeur pour le consommateur\",\"article\":\"L224-25-20\"},{\"accepted\":[\"persiste\",\"infructueuse\",\"tentative de mise en conformité\"],\"quote\":\"Lorsque la non-conformité du contenu numérique ou du service numérique persiste en dépit de la tentative de mise en conformité du professionnel restée infructueuse\",\"article\":\"L224-25-20\"}],\"doubt\":\"Les éléments 1° à 3° ont des mots-clés propres, mais la liste est complétée par un cas hors numérotation (défaut si grave) ; la réponse attendue pourrait donc paraître incomplète. Je la marque non utilisable par prudence.\"}"
+}

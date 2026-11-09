@@ -1,0 +1,58 @@
+{
+  "task": "set-test-010",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2618,
+    "output_tokens": 453
+  },
+  "output": {
+    "question": "Quelles denrées alimentaires n'ont pas besoin d'avoir de numéro de lot indiqué ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "produits agricoles",
+          "exploitation"
+        ],
+        "quote": "1° Les produits agricoles qui, au départ, de l'exploitation sont :",
+        "article": "R412-6"
+      },
+      {
+        "accepted": [
+          "lieux de vente",
+          "consommateur final",
+          "non préemballées",
+          "préemballées"
+        ],
+        "quote": "2° Les denrées alimentaires, présentées sur les lieux de vente au consommateur final, qui :",
+        "article": "R412-6"
+      },
+      {
+        "accepted": [
+          "10 centimètres carrés",
+          "face la plus grande",
+          "emballages ou récipients"
+        ],
+        "quote": "3° Les denrées alimentaires contenues dans des emballages ou récipients dont la face la plus grande a une surface inférieure à 10 centimètres carrés ;",
+        "article": "R412-6"
+      },
+      {
+        "accepted": [
+          "doses individuelles de glaces alimentaires",
+          "glaces alimentaires",
+          "glaces"
+        ],
+        "quote": "4° Les doses individuelles de glaces alimentaires.",
+        "article": "R412-6"
+      }
+    ],
+    "doubt": "Les mots-clés du 2° (« lieux de vente », « consommateur final ») sont assez génériques ; la liste est fermée mais les éléments 1° et 2° ont des sous-éléments."
+  },
+  "raw_text": "{\"question\":\"Quelles denrées alimentaires n'ont pas besoin d'avoir de numéro de lot indiqué ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"produits agricoles\",\"exploitation\"],\"quote\":\"1° Les produits agricoles qui, au départ, de l'exploitation sont :\",\"article\":\"R412-6\"},{\"accepted\":[\"lieux de vente\",\"consommateur final\",\"non préemballées\",\"préemballées\"],\"quote\":\"2° Les denrées alimentaires, présentées sur les lieux de vente au consommateur final, qui :\",\"article\":\"R412-6\"},{\"accepted\":[\"10 centimètres carrés\",\"face la plus grande\",\"emballages ou récipients\"],\"quote\":\"3° Les denrées alimentaires contenues dans des emballages ou récipients dont la face la plus grande a une surface inférieure à 10 centimètres carrés ;\",\"article\":\"R412-6\"},{\"accepted\":[\"doses individuelles de glaces alimentaires\",\"glaces alimentaires\",\"glaces\"],\"quote\":\"4° Les doses individuelles de glaces alimentaires.\",\"article\":\"R412-6\"}],\"doubt\":\"Les mots-clés du 2° (« lieux de vente », « consommateur final ») sont assez génériques ; la liste est fermée mais les éléments 1° et 2° ont des sous-éléments.\"}"
+}

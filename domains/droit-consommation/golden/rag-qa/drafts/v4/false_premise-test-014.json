@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-test-014",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2672,
+    "output_tokens": 195
+  },
+  "output": {
+    "question": "Pub crédit immobilier : l'exemple représentatif peut aller jusqu'à 1 000 000 d'euros de crédit ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "500 000 euros",
+          "500 000 €"
+        ],
+        "quote": "un multiple de cette somme qui ne peut excéder 500 000 euros",
+        "article": "R313-2"
+      }
+    ],
+    "doubt": "Le plafond de 500 000 euros concerne le montant de l'exemple représentatif dans la publicité, ce que la question précise.",
+    "false_value": "1 000 000 d'euros"
+  },
+  "raw_text": "{\"question\":\"Pub crédit immobilier : l'exemple représentatif peut aller jusqu'à 1 000 000 d'euros de crédit ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"500 000 euros\",\"500 000 €\"],\"quote\":\"un multiple de cette somme qui ne peut excéder 500 000 euros\",\"article\":\"R313-2\"}],\"doubt\":\"Le plafond de 500 000 euros concerne le montant de l'exemple représentatif dans la publicité, ce que la question précise.\",\"false_value\":\"1 000 000 d'euros\"}"
+}

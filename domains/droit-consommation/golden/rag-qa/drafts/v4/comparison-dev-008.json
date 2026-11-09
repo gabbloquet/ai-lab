@@ -1,0 +1,37 @@
+{
+  "task": "comparison-dev-008",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2750,
+    "output_tokens": 272
+  },
+  "output": {
+    "question": "Crédit conso : quel est le délai de sept jours... ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trois mois"
+        ],
+        "quote": "remboursable dans un délai supérieur à un mois et inférieur ou égal à trois mois",
+        "article": "L312-84"
+      },
+      {
+        "accepted": [
+          "sept jours",
+          "7 jours"
+        ],
+        "quote": "Pendant un délai de sept jours à compter de l'acceptation du contrat par l'emprunteur",
+        "article": "L312-25"
+      }
+    ],
+    "doubt": "Les deux valeurs ne règlent pas la même chose : A donne un seuil de durée de remboursement d'un découvert (trois mois) qui détermine les règles applicables, B un délai d'interdiction de paiement après acceptation du contrat ; la comparaison n'est pas pertinente."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : quel est le délai de sept jours... ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trois mois\"],\"quote\":\"remboursable dans un délai supérieur à un mois et inférieur ou égal à trois mois\",\"article\":\"L312-84\"},{\"accepted\":[\"sept jours\",\"7 jours\"],\"quote\":\"Pendant un délai de sept jours à compter de l'acceptation du contrat par l'emprunteur\",\"article\":\"L312-25\"}],\"doubt\":\"Les deux valeurs ne règlent pas la même chose : A donne un seuil de durée de remboursement d'un découvert (trois mois) qui détermine les règles applicables, B un délai d'interdiction de paiement après acceptation du contrat ; la comparaison n'est pas pertinente.\"}"
+}

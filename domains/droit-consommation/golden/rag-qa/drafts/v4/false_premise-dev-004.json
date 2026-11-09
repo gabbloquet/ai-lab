@@ -1,0 +1,31 @@
+{
+  "task": "false_premise-dev-004",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:37+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2842,
+    "output_tokens": 229
+  },
+  "output": {
+    "question": "Contrat à reconduction tacite : le professionnel doit me prévenir 15 jours avant la date limite, c'est bien ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "un mois",
+          "1 mois"
+        ],
+        "quote": "au plus tôt trois mois et au plus tard un mois avant le terme de la période autorisant le rejet de la reconduction",
+        "article": "L215-1"
+      }
+    ],
+    "doubt": "L'article donne une fenêtre (entre trois mois et un mois avant le terme) ; le fait retenu est le délai le plus tardif, un mois, mais la réponse pourrait aussi mentionner trois mois.",
+    "false_value": "15 jours"
+  },
+  "raw_text": "{\"question\":\"Contrat à reconduction tacite : le professionnel doit me prévenir 15 jours avant la date limite, c'est bien ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"un mois\",\"1 mois\"],\"quote\":\"au plus tôt trois mois et au plus tard un mois avant le terme de la période autorisant le rejet de la reconduction\",\"article\":\"L215-1\"}],\"doubt\":\"L'article donne une fenêtre (entre trois mois et un mois avant le terme) ; le fait retenu est le délai le plus tardif, un mois, mais la réponse pourrait aussi mentionner trois mois.\",\"false_value\":\"15 jours\"}"
+}

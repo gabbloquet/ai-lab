@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-028",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:38:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3380,
+    "output_tokens": 275
+  },
+  "output": {
+    "question": "Laboratoire national de métrologie et d'essais : combien de membres du conseil d'administration pour le quorum, et durée maximale d'un bail que le directeur peut décider ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "onze",
+          "11"
+        ],
+        "quote": "au moins onze membres sont présents ou représentés",
+        "article": "R823-6"
+      },
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "lorsque la durée du bail n'est pas supérieure à trois ans",
+        "article": "R823-11"
+      }
+    ],
+    "doubt": "Les deux valeurs (un quorum en nombre de membres et une durée maximale de bail) sont des grandeurs sans rapport et ne règlent pas la même chose, donc la comparaison n'est pas pertinente ; de plus la question est très spécialisée."
+  },
+  "raw_text": "{\"question\":\"Laboratoire national de métrologie et d'essais : combien de membres du conseil d'administration pour le quorum, et durée maximale d'un bail que le directeur peut décider ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"onze\",\"11\"],\"quote\":\"au moins onze membres sont présents ou représentés\",\"article\":\"R823-6\"},{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"lorsque la durée du bail n'est pas supérieure à trois ans\",\"article\":\"R823-11\"}],\"doubt\":\"Les deux valeurs (un quorum en nombre de membres et une durée maximale de bail) sont des grandeurs sans rapport et ne règlent pas la même chose, donc la comparaison n'est pas pertinente ; de plus la question est très spécialisée.\"}"
+}

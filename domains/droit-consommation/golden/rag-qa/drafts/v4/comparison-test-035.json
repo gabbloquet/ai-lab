@@ -1,0 +1,38 @@
+{
+  "task": "comparison-test-035",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T16:39:01+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3227,
+    "output_tokens": 279
+  },
+  "output": {
+    "question": "Plateforme en ligne : quelle amende encourt un fournisseur de places de marché fautif, et quelle durée maximale d'interdiction d'exercer ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "Est puni d'un emprisonnement de deux ans et d'une amende de 300 000 euros",
+        "article": "L133-1"
+      },
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.",
+        "article": "L133-3"
+      }
+    ],
+    "doubt": "Les deux valeurs (un montant d'amende et une durée d'interdiction) sont de nature différente et ne règlent pas la même chose, donc elles ne se comparent pas vraiment."
+  },
+  "raw_text": "{\"question\":\"Plateforme en ligne : quelle amende encourt un fournisseur de places de marché fautif, et quelle durée maximale d'interdiction d'exercer ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"Est puni d'un emprisonnement de deux ans et d'une amende de 300 000 euros\",\"article\":\"L133-1\"},{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.\",\"article\":\"L133-3\"}],\"doubt\":\"Les deux valeurs (un montant d'amende et une durée d'interdiction) sont de nature différente et ne règlent pas la même chose, donc elles ne se comparent pas vraiment.\"}"
+}

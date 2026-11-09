@@ -1,0 +1,45 @@
+{
+  "task": "set-test-005",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T16:39:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2353,
+    "output_tokens": 372
+  },
+  "output": {
+    "question": "Quelles missions un intermédiaire n'a-t-il pas le droit de proposer contre rémunération à un débiteur ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "plan de remboursement"
+        ],
+        "quote": "D'examiner la situation d'un débiteur en vue de l'établissement d'un plan de remboursement",
+        "article": "L322-1"
+      },
+      {
+        "accepted": [
+          "délais de paiement",
+          "remise de dette"
+        ],
+        "quote": "De rechercher pour le compte d'un débiteur l'obtention de délais de paiement ou d'une remise de dette.",
+        "article": "L322-1"
+      },
+      {
+        "accepted": [
+          "procédure de surendettement",
+          "surendettement"
+        ],
+        "quote": "D'intervenir, pour le compte du débiteur, sous quelque forme que ce soit, pour les besoins de la procédure de surendettement.",
+        "article": "L322-1"
+      }
+    ],
+    "doubt": "Les mots-clés 'débiteur' et 'situation' se recoupent entre éléments, mais les formes retenues sont propres à chaque élément ; la question porte sur une liste fermée mais peu fréquente dans un chat."
+  },
+  "raw_text": "{\"question\":\"Quelles missions un intermédiaire n'a-t-il pas le droit de proposer contre rémunération à un débiteur ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"plan de remboursement\"],\"quote\":\"D'examiner la situation d'un débiteur en vue de l'établissement d'un plan de remboursement\",\"article\":\"L322-1\"},{\"accepted\":[\"délais de paiement\",\"remise de dette\"],\"quote\":\"De rechercher pour le compte d'un débiteur l'obtention de délais de paiement ou d'une remise de dette.\",\"article\":\"L322-1\"},{\"accepted\":[\"procédure de surendettement\",\"surendettement\"],\"quote\":\"D'intervenir, pour le compte du débiteur, sous quelque forme que ce soit, pour les besoins de la procédure de surendettement.\",\"article\":\"L322-1\"}],\"doubt\":\"Les mots-clés 'débiteur' et 'situation' se recoupent entre éléments, mais les formes retenues sont propres à chaque élément ; la question porte sur une liste fermée mais peu fréquente dans un chat.\"}"
+}

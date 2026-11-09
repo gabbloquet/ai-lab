@@ -1,0 +1,32 @@
+{
+  "task": "false_premise-test-034",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-09T16:39:55+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2329,
+    "output_tokens": 184
+  },
+  "output": {
+    "question": "Service après-vente non respecté : l'amende pour une société peut aller jusqu'à 30 000 euros, c'est ça ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €",
+          "15000 euros"
+        ],
+        "quote": "15 000 euros pour une personne morale",
+        "article": "L241-14"
+      }
+    ],
+    "doubt": "Plusieurs montants figurent dans l'article (3 000 euros pour une personne physique) ; la question vise la personne morale, la société.",
+    "false_value": "30 000 euros"
+  },
+  "raw_text": "{\"question\":\"Service après-vente non respecté : l'amende pour une société peut aller jusqu'à 30 000 euros, c'est ça ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"15 000 euros\",\"15 000 €\",\"15000 euros\"],\"quote\":\"15 000 euros pour une personne morale\",\"article\":\"L241-14\"}],\"doubt\":\"Plusieurs montants figurent dans l'article (3 000 euros pour une personne physique) ; la question vise la personne morale, la société.\",\"false_value\":\"30 000 euros\"}"
+}
