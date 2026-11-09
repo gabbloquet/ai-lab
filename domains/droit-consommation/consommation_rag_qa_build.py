@@ -30,6 +30,7 @@ from consommation_rag_qa_plan import (
     V1_QUOTAS,
     V2_QUOTAS,
     V3_QUOTAS,
+    V4_PILOT2_QUOTAS,
     V4_PILOT_QUOTAS,
     V4_QUOTAS,
     enumeration,
@@ -637,6 +638,7 @@ QUOTAS: dict[str, dict[str, tuple[int, int]]] = {
     "v4": V4_QUOTAS,
     "pilot": PILOT_QUOTAS,
     "pilot-v4": V4_PILOT_QUOTAS,
+    "pilot2-v4": V4_PILOT2_QUOTAS,
 }
 
 

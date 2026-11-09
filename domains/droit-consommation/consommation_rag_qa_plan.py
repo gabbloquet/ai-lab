@@ -45,12 +45,13 @@ V3_QUOTAS: dict[str, tuple[int, int]] = {**V1_QUOTAS, "unanswerable": (31, 63)}
 # suivent la capacité du corpus, revue après le premier pilote : ces modes se disputent les
 # articles qui portent une valeur, et `bridge`, le vrai multi-hop, garde la plus grande (README du
 # golden set, « v4 »).
+# `bridge` a été retiré après le second pilote : l'article de la réponse se retrouvait presque
+# toujours sans le saut. Sa capacité est revenue à `comparison` et à `false_premise`.
 V4_QUOTAS: dict[str, tuple[int, int]] = {
     **V3_QUOTAS,
-    "comparison": (6, 16),
-    "set": (6, 16),
-    "bridge": (10, 30),
-    "false_premise": (8, 22),
+    "comparison": (8, 22),
+    "set": (5, 12),
+    "false_premise": (10, 30),
 }
 # Pilote : 20 brouillons jetés après la mise au point du prompt, sans surplus.
 PILOT_QUOTAS: dict[str, tuple[int, int]] = {
@@ -166,6 +167,71 @@ def writes_number(text: str, num: str) -> bool:
     return re.search(pattern, _SPACES.sub(" ", text), re.IGNORECASE) is not None
 
 
+_NUMBER_VALUES = {
+    w: i
+    for i, w in enumerate(
+        [
+            "zéro",
+            "un",
+            "deux",
+            "trois",
+            "quatre",
+            "cinq",
+            "six",
+            "sept",
+            "huit",
+            "neuf",
+            "dix",
+            "onze",
+            "douze",
+            "treize",
+            "quatorze",
+            "quinze",
+            "seize",
+        ]
+    )
+} | {"une": 1, "vingt": 20, "trente": 30, "quarante": 40, "cinquante": 50, "soixante": 60}
+_UNITS = {
+    "€": "euro",
+    "euros": "euro",
+    "années": "an",
+    "année": "an",
+    "ans": "an",
+    "pour cent": "%",
+}
+
+
+def _number(words: str) -> str:
+    """« vingt-quatre » vaut 24, « 15 000 » vaut 15000, « 2,5 » reste 2,5."""
+    if words[0].isdigit():
+        return re.sub(r"\s", "", words)
+    total = current = 0
+    for word in re.split(r"[- ]", words):
+        if word == "cent":
+            current = (current or 1) * 100
+        elif word == "mille":
+            total, current = total + (current or 1) * 1000, 0
+        elif word != "et":
+            current += _NUMBER_VALUES.get(word, 0)
+    return str(total + current)
+
+
+def canonical_value(value: str) -> str:
+    """Forme canonique d'une valeur trouvée par `value_classes` : « 3 000 € » et « 3 000 euros »,
+    « quatorze jours » et « 14 jours » ont la même."""
+    value = re.sub(r"[\u00a0\u202f\s]+", " ", value.lower()).strip()
+    match = re.match(rf"({_NUMBER})\s*(.*)$", value)
+    if not match:
+        return value
+    unit = match.group(2).strip()
+    unit = _UNITS.get(unit, unit[:-1] if unit.endswith("s") and unit != "mois" else unit)
+    return f"{_number(match.group(1))} {_UNITS.get(unit, unit)}"
+
+
+def _canonical_classes(text: str) -> dict[str, set[str]]:
+    return {c: {canonical_value(v) for v in vs} for c, vs in value_classes(text).items()}
+
+
 def value_classes(text: str) -> dict[str, set[str]]:
     """Durées, montants et taux écrits dans un texte, par type. Détection par expression
     régulière : elle sert au tirage et aux contrôles, pas à la notation."""
@@ -228,7 +294,7 @@ def _chapter(article: dict) -> tuple:
 
 def _has_own_value(article: dict, other: dict) -> bool:
     """L'article porte une durée, un montant ou un taux que l'autre n'écrit pas."""
-    mine, theirs = value_classes(article["text"]), value_classes(other["text"])
+    mine, theirs = _canonical_classes(article["text"]), _canonical_classes(other["text"])
     return any(values - theirs.get(c, set()) for c, values in mine.items())
 
 
@@ -265,7 +331,7 @@ def comparison_candidates(articles: list[dict]) -> list[Candidate]:
             by_chapter[_chapter(a)].append(a)
     pairs: list[Candidate] = []
     for group in by_chapter.values():
-        values = {a["id"]: value_classes(a["text"]) for a in group}
+        values = {a["id"]: _canonical_classes(a["text"]) for a in group}
         for a, b in combinations(group, 2):
             va, vb = values[a["id"]], values[b["id"]]
             if any(va[c].isdisjoint(vb[c]) for c in va.keys() & vb.keys()):

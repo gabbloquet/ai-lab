@@ -15,6 +15,7 @@ from consommation_rag_qa_plan import (
     V4_QUOTAS,
     allocate,
     bridge_candidates,
+    canonical_value,
     comparison_candidates,
     eligible,
     enumeration,
@@ -380,6 +381,31 @@ def test_value_classes_reads_durations_amounts_and_rates() -> None:
     }
 
 
+@pytest.mark.parametrize(
+    ("a", "b"),
+    [
+        ("3 000 €", "3 000 euros"),
+        ("quatorze jours", "14 jours"),
+        ("un an", "1 an"),
+        ("15\u00a0000 euros", "15 000 euro"),
+        ("vingt-quatre heures", "24 heures"),
+    ],
+)
+def test_canonical_value_merges_the_spellings_of_a_value(a: str, b: str) -> None:
+    assert canonical_value(a) == canonical_value(b)
+
+
+def test_canonical_value_keeps_different_values_apart() -> None:
+    assert canonical_value("3 000 euros") != canonical_value("15 000 euros")
+    assert canonical_value("14 jours") != canonical_value("14 mois")
+
+
+def test_comparison_sees_the_same_ceiling_written_two_ways() -> None:
+    a = v4_article(1, "Une amende de 3 000 € pour une personne physique.")
+    b = v4_article(2, "Une amende de 3 000 euros pour une personne physique.")
+    assert comparison_candidates([a, b]) == []
+
+
 # bridge, sens aller : A renvoie à B, qui porte la valeur.
 B_VALUE = v4_article(2, "Un délai de sept jours.", num="L312-25")
 A_LINK = v4_article(1, "Dans le délai mentionné à l'article L. 312-25.", cites=(B_VALUE["id"],))
@@ -501,13 +527,13 @@ def test_modes_absent_from_the_quotas_are_not_drawn(plan: list[dict]) -> None:
 
 def test_v4_quotas_extend_v3() -> None:
     assert {m: V4_QUOTAS[m] for m in V3_QUOTAS} == V3_QUOTAS
-    assert {m: V4_QUOTAS[m] for m in V4_PILOT_QUOTAS} == {
-        "comparison": (6, 16),
-        "set": (6, 16),
-        "bridge": (10, 30),
-        "false_premise": (8, 22),
+    assert {m: n for m, n in V4_QUOTAS.items() if m not in V3_QUOTAS} == {
+        "comparison": (8, 22),
+        "set": (5, 12),
+        "false_premise": (10, 30),
     }
     assert DRAW_ORDER[-4:] == ("bridge", "comparison", "set", "false_premise")
+    assert "bridge" not in V4_QUOTAS  # retiré après le second pilote (README, « v4 »)
     assert V4_PILOT2_QUOTAS == {"bridge": (10, 0), "comparison": (6, 0), "set": (6, 0)}
 
 

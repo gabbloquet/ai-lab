@@ -7,19 +7,18 @@
   "drafts": 22,
   "selected": 7,
   "pending_review": [
+    "bridge-dev-004",
+    "bridge-dev-007",
     "comparison-dev-003",
     "comparison-dev-004",
     "comparison-dev-006",
     "set-dev-003",
-    "set-dev-005",
-    "bridge-dev-004",
-    "bridge-dev-007"
+    "set-dev-005"
   ],
   "shortages": {
-    "bridge/dev": 18,
-    "comparison/dev": 7,
-    "false_premise/dev": 10,
-    "set/dev": 8
+    "bridge/dev": 8,
+    "comparison/dev": 3,
+    "set/dev": 4
   },
   "rejected": {
     "bridge-dev-001": [
@@ -81,6 +80,13 @@
     ]
   },
   "alerts": {
+    "bridge-dev-004": [
+      "doute du rédacteur : La question reprend en partie le vocabulaire de B (vente par adjudication, délai de contestation) ; A ne décrit que la convocation à l'audience en cas de contestation, donc le lien est faible.",
+      "la question est plus proche de B que de A"
+    ],
+    "bridge-dev-007": [
+      "doute du rédacteur : A contient déjà une valeur (amende de 150 000 euros), mais la réponse attendue est la durée de l'interdiction fixée par B, une peine complémentaire pour les personnes physiques."
+    ],
     "comparison-dev-003": [
       "doute du rédacteur : Les deux amendes sont de nature différente (administrative et civile), et L241-5 prévoit aussi une option à 10 % du chiffre d'affaires ; la question vise le plafond de base."
     ],
@@ -94,13 +100,6 @@
     ],
     "set-dev-005": [
       "doute du rédacteur : Le mot-clé « téléphone » et « urgence » sont propres à leur élément, mais la liste est longue et les éléments 2° et 4° ont des mots-clés moins nets."
-    ],
-    "bridge-dev-004": [
-      "doute du rédacteur : La question reprend en partie le vocabulaire de B (vente par adjudication, délai de contestation) ; A ne décrit que la convocation à l'audience en cas de contestation, donc le lien est faible.",
-      "la question est plus proche de B que de A"
-    ],
-    "bridge-dev-007": [
-      "doute du rédacteur : A contient déjà une valeur (amende de 150 000 euros), mais la réponse attendue est la durée de l'interdiction fixée par B, une peine complémentaire pour les personnes physiques."
     ]
   },
   "overlap": {
