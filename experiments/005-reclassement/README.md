@@ -100,7 +100,14 @@ Sur le Code de la consommation, **reclasser les 50 premiers passages denses avec
 
 **Taille de l'échantillon.** Au run final de la 004, sur ce même `test`, s_d valait 0,31 à 0,35. Avec s_d = 0,33, le MDE sur 150 items vaut (1,976 + 0,844) × 0,33 / √150 ≈ **7,6 points**, et la demi-largeur de l'IC à 95 % environ **5,3 points**. Pour conclure à la non-infériorité (borne basse au-dessus de −3 points), il faut donc observer un delta d'au moins +2,3 points environ : **si les deux variantes se valent vraiment, l'expérience a peu de chances de le montrer** (de l'ordre d'une chance sur cinq). Écrit avant le premier run.
 
-**Lancer un run :** commande à écrire avec l'implémentation.
+**Lancer un run** (depuis `python/`) :
+
+```sh
+uv run --env-file ../../../.env python -m exp005_rag.campaign \
+    --split dev --model mistral:mistral-small-2603 --k 3 --run-dir ../runs/<nom>
+```
+
+La campagne reclasse d'abord toutes les questions du split (un appel à Cohere par question absente du cache, un toutes les 6 s) ; elle refuse de partir sans `COHERE_API_KEY`. Le run final ajoute `--split test --final --langfuse` et refuse de partir si l'arbre git n'est pas propre. Le `summary.json` est écrit avant l'envoi des traces à Langfuse, abandonné après 120 s.
 
 ## Discipline d'itération
 

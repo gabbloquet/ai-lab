@@ -3,10 +3,11 @@
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 from ailab_rag.corpus import Passage
 from ailab_rag.retrieval import Index
-from exp005_rag.campaign import BASELINE, VARIANT, build_retrievers, rerank_all
+from exp005_rag.campaign import BASELINE, VARIANT, build_retrievers, main, rerank_all
 
 # 60 passages, du plus proche au moins proche de la question en recherche dense : le passage i
 # a pour vecteur (60 − i, 1), et la question (1, 0).
@@ -74,3 +75,25 @@ def test_rerank_all_reranks_each_question_once_before_the_campaign(tmp_path: Pat
     # Pendant la campagne, tout vient du cache.
     retrievers = build_retrievers(INDEX, FixedEmbedder(), FailingReranker(), tmp_path)
     assert retrievers[VARIANT]("q1")[0] == PASSAGES[40]
+
+
+def test_the_test_split_needs_the_final_flag() -> None:
+    with pytest.raises(SystemExit, match="--final"):
+        main(
+            ["--split", "test", "--model", "mistral:mistral-small-2603"], git_is_clean=lambda: True
+        )
+
+
+def test_a_final_run_needs_a_clean_git_tree() -> None:
+    with pytest.raises(SystemExit, match="gel"):
+        main(
+            ["--split", "test", "--final", "--model", "mistral:mistral-small-2603"],
+            git_is_clean=lambda: False,
+        )
+
+
+def test_a_run_needs_the_cohere_api_key(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.delenv("COHERE_API_KEY", raising=False)
+
+    with pytest.raises(SystemExit, match="COHERE_API_KEY"):
+        main(["--split", "dev", "--model", "mistral:mistral-small-2603"], git_is_clean=lambda: True)
