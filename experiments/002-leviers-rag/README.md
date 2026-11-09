@@ -1,6 +1,6 @@
 # 002 — Notre RAG répond mal : quels sont les plus gros leviers ?
 
-> **Statut :** étapes 1 à 5 conclues ; protocole du run consolidé écrit (2026-11-09), code de campagne à écrire
+> **Statut :** étapes 1 à 5 conclues ; run consolidé gelé (2026-11-09), run final sur le `test` en cours
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -90,7 +90,12 @@ Sur le golden set v4, de combien chaque levier gelé fait-il varier `correct` : 
 
 ### Code de campagne
 
-Il reste à écrire : un lanceur qui fait tourner les six configurations sur le même golden set, en réutilisant les briques gelées de `ailab_rag` et des paquets d'étape. C'est du code d'expérience : il s'écrit avec le propriétaire, une étape à la fois (règles du dépôt).
+Paquet `exp002_leviers` (`python/`), écrit par Claude sur délégation du propriétaire (2026-11-09). Le registre importe les fonctions de recherche des paquets d'étape sans les réécrire. Seule exception : le `naive_rag` de l'étape 1 construit son index dans une fonction privée. Le registre prend donc celui des étapes 2 et 3, qui fait la même recherche.
+
+- **Contrôle de reproduction** (`python -m exp002_leviers.reproduction`, sur les caches seuls et sans clé d'API) : 968 contextes sur 968 identiques à ceux des runs finaux des étapes, ordre compris. Une seule référence n'est pas unanime : `rq-001` à l'étape 1, où 1 exécution sur 27 a vu deux articles dans l'ordre inverse. La référence est le contexte majoritaire. Le lanceur rejoue ce contrôle et refuse de partir s'il échoue.
+- **Verdict** : une comparaison conclut si sa p-value corrigée par Holm est sous 0,05. Cette p-value est celle du test t apparié dont l'IC de la spec est l'inversion. Le verdict de la spec (IC à 95 % non corrigé) est publié à côté. Les deux critères d'abstention de l'étape 5 restent sans correction, comme à l'étape 5.
+- **Run `dev` de contrôle** (2026-11-09, commit `f8ca40f`) : 3 modèles, k = 1, 91 items valides (l'audit en écarte 2 du `dev`). 6 × 91 exécutions par modèle, aucune erreur. Ses scores n'ont servi à rien régler.
+- Hors protocole, non mesurée : la reprise de la prémisse en `false_premise`, faute de `false_value` dans les items.
 
 ## Verdict
 
