@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-009",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3130,
+    "output_tokens": 258
+  },
+  "output": {
+    "question": "Une ordonnance autorise une visite de mes locaux par l'administration : j'ai combien de temps pour faire appel ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "dix jours",
+          "10 jours"
+        ],
+        "quote": "L'appel est formé par déclaration au greffe du tribunal judiciaire dans un délai de dix jours à compter de la notification de l'ordonnance.",
+        "article": "L512-63"
+      }
+    ],
+    "doubt": "Le délai court à compter de la notification de l'ordonnance, pas de son prononcé ; la question reste simple mais ne le précise pas.",
+    "link_quote": "La personne à l'encontre de laquelle l'ordonnance mentionnée à l'article L. 512-52 a été prise peut en interjeter appel"
+  },
+  "raw_text": "{\"question\":\"Une ordonnance autorise une visite de mes locaux par l'administration : j'ai combien de temps pour faire appel ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"dix jours\",\"10 jours\"],\"quote\":\"L'appel est formé par déclaration au greffe du tribunal judiciaire dans un délai de dix jours à compter de la notification de l'ordonnance.\",\"article\":\"L512-63\"}],\"doubt\":\"Le délai court à compter de la notification de l'ordonnance, pas de son prononcé ; la question reste simple mais ne le précise pas.\",\"link_quote\":\"La personne à l'encontre de laquelle l'ordonnance mentionnée à l'article L. 512-52 a été prise peut en interjeter appel\"}"
+}

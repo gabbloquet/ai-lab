@@ -1,0 +1,63 @@
+{
+  "task": "set-dev-005",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T15:56:29+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2630,
+    "output_tokens": 594
+  },
+  "output": {
+    "question": "Dans quelles situations parle-t-on d'abus de faiblesse pour obtenir un engagement ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "téléphone",
+          "télécopie"
+        ],
+        "quote": "Soit à la suite d'un démarchage par téléphone ou télécopie",
+        "article": "L121-9"
+      },
+      {
+        "accepted": [
+          "sollicitation personnalisée",
+          "avantages particuliers"
+        ],
+        "quote": "Soit à la suite d'une sollicitation personnalisée, sans que cette sollicitation soit nécessairement nominative, à se rendre sur un lieu de vente, effectuée à domicile et assortie de l'offre d'avantages particuliers",
+        "article": "L121-9"
+      },
+      {
+        "accepted": [
+          "réunions",
+          "excursions"
+        ],
+        "quote": "Soit à l'occasion de réunions ou d'excursions organisées par l'auteur de l'infraction ou à son profit",
+        "article": "L121-9"
+      },
+      {
+        "accepted": [
+          "foires",
+          "salons",
+          "lieux non destinés à la commercialisation"
+        ],
+        "quote": "Soit lorsque la transaction a été faite dans des lieux non destinés à la commercialisation du bien ou du service proposé ou dans le cadre de foires ou de salons",
+        "article": "L121-9"
+      },
+      {
+        "accepted": [
+          "situation d'urgence",
+          "urgence"
+        ],
+        "quote": "Soit lorsque la transaction a été conclue dans une situation d'urgence ayant mis la victime de l'infraction dans l'impossibilité de consulter un ou plusieurs professionnels qualifiés, tiers au contrat",
+        "article": "L121-9"
+      }
+    ],
+    "doubt": "Le mot-clé « téléphone » et « urgence » sont propres à leur élément, mais la liste est longue et les éléments 2° et 4° ont des mots-clés moins nets."
+  },
+  "raw_text": "{\"question\":\"Dans quelles situations parle-t-on d'abus de faiblesse pour obtenir un engagement ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"téléphone\",\"télécopie\"],\"quote\":\"Soit à la suite d'un démarchage par téléphone ou télécopie\",\"article\":\"L121-9\"},{\"accepted\":[\"sollicitation personnalisée\",\"avantages particuliers\"],\"quote\":\"Soit à la suite d'une sollicitation personnalisée, sans que cette sollicitation soit nécessairement nominative, à se rendre sur un lieu de vente, effectuée à domicile et assortie de l'offre d'avantages particuliers\",\"article\":\"L121-9\"},{\"accepted\":[\"réunions\",\"excursions\"],\"quote\":\"Soit à l'occasion de réunions ou d'excursions organisées par l'auteur de l'infraction ou à son profit\",\"article\":\"L121-9\"},{\"accepted\":[\"foires\",\"salons\",\"lieux non destinés à la commercialisation\"],\"quote\":\"Soit lorsque la transaction a été faite dans des lieux non destinés à la commercialisation du bien ou du service proposé ou dans le cadre de foires ou de salons\",\"article\":\"L121-9\"},{\"accepted\":[\"situation d'urgence\",\"urgence\"],\"quote\":\"Soit lorsque la transaction a été conclue dans une situation d'urgence ayant mis la victime de l'infraction dans l'impossibilité de consulter un ou plusieurs professionnels qualifiés, tiers au contrat\",\"article\":\"L121-9\"}],\"doubt\":\"Le mot-clé « téléphone » et « urgence » sont propres à leur élément, mais la liste est longue et les éléments 2° et 4° ont des mots-clés moins nets.\"}"
+}

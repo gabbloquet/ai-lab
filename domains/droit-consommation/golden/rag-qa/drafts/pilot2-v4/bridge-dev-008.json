@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-008",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3069,
+    "output_tokens": 235
+  },
+  "output": {
+    "question": "Une association de consommateurs agréée siège au Conseil national de la consommation : pour combien de temps est-elle nommée ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "sont nommées au Conseil national de la consommation, par arrêté du ministre chargé de la consommation, pour une durée de trois ans",
+        "article": "D821-6"
+      }
+    ],
+    "doubt": "A ne décrit que l'agrément des associations ; le lien avec la durée de nomination au CNC passe par la mention de l'agrément, ce qui reste un pont indirect.",
+    "link_quote": "disposant de l'agrément prévu à l'article L. 811-1"
+  },
+  "raw_text": "{\"question\":\"Une association de consommateurs agréée siège au Conseil national de la consommation : pour combien de temps est-elle nommée ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"sont nommées au Conseil national de la consommation, par arrêté du ministre chargé de la consommation, pour une durée de trois ans\",\"article\":\"D821-6\"}],\"doubt\":\"A ne décrit que l'agrément des associations ; le lien avec la durée de nomination au CNC passe par la mention de l'agrément, ce qui reste un pont indirect.\",\"link_quote\":\"disposant de l'agrément prévu à l'article L. 811-1\"}"
+}

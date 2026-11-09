@@ -1,0 +1,53 @@
+{
+  "task": "set-dev-002",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T15:56:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2448,
+    "output_tokens": 450
+  },
+  "output": {
+    "question": "Quelles exigences doit respecter une médiation de la consommation ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "voie électronique",
+          "courrier simple"
+        ],
+        "quote": "Elle est aisément accessible par voie électronique ou par courrier simple à toutes les parties, consommateur ou professionnel",
+        "article": "R612-1"
+      },
+      {
+        "accepted": [
+          "gratuite"
+        ],
+        "quote": "Elle est gratuite pour le consommateur à l'exception des frais prévus aux 3° et 4°",
+        "article": "R612-1"
+      },
+      {
+        "accepted": [
+          "avocat",
+          "assister par toute personne"
+        ],
+        "quote": "Les parties ont la faculté, à leur charge, de se faire représenter par un avocat ou de se faire assister par toute personne de leur choix à tous les stades de la médiation",
+        "article": "R612-1"
+      },
+      {
+        "accepted": [
+          "expert",
+          "avis d'un expert"
+        ],
+        "quote": "Chaque partie peut également solliciter l'avis d'un expert, dont les frais sont à sa charge",
+        "article": "R612-1"
+      }
+    ],
+    "doubt": "Les éléments 1° et 2° sont proches de généralités, et une réponse pourrait mentionner « consommateur » ou « frais » dans plusieurs éléments ; la liste est fermée mais les mots-clés propres sont peu discriminants et une telle question est peu probable dans un chat."
+  },
+  "raw_text": "{\"question\":\"Quelles exigences doit respecter une médiation de la consommation ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"voie électronique\",\"courrier simple\"],\"quote\":\"Elle est aisément accessible par voie électronique ou par courrier simple à toutes les parties, consommateur ou professionnel\",\"article\":\"R612-1\"},{\"accepted\":[\"gratuite\"],\"quote\":\"Elle est gratuite pour le consommateur à l'exception des frais prévus aux 3° et 4°\",\"article\":\"R612-1\"},{\"accepted\":[\"avocat\",\"assister par toute personne\"],\"quote\":\"Les parties ont la faculté, à leur charge, de se faire représenter par un avocat ou de se faire assister par toute personne de leur choix à tous les stades de la médiation\",\"article\":\"R612-1\"},{\"accepted\":[\"expert\",\"avis d'un expert\"],\"quote\":\"Chaque partie peut également solliciter l'avis d'un expert, dont les frais sont à sa charge\",\"article\":\"R612-1\"}],\"doubt\":\"Les éléments 1° et 2° sont proches de généralités, et une réponse pourrait mentionner « consommateur » ou « frais » dans plusieurs éléments ; la liste est fermée mais les mots-clés propres sont peu discriminants et une telle question est peu probable dans un chat.\"}"
+}

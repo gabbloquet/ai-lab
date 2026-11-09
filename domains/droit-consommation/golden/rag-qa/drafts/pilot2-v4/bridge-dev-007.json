@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-007",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2988,
+    "output_tokens": 273
+  },
+  "output": {
+    "question": "Un bailleur en location-vente n'a pas respecté ses obligations : quelle durée maximale d'interdiction d'exercer encourt-il en plus de l'amende ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.",
+        "article": "L341-44"
+      }
+    ],
+    "doubt": "A contient déjà une valeur (amende de 150 000 euros), mais la réponse attendue est la durée de l'interdiction fixée par B, une peine complémentaire pour les personnes physiques.",
+    "link_quote": "Les personnes physiques coupables des délits punis aux articles L. 341-37, L. 341-38 et L. 341-40 à L. 341-43"
+  },
+  "raw_text": "{\"question\":\"Un bailleur en location-vente n'a pas respecté ses obligations : quelle durée maximale d'interdiction d'exercer encourt-il en plus de l'amende ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.\",\"article\":\"L341-44\"}],\"doubt\":\"A contient déjà une valeur (amende de 150 000 euros), mais la réponse attendue est la durée de l'interdiction fixée par B, une peine complémentaire pour les personnes physiques.\",\"link_quote\":\"Les personnes physiques coupables des délits punis aux articles L. 341-37, L. 341-38 et L. 341-40 à L. 341-43\"}"
+}

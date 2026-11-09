@@ -1,0 +1,22 @@
+{
+  "task": "bridge-dev-003",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:18+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3758,
+    "output_tokens": 200
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "B (L224-25-26) renvoie à A (L224-42-2) seulement pour exclure les offres groupées de son champ d'application. Il ne fixe aucune valeur qui s'applique à la situation de A. Le délai de trente jours de B concerne la résolution après une mise à jour refusée, pas l'offre groupée de A. Le pont n'est donc pas exploitable.",
+    "link_quote": "Le présent article n'est pas applicable en cas d'offre groupée au sens de l'article L. 224-42-2."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"B (L224-25-26) renvoie à A (L224-42-2) seulement pour exclure les offres groupées de son champ d'application. Il ne fixe aucune valeur qui s'applique à la situation de A. Le délai de trente jours de B concerne la résolution après une mise à jour refusée, pas l'offre groupée de A. Le pont n'est donc pas exploitable.\",\"link_quote\":\"Le présent article n'est pas applicable en cas d'offre groupée au sens de l'article L. 224-42-2.\"}"
+}

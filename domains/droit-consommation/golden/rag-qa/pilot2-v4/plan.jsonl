@@ -1,0 +1,22 @@
+{"task": "bridge-dev-001", "mode": "bridge", "split": "dev", "rank": 1, "articles": ["LEGIARTI000042615545", "LEGIARTI000042614988"], "livre": "Livre Ier"}
+{"task": "bridge-dev-002", "mode": "bridge", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032226483", "LEGIARTI000032226258"], "livre": "Livre II"}
+{"task": "bridge-dev-003", "mode": "bridge", "split": "dev", "rank": 3, "articles": ["LEGIARTI000043545748", "LEGIARTI000044133275"], "livre": "Livre II"}
+{"task": "bridge-dev-004", "mode": "bridge", "split": "dev", "rank": 4, "articles": ["LEGIARTI000032808880", "LEGIARTI000032808878"], "livre": "Livre VII"}
+{"task": "bridge-dev-005", "mode": "bridge", "split": "dev", "rank": 5, "articles": ["LEGIARTI000032227327", "LEGIARTI000044142454"], "livre": "Livre Ier"}
+{"task": "bridge-dev-006", "mode": "bridge", "split": "dev", "rank": 6, "articles": ["LEGIARTI000032807572", "LEGIARTI000035731469"], "livre": "Livre III"}
+{"task": "bridge-dev-007", "mode": "bridge", "split": "dev", "rank": 7, "articles": ["LEGIARTI000032395420", "LEGIARTI000032395753"], "livre": "Livre III"}
+{"task": "bridge-dev-008", "mode": "bridge", "split": "dev", "rank": 8, "articles": ["LEGIARTI000032224261", "LEGIARTI000032808998"], "livre": "Livre VIII"}
+{"task": "bridge-dev-009", "mode": "bridge", "split": "dev", "rank": 9, "articles": ["LEGIARTI000039279962", "LEGIARTI000039279954"], "livre": "Livre V"}
+{"task": "bridge-dev-010", "mode": "bridge", "split": "dev", "rank": 10, "articles": ["LEGIARTI000032395659", "LEGIARTI000032433173"], "livre": "Livre III"}
+{"task": "comparison-dev-001", "mode": "comparison", "split": "dev", "rank": 1, "articles": ["LEGIARTI000032226300", "LEGIARTI000043960804"], "livre": "Livre II"}
+{"task": "comparison-dev-002", "mode": "comparison", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032807618", "LEGIARTI000032807656"], "livre": "Livre III"}
+{"task": "comparison-dev-003", "mode": "comparison", "split": "dev", "rank": 3, "articles": ["LEGIARTI000041556254", "LEGIARTI000051560110"], "livre": "Livre II"}
+{"task": "comparison-dev-004", "mode": "comparison", "split": "dev", "rank": 4, "articles": ["LEGIARTI000046190579", "LEGIARTI000046190610"], "livre": "Livre Ier"}
+{"task": "comparison-dev-005", "mode": "comparison", "split": "dev", "rank": 5, "articles": ["LEGIARTI000044563228", "LEGIARTI000046190202"], "livre": "Livre II"}
+{"task": "comparison-dev-006", "mode": "comparison", "split": "dev", "rank": 6, "articles": ["LEGIARTI000032225984", "LEGIARTI000035731391"], "livre": "Livre III"}
+{"task": "set-dev-001", "mode": "set", "split": "dev", "rank": 1, "articles": ["LEGIARTI000039382259"], "livre": "Livre V"}
+{"task": "set-dev-002", "mode": "set", "split": "dev", "rank": 2, "articles": ["LEGIARTI000032808328"], "livre": "Livre VI"}
+{"task": "set-dev-003", "mode": "set", "split": "dev", "rank": 3, "articles": ["LEGIARTI000039491687"], "livre": "Livre IV"}
+{"task": "set-dev-004", "mode": "set", "split": "dev", "rank": 4, "articles": ["LEGIARTI000047615001"], "livre": "Livre II"}
+{"task": "set-dev-005", "mode": "set", "split": "dev", "rank": 5, "articles": ["LEGIARTI000032227276"], "livre": "Livre Ier"}
+{"task": "set-dev-006", "mode": "set", "split": "dev", "rank": 6, "articles": ["LEGIARTI000036769159"], "livre": "Livre III"}

@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-001",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-09T15:56:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2575,
+    "output_tokens": 328
+  },
+  "output": {
+    "question": "Amende administrative max pour un manquement aux règles du transport/automobile, et pour celles des engins de déplacement personnel motorisés ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "3 000 euros",
+          "3 000 €"
+        ],
+        "quote": "une amende administrative dont le montant ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale",
+        "article": "L242-25"
+      },
+      {
+        "accepted": [
+          "3 000 €",
+          "3 000 euros"
+        ],
+        "quote": "une amende administrative dont le montant ne peut excéder 3 000 € pour une personne physique et 15 000 € pour une personne morale",
+        "article": "L242-50"
+      }
+    ],
+    "doubt": "Les deux articles fixent exactement les mêmes plafonds (3 000 € et 15 000 €) : les valeurs ne sont pas différentes, donc la comparaison est impossible, et les cas sont difficiles à distinguer sans citer les articles renvoyés."
+  },
+  "raw_text": "{\"question\":\"Amende administrative max pour un manquement aux règles du transport/automobile, et pour celles des engins de déplacement personnel motorisés ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"3 000 euros\",\"3 000 €\"],\"quote\":\"une amende administrative dont le montant ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale\",\"article\":\"L242-25\"},{\"accepted\":[\"3 000 €\",\"3 000 euros\"],\"quote\":\"une amende administrative dont le montant ne peut excéder 3 000 € pour une personne physique et 15 000 € pour une personne morale\",\"article\":\"L242-50\"}],\"doubt\":\"Les deux articles fixent exactement les mêmes plafonds (3 000 € et 15 000 €) : les valeurs ne sont pas différentes, donc la comparaison est impossible, et les cas sont difficiles à distinguer sans citer les articles renvoyés.\"}"
+}

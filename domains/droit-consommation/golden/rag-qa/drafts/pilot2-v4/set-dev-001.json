@@ -1,0 +1,55 @@
+{
+  "task": "set-dev-001",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T15:56:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2580,
+    "output_tokens": 477
+  },
+  "output": {
+    "question": "Quels produits les agents de la répression des fraudes peuvent-ils consigner en attendant les résultats des contrôles ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "falsifiés",
+          "corrompus",
+          "toxiques"
+        ],
+        "quote": "Les produits susceptibles d'être falsifiés, corrompus ou toxiques",
+        "article": "L512-26"
+      },
+      {
+        "accepted": [
+          "impropres à la consommation"
+        ],
+        "quote": "Les produits susceptibles d'être impropres à la consommation",
+        "article": "L512-26"
+      },
+      {
+        "accepted": [
+          "danger pour la santé",
+          "sécurité des consommateurs"
+        ],
+        "quote": "susceptibles d'être non conformes aux lois et règlements en vigueur et de présenter un danger pour la santé ou la sécurité des consommateurs",
+        "article": "L512-26"
+      },
+      {
+        "accepted": [
+          "contrefaisantes",
+          "marque de garantie",
+          "marque collective"
+        ],
+        "quote": "Les produits susceptibles d'être présentés sous une marque, une marque collective ou une marque de garantie contrefaisantes",
+        "article": "L512-26"
+      }
+    ],
+    "doubt": "Les éléments sont des catégories de produits assez longues; le mot-clé « produits » est commun à tous, et « marque » apparaît aussi dans un seul élément mais les mots-clés des éléments 2 et 3 sont des expressions plus longues; la liste est peu susceptible d'être demandée telle quelle dans un chat."
+  },
+  "raw_text": "{\"question\":\"Quels produits les agents de la répression des fraudes peuvent-ils consigner en attendant les résultats des contrôles ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"falsifiés\",\"corrompus\",\"toxiques\"],\"quote\":\"Les produits susceptibles d'être falsifiés, corrompus ou toxiques\",\"article\":\"L512-26\"},{\"accepted\":[\"impropres à la consommation\"],\"quote\":\"Les produits susceptibles d'être impropres à la consommation\",\"article\":\"L512-26\"},{\"accepted\":[\"danger pour la santé\",\"sécurité des consommateurs\"],\"quote\":\"susceptibles d'être non conformes aux lois et règlements en vigueur et de présenter un danger pour la santé ou la sécurité des consommateurs\",\"article\":\"L512-26\"},{\"accepted\":[\"contrefaisantes\",\"marque de garantie\",\"marque collective\"],\"quote\":\"Les produits susceptibles d'être présentés sous une marque, une marque collective ou une marque de garantie contrefaisantes\",\"article\":\"L512-26\"}],\"doubt\":\"Les éléments sont des catégories de produits assez longues; le mot-clé « produits » est commun à tous, et « marque » apparaît aussi dans un seul élément mais les mots-clés des éléments 2 et 3 sont des expressions plus longues; la liste est peu susceptible d'être demandée telle quelle dans un chat.\"}"
+}

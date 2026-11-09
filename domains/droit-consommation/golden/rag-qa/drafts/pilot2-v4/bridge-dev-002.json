@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-002",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:18+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2801,
+    "output_tokens": 231
+  },
+  "output": {
+    "question": "Un acheteur d'or ne m'a pas remis d'exemplaire du contrat : il risque quelle amende ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "150 000 euros",
+          "150 000 €"
+        ],
+        "quote": "est puni d'une peine d'emprisonnement de deux ans et d'une amende de 150 000 euros",
+        "article": "L242-36"
+      }
+    ],
+    "doubt": "L'article B prévoit aussi deux ans d'emprisonnement ; la question cible uniquement l'amende pour avoir une réponse unique.",
+    "link_quote": "Le fait de ne pas remettre au client un exemplaire du contrat prévu à l'article L. 224-97"
+  },
+  "raw_text": "{\"question\":\"Un acheteur d'or ne m'a pas remis d'exemplaire du contrat : il risque quelle amende ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"150 000 euros\",\"150 000 €\"],\"quote\":\"est puni d'une peine d'emprisonnement de deux ans et d'une amende de 150 000 euros\",\"article\":\"L242-36\"}],\"doubt\":\"L'article B prévoit aussi deux ans d'emprisonnement ; la question cible uniquement l'amende pour avoir une réponse unique.\",\"link_quote\":\"Le fait de ne pas remettre au client un exemplaire du contrat prévu à l'article L. 224-97\"}"
+}

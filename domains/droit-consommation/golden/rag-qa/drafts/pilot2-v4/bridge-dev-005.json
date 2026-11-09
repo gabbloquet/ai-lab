@@ -1,0 +1,32 @@
+{
+  "task": "bridge-dev-005",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2819,
+    "output_tokens": 282
+  },
+  "output": {
+    "question": "Un professionnel ne m'a pas donné le mode de calcul d'un prix : amende maximale pour une personne physique ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "3 000 euros",
+          "3 000 €",
+          "3000 euros"
+        ],
+        "quote": "ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale",
+        "article": "L131-6"
+      }
+    ],
+    "doubt": "B prévoit deux plafonds (3 000 € pour une personne physique, 15 000 € pour une personne morale) ; la question précise la personne physique pour que la réponse soit unique.",
+    "link_quote": "Tout manquement aux dispositions des articles L. 112-3, L. 112-4 et L. 112-4-1 relatifs aux modalités de calcul du prix est passible d'une amende administrative"
+  },
+  "raw_text": "{\"question\":\"Un professionnel ne m'a pas donné le mode de calcul d'un prix : amende maximale pour une personne physique ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"3 000 euros\",\"3 000 €\",\"3000 euros\"],\"quote\":\"ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale\",\"article\":\"L131-6\"}],\"doubt\":\"B prévoit deux plafonds (3 000 € pour une personne physique, 15 000 € pour une personne morale) ; la question précise la personne physique pour que la réponse soit unique.\",\"link_quote\":\"Tout manquement aux dispositions des articles L. 112-3, L. 112-4 et L. 112-4-1 relatifs aux modalités de calcul du prix est passible d'une amende administrative\"}"
+}

@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-010",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2901,
+    "output_tokens": 281
+  },
+  "output": {
+    "question": "Crédit immobilier : à partir de quand puis-je accepter l'offre de prêt après l'avoir reçue ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "dix jours",
+          "10 jours"
+        ],
+        "quote": "L'emprunteur et les cautions ne peuvent accepter l'offre que dix jours après qu'ils l'ont reçue.",
+        "article": "L313-34"
+      }
+    ],
+    "doubt": "A mentionne déjà le délai de dix jours (« délai de dix jours prescrit à l'article L. 313-34 »), donc la valeur figure déjà dans A et la question ne nécessite pas de relier les deux articles. L'autre valeur de B (trente jours) ne règle pas la situation de A.",
+    "link_quote": "après expiration du délai de dix jours prescrit à l'article L. 313-34"
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : à partir de quand puis-je accepter l'offre de prêt après l'avoir reçue ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"dix jours\",\"10 jours\"],\"quote\":\"L'emprunteur et les cautions ne peuvent accepter l'offre que dix jours après qu'ils l'ont reçue.\",\"article\":\"L313-34\"}],\"doubt\":\"A mentionne déjà le délai de dix jours (« délai de dix jours prescrit à l'article L. 313-34 »), donc la valeur figure déjà dans A et la question ne nécessite pas de relier les deux articles. L'autre valeur de B (trente jours) ne règle pas la situation de A.\",\"link_quote\":\"après expiration du délai de dix jours prescrit à l'article L. 313-34\"}"
+}

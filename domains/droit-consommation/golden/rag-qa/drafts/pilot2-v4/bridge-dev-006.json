@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-006",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3208,
+    "output_tokens": 266
+  },
+  "output": {
+    "question": "Remboursement anticipé de mon prêt immobilier : l'indemnité peut aller jusqu'à quel pourcentage du capital restant dû ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "3 %",
+          "3%"
+        ],
+        "quote": "sans pouvoir dépasser 3 % du capital restant dû avant le remboursement",
+        "article": "R313-25"
+      }
+    ],
+    "doubt": "Inutilisable en mode pont : A (R313-25) contient déjà la valeur (3 %). B (L313-47) ne fixe aucune valeur pour l'indemnité, il renvoie à un barème par décret. Le seul chiffre de B (10 %) concerne les remboursements partiels, pas la situation de A.",
+    "link_quote": "prévue à l'article L. 313-47"
+  },
+  "raw_text": "{\"question\":\"Remboursement anticipé de mon prêt immobilier : l'indemnité peut aller jusqu'à quel pourcentage du capital restant dû ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"3 %\",\"3%\"],\"quote\":\"sans pouvoir dépasser 3 % du capital restant dû avant le remboursement\",\"article\":\"R313-25\"}],\"doubt\":\"Inutilisable en mode pont : A (R313-25) contient déjà la valeur (3 %). B (L313-47) ne fixe aucune valeur pour l'indemnité, il renvoie à un barème par décret. Le seul chiffre de B (10 %) concerne les remboursements partiels, pas la situation de A.\",\"link_quote\":\"prévue à l'article L. 313-47\"}"
+}

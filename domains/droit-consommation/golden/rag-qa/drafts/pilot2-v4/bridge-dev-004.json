@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-004",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3198,
+    "output_tokens": 237
+  },
+  "output": {
+    "question": "Dans une liquidation avec vente d'un bien immobilier aux enchères, en combien de jours dois-je déposer ma contestation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "quinze jours",
+          "15 jours"
+        ],
+        "quote": "dans les quinze jours de l'acte ou, le cas échéant, de sa notification",
+        "article": "R742-34"
+      }
+    ],
+    "doubt": "La question reprend en partie le vocabulaire de B (vente par adjudication, délai de contestation) ; A ne décrit que la convocation à l'audience en cas de contestation, donc le lien est faible.",
+    "link_quote": "En cas de contestation formée en application des dispositions de l'article R. 742-34"
+  },
+  "raw_text": "{\"question\":\"Dans une liquidation avec vente d'un bien immobilier aux enchères, en combien de jours dois-je déposer ma contestation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"quinze jours\",\"15 jours\"],\"quote\":\"dans les quinze jours de l'acte ou, le cas échéant, de sa notification\",\"article\":\"R742-34\"}],\"doubt\":\"La question reprend en partie le vocabulaire de B (vente par adjudication, délai de contestation) ; A ne décrit que la convocation à l'audience en cas de contestation, donc le lien est faible.\",\"link_quote\":\"En cas de contestation formée en application des dispositions de l'article R. 742-34\"}"
+}

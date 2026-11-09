@@ -1,0 +1,48 @@
+{
+  "task": "set-dev-003",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-09T15:56:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2410,
+    "output_tokens": 351
+  },
+  "output": {
+    "question": "Quelles infos doivent figurer quand un produit mentionne une certification dans sa pub ou son étiquetage ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "raison sociale",
+          "nom de l'organisme certificateur",
+          "marque de garantie"
+        ],
+        "quote": "Le nom ou la raison sociale de l'organisme certificateur ou la marque de garantie",
+        "article": "R433-2"
+      },
+      {
+        "accepted": [
+          "dénomination du référentiel",
+          "référentiel de certification utilisé"
+        ],
+        "quote": "La dénomination du référentiel de certification utilisé",
+        "article": "R433-2"
+      },
+      {
+        "accepted": [
+          "consulté ou obtenu",
+          "modalités",
+          "consulter le référentiel"
+        ],
+        "quote": "Les modalités selon lesquelles le référentiel de certification peut être consulté ou obtenu",
+        "article": "R433-2"
+      }
+    ],
+    "doubt": "Les mots-clés du 2° et du 3° partagent le terme « référentiel » ; seules les expressions « dénomination » et « consulté ou obtenu » sont propres à chaque élément."
+  },
+  "raw_text": "{\"question\":\"Quelles infos doivent figurer quand un produit mentionne une certification dans sa pub ou son étiquetage ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"raison sociale\",\"nom de l'organisme certificateur\",\"marque de garantie\"],\"quote\":\"Le nom ou la raison sociale de l'organisme certificateur ou la marque de garantie\",\"article\":\"R433-2\"},{\"accepted\":[\"dénomination du référentiel\",\"référentiel de certification utilisé\"],\"quote\":\"La dénomination du référentiel de certification utilisé\",\"article\":\"R433-2\"},{\"accepted\":[\"consulté ou obtenu\",\"modalités\",\"consulter le référentiel\"],\"quote\":\"Les modalités selon lesquelles le référentiel de certification peut être consulté ou obtenu\",\"article\":\"R433-2\"}],\"doubt\":\"Les mots-clés du 2° et du 3° partagent le terme « référentiel » ; seules les expressions « dénomination » et « consulté ou obtenu » sont propres à chaque élément.\"}"
+}

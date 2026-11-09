@@ -1,0 +1,161 @@
+{
+  "version": "pilot2-v4",
+  "seed": 11,
+  "overlap_threshold": 0.4,
+  "max_question_words": 20,
+  "tasks": 22,
+  "drafts": 22,
+  "selected": 7,
+  "pending_review": [
+    "comparison-dev-003",
+    "comparison-dev-004",
+    "comparison-dev-006",
+    "set-dev-003",
+    "set-dev-005",
+    "bridge-dev-004",
+    "bridge-dev-007"
+  ],
+  "shortages": {
+    "bridge/dev": 18,
+    "comparison/dev": 7,
+    "false_premise/dev": 10,
+    "set/dev": 8
+  },
+  "rejected": {
+    "bridge-dev-001": [
+      "recouvrement question/B 0.44 > 0.40"
+    ],
+    "bridge-dev-002": [
+      "recouvrement question/B 0.50 > 0.40"
+    ],
+    "bridge-dev-003": [
+      "question vide",
+      "article inutilisable selon le rédacteur",
+      "0 faits au lieu de 1 à 3",
+      "0 faits au lieu d'un seul en mode bridge"
+    ],
+    "bridge-dev-005": [
+      "recouvrement question/B 0.56 > 0.40"
+    ],
+    "bridge-dev-006": [
+      "article inutilisable selon le rédacteur",
+      "le fait vient de R313-25 au lieu de B (L313-47)",
+      "le fait « 3 % » figure déjà dans A"
+    ],
+    "bridge-dev-008": [
+      "recouvrement question/B 0.78 > 0.40"
+    ],
+    "bridge-dev-009": [
+      "recouvrement question/B 0.43 > 0.40"
+    ],
+    "bridge-dev-010": [
+      "article inutilisable selon le rédacteur",
+      "le fait « dix jours » figure déjà dans A"
+    ],
+    "comparison-dev-001": [
+      "article inutilisable selon le rédacteur",
+      "les deux faits ont la même valeur",
+      "le fait de L242-25 figure aussi dans L242-50",
+      "le fait de L242-50 figure aussi dans L242-25"
+    ],
+    "comparison-dev-002": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "comparison-dev-005": [
+      "article inutilisable selon le rédacteur",
+      "les deux faits ont la même valeur",
+      "le fait de L241-2 figure aussi dans L241-3-1",
+      "le fait de L241-3-1 figure aussi dans L241-2"
+    ],
+    "set-dev-001": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "set-dev-002": [
+      "article inutilisable selon le rédacteur"
+    ],
+    "set-dev-004": [
+      "fait 5 : la question contient la réponse « ligne »"
+    ],
+    "set-dev-006": [
+      "article inutilisable selon le rédacteur"
+    ]
+  },
+  "alerts": {
+    "comparison-dev-003": [
+      "doute du rédacteur : Les deux amendes sont de nature différente (administrative et civile), et L241-5 prévoit aussi une option à 10 % du chiffre d'affaires ; la question vise le plafond de base."
+    ],
+    "comparison-dev-006": [
+      "doute du rédacteur : Les deux délais portent sur des objets différents (préavis de résiliation et délai de refus d'une révision de taux), mais ils sont comparables comme durées encadrant un droit de l'emprunteur."
+    ],
+    "set-dev-003": [
+      "doute du rédacteur : Les mots-clés du 2° et du 3° partagent le terme « référentiel » ; seules les expressions « dénomination » et « consulté ou obtenu » sont propres à chaque élément.",
+      "fait 1 : forme sans chiffre absente du texte « nom de l'organisme certificateur »",
+      "fait 3 : forme sans chiffre absente du texte « consulter le référentiel »"
+    ],
+    "set-dev-005": [
+      "doute du rédacteur : Le mot-clé « téléphone » et « urgence » sont propres à leur élément, mais la liste est longue et les éléments 2° et 4° ont des mots-clés moins nets."
+    ],
+    "bridge-dev-004": [
+      "doute du rédacteur : La question reprend en partie le vocabulaire de B (vente par adjudication, délai de contestation) ; A ne décrit que la convocation à l'audience en cas de contestation, donc le lien est faible.",
+      "la question est plus proche de B que de A"
+    ],
+    "bridge-dev-007": [
+      "doute du rédacteur : A contient déjà une valeur (amende de 150 000 euros), mais la réponse attendue est la durée de l'interdiction fixée par B, une peine complémentaire pour les personnes physiques."
+    ]
+  },
+  "overlap": {
+    "bridge-dev-001": 0.444,
+    "bridge-dev-002": 0.5,
+    "bridge-dev-004": 0.222,
+    "bridge-dev-005": 0.556,
+    "bridge-dev-006": 0.4,
+    "bridge-dev-007": 0.273,
+    "bridge-dev-008": 0.778,
+    "bridge-dev-009": 0.429,
+    "bridge-dev-010": 0.375,
+    "comparison-dev-001": 0.3,
+    "comparison-dev-002": 0.3,
+    "comparison-dev-003": 0.462,
+    "comparison-dev-004": 0.25,
+    "comparison-dev-005": 0.4,
+    "comparison-dev-006": 0.417,
+    "set-dev-001": 0.625,
+    "set-dev-002": 0.75,
+    "set-dev-003": 0.5,
+    "set-dev-004": 0.667,
+    "set-dev-005": 0.333,
+    "set-dev-006": 0.571
+  },
+  "question_words": {
+    "bridge-dev-001": 18,
+    "bridge-dev-002": 14,
+    "bridge-dev-003": 0,
+    "bridge-dev-004": 18,
+    "bridge-dev-005": 18,
+    "bridge-dev-006": 16,
+    "bridge-dev-007": 19,
+    "bridge-dev-008": 18,
+    "bridge-dev-009": 17,
+    "bridge-dev-010": 14,
+    "comparison-dev-001": 19,
+    "comparison-dev-002": 20,
+    "comparison-dev-003": 23,
+    "comparison-dev-004": 22,
+    "comparison-dev-005": 17,
+    "comparison-dev-006": 24,
+    "set-dev-001": 17,
+    "set-dev-002": 9,
+    "set-dev-003": 16,
+    "set-dev-004": 10,
+    "set-dev-005": 11,
+    "set-dev-006": 16
+  },
+  "writer_models": [
+    "claude-sonnet-5-5"
+  ],
+  "prompt_sha256": [
+    "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+    "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+    "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0"
+  ]
+}

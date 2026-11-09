@@ -1,0 +1,31 @@
+{
+  "task": "bridge-dev-001",
+  "mode": "bridge",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "5224828c9021340df29e6a29d9366763e1c728c3ab4c767b51dccfcda697d612",
+  "created_at": "2026-11-09T15:56:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 4356,
+    "output_tokens": 291
+  },
+  "output": {
+    "question": "Un site m'a bloqué l'accès à cause de mon lieu de résidence en France : il risque quelle amende ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €"
+        ],
+        "quote": "dont le montant ne peut excéder 15 000 euros pour une personne physique et 75 000 euros pour une personne morale",
+        "article": "L132-24-1"
+      }
+    ],
+    "doubt": "Deux plafonds existent (15 000 € pour une personne physique, 75 000 € pour une personne morale) ; la question ne précise pas le statut du professionnel, donc un seul des deux est attendu. A renvoie à B par « Sous réserve des dispositions de l'article L. 132-24-1 », renvoi plutôt indirect.",
+    "link_quote": "Sous réserve des dispositions de l'article L. 132-24-1"
+  },
+  "raw_text": "{\"question\":\"Un site m'a bloqué l'accès à cause de mon lieu de résidence en France : il risque quelle amende ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"15 000 euros\",\"15 000 €\"],\"quote\":\"dont le montant ne peut excéder 15 000 euros pour une personne physique et 75 000 euros pour une personne morale\",\"article\":\"L132-24-1\"}],\"doubt\":\"Deux plafonds existent (15 000 € pour une personne physique, 75 000 € pour une personne morale) ; la question ne précise pas le statut du professionnel, donc un seul des deux est attendu. A renvoie à B par « Sous réserve des dispositions de l'article L. 132-24-1 », renvoi plutôt indirect.\",\"link_quote\":\"Sous réserve des dispositions de l'article L. 132-24-1\"}"
+}
