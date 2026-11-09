@@ -1,6 +1,6 @@
 # 002 — Notre RAG répond mal : quels sont les plus gros leviers ?
 
-> **Statut :** étapes 1 à 5 conclues ; run consolidé gelé (2026-11-09), run final sur le `test` en cours
+> **Statut :** conclue le 2026-11-09 — [rapport du run consolidé](results/2026-11-09-run-consolide-test.md)
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -16,13 +16,13 @@ Sur des questions de consommateurs portant sur le Code de la consommation, quels
 
 Toutes les étapes ont tourné sur les trois mêmes générateurs : `mistral-small-2603`, `ministral-14b-2512` et `gemini-3.5-flash-lite`, avec k = 3 répétitions. Un verdict par modèle.
 
-| Étape | Levier | Baseline (A) | Golden set | Verdict au run final |
-|---|---|---|---|---|
-| 1 — [002](../002-rag-naif-vs-modele-seul/README.md) | RAG naïf (5 passages) | modèle seul | v1, `test` 150 | **+37 à +44 pts** de `correct`, les trois modèles |
-| 2 — [003](../003-reformulation-de-requete/README.md) | reformulation de la question | RAG naïf | v1, `test` 150 | non concluant (−0,7 à −0,9 pt) |
-| 3 — [004](../004-top-k-20/README.md) | 20 passages au lieu de 5 | RAG naïf | v1, `test` 150 | +7,3 et +8,0 pts (Ministral, Gemini) ; non concluant avec Mistral Small (+4,0) |
-| 4 — [005](../005-reclassement/README.md) | reclassement Cohere, 50 candidats vers 5 | RAG à 20 passages | v1, `test` 150 | non concluant (−0,4 à −2,0 pts), 2,6 fois moins de tokens |
-| 5 — [006](../006-consigne-abstention/README.md) | consigne d'abstention plus exigeante | RAG à 20 passages | v3, `test` 190 | moins de réponses inventées avec Mistral Small (−9,2 pts) ; non concluant avec Ministral ; plus d'abstentions à tort avec Gemini (+8,7 pts) |
+| Étape | Levier | Baseline (A) | Golden set | Verdict au run final de l'étape | Run consolidé (v4, `test` 234, après Holm) |
+|---|---|---|---|---|---|
+| 1 — [002](../002-rag-naif-vs-modele-seul/README.md) | RAG naïf (5 passages) | modèle seul | v1, `test` 150 | **+37 à +44 pts** de `correct`, les trois modèles | **+28 à +44 pts**, les trois modèles |
+| 2 — [003](../003-reformulation-de-requete/README.md) | reformulation de la question | RAG naïf | v1, `test` 150 | non concluant (−0,7 à −0,9 pt) | non concluant (−0,3 à +1,3 pt) |
+| 3 — [004](../004-top-k-20/README.md) | 20 passages au lieu de 5 | RAG naïf | v1, `test` 150 | +7,3 et +8,0 pts (Ministral, Gemini) ; non concluant avec Mistral Small (+4,0) | +6,8 et +10,4 pts (Ministral, Gemini) ; non concluant avec Mistral Small (+6,1, p_holm = 0,056) |
+| 4 — [005](../005-reclassement/README.md) | reclassement Cohere, 50 candidats vers 5 | RAG à 20 passages | v1, `test` 150 | non concluant (−0,4 à −2,0 pts), 2,6 fois moins de tokens | non concluant (−1,0 à −2,1 pts), 2,5 fois moins de tokens ; contre 5 passages denses : +5,8 et +8,3 pts (Ministral, Gemini), non concluant avec Mistral Small |
+| 5 — [006](../006-consigne-abstention/README.md) | consigne d'abstention plus exigeante | RAG à 20 passages | v3, `test` 190 | moins de réponses inventées avec Mistral Small (−9,2 pts) ; non concluant avec Ministral ; plus d'abstentions à tort avec Gemini (+8,7 pts) | non concluant avec Mistral Small (−3,3 pts, garde franchie) et Ministral ; plus d'abstentions à tort avec Gemini (+15,1 pts, −9,0 pts de `correct`) |
 
 Les étapes 4 et 5 ont pris pour baseline la meilleure configuration du moment (20 passages) : l'expérience mêle donc des deltas isolés (contre le RAG naïf) et des deltas cumulés (contre 20 passages).
 
@@ -99,8 +99,29 @@ Paquet `exp002_leviers` (`python/`), écrit par Claude sur délégation du propr
 
 ## Verdict
 
-À écrire après le run consolidé. En attendant, voir le verdict de chaque étape.
+Run consolidé du 2026-11-09, sur le `test` de `rag-qa/v4` (234 items valides, k = 3, commit de gel `f836315`). Détail, provenance et dispersion : [rapport](results/2026-11-09-run-consolide-test.md). En points de `correct`, IC à 95 % apparié, verdict après correction de Holm sur les six comparaisons de chaque modèle :
+
+| Comparaison | Mistral Small | Ministral 14B | Gemini Flash-Lite |
+|---|---|---|---|
+| RAG naïf − modèle seul | **+33,9** [+26,8 ; +41,0] | **+43,9** [+36,9 ; +50,8] | **+28,1** [+20,8 ; +35,4] |
+| reformulation − RAG naïf | −0,3, non concluant | +1,3, non concluant | +0,9, non concluant |
+| 20 passages − RAG naïf | +6,1 [+1,4 ; +10,8], non concluant après Holm | **+6,8** [+2,0 ; +11,6] | **+10,4** [+6,2 ; +14,6] |
+| reclassement − 20 passages | −2,1, non concluant | −1,0, non concluant | −2,1, non concluant |
+| reclassement − RAG naïf | +4,0, non concluant | **+5,8** [+1,3 ; +10,4] | **+8,3** [+3,5 ; +13,0] |
+| consigne d'abstention − 20 passages | −0,3, non concluant | +0,7, non concluant | **−9,0** [−12,7 ; −5,3] |
+
+Consigne d'abstention, critères de l'étape 5 : **non concluant** avec Mistral Small (réponses inventées −3,3 points [−9,3 ; +2,7], abstentions à tort +3,5 [+0,8 ; +6,1], garde franchie) et avec Ministral 14B (−3,9 [−11,3 ; +3,5]) ; **moins bonne** avec Gemini Flash-Lite (abstentions à tort +15,1 [+9,8 ; +20,5]).
+
+**Réponse à la question.** Deux leviers font gagner des réponses justes : **le RAG naïf** (+28 à +44 points) et **envoyer plus de bons articles au générateur**, soit par 20 passages (+6 à +10 points), soit par un reclassement des 50 premiers candidats en 5 (+4 à +8 points, à 2,5 fois moins de tokens). Ces deux façons se valent (−1 à −2 points, non concluant). La reformulation de la question ne fait rien gagner. La consigne d'abstention ne fait gagner à aucun modèle et coûte 9 points à Gemini.
+
+**H1 est confirmée, sauf sur un point.** Les étapes 1 à 4 se retrouvent dans le même sens, Mistral Small restant non concluant pour 20 passages comme à l'étape 3. En revanche, la baisse des réponses inventées par la consigne d'abstention avec Mistral Small (−9,2 points à l'étape 5) ne se retrouve pas : −3,3 points, non concluant. Le nouveau delta reste dans l'IC de l'étape 5 (−15,7 à −2,6 points), mais n'exclut plus 0 : sur les mêmes 51 questions, le A de ce run invente moins que celui de l'étape 5 (0,222 contre 0,261), et l'effet de la consigne y est plus faible qu'on ne l'avait mesuré.
+
+**Configuration recommandée sur ce corpus** : 20 passages, ou le reclassement en 5 pour réduire les tokens au prix d'un fournisseur de plus. Pas de consigne d'abstention commune aux modèles.
 
 ## Limites
 
-Celles de chaque étape, plus une : les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention.
+- Celles de chaque étape. Les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention. Le run consolidé écarte ces 12 questions.
+- **Configurations non réitérées sur la v4**, comme le veut le protocole : une profondeur ou une consigne réglée sur les modes nouveaux (`comparison`, `set`, `false_premise`) pourrait faire mieux. Sur ces 56 items, `correct` tombe à 0,57–0,74 avec 20 passages.
+- **Les modes nouveaux sont petits** (12 à 30 items `test`) et ne se lisent qu'en secondaire. La spec v1 ne vérifie ni le rattachement des valeurs en `comparison`, ni le rejet de la prémisse en `false_premise`.
+- **Un seul run final par configuration et par modèle** ; le MDE mesuré (6,0 à 6,8 points pour les leviers de récupération) reste au-dessus des 3 points qui comptent pour 20 passages et pour le reclassement.
+- **Sans Langfuse** ; coût non mesuré sur facture (estimation du protocole : 8 à 13 $).

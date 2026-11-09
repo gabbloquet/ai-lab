@@ -115,6 +115,8 @@ Run final du 2026-11-09 sur les 178 items valides du `test` de la v3, k = 3, 1 0
 
 Une consigne d'abstention se règle par modèle : le même texte fait moins inventer le générateur qui invente et fait s'abstenir à tort celui qui s'abstient déjà. Le `dev`, itéré avec Mistral Small seul et trop petit, n'a vu ni l'un ni l'autre.
 
+**Run consolidé sur la v4** (2026-11-09, [rapport](../002-leviers-rag/results/2026-11-09-run-consolide-test.md)) : **le gain de Mistral Small ne se retrouve pas.** Ses réponses inventées baissent de 3,3 points [−9,3 ; +2,7], ce qui est non concluant, et sa garde ne tient pas (abstentions à tort +3,5 [+0,8 ; +6,1]). Ministral 14B reste non concluant (−3,9). Gemini Flash-Lite reste moins bon, avec +15,1 points d'abstentions à tort et −9,0 points de `correct`, surtout en `false_premise` (0,54 → 0,18). Le verdict ci-dessus, d'un seul run final, est donc à lire avec celui du run consolidé.
+
 ## Limites
 
 - **Traces Langfuse incomplètes** (`run.langfuse_flushed: false`) : les JSONL font foi.

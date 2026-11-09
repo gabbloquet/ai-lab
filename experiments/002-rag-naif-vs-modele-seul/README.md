@@ -178,6 +178,8 @@ Delta B − A : +0,39, IC 95 % [+0,24 ; +0,54] sur 50 items `dev`.
 
 Le RAG naïf apporte 37 à 44 points à ces modèles sur le Code de la consommation, et c'est sa récupération qui limite le score : c'est le premier levier à tester dans la série.
 
+**Run consolidé sur la v4** (2026-11-09, [rapport](../002-leviers-rag/results/2026-11-09-run-consolide-test.md)) : même sens pour les trois modèles. +33,9 points avec Mistral Small, +43,9 avec Ministral 14B et +28,1 avec Gemini Flash-Lite, tous concluants après la correction de Holm. Le gain de Gemini est plus faible : sans contexte, il répond juste à 88 % des questions sans réponse, et avec 5 passages, il s'abstient à tort sur 29 % des questions avec réponse.
+
 ## Limites
 
 - **Audit du golden set (ajouté le 2026-11-09, après le run final).** Une relecture plus poussée des questions sans réponse de la v1 ([audit](../../domains/droit-consommation/golden/rag-qa/README.md#audit-des-questions-sans-réponse-de-la-v1-2026-11-09)) montre que 12 des 23 questions « sans réponse » du `test` ont en fait une réponse dans le code (valeur, renvoi à un autre texte ou classe d'amende). Sur ces items, un modèle qui donne la réponse du code est compté comme ayant inventé. Recalculés sans ces 12 items (138 items), les trois verdicts sont inchangés : +0,408 [+0,310 ; +0,506] (Mistral Small), +0,502 [+0,418 ; +0,587] (Ministral 14B), +0,382 [+0,282 ; +0,481] (Gemini Flash-Lite). Les taux de réponses inventées du rapport sont surestimés : sur les 11 questions sans réponse valides, A → B vaut 0,12 → 0,27 (Mistral Small), 0,24 → 0,18 (Ministral 14B), 0,15 → 0,09 (Gemini Flash-Lite), sur 11 items seulement.

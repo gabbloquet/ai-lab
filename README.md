@@ -56,7 +56,7 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 | Aspect | Expérience | Statut |
 |---|---|---|
 | Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Terminée : B meilleure de +24,6 pts avec Mistral small ; non concluant (plafond) avec Gemini Flash-Lite et Claude Haiku 5.5 |
-| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | 5 étapes conclues : le RAG naïf (+37 à +44 pts), puis 20 passages (+7 à +8 pts pour deux modèles sur trois) ; reformulation et reclassement non concluants ; consigne d'abstention selon le modèle. Run consolidé sur le golden set v4 : protocole écrit, lanceur en cours d'écriture |
+| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | Terminée (run consolidé sur le golden set v4) : le RAG naïf (+28 à +44 pts), puis plus de bons articles, par 20 passages (+6 à +10 pts) ou un reclassement en 5 (+4 à +8 pts, 2,5 fois moins de tokens) ; reformulation non concluante ; consigne d'abstention sans gain, moins bonne avec Gemini |
 
 ### Par domaine
 
@@ -77,17 +77,18 @@ Chaque ligne renvoie au rapport daté qui l'a produite.
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `gemini-3.5-flash-lite` | `success` | 0,994 | 1,000 | +0,006 [−0,006 ; +0,018] | non concluant |
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `claude-haiku-5-5` | `success` | 0,996 | 1,000 | +0,004 [−0,002 ; +0,010] | non concluant |
 
-**002 — Les leviers du RAG**, un delta par levier et par modèle (variante − baseline, IC à 95 %, golden set `rag-qa` v1 pour les étapes 1 à 4, v3 pour l'étape 5) :
+**002 — Les leviers du RAG**, [run consolidé](experiments/002-leviers-rag/results/2026-11-09-run-consolide-test.md) : six configurations dans un même run, golden set `rag-qa` v4, `test` 234 items valides, k = 3. Delta de `correct` (variante − baseline), IC à 95 % apparié, verdict après correction de Holm sur les six comparaisons de chaque modèle :
 
-| Levier (étape) | Baseline | Mesure | `mistral-small-2603` | `ministral-14b-2512` | `gemini-3.5-flash-lite` |
-|---|---|---|---|---|---|
-| [RAG naïf, 5 passages (1)](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | modèle seul | `correct` | **+0,373** [+0,276 ; +0,470] | **+0,442** [+0,354 ; +0,531] | **+0,367** [+0,273 ; +0,460] |
-| [Reformulation de la question (2)](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | RAG naïf | `correct` | −0,009 [−0,059 ; +0,042] | −0,007 [−0,062 ; +0,049] | −0,009 [−0,059 ; +0,041] |
-| [20 passages au lieu de 5 (3)](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | RAG naïf | `correct` | +0,040 [−0,016 ; +0,096] | **+0,073** [+0,019 ; +0,128] | **+0,080** [+0,030 ; +0,130] |
-| [Reclassement, 50 candidats vers 5 (4)](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | 20 passages | `correct` | −0,013 [−0,056 ; +0,029] | −0,004 [−0,056 ; +0,047] | −0,020 [−0,065 ; +0,025] |
-| [Consigne d'abstention (5)](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | 20 passages | `hallucination` (↓) ; garde `false_abstention` | **−0,092** [−0,157 ; −0,026], garde tenue | −0,052 [−0,135 ; +0,030] | garde franchie : `false_abstention` **+0,087** [+0,032 ; +0,141] |
+| Levier (étape) | Baseline | `mistral-small-2603` | `ministral-14b-2512` | `gemini-3.5-flash-lite` |
+|---|---|---|---|---|
+| RAG naïf, 5 passages (1) | modèle seul | **+0,339** [+0,268 ; +0,410] | **+0,439** [+0,369 ; +0,508] | **+0,281** [+0,208 ; +0,354] |
+| Reformulation de la question (2) | RAG naïf | −0,003 [−0,038 ; +0,032] | +0,013 [−0,027 ; +0,052] | +0,009 [−0,032 ; +0,049] |
+| 20 passages au lieu de 5 (3) | RAG naïf | +0,061 [+0,014 ; +0,108], non concluant après Holm | **+0,068** [+0,020 ; +0,116] | **+0,104** [+0,062 ; +0,146] |
+| Reclassement, 50 candidats vers 5 (4) | 20 passages | −0,021 [−0,060 ; +0,017] | −0,010 [−0,050 ; +0,030] | −0,021 [−0,061 ; +0,018] |
+| Reclassement, 50 candidats vers 5 (4) | RAG naïf | +0,040 [−0,004 ; +0,084] | **+0,058** [+0,013 ; +0,104] | **+0,083** [+0,035 ; +0,130] |
+| Consigne d'abstention (5) | 20 passages | −0,003 [−0,028 ; +0,023] | +0,007 [−0,022 ; +0,036] | **−0,090** [−0,127 ; −0,053] |
 
-En gras : delta concluant. Les autres sont non concluants. Le [run consolidé](experiments/002-leviers-rag/README.md#run-consolidé-sur-le-golden-set-v4) mesurera tous les leviers dans un même run, sur le golden set v4.
+En gras : delta concluant après Holm. Les autres sont non concluants. Consigne d'abstention selon les critères de l'étape 5 (réponses inventées, garde sur les abstentions à tort) : non concluant avec Mistral Small et Ministral, moins bonne avec Gemini (+0,151 d'abstentions à tort). Les verdicts de chaque étape, sur la v1 ou la v3, restent dans leurs rapports : [1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), [2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md), [3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md), [4](experiments/005-reclassement/results/2026-11-09-run-final-test.md), [5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md). Seul celui de l'étape 5 avec Mistral Small (−9,2 points de réponses inventées) ne s'est pas retrouvé.
 
 ## Organisation du dépôt
 

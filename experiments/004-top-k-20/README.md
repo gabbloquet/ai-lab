@@ -125,6 +125,8 @@ Run final du 2026-11-08 sur les 150 items `test`, k = 3, 900 exécutions par gé
 
 Envoyer 20 passages est le premier levier de la série à battre le RAG naïf. Son coût se paie sur l'abstention : la prochaine expérience peut soit garder 20 passages en renforçant la consigne d'abstention, soit chercher à mettre les bons articles dans 5 passages (reclassement).
 
+**Run consolidé sur la v4** (2026-11-09, [rapport](../002-leviers-rag/results/2026-11-09-run-consolide-test.md)) : même sens. +6,8 points avec Ministral 14B et +10,4 avec Gemini Flash-Lite, concluants après Holm. Avec Mistral Small, +6,1 points [+1,4 ; +10,8] : l'IC non corrigé exclut 0, mais la p-value corrigée (0,056) le laisse non concluant.
+
 ## Limites
 
 - **Audit du golden set (ajouté le 2026-11-09, après le run final).** Une relecture plus poussée des questions sans réponse de la v1 ([audit](../../domains/droit-consommation/golden/rag-qa/README.md#audit-des-questions-sans-réponse-de-la-v1-2026-11-09)) montre que 12 des 23 questions « sans réponse » du `test` ont en fait une réponse dans le code (valeur, renvoi à un autre texte ou classe d'amende). Sur ces items, un modèle qui donne la réponse du code est compté comme ayant inventé. Recalculés sans ces 12 items (138 items), les verdicts sont inchangés : +0,056 [−0,003 ; +0,114] (Mistral Small, non concluant), +0,065 [+0,010 ; +0,121] (Ministral 14B, B meilleure), +0,099 [+0,048 ; +0,150] (Gemini Flash-Lite, B meilleure). Les taux de réponses inventées du rapport sont surestimés, mais **la hausse avec 20 passages persiste sur les questions sans réponse valides** : A → B vaut 0,24 → 0,30 (Mistral Small), 0,18 → 0,27 (Ministral 14B), 0,09 → 0,09 (Gemini Flash-Lite), sur 11 items seulement.

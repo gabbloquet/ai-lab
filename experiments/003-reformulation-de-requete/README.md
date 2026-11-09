@@ -122,6 +122,8 @@ Run final du 2026-11-08 sur les 150 items `test`, k = 3, 900 exécutions par gé
 
 Leçon pour la série : un gain de récupération mesuré sur le `dev` (+4 points au top-5 en pré-étude) ne survit pas forcément au `test`, et un gain au rang 1 ne sert à rien quand le contexte garde 5 passages. Le levier suivant doit agir sur le top-5 lui-même, ou sur sa taille.
 
+**Run consolidé sur la v4** (2026-11-09, [rapport](../002-leviers-rag/results/2026-11-09-run-consolide-test.md)) : même verdict. −0,3 à +1,3 point, non concluant pour les trois modèles. Un gain de 5 points, celui qui compte, est exclu avec Mistral Small et Gemini Flash-Lite (bornes hautes +3,2 et +4,9), mais pas tout à fait avec Ministral 14B (+5,2).
+
 ## Limites
 
 - **Audit du golden set (ajouté le 2026-11-09, après le run final).** Une relecture plus poussée des questions sans réponse de la v1 ([audit](../../domains/droit-consommation/golden/rag-qa/README.md#audit-des-questions-sans-réponse-de-la-v1-2026-11-09)) montre que 12 des 23 questions « sans réponse » du `test` ont en fait une réponse dans le code (valeur, renvoi à un autre texte ou classe d'amende). Sur ces items, un modèle qui donne la réponse du code est compté comme ayant inventé. Recalculés sans ces 12 items (138 items), les trois verdicts restent non concluants : +0,000 [−0,051 ; +0,051] (Mistral Small), −0,031 [−0,086 ; +0,023] (Ministral 14B), −0,002 [−0,055 ; +0,050] (Gemini Flash-Lite). Sur les 11 questions sans réponse valides, les réponses inventées A → B valent 0,27 → 0,18, 0,18 → 0,18 et 0,09 → 0,09.
