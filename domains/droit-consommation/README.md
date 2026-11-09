@@ -108,6 +108,6 @@ L'archive (1,1 Go) n'est pas versionnée : `.cache/` est ignoré par git. L'extr
 | Jeu | Chemin | Statut |
 |---|---|---|
 | Données | `data/v1/` | extraites le 2026-11-04 par `consommation_extract.py`. **Publiées** : citées par le run final de la 002 |
-| Golden set RAG | `golden/rag-qa/v1/`, `golden/rag-qa/v2/` | v1 publiée (2026-11-07), citée par les 002 à 005 ; v2 (2026-11-09) : la v1 plus 24 questions sans réponse dans le `dev`, même `test`. Audit des questions sans réponse de la v1 : `golden/rag-qa/audit/` |
+| Golden set RAG | `golden/rag-qa/v1/`, `v2/`, `v3/` | v1 publiée (2026-11-07), citée par les 002 à 005 ; v2 (2026-11-09) : la v1 plus 24 questions sans réponse dans le `dev`, même `test` ; v3 (2026-11-09) : la v2 plus 40 questions sans réponse dans le `test`. Audit des questions sans réponse de la v1 : `golden/rag-qa/audit/` |
 
 Un jeu publié ne change plus ; une correction donne une `v2`.

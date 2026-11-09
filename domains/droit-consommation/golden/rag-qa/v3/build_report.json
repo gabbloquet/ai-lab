@@ -6,48 +6,7 @@
   "tasks": 596,
   "drafts": 596,
   "selected": 264,
-  "pending_review": [
-    "unanswerable-test-024",
-    "unanswerable-test-025",
-    "unanswerable-test-026",
-    "unanswerable-test-027",
-    "unanswerable-test-028",
-    "unanswerable-test-029",
-    "unanswerable-test-030",
-    "unanswerable-test-031",
-    "unanswerable-test-032",
-    "unanswerable-test-034",
-    "unanswerable-test-035",
-    "unanswerable-test-036",
-    "unanswerable-test-037",
-    "unanswerable-test-038",
-    "unanswerable-test-039",
-    "unanswerable-test-040",
-    "unanswerable-test-041",
-    "unanswerable-test-042",
-    "unanswerable-test-043",
-    "unanswerable-test-044",
-    "unanswerable-test-046",
-    "unanswerable-test-047",
-    "unanswerable-test-049",
-    "unanswerable-test-050",
-    "unanswerable-test-051",
-    "unanswerable-test-052",
-    "unanswerable-test-053",
-    "unanswerable-test-054",
-    "unanswerable-test-055",
-    "unanswerable-test-056",
-    "unanswerable-test-057",
-    "unanswerable-test-058",
-    "unanswerable-test-059",
-    "unanswerable-test-060",
-    "unanswerable-test-061",
-    "unanswerable-test-062",
-    "unanswerable-test-063",
-    "unanswerable-test-064",
-    "unanswerable-test-065",
-    "unanswerable-test-066"
-  ],
+  "pending_review": [],
   "shortages": {},
   "rejected": {
     "direct-dev-002": [
@@ -649,11 +608,35 @@
     "unanswerable-dev-014": [
       "rejeté à la relecture : La question est ambiguë et le code y répond dans les deux lectures : pour un taux trop élevé (prêt usuraire), L341-50 prévoit deux ans de prison ; pour le défaut de mention du TEG (L314-5, visé par L341-49), le code donne la peine complète (amende de 150 000 euros, sans prison), donc une réponse négative tirée du texte. Le libellé « règles sur le taux d'intérêt conventionnel » ne correspond pas non plus à L314-5. Preuve : L341-50, « Le fait de consentir à autrui un prêt usuraire ou d'apporter à quelque titre et de quelque manière que ce soit, directement ou indirectement, son concours à l'obtention ou à l'octroi d'un prêt usuraire ou d'un prêt qui deviendrait usuraire au sens de l'article L. 314-6 du fait de son concours est puni d'un emprisonnement de deux ans et d'une amende de 300 000 euros. »."
     ],
+    "unanswerable-test-024": [
+      "rejeté à la relecture : L341-56 fixe l'amende pour une publicité de prêt viager hypothécaire non conforme : 150 000 euros (le texte vise l'annonceur, souvent le prêteur). Preuve : L341-56, « est puni d'une amende 150 000 euros »."
+    ],
+    "unanswerable-test-028": [
+      "rejeté à la relecture : L131-4 sanctionne les manquements aux obligations d'information de L111-7 (comparateurs en ligne) par une amende administrative chiffrée. Preuve : L131-4, « est passible d'une amende administrative dont le montant ne peut excéder 75 000 euros pour une personne physique et 375 000 euros pour une personne morale »."
+    ],
+    "unanswerable-test-029": [
+      "rejeté à la relecture : D312-30 répond : pendant le report, seuls les intérêts débiteurs du contrat (et l'assurance) sont dus, sans autre frais ; le plafond général reste la règle de l'usure (L314-6, règle de calcul sans valeur, qui compte comme réponse). Preuve : D312-30, « sans autres frais que les intérêts débiteurs »."
+    ],
+    "unanswerable-test-032": [
+      "rejeté à la relecture : Réponse négative explicite : le professionnel ne peut rien percevoir, sous aucune forme, avant la fin du délai de rétractation ; la question présuppose en outre des frais autorisés. Preuve : L224-85, « ou toute autre rémunération pour lui-même ou pour un tiers avant l'expiration des délais de rétractation »."
+    ],
     "unanswerable-test-033": [
       "question de 21 mots, au-delà de 20"
     ],
+    "unanswerable-test-039": [
+      "rejeté à la relecture : Le code fixe des plafonds d'amende civile que la DGCCRF peut demander au juge : 300 000 euros (L241-5, L132-1 A), 15 000/75 000 euros (L241-1-1). La question, posée en général, reçoit donc une réponse chiffrée selon le cas. Preuve : L241-5, « le ministère public ou le consommateur peuvent demander à la juridiction saisie de prononcer une amende civile dont le montant ne peut excéder 300 000 euros »."
+    ],
+    "unanswerable-test-041": [
+      "rejeté à la relecture : D224-26 fixe l'obligation à au moins les trois dernières années : le code répond donc à la question oui/non (le fournisseur n'est tenu qu'à trois ans, pas à dix). Le rédacteur le pressentait. Preuve : D224-26, « Les dispositions du 1° au 4° sont applicables aux données se rapportant aux consommations d'énergie concernant au moins les trois dernières années ou la durée écoulée depuis le début du contrat de fourniture lorsque celle-ci est inférieure. »."
+    ],
+    "unanswerable-test-042": [
+      "rejeté à la relecture : R223-5 renvoie à un arrêté ministériel pour le montant, et donne la règle de calcul (part fixe et part variable selon la taille des fichiers) : au sens de la règle (renvoi à un autre texte, calcul sans valeur), c'est une réponse. Preuve : R223-5, « Un arrêté du ministre chargé de l'économie fixe le montant de la part fixe et le taux de la part variable de la redevance. »."
+    ],
     "unanswerable-test-045": [
       "question de 21 mots, au-delà de 20"
+    ],
+    "unanswerable-test-046": [
+      "rejeté à la relecture : Présupposé faux : en cas de refus, l'emprunteur continue de rembourser aux anciennes conditions (L312-78), il ne rembourse pas par anticipation. S'il choisit de le faire, L312-34 fixe les plafonds (1 % ou 0,5 %) et interdit tout autre frais. Preuve : L312-34, « Aucune indemnité autre que celle mentionnée au présent article ni aucuns frais ne peuvent être mis à la charge de l'emprunteur en cas de remboursement par anticipation. »."
     ],
     "paraphrase-dev-021": [
       "question de 23 mots, au-delà de 20"
@@ -899,14 +882,137 @@
     "unanswerable-dev-080": [
       "rejeté à la relecture : Le code renvoie l'accès de la personne à ses propres données du fichier à la loi informatique et libertés, et les modalités de consultation à un arrêté (L751-6). Ce sont des renvois à un autre texte, qui comptent comme une réponse au sens de la règle. Preuve : L751-5, « Cette interdiction ne s'applique pas aux intéressés, lesquels exercent leur droit d'accès aux informations les concernant contenues dans le fichier conformément à l'article 49 de la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés. »."
     ],
+    "unanswerable-test-047": [
+      "rejeté à la relecture : Le code ne donne pas le nombre, mais il indique où trouver la liste à jour (site du ministre). Par cohérence avec la règle du renvoi, je le classe en défaut ; s'il s'agit seulement de renvois vers un texte de droit, il faut le passer en ok. « Reconnaissance spécifique » est aussi du jargon. Preuve : R812-3, « La liste des associations de défense des consommateurs bénéficiant de la reconnaissance spécifique prévue à l'article R. 812-1 est mise à jour et tenue à la disposition du public sur un site internet relevant du ministre chargé de la consommation. »."
+    ],
     "unanswerable-test-048": [
       "question de 21 mots, au-delà de 20"
+    ],
+    "unanswerable-test-049": [
+      "rejeté à la relecture : L215-1-1 oblige le professionnel à confirmer la réception et à informer « dans des délais raisonnables » : c'est une règle sans valeur chiffrée, qui compte comme réponse selon la règle. Grammaticalement, ce délai vise surtout l'information sur la date de fin. Preuve : L215-1-1, « Lorsque le consommateur notifie la résiliation du contrat, le professionnel lui confirme la réception de la notification et l'informe, sur un support durable et dans des délais raisonnables, de la date à laquelle le contrat prend fin et des effets de la résiliation. »."
+    ],
+    "unanswerable-test-051": [
+      "rejeté à la relecture : Le code ne fixe pas de délai maximal mais dit que c'est le juge qui le fixe dans le jugement (R623-16, R623-19) : au sens de la règle, c'est un renvoi qui vaut réponse. L'article L623-8 cité n'est pas dans le corpus. Preuve : R623-19, « Les consommateurs susceptibles d'appartenir au groupe, mais qui n'y ont pas adhéré dans le délai fixé par le juge en application de l'article L. 623-8 »."
+    ],
+    "unanswerable-test-053": [
+      "rejeté à la relecture : R771-1 rend applicable à Wallis-et-Futuna l'article R712-2, qui fixe la composition de la commission : préfet, directeur des finances publiques, représentant de la Banque de France (adapté par R771-2, 4°) et quatre personnes désignées, soit sept membres. Preuve : R712-2, « Chaque commission comprend le préfet, président, et le directeur départemental des finances publiques, vice-président. »."
+    ],
+    "unanswerable-test-054": [
+      "rejeté à la relecture : Le code ne fixe pas de seuil mais répond en substance : l'opérateur vérifie les informations dès le premier signalement, sous deux jours ouvrés, et la suspension dépend de cette vérification (L224-46 II). La question suppose aussi à tort que c'est l'opérateur du consommateur qui suspend, alors que c'est celui qui a attribué le numéro. Preuve : D224-21, « vérifie les informations présentes dans l'outil mentionné au premier alinéa de l'article L. 224-43 dès le premier signalement et à chaque signalement suivant »."
+    ],
+    "unanswerable-test-058": [
+      "rejeté à la relecture : Le code répond par la négative : le prêteur n'a droit à aucune indemnité en cas de rétractation ; l'emprunteur ne rembourse que le capital versé et les intérêts courus. Preuve : L312-26, « Le prêteur n'a droit à aucune indemnité versée par l'emprunteur en cas de rétractation. »."
+    ],
+    "unanswerable-test-061": [
+      "rejeté à la relecture : Le code répond en donnant une norme sans nombre de jours, « dans un délai raisonnable » (et sans frais), ce que la règle validée compte comme une réponse. Le mot « exacts » trahit une question construite pour piéger plutôt que posée comme dans un chat. Preuve : L221-26-1, « Le consommateur a le droit de récupérer ce contenu numérique sans frais, sans que le professionnel y fasse obstacle, dans un délai raisonnable »."
+    ],
+    "unanswerable-test-062": [
+      "rejeté à la relecture : L'article fixe toute la peine, une amende de 150 000 euros, sans prison : le code répond donc qu'aucune prison n'est prévue. La question présuppose aussi à tort une peine de prison. Preuve : L341-57, « Le fait pour le prêteur d'accorder un prêt viager hypothécaire sans saisir l'emprunteur d'une offre préalable conforme à l'article L. 315-9 ou dans des conditions non conformes aux articles L. 315-10 et L. 315-11, est puni d'une amende de 150 000 euros. »."
+    ],
+    "unanswerable-test-066": [
+      "rejeté à la relecture : Le code donne la sanction sous forme de classe d'amende : R412-35 est une mesure prise en application de L. 412-1, et R451-1 punit ces infractions de l'amende de 5e classe, ce qui compte comme réponse selon la règle. Preuve : R451-1, « Les infractions aux dispositions des décrets pris en application de l'article L. 412-1 sont punies de la peine d'amende prévue pour les contraventions de la 5e classe. »."
     ],
     "unanswerable-test-070": [
       "question de 22 mots, au-delà de 20"
     ],
     "unanswerable-test-071": [
       "question de 21 mots, au-delà de 20"
+    ],
+    "unanswerable-test-072": [
+      "rejeté à la relecture : L241-2 fixe l'amende administrative encourue en présence d'une clause abusive « noire » : 15 000 € au plus pour une personne physique, 75 000 € pour une personne morale. Preuve : L241-2, « la présence d'une ou de plusieurs clauses abusives relevant du décret pris en application du quatrième alinéa de l'article L. 212-1 est passible d'une amende administrative dont le montant ne peut excéder 15 000 euros pour une personne physique et 75 000 euros pour une personne morale »."
+    ],
+    "unanswerable-test-075": [
+      "rejeté à la relecture : D217-1 répond sur le fond : le bien est renvoyé par voie postale quand c'est possible, et le consommateur ne prend jamais en charge un autre mode de transport. La question présuppose en outre à tort que le vendeur doit imposer un transporteur. Preuve : D217-1, « En tout état de cause, le consommateur ne peut être tenu d'assurer, ni de prendre en charge le transport du bien hors envoi postal. »."
+    ],
+    "unanswerable-test-076": [
+      "rejeté à la relecture : L122-6 donne une réponse négative explicite : une publicité comparative publiée dans la presse n'ouvre pas de droit de réponse, donc il n'y a pas de délai pour répondre. La question présuppose aussi ce droit à tort. Preuve : L122-6, « Les insertions réalisées dans la presse pour une publicité définie aux articles L. 122-1 et L. 122-2 ne donnent pas lieu au droit de réponse »."
+    ],
+    "unanswerable-test-078": [
+      "rejeté à la relecture : L223-1 répond : l'inscription sur la liste d'opposition est gratuite, ce qui compte comme réponse selon la règle (« sans frais »). Preuve : L223-1, « Le consommateur qui ne souhaite pas faire l'objet de prospection commerciale par voie téléphonique peut gratuitement s'inscrire sur une liste d'opposition au démarchage téléphonique. »."
+    ],
+    "unanswerable-test-079": [
+      "rejeté à la relecture : Le code ne répond pas (aucun prix de certificat), mais la question est fautive au regard du critère 2 : c'est une question d'administration interne, pas une question de consommateur, avec un jargon technique (certificat qualifié, DGCCRF) qu'aucune reformulation ne retire sans changer le sens."
+    ],
+    "unanswerable-test-081": [
+      "rejeté à la relecture : Le code répond par une réponse négative explicite : la médiation est gratuite pour le consommateur, donc elle ne coûte rien. « En moyenne » n'a pas de sens face à cette règle, et le doute du rédacteur est fondé. Preuve : L612-1, « Tout consommateur a le droit de recourir gratuitement à un médiateur de la consommation »."
+    ],
+    "unanswerable-test-082": [
+      "rejeté à la relecture : Aucune sanction propre au « fait maison », mais une fausse mention sur le mode de fabrication relève des pratiques commerciales trompeuses (L121-2, 2° b, « son mode et sa date de fabrication »), que L132-2 punit d'une amende de 300 000 euros. Le code donne donc un montant par qualification. Preuve : L132-2, « Les pratiques commerciales trompeuses mentionnées aux articles L. 121-2 à L. 121-4 sont punies d'un emprisonnement de deux ans et d'une amende de 300 000 euros. »."
+    ],
+    "unanswerable-test-083": [
+      "rejeté à la relecture : Le délai général de trois mois (R712-15) s'applique à Saint-Martin : R771-3 n'y écarte que R711-1 et R712-1, et L771-8 rattache les débiteurs à la commission de Guadeloupe. Le code donne donc le délai. Preuve : R712-15, « La commission dispose d'un délai de trois mois à compter du dépôt du dossier pour examiner la recevabilité de la demande »."
+    ],
+    "unanswerable-test-084": [
+      "rejeté à la relecture : L452-5-1 punit de 600 000 euros d'amende le fournisseur de place de marché en ligne qui ne respecte pas ses obligations du règlement 2023/988, ainsi que le fabricant ou l'importateur qui ne prend pas les mesures correctives. R532-1 punit aussi d'une amende de 5e classe le défaut de retrait ordonné par arrêté. Le code donne donc un montant, même si le déclencheur n'est pas le signalement d'un consommateur. Preuve : L452-5-1, « pour un fournisseur de places de marché en ligne, de ne pas respecter les obligations prévues au paragraphe 12 de l'article 22 du même règlement est puni d'une peine d'emprisonnement de cinq ans et d'une amende de 600 000 euros »."
+    ],
+    "unanswerable-test-086": [
+      "rejeté à la relecture : R412-20 renvoie expressément aux règlements 1829/2003 (dont l'article 12, sur l'étiquetage) et 1830/2003. Selon la règle validée, ce renvoi à un autre texte vaut réponse ; le rédacteur lui-même dit que le seuil « figure dans les règlements européens ». Preuve : R412-20, « des paragraphes 1 à 3 de l'article 12 »."
+    ],
+    "unanswerable-test-087": [
+      "rejeté à la relecture : Réponse négative explicite : si le contrat n'est pas conclu, le prêteur ne peut demander que des frais d'étude (L313-38). Et avant l'acceptation de l'offre, aucun versement de l'emprunteur au prêteur n'est permis (L313-35). La question présuppose en outre que les frais d'étude s'appliquent à un crédit refusé, alors qu'ils visent une vente non conclue. Preuve : L313-38, « le prêteur ne peut retenir ou demander que des frais d'étude dont le montant maximum est fixé suivant un barème déterminé par décret »."
+    ],
+    "unanswerable-test-089": [
+      "rejeté à la relecture : Règle de calcul sans valeur, qui compte comme une réponse selon la règle validée : la réduction est proportionnelle à la différence de valeur. Le doute du rédacteur est fondé. Preuve : L217-15, « La réduction du prix est proportionnelle à la différence entre la valeur du bien délivré et la valeur de ce bien en l'absence du défaut de conformité. »."
+    ],
+    "unanswerable-test-091": [
+      "rejeté à la relecture : La question est fautive : elle présuppose que la commission de surendettement accorde des remises d'impôts, alors que R711-1 attribue ces remises aux autorités chargées du recouvrement des impôts. L'article renvoie en plus au livre des procédures fiscales, et « remise gracieuse » est du jargon. Preuve : R711-1, « les demandes de remise gracieuse ou de dispense de paiement que peuvent accorder les autorités chargées du recouvrement des impôts »."
+    ],
+    "unanswerable-test-096": [
+      "rejeté à la relecture : Réponse négative explicite : la médiation est gratuite pour le consommateur, ce qui répond à « combien coûte » au sens de la règle. Preuve : L612-1, « Tout consommateur a le droit de recourir gratuitement à un médiateur de la consommation »."
+    ],
+    "unanswerable-test-100": [
+      "rejeté à la relecture : Le code donne la classe d'amende (5e classe), ce qui compte comme une réponse selon la règle validée. Preuve : R132-1, « sont punis de la peine d'amende prévue pour les contraventions de la 5e classe »."
+    ],
+    "unanswerable-test-102": [
+      "rejeté à la relecture : L'article de départ chiffre l'amende civile encourue par le professionnel qui continue d'utiliser des clauses jugées abusives (plafonds 15 000 € / 75 000 €) ; la précision « trois contrats » ne change pas le plafond applicable. Preuve : L241-1-1, « dont le montant ne peut excéder 15 000 euros pour une personne physique et 75 000 euros pour une personne morale »."
+    ],
+    "unanswerable-test-103": [
+      "rejeté à la relecture : Le code plafonne la valeur de la prime offerte pour un crédit à la consommation et renvoie le seuil à un arrêté : renvoi à un autre texte, donc réponse au sens de la règle. Preuve : L312-15, « la valeur de cette prime ne peut être supérieure à un seuil fixé par arrêté du ministre chargé de l'économie »."
+    ],
+    "unanswerable-test-104": [
+      "rejeté à la relecture : D412-62 renvoie explicitement, pour les règles du marquage CE, à l'article 30 du règlement 765/2008, qui renvoie lui-même à l'annexe II (minimum 5 mm, de mémoire, non vérifié à la source) : renvoi à un autre texte au sens de la règle. Hésitation : le renvoi vise les « principes généraux » et non la taille en particulier. Preuve : D412-62, « Le marquage CE est soumis aux principes généraux énoncés à l'article 30 du règlement (CE) n° 765/2008. »."
+    ],
+    "unanswerable-test-108": [
+      "rejeté à la relecture : Le code ne fixe pas de durée, mais il dit qui la fixe : le site doit afficher son propre délai maximum de conservation d'un avis (D111-10), ce qui vaut réponse de type acteur au sens de la règle. Preuve : D111-10, « b) Le délai maximum de publication et de conservation d'un avis. »."
+    ],
+    "unanswerable-test-110": [
+      "rejeté à la relecture : Les jours et horaires du démarchage sont pris en application de L223-1, et L242-16 sanctionne tout manquement à L223-1 à L223-5 d'une amende administrative chiffrée. Preuve : L242-16, « Tout manquement aux dispositions des articles L. 223-1 à L. 223-5 est passible d'une amende administrative dont le montant ne peut excéder 75 000 € pour une personne physique et 375 000 € pour une personne morale. »."
+    ],
+    "unanswerable-test-111": [
+      "rejeté à la relecture : Le code dit qui fixe la mise à prix : le juge des contentieux de la protection, à la demande du liquidateur, qui fixe aussi une mise à prix inférieure à défaut d'enchères. Preuve : R742-28, « Le juge des contentieux de la protection, à la demande du liquidateur, détermine la mise à prix du bien à vendre »."
+    ],
+    "unanswerable-test-112": [
+      "rejeté à la relecture : Le code répond par renvoi : le barème est fixé par le règlement intérieur de chaque commission, avec un plancher égal au montant forfaitaire du RSA (L731-2) ; c'est une réponse au sens de la règle. Preuve : R731-3, « soit en fonction du barème fixé par son règlement intérieur et prenant en compte la composition de la famille »."
+    ],
+    "unanswerable-test-113": [
+      "rejeté à la relecture : Le code donne la règle de calcul du seuil (taux moyen du trimestre précédent majoré d'un tiers) et dit qui le publie ; une règle de calcul sans valeur compte comme réponse. La question sur le taux « actuel » est en plus datée. Preuve : L314-6, « Constitue un prêt usuraire tout prêt conventionnel consenti à un taux effectif global qui excède, au moment où il est consenti, de plus du tiers, le taux effectif moyen pratiqué au cours du trimestre précédent »."
+    ],
+    "unanswerable-test-114": [
+      "rejeté à la relecture : Le code fixe la sanction de ce manquement : une amende administrative plafonnée, donc pas de prison ; en outre la question présuppose qu'une entreprise (personne morale) puisse être emprisonnée. Preuve : L242-14, « est passible d'une amende administrative dont le montant ne peut excéder 75 000 € pour une personne physique et 375 000 € pour une personne morale »."
+    ],
+    "unanswerable-test-117": [
+      "rejeté à la relecture : Le code fixe la sanction : une amende de contravention de 5e classe, sans prison ; une classe d'amende compte comme réponse selon la règle. Preuve : R452-3-1, « est puni de la peine d'amende prévue pour les contraventions de la 5e classe »."
+    ],
+    "unanswerable-test-120": [
+      "rejeté à la relecture : R822-4 fixe la composition du conseil d'administration de l'INC : quinze membres ayant voix délibérative. Preuve : R822-4, « L'Institut national de la consommation est administré par un conseil d'administration composé de quinze membres ayant voix délibérative »."
+    ],
+    "unanswerable-test-121": [
+      "rejeté à la relecture : Le code donne la règle de calcul du taux maximal (seuil de l'usure : taux moyen du trimestre précédent majoré d'un tiers), valable pour tout prêt ; selon la règle validée, une règle de calcul sans valeur compte comme une réponse. La question est aussi jargonneuse (« reconstitution du capital »). Preuve : L314-6, « Constitue un prêt usuraire tout prêt conventionnel consenti à un taux effectif global qui excède, au moment où il est consenti, de plus du tiers, le taux effectif moyen pratiqué au cours du trimestre précédent »."
+    ],
+    "unanswerable-test-122": [
+      "rejeté à la relecture : Prémisse fausse, et le code y répond par une négative explicite : tant que le crédit n'est pas accepté, le vendeur ne peut recevoir aucun paiement ni dépôt, donc aucun acompte. Preuve : L312-46, « le vendeur ne peut recevoir aucun paiement, sous quelque forme que ce soit, ni aucun dépôt »."
+    ],
+    "unanswerable-test-123": [
+      "rejeté à la relecture : Le code répond de deux façons : le refus déclenche une vérification d'identité par un officier de police judiciaire selon l'article 78-3 du code de procédure pénale (renvoi, qui compte comme réponse), et L531-1 punit l'obstacle aux fonctions des agents de deux ans de prison et 300 000 euros d'amende. Qualifier le refus d'identité d'obstacle reste une interprétation, d'où la confiance moyenne. Preuve : L531-1, « Le fait de faire obstacle à l'exercice des fonctions des agents habilités en violation des dispositions de l'article L. 512-4 est puni d'un emprisonnement de deux ans et d'une amende de 300 000 euros. »."
+    ],
+    "unanswerable-test-124": [
+      "rejeté à la relecture : Prémisse fausse : la question suppose une peine de prison alors que le code fixe la sanction en entier, une amende de 300 000 euros, plus des interdictions d'exercer à titre complémentaire (L341-44), sans emprisonnement. Le code répond donc sur la sanction encourue. Preuve : L341-40, « est puni d'une amende de 300 000 euros. »."
+    ],
+    "unanswerable-test-125": [
+      "rejeté à la relecture : R823-5 fixe la fréquence : le conseil d'administration du LNE se réunit au moins trois fois par an. Preuve : R823-5, « Le conseil d'administration se réunit au moins trois fois par an en séance ordinaire. »."
+    ],
+    "unanswerable-test-126": [
+      "rejeté à la relecture : Le code répond par un renvoi : le niveau maximal est fixé par arrêté conjoint des ministres de l'économie et des personnes handicapées ; selon la règle validée, un renvoi compte comme une réponse. La question est en outre jargonneuse (ACPR). Preuve : L511-25-1, « qui ne doit pas être supérieur à un niveau fixé par arrêté conjoint des ministres chargés de l'économie et des personnes handicapées »."
     ]
   },
   "alerts": {
@@ -1647,10 +1753,6 @@
       "doute du rédacteur : Un autre article du chapitre sur l'INC pourrait fixer un nombre de comités, même si cela paraît peu probable.",
       "mode unanswerable : relu systématiquement"
     ],
-    "unanswerable-test-024": [
-      "doute du rédacteur : Les articles L341-56 à L341-59 voisins pourraient fixer des amendes pour certains délits, ce qui risquerait de répondre à la question selon le manquement visé.",
-      "mode unanswerable : relu systématiquement"
-    ],
     "unanswerable-test-025": [
       "doute du rédacteur : Un autre article du code pourrait fixer un plafond d'astreinte, mais je n'en connais pas pour ce cas précis.",
       "mode unanswerable : relu systématiquement"
@@ -1663,24 +1765,12 @@
       "doute du rédacteur : D'autres articles du code sur les frais bancaires ou les incidents de paiement pourraient plafonner certains frais, mais aucun ne semble viser spécifiquement l'envoi du relevé de découvert.",
       "mode unanswerable : relu systématiquement"
     ],
-    "unanswerable-test-028": [
-      "doute du rédacteur : Le Code de la consommation prévoit peut-être des sanctions générales pour manquement à l'information précontractuelle dans d'autres articles (par exemple L131-1 ou L132-?), qui pourraient s'appliquer indirectement.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-029": [
-      "doute du rédacteur : Le taux de l'usure (articles L314-6 et suivants) fixe un plafond général des taux, ce qui pourrait être invoqué comme réponse partielle, bien qu'il ne soit pas propre aux reports d'échéance.",
-      "mode unanswerable : relu systématiquement"
-    ],
     "unanswerable-test-030": [
       "doute du rédacteur : Un autre article du chapitre sur l'action en représentation conjointe pourrait aborder les frais ou la rémunération, mais je ne crois pas qu'il fixe un pourcentage.",
       "mode unanswerable : relu systématiquement"
     ],
     "unanswerable-test-031": [
       "doute du rédacteur : D'autres dispositions (amendes civiles ou pénales pour clauses abusives) pourraient être confondues avec une indemnité, mais elles ne visent pas une indemnisation du consommateur.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-032": [
-      "doute du rédacteur : Le champ « usable » du schéma n'existe pas ; en mode sans réponse, la question présuppose un pourcentage inexistant, ce qui peut sembler piégeux. Un lecteur pourrait aussi répondre « zéro », puisque tout paiement est interdit.",
       "mode unanswerable : relu systématiquement"
     ],
     "unanswerable-test-034": [
@@ -1703,20 +1793,8 @@
       "doute du rédacteur : Un autre article du code (pouvoirs d'enquête, L512-x) pourrait fixer un délai de réponse aux demandes de l'administration, ce qui rendrait la question partiellement répondable.",
       "mode unanswerable : relu systématiquement"
     ],
-    "unanswerable-test-039": [
-      "doute du rédacteur : D'autres articles du code (livre IV, L511-5 à L511-7, ou les articles de sanction) fixent des plafonds d'amende pour des infractions précises, donc la question pourrait avoir une réponse selon l'infraction visée.",
-      "mode unanswerable : relu systématiquement"
-    ],
     "unanswerable-test-040": [
       "doute du rédacteur : Un autre article du livre VIII, sur les ressources de l'institut, pourrait mentionner son financement en termes généraux, mais sans doute pas de montant précis.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-041": [
-      "doute du rédacteur : La question est formulée sous forme oui/non, ce qui est inhabituel pour ce mode. Elle pourrait aussi se lire comme demandant la durée minimale (trois ans), à laquelle l'article répond. Une reformulation en « Quelle durée maximale d'historique de consommation le fournisseur conserve-t-il en ligne ? » serait plus sûre.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-042": [
-      "doute du rédacteur : Un autre article du code pourrait mentionner un tarif, mais cela paraît peu probable car le montant est fixé par arrêté, hors du code. La question suppose aussi que le service d'opposition soit Bloctel, ce que l'article ne nomme pas.",
       "mode unanswerable : relu systématiquement"
     ],
     "unanswerable-test-043": [
@@ -1727,36 +1805,12 @@
       "doute du rédacteur : Un autre article du livre VII pourrait traiter des frais de publicité de la procédure, ce qui reste peu probable pour un appel aux créanciers ordonné par le juge.",
       "mode unanswerable : relu systématiquement"
     ],
-    "unanswerable-test-046": [
-      "doute du rédacteur : Le Code encadre les indemnités de remboursement anticipé dans d'autres articles, mais pas pour ce cas de refus de reconduction ; un autre article pourrait être jugé applicable.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-047": [
-      "doute du rédacteur : Un autre article pourrait fixer un nombre maximal d'associations reconnues, mais cela paraît peu probable ; la question vise le nombre actuel, qui n'est pas dans le code.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-049": [
-      "doute du rédacteur : L'article L215-1-1 ou D215-3 pourrait contenir une règle sur l'accusé de réception ou sa date, donc la question risque d'avoir une réponse ailleurs dans le code.",
-      "mode unanswerable : relu systématiquement"
-    ],
     "unanswerable-test-050": [
       "doute du rédacteur : Un autre article réglementaire sur le fonctionnement de la commission pourrait mentionner une indemnisation des rapporteurs ou des membres, ce qui rendrait la question répondable.",
       "mode unanswerable : relu systématiquement"
     ],
-    "unanswerable-test-051": [
-      "doute du rédacteur : Un autre article du Code de la consommation (par exemple L623-5 ou R623-13) mentionne peut-être un délai encadré pour l'adhésion (entre deux et six mois), ce qui pourrait rendre la question répondable.",
-      "mode unanswerable : relu systématiquement"
-    ],
     "unanswerable-test-052": [
       "doute du rédacteur : Un autre article ou un texte réglementaire pourrait mentionner la rémunération des experts, mais cela semble peu probable dans le Code de la consommation.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-053": [
-      "doute du rédacteur : Un autre article du Code, comme R712-1 ou R712-2 sur la composition des commissions, pourrait donner une composition générale, qui serait alors applicable par renvoi. La question risque donc d'avoir une réponse.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-054": [
-      "doute du rédacteur : Un autre article réglementaire sur les numéros à valeur ajoutée pourrait éventuellement prévoir des conséquences aux signalements, mais aucun seuil chiffré n'est connu.",
       "mode unanswerable : relu systématiquement"
     ],
     "unanswerable-test-055": [
@@ -1771,24 +1825,12 @@
       "doute du rédacteur : Un autre article du code pourrait fixer un plafond de caution pour un type de contrat particulier, par exemple la location ; la question vise le cas général de la vente à distance.",
       "mode unanswerable : relu systématiquement"
     ],
-    "unanswerable-test-058": [
-      "doute du rédacteur : D'autres articles du code (sur les conséquences de la rétractation, notamment le remboursement du capital et des intérêts) pourraient traiter des sommes dues après rétractation, donc la question pourrait être jugée partiellement couverte.",
-      "mode unanswerable : relu systématiquement"
-    ],
     "unanswerable-test-059": [
       "doute du rédacteur : Un article voisin pourrait mentionner des frais de déclaration de créance, mais cela paraît improbable ; le coût d'envoi relève des tarifs postaux.",
       "mode unanswerable : relu systématiquement"
     ],
     "unanswerable-test-060": [
       "doute du rédacteur : Un autre article de la section sur les sanctions pénales (L342-2 à L342-5) pourrait fixer une amende pour l'exercice sans immatriculation ; la question risque donc d'avoir une réponse dans le code.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-061": [
-      "doute du rédacteur : Un autre article du code pourrait fixer un délai chiffré pour la restitution des contenus numériques après rétractation, ce qui est peu probable mais pas vérifié.",
-      "mode unanswerable : relu systématiquement"
-    ],
-    "unanswerable-test-062": [
-      "doute du rédacteur : Un autre article de sanctions pourrait prévoir une peine d'emprisonnement pour des infractions voisines, mais pas pour celle-ci à ma connaissance.",
       "mode unanswerable : relu systématiquement"
     ],
     "unanswerable-test-063": [
@@ -1803,8 +1845,72 @@
       "doute du rédacteur : Le Code de la consommation prévoit la gratuité de la procédure de surendettement ailleurs, ce qui pourrait fournir une réponse partielle sur les frais.",
       "mode unanswerable : relu systématiquement"
     ],
-    "unanswerable-test-066": [
-      "doute du rédacteur : L'article ne contient aucune valeur précise (il ne fait que renvoyer à un règlement européen), donc il n'est guère adapté ; en outre, un autre article du Code de la consommation sur les sanctions des manquements à la conformité pourrait fixer une amende, ce qui rendrait la question répondable.",
+    "unanswerable-test-067": [
+      "doute du rédacteur : Un autre article du code pourrait mentionner un montant de subvention, mais cela semble peu probable, car le chapitre ne contient que des dispositions générales sur le financement.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-068": [
+      "doute du rédacteur : Un autre article du code, sur les astreintes ou les amendes administratives, pourrait mentionner un montant, mais il ne viserait pas cette situation précise.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-069": [
+      "doute du rédacteur : Question hors champ : il faut s'assurer qu'aucun article du code ne plafonne les tarifs de communications électroniques, ce qui paraît improbable.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-073": [
+      "doute du rédacteur : Un article sur les tarifs réglementés de vente pourrait exister ailleurs, mais ce serait dans le code de l'énergie, pas dans le Code de la consommation.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-074": [
+      "doute du rédacteur : Le chapitre II du titre II sur la procédure d'amende pourrait mentionner un délai de recours ou y renvoyer. Le délai de droit commun du contentieux administratif relève d'un autre code.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-077": [
+      "doute du rédacteur : Un autre article du code (par exemple sur la facturation papier gratuite ou payante) pourrait traiter des frais de facture papier ; ce point est à vérifier.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-080": [
+      "doute du rédacteur : Un autre article (par exemple dans le chapitre sur le fichier national des incidents, L751-1 et suivants) pourrait préciser un seuil d'incident, ce qui rendrait la question répondable.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-085": [
+      "doute du rédacteur : Un autre article du code (ou le code de procédure pénale) pourrait fixer une durée pour l'audition libre, mais je n'en connais pas dans le Code de la consommation.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-088": [
+      "doute du rédacteur : Un autre article du Code de la consommation (partie réglementaire) pourrait fixer un délai de réponse aux demandes de renseignements de la commission, ce qui rendrait la question répondable.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-090": [
+      "doute du rédacteur : D'autres articles du code sur le TAEG ou les frais du crédit immobilier pourraient mentionner les frais de dossier, mais sans en fixer de plafond à ma connaissance.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-092": [
+      "doute du rédacteur : Un autre article du Code de la consommation pourrait traiter d'un plafond de taux, mais l'assurance n'est a priori pas plafonnée comme le taux d'usure.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-093": [
+      "doute du rédacteur : Le code renvoie à L132-27 pour l'amende, donc une question sur l'amende aurait une réponse ; ici on cible volontairement les dommages-intérêts, mais un lecteur pourrait y voir une question de droit commun de la responsabilité.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-094": [
+      "doute du rédacteur : Un autre article du code pourrait mentionner la prise en charge des frais d'évaluation par le prêteur ou l'emprunteur, mais sans fixer de montant précis.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-095": [
+      "doute du rédacteur : Un autre article de la section sur la formation pourrait mentionner une durée ou un contenu, mais pas un coût ; le risque est faible.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-097": [
+      "doute du rédacteur : Un autre article du code sur les prix réglementés pourrait être invoqué, mais aucun ne fixe de prix plafond pour les œufs, à ma connaissance.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-098": [
+      "doute du rédacteur : Un autre article pourrait évoquer des plafonds de prix pour certaines prestations, mais je n'en connais aucun pour les réparations forfaitaires d'électroménager.",
+      "mode unanswerable : relu systématiquement"
+    ],
+    "unanswerable-test-099": [
+      "doute du rédacteur : D'autres articles du Code de la consommation (par exemple sur la résiliation des contrats de services de communications électroniques) pourraient encadrer des frais de résiliation, même si ce n'est pas pour les contenus et services numériques en général.",
       "mode unanswerable : relu systématiquement"
     ]
   },

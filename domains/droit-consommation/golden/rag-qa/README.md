@@ -2,7 +2,7 @@
 
 Des questions posées sur le Code de la consommation, avec leur réponse attendue et les articles qui la justifient. Ce jeu sert à la série d'expériences sur le RAG, à commencer par la 002 (modèle seul ou RAG naïf). Le format d'un item et les règles de notation sont fixés par la spec [`rag-qa/v1`](../../../../evals/spec/rag-qa/v1/SPEC.md).
 
-**Statut : v1 publiée (2026-11-07), v2 écrite (2026-11-09), voir « Versions ».** Ces règles sont écrites avant le générateur. Une règle qui change après le pilote est signalée ici.
+**Statut : v1 publiée (2026-11-07), v2 et v3 écrites (2026-11-09), voir « Versions ».** Ces règles sont écrites avant le générateur. Une règle qui change après le pilote est signalée ici.
 
 ## Principe : construction hybride
 
@@ -124,6 +124,7 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 |---|---|---|---|---|
 | `v1` | `data/v1` | 42 | `rag-qa/v1` | 200 items relus, écrits dans `v1/items.jsonl` avec `MANIFEST.json` (2026-11-07). **Publiée** : citée par le [run final de la 002](../../../../experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), donc immuable |
 | `v2` | `data/v1` | 42 | `rag-qa/v1` | La v1, plus 24 questions sans réponse dans le `dev` (`rq-201` à `rq-224`) : 224 items, `dev` 74 dont 30 sans réponse, **`test` identique à celui de la v1**. Écrite le 2026-11-09 dans `v2/items.jsonl` avec `MANIFEST.json` (`base_version: v1`). Pas encore citée par un rapport |
+| `v3` | `data/v1` | 42 | `rag-qa/v1` | La v2, plus 40 questions sans réponse dans le `test` (`rq-225` à `rq-264`) : 264 items, `test` 190 dont 178 valides (audit), 51 sans réponse valides. Les 224 items de la v2, dont les 150 `test` de la v1, sont repris à l'identique. Écrite le 2026-11-09 (`base_version: v2`). Pas encore citée par un rapport |
 
 **Composition du `dev` après relecture : 6 items sans réponse et 11 en mode `direct`**, au lieu de 7 et 10. `rq-133` (« Garantie de conformité : quel délai a le vendeur pour me rembourser après la résolution du contrat ? ») avait été classé sans réponse, mais L217-17 y répond (« au plus tard dans les quatorze jours ») ; il a été transformé en item avec réponse, en mode `direct`, plutôt que remplacé (décision du 2026-11-07). La correction d'un relecteur peut désormais changer le statut, le mode, les articles et les extraits d'un item, et chaque extrait est vérifié dans son article.
 
@@ -157,3 +158,15 @@ Items concernés : `rq-006`, `rq-010`, `rq-045`, `rq-049`, `rq-055`, `rq-086`, `
 - Les verdicts des 002 à 005 restent des comparaisons appariées sur les mêmes items ; leurs limites portent une note d'audit datée.
 - Pour une expérience qui fait varier l'abstention (006), le biais porte sur la question elle-même : son verdict doit écarter ces items, ce qu'elle annonce avant son run.
 - L'audit a lu des items du `test` un par un : leur contenu, pas des réponses de modèle. La règle du lab (ne pas analyser le `test` avant un run final) est respectée pour les expériences terminées ; pour la 006, la consigne d'abstention ne doit s'appuyer que sur le `dev`.
+
+## v3 : plus de questions sans réponse dans le `test` (2026-11-09)
+
+**Pourquoi.** Après l'audit, le `test` de la v1 ne garde que 11 questions sans réponse valides sur 138 items valides. Une consigne d'abstention (006) agit surtout sur elles : même parfaite, elle ne pouvait faire gagner que 2 à 3 points de `correct`, sous ce que l'expérience sait détecter. La v3 ajoute 40 questions sans réponse au `test`.
+
+**Construction.** Comme la v2 : le plan v3 reprend celui de la v2 et ajoute 80 tâches `unanswerable/test` (`unanswerable-test-047` à `-126`) ; la construction (`--quotas v3 --base-version v2`) recharge la chaîne v1 → v2 par les manifestes et reprend leurs identifiants. Les 224 items de la v2 sont repris à l'identique (vérifié le 2026-11-09). Rédaction : 80 brouillons de Claude Sonnet 5.5, prompts de la v1.
+
+**Relecture.** Même méthode que la v2 (relecteurs IA cherchant une réponse dans tout le corpus, preuves vérifiées mot pour mot, arbitrage du propriétaire sur les propositions réunies en une page). 103 tâches candidates : 23 de réserve de la v1 (`unanswerable-test-024` à `-046`, dont 2 déjà rejetées par les contrôles en v1) et 80 nouvelles, dont 3 rejetées par les contrôles automatiques ; 98 relues : 49 rejetés, 15 corrigés, 34 acceptés tels quels. Les 40 premiers acceptés sont retenus. Verdicts : `review/v3.jsonl`. Une question qui citait une marque réelle a été reformulée sans elle (règle du dépôt) ; aucune question retenue ne cite de marque d'une liste de 36 marques courantes (contrôle du 2026-11-09).
+
+**Règle des cas limites, étendue** (décision du propriétaire, 2026-11-09). Trois cas s'ajoutent à ceux de la v2, avec le même motif (le code donne une réponse) : le code désigne qui fixe la valeur sans la donner (« fixé par le juge ») ; la question présuppose une sanction absente du code (« quelle peine de prison ? » quand seule une amende est prévue) ; le code renvoie à un site ou à un document non juridique.
+
+**Composition et équilibre.** Le `test` passe de 15 % de questions sans réponse annoncées (7 % valides après l'audit) à 29 % de questions sans réponse valides (51 sur 178). `correct` calculé sur tout le `test` donnerait donc plus de poids à l'abstention qu'un usage réel. Décision du propriétaire (2026-11-09) : garder les 40 ajouts et ne pas pondérer (une pondération 85/15 reprendrait la proportion de la v1, qui ne reflète pas l'usage réel non plus). Une expérience qui fait varier l'abstention juge sur **deux critères avec une règle conjointe**, fixés avant son run : la baisse des réponses inventées sur les questions sans réponse valides (items défectueux de l'audit écartés), et une garde sur les abstentions à tort des questions avec réponse, à ne pas dépasser au-delà d'une marge. Les chiffres des 002 à 005 restent comparables sur les 150 items `test` de la v1, présents à l'identique. La v4 prévue (nouveaux modes, 96 items `test` avec réponse) ramènera la proportion de questions sans réponse valides à environ 19 % (51 sur 274).
