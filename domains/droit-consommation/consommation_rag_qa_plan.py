@@ -42,12 +42,13 @@ V2_QUOTAS: dict[str, tuple[int, int]] = {**V1_QUOTAS, "unanswerable": (31, 23)}
 # un effet de la consigne d'abstention sur `correct` ne pouvait pas dépasser quelques points.
 V3_QUOTAS: dict[str, tuple[int, int]] = {**V1_QUOTAS, "unanswerable": (31, 63)}
 # v4 : la v3, plus quatre modes tirés de la littérature RAG (CRAG, CRUMQs, Ragas). Les tailles
-# suivent la capacité du corpus : ces modes se disputent les articles qui portent une valeur, et
-# `bridge`, le vrai multi-hop, garde la plus grande (README du golden set, « v4 »).
+# suivent la capacité du corpus, revue après le premier pilote : ces modes se disputent les
+# articles qui portent une valeur, et `bridge`, le vrai multi-hop, garde la plus grande (README du
+# golden set, « v4 »).
 V4_QUOTAS: dict[str, tuple[int, int]] = {
     **V3_QUOTAS,
-    "comparison": (8, 22),
-    "set": (8, 22),
+    "comparison": (6, 16),
+    "set": (6, 16),
     "bridge": (10, 30),
     "false_premise": (8, 22),
 }
@@ -68,6 +69,12 @@ V4_PILOT_QUOTAS: dict[str, tuple[int, int]] = {
     "bridge": (20, 0),
     "false_premise": (10, 0),
 }
+# Second pilote, après le durcissement du tirage : les trois modes rejetés à plus de 40 %.
+V4_PILOT2_QUOTAS: dict[str, tuple[int, int]] = {
+    "bridge": (10, 0),
+    "comparison": (6, 0),
+    "set": (6, 0),
+}
 # Réserve : deux fois le besoin. Au second pilote, 4 brouillons sur 20 ont été rejetés.
 SURPLUS = 2.0
 
@@ -81,9 +88,9 @@ DRAW_ORDER = (
     "direct",
     "paraphrase",
     "unanswerable",
+    "bridge",
     "comparison",
     "set",
-    "bridge",
     "false_premise",
 )
 
@@ -108,6 +115,14 @@ VALUE_CLASSES = {
     "taux": re.compile(rf"\b{_NUMBER}\s*(?:%|pour cent\b)", re.I),
 }
 MIN_SET_ITEMS, MAX_SET_ITEMS = 3, 6
+# Adaptations outre-mer : des listes de remplacements de mots, que personne ne demande en chat.
+OVERSEAS = re.compile(
+    r"outre-mer|Saint-Pierre|Mayotte|Wallis|Polynésie|Nouvelle-Calédonie|Saint-Barthélemy"
+    r"|Saint-Martin",
+    re.IGNORECASE,
+)
+# bridge, sens aller : au-delà, le renvoi de A se perd dans une liste d'articles.
+MAX_BRIDGE_CITES = 2
 _ITEM_MARKERS = {
     "number": re.compile(r"^\s*\d+°"),
     "letter": re.compile(r"^\s*[a-z]\)"),
@@ -186,9 +201,15 @@ def enumeration(text: str) -> list[str]:
 
 def set_candidate(article: dict) -> bool:
     """Liste fermée de 3 à 6 éléments : au-delà, une réponse juste doit retrouver trop de
-    mots-clés. « notamment » avant la liste la rend ouverte."""
+    mots-clés. « notamment » avant la liste la rend ouverte. Sont écartées aussi les adaptations
+    outre-mer, et les listes dont plus d'un tiers des éléments renvoient à un article : leur
+    contenu est ailleurs."""
     items = enumeration(article["text"])
     if not MIN_SET_ITEMS <= len(items) <= MAX_SET_ITEMS:
+        return False
+    if OVERSEAS.search(article["text"]) or any(OVERSEAS.search(p) for p in article["path"]):
+        return False
+    if sum("article" in item.lower() for item in items) > len(items) // 3:
         return False
     preamble = article["text"][: article["text"].find(items[0])]
     return "notamment" not in preamble.lower()
@@ -198,39 +219,71 @@ def false_premise_candidate(article: dict) -> bool:
     return bool(value_classes(article["text"]))
 
 
-def _title(article: dict) -> tuple:
-    """Le titre du code qui contient l'article ; à défaut, son niveau au-dessus du dernier."""
+def _chapter(article: dict) -> tuple:
+    """Le chapitre du code qui contient l'article ; à défaut, son niveau au-dessus du dernier."""
     path = article["path"]
-    end = next((i for i, part in enumerate(path) if part.startswith("Titre")), len(path) - 2)
+    end = next((i for i, part in enumerate(path) if part.startswith("Chapitre")), len(path) - 2)
     return (article["part"], tuple(path[: end + 1]))
 
 
+def _has_own_value(article: dict, other: dict) -> bool:
+    """L'article porte une durée, un montant ou un taux que l'autre n'écrit pas."""
+    mine, theirs = value_classes(article["text"]), value_classes(other["text"])
+    return any(values - theirs.get(c, set()) for c, values in mine.items())
+
+
 def bridge_candidates(articles: list[dict]) -> list[Candidate]:
-    """(A, B) : A cite B dans les liens LEGI, et le texte de A écrit le numéro de B."""
+    """(départ, réponse) : la question part du premier article, la valeur est dans le second, et
+    l'un écrit le numéro de l'autre. Deux sens :
+    - aller : A renvoie à B (« dans le délai mentionné à l'article L. 312-25 »), A cite au plus
+      deux articles, et B porte une valeur absente de A ;
+    - inversé : l'article de sanction S cite l'obligation O (« tout manquement à l'article
+      L. 112-3 est passible… ») ; la question part de O, la valeur est dans S."""
     pool = {a["id"]: a for a in articles if eligible(a)}
-    return [
-        (a["id"], b)
-        for a in pool.values()
-        for b in a["cites"]
-        if b in pool and b != a["id"] and writes_number(a["text"], pool[b]["num"])
-    ]
+    pairs: list[Candidate] = []
+    for citing in pool.values():
+        for cited_id in dict.fromkeys(citing["cites"]):
+            cited = pool.get(cited_id)
+            if cited is None or cited_id == citing["id"]:
+                continue
+            if not writes_number(citing["text"], cited["num"]):
+                continue
+            few_cites = len(set(citing["cites"])) <= MAX_BRIDGE_CITES
+            if few_cites and _has_own_value(cited, citing):
+                pairs.append((citing["id"], cited_id))
+            if _has_own_value(citing, cited):
+                pairs.append((cited_id, citing["id"]))
+    return list(dict.fromkeys(pairs))
 
 
 def comparison_candidates(articles: list[dict]) -> list[Candidate]:
-    """(A, B) d'un même titre, avec un type de valeur en commun, chacun portant une valeur de
-    ce type que l'autre n'a pas."""
-    by_title: dict[tuple, list[dict]] = defaultdict(list)
+    """(A, B) d'un même chapitre, avec un type de valeur en commun et aucune valeur de ce type
+    partagée : deux cas voisins, réglés par deux valeurs différentes."""
+    by_chapter: dict[tuple, list[dict]] = defaultdict(list)
     for a in articles:
         if eligible(a):
-            by_title[_title(a)].append(a)
+            by_chapter[_chapter(a)].append(a)
     pairs: list[Candidate] = []
-    for group in by_title.values():
+    for group in by_chapter.values():
         values = {a["id"]: value_classes(a["text"]) for a in group}
         for a, b in combinations(group, 2):
             va, vb = values[a["id"]], values[b["id"]]
-            if any(va[c] - vb[c] and vb[c] - va[c] for c in va.keys() & vb.keys()):
+            if any(va[c].isdisjoint(vb[c]) for c in va.keys() & vb.keys()):
                 pairs.append((a["id"], b["id"]))
     return pairs
+
+
+def _item_articles(items: list[dict]) -> set[str]:
+    return {a["id"] for i in items for a in i["expected"]["articles"]} | {
+        i["source_article"] for i in items if i.get("source_article")
+    }
+
+
+def reusable_articles(plan: list[dict], rejected: dict, items: list[dict]) -> set[str]:
+    """Articles des tâches rejetées (contrôles ou relecture) qu'aucun item n'utilise : tirés,
+    jamais publiés, ils peuvent servir à un nouveau mode (README du golden set, « v4 »)."""
+    freed = {a for t in plan if t["task"] in rejected for a in t["articles"]}
+    return freed - _item_articles(items)
 
 
 def livre(article: dict) -> str:
@@ -382,10 +435,15 @@ def extend_plan(
     n: int,
     seed: int,
     exclude: set[str] | frozenset[str] = frozenset(),
+    freed_tasks: set[str] | frozenset[str] = frozenset(),
 ) -> list[dict]:
     """Ajoute n tâches à un mode et un split d'un plan existant, sans toucher aux tâches déjà
-    tirées : c'est la seule modification permise d'un plan, quand la réserve ne suffit pas."""
-    used = set(exclude) | {a for task in plan for a in task["articles"]}
+    tirées : c'est la seule modification permise d'un plan, quand la réserve ne suffit pas.
+    Les articles des tâches libérées (`freed_tasks`, des tâches rejetées) peuvent être tirés à
+    nouveau, une seule fois : leur nouvelle tâche, elle, n'est pas libérée."""
+    used = set(exclude) | {
+        a for task in plan if task["task"] not in freed_tasks for a in task["articles"]
+    }
     group = [t for t in plan if t["mode"] == mode and t["split"] == split]
     last = max((t["rank"] for t in group), default=0)
     rng = random.Random(f"{seed}-{mode}-{split}-extension-{last}")
@@ -416,23 +474,49 @@ def _read_jsonl(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line]
 
 
+def _version_files(golden_dir: Path, version: str) -> tuple[list[dict], dict, list[dict]]:
+    base = golden_dir / version
+    report = json.loads((base / "build_report.json").read_text("utf-8"))
+    return _read_jsonl(base / "plan.jsonl"), report["rejected"], _read_jsonl(base / "items.jsonl")
+
+
+def excluded_articles(
+    plan_paths: list[Path], reuse_versions: list[str], golden_dir: Path
+) -> set[str]:
+    """Articles à exclure d'un tirage : ceux des plans donnés, sauf les articles réutilisables
+    des versions de `reuse_versions` ; les articles de leurs items restent exclus."""
+    excluded = {a for path in plan_paths for task in _read_jsonl(path) for a in task["articles"]}
+    for version in reuse_versions:
+        excluded -= reusable_articles(*_version_files(golden_dir, version))
+    return excluded
+
+
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
     parser.add_argument("--articles", type=Path, default=DOMAIN_DIR / "data/v1/articles.jsonl")
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--version", required=True, help="ex. pilot, v1")
-    parser.add_argument("--quotas", choices=["v1", "pilot", "pilot-v4"], default="v1")
+    parser.add_argument("--quotas", choices=["v1", "pilot", "pilot-v4", "pilot2-v4"], default="v1")
     parser.add_argument("--golden-dir", type=Path, default=DOMAIN_DIR / "golden/rag-qa")
     parser.add_argument("--exclude-plan", type=Path, action="append", default=[])
     parser.add_argument("--extend", help="mode:split:n, ajoute n tâches à un plan existant")
+    parser.add_argument(
+        "--reuse-rejected",
+        action="append",
+        default=[],
+        help="version dont les articles des tâches rejetées peuvent être tirés à nouveau",
+    )
     args = parser.parse_args(argv)
 
     out = args.golden_dir / args.version / "plan.jsonl"
-    exclude = {
-        a for path in args.exclude_plan for task in _read_jsonl(path) for a in task["articles"]
-    }
+    exclude = excluded_articles(args.exclude_plan, args.reuse_rejected, args.golden_dir)
     if args.extend:
         mode, split, n = args.extend.split(":")
+        freed: set[str] = set()
+        for version in args.reuse_rejected:
+            _, rejected, items = _version_files(args.golden_dir, version)
+            freed |= set(rejected)
+            exclude |= _item_articles(items)
         extended = extend_plan(
             _read_jsonl(args.articles),
             _read_jsonl(out),
@@ -441,6 +525,7 @@ def main(argv: list[str] | None = None) -> None:
             n=int(n),
             seed=args.seed,
             exclude=exclude,
+            freed_tasks=freed,
         )
         out.write_text("".join(json.dumps(t, ensure_ascii=False) + "\n" for t in extended), "utf-8")
         print(f"{n} tâches {mode}/{split} ajoutées à {out}")
@@ -451,6 +536,7 @@ def main(argv: list[str] | None = None) -> None:
         "v1": (V1_QUOTAS, SURPLUS),
         "pilot": (PILOT_QUOTAS, 1.0),
         "pilot-v4": (V4_PILOT_QUOTAS, 1.0),
+        "pilot2-v4": (V4_PILOT2_QUOTAS, 1.0),
     }[args.quotas]
     plan = make_plan(
         _read_jsonl(args.articles), seed=args.seed, quotas=quotas, surplus=surplus, exclude=exclude

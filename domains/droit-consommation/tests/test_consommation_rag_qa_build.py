@@ -868,6 +868,45 @@ def test_bridge_item_expects_both_articles_and_quotes_the_link_first() -> None:
     ]
 
 
+# bridge inversé : la question part de l'obligation O ; la sanction S la cite et porte la valeur.
+OBLIGATION = v4(
+    "LEGIARTI000000000108",
+    "L112-3",
+    "Lorsque le prix ne peut être calculé à l'avance, le professionnel fournit le mode de calcul "
+    "du prix.",
+)
+SANCTION = v4(
+    "LEGIARTI000000000109",
+    "L131-6",
+    "Tout manquement aux dispositions de l'article L. 112-3 est passible d'une amende "
+    "administrative dont le montant ne peut excéder 3 000 euros pour une personne physique.",
+)
+V4_BY_ID |= {OBLIGATION["id"]: OBLIGATION, SANCTION["id"]: SANCTION}
+REVERSE_OK = {
+    "question": "Un artisan ne m'a pas dit comment il calculait son devis : il risque quoi ?",
+    "link_quote": "Tout manquement aux dispositions de l'article L. 112-3",
+    "facts": [fact(["3 000 euros", "3 000 €"], "ne peut excéder 3 000 euros", "L131-6")],
+}
+
+
+def test_a_valid_reverse_bridge_passes() -> None:
+    result = v4_check("bridge", (OBLIGATION, SANCTION), REVERSE_OK)
+    assert result.errors == []
+
+
+def test_reverse_bridge_link_quote_is_copied_from_the_sanction() -> None:
+    errors = v4_check(
+        "bridge", (OBLIGATION, SANCTION), {**REVERSE_OK, "link_quote": "le mode de calcul"}
+    ).errors
+    assert "renvoi introuvable dans B (L131-6)" in errors
+
+
+def test_reverse_bridge_item_quotes_the_link_then_the_value() -> None:
+    item = make_item(task("bridge", (OBLIGATION, SANCTION)), REVERSE_OK, V4_BY_ID)
+    assert [a["num"] for a in item["expected"]["articles"]] == ["L112-3", "L131-6"]
+    assert [e["article"] for e in item["evidence"]] == [SANCTION["id"], SANCTION["id"]]
+
+
 COMPARISON_OK = {
     "question": "Remboursement en ligne et démarchage à domicile : quels délais dans chaque cas ?",
     "facts": [

@@ -341,7 +341,9 @@ def check(
 def _bridge_checks(
     output: dict, a: dict, b: dict, question: str, to_b: float | None
 ) -> tuple[list[str], list[str]]:
-    """A renvoie à B ; la question part de A, la réponse est un fait de B absent de A."""
+    """La question part de A, la réponse est un fait de B absent de A, et l'un des deux écrit le
+    numéro de l'autre : A renvoie à B (sens aller), ou B, l'article de sanction, cite
+    l'obligation A (sens inversé). `link_quote` est copié dans l'article qui porte le renvoi."""
     errors: list[str] = []
     alerts: list[str] = []
     facts = output.get("facts") or []
@@ -354,11 +356,14 @@ def _bridge_checks(
             if normalize(str(form)) and _found(str(form), a["text"]):
                 errors.append(f"le fait « {form} » figure déjà dans A")
                 break
+    citing, cited = (
+        (("A", a), ("B", b)) if writes_number(a["text"], b["num"]) else (("B", b), ("A", a))
+    )
     link = str(output.get("link_quote", ""))
-    if not link.strip() or not quote_in_text(link, a["text"]):
-        errors.append(f"renvoi introuvable dans A ({a['num']})")
-    elif not writes_number(link, b["num"]):
-        errors.append(f"le renvoi ne cite pas B ({b['num']})")
+    if not link.strip() or not quote_in_text(link, citing[1]["text"]):
+        errors.append(f"renvoi introuvable dans {citing[0]} ({citing[1]['num']})")
+    elif not writes_number(link, cited[1]["num"]):
+        errors.append(f"le renvoi ne cite pas {cited[0]} ({cited[1]['num']})")
     if to_b is not None:
         if to_b > BRIDGE_OVERLAP_THRESHOLD:
             errors.append(f"recouvrement question/B {to_b:.2f} > {BRIDGE_OVERLAP_THRESHOLD:.2f}")
@@ -486,8 +491,10 @@ def make_item(task: dict, output: dict, by_id: dict[str, dict]) -> dict:
     }
     item["evidence"] = [{"article": by_num[f["article"]]["id"], "quote": f["quote"]} for f in facts]
     if task["mode"] == "bridge":
-        # Le renvoi de A vient en premier : c'est la première étape du chemin.
-        link = {"article": articles[0]["id"], "quote": output["link_quote"]}
+        # Le renvoi vient en premier : c'est la première étape du chemin. Il est dans A (sens
+        # aller) ou dans B, l'article de sanction qui cite A (sens inversé).
+        forward = writes_number(articles[0]["text"], articles[1]["num"])
+        link = {"article": articles[0 if forward else 1]["id"], "quote": output["link_quote"]}
         item["evidence"] = [link, *item["evidence"]]
     return item
 

@@ -10,6 +10,7 @@ from consommation_rag_qa_plan import (
     SURPLUS,
     V1_QUOTAS,
     V3_QUOTAS,
+    V4_PILOT2_QUOTAS,
     V4_PILOT_QUOTAS,
     V4_QUOTAS,
     allocate,
@@ -17,12 +18,14 @@ from consommation_rag_qa_plan import (
     comparison_candidates,
     eligible,
     enumeration,
+    excluded_articles,
     extend_plan,
     false_premise_candidate,
     lost_context_candidate,
     main,
     make_plan,
     reference_candidate,
+    reusable_articles,
     set_candidate,
     value_classes,
     writes_number,
@@ -353,11 +356,12 @@ def v4_article(
     text: str,
     *,
     titre: str = "Titre II",
+    chapitre: str = "Chapitre Ier",
     cites: tuple[str, ...] = (),
     num: str | None = None,
 ) -> dict:
     row = article(i, text=text + PAD, cites=cites, num=num)
-    row["path"] = ["Partie législative nouvelle", "Livre II : X", f"{titre} : Y", "Chapitre Ier"]
+    row["path"] = ["Partie législative nouvelle", "Livre II : X", f"{titre} : Y", chapitre]
     return row
 
 
@@ -368,13 +372,6 @@ def test_writes_number_accepts_the_usual_spellings() -> None:
     assert not writes_number("Le délai mentionné à l'article R. 312-25.", "L312-25")
 
 
-def test_bridge_needs_b_number_in_a_text() -> None:
-    b = v4_article(2, "Un délai de sept jours.", num="L312-25")
-    a = v4_article(1, "Dans le délai mentionné à l'article L. 312-25.", cites=(b["id"],))
-    silent = v4_article(3, "Les dispositions de la présente section.", cites=(b["id"],))
-    assert bridge_candidates([a, b, silent]) == [(a["id"], b["id"])]
-
-
 def test_value_classes_reads_durations_amounts_and_rates() -> None:
     assert value_classes("quatorze jours ou 30 jours ; 15 000 euros ; 3 % du prix") == {
         "durée": {"quatorze jours", "30 jours"},
@@ -383,14 +380,48 @@ def test_value_classes_reads_durations_amounts_and_rates() -> None:
     }
 
 
-def test_comparison_pairs_same_title_same_kind_different_values() -> None:
+# bridge, sens aller : A renvoie à B, qui porte la valeur.
+B_VALUE = v4_article(2, "Un délai de sept jours.", num="L312-25")
+A_LINK = v4_article(1, "Dans le délai mentionné à l'article L. 312-25.", cites=(B_VALUE["id"],))
+
+
+def test_bridge_forward_pair_when_a_writes_b_number_and_b_holds_the_value() -> None:
+    silent = v4_article(3, "Les dispositions de la présente section.", cites=(B_VALUE["id"],))
+    assert bridge_candidates([A_LINK, B_VALUE, silent]) == [(A_LINK["id"], B_VALUE["id"])]
+
+
+def test_bridge_forward_drops_pairs_where_b_has_no_value_of_its_own() -> None:
+    no_value = v4_article(2, "Le professionnel informe le consommateur.", num="L312-25")
+    assert bridge_candidates([A_LINK, no_value]) == []
+    a_with_value = {**A_LINK, "text": A_LINK["text"] + " Ce délai est de sept jours."}
+    assert bridge_candidates([a_with_value, B_VALUE]) == []
+
+
+def test_bridge_forward_drops_links_lost_in_a_list_of_articles() -> None:
+    others = [v4_article(10 + k, "Autre article.", num=f"L312-{30 + k}") for k in range(2)]
+    crowded = {**A_LINK, "cites": [B_VALUE["id"], *(o["id"] for o in others)]}
+    assert bridge_candidates([crowded, B_VALUE, *others]) == []
+
+
+def test_bridge_reverse_pair_starts_from_the_obligation_and_ends_at_its_sanction() -> None:
+    obligation = v4_article(4, "Le professionnel affiche le mode de calcul du prix.", num="L112-3")
+    sanction = v4_article(
+        5,
+        "Tout manquement à l'article L. 112-3 est passible d'une amende de 3 000 euros.",
+        cites=(obligation["id"],),
+        num="L131-6",
+    )
+    assert bridge_candidates([obligation, sanction]) == [(obligation["id"], sanction["id"])]
+
+
+def test_comparison_pairs_same_chapter_with_no_shared_value() -> None:
     a = v4_article(1, "Un délai de quatorze jours.")
     b = v4_article(2, "Un délai de sept jours.")
-    same = v4_article(3, "Ce délai de quatorze jours court.")
+    shared = v4_article(3, "Un délai de quatorze jours, ou de trente jours.")
     fine = v4_article(4, "Une amende de 15 000 euros.")
-    far = v4_article(5, "Un délai de trente jours.", titre="Titre III")
-    expected = [(a["id"], b["id"]), (b["id"], same["id"])]
-    assert comparison_candidates([a, b, same, fine, far]) == expected
+    far = v4_article(5, "Un délai de trois jours.", chapitre="Chapitre II")
+    expected = [(a["id"], b["id"]), (b["id"], shared["id"])]
+    assert comparison_candidates([a, b, shared, fine, far]) == expected
 
 
 def test_enumeration_keeps_sub_items_in_their_parent() -> None:
@@ -399,21 +430,29 @@ def test_enumeration_keeps_sub_items_in_their_parent() -> None:
     assert len(items) == 3 and "Les taxes" in items[1]
 
 
+def numbered(n: int, preamble: str = "Sont exclus :", item: str = "Élément {k} ;") -> str:
+    return preamble + "\n" + "\n".join(f"{k}° " + item.format(k=k) for k in range(1, n + 1))
+
+
 @pytest.mark.parametrize(
-    ("items", "preamble", "ok"),
+    ("text", "ok"),
     [
-        (3, "Sont exclus :", True),
-        (6, "Sont exclus :", True),
-        (2, "Sont exclus :", False),
-        (7, "Sont exclus :", False),
-        (3, "Sont notamment exclus :", False),
+        (numbered(3), True),
+        (numbered(6), True),
+        (numbered(2), False),
+        (numbered(7), False),
+        (numbered(3, preamble="Sont notamment exclus :"), False),
+        (numbered(3, preamble="Pour l'application à Mayotte, sont remplacés :"), False),
+        (numbered(3, item="Les dispositions de l'article L. 1{k}-1 ;"), False),
     ],
 )
-def test_set_candidates_are_closed_lists_of_three_to_six(
-    items: int, preamble: str, ok: bool
-) -> None:
-    text = preamble + "\n" + "\n".join(f"{k}° Élément {k} ;" for k in range(1, items + 1))
+def test_set_candidates_are_closed_lists_of_three_to_six(text: str, ok: bool) -> None:
     assert set_candidate(v4_article(1, text)) is ok
+
+
+def test_a_set_may_refer_to_an_article_in_a_third_of_its_items() -> None:
+    text = numbered(3) + "\n" + "4° Les contrats de l'article L. 221-2 ;"
+    assert set_candidate(v4_article(1, text.replace("Sont exclus", "Sont aussi exclus")))
 
 
 def test_false_premise_candidates_carry_a_value() -> None:
@@ -425,7 +464,7 @@ def v4_corpus() -> list[dict]:
     """Assez d'articles pour chaque nouveau vivier : listes, valeurs voisines, renvois."""
     rows: list[dict] = []
     for k in range(60):
-        rows.append(v4_article(1000 + k, "Sont exclus :\n1° Un ;\n2° Deux ;\n3° Trois."))
+        rows.append(v4_article(1000 + k, numbered(3)))
     for k in range(80):
         rows.append(v4_article(2000 + k, f"Un délai de {k + 1} jours.", titre=f"Titre {k // 4}"))
     for k in range(60):
@@ -447,10 +486,11 @@ def v4_corpus() -> list[dict]:
     return rows
 
 
-def test_v4_pilot_draws_each_new_mode_once_without_surplus() -> None:
-    pilot = make_plan(v4_corpus(), seed=10, quotas=V4_PILOT_QUOTAS, surplus=1.0)
+@pytest.mark.parametrize("quotas", [V4_PILOT_QUOTAS, V4_PILOT2_QUOTAS])
+def test_v4_pilots_draw_each_mode_once_without_surplus(quotas: dict) -> None:
+    pilot = make_plan(v4_corpus(), seed=10, quotas=quotas, surplus=1.0)
     counts = Counter(t["mode"] for t in pilot)
-    assert counts == {mode: dev for mode, (dev, _) in V4_PILOT_QUOTAS.items()}
+    assert counts == {mode: dev for mode, (dev, _) in quotas.items()}
     ids = [a for t in pilot for a in t["articles"]]
     assert len(ids) == len(set(ids))
 
@@ -462,12 +502,13 @@ def test_modes_absent_from_the_quotas_are_not_drawn(plan: list[dict]) -> None:
 def test_v4_quotas_extend_v3() -> None:
     assert {m: V4_QUOTAS[m] for m in V3_QUOTAS} == V3_QUOTAS
     assert {m: V4_QUOTAS[m] for m in V4_PILOT_QUOTAS} == {
-        "comparison": (8, 22),
-        "set": (8, 22),
+        "comparison": (6, 16),
+        "set": (6, 16),
         "bridge": (10, 30),
         "false_premise": (8, 22),
     }
-    assert DRAW_ORDER[-4:] == ("comparison", "set", "bridge", "false_premise")
+    assert DRAW_ORDER[-4:] == ("bridge", "comparison", "set", "false_premise")
+    assert V4_PILOT2_QUOTAS == {"bridge": (10, 0), "comparison": (6, 0), "set": (6, 0)}
 
 
 def test_extend_draws_a_new_mode_from_its_pool() -> None:
@@ -477,3 +518,62 @@ def test_extend_draws_a_new_mode_from_its_pool() -> None:
     for task in extended:
         a, b = (by_id[i] for i in task["articles"])
         assert writes_number(a["text"], b["num"])
+
+
+# --- Réutiliser les articles des tâches rejetées ------------------------------------------------
+
+
+def test_reusable_articles_come_from_rejected_tasks_and_never_from_items() -> None:
+    plan = [
+        {"task": "direct-dev-001", "articles": ["a1"]},
+        {"task": "direct-dev-002", "articles": ["a2"]},
+        {"task": "multi_article-dev-001", "articles": ["a3", "a4"]},
+        {"task": "direct-dev-003", "articles": ["a5"]},
+    ]
+    rejected = {"direct-dev-002": ["…"], "multi_article-dev-001": ["…"], "direct-dev-003": ["…"]}
+    # a5 : tâche rejetée, mais une correction de relecture en a fait l'article d'un item.
+    items = [
+        {"expected": {"articles": [{"id": "a1"}]}},
+        {"expected": {"articles": [{"id": "a5"}]}},
+        {"expected": {"articles": []}, "source_article": "a4"},
+    ]
+    assert reusable_articles(plan, rejected, items) == {"a2", "a3"}
+
+
+def test_extend_may_draw_again_the_reusable_articles(big_corpus: list[dict]) -> None:
+    base = make_plan(big_corpus, seed=42, quotas=PILOT_QUOTAS, surplus=1.0)
+    in_base = {a for t in base for a in t["articles"]}
+    free = len([a for a in big_corpus if eligible(a)]) - len(in_base)
+    with pytest.raises(ValueError):
+        extend_plan(big_corpus, base, mode="direct", split="test", n=free + 1, seed=42)
+    freed = frozenset(t["task"] for t in base)
+    extended = extend_plan(
+        big_corpus, base, mode="direct", split="test", n=free + 1, seed=42, freed_tasks=freed
+    )
+    assert len(extended) == len(base) + free + 1
+    # Un article réutilisé une fois ne se réutilise plus : sa nouvelle tâche n'est pas libérée.
+    with pytest.raises(ValueError):
+        extend_plan(
+            big_corpus,
+            extended,
+            mode="direct",
+            split="test",
+            n=len(in_base),
+            seed=42,
+            freed_tasks=freed,
+        )
+
+
+def test_reused_articles_are_no_longer_excluded(tmp_path: Path) -> None:
+    base = tmp_path / "v1"
+    base.mkdir()
+    tasks = [
+        {"task": "direct-dev-001", "articles": ["kept"]},
+        {"task": "direct-dev-002", "articles": ["rejected"]},
+    ]
+    (base / "plan.jsonl").write_text("".join(json.dumps(t) + "\n" for t in tasks), "utf-8")
+    (base / "build_report.json").write_text(json.dumps({"rejected": {"direct-dev-002": ["x"]}}))
+    (base / "items.jsonl").write_text(json.dumps({"expected": {"articles": [{"id": "kept"}]}}))
+    plans = [base / "plan.jsonl"]
+    assert excluded_articles(plans, [], tmp_path) == {"kept", "rejected"}
+    assert excluded_articles(plans, ["v1"], tmp_path) == {"kept"}

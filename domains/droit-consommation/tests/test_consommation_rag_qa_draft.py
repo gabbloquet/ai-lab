@@ -138,11 +138,10 @@ def test_two_article_modes_show_both_articles_in_order(prompts: dict[str, str], 
     assert user.index("Article A : L221-18") < user.index("Article B : L221-23")
 
 
-def test_bridge_mode_gives_b_number_in_its_citation_form(prompts: dict[str, str]) -> None:
+def test_bridge_mode_covers_both_directions_of_the_link(prompts: dict[str, str]) -> None:
     _, user, schema = render_request(task("bridge", (A, B)), BY_ID, prompts)
 
-    assert "l'article L. 221-23" in user
-    assert "{citation_b}" not in user
+    assert "A renvoie à B" in user and "B renvoie à A" in user
     assert schema == BRIDGE_SCHEMA
 
 
