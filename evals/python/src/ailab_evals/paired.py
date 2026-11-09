@@ -46,3 +46,21 @@ def aggregate(scores: list[PairedScore]) -> Aggregate:
     low, high = delta - half_width, delta + half_width
     verdict = "b_better" if low > 0 else "b_worse" if high < 0 else "inconclusive"
     return Aggregate(n=n, delta=delta, ci_low=low, ci_high=high, verdict=verdict)
+
+
+def joint_verdict(main: Aggregate, guard: Aggregate, *, guard_margin: float) -> str:
+    """Verdict à deux critères d'un levier d'abstention (protocole de la 006, écart à la règle de la
+    spec fixé avant le run). `main` est le delta B − A des réponses inventées (plus bas est mieux),
+    `guard` celui des abstentions à tort, à ne pas augmenter au-delà de `guard_margin`.
+
+    - `b_better` : les réponses inventées baissent, et la garde tient (borne haute sous la marge) ;
+    - `b_worse` : les réponses inventées augmentent, ou les abstentions à tort dépassent
+      nettement la marge (borne basse au-dessus) ;
+    - `tradeoff` : les réponses inventées baissent, mais la garde ne tient pas ;
+    - `inconclusive` sinon.
+    """
+    if main.ci_low > 0 or guard.ci_low > guard_margin:
+        return "b_worse"
+    if main.ci_high < 0:
+        return "b_better" if guard.ci_high < guard_margin else "tradeoff"
+    return "inconclusive"

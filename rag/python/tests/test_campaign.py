@@ -9,7 +9,7 @@ from pydantic_ai.messages import ModelMessage, ModelRequest, ModelResponse, Tool
 from pydantic_ai.models.function import AgentInfo, FunctionModel
 
 from ailab_rag.answering import CLOSED_BOOK, NAIVE_RAG
-from ailab_rag.campaign import run_campaign, summarize
+from ailab_rag.campaign import abstention_comparison, run_campaign, summarize
 from ailab_rag.corpus import Passage
 from ailab_rag.prompting import GROUNDING
 
@@ -303,3 +303,102 @@ async def test_each_variant_can_have_its_own_grounding(tmp_path: Path) -> None:
 
     assert sum("Consigne plus exigeante." in p for p in prompts) == 1
     assert sum(GROUNDING in p for p in prompts) == 1
+
+
+# --- Verdict à deux critères (006) --------------------------------------------------------------
+
+
+def execution(item_id: str, variant: str, repeat: int, *, abstained: bool) -> dict:
+    return {
+        "item_id": item_id,
+        "variant": variant,
+        "model": "fake-model",
+        "repeat": repeat,
+        "answer": "" if abstained else "14 jours",
+        "abstained": abstained,
+        "cited": [] if abstained else ["L221-18"],
+        "context": [GOLD.article_id],
+        "usage": {},
+        "error": None,
+    }
+
+
+ABSTENTION_ITEMS = [
+    item("rq-101"),
+    item("rq-102"),
+    item("rq-103", mode="unanswerable", answerable=False),
+    item("rq-104", mode="unanswerable", answerable=False),
+    item("rq-105", mode="unanswerable", answerable=False),
+]
+
+
+def test_abstention_comparison_judges_inventions_and_wrong_abstentions() -> None:
+    """A invente sur les items sans réponse ; B s'y abstient et répond toujours aux autres."""
+    executions = [
+        execution(i["id"], v, r, abstained=(v == "strict" and not i["answerable"]))
+        for i in ABSTENTION_ITEMS
+        for v in ("base", "strict")
+        for r in range(2)
+    ]
+
+    result = abstention_comparison(
+        ABSTENTION_ITEMS, executions, baseline="base", variant="strict", guard_margin=0.03
+    )
+
+    assert result["hallucination"]["n"] == 3 and result["hallucination"]["delta"] == -1.0
+    assert result["false_abstention"]["n"] == 2 and result["false_abstention"]["delta"] == 0.0
+    assert result["verdict"] == "b_better"
+
+
+def test_abstention_comparison_leaves_out_the_excluded_items() -> None:
+    executions = [
+        execution(i["id"], v, r, abstained=(v == "strict" and not i["answerable"]))
+        for i in ABSTENTION_ITEMS
+        for v in ("base", "strict")
+        for r in range(2)
+    ]
+
+    result = abstention_comparison(
+        ABSTENTION_ITEMS,
+        executions,
+        baseline="base",
+        variant="strict",
+        guard_margin=0.03,
+        exclude={"rq-105"},
+    )
+
+    assert result["hallucination"]["n"] == 2
+    assert result["excluded"] == ["rq-105"]
+
+
+async def test_summary_can_leave_out_excluded_items(tmp_path: Path) -> None:
+    executions = await run_campaign(
+        ITEMS,
+        variants=[CLOSED_BOOK, NAIVE_RAG],
+        model=knows_only_with_context(),
+        repeats=1,
+        retrieve=retrieve,
+        out=tmp_path / "e.jsonl",
+    )
+
+    summary = summarize(ITEMS, executions, split="test", exclude={"rq-002"})
+
+    assert summary["n_items"] == 1
+    assert summary["excluded"] == ["rq-002"]
+
+
+def test_abstention_comparison_ignores_failed_executions() -> None:
+    """La spec ne note pas une exécution en erreur : elle ne compte ni pour ni contre."""
+    executions = [
+        execution(i["id"], v, r, abstained=(v == "strict" and not i["answerable"]))
+        for i in ABSTENTION_ITEMS
+        for v in ("base", "strict")
+        for r in range(2)
+    ]
+    executions.append({**execution("rq-103", "strict", 2, abstained=False), "error": "Timeout"})
+
+    result = abstention_comparison(
+        ABSTENTION_ITEMS, executions, baseline="base", variant="strict", guard_margin=0.03
+    )
+
+    assert result["hallucination"]["delta"] == -1.0

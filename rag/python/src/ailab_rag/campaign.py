@@ -13,7 +13,7 @@ from __future__ import annotations
 import asyncio
 import json
 import math
-from collections.abc import Awaitable, Callable, Mapping
+from collections.abc import Awaitable, Callable, Collection, Mapping
 from pathlib import Path
 from statistics import mean, median
 from typing import Any
@@ -21,6 +21,7 @@ from typing import Any
 from pydantic_ai.exceptions import ModelHTTPError
 from pydantic_ai.models import Model
 
+from ailab_evals.paired import joint_verdict
 from ailab_evals.rag_qa import KS, PairedScore, aggregate, score_execution
 from ailab_rag.answering import CLOSED_BOOK, NAIVE_RAG, Retriever, run_item
 from ailab_rag.prompting import GROUNDING
@@ -156,8 +157,11 @@ def summarize(
     split: str,
     baseline: str = CLOSED_BOOK,
     variant: str = NAIVE_RAG,
+    exclude: Collection[str] = frozenset(),
 ) -> dict[str, Any]:
-    by_id = {i["id"]: i for i in items if i["split"] == split}
+    """`exclude` écarte des items de toutes les mesures (par exemple ceux qu'un audit du golden set
+    trouve défectueux) ; le résumé les liste."""
+    by_id = {i["id"]: i for i in items if i["split"] == split and i["id"] not in exclude}
     rows: dict[str, list[tuple[dict, dict, dict]]] = {}
     for e in executions:
         if e["item_id"] in by_id:
@@ -182,6 +186,7 @@ def summarize(
     return {
         "split": split,
         "n_items": len(by_id),
+        "excluded": sorted(i["id"] for i in items if i["split"] == split and i["id"] in exclude),
         "baseline": baseline,
         "variant": variant,
         "variants": {name: _variant_summary(r) for name, r in rows.items()},
@@ -190,3 +195,52 @@ def summarize(
 
 
 # --- Ligne de commande --------------------------------------------------------------------------
+
+
+def abstention_comparison(
+    items: list[dict],
+    executions: list[dict],
+    *,
+    baseline: str,
+    variant: str,
+    guard_margin: float,
+    split: str = "test",
+    exclude: Collection[str] = frozenset(),
+) -> dict[str, Any]:
+    """Verdict à deux critères d'un levier d'abstention (006) : delta apparié des réponses
+    inventées sur les items sans réponse (critère principal) et des abstentions à tort sur les items
+    avec réponse (garde), chacun en moyenne sur les répétitions d'un item."""
+    by_id = {i["id"]: i for i in items if i["split"] == split and i["id"] not in exclude}
+    rates: dict[tuple[str, str, str], list[float]] = {}
+    for e in executions:
+        item = by_id.get(e["item_id"])
+        if item is None or e["variant"] not in (baseline, variant):
+            continue
+        metric = "false_abstention" if item["answerable"] else "hallucination"
+        value = score_execution(item, e).as_dict()[metric]
+        if value is None:  # exécution en erreur : la spec ne la note pas (§ 6)
+            continue
+        rates.setdefault((metric, item["id"], e["variant"]), []).append(float(value))
+
+    def paired(metric: str, answerable: bool) -> Any:
+        ids = [i for i, item in by_id.items() if item["answerable"] == answerable]
+        missing = [i for i in ids for v in (baseline, variant) if (metric, i, v) not in rates]
+        if missing:
+            raise ValueError(f"{metric} : aucune exécution notée pour {sorted(set(missing))}")
+        return aggregate(
+            [
+                PairedScore(
+                    i, "test", mean(rates[(metric, i, baseline)]), mean(rates[(metric, i, variant)])
+                )
+                for i in ids
+            ]
+        )
+
+    main, guard = paired("hallucination", False), paired("false_abstention", True)
+    return {
+        "hallucination": main.as_dict(),
+        "false_abstention": guard.as_dict(),
+        "guard_margin": guard_margin,
+        "verdict": joint_verdict(main, guard, guard_margin=guard_margin),
+        "excluded": sorted(i["id"] for i in items if i["split"] == split and i["id"] in exclude),
+    }
