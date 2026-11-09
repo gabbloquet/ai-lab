@@ -125,6 +125,8 @@ Envoyer 20 passages est le premier levier de la série à battre le RAG naïf. S
 
 ## Limites
 
+- **Audit du golden set (ajouté le 2026-11-09, après le run final).** Une relecture plus poussée des questions sans réponse de la v1 ([audit](../../domains/droit-consommation/golden/rag-qa/README.md#audit-des-questions-sans-réponse-de-la-v1-2026-11-09)) montre que 12 des 23 questions « sans réponse » du `test` ont en fait une réponse dans le code (valeur, renvoi à un autre texte ou classe d'amende). Sur ces items, un modèle qui donne la réponse du code est compté comme ayant inventé. Recalculés sans ces 12 items (138 items), les verdicts sont inchangés : +0,056 [−0,003 ; +0,114] (Mistral Small, non concluant), +0,065 [+0,010 ; +0,121] (Ministral 14B, B meilleure), +0,099 [+0,048 ; +0,150] (Gemini Flash-Lite, B meilleure). Les taux de réponses inventées du rapport sont surestimés, mais **la hausse avec 20 passages persiste sur les questions sans réponse valides** : A → B vaut 0,24 → 0,30 (Mistral Small), 0,18 → 0,27 (Ministral 14B), 0,09 → 0,09 (Gemini Flash-Lite), sur 11 items seulement.
+
 - **Traces Langfuse incomplètes** : le serveur n'a pas tout reçu dans les 120 s laissées après chaque run (`run.langfuse_flushed: false`). Les résumés étaient écrits avant l'envoi et les processus sont sortis normalement ; les JSONL font foi.
 - **Hausse des réponses inventées invisible sur le `dev`** : le `dev` n'a que 6 items sans réponse, contre 23 dans le `test`. Le gel sans cycle s'est appuyé sur ces 6 items.
 - **La spec ne mesure pas le rappel au-delà du top-10** : l'apport des passages 11 à 20 ne se lit qu'à travers `retrieval_miss`.

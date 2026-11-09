@@ -162,6 +162,8 @@ Reclasser 50 candidats en 5 donne à peu près la même qualité qu'envoyer 20 p
 
 ## Limites
 
+- **Audit du golden set (ajouté le 2026-11-09, après le run final).** Une relecture plus poussée des questions sans réponse de la v1 ([audit](../../domains/droit-consommation/golden/rag-qa/README.md#audit-des-questions-sans-réponse-de-la-v1-2026-11-09)) montre que 12 des 23 questions « sans réponse » du `test` ont en fait une réponse dans le code (valeur, renvoi à un autre texte ou classe d'amende). Sur ces items, un modèle qui donne la réponse du code est compté comme ayant inventé. Recalculés sans ces 12 items (138 items), les trois verdicts restent non concluants : −0,014 [−0,061 ; +0,032] (Mistral Small), +0,010 [−0,039 ; +0,058] (Ministral 14B), −0,022 [−0,068 ; +0,024] (Gemini Flash-Lite). Sur les 11 questions sans réponse valides, les réponses inventées A → B valent 0,30 → 0,24 (Mistral Small), 0,27 → 0,09 (Ministral 14B), 0,09 → 0,09 (Gemini Flash-Lite) : l'hypothèse « B invente moins » y trouve un indice, sur 11 items seulement, sans valeur de preuve.
+
 - **Ministral 14B et Gemini Flash-Lite sans Langfuse** : deux échecs au démarrage, avant toute exécution, faute de mémoire dans la machine virtuelle de Docker (2,35 Go) ; relancés sans Langfuse sur le même commit, à la décision du propriétaire. Journaux dans `runs/incident-2026-11-09/`. Les JSONL font foi.
 - **Docker redémarré avant le run** : deux conteneurs d'un autre projet occupaient les ports de Langfuse ; ils ont été arrêtés et la pile Langfuse recréée en gardant ses volumes.
 - **Temps de réponse mesurés depuis un seul poste**, sous la charge des API ce jour-là.
