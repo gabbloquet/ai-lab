@@ -204,3 +204,19 @@ def test_run_drafts_can_be_limited_to_some_tasks(tmp_path: Path, prompts: dict[s
     written = run_drafts(plan, BY_ID, FakeWriter(ok()), tmp_path, prompts, workers=1, limit=1)
 
     assert written == ["t-1"]
+
+
+def test_run_drafts_skips_tasks_drafted_in_the_base_version(
+    tmp_path: Path, prompts: dict[str, str]
+) -> None:
+    """Une v2 qui étend la v1 réutilise ses brouillons : ils ne se rejouent pas."""
+    base = tmp_path / "v1"
+    base.mkdir()
+    (base / "t-1.json").write_text("{}", "utf-8")
+    plan = [task("direct", name="t-1"), task("paraphrase", name="t-2")]
+    writer = FakeWriter(ok())
+
+    written = run_drafts(plan, BY_ID, writer, tmp_path / "v2", prompts, workers=1, base_dirs=[base])
+
+    assert written == ["t-2"]
+    assert len(writer.requests) == 1

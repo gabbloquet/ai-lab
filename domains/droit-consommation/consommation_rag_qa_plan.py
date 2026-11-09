@@ -32,6 +32,10 @@ V1_QUOTAS: dict[str, tuple[int, int]] = {
     "lost_context": (7, 23),
     "unanswerable": (7, 23),
 }
+# v2 : la v1 publiée, plus des questions sans réponse dans le `dev` (expérience 006, consigne
+# d'abstention) ; le `test` est celui de la v1. 31 tâches `dev` retenues en mode `unanswerable` :
+# 30 items sans réponse, plus rq-133, transformé en item avec réponse à la relecture de la v1.
+V2_QUOTAS: dict[str, tuple[int, int]] = {**V1_QUOTAS, "unanswerable": (31, 23)}
 # Pilote : 20 brouillons jetés après la mise au point du prompt, sans surplus.
 PILOT_QUOTAS: dict[str, tuple[int, int]] = {
     "direct": (4, 0),

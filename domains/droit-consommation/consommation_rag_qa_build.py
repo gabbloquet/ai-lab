@@ -25,7 +25,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from string import Template
 
-from consommation_rag_qa_plan import PILOT_QUOTAS, V1_QUOTAS
+from consommation_rag_qa_plan import PILOT_QUOTAS, V1_QUOTAS, V2_QUOTAS
 
 from ailab_evals.rag_qa import fact_found, normalize
 
@@ -468,14 +468,57 @@ def build(
 
 
 MODE_ORDER = list(V1_QUOTAS)
+QUOTAS: dict[str, dict[str, tuple[int, int]]] = {
+    "v1": V1_QUOTAS,
+    "v2": V2_QUOTAS,
+    "pilot": PILOT_QUOTAS,
+}
+
+
+def assign_ids(result: BuildResult, *, seed: int) -> dict[str, str]:
+    """Identifiant de chaque tâche retenue : numéros mélangés (seedés), attribués sur l'ensemble des
+    items retenus dans l'ordre (mode, split, rang). Remplacer un item `test` ne change pas ceux du
+    `dev`."""
+    ordered = sorted(
+        result.selected,
+        key=lambda s: (MODE_ORDER.index(s.task["mode"]), s.task["split"], s.task["rank"]),
+    )
+    numbers = list(range(1, len(ordered) + 1))
+    random.Random(f"{seed}-ids").shuffle(numbers)
+    return {
+        chosen.task["task"]: f"rq-{number:03d}"
+        for number, chosen in zip(numbers, ordered, strict=True)
+    }
+
+
+def _extension_ids(result: BuildResult, *, seed: int, base_ids: dict[str, str]) -> dict[str, str]:
+    """Les tâches de la version de base gardent leur identifiant ; les nouvelles sont numérotées à
+    la suite (après le plus grand numéro de la base), dans un ordre mélangé et seedé."""
+    new = sorted(
+        (s for s in result.selected if s.task["task"] not in base_ids),
+        key=lambda s: (MODE_ORDER.index(s.task["mode"]), s.task["split"], s.task["rank"]),
+    )
+    start = max((int(rq.removeprefix("rq-")) for rq in base_ids.values()), default=0) + 1
+    numbers = list(range(start, start + len(new)))
+    random.Random(f"{seed}-ids-extension-{start}").shuffle(numbers)
+    ids = {task: rq for task, rq in base_ids.items()}
+    ids |= {s.task["task"]: f"rq-{n:03d}" for n, s in zip(numbers, new, strict=True)}
+    return ids
 
 
 def publish(
-    result: BuildResult, out_dir: Path, *, seed: int, split: str | None = None
+    result: BuildResult,
+    out_dir: Path,
+    *,
+    seed: int,
+    split: str | None = None,
+    base_ids: dict[str, str] | None = None,
+    base_items: list[dict] | None = None,
 ) -> list[dict]:
-    """Attribue les identifiants (mélangés, seedés) et écrit `items.jsonl`, ou `items-<split>.jsonl`
-    pour un seul split. Les identifiants sont attribués sur l'ensemble des items retenus, dans
-    l'ordre (mode, split, rang) : remplacer un item `test` ne change pas ceux du `dev`."""
+    """Attribue les identifiants et écrit `items.jsonl`, ou `items-<split>.jsonl` pour un seul
+    split. Une version qui en étend une autre (`base_ids`, `base_items`) garde les identifiants et
+    le contenu exact des items de la base : un item de base absent ou modifié bloque la
+    publication."""
     shortages = {k: n for k, n in result.shortages.items() if split is None or k[1] == split}
     if shortages:
         missing = ", ".join(f"{m}/{s} : {n}" for (m, s), n in sorted(shortages.items()))
@@ -486,17 +529,23 @@ def publish(
     pending = [name for name in result.pending_review if name in in_split]
     if pending:
         raise ValueError(f"{len(pending)} items attendent leur relecture")
-    ordered = sorted(
-        result.selected,
-        key=lambda s: (MODE_ORDER.index(s.task["mode"]), s.task["split"], s.task["rank"]),
+    ids = (
+        assign_ids(result, seed=seed)
+        if base_ids is None
+        else _extension_ids(result, seed=seed, base_ids=base_ids)
     )
-    numbers = list(range(1, len(ordered) + 1))
-    random.Random(f"{seed}-ids").shuffle(numbers)
     items = [
-        {**chosen.item, "id": f"rq-{number:03d}"}
-        for number, chosen in zip(numbers, ordered, strict=True)
+        {**chosen.item, "id": ids[chosen.task["task"]]}
+        for chosen in result.selected
         if chosen.task["task"] in in_split
     ]
+    if base_items is not None:
+        by_id = {item["id"]: item for item in items}
+        for expected in base_items:
+            if split is not None and expected["split"] != split:
+                continue
+            if by_id.get(expected["id"]) != expected:
+                raise ValueError(f"l'item {expected['id']} diffère de la version de base")
     items.sort(key=lambda item: item["id"])
     out_dir.mkdir(parents=True, exist_ok=True)
     name = "items.jsonl" if split is None else f"items-{split}.jsonl"
@@ -646,10 +695,23 @@ def _sha256(path: Path) -> str | None:
     return hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None
 
 
+def _drafts_and_review(golden_dir: Path, version: str) -> tuple[dict, dict]:
+    drafts_dir = golden_dir / "drafts" / version
+    drafts = {
+        path.stem: json.loads(path.read_text(encoding="utf-8"))
+        for path in sorted(drafts_dir.glob("*.json"))
+    }
+    review_path = golden_dir / "review" / f"{version}.jsonl"
+    review = (
+        {entry["task"]: entry for entry in _read_jsonl(review_path)} if review_path.exists() else {}
+    )
+    return drafts, review
+
+
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
     parser.add_argument("--version", required=True)
-    parser.add_argument("--quotas", choices=["v1", "pilot"], default="v1")
+    parser.add_argument("--quotas", choices=["v1", "v2", "pilot"], default="v1")
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--articles", type=Path, default=DOMAIN_DIR / "data/v1/articles.jsonl")
     parser.add_argument("--golden-dir", type=Path, default=GOLDEN_DIR)
@@ -660,19 +722,39 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument(
         "--publish-split", choices=["dev", "test"], help="écrit items-<split>.jsonl seulement"
     )
+    parser.add_argument(
+        "--base-version",
+        help="version publiée que celle-ci étend : brouillons, relecture et identifiants repris",
+    )
+    parser.add_argument("--base-quotas", choices=["v1", "v2", "pilot"], default="v1")
     args = parser.parse_args(argv)
 
     version_dir = args.golden_dir / args.version
     plan = _read_jsonl(version_dir / "plan.jsonl")
-    drafts_dir = args.golden_dir / "drafts" / args.version
-    drafts = {
-        path.stem: json.loads(path.read_text(encoding="utf-8"))
-        for path in sorted(drafts_dir.glob("*.json"))
-    }
-    review_path = args.golden_dir / "review" / f"{args.version}.jsonl"
-    review = {entry["task"]: entry for entry in _read_jsonl(review_path)}
     by_id = {a["id"]: a for a in _read_jsonl(args.articles)}
-    quotas = PILOT_QUOTAS if args.quotas == "pilot" else V1_QUOTAS
+    quotas = QUOTAS[args.quotas]
+    review_path = args.golden_dir / "review" / f"{args.version}.jsonl"
+    drafts, review = _drafts_and_review(args.golden_dir, args.version)
+    base_ids: dict[str, str] | None = None
+    base_items: list[dict] | None = None
+    if args.base_version:
+        base_dir = args.golden_dir / args.base_version
+        base_drafts, base_review = _drafts_and_review(args.golden_dir, args.base_version)
+        base = build(
+            _read_jsonl(base_dir / "plan.jsonl"),
+            base_drafts,
+            by_id,
+            QUOTAS[args.base_quotas],
+            seed=args.seed,
+            review=base_review,
+            overlap_threshold=args.overlap_threshold,
+            max_question_words=args.max_question_words,
+        )
+        base_ids = assign_ids(base, seed=args.seed)
+        base_items = _read_jsonl(base_dir / "items.jsonl")
+        # La version étendue reprend les brouillons et les verdicts de sa base ; les siens
+        # s'y ajoutent, et l'emportent pour une même tâche.
+        drafts, review = base_drafts | drafts, base_review | review
 
     result = build(
         plan,
@@ -724,12 +806,21 @@ def main(argv: list[str] | None = None) -> None:
     )
 
     if args.publish_split:
-        items = publish(result, version_dir, seed=args.seed, split=args.publish_split)
+        items = publish(
+            result,
+            version_dir,
+            seed=args.seed,
+            split=args.publish_split,
+            base_ids=base_ids,
+            base_items=base_items,
+        )
         print(
             f"{len(items)} items {args.publish_split} écrits dans items-{args.publish_split}.jsonl"
         )
     if args.publish:
-        items = publish(result, version_dir, seed=args.seed)
+        items = publish(
+            result, version_dir, seed=args.seed, base_ids=base_ids, base_items=base_items
+        )
         manifest = {
             "dataset": "droit-consommation/golden/rag-qa",
             "version": args.version,
@@ -739,6 +830,7 @@ def main(argv: list[str] | None = None) -> None:
                 "domains/droit-consommation/consommation_rag_qa_build.py",
             ],
             "seed": args.seed,
+            "base_version": args.base_version,
             "data_version": "v1",
             "spec": "evals/spec/rag-qa/v1",
             "writer_models": report["writer_models"],
@@ -749,6 +841,15 @@ def main(argv: list[str] | None = None) -> None:
                 "items.jsonl": _sha256(version_dir / "items.jsonl"),
                 "plan.jsonl": _sha256(version_dir / "plan.jsonl"),
                 f"review/{args.version}.jsonl": _sha256(review_path),
+                **(
+                    {
+                        f"review/{args.base_version}.jsonl": _sha256(
+                            args.golden_dir / "review" / f"{args.base_version}.jsonl"
+                        )
+                    }
+                    if args.base_version
+                    else {}
+                ),
             },
         }
         (version_dir / "MANIFEST.json").write_text(

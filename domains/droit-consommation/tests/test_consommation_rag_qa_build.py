@@ -6,6 +6,7 @@ from consommation_rag_qa_build import (
     MAX_QUESTION_WORDS,
     OVERLAP_THRESHOLD,
     Bm25,
+    assign_ids,
     build,
     check,
     lexical_overlap,
@@ -608,3 +609,104 @@ def test_a_correction_quote_must_be_copied_from_its_article() -> None:
             seed=1,
             review=review,
         )
+
+
+# --- Version qui étend une version publiée ------------------------------------------------------
+
+
+def extended_result(n_base: int, n_new: int):
+    """Une base de `n_base` items dev et test, puis `n_new` items dev de plus."""
+    outputs = {(s, r): GOOD for s in ("dev", "test") for r in range(1, n_base + 1)}
+    outputs |= {("dev", r): GOOD for r in range(n_base + 1, n_base + n_new + 1)}
+    plan, drafts = plan_and_drafts(outputs)
+    review = {t["task"]: {"task": t["task"], "verdict": "ok"} for t in plan}
+    base = build(
+        [t for t in plan if t["rank"] <= n_base],
+        drafts,
+        BY_ID,
+        {"direct": (n_base, n_base)},
+        seed=1,
+        review=review,
+    )
+    extended = build(
+        plan, drafts, BY_ID, {"direct": (n_base + n_new, n_base)}, seed=1, review=review
+    )
+    return base, extended
+
+
+def test_an_extension_keeps_the_ids_and_items_of_its_base(tmp_path: Path) -> None:
+    base, extended = extended_result(n_base=3, n_new=2)
+    base_items = publish(base, tmp_path / "v1", seed=1)
+
+    items = publish(
+        extended, tmp_path / "v2", seed=1, base_ids=assign_ids(base, seed=1), base_items=base_items
+    )
+
+    assert [i for i in items if i["id"] in {b["id"] for b in base_items}] == base_items
+    new = [i for i in items if i["id"] not in {b["id"] for b in base_items}]
+    assert sorted(i["id"] for i in new) == ["rq-007", "rq-008"]
+    assert {i["split"] for i in new} == {"dev"}
+
+
+def test_an_extension_refuses_a_base_item_that_changed(tmp_path: Path) -> None:
+    base, extended = extended_result(n_base=2, n_new=1)
+    base_items = publish(base, tmp_path / "v1", seed=1)
+    base_items[0] = {**base_items[0], "question": "Une autre question ?"}
+
+    with pytest.raises(ValueError, match="diffère"):
+        publish(
+            extended,
+            tmp_path / "v2",
+            seed=1,
+            base_ids=assign_ids(base, seed=1),
+            base_items=base_items,
+        )
+
+
+def test_assign_ids_gives_the_ids_publish_writes(tmp_path: Path) -> None:
+    base, _ = extended_result(n_base=3, n_new=0)
+    items = publish(base, tmp_path, seed=1)
+    ids = assign_ids(base, seed=1)
+
+    assert sorted(ids.values()) == [i["id"] for i in items]
+    by_task = {s.task["task"]: s.item for s in base.selected}
+    assert all({**by_task[task], "id": rq} in items for task, rq in ids.items())
+
+
+def test_cli_publishes_an_extension_that_keeps_its_base(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """v2 = la v1 publiée, plus des items dev : brouillons, relecture et identifiants repris."""
+    import consommation_rag_qa_build as build_module
+
+    monkeypatch.setitem(build_module.QUOTAS, "v1", {"direct": (1, 1)})
+    monkeypatch.setitem(build_module.QUOTAS, "v2", {"direct": (2, 1)})
+    golden, articles = tmp_path / "golden", tmp_path / "articles.jsonl"
+    articles.write_text("".join(json.dumps(a) + "\n" for a in (A, B, C)), "utf-8")
+    plan, drafts = plan_and_drafts({("dev", 1): GOOD, ("test", 1): GOOD, ("dev", 2): GOOD})
+    for version, tasks in (("v1", plan[:2]), ("v2", plan[2:])):
+        (golden / version).mkdir(parents=True, exist_ok=True)
+        (golden / "drafts" / version).mkdir(parents=True)
+        for t in tasks:
+            (golden / "drafts" / version / f"{t['task']}.json").write_text(
+                json.dumps(drafts[t["task"]]), "utf-8"
+            )
+        (golden / "review").mkdir(exist_ok=True)
+        (golden / "review" / f"{version}.jsonl").write_text(
+            "".join(json.dumps({"task": t["task"], "verdict": "ok"}) + "\n" for t in tasks),
+            "utf-8",
+        )
+    (golden / "v1" / "plan.jsonl").write_text("".join(json.dumps(t) + "\n" for t in plan[:2]))
+    (golden / "v2" / "plan.jsonl").write_text("".join(json.dumps(t) + "\n" for t in plan))
+    common = ["--seed", "1", "--articles", str(articles), "--golden-dir", str(golden)]
+    main(["--version", "v1", "--quotas", "v1", "--publish", *common])
+
+    main(["--version", "v2", "--quotas", "v2", "--base-version", "v1", "--publish", *common])
+
+    v1 = [json.loads(line) for line in (golden / "v1" / "items.jsonl").read_text().splitlines()]
+    v2 = [json.loads(line) for line in (golden / "v2" / "items.jsonl").read_text().splitlines()]
+    assert [i for i in v2 if i["id"] in {x["id"] for x in v1}] == v1
+    assert [i["id"] for i in v2 if i["id"] not in {x["id"] for x in v1}] == ["rq-003"]
+    manifest = json.loads((golden / "v2" / "MANIFEST.json").read_text("utf-8"))
+    assert manifest["base_version"] == "v1"
+    assert manifest["counts"] == {"direct/dev": 2, "direct/test": 1}

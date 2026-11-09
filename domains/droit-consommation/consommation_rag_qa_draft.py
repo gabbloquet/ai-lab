@@ -201,11 +201,18 @@ def run_drafts(
     *,
     workers: int = 4,
     limit: int | None = None,
+    base_dirs: Sequence[Path] = (),
 ) -> list[str]:
     """Rédige les tâches qui n'ont pas encore de brouillon ; renvoie celles écrites, dans l'ordre
-    du plan. Une tâche dont l'appel échoue n'est pas écrite : elle sera retentée au prochain run."""
+    du plan. Une tâche dont l'appel échoue n'est pas écrite : elle sera retentée au prochain run.
+    Une tâche qui a déjà un brouillon dans une version de base (`base_dirs`) n'est pas récrite :
+    une version qui en étend une autre réutilise ses brouillons."""
     drafts_dir.mkdir(parents=True, exist_ok=True)
-    pending = [t for t in plan if not (drafts_dir / f"{t['task']}.json").exists()]
+    pending = [
+        t
+        for t in plan
+        if not any((d / f"{t['task']}.json").exists() for d in (drafts_dir, *base_dirs))
+    ]
     if limit is not None:
         pending = pending[:limit]
 
@@ -238,11 +245,13 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--golden-dir", type=Path, default=GOLDEN_DIR)
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--limit", type=int, default=None, help="au plus N nouvelles tâches")
+    parser.add_argument("--base-version", help="version étendue, dont les brouillons sont repris")
     args = parser.parse_args(argv)
 
     plan = _read_jsonl(args.golden_dir / args.version / "plan.jsonl")
     by_id = {a["id"]: a for a in _read_jsonl(args.articles)}
     drafts_dir = args.golden_dir / "drafts" / args.version
+    base_dirs = [args.golden_dir / "drafts" / args.base_version] if args.base_version else []
     written = run_drafts(
         plan,
         by_id,
@@ -251,8 +260,11 @@ def main(argv: list[str] | None = None) -> None:
         load_prompts(args.golden_dir / "prompts"),
         workers=args.workers,
         limit=args.limit,
+        base_dirs=base_dirs,
     )
-    missing = sum(not (drafts_dir / f"{t['task']}.json").exists() for t in plan)
+    missing = sum(
+        not any((d / f"{t['task']}.json").exists() for d in (drafts_dir, *base_dirs)) for t in plan
+    )
     print(f"{len(written)} brouillons écrits dans {drafts_dir} ; {missing} tâches sans brouillon")
 
 
