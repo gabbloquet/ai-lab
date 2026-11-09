@@ -144,7 +144,7 @@ Consigne d'abstention, critères de l'étape 5 : **non concluant** avec Mistral 
 - **À 20 passages, la récupération est presque saturée sur le `dev`** : 93 % des articles attendus avec la recherche dense, 96 % avec le reclassement. Les articles manqués sont surtout en paraphrase (0,70 @20) et en comparaison (0,75, sur 4 items).
 - **63 items** : un item vaut 1,6 point. Seuls les écarts du reclassement sont nets.
 
-**Recommandation** (2026-11-09, non tranchée par le propriétaire) : pas d'étape sur le type de recherche. Les erreurs qui restent avec 20 passages ne viennent plus surtout de la récupération. Une piste n'est pas couverte, parce qu'elle demande un appel : un autre modèle d'embedding, qui obligerait à encoder les 2 150 articles chez un autre fournisseur.
+**Décision du propriétaire** (2026-11-09) : pas d'étape sur le type de recherche. Les erreurs qui restent avec 20 passages ne viennent plus surtout de la récupération. Une piste n'est pas couverte, parce qu'elle demande un appel : un autre modèle d'embedding, qui obligerait à encoder les 2 150 articles chez un autre fournisseur.
 
 ## Limites
 
