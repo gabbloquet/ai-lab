@@ -18,6 +18,7 @@ members = [
     "exp003-rag",
     "exp004-rag",
     "exp005-rag",
+    "exp006-rag",
 ]
 
 [[package]]
@@ -34,6 +35,7 @@ dependencies = [
     { name = "exp003-rag" },
     { name = "exp004-rag" },
     { name = "exp005-rag" },
+    { name = "exp006-rag" },
 ]
 
 [package.dev-dependencies]
@@ -55,6 +57,7 @@ requires-dist = [
     { name = "exp003-rag", editable = "experiments/003-reformulation-de-requete/python" },
     { name = "exp004-rag", editable = "experiments/004-top-k-20/python" },
     { name = "exp005-rag", editable = "experiments/005-reclassement/python" },
+    { name = "exp006-rag", editable = "experiments/006-consigne-abstention/python" },
 ]
 
 [package.metadata.requires-dev]
@@ -1025,6 +1028,25 @@ requires-dist = [
 name = "exp005-rag"
 version = "0.1.0"
 source = { editable = "experiments/005-reclassement/python" }
+dependencies = [
+    { name = "ailab-evals" },
+    { name = "ailab-rag" },
+    { name = "langfuse" },
+    { name = "pydantic-ai-slim", extra = ["google", "mistral"] },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "ailab-evals", editable = "evals/python" },
+    { name = "ailab-rag", editable = "rag/python" },
+    { name = "langfuse", specifier = "==5.1.0" },
+    { name = "pydantic-ai-slim", extras = ["google", "mistral"], specifier = "==2.65.0" },
+]
+
+[[package]]
+name = "exp006-rag"
+version = "0.1.0"
+source = { editable = "experiments/006-consigne-abstention/python" }
 dependencies = [
     { name = "ailab-evals" },
     { name = "ailab-rag" },

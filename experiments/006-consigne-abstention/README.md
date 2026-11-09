@@ -44,7 +44,14 @@ Sur le Code de la consommation, **une consigne qui demande de vérifier qu'un ex
 
 **Taille de l'échantillon.** Critère principal : 51 items, avec un écart type de la différence par item supposé de 0,45 (à estimer au run 0) : MDE ≈ (2,01 + 0,85) × 0,45 / √51 ≈ **18 points**, au-dessus des 10 points qui comptent. **Une baisse modeste peut passer inaperçue.** Garde : 127 items, abstentions à tort rares (1 à 9 % pour A dans la 005) : l'intervalle sera étroit. Gemini Flash-Lite part de 0,09 : une baisse de 10 points lui est presque impossible (effet plancher). Écrit avant le premier run.
 
-**Lancer un run :** commande à écrire avec l'implémentation.
+**Lancer un run** (depuis `python/`) :
+
+```sh
+uv run --env-file ../../../.env python -m exp006_rag.campaign \
+    --split dev --model mistral:mistral-small-2603 --k 3 --run-dir ../runs/<nom>
+```
+
+Les items écartés par l'audit ne tournent pas. Le run final ajoute `--split test --final --langfuse` et refuse de partir si l'arbre git n'est pas propre ; le `summary.json` donne le verdict à deux critères dans `abstention`.
 
 ## Discipline d'itération
 

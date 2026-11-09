@@ -55,3 +55,6 @@ experiments/004-top-k-20/runs/
 
 # 005 : runs de travail (JSONL bruts, traces)
 experiments/005-reclassement/runs/
+
+# 006 : runs de travail (JSONL bruts, traces)
+experiments/006-consigne-abstention/runs/

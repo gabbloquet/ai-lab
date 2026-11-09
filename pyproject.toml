@@ -15,6 +15,7 @@ dependencies = [
     "exp003-rag",
     "exp004-rag",
     "exp005-rag",
+    "exp006-rag",
 ]
 
 [dependency-groups]
@@ -38,6 +39,7 @@ exp002-rag = { workspace = true }
 exp003-rag = { workspace = true }
 exp004-rag = { workspace = true }
 exp005-rag = { workspace = true }
+exp006-rag = { workspace = true }
 
 [tool.uv.workspace]
 members = [
@@ -49,6 +51,7 @@ members = [
     "experiments/003-reformulation-de-requete/python",
     "experiments/004-top-k-20/python",
     "experiments/005-reclassement/python",
+    "experiments/006-consigne-abstention/python",
 ]
 
 [tool.pytest.ini_options]
@@ -65,7 +68,7 @@ select = ["E", "F", "W", "I", "UP", "B", "SIM"]
 
 [tool.ruff.lint.isort]
 # Paquets du workspace : ruff ne les trouve pas seul, ils vivent sous experiments/.
-known-first-party = ["ailab_evals", "ailab_rag", "exp001_agent", "exp001_mcp_server", "exp002_rag", "exp003_rag", "exp004_rag", "exp005_rag"]
+known-first-party = ["ailab_evals", "ailab_rag", "exp001_agent", "exp001_mcp_server", "exp002_rag", "exp003_rag", "exp004_rag", "exp005_rag", "exp006_rag"]
 
 [tool.mypy]
 # Vérifie que les adaptateurs du jumeau respectent les ports (typing.Protocol) du domaine.
