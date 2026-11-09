@@ -47,6 +47,8 @@ Le principe est celui d'une suite de conformance, comme [JSON-Schema-Test-Suite]
 
 Une spec versionnée suit la même règle que les données : une fois publiée, elle ne change plus ; une correction donne une `v2`.
 
+**Exemple de golden set : [`rag-qa`](domains/droit-consommation/golden/rag-qa/README.md)** (droit de la consommation, v4, 339 questions). Il comprend neuf types de questions inspirés de benchmarks RAG publics (CRAG, MultiHop-RAG) : question directe, paraphrase, contexte perdu, plusieurs articles, comparaison, liste, fausse prémisse, question sans réponse… Les articles sont tirés par un script seedé, et non choisis par le LLM rédacteur. Chaque item est relu sur tout le corpus, preuves copiées mot pour mot à l'appui. Les questions sans réponse sont auditées, et les défauts connus sont écrits dans ses limites.
+
 ## Expériences
 
 ### Par aspect
@@ -54,7 +56,7 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 | Aspect | Expérience | Statut |
 |---|---|---|
 | Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Terminée : B meilleure de +24,6 pts avec Mistral small ; non concluant (plafond) avec Gemini Flash-Lite et Claude Haiku 5.5 |
-| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | 5 étapes conclues : le RAG naïf (+37 à +44 pts), puis 20 passages (+7 à +8 pts pour deux modèles sur trois) ; reformulation et reclassement non concluants ; consigne d'abstention selon le modèle. Run consolidé sur le golden set v4 en cadrage |
+| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | 5 étapes conclues : le RAG naïf (+37 à +44 pts), puis 20 passages (+7 à +8 pts pour deux modèles sur trois) ; reformulation et reclassement non concluants ; consigne d'abstention selon le modèle. Run consolidé sur le golden set v4 : protocole écrit, lanceur en cours d'écriture |
 
 ### Par domaine
 
@@ -67,26 +69,25 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 
 Chaque ligne renvoie au rapport daté qui l'a produite.
 
+**001 — Outils par intention ou miroir REST ?**
+
 | Expérience | Modèle | Mesure | Baseline | Variante | Delta [IC 95 %] | Verdict |
 |---|---|---|---|---|---|---|
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `mistral-small-2603` | `success` | 0,742 | 0,988 | +0,246 [+0,160 ; +0,332] | B meilleure |
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `gemini-3.5-flash-lite` | `success` | 0,994 | 1,000 | +0,006 [−0,006 ; +0,018] | non concluant |
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `claude-haiku-5-5` | `success` | 0,996 | 1,000 | +0,004 [−0,002 ; +0,010] | non concluant |
-| [002 · étape 1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | `mistral-small-2603` | `correct` | 0,418 | 0,791 | +0,373 [+0,276 ; +0,470] | B meilleure |
-| [002 · étape 1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,320 | 0,762 | +0,442 [+0,354 ; +0,531] | B meilleure |
-| [002 · étape 1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,420 | 0,787 | +0,367 [+0,273 ; +0,460] | B meilleure |
-| [002 · étape 2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | `mistral-small-2603` | `correct` | 0,791 | 0,782 | −0,009 [−0,059 ; +0,042] | non concluant |
-| [002 · étape 2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,767 | 0,760 | −0,007 [−0,062 ; +0,049] | non concluant |
-| [002 · étape 2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,791 | 0,782 | −0,009 [−0,059 ; +0,041] | non concluant |
-| [002 · étape 3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `mistral-small-2603` | `correct` | 0,798 | 0,838 | +0,040 [−0,016 ; +0,096] | non concluant |
-| [002 · étape 3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,767 | 0,840 | +0,073 [+0,019 ; +0,128] | B meilleure |
-| [002 · étape 3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,784 | 0,864 | +0,080 [+0,030 ; +0,130] | B meilleure |
-| [002 · étape 4](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `mistral-small-2603` | `correct` | 0,847 | 0,833 | −0,013 [−0,056 ; +0,029] | non concluant |
-| [002 · étape 4](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `ministral-14b-2512` | `correct` | 0,840 | 0,836 | −0,004 [−0,056 ; +0,047] | non concluant |
-| [002 · étape 4](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | `gemini-3.5-flash-lite` | `correct` | 0,878 | 0,858 | −0,020 [−0,065 ; +0,025] | non concluant |
-| [002 · étape 5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | `mistral-small-2603` | `hallucination` (↓) | 0,261 | 0,170 | −0,092 [−0,157 ; −0,026] | B meilleure (garde tenue) |
-| [002 · étape 5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | `ministral-14b-2512` | `hallucination` (↓) | 0,255 | 0,203 | −0,052 [−0,135 ; +0,030] | non concluant |
-| [002 · étape 5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | `gemini-3.5-flash-lite` | `false_abstention` (garde) | 0,087 | 0,173 | +0,087 [+0,032 ; +0,141] | B moins bonne |
+
+**002 — Les leviers du RAG**, un delta par levier et par modèle (variante − baseline, IC à 95 %, golden set `rag-qa` v1 pour les étapes 1 à 4, v3 pour l'étape 5) :
+
+| Levier (étape) | Baseline | Mesure | `mistral-small-2603` | `ministral-14b-2512` | `gemini-3.5-flash-lite` |
+|---|---|---|---|---|---|
+| [RAG naïf, 5 passages (1)](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md) | modèle seul | `correct` | **+0,373** [+0,276 ; +0,470] | **+0,442** [+0,354 ; +0,531] | **+0,367** [+0,273 ; +0,460] |
+| [Reformulation de la question (2)](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md) | RAG naïf | `correct` | −0,009 [−0,059 ; +0,042] | −0,007 [−0,062 ; +0,049] | −0,009 [−0,059 ; +0,041] |
+| [20 passages au lieu de 5 (3)](experiments/004-top-k-20/results/2026-11-08-run-final-test.md) | RAG naïf | `correct` | +0,040 [−0,016 ; +0,096] | **+0,073** [+0,019 ; +0,128] | **+0,080** [+0,030 ; +0,130] |
+| [Reclassement, 50 candidats vers 5 (4)](experiments/005-reclassement/results/2026-11-09-run-final-test.md) | 20 passages | `correct` | −0,013 [−0,056 ; +0,029] | −0,004 [−0,056 ; +0,047] | −0,020 [−0,065 ; +0,025] |
+| [Consigne d'abstention (5)](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) | 20 passages | `hallucination` (↓) ; garde `false_abstention` | **−0,092** [−0,157 ; −0,026], garde tenue | −0,052 [−0,135 ; +0,030] | garde franchie : `false_abstention` **+0,087** [+0,032 ; +0,141] |
+
+En gras : delta concluant. Les autres sont non concluants. Le [run consolidé](experiments/002-leviers-rag/README.md#run-consolidé-sur-le-golden-set-v4) mesurera tous les leviers dans un même run, sur le golden set v4.
 
 ## Organisation du dépôt
 
