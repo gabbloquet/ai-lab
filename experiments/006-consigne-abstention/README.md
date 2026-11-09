@@ -66,6 +66,7 @@ Les items écartés par l'audit ne tournent pas. Le run final ajoute `--split te
 | # | Date | Variante | Modification | Motif | `hallucination` dev (valides) | `false_abstention` dev |
 |---|---|---|---|---|---|---|
 | 0 | 2026-11-09 | A et B | aucune : mesure de départ, B avec le point de départ (commit `4ae9382`, sans Langfuse) | vérifier la chaîne, estimer s_d | A 0,238 · B 0,226 ; delta −0,012 [−0,086 ; +0,063]. s_d = 0,192. Les réponses inventées sont des règles d'un cas voisin appliquées au mauvais cas (frais de dossier d'un crédit immobilier pour un produit à distance, corps huit du crédit pour la multipropriété, même moyen de paiement hors services financiers) : la consigne ne les arrête pas | A 0,015 · B 0,045 ; delta +0,030 [−0,018 ; +0,078] (2 items : une référence, une paraphrase) |
+| 1 | 2026-11-09 | B seulement (phrase d'ancrage) ; A garde ses exécutions du run 0 | « La valeur doit valoir pour la situation exacte de la question : même type de contrat ou de produit, même professionnel, même étape… » avec deux exemples tirés des échecs du run 0 (commits `d0a0a3b`, `fa5edcd`) | Au run 0, les réponses inventées appliquaient la règle d'un cas voisin | A 0,238 · B 0,238 ; delta 0,000 [−0,093 ; +0,093]. Seul `rq-223`, l'un des deux exemples, est corrigé ; `rq-219` et `rq-203` empirent | A 0,015 · B 0,061 ; delta +0,045 [−0,006 ; +0,097] (3 items : deux paraphrases, une référence). `correct` 0,843 → 0,815 |
 
 **Commit de gel :** à venir
 **Run final sur le `test` :** à venir
