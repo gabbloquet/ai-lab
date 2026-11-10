@@ -56,7 +56,7 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 | Aspect | Expérience | Statut |
 |---|---|---|
 | Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Terminée : B meilleure de +24,6 pts avec Mistral small ; non concluant (plafond) avec Gemini Flash-Lite et Claude Haiku 5.5 |
-| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | Terminée (run consolidé sur le golden set v4) : le RAG naïf (+28 à +44 pts), puis plus de bons articles, par 20 passages (+6 à +10 pts) ou un reclassement en 5 (+4 à +8 pts, 2,5 fois moins de tokens) ; reformulation non concluante ; consigne d'abstention sans gain, moins bonne avec Gemini |
+| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | Terminée (run consolidé sur le golden set v4) : le RAG naïf (+28 à +44 pts), puis plus de bons articles, par 20 passages (+6 à +10 pts) ou un reclassement en 5 (+4 à +8 pts, 2,5 fois moins de tokens) ; reformulation non concluante ; consigne d'abstention sans gain, moins bonne avec Gemini ; abstention sous un score de reclassement non concluante |
 
 ### Par domaine
 
@@ -87,8 +87,9 @@ Chaque ligne renvoie au rapport daté qui l'a produite.
 | Reclassement, 50 candidats vers 5 (4) | 20 passages | −0,021 [−0,060 ; +0,017] | −0,010 [−0,050 ; +0,030] | −0,021 [−0,061 ; +0,018] |
 | Reclassement, 50 candidats vers 5 (4) | RAG naïf | +0,040 [−0,004 ; +0,084] | **+0,058** [+0,013 ; +0,104] | **+0,083** [+0,035 ; +0,130] |
 | Consigne d'abstention (5) | 20 passages | −0,003 [−0,028 ; +0,023] | +0,007 [−0,022 ; +0,036] | **−0,090** [−0,127 ; −0,053] |
+| [Abstention sous un score Cohere de 0,20 (6)](experiments/002-leviers-rag/results/2026-11-10-etape-6-test.md) | 20 passages | +0,001 [−0,010 ; +0,013] | +0,004 [−0,010 ; +0,019] | −0,003 [−0,008 ; +0,003] |
 
-En gras : delta concluant après Holm. Les autres sont non concluants. Consigne d'abstention selon les critères de l'étape 5 (réponses inventées, garde sur les abstentions à tort) : non concluant avec Mistral Small et Ministral, moins bonne avec Gemini (+0,151 d'abstentions à tort). Les verdicts de chaque étape, sur la v1 ou la v3, restent dans leurs rapports : [1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), [2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md), [3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md), [4](experiments/005-reclassement/results/2026-11-09-run-final-test.md), [5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md). Seul celui de l'étape 5 avec Mistral Small (−9,2 points de réponses inventées) ne s'est pas retrouvé.
+En gras : delta concluant après Holm. Les autres sont non concluants. Consigne d'abstention selon les critères de l'étape 5 (réponses inventées, garde sur les abstentions à tort) : non concluant avec Mistral Small et Ministral, moins bonne avec Gemini (+0,151 d'abstentions à tort). Abstention sous un score Cohere (étape 6, calculée sur les exécutions gelées du run consolidé) : non concluant pour les trois, réponses inventées −0,026 à 0 et garde tenue. Les verdicts de chaque étape, sur la v1 ou la v3, restent dans leurs rapports : [1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), [2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md), [3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md), [4](experiments/005-reclassement/results/2026-11-09-run-final-test.md), [5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md). Seul celui de l'étape 5 avec Mistral Small (−9,2 points de réponses inventées) ne s'est pas retrouvé.
 
 ## Organisation du dépôt
 

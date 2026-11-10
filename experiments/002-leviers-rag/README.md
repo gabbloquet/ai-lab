@@ -1,6 +1,6 @@
 # 002 — Notre RAG répond mal : quels sont les plus gros leviers ?
 
-> **Statut :** run consolidé conclu le 2026-11-09 ([rapport](results/2026-11-09-run-consolide-test.md)) ; étape 6 gelée (2026-11-10), calcul final sur le `test` en cours
+> **Statut :** run consolidé conclu le 2026-11-09 ([rapport](results/2026-11-09-run-consolide-test.md)) ; étape 6 conclue le 2026-11-10 ([rapport](results/2026-11-10-etape-6-test.md))
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -23,7 +23,7 @@ Toutes les étapes ont tourné sur les trois mêmes générateurs : `mistral-sma
 | 3 — [004](../004-top-k-20/README.md) | 20 passages au lieu de 5 | RAG naïf | v1, `test` 150 | +7,3 et +8,0 pts (Ministral, Gemini) ; non concluant avec Mistral Small (+4,0) | +6,8 et +10,4 pts (Ministral, Gemini) ; non concluant avec Mistral Small (+6,1, p_holm = 0,056) |
 | 4 — [005](../005-reclassement/README.md) | reclassement Cohere, 50 candidats vers 5 | RAG à 20 passages | v1, `test` 150 | non concluant (−0,4 à −2,0 pts), 2,6 fois moins de tokens | non concluant (−1,0 à −2,1 pts), 2,5 fois moins de tokens ; contre 5 passages denses : +5,8 et +8,3 pts (Ministral, Gemini), non concluant avec Mistral Small |
 | 5 — [006](../006-consigne-abstention/README.md) | consigne d'abstention plus exigeante | RAG à 20 passages | v3, `test` 190 | moins de réponses inventées avec Mistral Small (−9,2 pts) ; non concluant avec Ministral ; plus d'abstentions à tort avec Gemini (+8,7 pts) | non concluant avec Mistral Small (−3,3 pts, garde franchie) et Ministral ; plus d'abstentions à tort avec Gemini (+15,1 pts, −9,0 pts de `correct`) |
-| 6 — [ci-dessous](#étape-6--sabstenir-daprès-le-score-de-reclassement) | abstention si le meilleur score Cohere est sous un seuil | RAG à 20 passages | v4, `test` 234 | protocole écrit, pas encore jugée | — |
+| 6 — [ci-dessous](#étape-6--sabstenir-daprès-le-score-de-reclassement) | abstention si le meilleur score Cohere est sous un seuil | RAG à 20 passages | v4, `test` 234 | — | non concluant pour les trois modèles : réponses inventées −2,6 (Mistral Small), −3,9 (Ministral), 0 (Gemini) pts ; garde tenue |
 
 Les étapes 4 et 5 ont pris pour baseline la meilleure configuration du moment (20 passages) : l'expérience mêle donc des deltas isolés (contre le RAG naïf) et des deltas cumulés (contre 20 passages).
 
@@ -225,6 +225,16 @@ Sur le golden set v4, s'abstenir quand le meilleur score de reclassement Cohere 
 - **Verdict** : la règle à deux critères de l'étape 5, sans correction. Critère principal : delta apparié des réponses inventées (B − A) sur les 51 questions sans réponse valides, IC de Student à 95 %. Garde : delta des abstentions à tort sur les 183 questions avec réponse, à ne pas augmenter de plus de 0,03 (`ailab_evals.paired.joint_verdict`).
 - **Secondaires, sans porter le verdict** : delta de `correct` (règle de la spec), part des questions écartées par le seuil (avec et sans réponse), `correct` par mode.
 - Rapport daté dans `results/`, qui cite `rag-qa/v4`, la spec `rag-qa/v1`, le commit de gel du run consolidé, celui de l'étape 6, et `uv.lock`.
+
+### Verdict de l'étape 6
+
+Calcul unique sur le `test` le 2026-11-10 (commit de gel `0a5a9f4`, sans aucun appel) : [rapport](results/2026-11-10-etape-6-test.md).
+
+- **Mistral Small : non concluant**, réponses inventées −2,6 points [−6,3 ; +1,1], garde tenue (+0,5 [−0,5 ; +1,6]).
+- **Ministral 14B : non concluant**, −3,9 points [−9,4 ; +1,6], garde tenue.
+- **Gemini Flash-Lite : non concluant**, aucun changement (0,020 → 0,020), garde tenue.
+
+Un gain de 10 points est exclu pour les deux modèles Mistral. Le seuil écarte 16 questions sans réponse sur 51, mais le générateur s'y abstenait déjà presque toujours. Les réponses inventées portent surtout sur les 35 autres, où un article voisin obtient un score élevé (29 % de réponses inventées avec Mistral Small, contre 8 % sous le seuil). Un signal de récupération ne distingue pas ce cas d'une vraie réponse. Le levier qui reste pour ces questions est dans la génération, une vérification de la réponse par exemple, et non dans la recherche.
 
 ## Limites
 
