@@ -1,6 +1,6 @@
 # 002 — Notre RAG répond mal : quels sont les plus gros leviers ?
 
-> **Statut :** run consolidé conclu le 2026-11-09 ([rapport](results/2026-11-09-run-consolide-test.md)) ; étape 6 en cadrage, protocole écrit
+> **Statut :** run consolidé conclu le 2026-11-09 ([rapport](results/2026-11-09-run-consolide-test.md)) ; étape 6 gelée (2026-11-10), calcul final sur le `test` en cours
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
 > **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
 
@@ -215,6 +215,10 @@ Sur le golden set v4, s'abstenir quand le meilleur score de reclassement Cohere 
 - **Budget** : A, le RAG à 20 passages, a reçu 2 cycles (ceux du RAG naïf, à l'étape 1) et aucun à l'étape 3. B y a droit aussi, mais B n'a pas de prompt à régler : son seul paramètre, le seuil, est fixé par la pré-étude, comme k = 20 l'a été pour l'étape 3. **Aucun cycle** n'est prévu.
 - **Un écart à signaler** : le seuil a été choisi sur le `dev` parmi 9 valeurs, d'après les réponses du run `dev` de contrôle, avec une seule répétition.
 - **Commit de gel** du code de calcul et du seuil, puis **un seul calcul sur le `test`**.
+
+**Code** : `python/src/exp002_leviers/step6.py`, écrit par Claude sur délégation du propriétaire (2026-11-10), avec `RerankingRetriever.best_score` dans `ailab_rag.reranking`, qui lit le même cache que le reclassement. Le calcul refuse une baseline `test` qui ne vient pas du run final gelé (`f836315`). Vérification sur le `dev` (`--split dev`) : il redonne exactement les chiffres de la pré-étude. Le contrôle de reproduction du run consolidé passe toujours (968 contextes sur 968).
+
+**Commit de gel** : « Geler l'étape 6 de la 002 avant le calcul sur le test » (2026-11-10), enregistré dans chaque `summary.json` (`run.commit`).
 
 ### Mesures
 
