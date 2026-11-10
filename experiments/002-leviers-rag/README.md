@@ -236,6 +236,26 @@ Calcul unique sur le `test` le 2026-11-10 (commit de gel `0a5a9f4`, sans aucun a
 
 Un gain de 10 points est exclu pour les deux modèles Mistral. Le seuil écarte 16 questions sans réponse sur 51, mais le générateur s'y abstenait déjà presque toujours. Les réponses inventées portent surtout sur les 35 autres, où un article voisin obtient un score élevé (29 % de réponses inventées avec Mistral Small, contre 8 % sous le seuil). Un signal de récupération ne distingue pas ce cas d'une vraie réponse. Le levier qui reste pour ces questions est dans la génération, une vérification de la réponse par exemple, et non dans la recherche.
 
+## Pré-étude : où cassent les erreurs qui restent (2026-11-10, `dev` seulement)
+
+**Question** : avec les configurations jugées, les erreurs qui restent viennent-elles de la récupération ou de la génération, et dans quels modes ? La réponse décide du côté où chercher un prochain levier.
+
+**Mesure** : le run `dev` de contrôle du run consolidé (k = 1, trois modèles), relu sans aucun appel par `prestudy/failures_v4_dev.py`. Chaque exécution d'une question avec réponse est classée par la catégorie `failure` du scorer (spec § 6) : `retrieval_miss` si un article attendu manque au contexte, `generation_miss` s'ils y sont tous et que la réponse est fausse. 63 items avec réponse × 3 modèles = 189 exécutions par configuration. Le script lit les runs locaux, que git ignore. Le `test` n'a pas été relu item par item.
+
+| Configuration | `correct` | `generation_miss` | `retrieval_miss` |
+|---|---|---|---|
+| `naive_rag` | 136 | 14 | 39 |
+| `top_k_20` | **162** (0,857) | **20** | **7** |
+| `rerank_cohere` | 157 | 20 | 12 |
+
+- **Avec 20 passages, la récupération ne rate plus que 3 items** (`rq-005`, `rq-192` en `paraphrase`, `rq-334` en `comparison`) : 7 exécutions, soit au plus 3,7 points à regagner sur le `dev` pour un levier de récupération.
+- **Suivre les renvois entre articles ne rattraperait aucun de ces échecs.** 1 295 articles du corpus sur 2 150 citent un autre article, mais aucun article manquant d'un item en échec n'est cité par le contexte. Dans l'autre sens, un seul (L341-42, `rq-334`) cite le contexte, et l'item manque aussi L341-49.
+- **Les erreurs de génération se concentrent sur `set`** : 10 exécutions sur 15. Ce sont surtout des listes incomplètes alors que l'article est dans le contexte (`rq-298`, `rq-329`). Un seul cas net est un faux négatif du scorer par mots-clés (`rq-267` avec Mistral Small : « évaluer et contrôler l'activité » n'est pas reconnu comme « évaluer leur activité »).
+- **Réponses inventées aux 28 questions sans réponse** (`top_k_20`) : 9 avec Mistral Small, 5 avec Ministral 14B, 0 avec Gemini Flash-Lite.
+- **Le `dev` ne reproduit pas la difficulté du `test` sur les modes nouveaux** : `multi_article` y fait 23/24 et `comparison` 9/12, contre 0,48 à 0,70 au `test`. Ces modes comptent 4 à 8 items `dev` : un levier qui les viserait ne pourrait pas s'y régler.
+
+**Décision du propriétaire** (2026-11-10) : pas de levier taillé pour corriger les réponses inventées d'un modèle. Le générateur est lui-même un levier, et les conclusions de l'expérience le traiteront comme tel.
+
 ## Limites
 
 - Celles de chaque étape. Les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention. Le run consolidé écarte ces 12 questions.
