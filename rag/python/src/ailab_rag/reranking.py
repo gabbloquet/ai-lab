@@ -166,6 +166,11 @@ class RerankingRetriever:
         order = sorted(range(len(candidates)), key=lambda i: -scores[i])
         return [candidates[i] for i in order[: self._k]]
 
+    def best_score(self, question: str) -> float:
+        """La meilleure note des `pool` candidats, lue dans le même cache que le reclassement."""
+        candidates = self._index.search(self._embedder.embed([question])[0], self._pool)
+        return max(self._scores(question, candidates))
+
     def _scores(self, question: str, candidates: list[Passage]) -> list[float]:
         ids = [f"{p.article_id}#{p.part}" for p in candidates]
         key = "\n".join([self._reranker.name, question, *ids])

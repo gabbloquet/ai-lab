@@ -82,6 +82,21 @@ def test_a_reranking_is_computed_once_and_then_read_from_the_cache(tmp_path: Pat
     assert found == [PASSAGES[7], PASSAGES[0]]
 
 
+def test_the_best_score_is_the_highest_note_of_the_pool(tmp_path: Path) -> None:
+    """Le signal d'abstention de l'étape 6 de la 002 : la meilleure note des `pool` candidats."""
+    reranker = ScriptedReranker({"Article L7\ntexte 7": 0.9, "Article L3\ntexte 3": 0.5})
+
+    assert retriever(reranker, tmp_path, pool=10, k=2).best_score("une question") == 0.9
+
+
+def test_the_best_score_reads_the_same_cache_as_the_reranking(tmp_path: Path) -> None:
+    retriever(ScriptedReranker({"Article L7\ntexte 7": 0.9}), tmp_path, pool=10, k=2)("q")
+
+    second = ScriptedReranker()
+    assert retriever(second, tmp_path, pool=10, k=2).best_score("q") == 0.9
+    assert second.calls == []
+
+
 def test_the_cache_depends_on_the_reranker(tmp_path: Path) -> None:
     retriever(ScriptedReranker({"Article L7\ntexte 7": 0.9}, name="a"), tmp_path, pool=10, k=1)(
         "une question"
