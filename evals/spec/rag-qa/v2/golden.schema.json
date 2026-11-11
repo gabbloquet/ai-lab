@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Item d'un golden set rag-qa v2",
+  "description": "Une ligne de items.jsonl (SPEC.md § 3.1). Règles que JSON Schema ne peut pas exprimer, vérifiées par le générateur : une forme, un mot-clé ou une ancre ne devient pas vide après normalisation (§ 4) ; chaque mot-clé d'une forme à mots-clés est un seul mot au sens du § 5.2 ; une ancre ou une forme d'un fait ancré ne contient ni « . », ni « ; », ni « ! », ni « ? », ni le mot « et » (§ 5.3) ; aucune ancre d'un fait n'est retrouvée dans une ancre d'un autre fait du même item ; aucune forme de `false_value` n'est retrouvée dans une forme d'un fait attendu, et inversement ; chaque extrait de `evidence` figure dans le texte de son article.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "split", "mode", "answerable", "question", "expected", "evidence"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z]+-[0-9]{3,}$"},
+    "split": {"enum": ["dev", "test"]},
+    "mode": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "answerable": {"type": "boolean"},
+    "question": {"$ref": "#/$defs/text"},
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["facts", "articles"],
+      "properties": {
+        "facts": {
+          "description": "SPEC.md § 3.1 : soit aucun fait ne porte d'ancre, soit tous en portent une, et il y a alors au moins deux faits.",
+          "type": "array",
+          "items": {"$ref": "#/$defs/fact"},
+          "anyOf": [
+            {"items": {"not": {"required": ["anchor"]}}},
+            {"items": {"required": ["anchor"]}, "minItems": 2}
+          ]
+        },
+        "articles": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/article"}}
+      }
+    },
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "source_article": {"type": "string", "minLength": 1},
+    "false_value": {"$ref": "#/$defs/false_value"}
+  },
+  "dependentSchemas": {
+    "false_value": {
+      "description": "SPEC.md § 3.1 : seul un item avec réponse porte une fausse valeur.",
+      "properties": {"answerable": {"const": true}}
+    }
+  },
+  "if": {"properties": {"answerable": {"const": true}}},
+  "then": {
+    "properties": {
+      "expected": {
+        "properties": {
+          "facts": {"minItems": 1},
+          "articles": {"minItems": 1}
+        }
+      },
+      "evidence": {"minItems": 1}
+    }
+  },
+  "else": {
+    "properties": {
+      "expected": {
+        "properties": {
+          "facts": {"maxItems": 0},
+          "articles": {"maxItems": 0}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "text": {"type": "string", "pattern": "\\S"},
+    "form": {
+      "description": "SPEC.md § 5.1 et § 5.2 : forme textuelle ou forme à mots-clés.",
+      "anyOf": [{"$ref": "#/$defs/text"}, {"$ref": "#/$defs/tokens_form"}]
+    },
+    "tokens_form": {
+      "description": "SPEC.md § 5.2. Le motif ne fait que refuser les espaces : la règle « un seul mot » est vérifiée par le générateur, parce que les moteurs d'expressions régulières de Python et de Java ne traitent pas \\p{L} de la même façon.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tokens", "window"],
+      "properties": {
+        "tokens": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"type": "string", "pattern": "^\\S+$"}
+        },
+        "window": {"type": "integer", "minimum": 0, "maximum": 5}
+      }
+    },
+    "fact": {
+      "description": "SPEC.md § 5.2 : le fait est retrouvé si l'une de ses formes l'est. § 5.3 : l'ancre désigne son cas.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accepted"],
+      "properties": {
+        "accepted": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/form"}
+        },
+        "anchor": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/text"}
+        }
+      }
+    },
+    "false_value": {
+      "description": "SPEC.md § 5.4 : la valeur erronée que la question tient pour acquise, en formes textuelles seulement.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accepted"],
+      "properties": {
+        "accepted": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/text"}
+        }
+      }
+    },
+    "article": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "num"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "num": {"$ref": "#/$defs/text"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["article", "quote"],
+      "properties": {
+        "article": {"type": "string", "minLength": 1},
+        "quote": {"$ref": "#/$defs/text"}
+      }
+    }
+  }
+}

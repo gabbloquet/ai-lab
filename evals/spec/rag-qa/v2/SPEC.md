@@ -13,6 +13,7 @@ La [v1](../v1/SPEC.md) reste valable pour les rapports qui la citent. La v2 corr
 | Fausse valeur (`false_value`) et règle de rejet de la prémisse | En `false_premise`, une réponse qui donne les deux valeurs sans trancher était comptée juste | § 5.4 |
 | Espace entre un chiffre et `%` ou `€` supprimée | « 10% » ne retrouvait pas « 10 % » | § 4 |
 | `latency_s`, `cost_usd`, `tool_calls` ; contexte à plusieurs appels | L'étape 7 compare en dollars et en latence, et l'étape 8 compte les appels d'un RAG agentique | § 3.2, § 6, § 7 |
+| Schéma des exécutions (`execution.schema.json`) | Les deux scorers lisent les mêmes exécutions : une conversion fautive doit être rejetée avant la notation | § 3.2 |
 | Scorer Java en plus du scorer Python | Règle du dépôt : chaque langage a son scorer | § 1, § 9 |
 
 Les nouvelles règles se déclenchent selon les champs présents dans l'item, jamais selon son `mode`. Un item v1 valide reste valide en v2 et se note comme en v1, à la normalisation près (§ 4, étape 8).
@@ -111,7 +112,9 @@ Dans un item, soit aucun fait ne porte d'ancre, soit tous en portent une, et il 
 
 ### 3.2 Exécution observée
 
-C'est la forme canonique, utilisée aussi par les vecteurs de conformance et les rapports. Chaque expérience convertit la sortie de son système vers cette forme. Le format que le modèle doit produire est fixé par le protocole de l'expérience, avec une contrainte : il doit permettre de remplir `answer`, `abstained` et `cited`.
+C'est la forme canonique, utilisée aussi par les vecteurs de conformance et les rapports. Chaque expérience convertit la sortie de son système vers cette forme, validée par `execution.schema.json`. Le format que le modèle doit produire est fixé par le protocole de l'expérience, avec une contrainte : il doit permettre de remplir `answer`, `abstained` et `cited`.
+
+Tous les champs ci-dessous sont obligatoires. Un champ qui ne s'applique pas ou qui n'est pas mesuré vaut `null` : il n'est jamais omis. Les diagnostics propres à une expérience vont dans un objet facultatif `extra`, que le scorer ne lit pas. Aucun autre champ n'est admis.
 
 ```json
 {
@@ -140,7 +143,8 @@ C'est la forme canonique, utilisée aussi par les vecteurs de conformance et les
 | `tool_calls` | entier ≥ 0, ou `null` | Nombre d'appels de recherche faits par le modèle. Il vaut `null` pour une variante où le modèle ne choisit pas de chercher |
 | `latency_s` | réel ≥ 0, ou `null` | Durée de bout en bout de l'exécution en secondes, de l'envoi de la question à la réception de la réponse, récupération comprise. Le protocole dit comment elle est mesurée. `null` si elle n'est pas mesurée |
 | `cost_usd` | réel ≥ 0, ou `null` | Coût de l'exécution en dollars US : tous les appels payants qu'elle déclenche, calculés à partir de l'usage et d'un barème daté. Le protocole liste les appels comptés, et le rapport cite le barème. `null` s'il n'est pas calculé |
-| `error` | chaîne ou `null` | Non nul en cas d'erreur d'exécution : exception, délai dépassé, ou sortie impossible à lire dans le format fixé par le protocole |
+| `usage` | objet | `input_tokens` et `output_tokens`, entiers ≥ 0, ou `null` quand le fournisseur ne les renvoie pas (par exemple après un délai dépassé) |
+| `error` | chaîne non vide, ou `null` | Non nul en cas d'erreur d'exécution : exception, délai dépassé, ou sortie impossible à lire dans le format fixé par le protocole |
 
 **Contexte d'une variante agentique.** Quand le modèle fait plusieurs appels de recherche, `context` est la concaténation des résultats de tous les appels, dans l'ordre des appels, puis dans l'ordre du classement de chaque appel. La règle de la première occurrence s'applique à cette concaténation. Si le modèle répond sans chercher, `tool_calls` vaut 0 et `context` est une liste vide, pas `null`.
 
@@ -341,7 +345,7 @@ Les métriques secondaires suivent le même calcul de delta et d'IC, sur les ite
 ## 9. Conformance
 
 `conformance.jsonl` contient deux types de vecteurs :
-- `"kind": "execution"` : un item, une exécution observée, et les métriques attendues (§ 6) ;
+- `"kind": "execution"` : un item valide selon `golden.schema.json`, une exécution valide selon `execution.schema.json`, et les métriques attendues (§ 6) ;
 - `"kind": "aggregate"` : des séries de pᵢ(A) et pᵢ(B) avec leur split, accompagnées du delta, des bornes de l'IC et du verdict attendus ; ou des séries d'exécutions accompagnées des agrégats du § 7 attendus.
 
 Une implémentation est conforme si elle reproduit exactement les entiers, les booléens, les chaînes et les `null`, et les nombres réels à 1e-9 près.

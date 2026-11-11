@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Exécution observée rag-qa v2",
+  "description": "La forme canonique d'une exécution (SPEC.md § 3.2), écrite par chaque expérience après conversion de la sortie de son système. Les diagnostics propres à une expérience vont dans `extra`, que le scorer ne lit pas.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "item_id", "variant", "model", "repeat", "answer", "abstained", "cited", "context",
+    "usage", "latency_s", "cost_usd", "tool_calls", "error"
+  ],
+  "properties": {
+    "item_id": {"type": "string", "pattern": "^[a-z]+-[0-9]{3,}$"},
+    "variant": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "model": {"type": "string", "minLength": 1},
+    "repeat": {"type": "integer", "minimum": 0},
+    "answer": {"type": "string"},
+    "abstained": {"type": "boolean"},
+    "cited": {"type": "array", "items": {"type": "string"}},
+    "context": {
+      "description": "SPEC.md § 3.2 : `null` pour une variante sans récupération. Le scorer garde la première occurrence de chaque article.",
+      "type": ["array", "null"],
+      "items": {"type": "string", "minLength": 1}
+    },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input_tokens", "output_tokens"],
+      "properties": {
+        "input_tokens": {"type": ["integer", "null"], "minimum": 0},
+        "output_tokens": {"type": ["integer", "null"], "minimum": 0}
+      }
+    },
+    "latency_s": {"type": ["number", "null"], "minimum": 0},
+    "cost_usd": {"type": ["number", "null"], "minimum": 0},
+    "tool_calls": {"type": ["integer", "null"], "minimum": 0},
+    "error": {"type": ["string", "null"], "minLength": 1},
+    "extra": {"type": "object"}
+  },
+  "if": {"properties": {"tool_calls": {"type": "integer"}}},
+  "then": {
+    "description": "SPEC.md § 3.2 : une variante agentique a toujours un contexte, vide si le modèle n'a pas cherché.",
+    "properties": {"context": {"type": "array"}}
+  }
+}
