@@ -14,6 +14,11 @@ La [v1](../v1/SPEC.md) reste valable pour les rapports qui la citent. La v2 corr
 | Espace entre un chiffre et `%` ou `€` supprimée | « 10% » ne retrouvait pas « 10 % » | § 4 |
 | `latency_s`, `cost_usd`, `tool_calls` ; contexte à plusieurs appels | L'étape 7 compare en dollars et en latence, et l'étape 8 compte les appels d'un RAG agentique | § 3.2, § 6, § 7 |
 | Schéma des exécutions (`execution.schema.json`) | Les deux scorers lisent les mêmes exécutions : une conversion fautive doit être rejetée avant la notation | § 3.2 |
+| Agrégats calculés par le scorer partagé, avec des clés fixées | En v1, chaque expérience les calculait elle-même, sans vecteur pour les vérifier | § 7, § 9 |
+| Comparaison sur toute métrique, avec un sens ; n < 2 donne `null` | Le § 8 v1 ne disait ni comment traiter les valeurs nulles par item, ni quoi faire avec moins de deux items | § 8.1 |
+| Verdict à deux critères (`tradeoff` compris) | Les étapes 5 et 6 de la 002 l'utilisent, mais seul un test Python le vérifiait | § 8.2 |
+| p-value, correction de Holm et verdict corrigé | Le run consolidé de la 002 les publie, mais ils n'étaient calculés que dans son code | § 8.3 |
+| Items exclus | La 002 en exclut par audit, sans règle écrite | § 8.4 |
 | Scorer Java en plus du scorer Python | Règle du dépôt : chaque langage a son scorer | § 1, § 9 |
 
 Les nouvelles règles se déclenchent selon les champs présents dans l'item, jamais selon son `mode`. Un item v1 valide reste valide en v2 et se note comme en v1, à la normalisation près (§ 4, étape 8).
@@ -305,20 +310,30 @@ Ainsi, C(« Article L. 221-18 ») = C(« l221-18 ») = « L221-18 ». P est l'en
 
 ## 7. Agrégats par variante
 
-Ces agrégats, calculés sur le `test`, sont publiés sans porter le verdict :
-- les moyennes de `correct`, et de `correct` restreint aux items avec réponse ;
-- le taux de `false_abstention`, sur les items avec réponse ;
-- le taux de `hallucination`, sur les items sans réponse ;
-- le taux d'erreur ;
-- la moyenne de chaque métrique de contexte, sur les exécutions où elle n'est pas nulle ;
-- la **répartition de `failure`** : part de `correct`, `retrieval_miss`, `generation_miss` et `error` ;
-- la **répartition de `premise`**, sur les items qui portent un `false_value` : part de `corrected`, `unresolved`, `adopted` et `missed` ;
-- `correct` ventilé par `mode` ;
-- la moyenne de `cost_usd`, c'est-à-dire le coût par question ;
-- la médiane et le 95ᵉ centile de `latency_s` ;
-- la moyenne de `tool_calls`.
+Ces agrégats sont publiés sans porter le verdict. Ils sont calculés par le scorer partagé, et non par le code de chaque expérience : deux étapes qui publient un même taux le calculent donc de la même façon.
 
-Les quatre derniers agrégats ne sont calculés que si le champ n'est nul pour aucune exécution de la variante. Sinon, ils valent `null` : une moyenne sur une partie des exécutions seulement serait biaisée.
+**Entrées.** Le golden set, les exécutions d'**une** variante avec **un** modèle, un split et la liste des items exclus (§ 8.4). Les exécutions portant sur un item d'un autre split, ou sur un item exclu, sont ignorées. Les agrégats du `test` sont ceux du rapport ; ceux du `dev` ne servent qu'à itérer (§ 8).
+
+On note X l'ensemble des exécutions retenues. Une moyenne se calcule sur les exécutions où la valeur n'est pas nulle, un booléen comptant 1 pour vrai et 0 pour faux. Elle vaut `null` s'il n'y a aucune telle exécution.
+
+| Clé | Définition |
+|---|---|
+| `n_executions` | \|X\| |
+| `correct` | moyenne de `correct` sur X |
+| `correct_answerable` | moyenne de `correct` sur les exécutions de X portant sur un item avec réponse |
+| `false_abstention_rate` | moyenne de `false_abstention` |
+| `hallucination_rate` | moyenne de `hallucination` |
+| `error_rate` | part des exécutions de X dont `error` n'est pas nul |
+| `evidence_recall@k`, `all_evidence@k`, `all_evidence`, `context_size` | moyenne de la métrique |
+| `failure` | objet `{correct, retrieval_miss, generation_miss, error}` : part de chaque valeur parmi les exécutions où `failure` n'est pas nul, ou `null` s'il n'y en a aucune |
+| `premise` | objet `{corrected, unresolved, adopted, missed}`, même règle |
+| `correct_by_mode` | objet qui associe à chaque `mode` présent dans X la moyenne de `correct` sur ses exécutions |
+| `tokens_mean` | moyenne de `input_tokens + output_tokens` |
+| `cost_usd_mean` | moyenne de `cost_usd`, c'est-à-dire le coût par question |
+| `latency_s_median`, `latency_s_p95` | centiles 0,5 et 0,95 de `latency_s` |
+| `tool_calls_mean` | moyenne de `tool_calls` |
+
+Les cinq dernières clés ne sont calculées que si la valeur n'est nulle pour aucune exécution de X. Sinon, elles valent `null` : une moyenne sur une partie des exécutions seulement serait biaisée.
 
 **Centile.** Le centile q d'une série triée x₁ ≤ … ≤ xₙ est obtenu par interpolation linéaire entre les rangs : h = (n − 1) × q, puis x₍⌊h⌋₊₁₎ + (h − ⌊h⌋) × (x₍⌊h⌋₊₂₎ − x₍⌊h⌋₊₁₎). C'est la méthode 7 de Hyndman et Fan, la méthode par défaut de NumPy et de R. La médiane est le centile 0,5.
 
@@ -326,27 +341,89 @@ Les quatre derniers agrégats ne sont calculés que si le champ n'est nul pour a
 
 ## 8. Comparaison et verdict
 
-On compare une variante B à une baseline A, avec un même modèle, sur les mêmes n items **du split `test`**, chaque item étant exécuté k fois par variante.
+On compare une variante B à une baseline A, avec un même modèle, sur les mêmes items **du split `test`**, chaque item étant exécuté k fois par variante.
 
-Les items `dev` sont exclus du calcul. Leurs résultats peuvent figurer dans le rapport, dans une section séparée et signalée comme telle, mais ils ne portent jamais le verdict. Les résultats détaillés des items `test` (échecs item par item) ne se consultent pas avant le run final.
+Les items `dev` sont exclus du calcul. Leurs résultats peuvent figurer dans le rapport, dans une section séparée et signalée comme telle, mais ils ne portent jamais le verdict. Les résultats détaillés des items `test` (échecs item par item) ne se consultent pas avant le run final. Pour itérer sur le `dev`, on applique les mêmes calculs aux items `dev`, et le rapport le signale.
 
-1. Pour chaque item i : pᵢ(V) = moyenne de `correct` sur les k répétitions de la variante V.
-2. Différence appariée : dᵢ = pᵢ(B) − pᵢ(A).
-3. **Delta** = moyenne des dᵢ. **IC à 95 %** = delta ± t(0,975 ; n−1) × s(d) / √n, où s est l'écart-type empirique (dénominateur n − 1).
-4. **Verdict**, avec une règle fixée avant le run :
-   - borne basse > 0 : **B meilleure** ;
-   - borne haute < 0 : **B moins bonne** ;
-   - sinon : **non concluant**.
+### 8.1 Comparaison sur une métrique
 
-Les métriques secondaires suivent le même calcul de delta et d'IC, sur les items où elles ne sont nulles pour aucune des deux variantes. Quand une métrique est nulle pour toute la baseline, par exemple les métriques de contexte d'une variante sans récupération, on publie la valeur de B seule, sans delta.
+Elle porte sur une métrique m de l'exécution, avec un **sens** fixé avant le run : `higher_better` ou `lower_better`. Les métriques admises sont les métriques numériques ou booléennes du § 6, ainsi que `tool_calls`, `latency_s` et `cost_usd`. Un booléen compte 1 pour vrai et 0 pour faux.
 
-**Taille du golden set.** Ce n'est pas cette spec qui la fixe. Le protocole de chaque expérience la justifie avant le run, par un calcul d'effet minimal détectable : MDE = (t₀,₉₇₅ + t₀,₈₀) × s_d / √n, avec une puissance de 80 %. On n'utilise jamais moins de 30 items `test`.
+1. Pour chaque item i et chaque variante V : pᵢ(V) = moyenne de m sur les exécutions de V pour l'item i où m n'est pas nul. Si m est nul pour toutes ces exécutions, pᵢ(V) n'est pas défini.
+2. On garde les items du split où pᵢ(A) et pᵢ(B) sont tous deux définis. n est leur nombre.
+3. Différence appariée : dᵢ = pᵢ(B) − pᵢ(A).
+4. **Delta** = moyenne des dᵢ. **IC à 95 %** = delta ± t(0,975 ; n−1) × s(d) / √n, où s est l'écart-type empirique (dénominateur n − 1).
+5. **Verdict**, avec une règle fixée avant le run :
+   - B **s'améliore** si borne basse > 0 (`higher_better`) ou borne haute < 0 (`lower_better`) : verdict `b_better` ;
+   - B **se dégrade** si borne haute < 0 (`higher_better`) ou borne basse > 0 (`lower_better`) : verdict `b_worse` ;
+   - sinon : `inconclusive`.
+
+Si n < 2, le delta, l'IC et le verdict valent `null`, et seul n est publié.
+
+**Critère principal.** Sauf protocole contraire, le verdict d'une étape est celui de `correct`, en `higher_better`. Comme `correct` n'est jamais nul, une exécution en erreur compte comme une réponse fausse.
+
+**Métriques secondaires.** Elles suivent le même calcul. Une métrique nulle en cas d'erreur, comme `hallucination`, ne compte que les exécutions notées. Quand une métrique est nulle pour toute la baseline (par exemple les métriques de contexte d'une variante sans récupération), n vaut 0, et on publie la valeur de B seule (§ 7), sans delta.
+
+### 8.2 Verdict à deux critères
+
+Un protocole peut juger un levier sur deux critères. Le **critère principal** est la métrique que le levier doit améliorer. La **garde** est une métrique qui ne doit pas se dégrader au-delà d'une **marge** m ≥ 0, exprimée dans l'unité de la métrique. Exemple de l'étape 5 de la 002 : le critère principal est `hallucination` (`lower_better`), la garde est `false_abstention` (`lower_better`), et la marge vaut 0,03.
+
+Le protocole fixe, avant le run, les deux métriques, leur sens et la marge. Chacune est comparée selon le § 8.1. Ensuite :
+- la garde **tient** si borne haute < m (`lower_better`) ou borne basse > −m (`higher_better`) ;
+- la garde est **franchie** si borne basse > m (`lower_better`) ou borne haute < −m (`higher_better`).
+
+| Verdict | Condition, évaluée dans cet ordre |
+|---|---|
+| `b_worse` | le critère principal se dégrade, ou la garde est franchie |
+| `b_better` | le critère principal s'améliore, et la garde tient |
+| `tradeoff` | le critère principal s'améliore, mais la garde ne tient pas sans être franchie |
+| `inconclusive` | sinon |
+
+Si l'une des deux comparaisons a n < 2, le verdict vaut `null`.
+
+Une garde exactement à la marge ne tient pas, et n'est pas franchie. En `lower_better`, avec une borne haute égale à m, le verdict ne peut pas être `b_better` : il vaut `tradeoff` si le critère principal s'améliore.
+
+### 8.3 Comparaisons multiples
+
+Quand un rapport porte plusieurs comparaisons, la chance qu'au moins une soit concluante par hasard augmente. Le protocole fixe donc, avant le run, une **famille** de comparaisons (par exemple, les six comparaisons de `correct` d'un même modèle), et un seuil α, qui vaut 0,05 sauf protocole contraire.
+
+**p-value.** Chaque comparaison du § 8.1 publie la p-value bilatérale du test t apparié, celui dont l'IC du § 8.1 est l'inversion : t = delta / (s(d) / √n), puis p = 2 × (1 − F(\|t\|)), où F est la fonction de répartition de Student à n − 1 degrés de liberté.
+- Sans dispersion (s(d) = 0) : p vaut 1 si le delta est nul, 0 sinon.
+- Si n < 2 : p vaut `null`.
+
+**Ajustement de Holm.** Soit m le nombre de comparaisons de la famille. Une p-value nulle compte pour 1 dans le calcul : la famille garde sa taille, et la correction ne s'allège pas. On trie les p-values par ordre croissant, p₍₁₎ ≤ … ≤ p₍ₘ₎. La p-value ajustée de rang j vaut :
+
+p̃₍ⱼ₎ = max sur l ≤ j de min(1, (m − l + 1) × p₍ₗ₎)
+
+Chaque comparaison reprend la p-value ajustée de son rang. Une comparaison dont la p-value est nulle a une p-value ajustée nulle. Des p-values égales reçoivent la même valeur ajustée, quel que soit l'ordre entre elles.
+
+**Verdict corrigé (`verdict_holm`).**
+- Si p̃ < α, le verdict est `b_better` ou `b_worse`, selon le signe du delta et le sens de la métrique (§ 8.1).
+- Sinon, il vaut `inconclusive`, ou `null` si p̃ est nul.
+
+Le protocole dit lequel porte le verdict de l'étape : celui du § 8.1 ou le verdict corrigé. L'autre est publié à côté.
+
+### 8.4 Items exclus
+
+Le protocole peut exclure des items, par exemple ceux qu'un audit du golden set trouve défectueux. La liste est fixée au commit de gel, avant le run `test`, avec le motif de chaque exclusion. Un item ne s'exclut jamais après lecture des résultats du `test`.
+
+Les items exclus sont retirés de tous les calculs des § 7 et § 8, avant toute autre opération. Le rapport publie leur liste. Le golden set, lui, ne change pas : la correction d'un item défectueux passe par une nouvelle version.
+
+### 8.5 Taille du golden set
+
+Ce n'est pas cette spec qui la fixe. Le protocole de chaque expérience la justifie avant le run, par un calcul d'effet minimal détectable : MDE = (t₀,₉₇₅ + t₀,₈₀) × s_d / √n, avec une puissance de 80 %. Quand le verdict corrigé du § 8.3 porte le verdict, le quantile t₀,₉₇₅ est remplacé par celui du seuil le plus exigeant de Holm, t(1 − α / (2m)). On n'utilise jamais moins de 30 items `test`.
 
 ## 9. Conformance
 
-`conformance.jsonl` contient deux types de vecteurs :
+`conformance.jsonl` contient six types de vecteurs :
 - `"kind": "execution"` : un item valide selon `golden.schema.json`, une exécution valide selon `execution.schema.json`, et les métriques attendues (§ 6) ;
-- `"kind": "aggregate"` : des séries de pᵢ(A) et pᵢ(B) avec leur split, accompagnées du delta, des bornes de l'IC et du verdict attendus ; ou des séries d'exécutions accompagnées des agrégats du § 7 attendus.
+- `"kind": "aggregate"` : des séries de pᵢ(A) et pᵢ(B) avec leur split, accompagnées du delta, des bornes de l'IC et du verdict de `correct` attendus (§ 8.1, étapes 3 à 5). C'est le type de la v1, repris tel quel ;
+- `"kind": "variant"` : des items, les exécutions d'une variante et un split, accompagnés des agrégats attendus (§ 7) ;
+- `"kind": "comparison"` : des items, les exécutions de A et de B, une métrique, son sens, un split et les items exclus, accompagnés de n, du delta, des bornes de l'IC, du verdict et de la p-value attendus (§ 8.1, § 8.3) ;
+- `"kind": "joint"` : des items, les exécutions de A et de B, les deux critères, leur sens, la marge, un split et les items exclus, accompagnés des deux comparaisons et du verdict attendus (§ 8.2) ;
+- `"kind": "family"` : une famille de comparaisons, chacune donnée par ses séries de pᵢ(A) et pᵢ(B), son split et son sens, et un seuil α, accompagnés pour chaque comparaison de la p-value, de la p-value ajustée et du verdict corrigé attendus (§ 8.3).
+
+Les vecteurs `variant`, `comparison` et `joint` partent des exécutions, et non de pᵢ déjà calculés : ils vérifient aussi la moyenne par item, le traitement des valeurs nulles et l'exclusion d'items.
 
 Une implémentation est conforme si elle reproduit exactement les entiers, les booléens, les chaînes et les `null`, et les nombres réels à 1e-9 près.
 
@@ -362,7 +439,7 @@ Une implémentation est conforme si elle reproduit exactement les entiers, les b
 
 `covers` relie chaque vecteur aux cas à couvrir ci-dessous, et un test vérifie que chaque cas en a au moins un.
 
-Les vecteurs de la v1 sont repris, complétés des métriques nouvelles. Un vecteur dont le résultat attendu change entre v1 et v2 est signalé dans sa `description`.
+Les vecteurs de la v1 sont repris sous le même `id`, avec le même item. Leur exécution est complétée des champs nouveaux à `null`, et leurs métriques attendues des métriques nouvelles. Un vecteur dont une métrique v1 change porte un champ `v1_change`, qui explique l'écart. Un test vérifie que tout autre vecteur repris garde les métriques v1 attendues.
 
 Cas à couvrir au minimum :
 - **réponse** : réponse juste ; fait manquant ; un fait retrouvé sur deux ; plusieurs formes acceptées ; abstention sur un item avec réponse ; abstention qui l'emporte sur une réponse juste ; abstention juste sur un item sans réponse ; hallucination ; réponse vide ; erreur d'exécution ;
@@ -373,8 +450,12 @@ Cas à couvrir au minimum :
 - **contexte** : `context` nul ; contexte plus court que k ; article attendu au rang 1, au rang 4, absent ; deux articles attendus dont un seul présent ; `retrieval_miss` ; `generation_miss` ; erreur avec contexte ; article en double dans `context` ;
 - **variante agentique** : `tool_calls` à 1 (métriques à k définies) ; `tool_calls` > 1 (métriques à k nulles, `all_evidence` défini) ; `tool_calls` à 0 avec un contexte vide ;
 - **citations** : formes « Article L. 221-18 », « art. L. 221-18 », « L221-18 » et « l. 221-18 » ; citation en double ; aucune citation ; citation fausse ; plage dans un seul élément ;
-- **verdict** : B meilleure ; B moins bonne ; non concluant ; items `dev` ignorés ;
-- **agrégats** : répartition de `premise` ; coût moyen ; médiane et 95ᵉ centile de la latence, sur un nombre pair et sur un nombre impair d'exécutions ; agrégat nul quand une exécution n'a pas le champ.
+- **verdict** : B meilleure ; B moins bonne ; non concluant ; items `dev` ignorés ; IC nul ;
+- **agrégats** : chaque clé du § 7 ; exécutions d'un autre split ignorées ; moyenne sans exécution non nulle ; répartition de `failure` ; répartition de `premise` ; `correct_by_mode` avec deux modes ; médiane et 95ᵉ centile de la latence, sur un nombre pair et sur un nombre impair d'exécutions ; agrégat nul quand une exécution n'a pas le champ ;
+- **comparaison** : métrique `lower_better` qui s'améliore ; qui se dégrade ; moyenne sur k > 1 répétitions ; répétition en erreur ignorée pour une métrique nulle en erreur ; répétition en erreur comptée fausse pour `correct` ; item écarté parce que la métrique y est nulle pour une variante ; métrique nulle pour toute la baseline (n = 0) ; un seul item (n = 1) ; items de l'autre split ignorés ;
+- **verdict à deux critères** : `b_better` ; `b_worse` par le critère principal ; `b_worse` par la garde franchie ; `tradeoff` ; `inconclusive` ; garde exactement à la marge ; garde en `higher_better` ; comparaison à n < 2 ;
+- **comparaisons multiples** : p-value d'une comparaison ; sans dispersion avec un delta nul ; sans dispersion avec un delta non nul ; ajustement plafonné à 1 ; maximum cumulé qui relève une p-value ajustée ; p-values égales ; comparaison à n < 2 dans la famille ; verdict corrigé `b_worse` en `lower_better` ; concluant avant correction, non concluant après ;
+- **items exclus** : item exclu ignoré par les agrégats ; par une comparaison ; par le verdict à deux critères.
 
 ## 10. Contenu d'un rapport
 
@@ -384,6 +465,9 @@ Chaque rapport doit citer :
 - n (items `test`), le nombre d'items `dev`, et k ;
 - les lockfiles (`uv.lock`, et ceux du build Java quand le scorer Java a servi) ;
 - pour `correct` : la valeur de A, celle de B, le delta, son IC et le verdict ;
+- quand le § 8.2 s'applique : les deux critères, leur sens, la marge, et le verdict à deux critères ;
+- quand le § 8.3 s'applique : la famille, α, la p-value, la p-value ajustée et le verdict corrigé de chaque comparaison, et lequel des deux verdicts porte celui de l'étape ;
+- la liste des items exclus et le motif de chaque exclusion (§ 8.4) ;
 - les agrégats du § 7 pour chaque variante ;
 - quand `cost_usd` est publié : le barème utilisé, sa source et sa date, et la liste des appels comptés ;
 - quand `latency_s` est publié : ce que mesure la durée, la machine et la période du run.
