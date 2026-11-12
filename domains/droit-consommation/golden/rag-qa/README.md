@@ -309,3 +309,36 @@ Rejets à la relecture : 10 en `set` (listes complétées ailleurs dans le code,
 - **Pourcentages collés.** La normalisation de la spec v1 ne retire que les espaces entre deux chiffres : « 10% » ne retrouve pas « 10 % ». Les formes collées ont été ajoutées pour la v4. Les items des versions précédentes qui attendent un pourcentage n'ont pas été vérifiés : il faudra un vecteur de conformance dans une spec v2.
 - **Aucun multi-hop qu'on ne peut pas contourner** (voir le retrait de `bridge`).
 
+
+## v5 : un `dev` pour itérer, et les champs de la spec v2 (en préparation, 2026-11-12)
+
+> Protocole écrit avant la construction. Une règle qui change en cours de route est signalée ici.
+
+**Pourquoi.** La 002 se rejoue sur la v5, notée par la spec [`rag-qa/v2`](../../../../evals/spec/rag-qa/v2/SPEC.md) (plan de la 002, décisions du 2026-11-10). Le `dev` v4 est trop petit pour régler un levier sur les modes récents (4 à 10 items), et ses items `comparison` et `false_premise` n'ont pas les champs dont la spec v2 a besoin.
+
+**Décisions du propriétaire (2026-11-12).**
+- **La v5 étend la v4, et seul le `dev` grandit.** Le `test` v5 est celui de la v4. Le corpus ne permet pas un `test` neuf : au 2026-11-12, avec la règle de tirage de la v4, il ne reste que 44 articles candidats en `set`. Le `test` v4 n'a servi à régler aucune variante, mais il a déjà été lu deux fois en agrégat (run consolidé, étape 6).
+- **Pas de multi-hop.** Ce code seul n'offre pas de saut qu'on ne puisse pas contourner (retrait de `bridge` en v4). L'étape 8 de la 002 est jugée sur les modes existants, et c'est une limite écrite.
+- **Les items v4 `comparison` et `false_premise` sont complétés** des champs v2, `anchor` et `false_value`. Ces champs sont relus et arbitrés comme un item neuf. Le reste de chaque item v4 ne change pas.
+
+**Composition visée du `dev`** : une vingtaine d'items par mode récent.
+
+| Mode | `dev` v4 | `dev` v5 visé | Tâches ajoutées (surplus) |
+|---|---|---|---|
+| `comparison` | 4 | 20 | 32 (× 2) |
+| `set` | 5 | autant que le corpus le permet | tous les candidats libres (44 au 2026-11-12) |
+| `false_premise` | 10 | 20 | 15 (× 1,5) |
+| `multi_article` | 8 | 20 | 24 (× 2) |
+
+Les surplus reprennent les taux de rejet de la v4. En `set`, le vivier ne suffit pas pour 20 : avec 60 à 67 % de rejets aux pilotes, il faut en attendre une quinzaine. Comme en v4, si un mode n'atteint pas sa cible, il garde les items qui passent les contrôles et la relecture, et c'est écrit ici.
+
+**Construction.**
+- **Plan.** Celui de la v4, plus des tâches par extension (`--extend mode:dev:n`, seed 42, `--reuse-rejected v4`). Les articles de tous les plans précédents et des pilotes sont exclus, sauf ceux des tâches rejetées qu'aucun item n'utilise. Aucun article ne sert donc à deux items, et la séparation `dev`/`test` reste intacte.
+- **Rédaction** des nouvelles tâches : rédacteur, prompts et contrôles de la v4, sans changement.
+- **Ancres** (`comparison`, anciens et nouveaux items). Une requête à part, avec le même rédacteur et un prompt versionné (`prompts/anchors.md`). Elle reçoit la question finale (corrigée par la relecture s'il y a lieu) et ses deux faits, et rend pour chaque fait les mots de la question qui désignent son cas.
+  - Contrôles bloquants à la publication : chaque ancre figure dans la question ; aucune ne contient « . », « ; », « ! », « ? » ni le mot « et », pas plus que les formes des faits ancrés ; aucune ancre d'un fait n'est retrouvée dans une ancre de l'autre (spec v2, § 3.1).
+- **Fausses valeurs** (`false_premise`). Elles sont reprises du champ `false_value` des brouillons gelés, ou de la correction du relecteur quand celle-ci a changé la question.
+  - Contrôles bloquants : la fausse valeur figure dans la question ; aucune de ses formes n'est retrouvée dans une forme du fait attendu, ni l'inverse (spec v2, § 3.1).
+  - La relecture peut ajouter des variantes d'écriture (« trente jours » pour « 30 jours »).
+- **Relecture.** Celle de la v4 : des relecteurs IA (sous-agents Claude) cherchent dans tout le corpus une réponse concurrente, puis le propriétaire arbitre. Elle porte sur tous les items `dev` ajoutés, et sur les ancres et fausses valeurs de tous les items `comparison` et `false_premise`. Une correction peut ajouter une forme à mots-clés (spec v2, § 5.2).
+- **Publication.** `v5/items.jsonl` est validé par le schéma v2 et par les règles du générateur. Le manifeste cite la spec `rag-qa/v2`. Un item v4 ne peut différer de la v4 que par ses champs `anchor` et `false_value`, sinon la publication est bloquée.

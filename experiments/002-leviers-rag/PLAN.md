@@ -19,6 +19,13 @@
 - Toute la 002 se rejoue sur `rag-qa/v5`, notée par la spec `rag-qa/v2`.
 - L'étape 7 attend la v5.
 
+## Décisions du propriétaire (2026-11-12)
+
+- La v5 étend la v4 : seul le `dev` grandit, et le `test` v5 est celui de la v4. Le corpus ne permet pas un `test` neuf.
+- Pas de multi-hop dans la v5. L'étape 8 est jugée sur les modes existants, et c'est une limite écrite.
+- Les items v4 `comparison` et `false_premise` reçoivent les champs v2 (`anchor`, `false_value`), qui sont relus.
+- Le code de campagne de la 002 est adapté à la spec v2 par Claude, en TDD, avec un résumé des choix à la fin.
+
 ## Feuille de route
 
 | # | Chantier | Qui écrit | Sortie |
