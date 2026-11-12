@@ -65,6 +65,24 @@ ANCHORED_ITEM = {
 TOKENS_FORM = {"tokens": ["évaluer", "activité"], "window": 4}
 FALSE_VALUE = {"accepted": ["30 jours", "trente jours"]}
 
+# Exemple du § 3.2, recopié tel quel.
+SPEC_EXECUTION = {
+    "item_id": "rq-001",
+    "variant": "naive_rag",
+    "model": "<fournisseur>/<modèle>",
+    "repeat": 0,
+    "answer": "Vous disposez de 14 jours.",
+    "abstained": False,
+    "cited": ["L. 221-18"],
+    "context": ["LEGIARTI000032226842", "LEGIARTI000032226840"],
+    "usage": {"input_tokens": 1830, "output_tokens": 42},
+    "latency_s": 1.42,
+    "cost_usd": 0.00031,
+    "tool_calls": None,
+    "error": None,
+}
+NEW_FIELDS_V2 = {"latency_s": None, "cost_usd": None, "tool_calls": None}
+
 
 def _load(path):
     schema = json.loads(path.read_text(encoding="utf-8"))
@@ -85,6 +103,11 @@ def _fact(item, index=0):
 @pytest.fixture(scope="module")
 def golden_validator():
     return _load(SPEC_DIR / "golden.schema.json")
+
+
+@pytest.fixture(scope="module")
+def execution_validator():
+    return _load(SPEC_DIR / "execution.schema.json")
 
 
 @pytest.fixture(scope="module")
@@ -200,3 +223,85 @@ def test_rejects_a_malformed_anchored_item(golden_validator, case, change):
 )
 def test_rejects_an_unanswerable_item_that_expects_something(golden_validator, case, change):
     assert list(golden_validator.iter_errors(_mutated(UNANSWERABLE_ITEM, change))), case
+
+
+# --- Bloc 2 : schéma des exécutions (§ 3.2) -----------------------------------------------------
+
+
+def _with(**fields):
+    return {**SPEC_EXECUTION, **fields}
+
+
+@pytest.mark.parametrize(
+    "execution",
+    [
+        SPEC_EXECUTION,
+        _with(variant="closed_book", context=None),
+        _with(variant="agentic_rag", tool_calls=0, context=[]),
+        _with(variant="agentic_rag", tool_calls=3),
+        _with(extra={"threshold_abstention": False}),
+        _with(usage={"input_tokens": None, "output_tokens": None}, error="timeout", latency_s=None),
+    ],
+    ids=[
+        "exemple",
+        "sans récupération",
+        "agentique sans recherche",
+        "agentique",
+        "diagnostic dans extra",
+        "délai dépassé",
+    ],
+)
+def test_accepts_the_executions_of_the_spec(execution_validator, execution):
+    assert list(execution_validator.iter_errors(execution)) == []
+
+
+def test_accepts_every_v1_execution_completed_with_nulls(execution_validator, v1_vectors):
+    """SPEC.md § 9 : une exécution v1, complétée des champs nouveaux à `null`, est valide."""
+    for vector in v1_vectors:
+        if vector["kind"] == "execution":
+            execution = {**vector["execution"], **NEW_FIELDS_V2}
+            assert list(execution_validator.iter_errors(execution)) == [], vector["id"]
+
+
+@pytest.mark.parametrize("field", sorted(SPEC_EXECUTION))
+def test_rejects_an_execution_without_a_required_field(execution_validator, field):
+    """§ 3.2 : un champ qui ne s'applique pas vaut `null`, il n'est jamais omis."""
+    execution = {key: value for key, value in SPEC_EXECUTION.items() if key != field}
+
+    assert list(execution_validator.iter_errors(execution)), field
+
+
+MALFORMED_EXECUTIONS = [
+    ("champ inconnu", _with(threshold_abstention=False)),
+    ("latence au format des runs 002", _with(latency={"generation_s": 1.42})),
+    ("agentique sans contexte", _with(tool_calls=2, context=None)),
+    ("identifiant d'item mal formé", _with(item_id="rq1")),
+    ("variante mal formée", _with(variant="Naive-RAG")),
+    ("modèle vide", _with(model="")),
+    ("répétition négative", _with(repeat=-1)),
+    ("répétition non entière", _with(repeat=0.5)),
+    ("réponse non textuelle", _with(answer=None)),
+    ("abstention non booléenne", _with(abstained="false")),
+    ("citation non textuelle", _with(cited=[221])),
+    ("contexte non liste", _with(context="LEGIARTI000032226842")),
+    ("article vide dans le contexte", _with(context=[""])),
+    ("usage incomplet", _with(usage={"input_tokens": 1})),
+    ("usage avec champ inconnu", _with(usage={"input_tokens": 1, "output_tokens": 1, "total": 2})),
+    ("tokens négatifs", _with(usage={"input_tokens": -1, "output_tokens": 1})),
+    ("tokens non entiers", _with(usage={"input_tokens": 1, "output_tokens": 1.5})),
+    ("latence négative", _with(latency_s=-0.1)),
+    ("coût négatif", _with(cost_usd=-0.01)),
+    ("appels négatifs", _with(tool_calls=-1)),
+    ("appels non entiers", _with(tool_calls=1.5)),
+    ("erreur vide", _with(error="")),
+    ("extra non objet", _with(extra=["x"])),
+]
+
+
+@pytest.mark.parametrize(
+    ("case", "execution"),
+    MALFORMED_EXECUTIONS,
+    ids=[case for case, _ in MALFORMED_EXECUTIONS],
+)
+def test_rejects_a_malformed_execution(execution_validator, case, execution):
+    assert list(execution_validator.iter_errors(execution)), case
