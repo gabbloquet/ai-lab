@@ -218,3 +218,23 @@ async def test_the_v2_execution_follows_the_canonical_schema_of_the_spec() -> No
     assert (execution["cost_usd"], execution["tool_calls"]) == (None, None)
     assert "latency" not in execution
     assert score_v2(ITEM, execution)["correct"] is True
+
+
+async def test_each_generator_can_have_its_own_settings() -> None:
+    """Étape 7 : un générateur qui ignore `temperature` (Gemini 3.5 Flash-Lite et après) ne la
+    reçoit plus ; les réglages donnés remplacent ceux par défaut. (Le faux modèle ne déclare pas
+    la réflexion : Pydantic AI retire alors `thinking`, d'où une autre clé ici.)"""
+    from pydantic_ai.models.function import AgentInfo, FunctionModel
+
+    seen: list[dict] = []
+
+    def respond(messages, info: AgentInfo):
+        seen.append(dict(info.model_settings or {}))
+        return ModelResponse(parts=[ToolCallPart(info.output_tools[0].name, GOOD)])
+
+    model = FunctionModel(respond, model_name="fake-model")
+    await run_item(ITEM, variant=CLOSED_BOOK, model=model, repeat=0)
+    await run_item(ITEM, variant=CLOSED_BOOK, model=model, repeat=0, settings={"max_tokens": 500})
+
+    assert seen[0].get("temperature") == 0.0
+    assert "temperature" not in seen[1] and seen[1]["max_tokens"] == 500

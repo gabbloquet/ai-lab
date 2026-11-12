@@ -20,6 +20,7 @@ from typing import Any
 
 from pydantic_ai.exceptions import ModelHTTPError
 from pydantic_ai.models import Model
+from pydantic_ai.settings import ModelSettings
 
 from ailab_evals.paired import joint_verdict
 from ailab_evals.rag_qa import KS, PairedScore, aggregate, score_execution
@@ -63,6 +64,7 @@ async def run_campaign(
     sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
     tracer: Tracer = NO_TRACING,
     canonical: str = "v1",
+    settings: ModelSettings | None = None,
 ) -> list[dict]:
     """`canonical` choisit la spec rag-qa des exécutions et du scorer des traces : v1 ou v2."""
     if canonical == "v2":
@@ -95,6 +97,7 @@ async def run_campaign(
                             reraise=is_transient,
                             grounding=(groundings or {}).get(variant, GROUNDING),
                             canonical=canonical,
+                            settings=settings,
                         )
                         break
                     except ModelHTTPError as error:

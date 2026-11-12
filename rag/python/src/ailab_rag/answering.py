@@ -56,11 +56,14 @@ async def run_item(
     clock: Callable[[], float] = time.perf_counter,
     grounding: str = GROUNDING,
     canonical: str = "v1",
+    settings: ModelSettings | None = None,
 ) -> dict[str, Any]:
     """`reraise` laisse passer une erreur d'infrastructure (limite de débit) au lieu de la noter :
     la campagne relance alors l'exécution, au lieu de la compter comme une mauvaise réponse.
     `canonical` choisit la forme de l'exécution : celle de la spec rag-qa v1, avec la durée de
-    génération hors spec, ou celle de la v2 (§ 3.2), avec `latency_s` de bout en bout."""
+    génération hors spec, ou celle de la v2 (§ 3.2), avec `latency_s` de bout en bout.
+    `settings` remplace les réglages par défaut du générateur (`temperature = 0`) : un modèle qui
+    ignore la température ne la reçoit plus, un autre reçoit son niveau de réflexion."""
     started = clock() if canonical == "v2" else None
     question = item["question"]
     context: list[str] | None = None
@@ -79,7 +82,7 @@ async def run_item(
         output_type=ModelAnswer,
         instructions=SYSTEM_PROMPT,
         retries=0,
-        model_settings=ModelSettings(temperature=TEMPERATURE),
+        model_settings=settings if settings is not None else ModelSettings(temperature=TEMPERATURE),
     )
     output: ModelAnswer | None = None
     error: str | None = None
