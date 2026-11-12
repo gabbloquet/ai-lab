@@ -465,11 +465,16 @@ def _false_premise_checks(
     return errors, alerts
 
 
-def _unique_forms(forms: list[str]) -> list[str]:
+def _unique_forms(forms: list) -> list:
+    """Les formes sans doublon après normalisation. Une forme à mots-clés (spec v2, § 5.2), qu'une
+    correction peut ajouter, est comparée sur ses mots-clés normalisés et sa fenêtre."""
     seen: set[str] = set()
     kept = []
     for form in forms:
-        key = normalize(form)
+        if isinstance(form, dict):
+            key = json.dumps([[normalize(t) for t in form["tokens"]], form["window"]])
+        else:
+            key = normalize(form)
         if key and key not in seen:
             seen.add(key)
             kept.append(form)

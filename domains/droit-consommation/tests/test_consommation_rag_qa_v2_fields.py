@@ -212,3 +212,15 @@ def test_a_base_item_may_only_gain_v2_fields():
     assert same_but_v2_fields(anchored(), COMPARISON)
     assert same_but_v2_fields(premise, PREMISE)
     assert not same_but_v2_fields({**premise, "question": "Autre ?"}, PREMISE)
+
+
+def test_a_review_correction_may_add_a_keyword_form():
+    """Protocole v5 : une correction peut ajouter une forme à mots-clés (spec v2, § 5.2)."""
+    from consommation_rag_qa_build import _apply_correction
+
+    form = {"tokens": ["accord", "exprès"], "window": 2}
+    correction = {"facts": [{"accepted": ["quatorze jours", form, dict(form), "14 jours"]}]}
+
+    item = _apply_correction(copy.deepcopy(PREMISE), correction, by_num={})
+
+    assert item["expected"]["facts"][0]["accepted"] == ["quatorze jours", form, "14 jours"]
