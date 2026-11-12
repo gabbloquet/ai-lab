@@ -126,6 +126,7 @@ Relire des items `test` avant le run final ne biaise pas le verdict : aucune var
 | `v2` | `data/v1` | 42 | `rag-qa/v1` | La v1, plus 24 questions sans réponse dans le `dev` (`rq-201` à `rq-224`) : 224 items, `dev` 74 dont 30 sans réponse, **`test` identique à celui de la v1**. Écrite le 2026-11-09 dans `v2/items.jsonl` avec `MANIFEST.json` (`base_version: v1`). Pas encore citée par un rapport |
 | `v3` | `data/v1` | 42 | `rag-qa/v1` | La v2, plus 40 questions sans réponse dans le `test` (`rq-225` à `rq-264`) : 264 items, `test` 190 dont 178 valides (audit), 51 sans réponse valides. Les 224 items de la v2, dont les 150 `test` de la v1, sont repris à l'identique. Écrite le 2026-11-09 (`base_version: v2`). **Publiée** : citée par le [run final de la 006](../../../../experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md), donc immuable |
 | `v4` | `data/v1` | 42 | `rag-qa/v1` | La v3, plus trois modes : `comparison`, `set`, `false_premise` (`rq-265` à `rq-339`) : 339 items, `test` 246 dont 234 valides (audit), 51 sans réponse valides (22 %). Les 264 items de la v3 sont repris à l'identique. Écrite le 2026-11-09 (`base_version: v3`). Pas encore citée par un rapport |
+| `v5` | `data/v1` | 42 | `rag-qa/v2` | La v4, plus 27 items `dev` (`comparison` 5, `set` 2, `false_premise` 10, `multi_article` 10) : 366 items, `dev` 120, **`test` identique à celui de la v4**. Les items `comparison` reçoivent des ancres et les items `false_premise` une fausse valeur ; le reste des items v4 est repris à l'identique. Écrite le 2026-11-12 (`base_version: v4`). Pas encore citée par un rapport |
 
 **Composition du `dev` après relecture : 6 items sans réponse et 11 en mode `direct`**, au lieu de 7 et 10. `rq-133` (« Garantie de conformité : quel délai a le vendeur pour me rembourser après la résolution du contrat ? ») avait été classé sans réponse, mais L217-17 y répond (« au plus tard dans les quatorze jours ») ; il a été transformé en item avec réponse, en mode `direct`, plutôt que remplacé (décision du 2026-11-07). La correction d'un relecteur peut désormais changer le statut, le mode, les articles et les extraits d'un item, et chaque extrait est vérifié dans son article.
 
@@ -310,7 +311,7 @@ Rejets à la relecture : 10 en `set` (listes complétées ailleurs dans le code,
 - **Aucun multi-hop qu'on ne peut pas contourner** (voir le retrait de `bridge`).
 
 
-## v5 : un `dev` pour itérer, et les champs de la spec v2 (en préparation, 2026-11-12)
+## v5 : un `dev` pour itérer, et les champs de la spec v2 (écrite le 2026-11-12)
 
 > Protocole écrit avant la construction. Une règle qui change en cours de route est signalée ici.
 
@@ -344,3 +345,41 @@ Les surplus reprennent les taux de rejet de la v4. En `set`, le vivier ne suffit
   - La relecture peut ajouter des variantes d'écriture (« trente jours » pour « 30 jours »).
 - **Relecture.** Celle de la v4 : des relecteurs IA (sous-agents Claude) cherchent dans tout le corpus une réponse concurrente, puis le propriétaire arbitre. Elle porte sur tous les items `dev` ajoutés, et sur les ancres et fausses valeurs de tous les items `comparison` et `false_premise`. Une correction peut ajouter une forme à mots-clés (spec v2, § 5.2).
 - **Publication.** `v5/items.jsonl` est validé par le schéma v2 et par les règles du générateur. Le manifeste cite la spec `rag-qa/v2`. Un item v4 ne peut différer de la v4 que par ses champs `anchor` et `false_value`, sinon la publication est bloquée.
+
+### Relecture, arbitrage et composition finale (2026-11-12)
+
+**Rédaction.** 100 brouillons et 23 jeux d'ancres, gelés dans `drafts/v5/`. Aux contrôles, 34 brouillons passent. La plupart des rejets viennent du rédacteur, qui déclare l'article inutilisable : 24 sur 25 en `comparison`, 20 sur 25 en `set`, 10 sur 13 en `multi_article`. Comme en v4, ce sont des candidats de fin de vivier.
+
+**Relecture.** Quatre relecteurs IA (sous-agents Claude) ont relu :
+- les 34 items nouveaux, en deux lots : `set` et `comparison`, puis `false_premise` et `multi_article` ;
+- les ancres des 23 items `comparison` ;
+- les fausses valeurs des 50 items `false_premise`.
+
+Chaque extrait qu'ils citent en preuve a été vérifié mot pour mot dans le corpus, par script.
+
+**Réconciliation.** Quand le relecteur d'un item a corrigé sa question, la fausse valeur qu'il propose l'emporte sur celle du relecteur des fausses valeurs, qui lisait l'ancienne question. Pour les trois items `comparison` dont la question a été réécrite (`comparison-dev-022`, `-034`, `-040`), les ancres sont proposées par Claude sur la nouvelle question. Un essai à blanc, qui accepte toutes les propositions, ne laisse ni règle violée ni item en attente.
+
+**Arbitrage** (propriétaire, 2026-11-12) : les 111 propositions sont acceptées telles quelles. Verdicts : `review/v5.jsonl` (items) et `review/v5-fields.jsonl` (champs v2).
+
+**Composition du `dev` v5** :
+
+| Mode | `dev` v4 | Ajoutés | `dev` v5 | Visé |
+|---|---|---|---|---|
+| `comparison` | 4 | 5 | 9 | 20 |
+| `set` | 5 | 2 | 7 | une quinzaine |
+| `false_premise` | 10 | 10 | 20 | 20 |
+| `multi_article` | 8 | 10 | 18 | 20 |
+
+Rejets à la relecture :
+- 5 en `set` : des listes institutionnelles, sur des articles déjà rejetés en v4 pour le même défaut ;
+- 2 pour des procédures internes : la convocation du Conseil national de la consommation, le vote du budget de l'INC.
+
+**Limites propres à la v5.**
+- **Un `dev` encore petit en `comparison` et en `set`** (9 et 7 items) : le réglage d'un levier sur ces modes reste fragile. Le corpus est épuisé pour les modes à valeurs.
+- **La règle de réutilisation libère aussi des articles rejetés pour un défaut qui tient à l'article lui-même**, et ils échouent de nouveau (5 `set`). Une version suivante pourrait ne libérer que ceux d'un rejet pour un défaut de rédaction.
+- **Doutes signalés par les relecteurs et gardés.**
+  - `comparison-test-043` : une question à la première personne, difficile à ancrer.
+  - `false_premise-dev-016` : très technique.
+  - `false_premise-dev-012` : l'article contient « 20 % jusqu'à trente jours », donc une réponse juste qui reprend ce barème sans marqueur serait comptée comme reprenant la prémisse.
+  - `false_premise-dev-030` : la borne d'âge vient du droit de l'UE, hors corpus, et n'est pas vérifiée.
+- **Pluriels.** Les ancres et les formes ne retrouvent pas un pluriel non listé (« importateurs », « frais d'études »).

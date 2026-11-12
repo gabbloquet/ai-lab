@@ -5,44 +5,9 @@
   "max_question_words": 20,
   "tasks": 872,
   "drafts": 872,
-  "selected": 372,
-  "pending_review": [
-    "multi_article-dev-019",
-    "multi_article-dev-020",
-    "multi_article-dev-027",
-    "multi_article-dev-029",
-    "multi_article-dev-030",
-    "multi_article-dev-031",
-    "multi_article-dev-032",
-    "multi_article-dev-036",
-    "multi_article-dev-037",
-    "multi_article-dev-039",
-    "multi_article-dev-040",
-    "comparison-dev-019",
-    "comparison-dev-022",
-    "comparison-dev-034",
-    "comparison-dev-038",
-    "comparison-dev-040",
-    "set-dev-019",
-    "set-dev-022",
-    "set-dev-037",
-    "set-dev-040",
-    "set-dev-044",
-    "set-dev-045",
-    "false_premise-dev-016",
-    "false_premise-dev-017",
-    "false_premise-dev-018",
-    "false_premise-dev-019",
-    "false_premise-dev-020",
-    "false_premise-dev-021",
-    "false_premise-dev-023",
-    "false_premise-dev-024"
-  ],
-  "shortages": {
-    "comparison/dev": 11,
-    "multi_article/dev": 1,
-    "set/dev": 8
-  },
+  "selected": 366,
+  "pending_review": [],
+  "shortages": {},
   "rejected": {
     "direct-dev-002": [
       "question vide",
@@ -1370,6 +1335,9 @@
       "article inutilisable selon le rédacteur",
       "fait 1 : la forme « affichage » figure ailleurs dans l'article"
     ],
+    "set-dev-019": [
+      "rejeté à la relecture : Même article et même défaut que set-test-023, rejeté en v4 : liste douanière interne aux contrôles des importations (régimes douaniers, zones franches), qu'aucun consommateur ne demande dans un chat ; la question repose sur un jargon (« mise en libre pratique ») qui ne figure que dans le titre de la sous-section. Aucune liste concurrente dans le corpus (L511-24 et L511-25 renvoient à L511-18)."
+    ],
     "set-dev-020": [
       "article inutilisable selon le rédacteur"
     ],
@@ -1426,6 +1394,9 @@
     "set-dev-036": [
       "fait 3 : la forme « changement d'appréciation » figure ailleurs dans l'article"
     ],
+    "set-dev-037": [
+      "rejeté à la relecture : Même article et même défaut que set-test-011, rejeté en v4 : contenu d'un rapport quadriennal de la commission, liste administrative qu'aucun consommateur ne demande ; « statistiques » et « recommandations » sont en outre des formes générales pour une réponse sur la médiation."
+    ],
     "set-dev-038": [
       "fait 1 : la forme « réclamation écrite » figure dans un autre élément"
     ],
@@ -1433,6 +1404,9 @@
       "fait 1 : la forme « diplôme » figure ailleurs dans l'article",
       "fait 2 : la forme « formation professionnelle » figure dans un autre élément",
       "fait 3 : la forme « expérience professionnelle » figure ailleurs dans l'article"
+    ],
+    "set-dev-040": [
+      "rejeté à la relecture : Même article et même défaut que set-dev-004, rejeté en v4 : données d'open data de l'organisme gestionnaire de Bloctel, liste interne ; « données essentielles » ne prend sens qu'avec L223-4. Les formes « transmis » et « retirés » restent trop littérales (une réponse écrira « supprimés »), et les 3° à 5° partagent leur vocabulaire."
     ],
     "set-dev-041": [
       "article inutilisable selon le rédacteur"
@@ -1442,6 +1416,12 @@
     ],
     "set-dev-043": [
       "article inutilisable selon le rédacteur"
+    ],
+    "set-dev-044": [
+      "rejeté à la relecture : Même article et même défaut que set-test-033, rejeté en v4 : compétences consultatives d'une instance, peu plausible dans un chat ; la liste est ouverte (« en particulier ») et complétée par un alinéa suivant du même article (retour d'expérience après une crise alimentaire)."
+    ],
+    "set-dev-045": [
+      "rejeté à la relecture : Même article et même défaut que set-test-031, rejeté en v4 : composition d'un conseil d'administration, liste institutionnelle ; le 4° regroupe trois membres sous un seul fait, qu'une réponse juste peut citer sans nommer la commission des clauses abusives."
     ],
     "set-dev-046": [
       "article inutilisable selon le rédacteur"
@@ -1527,6 +1507,9 @@
       "question de 27 mots, au-delà de 25",
       "article inutilisable selon le rédacteur"
     ],
+    "false_premise-dev-018": [
+      "rejeté à la relecture : Procédure interne d'une instance consultative (convocation du Conseil national de la consommation) : personne ne la demande dans un chat, même motif qu'un rejet « instance interne » de la v4. Valeur unique par ailleurs (deux semaines)."
+    ],
     "false_premise-dev-022": [
       "la question cite un numéro d'article",
       "article inutilisable selon le rédacteur",
@@ -1568,6 +1551,9 @@
       "article inutilisable selon le rédacteur",
       "fait 1 : la question contient la réponse « L. 531-6 »",
       "aucun fait tiré de R541-2"
+    ],
+    "multi_article-dev-031": [
+      "rejeté à la relecture : Gouvernance interne d'un établissement public (qui vote le budget de l'INC) : question qu'on ne pose pas dans un chat, lien ténu entre les deux faits (doute du rédacteur). Faits justes par ailleurs."
     ],
     "multi_article-dev-033": [
       "article inutilisable selon le rédacteur"
@@ -1927,9 +1913,6 @@
       "doute du rédacteur : Le texte de A énumère plusieurs supports (site, CGV, bons de commande) : la réponse attendue n'en retient qu'un, d'autres réponses valables pourraient être jugées incomplètes.",
       "fait 2 : forme sans chiffre absente du texte « après une réclamation préalable »",
       "fait 2 : forme sans chiffre absente du texte « litige non réglé après réclamation préalable »"
-    ],
-    "multi_article-dev-031": [
-      "doute du rédacteur : Les articles ne contiennent que des organismes, pas de chiffres ; la question est peu naturelle et le lien entre les deux articles est ténu."
     ],
     "multi_article-dev-032": [
       "doute du rédacteur : Le second fait est un type de texte (décret en Conseil d'Etat) et non une valeur chiffrée ; la question reste cependant à réponse unique."
@@ -2611,27 +2594,9 @@
       "fait 4 : forme sans chiffre absente du texte « modalités de livraison »",
       "fait 4 : forme sans chiffre absente du texte « modalités d'exécution »"
     ],
-    "set-dev-019": [
-      "doute du rédacteur : Le 2° contient cinq sous-éléments (transit, entrepôt douanier, etc.) ; les mots-clés choisis sont ceux du 2° dans son ensemble. Le sujet est très technique pour un chat."
-    ],
     "set-dev-022": [
       "doute du rédacteur : Les mots-clés du 1° et du 3° sont assez génériques ; la question parle de « prévenir » alors que le texte vise la notification avec droit de résiliation.",
       "fait 3 : forme sans chiffre absente du texte « découlent de la législation »"
-    ],
-    "set-dev-037": [
-      "doute du rédacteur : Les mots-clés sont assez génériques, mais propres à chaque élément ; la question est un peu spécialisée pour un chat."
-    ],
-    "set-dev-040": [
-      "doute du rédacteur : Les éléments 3°, 4° et 5° partagent beaucoup de vocabulaire, et la question ne dit pas que ces données sont publiées (c'est L. 223-4 qui le précise).",
-      "fait 3 : forme longue « consommateurs et de numéros de téléphone inscrits »",
-      "fait 5 : forme sans chiffre absente du texte « numéros retirés »"
-    ],
-    "set-dev-044": [
-      "doute du rédacteur : Le texte dit « en particulier », ce qui peut laisser penser que la liste est ouverte, mais elle est présentée comme une énumération numérotée. Les mots-clés « sécurité » et « qualité » sont proches, d'où des formes plus longues."
-    ],
-    "set-dev-045": [
-      "doute du rédacteur : Le 4° regroupe trois personnes (président de la commission des clauses abusives, représentant des professionnels, ingénieur) et n'est donc représenté que par un mot-clé. Le mot-clé « consommation » partagé par plusieurs éléments rend la distinction un peu difficile.",
-      "fait 4 : forme longue « président de la commission des clauses abusives »"
     ],
     "set-test-005": [
       "doute du rédacteur : Les mots-clés 'débiteur' et 'situation' se recoupent entre éléments, mais les formes retenues sont propres à chaque élément ; la question porte sur une liste fermée mais peu fréquente dans un chat."
@@ -2722,10 +2687,6 @@
     ],
     "false_premise-dev-017": [
       "doute du rédacteur : Pour le crédit immobilier classique, le délai de réflexion est de dix jours aussi, et le délai de 7 jours existe ailleurs (rétractation du crédit à la consommation en 14 jours), mais 7 jours n'apparaît pas dans cet article."
-    ],
-    "false_premise-dev-018": [
-      "doute du rédacteur : L'article contient deux mentions contradictoires du nombre minimal de séances plénières par an (une et deux), donc la question porte sur le délai de convocation.",
-      "la valeur fausse figure dans d'autres articles : L521-3, L455-1, L341-19, L312-90, L312-84 …"
     ],
     "false_premise-dev-019": [
       "doute du rédacteur : La question vise le professionnel personne physique ; le plafond de 15 000 euros pour une personne morale pourrait être mentionné en plus, mais seul le montant pour une personne physique est attendu.",
@@ -4573,91 +4534,6 @@
     "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
     "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c"
   ],
-  "v2_pending": [
-    "comparison-dev-001",
-    "comparison-dev-002",
-    "comparison-dev-013",
-    "comparison-dev-016",
-    "comparison-dev-019",
-    "comparison-dev-022",
-    "comparison-dev-034",
-    "comparison-dev-038",
-    "comparison-dev-040",
-    "comparison-test-001",
-    "comparison-test-002",
-    "comparison-test-003",
-    "comparison-test-006",
-    "comparison-test-008",
-    "comparison-test-009",
-    "comparison-test-018",
-    "comparison-test-020",
-    "comparison-test-021",
-    "comparison-test-024",
-    "comparison-test-033",
-    "comparison-test-038",
-    "comparison-test-043",
-    "comparison-test-044",
-    "false_premise-dev-002",
-    "false_premise-dev-003",
-    "false_premise-dev-004",
-    "false_premise-dev-005",
-    "false_premise-dev-006",
-    "false_premise-dev-007",
-    "false_premise-dev-008",
-    "false_premise-dev-010",
-    "false_premise-dev-011",
-    "false_premise-dev-012",
-    "false_premise-dev-013",
-    "false_premise-dev-014",
-    "false_premise-dev-016",
-    "false_premise-dev-017",
-    "false_premise-dev-018",
-    "false_premise-dev-019",
-    "false_premise-dev-020",
-    "false_premise-dev-021",
-    "false_premise-dev-023",
-    "false_premise-dev-024",
-    "false_premise-test-001",
-    "false_premise-test-002",
-    "false_premise-test-003",
-    "false_premise-test-004",
-    "false_premise-test-005",
-    "false_premise-test-006",
-    "false_premise-test-007",
-    "false_premise-test-008",
-    "false_premise-test-009",
-    "false_premise-test-010",
-    "false_premise-test-011",
-    "false_premise-test-012",
-    "false_premise-test-013",
-    "false_premise-test-015",
-    "false_premise-test-017",
-    "false_premise-test-018",
-    "false_premise-test-019",
-    "false_premise-test-020",
-    "false_premise-test-022",
-    "false_premise-test-023",
-    "false_premise-test-024",
-    "false_premise-test-027",
-    "false_premise-test-029",
-    "false_premise-test-032",
-    "false_premise-test-034",
-    "false_premise-test-035",
-    "false_premise-test-036",
-    "false_premise-test-037",
-    "false_premise-test-038",
-    "false_premise-test-039"
-  ],
-  "v2_violations": {
-    "comparison-dev-022": [
-      "fait 1 : « information sur les prix et conditions de vente » contient le mot « et »",
-      "fait 1 : « prix et conditions de vente » contient le mot « et »"
-    ],
-    "comparison-test-024": [
-      "fait 2 : « bilan économique et social » contient le mot « et »"
-    ],
-    "false_premise-dev-003": [
-      "fausse valeur absente de la question"
-    ]
-  }
+  "v2_pending": [],
+  "v2_violations": {}
 }
