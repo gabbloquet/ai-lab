@@ -31,3 +31,36 @@ def test_no_run_starts_if_the_frozen_configurations_are_not_reproduced(monkeypat
     monkeypatch.setenv("COHERE_API_KEY", "clé-de-test")
     with pytest.raises(SystemExit, match="reproduction"):
         _main(["--split", "dev", *MODEL], reproduces=False)
+
+
+def test_a_v2_run_needs_the_published_v5_golden_set(tmp_path, monkeypatch) -> None:
+    """Spec rag-qa v2 : le run se fait sur la v5 ; tant qu'elle n'est pas publiée, rien ne part."""
+    import exp002_leviers.campaign as campaign
+
+    monkeypatch.setattr(campaign, "GOLDEN_V5", tmp_path / "v5" / "items.jsonl")
+    with pytest.raises(SystemExit, match="v5"):
+        _main(["--split", "dev", "--spec", "v2", *MODEL])
+
+
+def test_v2_executions_are_checked_against_the_canonical_schema() -> None:
+    from exp002_leviers.campaign import invalid_v2_executions
+
+    good = {
+        "item_id": "rq-001",
+        "variant": "naive_rag",
+        "model": "m",
+        "repeat": 0,
+        "answer": "14 jours",
+        "abstained": False,
+        "cited": [],
+        "context": [],
+        "usage": {"input_tokens": 1, "output_tokens": 1},
+        "latency_s": 1.0,
+        "cost_usd": None,
+        "tool_calls": None,
+        "error": None,
+    }
+    old = {k: v for k, v in good.items() if k not in {"latency_s", "cost_usd", "tool_calls"}}
+
+    assert invalid_v2_executions([good]) == []
+    assert invalid_v2_executions([good, {**old, "latency": {"generation_s": 1.0}}]) == [1]

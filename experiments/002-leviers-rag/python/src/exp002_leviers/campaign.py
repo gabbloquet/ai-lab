@@ -1,5 +1,5 @@
 """Le lanceur du run consolidé de la 002 : les six configurations gelées des étapes, sur le même
-golden set (`rag-qa/v4`), pour un générateur.
+golden set (`rag-qa/v4`, ou `rag-qa/v5` avec `--spec v2`), pour un générateur.
 
 Avant tout appel payant : garde-fous du run final, puis contrôle de reproduction sur les caches
 seuls. Ensuite, les seuls appels hors générateur : les embeddings, les reformulations
@@ -26,8 +26,17 @@ from ailab_rag import cli
 from ailab_rag.campaign import read_jsonl, run_campaign
 from ailab_rag.tracing import NO_TRACING, LangfuseTracing, Tracer
 from exp002_leviers.analysis import analyze
+from exp002_leviers.analysis_v2 import analyze_v2
 from exp002_leviers.configurations import CONFIGURATIONS, GROUNDINGS, build_retrievers
-from exp002_leviers.paths import ARTICLES, AUDIT, CACHE_DIR, EXPERIMENT_DIR, GOLDEN, ROOT
+from exp002_leviers.paths import (
+    ARTICLES,
+    AUDIT,
+    CACHE_DIR,
+    EXPERIMENT_DIR,
+    GOLDEN,
+    GOLDEN_V5,
+    ROOT,
+)
 from exp002_leviers.reproduction import reproduces as offline_reproduction
 from exp003_rag.campaign import REWRITE_PROMPT, REWRITER
 from exp005_rag.campaign import RERANKER, rerank_all
@@ -44,6 +53,21 @@ def _write_summary(run_dir: Path, summary: dict[str, Any]) -> None:
     )
 
 
+def invalid_v2_executions(executions: list[dict]) -> list[int]:
+    """Rangs des exécutions qui ne suivent pas le schéma v2 (evals/spec/rag-qa/v2)."""
+    from jsonschema import Draft202012Validator
+
+    schema = json.loads(
+        (ROOT / "evals/spec/rag-qa/v2/execution.schema.json").read_text(encoding="utf-8")
+    )
+    validator = Draft202012Validator(schema)
+    return [i for i, e in enumerate(executions) if list(validator.iter_errors(e))]
+
+
+def _number(value: float | None, fmt: str) -> str:
+    return "—" if value is None else format(value, fmt)
+
+
 def main(
     argv: list[str] | None = None,
     git_is_clean: Callable[[], bool] = lambda: cli.git_is_clean(ROOT),
@@ -54,7 +78,13 @@ def main(
     parser.add_argument("--final", action="store_true", help="le run unique sur le test")
     parser.add_argument("--model", required=True, help="générateur, ex. mistral:mistral-small-2603")
     parser.add_argument("--k", type=int, default=3, help="répétitions par item et configuration")
-    parser.add_argument("--golden", type=Path, default=GOLDEN)
+    parser.add_argument("--golden", type=Path, default=None, help="défaut : v4, ou v5 en spec v2")
+    parser.add_argument(
+        "--spec",
+        choices=["v1", "v2"],
+        default="v1",
+        help="spec rag-qa des exécutions et de l'analyse ; v2 tourne sur le golden set v5",
+    )
     parser.add_argument("--run-dir", type=Path, default=None)
     parser.add_argument("--concurrency", type=int, default=4)
     parser.add_argument("--langfuse", action="store_true", help="tracer le run dans Langfuse")
@@ -64,6 +94,10 @@ def main(
         sys.exit("le split test ne se lance qu'une fois, pour le run final : ajoutez --final")
     if args.final and not git_is_clean():
         sys.exit("run final refusé : l'arbre git n'est pas propre, faites d'abord le commit de gel")
+    if args.golden is None:
+        args.golden = GOLDEN_V5 if args.spec == "v2" else GOLDEN
+    if not args.golden.exists():
+        sys.exit(f"golden set introuvable : {args.golden} (la v5 est-elle publiée ?)")
     api_key = os.environ.get("COHERE_API_KEY")
     if not api_key:
         sys.exit("COHERE_API_KEY manque : rerank_cohere passe par l'API Cohere (.env)")
@@ -107,9 +141,16 @@ def main(
             out=run_dir / "executions.jsonl",
             concurrency=args.concurrency,
             tracer=tracer,
+            canonical=args.spec,
         )
     )
-    summary = analyze(all_items, executions, split=args.split, exclude=excluded)
+    if args.spec == "v2":
+        invalid = invalid_v2_executions(executions)
+        if invalid:
+            sys.exit(f"{len(invalid)} exécutions hors du schéma v2 (rangs {invalid[:10]})")
+        summary = analyze_v2(all_items, executions, split=args.split, exclude=excluded)
+    else:
+        summary = analyze(all_items, executions, split=args.split, exclude=excluded)
     summary["run"] = {
         "model": args.model,
         "k": args.k,
@@ -117,6 +158,7 @@ def main(
         "rewriter": REWRITER,
         "reranker": f"cohere:{RERANKER}",
         "golden": cli.display_path(args.golden, ROOT),
+        "spec": f"evals/spec/rag-qa/{args.spec}",
         "audit": cli.display_path(AUDIT, ROOT),
         "langfuse": args.langfuse,
         "commit": commit,
@@ -126,9 +168,9 @@ def main(
     _write_summary(run_dir, summary)
     for c in summary["comparisons"]:
         print(
-            f"{c['variant']} − {c['baseline']} : {c['delta']:+.3f} "
-            f"[{c['ci_low']:+.3f} ; {c['ci_high']:+.3f}] p_holm={c['p_holm']:.3f} "
-            f"{c['verdict_holm']}",
+            f"{c['variant']} − {c['baseline']} : {_number(c['delta'], '+.3f')} "
+            f"[{_number(c['ci_low'], '+.3f')} ; {_number(c['ci_high'], '+.3f')}] "
+            f"p_holm={_number(c['p_holm'], '.3f')} {c['verdict_holm']}",
             flush=True,
         )
     print(f"abstention : {summary['abstention']['verdict']}", flush=True)
