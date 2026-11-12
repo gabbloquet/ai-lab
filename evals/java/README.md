@@ -14,6 +14,18 @@ Paquet `io.github.gabbloquet.ailab.evals.toolselection` :
 
 Le scorer n'utilise pas Spring ; le BOM Spring Boot sert seulement à aligner les versions de Jackson, JUnit et AssertJ sur le reste du dépôt.
 
+## `rag-qa` v2
+
+Paquet `io.github.gabbloquet.ailab.evals.ragqa`, jumeau de `ailab_evals.rag_qa_v2` :
+
+- `RagQaScorer.scoreExecution(item, execution)` note une exécution (SPEC.md § 6).
+- `RagQaScorer.variantAggregates` calcule les agrégats du § 7.
+- `RagQaScorer.compare` et `RagQaScorer.jointComparison` donnent la comparaison sur une métrique et le verdict à deux critères (§ 8.1, § 8.2).
+- `PairedStatistics.holmFamily` applique la correction de Holm (§ 8.3).
+- `Text` contient les normalisations N et C, les formes, les segments et les marqueurs de la prémisse.
+
+Les entrées sont des `JsonNode` (items du golden set, exécutions canoniques), et les résultats des `Map` aux noms de la spec. Ce choix est fait pour comparer directement aux vecteurs. Les écarts entre Java et Python sont traités comme pour `tool-selection` : casefold avec ICU4J, et espaces au sens de `str.isspace()`. S'y ajoutent les mots du § 5.2, découpés par point de code.
+
 ```bash
 ./gradlew :evals-java:test
 ```

@@ -36,4 +36,8 @@ tasks.processTestResources {
         include("conformance.jsonl")
         into("tool-selection/v1")
     }
+    from(rootProject.file("evals/spec/rag-qa/v2")) {
+        include("conformance.jsonl")
+        into("rag-qa/v2")
+    }
 }
