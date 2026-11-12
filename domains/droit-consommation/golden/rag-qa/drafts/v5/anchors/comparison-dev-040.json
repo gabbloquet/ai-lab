@@ -1,0 +1,47 @@
+{
+  "task": "comparison-dev-040",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:18+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2618,
+    "output_tokens": 151
+  },
+  "request": {
+    "task": "comparison-dev-040",
+    "question": "Crédit immobilier : quelle amende pour une offre de location-vente non datée ou antidatée, et pour un prêteur personne physique qui manque à l'information précontractuelle ?",
+    "facts": [
+      [
+        "300 000 euros",
+        "300 000 €"
+      ],
+      [
+        "3 000 euros",
+        "3 000 €"
+      ]
+    ],
+    "articles": [
+      "L341-41",
+      "L341-26-1"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "offre de location-vente non datée ou antidatée",
+        "location-vente non datée",
+        "antidatée"
+      ],
+      [
+        "prêteur personne physique",
+        "personne physique"
+      ]
+    ],
+    "doubt": "Le premier cas est long et les ancres sont des extraits de la question ; la première ancre est plus longue que quatre mots, donc elle est peu fiable. « non datée ou antidatée » et « prêteur personne physique » sont les formes les plus sûres."
+  },
+  "raw_text": "{\"anchors\":[[\"offre de location-vente non datée ou antidatée\",\"location-vente non datée\",\"antidatée\"],[\"prêteur personne physique\",\"personne physique\"]],\"doubt\":\"Le premier cas est long et les ancres sont des extraits de la question ; la première ancre est plus longue que quatre mots, donc elle est peu fiable. « non datée ou antidatée » et « prêteur personne physique » sont les formes les plus sûres.\"}"
+}

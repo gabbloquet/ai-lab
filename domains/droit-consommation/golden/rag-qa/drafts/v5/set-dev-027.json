@@ -1,0 +1,21 @@
+{
+  "task": "set-dev-027",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-12T10:41:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2689,
+    "output_tokens": 171
+  },
+  "output": {
+    "question": "",
+    "usable": false,
+    "facts": [],
+    "doubt": "L'article contient plusieurs listes distinctes (jouissance à temps partagé, produit de vacances à long terme, revente) dont les éléments sont numérotés 1° et 2° de façon répétée. Aucune liste unique ne se prête à une question sans ambiguïté, et les éléments n'ont pas tous de mot-clé propre. Les éléments ne contiennent pas de valeur précise (durée, montant, taux)."
+  },
+  "raw_text": "{\"question\":\"\",\"usable\":false,\"facts\":[],\"doubt\":\"L'article contient plusieurs listes distinctes (jouissance à temps partagé, produit de vacances à long terme, revente) dont les éléments sont numérotés 1° et 2° de façon répétée. Aucune liste unique ne se prête à une question sans ambiguïté, et les éléments n'ont pas tous de mot-clé propre. Les éléments ne contiennent pas de valeur précise (durée, montant, taux).\"}"
+}

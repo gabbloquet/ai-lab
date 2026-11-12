@@ -1,0 +1,36 @@
+{
+  "task": "multi_article-dev-021",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2305,
+    "output_tokens": 257
+  },
+  "output": {
+    "question": "Surendettement : un jugement ordonnant l'exécution provisoire de mesures est-il susceptible d'appel ? Et quel organisme peut subordonner ces mesures à des actes du débiteur ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "pas susceptible d'appel"
+        ],
+        "quote": "n'est pas susceptible d'appel",
+        "article": "R733-14"
+      },
+      {
+        "accepted": [
+          "la commission"
+        ],
+        "quote": "La commission peut imposer que les mesures",
+        "article": "L733-7"
+      }
+    ],
+    "doubt": "Les articles ne contiennent pas de valeur précise (durée, montant, seuil...) : la réponse sur l'appel est un oui/non et la question n'est pas adaptée ; article inadapté à une question de valeur."
+  },
+  "raw_text": "{\"question\":\"Surendettement : un jugement ordonnant l'exécution provisoire de mesures est-il susceptible d'appel ? Et quel organisme peut subordonner ces mesures à des actes du débiteur ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"pas susceptible d'appel\"],\"quote\":\"n'est pas susceptible d'appel\",\"article\":\"R733-14\"},{\"accepted\":[\"la commission\"],\"quote\":\"La commission peut imposer que les mesures\",\"article\":\"L733-7\"}],\"doubt\":\"Les articles ne contiennent pas de valeur précise (durée, montant, seuil...) : la réponse sur l'appel est un oui/non et la question n'est pas adaptée ; article inadapté à une question de valeur.\"}"
+}

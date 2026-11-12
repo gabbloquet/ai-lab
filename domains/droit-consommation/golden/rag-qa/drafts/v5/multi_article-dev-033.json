@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-dev-033",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2633,
+    "output_tokens": 993
+  },
+  "output": {
+    "question": "Taux d'assurance du crédit : capitalisation sur quelle durée, et taux d'intérêt supposé fixe à quel niveau ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "un an",
+          "d'un an",
+          "1 an"
+        ],
+        "quote": "en capitalisant le taux périodique sur une durée d'un an",
+        "article": "R314-12"
+      },
+      {
+        "accepted": [
+          "niveau initial",
+          "initial"
+        ],
+        "quote": "resteront fixes par rapport au niveau initial",
+        "article": "R314-1"
+      }
+    ],
+    "doubt": "L'article R314-1 ne contient aucune valeur chiffrée précise (seulement « niveau initial »), donc l'ensemble se prête mal à une question factuelle."
+  },
+  "raw_text": "{\"question\":\"Taux d'assurance du crédit : capitalisation sur quelle durée, et taux d'intérêt supposé fixe à quel niveau ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"un an\",\"d'un an\",\"1 an\"],\"quote\":\"en capitalisant le taux périodique sur une durée d'un an\",\"article\":\"R314-12\"},{\"accepted\":[\"niveau initial\",\"initial\"],\"quote\":\"resteront fixes par rapport au niveau initial\",\"article\":\"R314-1\"}],\"doubt\":\"L'article R314-1 ne contient aucune valeur chiffrée précise (seulement « niveau initial »), donc l'ensemble se prête mal à une question factuelle.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-022",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3011,
+    "output_tokens": 307
+  },
+  "output": {
+    "question": "Quels articles du code de la consommation mentionne le vendeur pour la garantie légale de conformité, et que doit avoir un bien livré avec lui ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 217-3",
+          "L217-3"
+        ],
+        "quote": "la garantie légale de conformité mentionnée aux articles L. 217-3 et suivants",
+        "article": "R111-1"
+      },
+      {
+        "accepted": [
+          "accessoires et instructions d'installation",
+          "les accessoires et les instructions d'installation"
+        ],
+        "quote": "Il est délivré avec tous les accessoires et les instructions d'installation, devant être fournis conformément au contrat",
+        "article": "L217-4"
+      }
+    ],
+    "doubt": "Aucune valeur chiffrée précise (durée, montant, taux) dans ces articles ; A renvoie à L217-3 et non à L217-4, et le second fait n'est pas une valeur courte : article peu adapté."
+  },
+  "raw_text": "{\"question\":\"Quels articles du code de la consommation mentionne le vendeur pour la garantie légale de conformité, et que doit avoir un bien livré avec lui ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 217-3\",\"L217-3\"],\"quote\":\"la garantie légale de conformité mentionnée aux articles L. 217-3 et suivants\",\"article\":\"R111-1\"},{\"accepted\":[\"accessoires et instructions d'installation\",\"les accessoires et les instructions d'installation\"],\"quote\":\"Il est délivré avec tous les accessoires et les instructions d'installation, devant être fournis conformément au contrat\",\"article\":\"L217-4\"}],\"doubt\":\"Aucune valeur chiffrée précise (durée, montant, taux) dans ces articles ; A renvoie à L217-3 et non à L217-4, et le second fait n'est pas une valeur courte : article peu adapté.\"}"
+}

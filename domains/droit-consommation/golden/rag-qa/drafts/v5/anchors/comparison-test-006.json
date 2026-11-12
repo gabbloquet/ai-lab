@@ -1,0 +1,47 @@
+{
+  "task": "comparison-test-006",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2453,
+    "output_tokens": 152
+  },
+  "request": {
+    "task": "comparison-test-006",
+    "question": "Crédit à la consommation : quel délai pour me rétracter, et combien de temps le prêteur maintient-il son offre ?",
+    "facts": [
+      [
+        "quatorze jours calendaires révolus",
+        "quatorze jours",
+        "14 jours"
+      ],
+      [
+        "quinze jours",
+        "15 jours"
+      ]
+    ],
+    "articles": [
+      "L312-19",
+      "L312-18"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "me rétracter",
+        "délai pour me rétracter"
+      ],
+      [
+        "le prêteur maintient",
+        "son offre"
+      ]
+    ],
+    "doubt": "La question ne nomme pas vraiment deux cas distincts : les ancres sont les deux actions (rétractation de l'emprunteur, maintien de l'offre par le prêteur). Le mot « délai » ne figure que dans le premier cas, et « temps » n'est pas utilisé comme ancre."
+  },
+  "raw_text": "{\"anchors\":[[\"me rétracter\",\"délai pour me rétracter\"],[\"le prêteur maintient\",\"son offre\"]],\"doubt\":\"La question ne nomme pas vraiment deux cas distincts : les ancres sont les deux actions (rétractation de l'emprunteur, maintien de l'offre par le prêteur). Le mot « délai » ne figure que dans le premier cas, et « temps » n'est pas utilisé comme ancre.\"}"
+}

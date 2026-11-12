@@ -1,0 +1,46 @@
+{
+  "task": "comparison-dev-038",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 4080,
+    "output_tokens": 117
+  },
+  "request": {
+    "task": "comparison-dev-038",
+    "question": "Quelle durée de conservation : document de refus d'un allergène en restauration collective, et copie de la déclaration UE de conformité d'un importateur de produits accessibles ?",
+    "facts": [
+      [
+        "trois ans",
+        "3 ans"
+      ],
+      [
+        "cinq ans",
+        "5 ans"
+      ]
+    ],
+    "articles": [
+      "R412-15",
+      "D412-53"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "document de refus d'un allergène",
+        "restauration collective"
+      ],
+      [
+        "déclaration UE de conformité",
+        "importateur de produits accessibles"
+      ]
+    ],
+    "doubt": "Les deux cas sont bien nommés dans la question ; les mots « conservation » et « durée » sont communs aux deux et n'ont pas été retenus comme ancres."
+  },
+  "raw_text": "{\"anchors\":[[\"document de refus d'un allergène\",\"restauration collective\"],[\"déclaration UE de conformité\",\"importateur de produits accessibles\"]],\"doubt\":\"Les deux cas sont bien nommés dans la question ; les mots « conservation » et « durée » sont communs aux deux et n'ont pas été retenus comme ancres.\"}"
+}

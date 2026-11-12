@@ -1,0 +1,46 @@
+{
+  "task": "comparison-dev-022",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:15+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2629,
+    "output_tokens": 145
+  },
+  "request": {
+    "task": "comparison-dev-022",
+    "question": "Amende administrative max pour une personne morale : manquement à l'information sur les prix et conditions de vente, et manquement aux obligations des plateformes en ligne ?",
+    "facts": [
+      [
+        "15 000 euros",
+        "15 000 €"
+      ],
+      [
+        "375 000 euros",
+        "375 000 €"
+      ]
+    ],
+    "articles": [
+      "L131-5",
+      "L131-4"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "information sur les prix et conditions de vente",
+        "prix et conditions de vente"
+      ],
+      [
+        "obligations des plateformes en ligne",
+        "plateformes en ligne"
+      ]
+    ],
+    "doubt": "Les deux cas partagent « manquement à » et « obligations » ; les ancres retenues sont les groupes distinctifs. La question dit « plateformes en ligne » alors que L131-4 vise plus largement des obligations d'information."
+  },
+  "raw_text": "{\"anchors\":[[\"information sur les prix et conditions de vente\",\"prix et conditions de vente\"],[\"obligations des plateformes en ligne\",\"plateformes en ligne\"]],\"doubt\":\"Les deux cas partagent « manquement à » et « obligations » ; les ancres retenues sont les groupes distinctifs. La question dit « plateformes en ligne » alors que L131-4 vise plus largement des obligations d'information.\"}"
+}

@@ -1,0 +1,46 @@
+{
+  "task": "comparison-dev-034",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:16+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3494,
+    "output_tokens": 137
+  },
+  "request": {
+    "task": "comparison-dev-034",
+    "question": "Durée max de suspension : une prestation de services dangereuse, et un label de rénovation énergétique (hors renouvellement) ?",
+    "facts": [
+      [
+        "trois mois",
+        "3 mois"
+      ],
+      [
+        "six mois",
+        "6 mois"
+      ]
+    ],
+    "articles": [
+      "L521-23",
+      "L521-28"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "prestation de services dangereuse",
+        "prestation de services"
+      ],
+      [
+        "label de rénovation énergétique",
+        "label de rénovation"
+      ]
+    ],
+    "doubt": "Le mot « label » n'apparaît que dans le second cas, mais « prestation de services dangereuse » contient « prestation de services » : cette ancre courte ne figure dans aucune ancre de l'autre cas, donc elle reste valable."
+  },
+  "raw_text": "{\"anchors\":[[\"prestation de services dangereuse\",\"prestation de services\"],[\"label de rénovation énergétique\",\"label de rénovation\"]],\"doubt\":\"Le mot « label » n'apparaît que dans le second cas, mais « prestation de services dangereuse » contient « prestation de services » : cette ancre courte ne figure dans aucune ancre de l'autre cas, donc elle reste valable.\"}"
+}

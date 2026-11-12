@@ -1,0 +1,45 @@
+{
+  "task": "comparison-test-038",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2877,
+    "output_tokens": 128
+  },
+  "request": {
+    "task": "comparison-test-038",
+    "question": "Quelle amende en euros pour une tromperie avec de faux poids ou des instruments de mesure inexacts, et pour l'obsolescence programmée ?",
+    "facts": [
+      [
+        "600 000 euros",
+        "600 000 €"
+      ],
+      [
+        "300 000 euros",
+        "300 000 €"
+      ]
+    ],
+    "articles": [
+      "L454-2",
+      "L454-6"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "faux poids",
+        "instruments de mesure inexacts"
+      ],
+      [
+        "l'obsolescence programmée"
+      ]
+    ],
+    "doubt": "Les ancres sont copiées de la question. Le cas du second fait, l'obsolescence programmée, n'apparaît pas dans l'article L454-6 fourni. Je me suis donc fié à la question, où il correspond au second fait."
+  },
+  "raw_text": "{\"anchors\":[[\"faux poids\",\"instruments de mesure inexacts\"],[\"l'obsolescence programmée\"]],\"doubt\":\"Les ancres sont copiées de la question. Le cas du second fait, l'obsolescence programmée, n'apparaît pas dans l'article L454-6 fourni. Je me suis donc fié à la question, où il correspond au second fait.\"}"
+}

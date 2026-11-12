@@ -1,0 +1,46 @@
+{
+  "task": "comparison-test-001",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:18+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2653,
+    "output_tokens": 198
+  },
+  "request": {
+    "task": "comparison-test-001",
+    "question": "Amende en euros : société faisant la publicité d'une opération commerciale non autorisée ou non déclarée, et commerçant personne physique facturant un produit non commandé ?",
+    "facts": [
+      [
+        "75 000 euros",
+        "75 000 €"
+      ],
+      [
+        "300 000 euros",
+        "300 000 €"
+      ]
+    ],
+    "articles": [
+      "L132-24",
+      "L132-17"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "société faisant la publicité",
+        "opération commerciale non autorisée ou non déclarée"
+      ],
+      [
+        "commerçant personne physique",
+        "facturant un produit non commandé"
+      ]
+    ],
+    "doubt": "Le fait 2 (300 000 euros) vient de l'article L132-17, qui ne distingue pas personne physique et personne morale ; la question présente pourtant ce cas comme celui du commerçant personne physique. Par ailleurs, l'ancre « opération commerciale non autorisée ou non déclarée » est longue (7 mots), au-delà de la limite de quatre mots."
+  },
+  "raw_text": "{\"anchors\":[[\"société faisant la publicité\",\"opération commerciale non autorisée ou non déclarée\"],[\"commerçant personne physique\",\"facturant un produit non commandé\"]],\"doubt\":\"Le fait 2 (300 000 euros) vient de l'article L132-17, qui ne distingue pas personne physique et personne morale ; la question présente pourtant ce cas comme celui du commerçant personne physique. Par ailleurs, l'ancre « opération commerciale non autorisée ou non déclarée » est longue (7 mots), au-delà de la limite de quatre mots.\"}"
+}

@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-dev-020",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:25+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2427,
+    "output_tokens": 271
+  },
+  "output": {
+    "question": "Surendettement, appel aux créanciers devant le juge : qui le publie, et dans quel type de journal paraît l'appel de la commission ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "greffe du tribunal judiciaire",
+          "le greffe",
+          "greffe"
+        ],
+        "quote": "est publié par le greffe du tribunal judiciaire selon les formes prévues à l'article R. 723-2",
+        "article": "R733-15"
+      },
+      {
+        "accepted": [
+          "journal d'annonces légales",
+          "un journal d'annonces légales"
+        ],
+        "quote": "dans un journal d'annonces légales diffusé dans le département où siège la commission",
+        "article": "R723-2"
+      }
+    ],
+    "doubt": "La question mêle deux situations (appel publié par le greffe, et appel de la commission) ; la formulation pourrait être simplifiée."
+  },
+  "raw_text": "{\"question\":\"Surendettement, appel aux créanciers devant le juge : qui le publie, et dans quel type de journal paraît l'appel de la commission ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"greffe du tribunal judiciaire\",\"le greffe\",\"greffe\"],\"quote\":\"est publié par le greffe du tribunal judiciaire selon les formes prévues à l'article R. 723-2\",\"article\":\"R733-15\"},{\"accepted\":[\"journal d'annonces légales\",\"un journal d'annonces légales\"],\"quote\":\"dans un journal d'annonces légales diffusé dans le département où siège la commission\",\"article\":\"R723-2\"}],\"doubt\":\"La question mêle deux situations (appel publié par le greffe, et appel de la commission) ; la formulation pourrait être simplifiée.\"}"
+}

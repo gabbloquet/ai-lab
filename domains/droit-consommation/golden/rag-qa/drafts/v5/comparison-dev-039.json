@@ -1,0 +1,37 @@
+{
+  "task": "comparison-dev-039",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:42:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2858,
+    "output_tokens": 295
+  },
+  "output": {
+    "question": "Contrôle de la répression des fraudes : quel délai pour demander une expertise après un rapport de labo, et à partir de quelle heure peuvent-ils entrer chez un professionnel ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trois jours francs",
+          "3 jours francs"
+        ],
+        "quote": "il dispose d'un délai de trois jours francs à compter de la réception du rapport",
+        "article": "L512-40"
+      },
+      {
+        "accepted": [
+          "8 heures"
+        ],
+        "quote": "Entre 8 heures et 20 heures, ils peuvent pénétrer dans les lieux à usage professionnel",
+        "article": "L512-5"
+      }
+    ],
+    "doubt": "Les deux valeurs ne sont pas comparables : l'une est un délai de procédure (demande d'expertise), l'autre une plage horaire d'accès aux locaux, donc deux grandeurs sans rapport."
+  },
+  "raw_text": "{\"question\":\"Contrôle de la répression des fraudes : quel délai pour demander une expertise après un rapport de labo, et à partir de quelle heure peuvent-ils entrer chez un professionnel ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trois jours francs\",\"3 jours francs\"],\"quote\":\"il dispose d'un délai de trois jours francs à compter de la réception du rapport\",\"article\":\"L512-40\"},{\"accepted\":[\"8 heures\"],\"quote\":\"Entre 8 heures et 20 heures, ils peuvent pénétrer dans les lieux à usage professionnel\",\"article\":\"L512-5\"}],\"doubt\":\"Les deux valeurs ne sont pas comparables : l'une est un délai de procédure (demande d'expertise), l'autre une plage horaire d'accès aux locaux, donc deux grandeurs sans rapport.\"}"
+}

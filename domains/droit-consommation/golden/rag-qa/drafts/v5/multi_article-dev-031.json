@@ -1,0 +1,36 @@
+{
+  "task": "multi_article-dev-031",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3000,
+    "output_tokens": 843
+  },
+  "output": {
+    "question": "À l'INC, qui délibère sur le budget, et quels centres régionaux l'Institut finance-t-il pour l'appui technique ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "conseil d'administration"
+        ],
+        "quote": "Le conseil d'administration délibère sur",
+        "article": "R822-8"
+      },
+      {
+        "accepted": [
+          "centres techniques régionaux de la consommation"
+        ],
+        "quote": "Assure un financement et fournit des prestations d'appui technique aux centres techniques régionaux de la consommation",
+        "article": "R822-1"
+      }
+    ],
+    "doubt": "Les articles ne contiennent que des organismes, pas de chiffres ; la question est peu naturelle et le lien entre les deux articles est ténu."
+  },
+  "raw_text": "{\"question\":\"À l'INC, qui délibère sur le budget, et quels centres régionaux l'Institut finance-t-il pour l'appui technique ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"conseil d'administration\"],\"quote\":\"Le conseil d'administration délibère sur\",\"article\":\"R822-8\"},{\"accepted\":[\"centres techniques régionaux de la consommation\"],\"quote\":\"Assure un financement et fournit des prestations d'appui technique aux centres techniques régionaux de la consommation\",\"article\":\"R822-1\"}],\"doubt\":\"Les articles ne contiennent que des organismes, pas de chiffres ; la question est peu naturelle et le lien entre les deux articles est ténu.\"}"
+}

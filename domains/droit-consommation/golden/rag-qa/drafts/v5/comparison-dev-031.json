@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-031",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:41:59+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2983,
+    "output_tokens": 263
+  },
+  "output": {
+    "question": "Commission des clauses abusives : délai pour rendre son avis au juge, et période d'absences pouvant mettre fin au mandat d'un membre ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trois mois",
+          "3 mois"
+        ],
+        "quote": "La commission fait connaître son avis dans un délai maximum de trois mois à compter de sa saisine.",
+        "article": "R822-21"
+      },
+      {
+        "accepted": [
+          "douze mois",
+          "12 mois"
+        ],
+        "quote": "n'a pas participé à trois séances de la commission sur une période de douze mois",
+        "article": "R822-28"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées mais ne règlent pas la même chose (délai d'avis vs période d'absences pour fin de mandat) : elles ne se comparent pas."
+  },
+  "raw_text": "{\"question\":\"Commission des clauses abusives : délai pour rendre son avis au juge, et période d'absences pouvant mettre fin au mandat d'un membre ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trois mois\",\"3 mois\"],\"quote\":\"La commission fait connaître son avis dans un délai maximum de trois mois à compter de sa saisine.\",\"article\":\"R822-21\"},{\"accepted\":[\"douze mois\",\"12 mois\"],\"quote\":\"n'a pas participé à trois séances de la commission sur une période de douze mois\",\"article\":\"R822-28\"}],\"doubt\":\"Les deux valeurs sont des durées mais ne règlent pas la même chose (délai d'avis vs période d'absences pour fin de mandat) : elles ne se comparent pas.\"}"
+}

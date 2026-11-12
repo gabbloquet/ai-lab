@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-040",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:42:06+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2642,
+    "output_tokens": 311
+  },
+  "output": {
+    "question": "Crédit immobilier : quelle amende pour une offre de location-vente non datée ou antidatée, et pour un prêteur personne physique qui manque à l'information précontractuelle ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "300 000 euros",
+          "300 000 €"
+        ],
+        "quote": "est puni d'une amende de 300 000 euros",
+        "article": "L341-41"
+      },
+      {
+        "accepted": [
+          "3 000 euros",
+          "3 000 €"
+        ],
+        "quote": "une amende administrative dont le montant ne peut excéder 3 000 euros pour une personne physique",
+        "article": "L341-26-1"
+      }
+    ],
+    "doubt": "L'article B ne précise pas le contenu de l'obligation visée (renvoi à L. 313-8) ; la question reste vague sur ce point. Les deux amendes sont l'une pénale, l'autre administrative, et l'une est un plafond d'amende administrative, l'autre une amende fixe."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : quelle amende pour une offre de location-vente non datée ou antidatée, et pour un prêteur personne physique qui manque à l'information précontractuelle ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"300 000 euros\",\"300 000 €\"],\"quote\":\"est puni d'une amende de 300 000 euros\",\"article\":\"L341-41\"},{\"accepted\":[\"3 000 euros\",\"3 000 €\"],\"quote\":\"une amende administrative dont le montant ne peut excéder 3 000 euros pour une personne physique\",\"article\":\"L341-26-1\"}],\"doubt\":\"L'article B ne précise pas le contenu de l'obligation visée (renvoi à L. 313-8) ; la question reste vague sur ce point. Les deux amendes sont l'une pénale, l'autre administrative, et l'une est un plafond d'amende administrative, l'autre une amende fixe.\"}"
+}

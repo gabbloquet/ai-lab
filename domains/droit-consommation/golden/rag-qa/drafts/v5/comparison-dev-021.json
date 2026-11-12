@@ -1,0 +1,39 @@
+{
+  "task": "comparison-dev-021",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:41:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3216,
+    "output_tokens": 323
+  },
+  "output": {
+    "question": "Quelle durée maximale d'interdiction d'exercer pour une infraction sur les contrats de temps partagé, et quelle majoration si remboursement en rétractation tardif de 10 à 20 jours ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.",
+        "article": "L242-31"
+      },
+      {
+        "accepted": [
+          "5 %",
+          "5%",
+          "cinq pour cent"
+        ],
+        "quote": "de 5 % si le retard est compris entre dix et vingt jours",
+        "article": "L242-4"
+      }
+    ],
+    "doubt": "Les deux articles ne fixent pas des valeurs du même type : une durée de peine complémentaire d'interdiction d'un côté, un taux de majoration pour retard de remboursement de l'autre. Ils ne règlent pas la même chose, donc aucune comparaison pertinente n'est possible."
+  },
+  "raw_text": "{\"question\":\"Quelle durée maximale d'interdiction d'exercer pour une infraction sur les contrats de temps partagé, et quelle majoration si remboursement en rétractation tardif de 10 à 20 jours ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"Ces interdictions d'exercice ne peuvent excéder une durée de cinq ans.\",\"article\":\"L242-31\"},{\"accepted\":[\"5 %\",\"5%\",\"cinq pour cent\"],\"quote\":\"de 5 % si le retard est compris entre dix et vingt jours\",\"article\":\"L242-4\"}],\"doubt\":\"Les deux articles ne fixent pas des valeurs du même type : une durée de peine complémentaire d'interdiction d'un côté, un taux de majoration pour retard de remboursement de l'autre. Ils ne règlent pas la même chose, donc aucune comparaison pertinente n'est possible.\"}"
+}

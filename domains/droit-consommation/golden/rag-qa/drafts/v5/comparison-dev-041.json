@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-041",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:42:08+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3091,
+    "output_tokens": 282
+  },
+  "output": {
+    "question": "Crédit affecté : en cas de livraison immédiate, sous quel délai la rétractation résout-elle la vente ? Et quelle franchise maximale peut-on citer en publicité ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "trois jours",
+          "3 jours"
+        ],
+        "quote": "dans un délai de trois jours à compter de l'acceptation du contrat de crédit par l'emprunteur",
+        "article": "L312-52"
+      },
+      {
+        "accepted": [
+          "trois mois",
+          "3 mois"
+        ],
+        "quote": "supérieure à trois mois",
+        "article": "L312-10"
+      }
+    ],
+    "doubt": "Les deux valeurs sont des durées mais ne règlent pas la même chose (délai de résolution du contrat de vente après rétractation, et durée maximale de franchise annoncée en publicité) : la comparaison n'est pas pertinente."
+  },
+  "raw_text": "{\"question\":\"Crédit affecté : en cas de livraison immédiate, sous quel délai la rétractation résout-elle la vente ? Et quelle franchise maximale peut-on citer en publicité ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"trois jours\",\"3 jours\"],\"quote\":\"dans un délai de trois jours à compter de l'acceptation du contrat de crédit par l'emprunteur\",\"article\":\"L312-52\"},{\"accepted\":[\"trois mois\",\"3 mois\"],\"quote\":\"supérieure à trois mois\",\"article\":\"L312-10\"}],\"doubt\":\"Les deux valeurs sont des durées mais ne règlent pas la même chose (délai de résolution du contrat de vente après rétractation, et durée maximale de franchise annoncée en publicité) : la comparaison n'est pas pertinente.\"}"
+}

@@ -1,0 +1,43 @@
+{
+  "task": "set-dev-017",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-12T10:41:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3112,
+    "output_tokens": 276
+  },
+  "output": {
+    "question": "Quelles infos un opérateur internet doit-il publier sur ses offres ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "coordonnées de l'entreprise"
+        ],
+        "quote": "Les coordonnées de l'entreprise",
+        "article": "D224-59"
+      },
+      {
+        "accepted": [
+          "description des services proposés"
+        ],
+        "quote": "Au titre de la description des services proposés",
+        "article": "D224-59"
+      },
+      {
+        "accepted": [
+          "règlement des litiges"
+        ],
+        "quote": "Les mécanismes de règlement des litiges",
+        "article": "D224-59"
+      }
+    ],
+    "doubt": "Les éléments 1°, 2° et 3° ont des mots-clés propres, mais le 2° contient six sous-éléments très longs, ce qui rend la liste trop lourde pour un chat. Je la juge donc peu adaptée à ce mode."
+  },
+  "raw_text": "{\"question\":\"Quelles infos un opérateur internet doit-il publier sur ses offres ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"coordonnées de l'entreprise\"],\"quote\":\"Les coordonnées de l'entreprise\",\"article\":\"D224-59\"},{\"accepted\":[\"description des services proposés\"],\"quote\":\"Au titre de la description des services proposés\",\"article\":\"D224-59\"},{\"accepted\":[\"règlement des litiges\"],\"quote\":\"Les mécanismes de règlement des litiges\",\"article\":\"D224-59\"}],\"doubt\":\"Les éléments 1°, 2° et 3° ont des mots-clés propres, mais le 2° contient six sous-éléments très longs, ce qui rend la liste trop lourde pour un chat. Je la juge donc peu adaptée à ce mode.\"}"
+}

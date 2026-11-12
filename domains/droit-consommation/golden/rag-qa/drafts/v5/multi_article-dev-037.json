@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-037",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:42+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2313,
+    "output_tokens": 267
+  },
+  "output": {
+    "question": "Surendettement : à partir de quand les créances cessent de produire des intérêts, et que cherche à élaborer la commission si je suis propriétaire ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "date de recevabilité",
+          "la date de recevabilité"
+        ],
+        "quote": "à compter de la date de recevabilité",
+        "article": "L722-14"
+      },
+      {
+        "accepted": [
+          "plan conventionnel de redressement",
+          "plan conventionnel"
+        ],
+        "quote": "en vue de l'élaboration d'un plan conventionnel de redressement approuvé par le débiteur et ses principaux créanciers",
+        "article": "L732-1"
+      }
+    ],
+    "doubt": "Les réponses sont des notions plutôt que des valeurs chiffrées ; la question est un peu longue et le lien entre les deux faits est indirect."
+  },
+  "raw_text": "{\"question\":\"Surendettement : à partir de quand les créances cessent de produire des intérêts, et que cherche à élaborer la commission si je suis propriétaire ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"date de recevabilité\",\"la date de recevabilité\"],\"quote\":\"à compter de la date de recevabilité\",\"article\":\"L722-14\"},{\"accepted\":[\"plan conventionnel de redressement\",\"plan conventionnel\"],\"quote\":\"en vue de l'élaboration d'un plan conventionnel de redressement approuvé par le débiteur et ses principaux créanciers\",\"article\":\"L732-1\"}],\"doubt\":\"Les réponses sont des notions plutôt que des valeurs chiffrées ; la question est un peu longue et le lien entre les deux faits est indirect.\"}"
+}

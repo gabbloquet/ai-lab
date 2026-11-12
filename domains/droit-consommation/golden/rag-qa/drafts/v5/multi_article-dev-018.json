@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-018",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2584,
+    "output_tokens": 293
+  },
+  "output": {
+    "question": "Crédit immobilier avec regroupement de crédits : quel document faut-il fournir avec la fiche européenne, et à partir de combien de créances remboursées ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "fiche d'information standardisée européenne",
+          "FISE"
+        ],
+        "quote": "sont réputées fournies lors de la fourniture de cette fiche",
+        "article": "R313-7"
+      },
+      {
+        "accepted": [
+          "au moins deux créances",
+          "deux créances"
+        ],
+        "quote": "Lorsque l'opération de crédit a pour objet le remboursement d'au moins deux créances antérieures dont un crédit en cours",
+        "article": "R314-19"
+      }
+    ],
+    "doubt": "La première question mélange deux demandes ; le fait de R313-7 (nom de la fiche) est faiblement porteur car la fiche est déjà citée dans la question, ce qui le rend presque redondant."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier avec regroupement de crédits : quel document faut-il fournir avec la fiche européenne, et à partir de combien de créances remboursées ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"fiche d'information standardisée européenne\",\"FISE\"],\"quote\":\"sont réputées fournies lors de la fourniture de cette fiche\",\"article\":\"R313-7\"},{\"accepted\":[\"au moins deux créances\",\"deux créances\"],\"quote\":\"Lorsque l'opération de crédit a pour objet le remboursement d'au moins deux créances antérieures dont un crédit en cours\",\"article\":\"R314-19\"}],\"doubt\":\"La première question mélange deux demandes ; le fait de R313-7 (nom de la fiche) est faiblement porteur car la fiche est déjà citée dans la question, ce qui le rend presque redondant.\"}"
+}

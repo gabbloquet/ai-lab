@@ -1,0 +1,46 @@
+{
+  "task": "comparison-test-018",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2597,
+    "output_tokens": 146
+  },
+  "request": {
+    "task": "comparison-test-018",
+    "question": "Amende max pour un professionnel personne physique : offre non conforme de multipropriété, et réparateur d'électroménager sans offre de pièces issues de l'économie circulaire ?",
+    "facts": [
+      [
+        "150 000 euros",
+        "150 000 €"
+      ],
+      [
+        "3 000 €",
+        "3 000 euros"
+      ]
+    ],
+    "articles": [
+      "L242-28",
+      "L242-46"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "offre non conforme de multipropriété",
+        "multipropriété"
+      ],
+      [
+        "réparateur d'électroménager",
+        "sans offre de pièces issues de l'économie circulaire"
+      ]
+    ],
+    "doubt": "La question dit « personne physique » pour les deux cas, mais seul l'article sur le réparateur distingue personne physique et personne morale. Le cas multipropriété n'a qu'un seul plafond de 150 000 euros."
+  },
+  "raw_text": "{\"anchors\":[[\"offre non conforme de multipropriété\",\"multipropriété\"],[\"réparateur d'électroménager\",\"sans offre de pièces issues de l'économie circulaire\"]],\"doubt\":\"La question dit « personne physique » pour les deux cas, mais seul l'article sur le réparateur distingue personne physique et personne morale. Le cas multipropriété n'a qu'un seul plafond de 150 000 euros.\"}"
+}

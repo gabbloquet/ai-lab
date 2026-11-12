@@ -1,0 +1,67 @@
+{
+  "task": "set-dev-024",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-12T10:41:29+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2824,
+    "output_tokens": 618
+  },
+  "output": {
+    "question": "Qu'est-ce qui est interdit concernant les appellations d'origine protégée, IGP et spécialités traditionnelles garanties ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "sans satisfaire aux conditions"
+        ],
+        "quote": "De délivrer une appellation d'origine protégée, une indication géographique protégée ou une spécialité traditionnelle garantie sans satisfaire aux conditions prévues à l'article L. 642-3 du code rural et de la pêche maritime",
+        "article": "L432-4"
+      },
+      {
+        "accepted": [
+          "homologation"
+        ],
+        "quote": "qui n'a pas fait l'objet de l'homologation prévue respectivement aux articles L. 641-10, L. 641-11 et L. 641-12 du code rural et de la pêche maritime",
+        "article": "L432-4"
+      },
+      {
+        "accepted": [
+          "frauduleusement"
+        ],
+        "quote": "D'utiliser ou de tenter d'utiliser frauduleusement une appellation d'origine protégée",
+        "article": "L432-4"
+      },
+      {
+        "accepted": [
+          "altération",
+          "addition",
+          "retranchement"
+        ],
+        "quote": "par addition, retranchement ou par une altération quelconque",
+        "article": "L432-4"
+      },
+      {
+        "accepted": [
+          "mode de présentation"
+        ],
+        "quote": "D'utiliser un mode de présentation faisant croire ou de nature à faire croire",
+        "article": "L432-4"
+      },
+      {
+        "accepted": [
+          "garanti par l'Etat",
+          "organisme public"
+        ],
+        "quote": "est garanti par l'Etat ou par un organisme public",
+        "article": "L432-4"
+      }
+    ],
+    "doubt": "Les éléments 1° et 2° se recoupent (délivrer sans conditions / sans homologation) et les mots-clés des éléments 3° et 5° sont peu discriminants ; la liste est aussi peu susceptible d'être demandée telle quelle dans un chat, donc je la juge inutilisable."
+  },
+  "raw_text": "{\"question\":\"Qu'est-ce qui est interdit concernant les appellations d'origine protégée, IGP et spécialités traditionnelles garanties ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"sans satisfaire aux conditions\"],\"quote\":\"De délivrer une appellation d'origine protégée, une indication géographique protégée ou une spécialité traditionnelle garantie sans satisfaire aux conditions prévues à l'article L. 642-3 du code rural et de la pêche maritime\",\"article\":\"L432-4\"},{\"accepted\":[\"homologation\"],\"quote\":\"qui n'a pas fait l'objet de l'homologation prévue respectivement aux articles L. 641-10, L. 641-11 et L. 641-12 du code rural et de la pêche maritime\",\"article\":\"L432-4\"},{\"accepted\":[\"frauduleusement\"],\"quote\":\"D'utiliser ou de tenter d'utiliser frauduleusement une appellation d'origine protégée\",\"article\":\"L432-4\"},{\"accepted\":[\"altération\",\"addition\",\"retranchement\"],\"quote\":\"par addition, retranchement ou par une altération quelconque\",\"article\":\"L432-4\"},{\"accepted\":[\"mode de présentation\"],\"quote\":\"D'utiliser un mode de présentation faisant croire ou de nature à faire croire\",\"article\":\"L432-4\"},{\"accepted\":[\"garanti par l'Etat\",\"organisme public\"],\"quote\":\"est garanti par l'Etat ou par un organisme public\",\"article\":\"L432-4\"}],\"doubt\":\"Les éléments 1° et 2° se recoupent (délivrer sans conditions / sans homologation) et les mots-clés des éléments 3° et 5° sont peu discriminants ; la liste est aussi peu susceptible d'être demandée telle quelle dans un chat, donc je la juge inutilisable.\"}"
+}

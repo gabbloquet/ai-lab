@@ -1,0 +1,46 @@
+{
+  "task": "comparison-dev-013",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2478,
+    "output_tokens": 117
+  },
+  "request": {
+    "task": "comparison-dev-013",
+    "question": "Quelle amende pour un prêt viager hypothécaire accordé sans offre préalable conforme, et pour une publicité non conforme de location-vente d'un logement ?",
+    "facts": [
+      [
+        "150 000 euros",
+        "150 000 €"
+      ],
+      [
+        "30 000 euros",
+        "30 000 €"
+      ]
+    ],
+    "articles": [
+      "L341-57",
+      "L341-22"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "prêt viager hypothécaire",
+        "sans offre préalable conforme"
+      ],
+      [
+        "publicité non conforme",
+        "location-vente d'un logement"
+      ]
+    ],
+    "doubt": "Les deux cas partagent le mot « conforme » (« offre préalable conforme » et « publicité non conforme »), mais les ancres retenues restent distinctes."
+  },
+  "raw_text": "{\"anchors\":[[\"prêt viager hypothécaire\",\"sans offre préalable conforme\"],[\"publicité non conforme\",\"location-vente d'un logement\"]],\"doubt\":\"Les deux cas partagent le mot « conforme » (« offre préalable conforme » et « publicité non conforme »), mais les ancres retenues restent distinctes.\"}"
+}

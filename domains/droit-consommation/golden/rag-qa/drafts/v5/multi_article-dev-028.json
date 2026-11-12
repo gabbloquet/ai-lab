@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-dev-028",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:33+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2987,
+    "output_tokens": 326
+  },
+  "output": {
+    "question": "Prélèvement par commande à distance en Nouvelle-Calédonie : quelle sanction de l'article L. 531-6 est supprimée, et qui rembourse le prix de l'échantillon ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 531-6",
+          "L531-6"
+        ],
+        "quote": "sans préjudice de la sanction prévue à l'article L. 531-6",
+        "article": "R512-16-7"
+      },
+      {
+        "accepted": [
+          "la personne à laquelle la marchandise a été commandée"
+        ],
+        "quote": "le prix des échantillons payé par le service administratif lui est remboursé par la personne à laquelle la marchandise a été commandée",
+        "article": "R512-16-7"
+      }
+    ],
+    "doubt": "L'article A est un article d'adaptation à l'outre-mer qui ne fait que supprimer ou remplacer des mots, sans valeur précise propre ; la question est peu naturelle et la réponse ne repose pas vraiment sur un fait de A."
+  },
+  "raw_text": "{\"question\":\"Prélèvement par commande à distance en Nouvelle-Calédonie : quelle sanction de l'article L. 531-6 est supprimée, et qui rembourse le prix de l'échantillon ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 531-6\",\"L531-6\"],\"quote\":\"sans préjudice de la sanction prévue à l'article L. 531-6\",\"article\":\"R512-16-7\"},{\"accepted\":[\"la personne à laquelle la marchandise a été commandée\"],\"quote\":\"le prix des échantillons payé par le service administratif lui est remboursé par la personne à laquelle la marchandise a été commandée\",\"article\":\"R512-16-7\"}],\"doubt\":\"L'article A est un article d'adaptation à l'outre-mer qui ne fait que supprimer ou remplacer des mots, sans valeur précise propre ; la question est peu naturelle et la réponse ne repose pas vraiment sur un fait de A.\"}"
+}

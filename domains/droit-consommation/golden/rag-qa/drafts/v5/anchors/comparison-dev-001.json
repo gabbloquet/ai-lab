@@ -1,0 +1,46 @@
+{
+  "task": "comparison-dev-001",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2619,
+    "output_tokens": 102
+  },
+  "request": {
+    "task": "comparison-dev-001",
+    "question": "Amende max pour une personne morale : numéros masqués en démarchage téléphonique, et défaut de fourniture de contenus ou services numériques ?",
+    "facts": [
+      [
+        "375 000 €",
+        "375 000 euros"
+      ],
+      [
+        "15 000 euros",
+        "15 000 €"
+      ]
+    ],
+    "articles": [
+      "L242-14",
+      "L242-18-5"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "numéros masqués",
+        "démarchage téléphonique"
+      ],
+      [
+        "défaut de fourniture",
+        "contenus ou services numériques"
+      ]
+    ],
+    "doubt": "Les deux cas partagent les mots « amende », « personne morale » et « services » ; les ancres choisies évitent ces mots communs."
+  },
+  "raw_text": "{\"anchors\":[[\"numéros masqués\",\"démarchage téléphonique\"],[\"défaut de fourniture\",\"contenus ou services numériques\"]],\"doubt\":\"Les deux cas partagent les mots « amende », « personne morale » et « services » ; les ancres choisies évitent ces mots communs.\"}"
+}

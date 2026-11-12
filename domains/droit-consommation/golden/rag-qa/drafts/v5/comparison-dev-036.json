@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-036",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:42:02+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2959,
+    "output_tokens": 268
+  },
+  "output": {
+    "question": "Quel délai de sept jours pour renoncer à un courtage matrimonial, et quelle durée de disponibilité des pièces d'un verticalisateur ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "sept jours",
+          "7 jours"
+        ],
+        "quote": "dans le délai de sept jours mentionné par ces mêmes dispositions",
+        "article": "R224-3"
+      },
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "pendant une durée minimale de cinq ans à compter de la date de mise sur le marché national",
+        "article": "D224-45"
+      }
+    ],
+    "doubt": "Les deux valeurs ne se comparent pas : l'une est un délai de rétractation, l'autre une durée de disponibilité de pièces détachées. Elles ne règlent pas la même chose."
+  },
+  "raw_text": "{\"question\":\"Quel délai de sept jours pour renoncer à un courtage matrimonial, et quelle durée de disponibilité des pièces d'un verticalisateur ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"sept jours\",\"7 jours\"],\"quote\":\"dans le délai de sept jours mentionné par ces mêmes dispositions\",\"article\":\"R224-3\"},{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"pendant une durée minimale de cinq ans à compter de la date de mise sur le marché national\",\"article\":\"D224-45\"}],\"doubt\":\"Les deux valeurs ne se comparent pas : l'une est un délai de rétractation, l'autre une durée de disponibilité de pièces détachées. Elles ne règlent pas la même chose.\"}"
+}

@@ -1,0 +1,40 @@
+{
+  "task": "comparison-dev-022",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:41:53+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2660,
+    "output_tokens": 335
+  },
+  "output": {
+    "question": "Amende administrative max pour une personne morale : manquement à l'information sur les prix et conditions de vente, et manquement aux obligations des plateformes en ligne ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "15 000 euros",
+          "15 000 €",
+          "15000 euros"
+        ],
+        "quote": "ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale",
+        "article": "L131-5"
+      },
+      {
+        "accepted": [
+          "375 000 euros",
+          "375 000 €",
+          "375000 euros"
+        ],
+        "quote": "ne peut excéder 75 000 euros pour une personne physique et 375 000 euros pour une personne morale",
+        "article": "L131-4"
+      }
+    ],
+    "doubt": "L131-4 vise L. 111-7, L. 111-7-2 et L. 111-7-3 (plateformes, avis en ligne, etc.) et la loi de 1947 sur la presse ; « plateformes en ligne » est une simplification qui ne couvre pas tous les cas visés."
+  },
+  "raw_text": "{\"question\":\"Amende administrative max pour une personne morale : manquement à l'information sur les prix et conditions de vente, et manquement aux obligations des plateformes en ligne ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"15 000 euros\",\"15 000 €\",\"15000 euros\"],\"quote\":\"ne peut excéder 3 000 euros pour une personne physique et 15 000 euros pour une personne morale\",\"article\":\"L131-5\"},{\"accepted\":[\"375 000 euros\",\"375 000 €\",\"375000 euros\"],\"quote\":\"ne peut excéder 75 000 euros pour une personne physique et 375 000 euros pour une personne morale\",\"article\":\"L131-4\"}],\"doubt\":\"L131-4 vise L. 111-7, L. 111-7-2 et L. 111-7-3 (plateformes, avis en ligne, etc.) et la loi de 1947 sur la presse ; « plateformes en ligne » est une simplification qui ne couvre pas tous les cas visés.\"}"
+}

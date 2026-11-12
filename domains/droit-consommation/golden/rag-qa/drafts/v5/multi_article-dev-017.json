@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-dev-017",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:24+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2623,
+    "output_tokens": 589
+  },
+  "output": {
+    "question": "Contrat financier à distance : le délai de rétractation court à partir de quand, et sur quel support reçoit-on les conditions ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "le contrat à distance est conclu"
+        ],
+        "quote": "Le contrat à distance est conclu",
+        "article": "L222-8"
+      },
+      {
+        "accepted": [
+          "support durable",
+          "autre support durable"
+        ],
+        "quote": "par écrit ou sur un autre support durable à sa disposition",
+        "article": "L222-6"
+      }
+    ],
+    "doubt": "L222-8 ne contient aucune valeur précise (ni durée ni montant), seulement un point de départ du délai, et la durée figure dans L222-7 ; l'article est donc peu adapté."
+  },
+  "raw_text": "{\"question\":\"Contrat financier à distance : le délai de rétractation court à partir de quand, et sur quel support reçoit-on les conditions ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"le contrat à distance est conclu\"],\"quote\":\"Le contrat à distance est conclu\",\"article\":\"L222-8\"},{\"accepted\":[\"support durable\",\"autre support durable\"],\"quote\":\"par écrit ou sur un autre support durable à sa disposition\",\"article\":\"L222-6\"}],\"doubt\":\"L222-8 ne contient aucune valeur précise (ni durée ni montant), seulement un point de départ du délai, et la durée figure dans L222-7 ; l'article est donc peu adapté.\"}"
+}

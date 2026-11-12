@@ -1,0 +1,46 @@
+{
+  "task": "comparison-test-002",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2540,
+    "output_tokens": 160
+  },
+  "request": {
+    "task": "comparison-test-002",
+    "question": "Amende pour un prêteur qui garde l'excédent dû à l'échéance d'un prêt viager hypothécaire, et pour un conseil en crédit immobilier sans recommandation personnalisée ?",
+    "facts": [
+      [
+        "300 000 euros",
+        "300 000 €"
+      ],
+      [
+        "30 000 euros",
+        "30 000 €"
+      ]
+    ],
+    "articles": [
+      "L341-58",
+      "L341-29"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "prêteur qui garde l'excédent",
+        "prêt viager hypothécaire"
+      ],
+      [
+        "conseil en crédit immobilier",
+        "sans recommandation personnalisée"
+      ]
+    ],
+    "doubt": "La question présente les deux cas avec des formulations assez longues. Les mots « prêteur » et « crédit » apparaissent dans les deux cas, donc je les ai évités seuls. « prêt viager hypothécaire » n'apparaît que dans le premier cas."
+  },
+  "raw_text": "{\"anchors\":[[\"prêteur qui garde l'excédent\",\"prêt viager hypothécaire\"],[\"conseil en crédit immobilier\",\"sans recommandation personnalisée\"]],\"doubt\":\"La question présente les deux cas avec des formulations assez longues. Les mots « prêteur » et « crédit » apparaissent dans les deux cas, donc je les ai évités seuls. « prêt viager hypothécaire » n'apparaît que dans le premier cas.\"}"
+}

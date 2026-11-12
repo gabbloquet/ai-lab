@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-028",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:41:57+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2782,
+    "output_tokens": 304
+  },
+  "output": {
+    "question": "Quel délai pour agir contre un transporteur si je récupère moi-même mon colis sans vérification, et pour récupérer mes sommes versées d'avance en gaz propane ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "dix jours",
+          "10 jours"
+        ],
+        "quote": "le délai mentionné à l'article L. 133-3 du code de commerce qui éteint toute action contre le voiturier est porté à dix jours",
+        "article": "L224-65"
+      },
+      {
+        "accepted": [
+          "trente jours",
+          "30 jours"
+        ],
+        "quote": "au plus tard dans un délai de trente jours à compter du paiement de la dernière facture",
+        "article": "L224-23"
+      }
+    ],
+    "doubt": "Les deux délais portent sur des objets sans rapport (extinction d'une action contre le voiturier d'un côté, restitution de sommes versées d'avance de l'autre), donc ils ne se comparent pas vraiment."
+  },
+  "raw_text": "{\"question\":\"Quel délai pour agir contre un transporteur si je récupère moi-même mon colis sans vérification, et pour récupérer mes sommes versées d'avance en gaz propane ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"dix jours\",\"10 jours\"],\"quote\":\"le délai mentionné à l'article L. 133-3 du code de commerce qui éteint toute action contre le voiturier est porté à dix jours\",\"article\":\"L224-65\"},{\"accepted\":[\"trente jours\",\"30 jours\"],\"quote\":\"au plus tard dans un délai de trente jours à compter du paiement de la dernière facture\",\"article\":\"L224-23\"}],\"doubt\":\"Les deux délais portent sur des objets sans rapport (extinction d'une action contre le voiturier d'un côté, restitution de sommes versées d'avance de l'autre), donc ils ne se comparent pas vraiment.\"}"
+}

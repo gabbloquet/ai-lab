@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-020",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:41:50+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2854,
+    "output_tokens": 271
+  },
+  "output": {
+    "question": "Commission des clauses abusives : combien de jours avant la séance le commissaire du Gouvernement reçoit les rapports, et quelle durée de mandat des membres ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "Huit jours",
+          "8 jours"
+        ],
+        "quote": "Huit jours au moins avant la séance, il reçoit communication du ou des rapports établis pour préparer les délibérations",
+        "article": "R822-31"
+      },
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "pour un mandat de trois ans renouvelable une fois",
+        "article": "R822-19"
+      }
+    ],
+    "doubt": "Un délai de communication de rapports et une durée de mandat ne règlent pas la même chose : les deux valeurs ne se comparent pas, donc la paire n'est pas utilisable."
+  },
+  "raw_text": "{\"question\":\"Commission des clauses abusives : combien de jours avant la séance le commissaire du Gouvernement reçoit les rapports, et quelle durée de mandat des membres ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"Huit jours\",\"8 jours\"],\"quote\":\"Huit jours au moins avant la séance, il reçoit communication du ou des rapports établis pour préparer les délibérations\",\"article\":\"R822-31\"},{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"pour un mandat de trois ans renouvelable une fois\",\"article\":\"R822-19\"}],\"doubt\":\"Un délai de communication de rapports et une durée de mandat ne règlent pas la même chose : les deux valeurs ne se comparent pas, donc la paire n'est pas utilisable.\"}"
+}

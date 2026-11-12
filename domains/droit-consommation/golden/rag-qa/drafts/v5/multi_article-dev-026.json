@@ -1,0 +1,36 @@
+{
+  "task": "multi_article-dev-026",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3072,
+    "output_tokens": 341
+  },
+  "output": {
+    "question": "Clauses abusives : quel numéro de point de l'article sur les clauses présumées abusives permet au professionnel de modifier le contrat seul, et pour quels contrats est-il écarté ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "3°"
+        ],
+        "quote": "Le 3° de l'article R. 212-1 et les 4° et 6° de l'article R. 212-2 ne sont pas applicables",
+        "article": "R212-3"
+      },
+      {
+        "accepted": [
+          "Réserver au professionnel le droit de modifier unilatéralement"
+        ],
+        "quote": "3° Réserver au professionnel le droit de modifier unilatéralement les clauses du contrat",
+        "article": "R212-1"
+      }
+    ],
+    "doubt": "Les articles ne contiennent aucune valeur chiffrée précise (durée, montant, taux) ; ils énumèrent des clauses numérotées, donc la question serait peu naturelle et la réponse reposerait sur des numéros de rubriques ou des phrases, pas des valeurs courtes."
+  },
+  "raw_text": "{\"question\":\"Clauses abusives : quel numéro de point de l'article sur les clauses présumées abusives permet au professionnel de modifier le contrat seul, et pour quels contrats est-il écarté ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"3°\"],\"quote\":\"Le 3° de l'article R. 212-1 et les 4° et 6° de l'article R. 212-2 ne sont pas applicables\",\"article\":\"R212-3\"},{\"accepted\":[\"Réserver au professionnel le droit de modifier unilatéralement\"],\"quote\":\"3° Réserver au professionnel le droit de modifier unilatéralement les clauses du contrat\",\"article\":\"R212-1\"}],\"doubt\":\"Les articles ne contiennent aucune valeur chiffrée précise (durée, montant, taux) ; ils énumèrent des clauses numérotées, donc la question serait peu naturelle et la réponse reposerait sur des numéros de rubriques ou des phrases, pas des valeurs courtes.\"}"
+}

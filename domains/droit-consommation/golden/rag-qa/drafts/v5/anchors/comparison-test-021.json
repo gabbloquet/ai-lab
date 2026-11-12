@@ -1,0 +1,46 @@
+{
+  "task": "comparison-test-021",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2458,
+    "output_tokens": 178
+  },
+  "request": {
+    "task": "comparison-test-021",
+    "question": "Amende pour un prêteur : prêt immobilier en devise sans revenus ni patrimoine de l'emprunteur dans cette devise, et conseillers crédit immobilier payés uniquement aux ventes ?",
+    "facts": [
+      [
+        "300 000 euros",
+        "300 000 €"
+      ],
+      [
+        "30 000 euros",
+        "30 000 €"
+      ]
+    ],
+    "articles": [
+      "L341-32",
+      "L341-52"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "prêt immobilier en devise",
+        "sans revenus ni patrimoine de l'emprunteur dans cette devise"
+      ],
+      [
+        "conseillers crédit immobilier",
+        "payés uniquement aux ventes"
+      ]
+    ],
+    "doubt": "Les deux cas sont longs et la question n'emploie pas de mot fixe pour les désigner. Les ancres sont des fragments de chaque cas. « crédit immobilier » et « prêt immobilier » sont proches, mais je n'ai gardé que des ancres distinctes."
+  },
+  "raw_text": "{\"anchors\":[[\"prêt immobilier en devise\",\"sans revenus ni patrimoine de l'emprunteur dans cette devise\"],[\"conseillers crédit immobilier\",\"payés uniquement aux ventes\"]],\"doubt\":\"Les deux cas sont longs et la question n'emploie pas de mot fixe pour les désigner. Les ancres sont des fragments de chaque cas. « crédit immobilier » et « prêt immobilier » sont proches, mais je n'ai gardé que des ancres distinctes.\"}"
+}

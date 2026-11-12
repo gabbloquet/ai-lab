@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-023",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2440,
+    "output_tokens": 296
+  },
+  "output": {
+    "question": "Surendettement : quels articles listent les mesures imposées par la commission, et quel article fixe la part de ressources pour les dépenses courantes du ménage ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "L. 733-1",
+          "L733-1"
+        ],
+        "quote": "mesures imposées par la commission en application des articles L. 733-1, L. 733-4 et L. 733-7",
+        "article": "L733-16"
+      },
+      {
+        "accepted": [
+          "L. 731-2",
+          "L731-2"
+        ],
+        "quote": "la part des ressources nécessaires aux dépenses courantes du ménage est déterminée dans les conditions prévues à l'article L. 731-2",
+        "article": "L733-13"
+      }
+    ],
+    "doubt": "Les articles ne contiennent que des renvois à d'autres articles, sans durée, montant ni seuil ; la question demande des numéros d'article et non une valeur, donc inadaptée."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quels articles listent les mesures imposées par la commission, et quel article fixe la part de ressources pour les dépenses courantes du ménage ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"L. 733-1\",\"L733-1\"],\"quote\":\"mesures imposées par la commission en application des articles L. 733-1, L. 733-4 et L. 733-7\",\"article\":\"L733-16\"},{\"accepted\":[\"L. 731-2\",\"L731-2\"],\"quote\":\"la part des ressources nécessaires aux dépenses courantes du ménage est déterminée dans les conditions prévues à l'article L. 731-2\",\"article\":\"L733-13\"}],\"doubt\":\"Les articles ne contiennent que des renvois à d'autres articles, sans durée, montant ni seuil ; la question demande des numéros d'article et non une valeur, donc inadaptée.\"}"
+}

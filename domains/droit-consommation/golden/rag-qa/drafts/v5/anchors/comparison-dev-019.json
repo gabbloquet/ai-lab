@@ -1,0 +1,46 @@
+{
+  "task": "comparison-dev-019",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:15+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2781,
+    "output_tokens": 68
+  },
+  "request": {
+    "task": "comparison-dev-019",
+    "question": "Quel délai maximal pour rembourser les taxes d'un billet d'avion non utilisé, et quel préavis maximal pour résilier un forfait mobile ou internet ?",
+    "facts": [
+      [
+        "trente jours",
+        "30 jours"
+      ],
+      [
+        "dix jours",
+        "10 jours"
+      ]
+    ],
+    "articles": [
+      "L224-66",
+      "L224-39"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "billet d'avion non utilisé",
+        "taxes d'un billet d'avion"
+      ],
+      [
+        "forfait mobile ou internet",
+        "résilier un forfait mobile"
+      ]
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"anchors\":[[\"billet d'avion non utilisé\",\"taxes d'un billet d'avion\"],[\"forfait mobile ou internet\",\"résilier un forfait mobile\"]],\"doubt\":\"\"}"
+}

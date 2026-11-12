@@ -1,0 +1,46 @@
+{
+  "task": "comparison-test-044",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:26+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2674,
+    "output_tokens": 172
+  },
+  "request": {
+    "task": "comparison-test-044",
+    "question": "Amende en euros : société dont l'offre promo par e-mail cache ses conditions, et vendeur personne physique organisant une vente « à la boule de neige » ?",
+    "facts": [
+      [
+        "15 000 euros",
+        "15 000 €"
+      ],
+      [
+        "300 000 euros",
+        "300 000 €"
+      ]
+    ],
+    "articles": [
+      "L132-26",
+      "L132-19"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "société dont l'offre promo par e-mail cache ses conditions",
+        "offre promo par e-mail"
+      ],
+      [
+        "vendeur personne physique",
+        "vente « à la boule de neige »"
+      ]
+    ],
+    "doubt": "Le cas 1 est une personne morale (15 000 €) ; l'ancre « société » seule est évitée car trop courte pour la limite de quatre mots. Les ancres copiées dépassent quatre mots pour la première de chaque liste, ce qui pourrait ne pas être conforme."
+  },
+  "raw_text": "{\"anchors\":[[\"société dont l'offre promo par e-mail cache ses conditions\",\"offre promo par e-mail\"],[\"vendeur personne physique\",\"vente « à la boule de neige »\"]],\"doubt\":\"Le cas 1 est une personne morale (15 000 €) ; l'ancre « société » seule est évitée car trop courte pour la limite de quatre mots. Les ancres copiées dépassent quatre mots pour la première de chaque liste, ce qui pourrait ne pas être conforme.\"}"
+}

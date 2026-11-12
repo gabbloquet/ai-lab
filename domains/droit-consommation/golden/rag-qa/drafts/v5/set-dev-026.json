@@ -1,0 +1,45 @@
+{
+  "task": "set-dev-026",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-12T10:41:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2850,
+    "output_tokens": 375
+  },
+  "output": {
+    "question": "Quelles informations une place de marché en ligne doit-elle me donner ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "conditions générales d'utilisation"
+        ],
+        "quote": "Les conditions générales d'utilisation du service d'intermédiation qu'il propose",
+        "article": "L111-7"
+      },
+      {
+        "accepted": [
+          "rémunération",
+          "lien capitalistique",
+          "relation contractuelle"
+        ],
+        "quote": "L'existence d'une relation contractuelle, d'un lien capitalistique ou d'une rémunération à son profit",
+        "article": "L111-7"
+      },
+      {
+        "accepted": [
+          "qualité de l'annonceur"
+        ],
+        "quote": "La qualité de l'annonceur et les droits et obligations des parties en matière civile et fiscale",
+        "article": "L111-7"
+      }
+    ],
+    "doubt": "Les éléments de la liste sont des descriptions longues sans valeur précise, et la réponse attendue serait très difficile à vérifier par mots-clés. De plus, le 2° contient trois alternatives dont l'une pourrait être confondue avec le 1° (classement, référencement). Je juge l'article peu adapté à ce mode."
+  },
+  "raw_text": "{\"question\":\"Quelles informations une place de marché en ligne doit-elle me donner ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"conditions générales d'utilisation\"],\"quote\":\"Les conditions générales d'utilisation du service d'intermédiation qu'il propose\",\"article\":\"L111-7\"},{\"accepted\":[\"rémunération\",\"lien capitalistique\",\"relation contractuelle\"],\"quote\":\"L'existence d'une relation contractuelle, d'un lien capitalistique ou d'une rémunération à son profit\",\"article\":\"L111-7\"},{\"accepted\":[\"qualité de l'annonceur\"],\"quote\":\"La qualité de l'annonceur et les droits et obligations des parties en matière civile et fiscale\",\"article\":\"L111-7\"}],\"doubt\":\"Les éléments de la liste sont des descriptions longues sans valeur précise, et la réponse attendue serait très difficile à vérifier par mots-clés. De plus, le 2° contient trois alternatives dont l'une pourrait être confondue avec le 1° (classement, référencement). Je juge l'article peu adapté à ce mode.\"}"
+}

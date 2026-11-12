@@ -1,0 +1,37 @@
+{
+  "task": "multi_article-dev-032",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:39+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3588,
+    "output_tokens": 815
+  },
+  "output": {
+    "question": "Rétractation en ligne : sur quel support reçoit-on l'accusé de réception, et quel texte fixe le formulaire type ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "support durable"
+        ],
+        "quote": "un accusé de réception de la rétractation sur un support durable",
+        "article": "L221-21"
+      },
+      {
+        "accepted": [
+          "décret en Conseil d'Etat",
+          "décret en Conseil d'État"
+        ],
+        "quote": "dont les conditions de présentation et les mentions qu'il contient sont fixées par décret en Conseil d'Etat",
+        "article": "L221-5"
+      }
+    ],
+    "doubt": "Le second fait est un type de texte (décret en Conseil d'Etat) et non une valeur chiffrée ; la question reste cependant à réponse unique."
+  },
+  "raw_text": "{\"question\":\"Rétractation en ligne : sur quel support reçoit-on l'accusé de réception, et quel texte fixe le formulaire type ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"support durable\"],\"quote\":\"un accusé de réception de la rétractation sur un support durable\",\"article\":\"L221-21\"},{\"accepted\":[\"décret en Conseil d'Etat\",\"décret en Conseil d'État\"],\"quote\":\"dont les conditions de présentation et les mentions qu'il contient sont fixées par décret en Conseil d'Etat\",\"article\":\"L221-5\"}],\"doubt\":\"Le second fait est un type de texte (décret en Conseil d'Etat) et non une valeur chiffrée ; la question reste cependant à réponse unique.\"}"
+}

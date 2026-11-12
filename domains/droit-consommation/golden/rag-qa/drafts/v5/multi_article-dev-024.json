@@ -1,0 +1,40 @@
+{
+  "task": "multi_article-dev-024",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:29+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2882,
+    "output_tokens": 342
+  },
+  "output": {
+    "question": "Pour contrôler une pratique commerciale trompeuse, quels articles visent ces pratiques, et quel article donne aux agents le pouvoir d'exiger les éléments justifiant les allégations ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "L. 121-2 à L. 121-4",
+          "L121-2 à L121-4",
+          "articles L. 121-2 à L. 121-4"
+        ],
+        "quote": "Pour la recherche et la constatation des pratiques commerciales trompeuses mentionnées aux articles L. 121-2 à L. 121-4",
+        "article": "L511-5"
+      },
+      {
+        "accepted": [
+          "L. 512-15",
+          "L512-15",
+          "article L. 512-15"
+        ],
+        "quote": "ils disposent en outre des pouvoirs prévus à l'article L. 512-15",
+        "article": "L511-5"
+      }
+    ],
+    "doubt": "Les deux faits viennent de l'article A, l'article B n'apporte aucune valeur propre à la réponse ; la question est aussi un peu longue (plus de 20 mots)."
+  },
+  "raw_text": "{\"question\":\"Pour contrôler une pratique commerciale trompeuse, quels articles visent ces pratiques, et quel article donne aux agents le pouvoir d'exiger les éléments justifiant les allégations ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"L. 121-2 à L. 121-4\",\"L121-2 à L121-4\",\"articles L. 121-2 à L. 121-4\"],\"quote\":\"Pour la recherche et la constatation des pratiques commerciales trompeuses mentionnées aux articles L. 121-2 à L. 121-4\",\"article\":\"L511-5\"},{\"accepted\":[\"L. 512-15\",\"L512-15\",\"article L. 512-15\"],\"quote\":\"ils disposent en outre des pouvoirs prévus à l'article L. 512-15\",\"article\":\"L511-5\"}],\"doubt\":\"Les deux faits viennent de l'article A, l'article B n'apporte aucune valeur propre à la réponse ; la question est aussi un peu longue (plus de 20 mots).\"}"
+}

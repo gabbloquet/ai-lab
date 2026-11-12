@@ -1,0 +1,46 @@
+{
+  "task": "comparison-dev-002",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2831,
+    "output_tokens": 59
+  },
+  "request": {
+    "task": "comparison-dev-002",
+    "question": "Quelle amende si un contrat de prêt n'indique pas le taux effectif global, et si un prêteur immobilier encaisse un versement avant que j'accepte l'offre ?",
+    "facts": [
+      [
+        "150 000 euros",
+        "150 000 €"
+      ],
+      [
+        "300 000 euros",
+        "300 000 €"
+      ]
+    ],
+    "articles": [
+      "L341-49",
+      "L341-42"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "contrat de prêt n'indique pas",
+        "taux effectif global"
+      ],
+      [
+        "prêteur immobilier",
+        "encaisse un versement"
+      ]
+    ],
+    "doubt": ""
+  },
+  "raw_text": "{\"anchors\":[[\"contrat de prêt n'indique pas\",\"taux effectif global\"],[\"prêteur immobilier\",\"encaisse un versement\"]],\"doubt\":\"\"}"
+}

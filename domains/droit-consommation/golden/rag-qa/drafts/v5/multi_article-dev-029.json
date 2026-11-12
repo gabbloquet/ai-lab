@@ -1,0 +1,39 @@
+{
+  "task": "multi_article-dev-029",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2544,
+    "output_tokens": 310
+  },
+  "output": {
+    "question": "Surendettement : un chèque impayé est effacé, sous quel délai la banque avise la Banque de France, et de quel incident l'effacement vaut régularisation ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "deuxième jour ouvré",
+          "le deuxième jour ouvré",
+          "2e jour ouvré"
+        ],
+        "quote": "au plus tard le deuxième jour ouvré suivant la remise par le débiteur d'une attestation",
+        "article": "R733-18"
+      },
+      {
+        "accepted": [
+          "incident de paiement",
+          "l'incident de paiement"
+        ],
+        "quote": "vaut régularisation de l'incident de paiement au sens de l'article L. 131-73 du code monétaire et financier",
+        "article": "L733-17"
+      }
+    ],
+    "doubt": "Le fait de l'article B (incident de paiement) est assez générique, et la question mentionne déjà 'chèque impayé', ce qui rend ce second fait facile à deviner."
+  },
+  "raw_text": "{\"question\":\"Surendettement : un chèque impayé est effacé, sous quel délai la banque avise la Banque de France, et de quel incident l'effacement vaut régularisation ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"deuxième jour ouvré\",\"le deuxième jour ouvré\",\"2e jour ouvré\"],\"quote\":\"au plus tard le deuxième jour ouvré suivant la remise par le débiteur d'une attestation\",\"article\":\"R733-18\"},{\"accepted\":[\"incident de paiement\",\"l'incident de paiement\"],\"quote\":\"vaut régularisation de l'incident de paiement au sens de l'article L. 131-73 du code monétaire et financier\",\"article\":\"L733-17\"}],\"doubt\":\"Le fait de l'article B (incident de paiement) est assez générique, et la question mentionne déjà 'chèque impayé', ce qui rend ce second fait facile à deviner.\"}"
+}

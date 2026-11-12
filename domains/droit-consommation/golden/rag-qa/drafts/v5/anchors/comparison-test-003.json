@@ -1,0 +1,46 @@
+{
+  "task": "comparison-test-003",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:19+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2796,
+    "output_tokens": 167
+  },
+  "request": {
+    "task": "comparison-test-003",
+    "question": "Garantie de conformité : de combien est prolongée la garantie après réparation, et quel délai maximum pour la mise en conformité ?",
+    "facts": [
+      [
+        "six mois",
+        "6 mois"
+      ],
+      [
+        "trente jours",
+        "30 jours"
+      ]
+    ],
+    "articles": [
+      "L217-13",
+      "L217-10"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "prolongée la garantie après réparation",
+        "prolongée la garantie"
+      ],
+      [
+        "délai maximum pour la mise en conformité",
+        "délai maximum"
+      ]
+    ],
+    "doubt": "Les deux cas ne sont pas nommés distinctement dans la question : les ancres reprennent les groupes de mots de chaque partie. « délai maximum » est assez proche de « garantie » mais reste propre au second cas ; « Garantie de conformité » est partagé et n'est donc pas utilisé."
+  },
+  "raw_text": "{\"anchors\":[[\"prolongée la garantie après réparation\",\"prolongée la garantie\"],[\"délai maximum pour la mise en conformité\",\"délai maximum\"]],\"doubt\":\"Les deux cas ne sont pas nommés distinctement dans la question : les ancres reprennent les groupes de mots de chaque partie. « délai maximum » est assez proche de « garantie » mais reste propre au second cas ; « Garantie de conformité » est partagé et n'est donc pas utilisé.\"}"
+}

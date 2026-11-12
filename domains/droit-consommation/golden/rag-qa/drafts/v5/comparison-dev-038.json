@@ -1,0 +1,38 @@
+{
+  "task": "comparison-dev-038",
+  "mode": "comparison",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e637b791ec54f643da3845e9042d7ecb7695fb74a50cf44fb1f5df6a8ae139f0",
+  "created_at": "2026-11-12T10:42:05+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 4115,
+    "output_tokens": 334
+  },
+  "output": {
+    "question": "Quelle durée de conservation : document de refus d'un allergène en restauration collective, et copie de la déclaration UE de conformité d'un importateur de produits accessibles ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trois ans",
+          "3 ans"
+        ],
+        "quote": "Pendant un délai de trois ans après la fourniture du dernier repas, le fournisseur des repas conserve le document attestant du refus manifesté par le consommateur.",
+        "article": "R412-15"
+      },
+      {
+        "accepted": [
+          "cinq ans",
+          "5 ans"
+        ],
+        "quote": "Pendant une durée de cinq ans, ils tiennent une copie de la déclaration UE de conformité à la disposition des autorités de contrôle et de surveillance du marché",
+        "article": "D412-53"
+      }
+    ],
+    "doubt": "Les deux durées de conservation de documents portent sur des sujets très différents (allergènes et accessibilité), mais elles se comparent comme obligations de conservation; la question dépasse un peu 20 mots."
+  },
+  "raw_text": "{\"question\":\"Quelle durée de conservation : document de refus d'un allergène en restauration collective, et copie de la déclaration UE de conformité d'un importateur de produits accessibles ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trois ans\",\"3 ans\"],\"quote\":\"Pendant un délai de trois ans après la fourniture du dernier repas, le fournisseur des repas conserve le document attestant du refus manifesté par le consommateur.\",\"article\":\"R412-15\"},{\"accepted\":[\"cinq ans\",\"5 ans\"],\"quote\":\"Pendant une durée de cinq ans, ils tiennent une copie de la déclaration UE de conformité à la disposition des autorités de contrôle et de surveillance du marché\",\"article\":\"D412-53\"}],\"doubt\":\"Les deux durées de conservation de documents portent sur des sujets très différents (allergènes et accessibilité), mais elles se comparent comme obligations de conservation; la question dépasse un peu 20 mots.\"}"
+}

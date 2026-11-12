@@ -1,0 +1,49 @@
+{
+  "task": "set-dev-034",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-12T10:41:36+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2760,
+    "output_tokens": 502
+  },
+  "output": {
+    "question": "Contenu numérique non conforme : dans quels cas puis-je exiger une réduction du prix ou la résolution ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "refuse toute mise en conformité",
+          "refuse"
+        ],
+        "quote": "Lorsque le professionnel refuse toute mise en conformité du contenu numérique ou du service numérique",
+        "article": "L224-25-20"
+      },
+      {
+        "accepted": [
+          "retardée de manière injustifiée",
+          "retardée",
+          "frais ou un inconvénient majeur",
+          "inconvénient majeur"
+        ],
+        "quote": "Lorsque la mise en conformité du contenu numérique ou du service numérique est retardée de manière injustifiée ou si elle occasionne des frais ou un inconvénient majeur pour le consommateur",
+        "article": "L224-25-20"
+      },
+      {
+        "accepted": [
+          "persiste",
+          "tentative de mise en conformité",
+          "infructueuse"
+        ],
+        "quote": "Lorsque la non-conformité du contenu numérique ou du service numérique persiste en dépit de la tentative de mise en conformité du professionnel restée infructueuse",
+        "article": "L224-25-20"
+      }
+    ],
+    "doubt": "Les éléments 1° et 3° se recoupent en partie par le vocabulaire (mise en conformité) et l'élément 2° contient deux hypothèses; la liste est suivie d'alinéas supplémentaires (défaut grave) qui ne font pas partie de la liste numérotée; les mots-clés sont peu distinctifs, donc article jugé peu adapté."
+  },
+  "raw_text": "{\"question\":\"Contenu numérique non conforme : dans quels cas puis-je exiger une réduction du prix ou la résolution ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"refuse toute mise en conformité\",\"refuse\"],\"quote\":\"Lorsque le professionnel refuse toute mise en conformité du contenu numérique ou du service numérique\",\"article\":\"L224-25-20\"},{\"accepted\":[\"retardée de manière injustifiée\",\"retardée\",\"frais ou un inconvénient majeur\",\"inconvénient majeur\"],\"quote\":\"Lorsque la mise en conformité du contenu numérique ou du service numérique est retardée de manière injustifiée ou si elle occasionne des frais ou un inconvénient majeur pour le consommateur\",\"article\":\"L224-25-20\"},{\"accepted\":[\"persiste\",\"tentative de mise en conformité\",\"infructueuse\"],\"quote\":\"Lorsque la non-conformité du contenu numérique ou du service numérique persiste en dépit de la tentative de mise en conformité du professionnel restée infructueuse\",\"article\":\"L224-25-20\"}],\"doubt\":\"Les éléments 1° et 3° se recoupent en partie par le vocabulaire (mise en conformité) et l'élément 2° contient deux hypothèses; la liste est suivie d'alinéas supplémentaires (défaut grave) qui ne font pas partie de la liste numérotée; les mots-clés sont peu distinctifs, donc article jugé peu adapté.\"}"
+}

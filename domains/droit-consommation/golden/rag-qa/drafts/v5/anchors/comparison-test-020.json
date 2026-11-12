@@ -1,0 +1,45 @@
+{
+  "task": "comparison-test-020",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:22+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2757,
+    "output_tokens": 98
+  },
+  "request": {
+    "task": "comparison-test-020",
+    "question": "Rétablissement personnel avec liquidation : quel délai pour contester l'état des créances avant l'audience, et pour demander un relevé de forclusion ?",
+    "facts": [
+      [
+        "quinze jours",
+        "15 jours"
+      ],
+      [
+        "six mois",
+        "6 mois"
+      ]
+    ],
+    "articles": [
+      "R742-16",
+      "R742-13"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "contester l'état des créances",
+        "avant l'audience"
+      ],
+      [
+        "relevé de forclusion"
+      ]
+    ],
+    "doubt": "Les deux cas sont désignés par des actions ; « contester l'état des créances » et « relevé de forclusion » sont les seuls mots distinctifs."
+  },
+  "raw_text": "{\"anchors\":[[\"contester l'état des créances\",\"avant l'audience\"],[\"relevé de forclusion\"]],\"doubt\":\"Les deux cas sont désignés par des actions ; « contester l'état des créances » et « relevé de forclusion » sont les seuls mots distinctifs.\"}"
+}

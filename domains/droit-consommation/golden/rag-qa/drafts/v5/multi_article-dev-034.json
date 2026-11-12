@@ -1,0 +1,36 @@
+{
+  "task": "multi_article-dev-034",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:38+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2464,
+    "output_tokens": 307
+  },
+  "output": {
+    "question": "Surendettement : quel juge est compétent pour la saisine de la commission, et que doit-on joindre à sa lettre comme acte ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "juge des contentieux de la protection"
+        ],
+        "quote": "Le juge des contentieux de la protection compétent, en vertu des dispositions de l'article L. 213-4-7 du code de l'organisation judiciaire, est celui du lieu où demeure le débiteur",
+        "article": "R713-1"
+      },
+      {
+        "accepted": [
+          "copie de l'acte de poursuite"
+        ],
+        "quote": "La copie de l'acte de poursuite fondant la demande est également jointe à cette lettre.",
+        "article": "R721-5"
+      }
+    ],
+    "doubt": "Aucune valeur chiffrée précise (durée, montant, seuil) : la question est floue et le juge compétent dépend du lieu de résidence ; peu adaptée à une question de chat."
+  },
+  "raw_text": "{\"question\":\"Surendettement : quel juge est compétent pour la saisine de la commission, et que doit-on joindre à sa lettre comme acte ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"juge des contentieux de la protection\"],\"quote\":\"Le juge des contentieux de la protection compétent, en vertu des dispositions de l'article L. 213-4-7 du code de l'organisation judiciaire, est celui du lieu où demeure le débiteur\",\"article\":\"R713-1\"},{\"accepted\":[\"copie de l'acte de poursuite\"],\"quote\":\"La copie de l'acte de poursuite fondant la demande est également jointe à cette lettre.\",\"article\":\"R721-5\"}],\"doubt\":\"Aucune valeur chiffrée précise (durée, montant, seuil) : la question est floue et le juge compétent dépend du lieu de résidence ; peu adaptée à une question de chat.\"}"
+}

@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-035",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:41+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2182,
+    "output_tokens": 328
+  },
+  "output": {
+    "question": "Crédit conso : le total des crédits signés ne doit pas dépasser quelle valeur, et quel type de crédit échappe à cette règle ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "valeur payable à crédit du bien acheté",
+          "valeur payable à crédit"
+        ],
+        "quote": "d'un montant total en capital supérieur à la valeur payable à crédit du bien acheté ou de la prestation de services fournie",
+        "article": "L312-30"
+      },
+      {
+        "accepted": [
+          "crédit renouvelable",
+          "crédits renouvelables"
+        ],
+        "quote": "Cette disposition ne s'applique pas aux contrats de crédit renouvelable mentionnés à l'article L. 312-57.",
+        "article": "L312-30"
+      }
+    ],
+    "doubt": "Le texte de B ne donne pas de valeur chiffrée distincte ; le second fait vient de A et B ne sert qu'à définir le crédit renouvelable, donc la question ne requiert pas strictement un fait de B."
+  },
+  "raw_text": "{\"question\":\"Crédit conso : le total des crédits signés ne doit pas dépasser quelle valeur, et quel type de crédit échappe à cette règle ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"valeur payable à crédit du bien acheté\",\"valeur payable à crédit\"],\"quote\":\"d'un montant total en capital supérieur à la valeur payable à crédit du bien acheté ou de la prestation de services fournie\",\"article\":\"L312-30\"},{\"accepted\":[\"crédit renouvelable\",\"crédits renouvelables\"],\"quote\":\"Cette disposition ne s'applique pas aux contrats de crédit renouvelable mentionnés à l'article L. 312-57.\",\"article\":\"L312-30\"}],\"doubt\":\"Le texte de B ne donne pas de valeur chiffrée distincte ; le second fait vient de A et B ne sert qu'à définir le crédit renouvelable, donc la question ne requiert pas strictement un fait de B.\"}"
+}

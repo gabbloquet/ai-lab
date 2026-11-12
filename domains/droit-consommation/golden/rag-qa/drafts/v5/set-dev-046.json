@@ -1,0 +1,70 @@
+{
+  "task": "set-dev-046",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-12T10:41:47+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2774,
+    "output_tokens": 534
+  },
+  "output": {
+    "question": "Que doit contenir l'information des consommateurs après un jugement d'action de groupe ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "dispositif de la décision",
+          "dispositif"
+        ],
+        "quote": "La reproduction du dispositif de la décision",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "coordonnées"
+        ],
+        "quote": "Les coordonnées de la personne auprès de laquelle chaque consommateur manifeste son adhésion au groupe",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "mandat aux fins d'indemnisation",
+          "vaut mandat",
+          "mandat"
+        ],
+        "quote": "l'indication que celle-ci vaut mandat aux fins d'indemnisation",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "défaillant",
+          "plus recevable"
+        ],
+        "quote": "le consommateur défaillant ne sera plus recevable à obtenir une indemnisation",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "agir individuellement",
+          "autres préjudices"
+        ],
+        "quote": "le consommateur ne pourra plus agir individuellement à l'encontre du professionnel concerné",
+        "article": "R623-16"
+      },
+      {
+        "accepted": [
+          "tout document utile",
+          "document utile"
+        ],
+        "quote": "les consommateurs doivent produire tout document utile au soutien de leur demande",
+        "article": "R623-16"
+      }
+    ],
+    "doubt": "La liste est fermée, mais les éléments 2 et 3 partagent des notions (adhésion, association) et les mots-clés propres sont fragiles ; l'élément 1 ne contient aucune valeur précise. Peu probable qu'on demande cette liste dans un chat."
+  },
+  "raw_text": "{\"question\":\"Que doit contenir l'information des consommateurs après un jugement d'action de groupe ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"dispositif de la décision\",\"dispositif\"],\"quote\":\"La reproduction du dispositif de la décision\",\"article\":\"R623-16\"},{\"accepted\":[\"coordonnées\"],\"quote\":\"Les coordonnées de la personne auprès de laquelle chaque consommateur manifeste son adhésion au groupe\",\"article\":\"R623-16\"},{\"accepted\":[\"mandat aux fins d'indemnisation\",\"vaut mandat\",\"mandat\"],\"quote\":\"l'indication que celle-ci vaut mandat aux fins d'indemnisation\",\"article\":\"R623-16\"},{\"accepted\":[\"défaillant\",\"plus recevable\"],\"quote\":\"le consommateur défaillant ne sera plus recevable à obtenir une indemnisation\",\"article\":\"R623-16\"},{\"accepted\":[\"agir individuellement\",\"autres préjudices\"],\"quote\":\"le consommateur ne pourra plus agir individuellement à l'encontre du professionnel concerné\",\"article\":\"R623-16\"},{\"accepted\":[\"tout document utile\",\"document utile\"],\"quote\":\"les consommateurs doivent produire tout document utile au soutien de leur demande\",\"article\":\"R623-16\"}],\"doubt\":\"La liste est fermée, mais les éléments 2 et 3 partagent des notions (adhésion, association) et les mots-clés propres sont fragiles ; l'élément 1 ne contient aucune valeur précise. Peu probable qu'on demande cette liste dans un chat.\"}"
+}

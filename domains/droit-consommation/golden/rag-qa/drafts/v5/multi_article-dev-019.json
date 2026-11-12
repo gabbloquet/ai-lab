@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-019",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:28+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2609,
+    "output_tokens": 1053
+  },
+  "output": {
+    "question": "Contenu numérique sans support, rétractation : quel accord le pro doit-il recueillir, et sur quel type de support confirme-t-il le contrat ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "accord préalable exprès",
+          "accord exprès"
+        ],
+        "quote": "Le professionnel n'a pas recueilli son accord préalable exprès pour l'exécution du contrat avant la fin du délai de rétractation",
+        "article": "L221-26"
+      },
+      {
+        "accepted": [
+          "support durable",
+          "un support durable"
+        ],
+        "quote": "Le professionnel fournit au consommateur, sur support durable, dans un délai raisonnable, après la conclusion du contrat",
+        "article": "L221-13"
+      }
+    ],
+    "doubt": "Les valeurs sont des notions (accord, support) et non des chiffres ; le mot « support » apparaît aussi dans « sans support matériel », ce qui peut prêter à confusion."
+  },
+  "raw_text": "{\"question\":\"Contenu numérique sans support, rétractation : quel accord le pro doit-il recueillir, et sur quel type de support confirme-t-il le contrat ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"accord préalable exprès\",\"accord exprès\"],\"quote\":\"Le professionnel n'a pas recueilli son accord préalable exprès pour l'exécution du contrat avant la fin du délai de rétractation\",\"article\":\"L221-26\"},{\"accepted\":[\"support durable\",\"un support durable\"],\"quote\":\"Le professionnel fournit au consommateur, sur support durable, dans un délai raisonnable, après la conclusion du contrat\",\"article\":\"L221-13\"}],\"doubt\":\"Les valeurs sont des notions (accord, support) et non des chiffres ; le mot « support » apparaît aussi dans « sans support matériel », ce qui peut prêter à confusion.\"}"
+}

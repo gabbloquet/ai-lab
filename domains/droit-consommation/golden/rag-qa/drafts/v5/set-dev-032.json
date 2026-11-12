@@ -1,0 +1,44 @@
+{
+  "task": "set-dev-032",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-12T10:41:34+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2710,
+    "output_tokens": 344
+  },
+  "output": {
+    "question": "Quelles missions supplémentaires le laboratoire de métrologie et d'essais peut-il se voir confier ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "méthodes d'essais"
+        ],
+        "quote": "D'étudier, pour le compte et à la demande des ministres intéressés, des méthodes d'essais nécessaires à l'élaboration de règlements et de normes",
+        "article": "L823-1"
+      },
+      {
+        "accepted": [
+          "certificats de qualification"
+        ],
+        "quote": "De délivrer des certificats de qualification",
+        "article": "L823-1"
+      },
+      {
+        "accepted": [
+          "organismes étrangers",
+          "organismes internationaux"
+        ],
+        "quote": "D'assurer, sous l'autorité et à la demande des ministres intéressés, des relations avec les organismes étrangers ou internationaux",
+        "article": "L823-1"
+      }
+    ],
+    "doubt": "Liste fermée de trois éléments, mais peu probable qu'une personne pose cette question dans un chat d'assistance aux consommateurs ; le sujet est très technique et institutionnel."
+  },
+  "raw_text": "{\"question\":\"Quelles missions supplémentaires le laboratoire de métrologie et d'essais peut-il se voir confier ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"méthodes d'essais\"],\"quote\":\"D'étudier, pour le compte et à la demande des ministres intéressés, des méthodes d'essais nécessaires à l'élaboration de règlements et de normes\",\"article\":\"L823-1\"},{\"accepted\":[\"certificats de qualification\"],\"quote\":\"De délivrer des certificats de qualification\",\"article\":\"L823-1\"},{\"accepted\":[\"organismes étrangers\",\"organismes internationaux\"],\"quote\":\"D'assurer, sous l'autorité et à la demande des ministres intéressés, des relations avec les organismes étrangers ou internationaux\",\"article\":\"L823-1\"}],\"doubt\":\"Liste fermée de trois éléments, mais peu probable qu'une personne pose cette question dans un chat d'assistance aux consommateurs ; le sujet est très technique et institutionnel.\"}"
+}

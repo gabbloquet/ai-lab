@@ -1,0 +1,32 @@
+{
+  "task": "false_premise-dev-019",
+  "mode": "false_premise",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "e9b74935709b8d795cd9977b9dc45f0aadd1a2e22b94c514549d3cce1e32a93c",
+  "created_at": "2026-11-12T10:42:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2350,
+    "output_tokens": 218
+  },
+  "output": {
+    "question": "Contenu numérique : si le pro ne suspend pas le délai de garantie, amende de 5 000 € pour un particulier ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "3 000 euros",
+          "3 000 €",
+          "3000 euros"
+        ],
+        "quote": "dont le montant ne peut excéder 3 000 euros pour une personne physique",
+        "article": "L242-18-9"
+      }
+    ],
+    "doubt": "La question vise le professionnel personne physique ; le plafond de 15 000 euros pour une personne morale pourrait être mentionné en plus, mais seul le montant pour une personne physique est attendu.",
+    "false_value": "5 000 €"
+  },
+  "raw_text": "{\"question\":\"Contenu numérique : si le pro ne suspend pas le délai de garantie, amende de 5 000 € pour un particulier ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"3 000 euros\",\"3 000 €\",\"3000 euros\"],\"quote\":\"dont le montant ne peut excéder 3 000 euros pour une personne physique\",\"article\":\"L242-18-9\"}],\"doubt\":\"La question vise le professionnel personne physique ; le plafond de 15 000 euros pour une personne morale pourrait être mentionné en plus, mais seul le montant pour une personne physique est attendu.\",\"false_value\":\"5 000 €\"}"
+}

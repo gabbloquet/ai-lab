@@ -1,0 +1,43 @@
+{
+  "task": "set-dev-039",
+  "mode": "set",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "c5dc929a24bfe6b0e04487e0e276eadaa0ceebda5ca5e5b3f5247924953bdb91",
+  "created_at": "2026-11-12T10:41:40+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3388,
+    "output_tokens": 353
+  },
+  "output": {
+    "question": "Quelles conditions de compétence doivent remplir les personnels qui proposent des crédits ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "diplôme"
+        ],
+        "quote": "1° Soit d'un diplôme mentionné dans l'accord du 10 juin 2011 relatif à la formation professionnelle",
+        "article": "D314-23"
+      },
+      {
+        "accepted": [
+          "formation professionnelle"
+        ],
+        "quote": "2° Soit d'une formation professionnelle adaptée à la réalisation d'opérations de crédit, suivie :",
+        "article": "D314-23"
+      },
+      {
+        "accepted": [
+          "expérience professionnelle"
+        ],
+        "quote": "3° Soit d'une expérience professionnelle :",
+        "article": "D314-23"
+      }
+    ],
+    "doubt": "Les mots-clés « formation professionnelle » et « expérience professionnelle » apparaissent aussi dans d'autres éléments (le 3° mentionne la formation du 2°, le 1° cite la formation professionnelle dans l'accord), donc ils ne sont pas strictement propres à chaque élément."
+  },
+  "raw_text": "{\"question\":\"Quelles conditions de compétence doivent remplir les personnels qui proposent des crédits ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"diplôme\"],\"quote\":\"1° Soit d'un diplôme mentionné dans l'accord du 10 juin 2011 relatif à la formation professionnelle\",\"article\":\"D314-23\"},{\"accepted\":[\"formation professionnelle\"],\"quote\":\"2° Soit d'une formation professionnelle adaptée à la réalisation d'opérations de crédit, suivie :\",\"article\":\"D314-23\"},{\"accepted\":[\"expérience professionnelle\"],\"quote\":\"3° Soit d'une expérience professionnelle :\",\"article\":\"D314-23\"}],\"doubt\":\"Les mots-clés « formation professionnelle » et « expérience professionnelle » apparaissent aussi dans d'autres éléments (le 3° mentionne la formation du 2°, le 1° cite la formation professionnelle dans l'accord), donc ils ne sont pas strictement propres à chaque élément.\"}"
+}

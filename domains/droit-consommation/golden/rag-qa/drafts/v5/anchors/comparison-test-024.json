@@ -1,0 +1,46 @@
+{
+  "task": "comparison-test-024",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:23+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3041,
+    "output_tokens": 107
+  },
+  "request": {
+    "task": "comparison-test-024",
+    "question": "Liquidation après surendettement : en combien de temps le liquidateur dépose-t-il le cahier des conditions de vente, et le mandataire le bilan économique et social ?",
+    "facts": [
+      [
+        "deux mois",
+        "2 mois"
+      ],
+      [
+        "six mois",
+        "6 mois"
+      ]
+    ],
+    "articles": [
+      "R742-33",
+      "R742-14"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "le liquidateur",
+        "cahier des conditions de vente"
+      ],
+      [
+        "le mandataire",
+        "bilan économique et social"
+      ]
+    ],
+    "doubt": "Les deux cas sont désignés par des rôles (liquidateur, mandataire) et par le document déposé ; « le » devant chaque rôle est facultatif."
+  },
+  "raw_text": "{\"anchors\":[[\"le liquidateur\",\"cahier des conditions de vente\"],[\"le mandataire\",\"bilan économique et social\"]],\"doubt\":\"Les deux cas sont désignés par des rôles (liquidateur, mandataire) et par le document déposé ; « le » devant chaque rôle est facultatif.\"}"
+}

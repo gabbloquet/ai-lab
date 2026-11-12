@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-040",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2972,
+    "output_tokens": 267
+  },
+  "output": {
+    "question": "Pub pour un crédit immobilier : quelle durée maximale pour l'exemple représentatif, et quelle information porte le 5° des informations complémentaires ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "trente ans",
+          "30 ans"
+        ],
+        "quote": "Une durée de remboursement égale à cinq ans ou à un multiple de cette durée qui ne peut excéder trente ans.",
+        "article": "R313-2"
+      },
+      {
+        "accepted": [
+          "Le montant total dû par l'emprunteur",
+          "montant total dû"
+        ],
+        "quote": "5° Le montant total dû par l'emprunteur ;",
+        "article": "R313-1"
+      }
+    ],
+    "doubt": "La question est un peu longue (21 mots environ) et le second fait est une formulation de texte plutôt qu'une valeur chiffrée."
+  },
+  "raw_text": "{\"question\":\"Pub pour un crédit immobilier : quelle durée maximale pour l'exemple représentatif, et quelle information porte le 5° des informations complémentaires ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"trente ans\",\"30 ans\"],\"quote\":\"Une durée de remboursement égale à cinq ans ou à un multiple de cette durée qui ne peut excéder trente ans.\",\"article\":\"R313-2\"},{\"accepted\":[\"Le montant total dû par l'emprunteur\",\"montant total dû\"],\"quote\":\"5° Le montant total dû par l'emprunteur ;\",\"article\":\"R313-1\"}],\"doubt\":\"La question est un peu longue (21 mots environ) et le second fait est une formulation de texte plutôt qu'une valeur chiffrée.\"}"
+}

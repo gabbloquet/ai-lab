@@ -1,0 +1,36 @@
+{
+  "task": "multi_article-dev-025",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:31+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3568,
+    "output_tokens": 288
+  },
+  "output": {
+    "question": "Sur un comparateur en ligne, quel mot signale une offre payante classée selon sa rémunération, et qui engage la garantie commerciale ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "Annonces"
+        ],
+        "quote": "seules les offres de biens ou de services référencées à titre payant, et dont le rang de classement dépend de cette rémunération, font apparaître leur caractère publicitaire par la mention du mot “ Annonces ”",
+        "article": "D111-7"
+      },
+      {
+        "accepted": [
+          "garant"
+        ],
+        "quote": "(ci-après dénommé “ garant ”)",
+        "article": "L217-21"
+      }
+    ],
+    "doubt": "L'article B ne contient aucune valeur précise (durée, montant, seuil) et la question mêle deux sujets sans lien naturel ; ce couple d'articles se prête mal à une question unique et naturelle."
+  },
+  "raw_text": "{\"question\":\"Sur un comparateur en ligne, quel mot signale une offre payante classée selon sa rémunération, et qui engage la garantie commerciale ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"Annonces\"],\"quote\":\"seules les offres de biens ou de services référencées à titre payant, et dont le rang de classement dépend de cette rémunération, font apparaître leur caractère publicitaire par la mention du mot “ Annonces ”\",\"article\":\"D111-7\"},{\"accepted\":[\"garant\"],\"quote\":\"(ci-après dénommé “ garant ”)\",\"article\":\"L217-21\"}],\"doubt\":\"L'article B ne contient aucune valeur précise (durée, montant, seuil) et la question mêle deux sujets sans lien naturel ; ce couple d'articles se prête mal à une question unique et naturelle.\"}"
+}

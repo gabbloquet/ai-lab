@@ -1,0 +1,46 @@
+{
+  "task": "comparison-test-009",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:21+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2703,
+    "output_tokens": 126
+  },
+  "request": {
+    "task": "comparison-test-009",
+    "question": "Transaction pénale : quel délai pour transmettre la proposition au procureur, et quel délai pour que l'auteur de l'infraction réponde ?",
+    "facts": [
+      [
+        "trois mois",
+        "3 mois"
+      ],
+      [
+        "un mois",
+        "1 mois"
+      ]
+    ],
+    "articles": [
+      "R523-2",
+      "R523-3"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "transmettre la proposition au procureur",
+        "transmettre la proposition"
+      ],
+      [
+        "l'auteur de l'infraction réponde",
+        "auteur de l'infraction réponde"
+      ]
+    ],
+    "doubt": "Les deux cas partagent les mots « proposition » et « auteur de l'infraction » ; les ancres retenues sont les formulations les plus distinctives de la question."
+  },
+  "raw_text": "{\"anchors\":[[\"transmettre la proposition au procureur\",\"transmettre la proposition\"],[\"l'auteur de l'infraction réponde\",\"auteur de l'infraction réponde\"]],\"doubt\":\"Les deux cas partagent les mots « proposition » et « auteur de l'infraction » ; les ancres retenues sont les formulations les plus distinctives de la question.\"}"
+}

@@ -1,0 +1,29 @@
+{
+  "task": "multi_article-dev-038",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:44+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2669,
+    "output_tokens": 268
+  },
+  "output": {
+    "question": "Crédit immobilier : la fiche d'assurance emprunteur donne quel taux, défini par quel article, et jusqu'à quand puis-je choisir un autre assureur ?",
+    "usable": false,
+    "facts": [
+      {
+        "accepted": [
+          "taux annuel effectif de l'assurance"
+        ],
+        "quote": "Le taux annuel effectif de l'assurance relatif à la totalité du prêt, défini à l'article\nR. 314-12",
+        "article": "R313-9"
+      }
+    ],
+    "doubt": "Les deux articles ne contiennent aucune valeur chiffrée précise exploitable pour une question à deux faits (A ne donne que des renvois, B fixe une limite temporelle, la signature de l'offre, sans valeur chiffrée). La question serait aussi trop longue et ambiguë."
+  },
+  "raw_text": "{\"question\":\"Crédit immobilier : la fiche d'assurance emprunteur donne quel taux, défini par quel article, et jusqu'à quand puis-je choisir un autre assureur ?\",\"usable\":false,\"facts\":[{\"accepted\":[\"taux annuel effectif de l'assurance\"],\"quote\":\"Le taux annuel effectif de l'assurance relatif à la totalité du prêt, défini à l'article\\nR. 314-12\",\"article\":\"R313-9\"}],\"doubt\":\"Les deux articles ne contiennent aucune valeur chiffrée précise exploitable pour une question à deux faits (A ne donne que des renvois, B fixe une limite temporelle, la signature de l'offre, sans valeur chiffrée). La question serait aussi trop longue et ambiguë.\"}"
+}

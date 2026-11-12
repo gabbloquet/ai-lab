@@ -1,0 +1,48 @@
+{
+  "task": "comparison-dev-016",
+  "mode": "anchors",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "894cb771750e6b76d6bee5b06235c98c6f53ca176f6623ecefae4e46a0b28614",
+  "created_at": "2026-11-12T10:44:13+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 2480,
+    "output_tokens": 112
+  },
+  "request": {
+    "task": "comparison-dev-016",
+    "question": "Crédit immobilier : quel plafond en % pour les frais d'étude si le contrat n'est pas conclu, et pour l'indemnité en cas de défaillance en location-vente ?",
+    "facts": [
+      [
+        "0,75 %",
+        "0,75 pour cent",
+        "0,75%"
+      ],
+      [
+        "2 %",
+        "2 pour cent",
+        "2%"
+      ]
+    ],
+    "articles": [
+      "R313-22",
+      "D313-29"
+    ]
+  },
+  "output": {
+    "anchors": [
+      [
+        "frais d'étude",
+        "contrat n'est pas conclu"
+      ],
+      [
+        "indemnité en cas de défaillance",
+        "location-vente"
+      ]
+    ],
+    "doubt": "Les deux cas sont introduits par des groupes de mots assez longs ; « plafond en % » est commun aux deux et n'est pas retenu comme ancre."
+  },
+  "raw_text": "{\"anchors\":[[\"frais d'étude\",\"contrat n'est pas conclu\"],[\"indemnité en cas de défaillance\",\"location-vente\"]],\"doubt\":\"Les deux cas sont introduits par des groupes de mots assez longs ; « plafond en % » est commun aux deux et n'est pas retenu comme ancre.\"}"
+}

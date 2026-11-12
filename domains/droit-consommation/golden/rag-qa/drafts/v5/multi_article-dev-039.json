@@ -1,0 +1,38 @@
+{
+  "task": "multi_article-dev-039",
+  "mode": "multi_article",
+  "model_requested": "claude-sonnet-5-5",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "prompt_sha256": "17edffdc991bbc0316a3c30041cf92a8e56051e1251fac07fc3b8fe5a174b7b5",
+  "created_at": "2026-11-12T10:42:45+00:00",
+  "stop_reason": "end_turn",
+  "usage": {
+    "input_tokens": 3174,
+    "output_tokens": 376
+  },
+  "output": {
+    "question": "Quels utilisateurs pros en plus des consommateurs ont droit à l'info précontractuelle des opérateurs télécoms, et quel règlement UE fixe le modèle de récapitulatif ?",
+    "usable": true,
+    "facts": [
+      {
+        "accepted": [
+          "micro-entreprises",
+          "micro-entreprise"
+        ],
+        "quote": "sont également applicables aux utilisateurs finals qui sont des micro-entreprises, des petites entreprises ou des organismes à but non lucratif",
+        "article": "L224-26-2"
+      },
+      {
+        "accepted": [
+          "règlement d'exécution (UE) 2019/2243",
+          "2019/2243"
+        ],
+        "quote": "modèle de récapitulatif contractuel annexé au règlement d'exécution (UE) 2019/2243 de la Commission du 17 décembre 2019",
+        "article": "L224-27"
+      }
+    ],
+    "doubt": "La question admet trois catégories d'utilisateurs en A (micro-entreprises, petites entreprises, organismes à but non lucratif) ; le fait retenu n'en liste qu'une, ce qui peut rendre la réponse incomplète ou ambiguë.}"
+  },
+  "raw_text": "{\"question\":\"Quels utilisateurs pros en plus des consommateurs ont droit à l'info précontractuelle des opérateurs télécoms, et quel règlement UE fixe le modèle de récapitulatif ?\",\"usable\":true,\"facts\":[{\"accepted\":[\"micro-entreprises\",\"micro-entreprise\"],\"quote\":\"sont également applicables aux utilisateurs finals qui sont des micro-entreprises, des petites entreprises ou des organismes à but non lucratif\",\"article\":\"L224-26-2\"},{\"accepted\":[\"règlement d'exécution (UE) 2019/2243\",\"2019/2243\"],\"quote\":\"modèle de récapitulatif contractuel annexé au règlement d'exécution (UE) 2019/2243 de la Commission du 17 décembre 2019\",\"article\":\"L224-27\"}],\"doubt\":\"La question admet trois catégories d'utilisateurs en A (micro-entreprises, petites entreprises, organismes à but non lucratif) ; le fait retenu n'en liste qu'une, ce qui peut rendre la réponse incomplète ou ambiguë.}\"}"
+}
