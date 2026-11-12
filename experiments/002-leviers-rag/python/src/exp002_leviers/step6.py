@@ -66,6 +66,36 @@ def apply_threshold(
     return variant
 
 
+def apply_threshold_v2(
+    executions: list[dict], best_scores: Mapping[str, float], threshold: float = THRESHOLD
+) -> list[dict]:
+    """Comme `apply_threshold`, à la forme canonique de la spec rag-qa v2 (§ 3.2). Sous le seuil,
+    la recherche a eu lieu mais pas la génération : `latency_s` est celle de A moins sa durée de
+    génération. `threshold_abstention` passe dans `extra`."""
+    variant = []
+    for e in executions:
+        if e["variant"] != BASELINE:
+            continue
+        if e["item_id"] not in best_scores:
+            raise KeyError(f"{e['item_id']} : aucun score de reclassement")
+        below = best_scores[e["item_id"]] < threshold
+        extra = dict(e.get("extra") or {})
+        b = {**e, "variant": VARIANT, "extra": {**extra, "threshold_abstention": below}}
+        if below:
+            generation = float(extra.get("generation_s", 0.0))
+            b |= {
+                "answer": "",
+                "abstained": True,
+                "cited": [],
+                "usage": {"input_tokens": 0, "output_tokens": 0},
+                "error": None,
+                "latency_s": None if e["latency_s"] is None else e["latency_s"] - generation,
+                "extra": {**extra, "generation_s": 0.0, "threshold_abstention": True},
+            }
+        variant.append(b)
+    return variant
+
+
 def judge(
     items: list[dict],
     baseline: list[dict],

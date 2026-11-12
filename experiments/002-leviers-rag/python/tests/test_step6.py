@@ -158,3 +158,74 @@ def test_the_test_split_needs_the_final_flag() -> None:
 def test_a_final_computation_needs_a_clean_git_tree() -> None:
     with pytest.raises(SystemExit, match="gel"):
         main(["--split", "test", "--final"], git_is_clean=lambda: False)
+
+
+# --- Spec rag-qa v2 (run de contrôle sur la v5) -------------------------------------------------
+
+
+def v2_execution(item_id: str, repeat: int = 0) -> dict:
+    old = execution(item_id, repeat)
+    del old["latency"]
+    return {
+        **old,
+        "latency_s": 1.5,
+        "cost_usd": None,
+        "tool_calls": None,
+        "extra": {"generation_s": 0.8},
+    }
+
+
+def test_v2_executions_of_b_follow_the_canonical_schema() -> None:
+    """Spec v2, § 3.2 : sous le seuil, B s'abstient sans générer ; sa durée est celle de la
+    recherche seule, et le diagnostic `threshold_abstention` passe dans `extra`."""
+    from jsonschema import Draft202012Validator
+
+    from exp002_leviers.paths import ROOT
+    from exp002_leviers.step6 import apply_threshold_v2
+
+    schema = json.loads((ROOT / "evals/spec/rag-qa/v2/execution.schema.json").read_text("utf-8"))
+    validator = Draft202012Validator(schema)
+    a = [v2_execution("rq-901"), v2_execution("rq-902")]
+
+    low, high = apply_threshold_v2(a, {"rq-901": 0.1, "rq-902": 0.9})
+
+    assert [list(validator.iter_errors(b)) for b in (low, high)] == [[], []]
+    assert low["abstained"] is True and low["answer"] == ""
+    assert low["latency_s"] == pytest.approx(0.7)
+    assert low["extra"] == {"generation_s": 0.0, "threshold_abstention": True}
+    assert low["usage"] == {"input_tokens": 0, "output_tokens": 0}
+    assert high["answer"] == "14 jours" and high["latency_s"] == 1.5
+    assert high["extra"] == {"generation_s": 0.8, "threshold_abstention": False}
+    assert {low["variant"], high["variant"]} == {VARIANT}
+
+
+def test_v2_analysis_judges_step6_with_the_two_criteria_of_the_spec() -> None:
+    from ailab_evals import rag_qa_v2
+    from exp002_leviers.analysis_v2 import analyze_v2
+    from exp002_leviers.step6 import apply_threshold_v2
+    from exp006_rag.campaign import GUARD_MARGIN
+
+    items = [item(f"rq-{i}") for i in range(3)] + [
+        item(f"rq-u{i}", answerable=False) for i in range(3)
+    ]
+    a = [v2_execution(i["id"], r) for i in items for r in range(2)]
+    scores = {i["id"]: (0.9 if i["answerable"] else 0.1) for i in items}
+    executions = a + apply_threshold_v2(a, scores)
+
+    result = analyze_v2(items, executions, split="test")
+
+    expected = rag_qa_v2.joint_comparison(
+        items,
+        executions,
+        baseline=BASELINE,
+        variant=VARIANT,
+        main=("hallucination", "lower_better"),
+        guard=("false_abstention", "lower_better"),
+        margin=GUARD_MARGIN,
+        split="test",
+        excluded=[],
+    )
+    assert {k: result["step6"][k] for k in expected} == expected
+    assert result["step6"]["threshold"] == THRESHOLD
+    assert result["step6"]["below_threshold"] == {"answerable": [0, 3], "unanswerable": [3, 3]}
+    assert VARIANT in result["configurations"]

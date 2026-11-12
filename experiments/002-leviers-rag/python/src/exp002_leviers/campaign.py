@@ -27,7 +27,7 @@ from ailab_rag.campaign import read_jsonl, run_campaign
 from ailab_rag.tracing import NO_TRACING, LangfuseTracing, Tracer
 from exp002_leviers.analysis import analyze
 from exp002_leviers.analysis_v2 import analyze_v2
-from exp002_leviers.configurations import CONFIGURATIONS, GROUNDINGS, build_retrievers
+from exp002_leviers.configurations import CONFIGURATIONS, GROUNDINGS, TOP_K_20, build_retrievers
 from exp002_leviers.paths import (
     ARTICLES,
     AUDIT,
@@ -62,6 +62,26 @@ def invalid_v2_executions(executions: list[dict]) -> list[int]:
     )
     validator = Draft202012Validator(schema)
     return [i for i, e in enumerate(executions) if list(validator.iter_errors(e))]
+
+
+def with_step6(
+    executions: list[dict],
+    best_scores: Callable[[set[str]], dict[str, float]],
+    run_dir: Path,
+) -> list[dict]:
+    """Ajoute les exécutions de l'étape 6 (`abstain_low_rerank`) : B vient de celles de
+    `top_k_20` et des notes Cohere, sans appel au générateur. Elles sont écrites dans
+    `step6-executions.jsonl`, récrit à chaque appel, et non dans `executions.jsonl`, que la
+    campagne reprend."""
+    from exp002_leviers.step6 import apply_threshold_v2
+
+    ids = {e["item_id"] for e in executions if e["variant"] == TOP_K_20}
+    variant = apply_threshold_v2(executions, best_scores(ids))
+    run_dir.mkdir(parents=True, exist_ok=True)
+    (run_dir / "step6-executions.jsonl").write_text(
+        "".join(json.dumps(e, ensure_ascii=False) + "\n" for e in variant), encoding="utf-8"
+    )
+    return executions + variant
 
 
 def _number(value: float | None, fmt: str) -> str:
@@ -145,6 +165,12 @@ def main(
         )
     )
     if args.spec == "v2":
+        from exp002_leviers.step6 import _best_scores
+
+        by_id = {i["id"]: i["question"] for i in items}
+        executions = with_step6(
+            executions, lambda ids: _best_scores({i: by_id[i] for i in ids}), run_dir
+        )
         invalid = invalid_v2_executions(executions)
         if invalid:
             sys.exit(f"{len(invalid)} exécutions hors du schéma v2 (rangs {invalid[:10]})")
@@ -154,7 +180,8 @@ def main(
     summary["run"] = {
         "model": args.model,
         "k": args.k,
-        "configurations": list(CONFIGURATIONS),
+        "configurations": list(CONFIGURATIONS)
+        + (["abstain_low_rerank"] if args.spec == "v2" else []),
         "rewriter": REWRITER,
         "reranker": f"cohere:{RERANKER}",
         "golden": cli.display_path(args.golden, ROOT),
@@ -174,6 +201,8 @@ def main(
             flush=True,
         )
     print(f"abstention : {summary['abstention']['verdict']}", flush=True)
+    if summary.get("step6"):
+        print(f"étape 6 (seuil Cohere) : {summary['step6']['verdict']}", flush=True)
 
     if isinstance(tracer, LangfuseTracing):
         flushed = cli.flush_with_deadline(tracer.flush, seconds=FLUSH_SECONDS)

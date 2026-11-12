@@ -6,6 +6,8 @@ la v2, vérifié par ses vecteurs de conformance en Python et en Java :
   (§ 8.3) ;
 - pour `abstain_strict`, le verdict à deux critères de l'étape 5 (§ 8.2) : réponses inventées,
   garde sur les abstentions à tort, marge de l'étape 5 ;
+- pour l'étape 6, si ses exécutions sont là, le même verdict à deux critères, le delta de
+  `correct` (secondaire) et la part des questions sous le seuil ;
 - les agrégats de chaque configuration (§ 7).
 """
 
@@ -18,6 +20,8 @@ from typing import Any
 from ailab_evals import rag_qa_v2
 from exp002_leviers.analysis import ALPHA
 from exp002_leviers.configurations import ABSTAIN_STRICT, COMPARISONS, CONFIGURATIONS, TOP_K_20
+from exp002_leviers.step6 import THRESHOLD
+from exp002_leviers.step6 import VARIANT as STEP6
 from exp006_rag.campaign import GUARD_MARGIN
 
 SPEC = "evals/spec/rag-qa/v2"
@@ -91,11 +95,50 @@ def analyze_v2(
     )
     abstention["guard_margin"] = GUARD_MARGIN
 
+    step6 = None
+    if any(e["variant"] == STEP6 for e in executions):
+        step6 = rag_qa_v2.joint_comparison(
+            items,
+            executions,
+            baseline=TOP_K_20,
+            variant=STEP6,
+            main=("hallucination", "lower_better"),
+            guard=("false_abstention", "lower_better"),
+            margin=GUARD_MARGIN,
+            **common,
+        )
+        by_id = {i["id"]: i for i in items}
+        below = {
+            e["item_id"]
+            for e in executions
+            if e["variant"] == STEP6 and e["item_id"] in kept and e["extra"]["threshold_abstention"]
+        }
+        judged = {e["item_id"] for e in executions if e["variant"] == STEP6} & kept
+
+        def share(answerable: bool) -> list[int]:
+            group = [i for i in judged if by_id[i]["answerable"] == answerable]
+            return [sum(i in below for i in group), len(group)]
+
+        step6 |= {
+            "guard_margin": GUARD_MARGIN,
+            "threshold": THRESHOLD,
+            "correct": rag_qa_v2.compare(
+                items,
+                executions,
+                baseline=TOP_K_20,
+                variant=STEP6,
+                metric="correct",
+                direction="higher_better",
+                **common,
+            ),
+            "below_threshold": {"answerable": share(True), "unanswerable": share(False)},
+        }
+
     configurations = {
         name: rag_qa_v2.variant_aggregates(
             items, [e for e in executions if e["variant"] == name], **common
         )
-        for name in CONFIGURATIONS
+        for name in (*CONFIGURATIONS, STEP6)
         if any(e["variant"] == name for e in executions)
     }
     return {
@@ -106,6 +149,7 @@ def analyze_v2(
         "alpha": ALPHA,
         "comparisons": comparisons,
         "abstention": abstention,
+        "step6": step6,
         "configurations": configurations,
     }
 

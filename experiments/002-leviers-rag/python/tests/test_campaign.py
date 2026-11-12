@@ -64,3 +64,38 @@ def test_v2_executions_are_checked_against_the_canonical_schema() -> None:
 
     assert invalid_v2_executions([good]) == []
     assert invalid_v2_executions([good, {**old, "latency": {"generation_s": 1.0}}]) == [1]
+
+
+def test_the_v2_control_run_adds_step6_from_the_top_k_20_executions(tmp_path) -> None:
+    """L'étape 6 ne rappelle pas le générateur : B vient des exécutions top_k_20 et des notes
+    Cohere, et ses exécutions sont écrites à part (le fichier se récrit à chaque appel)."""
+    import json
+
+    from exp002_leviers.campaign import with_step6
+
+    a = {
+        "item_id": "rq-001",
+        "variant": "top_k_20",
+        "model": "m",
+        "repeat": 0,
+        "answer": "14 jours",
+        "abstained": False,
+        "cited": [],
+        "context": [],
+        "usage": {"input_tokens": 1, "output_tokens": 1},
+        "latency_s": 1.0,
+        "cost_usd": None,
+        "tool_calls": None,
+        "error": None,
+        "extra": {"generation_s": 0.6},
+    }
+    other = {**a, "variant": "naive_rag"}
+
+    combined = with_step6([a, other], lambda ids: {i: 0.1 for i in ids}, tmp_path)
+    combined = with_step6([a, other], lambda ids: {i: 0.1 for i in ids}, tmp_path)
+
+    written = [
+        json.loads(line) for line in (tmp_path / "step6-executions.jsonl").read_text().splitlines()
+    ]
+    assert [e["variant"] for e in combined] == ["top_k_20", "naive_rag", "abstain_low_rerank"]
+    assert written == combined[2:]
