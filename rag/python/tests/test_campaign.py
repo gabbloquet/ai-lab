@@ -430,3 +430,48 @@ async def test_a_v2_campaign_writes_v2_executions_and_traces_the_v2_scores(tmp_p
     assert executions[0]["latency_s"] is not None and "latency" not in executions[0]
     assert {"facts_attached", "premise", "all_evidence"} <= set(seen[0])
     assert seen[0]["correct"] is True
+
+
+@pytest.mark.parametrize(
+    ("error", "minimum_wait"),
+    [
+        ("rate_limit", 41.0),  # ModelRateLimitError, avec le délai demandé par le fournisseur
+        ("connection", 0.0),  # ModelConnectionError : coupure réseau
+    ],
+)
+async def test_an_infrastructure_error_is_retried_and_waits_as_long_as_asked(
+    tmp_path: Path, error: str, minimum_wait: float
+) -> None:
+    """Étape 7 : Pydantic AI 2.65 lève des erreurs qui ne dérivent pas de ModelHTTPError (limite
+    de débit, coupure réseau). Ce sont des incidents d'infrastructure : la campagne relance, et
+    attend au moins le délai que demande le fournisseur, au lieu de compter une réponse fausse."""
+    from pydantic_ai.exceptions import ModelConnectionError, ModelRateLimitError
+
+    attempts = 0
+    waits: list[float] = []
+
+    def flaky(messages: list[ModelMessage], info: AgentInfo) -> ModelResponse:
+        nonlocal attempts
+        attempts += 1
+        if attempts == 1:
+            if error == "rate_limit":
+                raise ModelRateLimitError("fake-model", "quota", retry_after=41.0)
+            raise ModelConnectionError("fake-model", "ReadError")
+        args = {"answer": "", "abstained": True, "cited": []}
+        return ModelResponse(parts=[ToolCallPart(info.output_tools[0].name, args)])
+
+    async def no_wait(seconds: float) -> None:
+        waits.append(seconds)
+
+    executions = await run_campaign(
+        ITEMS[:1],
+        variants=[CLOSED_BOOK],
+        model=FunctionModel(flaky),
+        repeats=1,
+        retrieve=retrieve,
+        out=tmp_path / "e.jsonl",
+        sleep=no_wait,
+    )
+
+    assert executions[0]["error"] is None
+    assert len(waits) == 1 and waits[0] >= minimum_wait

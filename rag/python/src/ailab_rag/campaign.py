@@ -18,7 +18,7 @@ from pathlib import Path
 from statistics import mean, median
 from typing import Any
 
-from pydantic_ai.exceptions import ModelHTTPError
+from pydantic_ai.exceptions import ModelConnectionError, ModelHTTPError, ModelRateLimitError
 from pydantic_ai.models import Model
 from pydantic_ai.settings import ModelSettings
 
@@ -33,7 +33,18 @@ FAILURES = ("correct", "retrieval_miss", "generation_miss", "error")
 
 
 def is_transient(error: BaseException) -> bool:
+    """Un incident d'infrastructure, relancé au lieu d'être noté : un statut HTTP passager, une
+    limite de débit ou une coupure réseau. Pydantic AI 2.65 lève ces deux dernières sous des
+    classes qui ne dérivent pas de `ModelHTTPError` (étape 7 de la 002, 2026-11-12)."""
+    if isinstance(error, ModelRateLimitError | ModelConnectionError):
+        return True
     return isinstance(error, ModelHTTPError) and error.status_code in TRANSIENT_STATUSES
+
+
+def _wait(error: BaseException, attempt: int) -> float:
+    """Le délai de backoff, et au moins celui que demande le fournisseur (`retry_after`)."""
+    asked = getattr(error, "retry_after", None) or 0.0
+    return max(min(2.0**attempt, 60.0), float(asked))
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -100,10 +111,10 @@ async def run_campaign(
                             settings=settings,
                         )
                         break
-                    except ModelHTTPError as error:
+                    except (ModelHTTPError, ModelRateLimitError, ModelConnectionError) as error:
                         if not is_transient(error) or attempt == max_attempts:
                             raise
-                        await sleep(min(2.0**attempt, 60.0))
+                        await sleep(_wait(error, attempt))
                 observe(execution, score(item, execution))
         async with lock:
             with out.open("a", encoding="utf-8") as f:

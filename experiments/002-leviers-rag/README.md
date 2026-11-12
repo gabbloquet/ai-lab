@@ -332,6 +332,12 @@ En cas d'écart de `correct` de moins de 2 points, on prend le moins cher.
   - Un candidat qui échoue sur la sortie structurée garde ses erreurs, comptées comme réponses fausses.
   - On ne règle ni son prompt ni son format pour lui : ce serait tailler un levier pour un modèle (décision du 2026-11-10).
 - **Ce qu'un run `dev` peut changer** : seulement les incidents d'infrastructure (identifiant retiré, quota épuisé, erreur 400 sur un paramètre). Chaque correction est écrite ici avant tout run `test`. Un résultat du `dev` ne change ni les candidats, ni leurs réglages, ni les critères.
+  - **Incident du 2026-11-12, au premier run `dev`.** Le run s'est arrêté sur Gemma, après 4 exécutions, sur une erreur 429 : le palier n'admet que 16 000 tokens d'entrée par minute, soit environ 4 requêtes par minute avec 20 passages. Large 4 et Carbon avaient fini (354 exécutions chacun) ; aucune exécution n'a été notée à tort. Deux corrections d'infrastructure, avant toute reprise :
+    - la campagne attend au moins le délai demandé par le fournisseur (`retry_after`) ;
+    - elle relance aussi les limites de débit et les coupures réseau, que Pydantic AI 2.65 lève sous des classes qui ne dérivent pas de `ModelHTTPError`.
+
+    Gemma tourne ensuite seul, une requête à la fois, avec 30 tentatives au plus. Ni les candidats, ni leurs réglages, ni les critères ne changent.
+  - **Conséquence pour les runs précédents.** Au run `dev` de contrôle, 4 coupures réseau (`ReadError`) de Gemini Flash-Lite ont été comptées comme réponses fausses (0,6 % d'erreurs en `closed_book` et `naive_rag`), comme le prévoit la spec. Elles seraient relancées aujourd'hui.
 - **Gel.** Le commit de gel précède le run consolidé 2. Il porte le registre des générateurs, le barème relevé et le lanceur. Le `test` v5 ne se lance qu'avec `--final`, sur un arbre git propre.
 - **Interdit avant le run consolidé 2** : faire tourner un candidat sur le `test` v5, ou analyser ses échecs item par item.
 

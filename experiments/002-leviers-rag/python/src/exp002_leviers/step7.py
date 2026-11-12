@@ -327,7 +327,11 @@ def _run_dev(run_dir: Path) -> dict:
                 repeats=3,
                 retrievers={variant: retrieve},
                 out=run_dir / f"executions-{variant}.jsonl",
-                concurrency=2 if name == "gemma-4-31b-it" else 4,
+                # Gemma : 16 000 tokens d'entrée par minute sur son palier (erreur 429 du
+                # 2026-11-12), soit environ 4 requêtes par minute ; une à la fois, et assez de
+                # tentatives pour attendre le délai que demande Google.
+                concurrency=1 if name == "gemma-4-31b-it" else 4,
+                max_attempts=30 if name == "gemma-4-31b-it" else 5,
                 canonical="v2",
                 settings=generator.settings,
             )
