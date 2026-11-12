@@ -186,3 +186,35 @@ async def test_a_rag_variant_can_send_its_own_grounding() -> None:
     assert recorder.prompts == [
         rag_message(ITEM["question"], [P1], grounding="Consigne plus exigeante.")
     ]
+
+
+async def test_the_v2_execution_follows_the_canonical_schema_of_the_spec() -> None:
+    """Spec rag-qa v2, § 3.2 : `latency_s` de bout en bout (recherche comprise), `cost_usd` et
+    `tool_calls` à null, la durée de génération seule dans `extra`."""
+    import json
+    from pathlib import Path
+
+    from jsonschema import Draft202012Validator
+
+    from ailab_evals.rag_qa_v2 import score_execution as score_v2
+
+    ticks = iter([10.0, 11.0, 13.5])
+    schema_path = Path(__file__).resolve().parents[3] / "evals/spec/rag-qa/v2/execution.schema.json"
+    validator = Draft202012Validator(json.loads(schema_path.read_text("utf-8")))
+
+    execution = await run_item(
+        ITEM,
+        variant=NAIVE_RAG,
+        model=Recorder().model(),
+        repeat=0,
+        retrieve=lambda q: [P1],
+        clock=lambda: next(ticks),
+        canonical="v2",
+    )
+
+    assert list(validator.iter_errors(execution)) == []
+    assert execution["latency_s"] == 3.5
+    assert execution["extra"] == {"generation_s": 2.5}
+    assert (execution["cost_usd"], execution["tool_calls"]) == (None, None)
+    assert "latency" not in execution
+    assert score_v2(ITEM, execution)["correct"] is True

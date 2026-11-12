@@ -402,3 +402,31 @@ def test_abstention_comparison_ignores_failed_executions() -> None:
     )
 
     assert result["hallucination"]["delta"] == -1.0
+
+
+async def test_a_v2_campaign_writes_v2_executions_and_traces_the_v2_scores(tmp_path: Path) -> None:
+    """Spec rag-qa v2 : chaque exécution suit la forme canonique v2, et la trace reçoit les
+    métriques du scorer v2 (dont `facts_attached`, `premise`, `all_evidence`)."""
+    from contextlib import contextmanager
+
+    seen: list[dict] = []
+
+    class Recording:
+        @contextmanager
+        def execution(self, **_):
+            yield lambda execution, scores: seen.append(scores)
+
+    executions = await run_campaign(
+        ITEMS[:1],
+        variants=[NAIVE_RAG],
+        model=knows_only_with_context(),
+        repeats=1,
+        retrieve=retrieve,
+        out=tmp_path / "executions.jsonl",
+        canonical="v2",
+        tracer=Recording(),
+    )
+
+    assert executions[0]["latency_s"] is not None and "latency" not in executions[0]
+    assert {"facts_attached", "premise", "all_evidence"} <= set(seen[0])
+    assert seen[0]["correct"] is True

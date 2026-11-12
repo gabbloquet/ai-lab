@@ -62,7 +62,19 @@ async def run_campaign(
     max_attempts: int = 5,
     sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
     tracer: Tracer = NO_TRACING,
+    canonical: str = "v1",
 ) -> list[dict]:
+    """`canonical` choisit la spec rag-qa des exécutions et du scorer des traces : v1 ou v2."""
+    if canonical == "v2":
+        from ailab_evals.rag_qa_v2 import score_execution as score_v2
+
+        def score(item: dict, execution: dict) -> dict:
+            return score_v2(item, execution)
+    else:
+
+        def score(item: dict, execution: dict) -> dict:
+            return score_execution(item, execution).as_dict()
+
     done = {_key(e): e for e in read_jsonl(out)}
     plan = [(item, v, r) for item in items for v in variants for r in range(repeats)]
     semaphore = asyncio.Semaphore(concurrency)
@@ -82,13 +94,14 @@ async def run_campaign(
                             retrieve=(retrievers or {}).get(variant, retrieve),
                             reraise=is_transient,
                             grounding=(groundings or {}).get(variant, GROUNDING),
+                            canonical=canonical,
                         )
                         break
                     except ModelHTTPError as error:
                         if not is_transient(error) or attempt == max_attempts:
                             raise
                         await sleep(min(2.0**attempt, 60.0))
-                observe(execution, score_execution(item, execution).as_dict())
+                observe(execution, score(item, execution))
         async with lock:
             with out.open("a", encoding="utf-8") as f:
                 f.write(json.dumps(execution, ensure_ascii=False) + "\n")

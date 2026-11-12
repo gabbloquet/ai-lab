@@ -55,9 +55,13 @@ async def run_item(
     reraise: Callable[[BaseException], bool] = lambda error: False,
     clock: Callable[[], float] = time.perf_counter,
     grounding: str = GROUNDING,
+    canonical: str = "v1",
 ) -> dict[str, Any]:
     """`reraise` laisse passer une erreur d'infrastructure (limite de débit) au lieu de la noter :
-    la campagne relance alors l'exécution, au lieu de la compter comme une mauvaise réponse."""
+    la campagne relance alors l'exécution, au lieu de la compter comme une mauvaise réponse.
+    `canonical` choisit la forme de l'exécution : celle de la spec rag-qa v1, avec la durée de
+    génération hors spec, ou celle de la v2 (§ 3.2), avec `latency_s` de bout en bout."""
+    started = clock() if canonical == "v2" else None
     question = item["question"]
     context: list[str] | None = None
     if variant == CLOSED_BOOK:
@@ -89,7 +93,7 @@ async def run_item(
             error = f"{type(exc).__name__}: {exc}"
         generation_s = clock() - start
 
-    return {
+    execution: dict[str, Any] = {
         "item_id": item["id"],
         "variant": variant,
         "model": model if isinstance(model, str) else model.model_name,
@@ -100,7 +104,18 @@ async def run_item(
         "context": context,
         "usage": _usage(messages),
         "error": error,
-        # Hors spec rag-qa (§ 3.2), ignoré par le scorer : durée de l'appel au générateur,
-        # recherche exclue.
-        "latency": {"generation_s": generation_s},
     }
+    if started is None:
+        # Hors spec rag-qa v1 (§ 3.2), ignoré par le scorer : durée de l'appel au générateur,
+        # recherche exclue.
+        execution["latency"] = {"generation_s": generation_s}
+        return execution
+    # Spec rag-qa v2 (§ 3.2) : durée de bout en bout, recherche comprise (caches compris : le
+    # protocole dit ce que la mesure couvre). Le coût se calcule après coup, sur un barème daté.
+    execution |= {
+        "latency_s": start + generation_s - started,
+        "cost_usd": None,
+        "tool_calls": None,
+        "extra": {"generation_s": generation_s},
+    }
+    return execution
