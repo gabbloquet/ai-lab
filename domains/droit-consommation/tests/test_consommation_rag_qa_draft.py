@@ -96,6 +96,7 @@ def test_prompts_exist_for_every_mode(prompts: dict[str, str]) -> None:
         "set",
         "bridge",
         "false_premise",
+        "anchors",
     }
 
 
@@ -278,3 +279,58 @@ def test_run_drafts_skips_tasks_drafted_in_any_base_version(
     )
 
     assert written == ["t-3"]
+
+
+# --- Ancres (golden set v5, spec rag-qa v2) -----------------------------------------------------
+
+ANCHOR_REQUEST = {
+    "task": "comparison-dev-001",
+    "question": "Rétractation : combien de jours pour un achat en ligne, et pour un démarchage ?",
+    "facts": [["quatorze jours", "14 jours"], ["sept jours"]],
+    "articles": ["L221-18", "L221-23"],
+}
+ANCHORS_OUTPUT = {"anchors": [["achat en ligne"], ["démarchage"]], "doubt": ""}
+
+
+def test_the_anchor_request_shows_the_question_the_facts_in_order_and_the_articles() -> None:
+    from consommation_rag_qa_draft import ANCHORS_SCHEMA, render_anchor_request
+
+    by_num = {a["num"]: a for a in (A, B)}
+    system, user, schema = render_anchor_request(ANCHOR_REQUEST, by_num, load_prompts(PROMPTS))
+
+    assert schema == ANCHORS_SCHEMA
+    assert ANCHOR_REQUEST["question"] in user
+    assert user.index("Fait 1 : quatorze jours · 14 jours") < user.index("Fait 2 : sept jours")
+    assert user.index("Article A : L221-18") < user.index("Article B : L221-23")
+    assert "mot pour mot de la question" in user
+    assert system == load_prompts(PROMPTS)["system"]
+
+
+def test_the_anchors_schema_asks_one_list_per_fact() -> None:
+    from consommation_rag_qa_draft import ANCHORS_SCHEMA
+
+    anchors = ANCHORS_SCHEMA["properties"]["anchors"]
+    assert anchors["items"] == {"type": "array", "items": {"type": "string"}}
+    assert ANCHORS_SCHEMA["additionalProperties"] is False
+
+
+def test_run_anchor_drafts_writes_one_file_per_request_and_skips_existing_ones(
+    tmp_path: Path,
+) -> None:
+    from consommation_rag_qa_draft import run_anchor_drafts
+
+    by_num = {a["num"]: a for a in (A, B)}
+    second = {**ANCHOR_REQUEST, "task": "comparison-dev-002"}
+    (tmp_path / "comparison-dev-002.json").write_text("{}")
+    writer = FakeWriter(ok(ANCHORS_OUTPUT))
+
+    written = run_anchor_drafts(
+        [ANCHOR_REQUEST, second], by_num, writer, tmp_path, load_prompts(PROMPTS)
+    )
+
+    assert written == ["comparison-dev-001"]
+    saved = json.loads((tmp_path / "comparison-dev-001.json").read_text())
+    assert saved["output"] == ANCHORS_OUTPUT
+    assert saved["mode"] == "anchors"
+    assert saved["model_requested"] == WRITER_MODEL
+    assert len(saved["prompt_sha256"]) == 64

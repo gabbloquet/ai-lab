@@ -1082,3 +1082,93 @@ def test_every_published_v4_item_stays_valid_under_the_v2_schema() -> None:
 
     assert len(items) == 339
     assert [i["id"] for i in items if list(validator.iter_errors(i))] == []
+
+
+# --- Spec v2 (golden set v5) --------------------------------------------------------------------
+
+
+def _write_version(golden: Path, version: str, tasks: list, drafts: dict, review: list) -> None:
+    (golden / version).mkdir(parents=True, exist_ok=True)
+    (golden / "drafts" / version).mkdir(parents=True, exist_ok=True)
+    for t in tasks:
+        (golden / "drafts" / version / f"{t['task']}.json").write_text(
+            json.dumps(drafts[t["task"]]), "utf-8"
+        )
+    (golden / "review").mkdir(exist_ok=True)
+    (golden / "review" / f"{version}.jsonl").write_text(
+        "".join(json.dumps(r) + "\n" for r in review), "utf-8"
+    )
+
+
+def test_cli_adds_v2_fields_to_base_items_and_cites_spec_v2(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Une version notée par la spec v2 complète un item false_premise de sa base de sa fausse
+    valeur, après relecture des champs v2 ; le reste de l'item ne change pas."""
+    import consommation_rag_qa_build as build_module
+
+    monkeypatch.setitem(build_module.QUOTAS, "v1", {"false_premise": (0, 1)})
+    monkeypatch.setitem(build_module.QUOTAS, "v2", {"false_premise": (0, 1), "direct": (1, 0)})
+    golden, articles = tmp_path / "golden", tmp_path / "articles.jsonl"
+    articles.write_text("".join(json.dumps(a) + "\n" for a in (A, FP)), "utf-8")
+    fp = task("false_premise", (FP,), split="test")
+    new = task("direct", split="dev")
+    drafts = {
+        fp["task"]: draft(fp, {"usable": True, "doubt": "", **FALSE_PREMISE_OK}),
+        new["task"]: draft(new, GOOD),
+    }
+    _write_version(golden, "v1", [fp], drafts, [{"task": fp["task"], "verdict": "ok"}])
+    _write_version(golden, "v2", [new], drafts, [{"task": new["task"], "verdict": "ok"}])
+    (golden / "v1" / "plan.jsonl").write_text(json.dumps(fp) + "\n")
+    (golden / "v2" / "plan.jsonl").write_text(json.dumps(fp) + "\n" + json.dumps(new) + "\n")
+    common = ["--seed", "1", "--articles", str(articles), "--golden-dir", str(golden)]
+    main(["--version", "v1", "--quotas", "v1", "--publish", *common])
+    v2 = ["--version", "v2", "--quotas", "v2", "--base-version", "v1", "--spec", "v2", *common]
+
+    with pytest.raises(ValueError, match="attendent la relecture des champs v2"):
+        main([*v2, "--publish"])
+    (golden / "review" / "v2-fields.jsonl").write_text(
+        json.dumps(
+            {
+                "task": fp["task"],
+                "verdict": "corrige",
+                "correction": {"false_value": ["30 jours", "trente jours"]},
+            }
+        )
+        + "\n"
+    )
+    main([*v2, "--publish"])
+
+    v1_items = (golden / "v1" / "items.jsonl").read_text().splitlines()
+    items = [json.loads(line) for line in (golden / "v2" / "items.jsonl").read_text().splitlines()]
+    base = json.loads(v1_items[0])
+    premise = next(i for i in items if i["id"] == base["id"])
+    assert premise == {**base, "false_value": {"accepted": ["30 jours", "trente jours"]}}
+    manifest = json.loads((golden / "v2" / "MANIFEST.json").read_text("utf-8"))
+    assert manifest["spec"] == "evals/spec/rag-qa/v2"
+    assert "review/v2-fields.jsonl" in manifest["files"]
+    assert (golden / "v2" / "anchor_requests.jsonl").read_text() == ""
+
+
+def test_cli_refuses_to_publish_a_v2_item_that_breaks_a_generator_rule(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    import consommation_rag_qa_build as build_module
+
+    monkeypatch.setitem(build_module.QUOTAS, "v1", {"false_premise": (0, 1)})
+    golden, articles = tmp_path / "golden", tmp_path / "articles.jsonl"
+    articles.write_text(json.dumps(FP) + "\n", "utf-8")
+    fp = task("false_premise", (FP,), split="test")
+    drafts = {fp["task"]: draft(fp, {"usable": True, "doubt": "", **FALSE_PREMISE_OK})}
+    _write_version(golden, "v1", [fp], drafts, [{"task": fp["task"], "verdict": "ok"}])
+    (golden / "v1" / "plan.jsonl").write_text(json.dumps(fp) + "\n")
+    (golden / "review" / "v1-fields.jsonl").write_text(
+        json.dumps(
+            {"task": fp["task"], "verdict": "corrige", "correction": {"false_value": ["14 jours"]}}
+        )
+        + "\n"
+    )
+    common = ["--seed", "1", "--articles", str(articles), "--golden-dir", str(golden)]
+
+    with pytest.raises(ValueError, match="règles du générateur"):
+        main(["--version", "v1", "--quotas", "v1", "--spec", "v2", "--publish", *common])

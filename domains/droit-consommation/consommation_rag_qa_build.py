@@ -33,11 +33,13 @@ from consommation_rag_qa_plan import (
     V4_PILOT2_QUOTAS,
     V4_PILOT_QUOTAS,
     V4_QUOTAS,
+    V5_QUOTAS,
     enumeration,
     value_classes,
     writes_number,
 )
 
+from ailab_evals import rag_qa_v2
 from ailab_evals.rag_qa import fact_found, normalize
 
 DOMAIN_DIR = Path(__file__).parent
@@ -630,6 +632,173 @@ def build(
     return BuildResult(selected, shortages, rejected, pending, checks)
 
 
+# --- Champs de la spec rag-qa v2 (golden set v5) ------------------------------------------------
+
+V2_FIELD_MODES = frozenset({"comparison", "false_premise"})
+_SEGMENT_BREAKS = set(".;!?")
+
+
+def _text_forms(fact: dict) -> list[str]:
+    return [form for form in fact["accepted"] if isinstance(form, str)]
+
+
+def _breaks_a_segment(text: str) -> str | None:
+    """Spec v2, § 3.1 : une ancre ou une forme d'un fait ancré ne coupe pas un segment."""
+    if _SEGMENT_BREAKS & set(text):
+        return "ponctuation de fin de segment"
+    if "et" in rag_qa_v2.words(rag_qa_v2.normalize(text)):
+        return "le mot « et »"
+    return None
+
+
+def v2_rule_violations(item: dict) -> list[str]:
+    """Les règles du générateur que JSON Schema ne peut pas exprimer (spec v2, § 3.1), plus deux
+    contrôles du protocole v5 : chaque ancre et une forme de la fausse valeur figurent dans la
+    question."""
+    violations: list[str] = []
+    question = rag_qa_v2.normalize(item["question"])
+    facts = item["expected"]["facts"]
+    for index, fact in enumerate(facts, start=1):
+        for form in fact["accepted"]:
+            if isinstance(form, str):
+                if not rag_qa_v2.normalize(form):
+                    violations.append(f"fait {index} : forme vide après normalisation")
+            else:
+                for token in form["tokens"]:
+                    if rag_qa_v2.words(rag_qa_v2.normalize(token)) != [rag_qa_v2.normalize(token)]:
+                        violations.append(f"fait {index} : « {token} » n'est pas un seul mot")
+    if any("anchor" in fact for fact in facts):
+        for index, fact in enumerate(facts, start=1):
+            for text in [*fact.get("anchor", []), *_text_forms(fact)]:
+                problem = _breaks_a_segment(text)
+                if problem:
+                    violations.append(f"fait {index} : « {text} » contient {_quote(problem)}")
+            for anchor in fact.get("anchor", []):
+                if not rag_qa_v2.normalize(anchor):
+                    violations.append(f"fait {index} : ancre vide après normalisation")
+                elif not rag_qa_v2.form_found(anchor, question):
+                    violations.append(f"fait {index} : ancre « {anchor} » absente de la question")
+            for other_index, other in enumerate(facts, start=1):
+                if other_index == index:
+                    continue
+                for anchor in fact.get("anchor", []):
+                    for other_anchor in other.get("anchor", []):
+                        if rag_qa_v2.normalize(anchor) and rag_qa_v2.form_found(
+                            anchor, rag_qa_v2.normalize(other_anchor)
+                        ):
+                            violations.append(
+                                f"fait {index} : ancre « {anchor} » retrouvée dans une ancre "
+                                f"du fait {other_index}"
+                            )
+    false_value = item.get("false_value")
+    if false_value is not None:
+        forms = false_value["accepted"]
+        if any(not rag_qa_v2.normalize(form) for form in forms):
+            violations.append("fausse valeur vide après normalisation")
+        present = [form for form in forms if rag_qa_v2.normalize(form)]
+        if present and not any(rag_qa_v2.form_found(form, question) for form in present):
+            violations.append("fausse valeur absente de la question")
+        true_forms = [form for fact in facts for form in _text_forms(fact)]
+        for form in present:
+            for true_form in true_forms:
+                if rag_qa_v2.form_found(form, rag_qa_v2.normalize(true_form)) or (
+                    rag_qa_v2.form_found(true_form, rag_qa_v2.normalize(form))
+                ):
+                    violations.append(
+                        f"fausse valeur « {form} » retrouvée dans une forme du fait "
+                        f"(« {true_form} »), ou l'inverse"
+                    )
+    return violations
+
+
+def _quote(problem: str) -> str:
+    return problem if problem.startswith("le mot") else f"une {problem}"
+
+
+@dataclass
+class V2Fields:
+    items: dict[str, dict]
+    pending: list[str]
+    violations: dict[str, list[str]]
+
+
+def add_v2_fields(
+    selected: list[Selected],
+    drafts: dict[str, dict],
+    *,
+    anchors: dict[str, dict],
+    review: dict[str, dict],
+) -> V2Fields:
+    """Ajoute `anchor` (comparison) et `false_value` (false_premise) aux items retenus. La fausse
+    valeur vient du brouillon gelé, les ancres de leur requête à part (`anchors`) ; une correction
+    de `review` (relecture des champs v2) remplace l'une ou l'autre. Un item de ces deux modes
+    attend un verdict de cette relecture."""
+    items: dict[str, dict] = {}
+    pending: list[str] = []
+    violations: dict[str, list[str]] = {}
+    for chosen in selected:
+        name = chosen.task["task"]
+        item = json.loads(json.dumps(chosen.item))
+        items[name] = item
+        if item["mode"] not in V2_FIELD_MODES:
+            continue
+        verdict = review.get(name, {})
+        correction = verdict.get("correction", {}) if verdict.get("verdict") == "corrige" else {}
+        problems: list[str] = []
+        if item["mode"] == "false_premise":
+            forms = correction.get("false_value")
+            if forms is None:
+                value = str(((drafts.get(name) or {}).get("output") or {}).get("false_value", ""))
+                forms = [value.strip()] if value.strip() else []
+            if forms:
+                item["false_value"] = {"accepted": list(forms)}
+            else:
+                problems.append("fausse valeur manquante")
+        else:
+            lists = correction.get("anchors")
+            if lists is None:
+                lists = ((anchors.get(name) or {}).get("output") or {}).get("anchors")
+            facts = item["expected"]["facts"]
+            if lists is None:
+                problems.append("ancres manquantes")
+            elif len(lists) != len(facts):
+                problems.append(f"{len(lists)} listes d'ancres pour {len(facts)} faits")
+            else:
+                for fact, forms in zip(facts, lists, strict=True):
+                    fact["anchor"] = list(forms)
+        if not problems:
+            problems = v2_rule_violations(item)
+        if problems:
+            violations[name] = problems
+        if verdict.get("verdict") not in {"ok", "corrige"}:
+            pending.append(name)
+    return V2Fields(items, pending, violations)
+
+
+def anchor_requests(selected: list[Selected]) -> list[dict]:
+    """Ce que reçoit la requête des ancres pour chaque item `comparison` : sa question finale, ses
+    faits dans l'ordre, et les numéros de ses articles."""
+    return [
+        {
+            "task": s.task["task"],
+            "question": s.item["question"],
+            "facts": [list(_text_forms(fact)) for fact in s.item["expected"]["facts"]],
+            "articles": [a["num"] for a in s.item["expected"]["articles"]],
+        }
+        for s in selected
+        if s.item["mode"] == "comparison"
+    ]
+
+
+def same_but_v2_fields(item: dict, base: dict) -> bool:
+    """Un item de base ne peut différer de sa version de base que par `anchor` et `false_value`."""
+    stripped = json.loads(json.dumps(item))
+    stripped.pop("false_value", None)
+    for fact in stripped.get("expected", {}).get("facts", []):
+        fact.pop("anchor", None)
+    return stripped == base
+
+
 # --- Publication --------------------------------------------------------------------------------
 
 
@@ -642,6 +811,7 @@ QUOTAS: dict[str, dict[str, tuple[int, int]]] = {
     "v2": V2_QUOTAS,
     "v3": V3_QUOTAS,
     "v4": V4_QUOTAS,
+    "v5": V5_QUOTAS,
     "pilot": PILOT_QUOTAS,
     "pilot-v4": V4_PILOT_QUOTAS,
     "pilot2-v4": V4_PILOT2_QUOTAS,
@@ -687,11 +857,14 @@ def publish(
     split: str | None = None,
     base_ids: dict[str, str] | None = None,
     base_items: list[dict] | None = None,
+    replace: dict[str, dict] | None = None,
+    same_as_base=None,
 ) -> list[dict]:
     """Attribue les identifiants et écrit `items.jsonl`, ou `items-<split>.jsonl` pour un seul
     split. Une version qui en étend une autre (`base_ids`, `base_items`) garde les identifiants et
     le contenu exact des items de la base : un item de base absent ou modifié bloque la
-    publication."""
+    publication. `replace` donne, par tâche, l'item à écrire à la place de celui du build (champs
+    de la spec v2) ; `same_as_base(item, base)` dit alors ce qu'un item de base peut gagner."""
     shortages = {k: n for k, n in result.shortages.items() if split is None or k[1] == split}
     if shortages:
         missing = ", ".join(f"{m}/{s} : {n}" for (m, s), n in sorted(shortages.items()))
@@ -707,17 +880,19 @@ def publish(
         if base_ids is None
         else _extension_ids(result, seed=seed, base_ids=base_ids)
     )
+    replace = replace or {}
     items = [
-        {**chosen.item, "id": ids[chosen.task["task"]]}
+        {**replace.get(chosen.task["task"], chosen.item), "id": ids[chosen.task["task"]]}
         for chosen in result.selected
         if chosen.task["task"] in in_split
     ]
     if base_items is not None:
         by_id = {item["id"]: item for item in items}
+        same = same_as_base or (lambda item, base: item == base)
         for expected in base_items:
             if split is not None and expected["split"] != split:
                 continue
-            if by_id.get(expected["id"]) != expected:
+            if expected["id"] not in by_id or not same(by_id[expected["id"]], expected):
                 raise ValueError(f"l'item {expected['id']} diffère de la version de base")
     items.sort(key=lambda item: item["id"])
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -924,6 +1099,34 @@ def _load_version(
     return drafts, review, result, ids
 
 
+def _with_v2_fields(result: BuildResult, fields: V2Fields) -> BuildResult:
+    """Le résultat du build, avec les items complétés des champs v2 et leurs problèmes en alerte,
+    pour la page de relecture."""
+    selected = [
+        Selected(
+            s.task,
+            fields.items[s.task["task"]],
+            [*s.alerts, *(f"spec v2 : {v}" for v in fields.violations.get(s.task["task"], []))],
+            s.overlap,
+            s.needs_review or s.task["task"] in fields.pending,
+        )
+        for s in result.selected
+    ]
+    pending = sorted(set(result.pending_review) | set(fields.pending))
+    return BuildResult(selected, result.shortages, result.rejected, pending, result.checks)
+
+
+def _validate_v2(items: list[dict]) -> None:
+    """Chaque item publié suit le schéma v2 (evals/spec/rag-qa/v2/golden.schema.json)."""
+    from jsonschema import Draft202012Validator
+
+    path = Path(__file__).resolve().parents[2] / "evals/spec/rag-qa/v2/golden.schema.json"
+    validator = Draft202012Validator(json.loads(path.read_text("utf-8")))
+    invalid = [item["id"] for item in items if list(validator.iter_errors(item))]
+    if invalid:
+        raise ValueError(f"items invalides selon le schéma v2 : {invalid[:MAX_LISTED]}")
+
+
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
     parser.add_argument("--version", required=True)
@@ -941,6 +1144,12 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument(
         "--base-version",
         help="version publiée que celle-ci étend : brouillons, relecture et identifiants repris",
+    )
+    parser.add_argument(
+        "--spec",
+        choices=["v1", "v2"],
+        default="v1",
+        help="spec rag-qa qui note la version ; v2 ajoute anchor et false_value (README, « v5 »)",
     )
     args = parser.parse_args(argv)
 
@@ -1001,6 +1210,26 @@ def main(argv: list[str] | None = None) -> None:
         "writer_models": sorted({d.get("model", "") for d in drafts.values()}),
         "prompt_sha256": sorted({d.get("prompt_sha256", "") for d in drafts.values()}),
     }
+    fields = None
+    fields_review_path = args.golden_dir / "review" / f"{args.version}-fields.jsonl"
+    if args.spec == "v2":
+        anchors_dir = args.golden_dir / "drafts" / args.version / "anchors"
+        anchors = {
+            path.stem: json.loads(path.read_text(encoding="utf-8"))
+            for path in sorted(anchors_dir.glob("*.json"))
+        }
+        fields_review = (
+            {entry["task"]: entry for entry in _read_jsonl(fields_review_path)}
+            if fields_review_path.exists()
+            else {}
+        )
+        fields = add_v2_fields(result.selected, drafts, anchors=anchors, review=fields_review)
+        requests = anchor_requests(result.selected)
+        (version_dir / "anchor_requests.jsonl").write_text(
+            "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in requests), encoding="utf-8"
+        )
+        report["v2_pending"] = fields.pending
+        report["v2_violations"] = fields.violations
     (version_dir / "build_report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
@@ -1008,7 +1237,10 @@ def main(argv: list[str] | None = None) -> None:
     page.parent.mkdir(parents=True, exist_ok=True)
     page.write_text(
         render_review_page(
-            result, by_id, version=args.version, include_all=args.quotas.startswith("pilot")
+            result if fields is None else _with_v2_fields(result, fields),
+            by_id,
+            version=args.version,
+            include_all=args.quotas.startswith("pilot"),
         ),
         encoding="utf-8",
     )
@@ -1030,9 +1262,27 @@ def main(argv: list[str] | None = None) -> None:
             f"{len(items)} items {args.publish_split} écrits dans items-{args.publish_split}.jsonl"
         )
     if args.publish:
+        v2_options: dict = {}
+        if fields is not None:
+            if fields.pending:
+                raise ValueError(
+                    f"{len(fields.pending)} items attendent la relecture des champs v2 : "
+                    + ", ".join(fields.pending[:MAX_LISTED])
+                )
+            if fields.violations:
+                listed = "; ".join(f"{k} : {v}" for k, v in list(fields.violations.items())[:5])
+                raise ValueError(f"règles du générateur non respectées (spec v2) : {listed}")
+            v2_options = {"replace": fields.items, "same_as_base": same_but_v2_fields}
         items = publish(
-            result, version_dir, seed=args.seed, base_ids=base_ids, base_items=base_items
+            result,
+            version_dir,
+            seed=args.seed,
+            base_ids=base_ids,
+            base_items=base_items,
+            **v2_options,
         )
+        if fields is not None:
+            _validate_v2(items)
         manifest = {
             "dataset": "droit-consommation/golden/rag-qa",
             "version": args.version,
@@ -1044,7 +1294,7 @@ def main(argv: list[str] | None = None) -> None:
             "seed": args.seed,
             "base_version": args.base_version,
             "data_version": "v1",
-            "spec": "evals/spec/rag-qa/v1",
+            "spec": f"evals/spec/rag-qa/{args.spec}",
             "writer_models": report["writer_models"],
             "prompt_sha256": report["prompt_sha256"],
             "overlap_threshold": args.overlap_threshold,
@@ -1060,6 +1310,11 @@ def main(argv: list[str] | None = None) -> None:
                         )
                     }
                     if args.base_version
+                    else {}
+                ),
+                **(
+                    {f"review/{args.version}-fields.jsonl": _sha256(fields_review_path)}
+                    if fields is not None
                     else {}
                 ),
             },

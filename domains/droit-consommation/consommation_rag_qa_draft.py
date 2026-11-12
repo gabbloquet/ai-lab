@@ -84,6 +84,18 @@ def _with_field(schema: dict, name: str) -> dict:
 BRIDGE_SCHEMA: dict = _with_field(ANSWERABLE_SCHEMA, "link_quote")
 FALSE_PREMISE_SCHEMA: dict = _with_field(ANSWERABLE_SCHEMA, "false_value")
 
+# Ancres (golden set v5) : pour chaque fait d'un item comparison, les mots de la question qui
+# désignent son cas (spec rag-qa v2, § 5.3).
+ANCHORS_SCHEMA: dict = {
+    "type": "object",
+    "properties": {
+        "anchors": {"type": "array", "items": {"type": "array", "items": {"type": "string"}}},
+        "doubt": {"type": "string"},
+    },
+    "required": ["anchors", "doubt"],
+    "additionalProperties": False,
+}
+
 UNANSWERABLE_SCHEMA: dict = {
     "type": "object",
     "properties": {
@@ -151,7 +163,7 @@ class AnthropicWriter:
 def load_prompts(directory: Path = PROMPTS_DIR) -> dict[str, str]:
     return {
         name: (directory / f"{name}.md").read_text(encoding="utf-8").strip()
-        for name in ("system", *MODES)
+        for name in ("system", *MODES, "anchors")
     }
 
 
@@ -192,6 +204,23 @@ def render_request(
 
 def prompt_sha256(mode: str, prompts: dict[str, str]) -> str:
     return hashlib.sha256(f"{prompts['system']}\n\n{prompts[mode]}".encode()).hexdigest()
+
+
+def render_anchor_request(
+    request: dict, by_num: dict[str, dict], prompts: dict[str, str]
+) -> tuple[str, str, dict]:
+    """(prompt système, message utilisateur, schéma) de la requête des ancres d'un item."""
+    facts = "\n".join(
+        f"Fait {index} : {' · '.join(forms)}" for index, forms in enumerate(request["facts"], 1)
+    )
+    blocks = [
+        _article_block(by_num[num], f"Article {label} : ")
+        for label, num in zip("AB", request["articles"], strict=False)
+    ]
+    user = "\n\n---\n\n".join(
+        [prompts["anchors"], f"Question : {request['question']}\n\n{facts}", *blocks]
+    )
+    return prompts["system"], user, ANCHORS_SCHEMA
 
 
 # --- Brouillons ---------------------------------------------------------------------------------
@@ -266,6 +295,57 @@ def run_drafts(
     return [name for name in results if name is not None]
 
 
+def run_anchor_drafts(
+    requests: Sequence[dict],
+    by_num: dict[str, dict],
+    writer: Writer,
+    anchors_dir: Path,
+    prompts: dict[str, str],
+    *,
+    workers: int = 4,
+) -> list[str]:
+    """Rédige les ancres des items qui n'en ont pas encore ; renvoie les tâches écrites. Le
+    brouillon a la même forme que celui d'une tâche, avec le mode `anchors`."""
+    anchors_dir.mkdir(parents=True, exist_ok=True)
+    pending = [r for r in requests if not (anchors_dir / f"{r['task']}.json").exists()]
+    sha = hashlib.sha256(f"{prompts['system']}\n\n{prompts['anchors']}".encode()).hexdigest()
+
+    def one(request: dict) -> str | None:
+        system, user, schema = render_anchor_request(request, by_num, prompts)
+        try:
+            result = writer.write(system, user, schema)
+        except Exception as error:  # noqa: BLE001 - une requête ratée ne doit pas arrêter les autres
+            print(f"{request['task']} : échec de l'appel ({error})", file=sys.stderr)
+            return None
+        output = None
+        if result.stop_reason != "refusal":
+            try:
+                output = json.loads(result.text)
+            except json.JSONDecodeError:
+                output = None
+        draft = {
+            "task": request["task"],
+            "mode": "anchors",
+            "model_requested": WRITER_MODEL,
+            "model": result.model,
+            "effort": WRITER_EFFORT,
+            "prompt_sha256": sha,
+            "created_at": datetime.now(UTC).isoformat(timespec="seconds"),
+            "stop_reason": result.stop_reason,
+            "usage": result.usage,
+            "request": request,
+            "output": output,
+            "raw_text": result.text,
+        }
+        path = anchors_dir / f"{request['task']}.json"
+        _write_atomically(path, json.dumps(draft, ensure_ascii=False, indent=2) + "\n")
+        return request["task"]
+
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        results = list(pool.map(one, pending))
+    return [name for name in results if name is not None]
+
+
 # --- Ligne de commande --------------------------------------------------------------------------
 
 
@@ -286,7 +366,28 @@ def main(argv: list[str] | None = None) -> None:
         default=[],
         help="version étendue, dont les brouillons sont repris (répétable : v1, puis v2…)",
     )
+    parser.add_argument(
+        "--anchors",
+        action="store_true",
+        help="rédige les ancres des items comparison listés dans <version>/anchor_requests.jsonl",
+    )
     args = parser.parse_args(argv)
+
+    if args.anchors:
+        requests = _read_jsonl(args.golden_dir / args.version / "anchor_requests.jsonl")
+        by_num = {a["num"]: a for a in _read_jsonl(args.articles)}
+        anchors_dir = args.golden_dir / "drafts" / args.version / "anchors"
+        written = run_anchor_drafts(
+            requests,
+            by_num,
+            AnthropicWriter(),
+            anchors_dir,
+            load_prompts(args.golden_dir / "prompts"),
+            workers=args.workers,
+        )
+        missing = sum(not (anchors_dir / f"{r['task']}.json").exists() for r in requests)
+        print(f"{len(written)} ancres écrites dans {anchors_dir} ; {missing} items sans ancres")
+        return
 
     plan = _read_jsonl(args.golden_dir / args.version / "plan.jsonl")
     by_id = {a["id"]: a for a in _read_jsonl(args.articles)}

@@ -55,6 +55,17 @@ V4_QUOTAS: dict[str, tuple[int, int]] = {
     "set": (5, 12),
     "false_premise": (10, 30),
 }
+# v5 : la v4, plus un `dev` d'une vingtaine d'items par mode récent pour itérer sur la 002 ; le
+# `test` est celui de la v4 (décisions du propriétaire, 2026-11-12, README du golden set, « v5 »).
+# `set` vise 20, mais le corpus n'en permet qu'une quinzaine : le mode gardera les items qui
+# passent, et son quota sera écrit ici après le build.
+V5_QUOTAS: dict[str, tuple[int, int]] = {
+    **V4_QUOTAS,
+    "comparison": (20, 14),
+    "set": (20, 12),
+    "false_premise": (20, 30),
+    "multi_article": (20, 22),
+}
 # Pilote : 20 brouillons jetés après la mise au point du prompt, sans surplus.
 PILOT_QUOTAS: dict[str, tuple[int, int]] = {
     "direct": (4, 0),
