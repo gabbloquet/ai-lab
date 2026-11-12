@@ -46,3 +46,16 @@ DeepEval envoie de la télémétrie par défaut : `DEEPEVAL_TELEMETRY_OPT_OUT=1`
 ```bash
 uv run pytest evals
 ```
+
+## `rag-qa` v2
+
+- `ailab_evals.rag_qa_v2` : le cœur de notation de la v2, dans un module à part (le module v1 reste tel quel, puisque des rapports publiés le citent).
+  - `score_execution(item, execution)` donne les métriques du § 6, dont `facts_attached`, `premise` et `all_evidence`.
+  - `variant_aggregates` calcule les agrégats du § 7.
+  - `compare` fait la comparaison appariée sur une métrique, avec son sens (§ 8.1).
+  - `joint_comparison` rend le verdict à deux critères (§ 8.2).
+  - `holm_family` calcule les p-values ajustées et le verdict corrigé (§ 8.3).
+  - Les items exclus (§ 8.4) se passent en argument `excluded`.
+- `ailab_evals.rag_qa_v2_metric.RagQaV2Metric` : la métrique DeepEval qui l'enveloppe, sur le modèle de `RagQaMetric`.
+
+Les exécutions doivent suivre `evals/spec/rag-qa/v2/execution.schema.json`.
