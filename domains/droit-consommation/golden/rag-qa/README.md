@@ -325,7 +325,7 @@ Rejets à la relecture : 10 en `set` (listes complétées ailleurs dans le code,
 
 | Mode | `dev` v4 | `dev` v5 visé | Tâches ajoutées (surplus) |
 |---|---|---|---|
-| `comparison` | 4 | 20 | 32 (× 2) |
+| `comparison` | 4 | 20 | 30 (tous les candidats libres après `set`, au lieu de 32) |
 | `set` | 5 | autant que le corpus le permet | tous les candidats libres (31 au 2026-11-12, règle de réutilisation ci-dessous) |
 | `false_premise` | 10 | 20 | 15 (× 1,5) |
 | `multi_article` | 8 | 20 | 24 (× 2) |
