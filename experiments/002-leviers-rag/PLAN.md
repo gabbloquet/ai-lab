@@ -1,10 +1,11 @@
 # 002 — Plan de la suite
 
-> **Mis à jour le 2026-11-10.** Ce plan n'est pas un protocole. Chaque étape écrit le sien dans le [README](README.md) avant ses résultats.
+> **Mis à jour le 2026-11-12.** Ce plan n'est pas un protocole. Chaque étape écrit le sien dans le [README](README.md) avant ses résultats.
 
 ## Où on en est
 
 - Les étapes 1 à 6 sont jugées. Le run consolidé tourne sur `rag-qa/v4` et la spec `rag-qa/v1`.
+- **Chantier 1 fait (2026-11-12)** : la spec [`rag-qa/v2`](../../evals/spec/rag-qa/v2/SPEC.md) est écrite, en brouillon jusqu'au premier rapport qui la citera. Elle comprend le `SPEC.md`, les schémas des items et des exécutions, 84 vecteurs de conformance, et les scorers Python (`ailab_evals.rag_qa_v2`, avec sa métrique DeepEval) et Java (`ragqa`), qui passent tous les vecteurs. Elle couvre aussi ce que demandent les étapes 7 et 8 : coût, latence, appels de recherche, verdict à deux critères, Holm et items exclus.
 - D'après la pré-étude des erreurs (README, 2026-11-10, `dev` v4) :
   - la récupération est saturée : à 20 passages, elle ne rate plus que 3 items ;
   - les erreurs qui restent viennent de la génération, surtout des listes incomplètes en `set` ;
