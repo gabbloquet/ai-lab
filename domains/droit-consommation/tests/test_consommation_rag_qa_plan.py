@@ -615,3 +615,49 @@ def test_an_article_reused_by_another_plan_stays_excluded(tmp_path: Path) -> Non
     pilot = tmp_path / "pilot.jsonl"  # un pilote qui a déjà réutilisé l'article
     pilot.write_text(json.dumps({"task": "set-dev-001", "articles": ["rejected"]}) + "\n")
     assert excluded_articles([base / "plan.jsonl", pilot], ["v1"], tmp_path) == {"rejected"}
+
+
+def test_an_article_reused_once_stays_used_even_if_its_new_task_is_rejected_too(
+    big_corpus: list[dict],
+) -> None:
+    """« Une seule fois » (README, « v4 ») vaut d'une version à l'autre : un article déjà tiré
+    deux fois n'est plus libéré, même quand ses deux tâches sont rejetées (golden set v5)."""
+    base = make_plan(big_corpus, seed=42, quotas=PILOT_QUOTAS, surplus=1.0)
+    eligible_count = len([a for a in big_corpus if eligible(a)])
+    in_base = {a for t in base for a in t["articles"]}
+    first = frozenset(t["task"] for t in base)
+    extended = extend_plan(
+        big_corpus,
+        base,
+        mode="direct",
+        split="test",
+        n=eligible_count - len(in_base) + 1,
+        seed=42,
+        freed_tasks=first,
+    )
+    every_task = frozenset(t["task"] for t in extended)
+    draws = Counter(a for t in extended for a in t["articles"])
+    twice = sum(1 for n in draws.values() if n > 1)
+    assert twice > 0
+
+    # Tout est rejeté : chaque article redevient libre, sauf ceux qui ont déjà servi deux fois.
+    again = extend_plan(
+        big_corpus,
+        extended,
+        mode="direct",
+        split="dev",
+        n=eligible_count - twice,
+        seed=42,
+        freed_tasks=every_task,
+    )
+    assert len(again) == len(extended) + eligible_count - twice
+    with pytest.raises(ValueError):
+        extend_plan(
+            big_corpus,
+            extended,
+            mode="direct",
+            split="dev",
+            n=eligible_count - twice + 1,
+            seed=42,
+            freed_tasks=every_task,
+        )

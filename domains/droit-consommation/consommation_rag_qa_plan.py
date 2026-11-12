@@ -17,7 +17,7 @@ import math
 import random
 import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from collections.abc import Callable, Iterable
 from itertools import combinations
 from pathlib import Path
@@ -520,8 +520,15 @@ def extend_plan(
     tirées : c'est la seule modification permise d'un plan, quand la réserve ne suffit pas.
     Les articles des tâches libérées (`freed_tasks`, des tâches rejetées) peuvent être tirés à
     nouveau, une seule fois : leur nouvelle tâche, elle, n'est pas libérée."""
+    # Un article tiré par plus d'une tâche a déjà eu sa seconde chance : il n'est plus libéré.
+    draws = Counter(a for task in plan for a in task["articles"])
+    freed = {
+        task["task"]
+        for task in plan
+        if task["task"] in freed_tasks and all(draws[a] == 1 for a in task["articles"])
+    }
     used = set(exclude) | {
-        a for task in plan if task["task"] not in freed_tasks for a in task["articles"]
+        a for task in plan if task["task"] not in freed for a in task["articles"]
     }
     group = [t for t in plan if t["mode"] == mode and t["split"] == split]
     last = max((t["rank"] for t in group), default=0)

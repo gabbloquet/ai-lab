@@ -317,7 +317,7 @@ Rejets à la relecture : 10 en `set` (listes complétées ailleurs dans le code,
 **Pourquoi.** La 002 se rejoue sur la v5, notée par la spec [`rag-qa/v2`](../../../../evals/spec/rag-qa/v2/SPEC.md) (plan de la 002, décisions du 2026-11-10). Le `dev` v4 est trop petit pour régler un levier sur les modes récents (4 à 10 items), et ses items `comparison` et `false_premise` n'ont pas les champs dont la spec v2 a besoin.
 
 **Décisions du propriétaire (2026-11-12).**
-- **La v5 étend la v4, et seul le `dev` grandit.** Le `test` v5 est celui de la v4. Le corpus ne permet pas un `test` neuf : au 2026-11-12, avec la règle de tirage de la v4, il ne reste que 44 articles candidats en `set`. Le `test` v4 n'a servi à régler aucune variante, mais il a déjà été lu deux fois en agrégat (run consolidé, étape 6).
+- **La v5 étend la v4, et seul le `dev` grandit.** Le `test` v5 est celui de la v4. Le corpus ne permet pas un `test` neuf : au 2026-11-12, avec la règle de tirage de la v4, il ne reste que 31 à 44 articles candidats en `set`. Le `test` v4 n'a servi à régler aucune variante, mais il a déjà été lu deux fois en agrégat (run consolidé, étape 6).
 - **Pas de multi-hop.** Ce code seul n'offre pas de saut qu'on ne puisse pas contourner (retrait de `bridge` en v4). L'étape 8 de la 002 est jugée sur les modes existants, et c'est une limite écrite.
 - **Les items v4 `comparison` et `false_premise` sont complétés** des champs v2, `anchor` et `false_value`. Ces champs sont relus et arbitrés comme un item neuf. Le reste de chaque item v4 ne change pas.
 
@@ -326,7 +326,7 @@ Rejets à la relecture : 10 en `set` (listes complétées ailleurs dans le code,
 | Mode | `dev` v4 | `dev` v5 visé | Tâches ajoutées (surplus) |
 |---|---|---|---|
 | `comparison` | 4 | 20 | 32 (× 2) |
-| `set` | 5 | autant que le corpus le permet | tous les candidats libres (44 au 2026-11-12) |
+| `set` | 5 | autant que le corpus le permet | tous les candidats libres (31 au 2026-11-12, règle de réutilisation ci-dessous) |
 | `false_premise` | 10 | 20 | 15 (× 1,5) |
 | `multi_article` | 8 | 20 | 24 (× 2) |
 
@@ -334,6 +334,8 @@ Les surplus reprennent les taux de rejet de la v4. En `set`, le vivier ne suffit
 
 **Construction.**
 - **Plan.** Celui de la v4, plus des tâches par extension (`--extend mode:dev:n`, seed 42, `--reuse-rejected v4`). Les articles de tous les plans précédents et des pilotes sont exclus, sauf ceux des tâches rejetées qu'aucun item n'utilise. Aucun article ne sert donc à deux items, et la séparation `dev`/`test` reste intacte.
+  - **Une seule réutilisation, d'une version à l'autre** (précision ajoutée avant tout tirage). Un article déjà tiré deux fois n'est plus libéré, même si ses deux tâches ont été rejetées. Sans cette règle, 78 des 380 tâches rejetées de la v4 rendraient leurs articles une troisième fois. Avec elle, il reste au plus 36 paires `comparison` et 31 listes `set` disjointes.
+  - **Ordre des tirages** : `set` d'abord, puisque c'est le mode le plus rare et qu'il prend tous ses candidats libres, puis `comparison`, `false_premise` et `multi_article`. Ces modes se disputent les articles qui portent une valeur.
 - **Rédaction** des nouvelles tâches : rédacteur, prompts et contrôles de la v4, sans changement.
 - **Ancres** (`comparison`, anciens et nouveaux items). Une requête à part, avec le même rédacteur et un prompt versionné (`prompts/anchors.md`). Elle reçoit la question finale (corrigée par la relecture s'il y a lieu) et ses deux faits, et rend pour chaque fait les mots de la question qui désignent son cas.
   - Contrôles bloquants à la publication : chaque ancre figure dans la question ; aucune ne contient « . », « ; », « ! », « ? » ni le mot « et », pas plus que les formes des faits ancrés ; aucune ancre d'un fait n'est retrouvée dans une ancre de l'autre (spec v2, § 3.1).
