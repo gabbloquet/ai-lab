@@ -1,6 +1,6 @@
 # Spec de notation — famille `rag-qa`, v2
 
-> **Statut : brouillon.** Elle sera publiée, donc figée, dès qu'un rapport de `results/` la citera. Toute correction passera alors par une `v3`.
+> **Statut : publiée** le 2026-11-12, citée par le [run `dev` de contrôle de la 002 sur la v5](../../../../experiments/002-leviers-rag/results/2026-11-12-controle-dev-v5.md). Elle ne change plus ; toute correction passe par une `v3`.
 
 ## 0. Ce qui change depuis la v1
 
