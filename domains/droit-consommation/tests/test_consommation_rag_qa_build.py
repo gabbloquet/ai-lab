@@ -1067,3 +1067,18 @@ def test_a_set_form_must_not_appear_in_an_alinea_outside_its_item() -> None:
     by_id = {**V4_BY_ID, SET["id"]: with_alinea}
     errors = v4_check("set", (with_alinea,), SET_OK, by_id=by_id).errors
     assert "fait 2 : la forme « magazines » figure ailleurs dans l'article" in errors
+
+
+def test_every_published_v4_item_stays_valid_under_the_v2_schema() -> None:
+    """Spec rag-qa v2, § 0 : un item v1 valide reste valide en v2. Vérifié sur la v4, pour pouvoir
+    rejouer ses runs sous la v2."""
+    from jsonschema import Draft202012Validator
+
+    root = Path(__file__).resolve().parents[3]
+    schema = json.loads((root / "evals/spec/rag-qa/v2/golden.schema.json").read_text("utf-8"))
+    validator = Draft202012Validator(schema)
+    lines = (root / "domains/droit-consommation/golden/rag-qa/v4/items.jsonl").read_text("utf-8")
+    items = [json.loads(line) for line in lines.splitlines() if line.strip()]
+
+    assert len(items) == 339
+    assert [i["id"] for i in items if list(validator.iter_errors(i))] == []
