@@ -24,6 +24,7 @@ Toutes les étapes ont tourné sur les trois mêmes générateurs : `mistral-sma
 | 4 — [005](../005-reclassement/README.md) | reclassement Cohere, 50 candidats vers 5 | RAG à 20 passages | v1, `test` 150 | non concluant (−0,4 à −2,0 pts), 2,6 fois moins de tokens | non concluant (−1,0 à −2,1 pts), 2,5 fois moins de tokens ; contre 5 passages denses : +5,8 et +8,3 pts (Ministral, Gemini), non concluant avec Mistral Small |
 | 5 — [006](../006-consigne-abstention/README.md) | consigne d'abstention plus exigeante | RAG à 20 passages | v3, `test` 190 | moins de réponses inventées avec Mistral Small (−9,2 pts) ; non concluant avec Ministral ; plus d'abstentions à tort avec Gemini (+8,7 pts) | non concluant avec Mistral Small (−3,3 pts, garde franchie) et Ministral ; plus d'abstentions à tort avec Gemini (+15,1 pts, −9,0 pts de `correct`) |
 | 6 — [ci-dessous](#étape-6--sabstenir-daprès-le-score-de-reclassement) | abstention si le meilleur score Cohere est sous un seuil | RAG à 20 passages | v4, `test` 234 | — | non concluant pour les trois modèles : réponses inventées −2,6 (Mistral Small), −3,9 (Ministral), 0 (Gemini) pts ; garde tenue |
+| 7 — [ci-dessous](#étape-7--le-générateur-comme-levier) | générateur : Mistral Large 4, Gemini 4 Carbon, Gemma 4 31B, Mistral Small avec raisonnement | RAG à 20 passages avec Mistral Small | v5, `dev` 118 | verdict au run consolidé 2 (`test` v5) | — |
 
 Les étapes 4 et 5 ont pris pour baseline la meilleure configuration du moment (20 passages) : l'expérience mêle donc des deltas isolés (contre le RAG naïf) et des deltas cumulés (contre 20 passages).
 
@@ -255,6 +256,100 @@ Un gain de 10 points est exclu pour les deux modèles Mistral. Le seuil écarte 
 - **Le `dev` ne reproduit pas la difficulté du `test` sur les modes nouveaux** : `multi_article` y fait 23/24 et `comparison` 9/12, contre 0,48 à 0,70 au `test`. Ces modes comptent 4 à 8 items `dev` : un levier qui les viserait ne pourrait pas s'y régler.
 
 **Décision du propriétaire** (2026-11-10) : pas de levier taillé pour corriger les réponses inventées d'un modèle. Le générateur est lui-même un levier, et les conclusions de l'expérience le traiteront comme tel.
+
+## Étape 7 — le générateur comme levier
+
+Les sections Question, Hypothèse, Protocole, Discipline d'itération et Mesures sont écrites le 2026-11-12. C'est après le run `dev` de contrôle sur la v5 ([rapport](results/2026-11-12-controle-dev-v5.md)) et le smoke test des candidats, et avant tout run des candidats sur le `dev` ou le `test`. Les candidats ont été vérifiés à la source le 2026-11-12 (plan de la 002).
+
+### Question
+
+Sur le golden set v5, avec le RAG à 20 passages et les prompts gelés, remplacer le générateur Mistral Small 2603 change-t-il la part de réponses justes, et la part de réponses inventées aux questions sans réponse ? Et pour quel coût par question ?
+
+### Hypothèse
+
+- **H1, par candidat.** A est `mistral-small-2603` sans réflexion : `correct` = 0,785 et réponses inventées = 0,238 au contrôle `dev`.
+  - **Mistral Large 4** (réflexion `low`) : plus de réponses justes et moins de réponses inventées. Avec 20 passages, les échecs viennent surtout de la génération (16 % de `generation_miss` au contrôle), et c'est ce qu'un modèle plus gros devrait corriger.
+  - **Gemini 4 Carbon** (réflexion `low`) : le gain le plus grand sur les deux critères. Gemini Flash-Lite, de la même famille, n'invente aucune réponse avec 20 passages. C'est une hypothèse tirée d'un modèle d'une autre génération, pas un résultat.
+  - **Gemma 4 31B** : pas d'hypothèse de sens. C'est la mesure d'un modèle ouvert d'une autre famille.
+  - **Mistral Small avec raisonnement** : plus de réponses justes sur les modes à plusieurs éléments (`set`, `comparison`, `multi_article`). Pas d'hypothèse de sens sur les réponses inventées.
+- **H0** : aucun écart mesurable entre A et B, sur aucun des deux critères.
+- **Plus petits écarts qui comptent.**
+  - **5 points de `correct`** : c'est l'écart entre les générateurs actuels au contrôle (de 0,785 à 0,833). En dessous, un générateur de 3 à 10 fois plus lent, et jusqu'à 18 fois plus cher, ne se justifie pas.
+  - **10 points de réponses inventées**, comme aux étapes 5 et 6.
+
+### Protocole
+
+| Élément | Valeur |
+|---|---|
+| Baseline (A) | `top_k_20` avec `mistral-small-2603`, sans paramètre de réflexion (63 tokens de sortie en médiane au contrôle), `temperature = 0` : la configuration gelée du run consolidé |
+| Variantes (B) | `mistral-large-4-0` (réflexion `low`) ; `gemini-4-carbon` (réflexion `low`, sans `temperature`) ; `gemma-4-31b-it` (réflexion `minimal`, `temperature = 0`) ; `mistral-small-2603` avec `reasoning_effort = "high"`. Les réglages sont dans `exp002_leviers.step7.generators()` |
+| Ce qui change entre A et B | le générateur, avec les réglages qu'il impose : niveau de réflexion, et `temperature` absente pour Gemini, qui l'ignore |
+| Ce qui est fixé | la récupération (`top_k_20` : index `mistral-embed`, 20 passages, caches de l'étape 3) ; le prompt système et la phrase d'ancrage (`ailab_rag.prompting`) ; la sortie structurée `ModelAnswer` par l'outil de sortie de Pydantic AI, sans seconde chance ; la spec `rag-qa/v2` ; l'audit de la v1 (2 items `dev` et 12 items `test` écartés) |
+| Golden set | `rag-qa/v5` : n_dev = 118 items valides, n_test = 234 (dont 51 sans réponse) |
+| Répétitions | k = 3 |
+| Implémentation | `python/` : campagne `ailab_rag`, scorer `ailab_evals.rag_qa_v2`. Le scorer Java est conforme aux mêmes vecteurs |
+
+**Critères et verdict** (spec v2, § 8.1 et § 8.3).
+- **Critère principal : `correct`**, en `higher_better`. Les 4 comparaisons B − A forment une famille de Holm, avec α = 0,05. Le verdict corrigé porte celui de chaque candidat.
+- **Second critère : `hallucination`**, sur les questions sans réponse, en `lower_better`. Il a sa propre famille de Holm sur les 4 candidats, et son propre verdict corrigé. Les deux verdicts sont publiés côte à côte ; il n'y a pas de verdict joint.
+- **Publiés sans verdict** : `false_abstention`, taux d'erreur, coût par question, latence, `correct` par mode, répartitions de `failure` et de `premise`.
+
+**Moment du verdict.** L'étape s'arrête à son gel sur le `dev`. Son verdict vient du run consolidé 2 sur le `test` v5, qui rejoue toutes les configurations gelées. C'est le seul nouveau regard sur ce `test` (décision du propriétaire, 2026-11-12).
+
+**Choix du générateur de l'étape 8**, fixé ici avant tout run des candidats, et fait sur le `dev`. On prend le candidat, ou la baseline, qui remplit ces conditions :
+- le meilleur `correct` ;
+- un taux d'erreur de sortie structurée sous 1 % ;
+- des réponses inventées pas pires que A : la borne haute de l'IC du delta reste sous +0,10.
+
+En cas d'écart de `correct` de moins de 2 points, on prend le moins cher.
+
+**Coût** (spec v2, § 3.2 et § 10).
+- **Calcul.** `cost_usd` = tokens d'entrée × prix d'entrée + tokens de sortie × prix de sortie, calculé après coup pour chaque exécution.
+- **Tokens de sortie.** Pour Gemini, ils comptent la réflexion (vérifié le 2026-11-12 : 12 217 tokens de sortie, dont 11 302 de réflexion). Pour Mistral, ce point est à vérifier sur le run `dev`.
+- **Barème.** Celui du jour du run, relevé sur docs.mistral.ai/inference/pricing et aistudio.google.com/docs/pricing, et cité avec sa date. Carbon passe de 2 / 10 $ à 4 / 20 $ par million de tokens le 1ᵉʳ décembre : le rapport donne les deux tarifs.
+- **Gemma** : coût `null`, puisque le palier gratuit ne représente pas un hébergement.
+
+**Latence.** C'est `latency_s` de la spec v2 : de bout en bout, réseau du fournisseur compris, recherche servie par les caches. Les latences ne se comparent qu'entre runs de la même période : au run consolidé 2, où tout tourne ensemble.
+
+**A sur le `dev`.** A est repris du run `dev` de contrôle, au lieu d'être relancé : sa configuration est la même. Les latences du `dev` ne se comparent donc pas entre A et B.
+
+**Taille de l'échantillon.**
+- **Sur `correct`** : s_d = 0,31 à 0,35 (comparaisons du run consolidé) et n = 234. Le MDE vaut 5,7 à 6,4 points, et 6,8 à 7,7 avec Holm sur 4 comparaisons. Le plus petit écart qui compte (5 points) est en dessous : un « non concluant » n'exclura pas un gain de cette taille.
+- **Sur `hallucination`** : n = 51 et s_d = 0,30 à 0,40. Le MDE vaut 12 à 16 points, et 14,5 à 19 avec Holm. Seul un écart de l'ordre de celui entre Mistral Small (0,238) et Gemini Flash-Lite (0) au contrôle sera détectable.
+
+**Limites connues avant le run.**
+- **Large 4 et Carbon ne peuvent pas couper leur réflexion.** « Plus gros » et « de pointe » changent donc aussi la réflexion, même au niveau le plus bas.
+- **Gemma tourne sur le palier gratuit.** Ses quotas ne sont pas documentés ; la campagne relance après une limite de débit.
+- **`temperature = 0` avec la réflexion Mistral** : l'effet n'est pas documenté par Mistral.
+- **Pydantic AI 2.65 ramène tout effort de réflexion à `high` chez Mistral.** `ailab_rag.generators.MistralEffortModel` envoie l'effort demandé ; le smoke test l'a confirmé par les tokens de sortie (263 à 547 pour Large 4 en `low`).
+
+**Lancer un run :** `uv run --env-file .env python -m exp002_leviers.step7 --split dev`. Ce lanceur reste à écrire.
+
+### Discipline d'itération
+
+- **Aucun cycle de réglage.** Les prompts, la récupération et le format de sortie sont gelés. Le seul changement est le générateur, avec ses réglages fixés dans `step7.generators()` avant tout run. Un seul run `dev` des candidats est prévu. Il sert de contrôle d'intégration à grande échelle (taux d'erreur, sortie structurée) et au choix du générateur de l'étape 8.
+- **Écart assumé.** Les baselines des étapes précédentes ont reçu 2 cycles sur le `dev`, et les candidats aucun. Ce n'est pas un désavantage, puisqu'il n'y a rien à régler.
+  - Un candidat qui échoue sur la sortie structurée garde ses erreurs, comptées comme réponses fausses.
+  - On ne règle ni son prompt ni son format pour lui : ce serait tailler un levier pour un modèle (décision du 2026-11-10).
+- **Ce qu'un run `dev` peut changer** : seulement les incidents d'infrastructure (identifiant retiré, quota épuisé, erreur 400 sur un paramètre). Chaque correction est écrite ici avant tout run `test`. Un résultat du `dev` ne change ni les candidats, ni leurs réglages, ni les critères.
+- **Gel.** Le commit de gel précède le run consolidé 2. Il porte le registre des générateurs, le barème relevé et le lanceur. Le `test` v5 ne se lance qu'avec `--final`, sur un arbre git propre.
+- **Interdit avant le run consolidé 2** : faire tourner un candidat sur le `test` v5, ou analyser ses échecs item par item.
+
+### Mesures
+
+| Mesure | Définition | Rôle |
+|---|---|---|
+| `correct` | spec v2, § 5.5 ; une erreur compte comme une réponse fausse | critère principal, verdict corrigé par Holm (4 candidats) |
+| `hallucination_rate` | part des questions sans réponse où le modèle ne s'abstient pas (§ 7) | second critère, verdict corrigé par Holm (4 candidats) |
+| `false_abstention_rate` | part des questions avec réponse où le modèle s'abstient | publié |
+| `error_rate` | part des exécutions en erreur, dont les sorties structurées invalides | publié ; seuil de 1 % pour l'étape 8 |
+| Coût par question | moyenne de `cost_usd`, barème daté, Gemma exclu | publié en dollars, jamais en tokens entre fournisseurs |
+| Latence | médiane et 95ᵉ centile de `latency_s` | publiée, seulement entre runs de la même période |
+| Tokens de sortie | médiane par générateur | publiée : c'est la trace de la réflexion |
+| `correct` par mode | § 7 | publié ; `set` et `comparison` à titre indicatif (7 et 9 items `dev`) |
+| `failure`, `premise` | répartitions du § 7 | publiés |
+
+Le rapport cite la spec `rag-qa/v2`, le golden set v5, `uv.lock`, le commit de gel, le barème avec sa date et ses URL, et les réglages de chaque générateur. Il dit aussi quels générateurs respectent `temperature`, et quel niveau de réflexion a été effectivement envoyé.
 
 ## Limites
 
