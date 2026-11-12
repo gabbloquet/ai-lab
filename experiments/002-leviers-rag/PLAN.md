@@ -28,6 +28,17 @@
 - Les items v4 `comparison` et `false_premise` reçoivent les champs v2 (`anchor`, `false_value`), qui sont relus.
 - Le code de campagne de la 002 est adapté à la spec v2 par Claude, en TDD, avec un résumé des choix à la fin.
 
+## Décisions du propriétaire pour l'étape 7 (2026-11-12)
+
+- Quatre candidats, un par axe. Identifiants, disponibilité et tarifs ont été vérifiés le 2026-11-12 sur docs.mistral.ai et aistudio.google.com.
+  - Plus gros, même famille : `mistral-large-4-0`, à 0,70 / 2,10 $ par million de tokens.
+  - Modèle de pointe : `gemini-4-carbon`, à 2 / 10 $ jusqu'au 30/11, puis 4 / 20 $.
+  - Open-weight d'une autre famille : `gemma-4-31b-it`, Apache 2.0, sur le seul palier gratuit.
+  - Raisonnement sur un modèle testé : `mistral-small-2603` avec `reasoning_effort="high"`.
+- Large 4 et Carbon ne peuvent pas désactiver leur réflexion. Ils tournent au niveau `low`, le plus proche de la baseline, et c'est une limite écrite.
+- Baseline : `mistral-small-2603`, sans réflexion (63 tokens de sortie en médiane au run de contrôle), avec `top_k_20`.
+- `temperature` n'est plus envoyée aux modèles Gemini, qui l'ignorent (note du README, « Limites »).
+
 ## Feuille de route
 
 | # | Chantier | Qui écrit | Sortie |
