@@ -24,7 +24,7 @@ Toutes les étapes ont tourné sur les trois mêmes générateurs : `mistral-sma
 | 4 — [005](../005-reclassement/README.md) | reclassement Cohere, 50 candidats vers 5 | RAG à 20 passages | v1, `test` 150 | non concluant (−0,4 à −2,0 pts), 2,6 fois moins de tokens | non concluant (−1,0 à −2,1 pts), 2,5 fois moins de tokens ; contre 5 passages denses : +5,8 et +8,3 pts (Ministral, Gemini), non concluant avec Mistral Small |
 | 5 — [006](../006-consigne-abstention/README.md) | consigne d'abstention plus exigeante | RAG à 20 passages | v3, `test` 190 | moins de réponses inventées avec Mistral Small (−9,2 pts) ; non concluant avec Ministral ; plus d'abstentions à tort avec Gemini (+8,7 pts) | non concluant avec Mistral Small (−3,3 pts, garde franchie) et Ministral ; plus d'abstentions à tort avec Gemini (+15,1 pts, −9,0 pts de `correct`) |
 | 6 — [ci-dessous](#étape-6--sabstenir-daprès-le-score-de-reclassement) | abstention si le meilleur score Cohere est sous un seuil | RAG à 20 passages | v4, `test` 234 | — | non concluant pour les trois modèles : réponses inventées −2,6 (Mistral Small), −3,9 (Ministral), 0 (Gemini) pts ; garde tenue |
-| 7 — [ci-dessous](#étape-7--le-générateur-comme-levier) | générateur : Mistral Large 4, Gemini 4 Carbon, Gemma 4 31B, Mistral Small avec raisonnement | RAG à 20 passages avec Mistral Small | v5, `dev` 118 | verdict au run consolidé 2 (`test` v5) | — |
+| 7 — [ci-dessous](#étape-7--le-générateur-comme-levier) | générateur : Mistral Large 4, Gemini 4 Carbon, Gemma 4 31B, Mistral Small avec raisonnement | RAG à 20 passages avec Mistral Small | v5, `dev` 118 | gelée le 2026-11-13 ; verdict au run consolidé 2 (`test` v5). Sur le `dev` : moins de réponses inventées avec les quatre candidats ; Large 4 retenu pour l'étape 8 | — |
 
 Les étapes 4 et 5 ont pris pour baseline la meilleure configuration du moment (20 passages) : l'expérience mêle donc des deltas isolés (contre le RAG naïf) et des deltas cumulés (contre 20 passages).
 
@@ -356,6 +356,22 @@ En cas d'écart de `correct` de moins de 2 points, on prend le moins cher.
 | `failure`, `premise` | répartitions du § 7 | publiés |
 
 Le rapport cite la spec `rag-qa/v2`, le golden set v5, `uv.lock`, le commit de gel, le barème avec sa date et ses URL, et les réglages de chaque générateur. Il dit aussi quels générateurs respectent `temperature`, et quel niveau de réflexion a été effectivement envoyé.
+
+### Gel de l'étape 7 (2026-11-13)
+
+**L'étape 7 est gelée.** Le run `dev` des candidats a eu lieu le 2026-11-12 ([rapport](results/2026-11-12-etape-7-dev.md)). Ce qui est gelé, à ce commit :
+- le registre des générateurs et leurs réglages (`exp002_leviers.step7.generators()`) ;
+- le barème des prix relevé le 2026-11-12 (`PRICES`) ;
+- le lanceur et la règle de choix de l'étape 8.
+
+Rien n'a été réglé sur le `dev`, comme prévu. La seule correction est celle de l'incident d'infrastructure du 2026-11-12, écrite plus haut.
+
+**Générateur de l'étape 8 : Mistral Large 4** (`mistral-large-4-0`, réflexion `low`), par la règle du protocole.
+- Les quatre candidats sont éligibles.
+- Gemma 4 31B (0,881) et Large 4 (0,873) sont à moins de 2 points l'un de l'autre.
+- Le coût de Gemma est inconnu, il passe donc en dernier.
+
+**Verdict** : au run consolidé 2, sur le `test` v5. Les candidats y tournent avec ces réglages gelés.
 
 ## Limites
 
