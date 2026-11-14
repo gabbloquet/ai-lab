@@ -25,6 +25,7 @@ Toutes les étapes ont tourné sur les trois mêmes générateurs : `mistral-sma
 | 5 — [006](../006-consigne-abstention/README.md) | consigne d'abstention plus exigeante | RAG à 20 passages | v3, `test` 190 | moins de réponses inventées avec Mistral Small (−9,2 pts) ; non concluant avec Ministral ; plus d'abstentions à tort avec Gemini (+8,7 pts) | non concluant avec Mistral Small (−3,3 pts, garde franchie) et Ministral ; plus d'abstentions à tort avec Gemini (+15,1 pts, −9,0 pts de `correct`) |
 | 6 — [ci-dessous](#étape-6--sabstenir-daprès-le-score-de-reclassement) | abstention si le meilleur score Cohere est sous un seuil | RAG à 20 passages | v4, `test` 234 | — | non concluant pour les trois modèles : réponses inventées −2,6 (Mistral Small), −3,9 (Ministral), 0 (Gemini) pts ; garde tenue |
 | 7 — [ci-dessous](#étape-7--le-générateur-comme-levier) | générateur : Mistral Large 4, Gemini 4 Carbon, Gemma 4 31B, Mistral Small avec raisonnement | RAG à 20 passages avec Mistral Small | v5, `dev` 118 | gelée le 2026-11-13 ; verdict au run consolidé 2 (`test` v5). Sur le `dev` : moins de réponses inventées avec les quatre candidats ; Large 4 retenu pour l'étape 8 | — |
+| 8 — [ci-dessous](#étape-8--rag-agentique) | RAG agentique : recherche par outil MCP, autant d'appels que voulu (6 au plus) | RAG à 20 passages avec Mistral Large 4 | v5, `dev` 118 | verdict au run consolidé 2 (`test` v5) | — |
 
 Les étapes 4 et 5 ont pris pour baseline la meilleure configuration du moment (20 passages) : l'expérience mêle donc des deltas isolés (contre le RAG naïf) et des deltas cumulés (contre 20 passages).
 
@@ -372,6 +373,71 @@ Rien n'a été réglé sur le `dev`, comme prévu. La seule correction est celle
 - Le coût de Gemma est inconnu, il passe donc en dernier.
 
 **Verdict** : au run consolidé 2, sur le `test` v5. Les candidats y tournent avec ces réglages gelés.
+
+## Étape 8 — RAG agentique
+
+Les sections Question, Hypothèse, Protocole, Discipline d'itération et Mesures sont écrites le 2026-11-14. C'est après le gel de l'étape 7, qui a retenu Mistral Large 4 comme générateur, et avant toute ligne du serveur MCP.
+
+### Question
+
+Sur le golden set v5, avec Mistral Large 4 comme générateur, laisser le modèle interroger lui-même le corpus par un outil MCP de recherche, autant de fois qu'il le juge utile, change-t-il la part de réponses justes par rapport au RAG à 20 passages ? Et pour quel coût par question, quelle latence et combien d'appels ?
+
+### Hypothèse
+
+- **H1** : un petit gain de `correct`, borné par les échecs de récupération de la baseline. Avec 20 passages, Large 4 ne manque un article attendu que dans 6,7 % des exécutions (`retrieval_miss` au `dev` de l'étape 7) : c'est le plafond de ce que l'agentique peut rattraper par la recherche. La v5 n'a pas de multi-hop. Le coût et la latence augmentent.
+- **H0** : aucun écart mesurable de `correct`.
+- **Plus petit écart qui compte : 3 points de `correct`**, comme pour 20 passages et le reclassement.
+
+### Protocole
+
+| Élément | Valeur |
+|---|---|
+| Baseline (A) | `top_k_20` avec `mistral-large-4-0` (réflexion `low`), les réglages gelés de l'étape 7. Sur le `dev`, A est repris du run `dev` de l'étape 7 ; au run consolidé 2, il est rejoué |
+| Variante (B) | `agentic_rag` : le même générateur et la même réflexion, avec deux outils MCP servis en stdio par un serveur Python du dépôt. Pas de passages imposés au départ |
+| Outils | `consommation_search_articles(query)` rend 5 passages : numéro d'article, chemin dans le code et texte, avec l'index et les caches de `top_k_20`. `consommation_get_article(num)` rend le texte d'un article par son numéro. Les noms suivent `{service}_{action}_{resource}` (référentiel MCP, § 1) |
+| Plafond | 6 appels d'outil par question. Au-delà, le serveur répond par une erreur d'exécution (`isError`) qui demande de répondre avec ce qui a été trouvé |
+| Contexte noté | la concaténation des articles rendus par tous les appels, dans l'ordre, chaque article gardé à sa première occurrence (spec v2, § 3.2). `tool_calls` est le nombre d'appels. Les métriques à k sont nulles dès 2 appels |
+| Ce qui change entre A et B | la façon d'obtenir le contexte, et le prompt qui va avec : consigne d'usage des outils et descriptions des outils |
+| Ce qui est fixé | le générateur et ses réglages ; l'index (`mistral-embed`, un passage par article) ; k = 5 par recherche ; le plafond de 6 appels ; la sortie structurée `ModelAnswer` ; la spec `rag-qa/v2` ; le golden set v5 et l'audit |
+| Golden set | `rag-qa/v5` : n_dev = 118, n_test = 234 |
+| Répétitions | k = 3 |
+| Implémentation | `python/` : serveur MCP (SDK MCP officiel, version vérifiée sur PyPI avant d'écrire le serveur), client Pydantic AI en stdio, scorer `ailab_evals.rag_qa_v2` |
+
+**Critère et verdict.**
+- **Critère principal : `correct`**, en `higher_better`. Il n'y a qu'une comparaison, donc pas de famille de Holm. Le verdict vient de l'IC du § 8.1 de la spec v2.
+- **Publiés sans verdict** : réponses inventées, abstentions à tort, coût par question, latence, `tool_calls` (moyenne et distribution), part des questions au plafond, part des appels à `get_article`, répartition de `failure`.
+- **Moment du verdict** : au run consolidé 2 sur le `test` v5, comme pour l'étape 7.
+
+**Conformité MCP** (référentiel [`docs/mcp-bonnes-pratiques.md`](../../docs/mcp-bonnes-pratiques.md)).
+- Les entrées sont validées : une requête non vide de 500 caractères au plus, un numéro d'article au format du code.
+- Un article inconnu, une requête invalide ou un plafond atteint donnent une erreur d'exécution transmise au modèle, et non une erreur de protocole.
+- Un `structuredContent` est accompagné de son JSON en texte.
+- `tools/list` est dans un ordre déterministe.
+- En stdio, pas d'OAuth : les identifiants viennent de l'environnement.
+- La révision de la spec MCP que supporte le SDK Python est vérifiée à la source avant d'écrire le serveur. Tout écart à un MUST ou à un SHOULD est écrit dans les limites.
+
+**Taille de l'échantillon.** Avec s_d = 0,31 à 0,35 (comparaisons du run consolidé) et n = 234, le MDE vaut 5,7 à 6,4 points. Les 3 points qui comptent sont en dessous : un « non concluant » n'exclura pas un petit gain.
+
+**Limites connues avant le run.**
+- **Le couple outil et prompt.** Le prompt de B diffère forcément de celui de A, puisqu'il doit expliquer les outils. L'étape juge donc le couple « outils et prompt », pas l'outil seul.
+- **Récupération déjà saturée, et pas de multi-hop dans la v5** : le gain possible est faible par construction.
+- **Large 4 réfléchit toujours**, au niveau `low`, comme à l'étape 7.
+
+### Discipline d'itération
+
+- **2 cycles sur le `dev`**, autant que la baseline en a reçu. Un cycle, c'est une modification suivie d'un run `dev` complet.
+- **Seuls changent le prompt agentique et les descriptions des outils.** Le modèle, l'index, k, le plafond et les outils eux-mêmes sont fixés avant le premier run.
+- **Contrôle avant le premier cycle** : un smoke test d'intégration sur 3 items. Il ne compte pas comme un cycle, et ne sert à rien régler.
+- **Gel** avant le run consolidé 2. Ne pas faire tourner B sur le `test` v5 avant, ni analyser ses échecs item par item.
+
+### Mesures
+
+Ce sont celles de l'étape 7 : `correct`, réponses inventées, abstentions à tort, taux d'erreur, coût par question, latence, tokens de sortie, `correct` par mode, `failure` et `premise`. S'y ajoutent :
+- `tool_calls` : moyenne, médiane et distribution ;
+- la part des questions qui touchent le plafond ;
+- la part des appels à `consommation_get_article`.
+
+Le coût compte tous les appels au modèle de la boucle agentique, sur le barème gelé de l'étape 7.
 
 ## Limites
 
