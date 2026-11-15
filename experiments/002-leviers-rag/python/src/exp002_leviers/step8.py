@@ -27,7 +27,18 @@ GENERATOR = "mistral-large-4-0"
 BASELINE_VARIANT = "mistral_large_4"
 BASELINE_RUN = "2026-11-12-step7-dev"
 # Une consigne par cycle `dev` (protocole : 2 cycles au plus, sur la consigne et les descriptions).
-GUIDANCES: dict[int, str] = {1: AGENTIC_GUIDANCE}
+GUIDANCES: dict[int, str] = {
+    1: AGENTIC_GUIDANCE,
+    # Cycle 2 (2026-11-15), après le cycle 1 : les questions sans réponse prenaient 5,4 appels
+    # en moyenne, et 16 % des questions touchaient le plafond. Une règle d'arrêt de la recherche,
+    # sans consigne nouvelle sur l'abstention.
+    2: AGENTIC_GUIDANCE.replace(
+        "Réponds à partir de ce que les outils t'ont rendu ;",
+        "Arrête de chercher dès qu'un passage donne la valeur demandée pour la situation de la "
+        "question. Si trois recherches reformulées ne la font pas apparaître, ne cherche plus. "
+        "Réponds à partir de ce que les outils t'ont rendu ;",
+    ),
+}
 
 
 def tool_stats(executions: list[dict]) -> dict[str, Any]:

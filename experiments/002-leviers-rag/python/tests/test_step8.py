@@ -45,6 +45,7 @@ def test_the_first_cycle_uses_the_guidance_written_before_any_dev_run() -> None:
     from ailab_rag.agentic import AGENTIC_GUIDANCE
 
     assert GUIDANCES[1] == AGENTIC_GUIDANCE
+    assert "trois recherches reformulées" in GUIDANCES[2] and GUIDANCES[2] != GUIDANCES[1]
     assert BASELINE_VARIANT == "mistral_large_4"
 
 
@@ -87,4 +88,4 @@ def test_the_launcher_refuses_a_test_run_and_an_unknown_cycle() -> None:
     with pytest.raises(SystemExit, match="run consolidé 2"):
         main(["--split", "test"])
     with pytest.raises(SystemExit, match="cycle"):
-        main(["--split", "dev", "--cycle", "3"])
+        main(["--split", "dev", "--cycle", "4"])

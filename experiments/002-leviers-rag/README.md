@@ -428,6 +428,9 @@ Sur le golden set v5, avec Mistral Large 4 comme générateur, laisser le modèl
 - **2 cycles sur le `dev`**, autant que la baseline en a reçu. Un cycle, c'est une modification suivie d'un run `dev` complet.
 - **Seuls changent le prompt agentique et les descriptions des outils.** Le modèle, l'index, k, le plafond et les outils eux-mêmes sont fixés avant le premier run.
 - **Contrôle avant le premier cycle** : un smoke test d'intégration sur 3 items. Il ne compte pas comme un cycle, et ne sert à rien régler.
+- **Cycle 1 (2026-11-15)** : consigne écrite avant tout run. Sur le `dev`, `correct` passe de 0,873 à 0,898 (non concluant), les réponses inventées de 0,048 à 0,095, et 16 % des questions touchent le plafond. Les questions sans réponse prennent 5,4 appels en moyenne, contre 2,7 pour les autres.
+- **Cycle 2 (2026-11-15)** : la même consigne, plus une règle d'arrêt de la recherche (« Arrête de chercher dès qu'un passage donne la valeur… Si trois recherches reformulées ne la font pas apparaître, ne cherche plus »). Aucune consigne nouvelle sur l'abstention (décision du 2026-11-10).
+- **Choix du cycle gelé**, fixé avant le run du cycle 2 : le meilleur `correct` sur le `dev`. À moins d'un point d'écart, c'est le moins cher qui est gelé.
 - **Gel** avant le run consolidé 2. Ne pas faire tourner B sur le `test` v5 avant, ni analyser ses échecs item par item.
 
 ### Mesures
