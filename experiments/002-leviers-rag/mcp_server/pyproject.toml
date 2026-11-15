@@ -1,0 +1,21 @@
+[project]
+name = "exp002-mcp-server"
+version = "0.1.0"
+description = "Étape 8 de la 002 : la recherche dans le Code de la consommation, servie en outils MCP (stdio)"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp==2.3.0",
+    "ailab-evals",
+    "ailab-rag",
+]
+
+[project.scripts]
+exp002-mcp-server = "exp002_mcp_server.server:main"
+
+[tool.uv.sources]
+ailab-evals = { workspace = true }
+ailab-rag = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"

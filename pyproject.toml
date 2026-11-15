@@ -12,6 +12,7 @@ dependencies = [
     "exp001-agent",
     "exp001-mcp-server",
     "exp002-leviers",
+    "exp002-mcp-server",
     "exp002-rag",
     "exp003-rag",
     "exp004-rag",
@@ -37,6 +38,7 @@ ailab-rag = { workspace = true }
 exp001-agent = { workspace = true }
 exp001-mcp-server = { workspace = true }
 exp002-leviers = { workspace = true }
+exp002-mcp-server = { workspace = true }
 exp002-rag = { workspace = true }
 exp003-rag = { workspace = true }
 exp004-rag = { workspace = true }
@@ -50,6 +52,7 @@ members = [
     "experiments/001-mcp-outils-par-intention/python/agent",
     "experiments/001-mcp-outils-par-intention/python/mcp_server",
     "experiments/002-leviers-rag/python",
+    "experiments/002-leviers-rag/mcp_server",
     "experiments/002-rag-naif-vs-modele-seul/python",
     "experiments/003-reformulation-de-requete/python",
     "experiments/004-top-k-20/python",
@@ -71,10 +74,19 @@ select = ["E", "F", "W", "I", "UP", "B", "SIM"]
 
 [tool.ruff.lint.isort]
 # Paquets du workspace : ruff ne les trouve pas seul, ils vivent sous experiments/.
-known-first-party = ["ailab_evals", "ailab_rag", "exp001_agent", "exp001_mcp_server", "exp002_leviers", "exp002_rag", "exp003_rag", "exp004_rag", "exp005_rag", "exp006_rag"]
+known-first-party = ["ailab_evals", "ailab_rag", "exp001_agent", "exp001_mcp_server", "exp002_leviers", "exp002_mcp_server", "exp002_rag", "exp003_rag", "exp004_rag", "exp005_rag", "exp006_rag"]
 
 [tool.mypy]
 # Vérifie que les adaptateurs du jumeau respectent les ports (typing.Protocol) du domaine.
 python_version = "3.13"
-files = ["experiments/001-mcp-outils-par-intention/python/mcp_server/src"]
+files = [
+    "experiments/001-mcp-outils-par-intention/python/mcp_server/src",
+    "experiments/002-leviers-rag/mcp_server/src",
+]
 strict = true
+
+[[tool.mypy.overrides]]
+# Paquets du workspace sans marqueur py.typed : le serveur de l'étape 8 les utilise derrière ses
+# ports, sans que mypy en vérifie les types.
+module = ["ailab_rag.*", "ailab_evals.*"]
+ignore_missing_imports = true
