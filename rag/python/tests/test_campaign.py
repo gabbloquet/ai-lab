@@ -475,3 +475,39 @@ async def test_an_infrastructure_error_is_retried_and_waits_as_long_as_asked(
 
     assert executions[0]["error"] is None
     assert len(waits) == 1 and waits[0] >= minimum_wait
+
+
+async def test_a_campaign_can_run_another_kind_of_execution(tmp_path: Path) -> None:
+    """Étape 8 : le RAG agentique passe par la même campagne (reprise, relances, traces)."""
+    seen: list[tuple[str, str, int]] = []
+
+    async def runner(item: dict, variant: str, repeat: int, *, reraise) -> dict:
+        seen.append((item["id"], variant, repeat))
+        return {
+            "item_id": item["id"],
+            "variant": variant,
+            "model": "m",
+            "repeat": repeat,
+            "answer": "14 jours",
+            "abstained": False,
+            "cited": [],
+            "context": [],
+            "usage": {"input_tokens": 1, "output_tokens": 1},
+            "latency_s": 1.0,
+            "cost_usd": None,
+            "tool_calls": 0,
+            "error": None,
+        }
+
+    executions = await run_campaign(
+        ITEMS[:1],
+        variants=["agentic_rag"],
+        model="unused",
+        repeats=2,
+        out=tmp_path / "e.jsonl",
+        canonical="v2",
+        runner=runner,
+    )
+
+    assert seen == [("rq-001", "agentic_rag", 0), ("rq-001", "agentic_rag", 1)]
+    assert len(read_lines(tmp_path / "e.jsonl")) == 2 and executions[1]["repeat"] == 1

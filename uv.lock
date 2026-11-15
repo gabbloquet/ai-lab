@@ -99,7 +99,7 @@ dependencies = [
     { name = "langfuse" },
     { name = "mistralai" },
     { name = "numpy" },
-    { name = "pydantic-ai-slim", extra = ["google", "mistral"] },
+    { name = "pydantic-ai-slim", extra = ["google", "mcp", "mistral"] },
 ]
 
 [package.optional-dependencies]
@@ -115,7 +115,7 @@ requires-dist = [
     { name = "langfuse", specifier = "==5.1.0" },
     { name = "mistralai", specifier = "==3.7.0" },
     { name = "numpy", specifier = "==2.5.4" },
-    { name = "pydantic-ai-slim", extras = ["google", "mistral"], specifier = "==2.65.0" },
+    { name = "pydantic-ai-slim", extras = ["google", "mcp", "mistral"], specifier = "==2.65.0" },
     { name = "sentence-transformers", marker = "extra == 'rerank-local'", specifier = "==6.2.0" },
     { name = "torch", marker = "extra == 'rerank-local'", specifier = "==2.15.0" },
 ]

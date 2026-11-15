@@ -76,6 +76,7 @@ async def run_campaign(
     tracer: Tracer = NO_TRACING,
     canonical: str = "v1",
     settings: ModelSettings | None = None,
+    runner: Callable[..., Awaitable[dict]] | None = None,
 ) -> list[dict]:
     """`canonical` choisit la spec rag-qa des exécutions et du scorer des traces : v1 ou v2."""
     if canonical == "v2":
@@ -99,6 +100,10 @@ async def run_campaign(
             with tracer.execution(item=item, variant=variant, repeat=repeat) as observe:
                 for attempt in range(1, max_attempts + 1):
                     try:
+                        if runner is not None:
+                            # Une autre forme d'exécution (RAG agentique de l'étape 8).
+                            execution = await runner(item, variant, repeat, reraise=is_transient)
+                            break
                         execution = await run_item(
                             item,
                             variant=variant,
