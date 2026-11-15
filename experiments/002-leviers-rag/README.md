@@ -456,6 +456,8 @@ Le coût compte tous les appels au modèle de la boucle agentique, sur le barèm
 
 **Verdict** : au run consolidé 2, sur le `test` v5.
 
+**Exploration hors protocole (2026-11-15, à la demande du propriétaire).** Le même RAG agentique, gelé au cycle 2, avec Gemini 4 Carbon (réflexion `low`), contre le `top_k_20` de Carbon au run `dev` de l'étape 7. Elle se fait sur le `dev` seulement, sans réglage, et ne change ni la configuration gelée ni le générateur de l'étape. Lancement : `python -m exp002_leviers.step8 --split dev --cycle 2 --generator gemini-4-carbon`.
+
 ## Limites
 
 - Celles de chaque étape. Les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention. Le run consolidé écarte ces 12 questions.

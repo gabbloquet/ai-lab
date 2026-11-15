@@ -25,6 +25,9 @@ from ailab_rag.agentic import AGENTIC_GUIDANCE, AGENTIC_VARIANT, MAX_CALLS
 GENERATOR = "mistral-large-4-0"
 # A : la variante de Large 4 au run `dev` de l'étape 7 (top_k_20, réflexion low).
 BASELINE_VARIANT = "mistral_large_4"
+# Explorations hors protocole (dev seulement, 2026-11-15) : le même RAG agentique avec un autre
+# générateur, contre son propre top_k_20 du run `dev` de l'étape 7. Ne change pas l'étape gelée.
+EXPLORATION_BASELINES = {"gemini-4-carbon": "gemini_4_carbon"}
 BASELINE_RUN = "2026-11-12-step7-dev"
 # Une consigne par cycle `dev` (protocole : 2 cycles au plus, sur la consigne et les descriptions).
 GUIDANCES: dict[int, str] = {
@@ -63,10 +66,10 @@ def tool_stats(executions: list[dict]) -> dict[str, Any]:
     }
 
 
-def _with_cost(executions: list[dict], day: str) -> list[dict]:
+def _with_cost(executions: list[dict], day: str, generator: str = GENERATOR) -> list[dict]:
     from exp002_leviers.step7 import cost_usd
 
-    return [{**e, "cost_usd": cost_usd(e, GENERATOR, day=day)} for e in executions]
+    return [{**e, "cost_usd": cost_usd(e, generator, day=day)} for e in executions]
 
 
 def analyze_step8(
@@ -76,14 +79,16 @@ def analyze_step8(
     split: str,
     excluded: list[str],
     day: str = "2026-11-15",
+    generator: str = GENERATOR,
+    baseline_variant: str = BASELINE_VARIANT,
 ) -> dict[str, Any]:
     """`correct` (critère, § 8.1, une seule comparaison), réponses inventées, agrégats et
     statistiques d'outils. Le coût suit le barème gelé de l'étape 7."""
     from ailab_evals import rag_qa_v2
 
-    executions = _with_cost(executions, day)
+    executions = _with_cost(executions, day, generator)
     common = {"split": split, "excluded": excluded}
-    baseline = [e for e in executions if e["variant"] == BASELINE_VARIANT]
+    baseline = [e for e in executions if e["variant"] == baseline_variant]
     agentic = [e for e in executions if e["variant"] == AGENTIC_VARIANT]
     kept = {i["id"] for i in items if i["split"] == split and i["id"] not in set(excluded)}
     return {
@@ -113,7 +118,7 @@ def analyze_step8(
     }
 
 
-def _run_dev(cycle: int, run_dir: Path) -> dict[str, Any]:
+def _run_dev(cycle: int, run_dir: Path, generator_name: str = GENERATOR) -> dict[str, Any]:
     from ailab_rag import cli
     from ailab_rag.agentic import run_agentic_item
     from ailab_rag.campaign import read_jsonl, run_campaign
@@ -126,10 +131,11 @@ def _run_dev(cycle: int, run_dir: Path) -> dict[str, Any]:
     excluded = sorted(excluded_items(AUDIT))
     all_items = read_jsonl(GOLDEN_V5)
     items = [i for i in all_items if i["split"] == "dev" and i["id"] not in set(excluded)]
+    baseline_variant = EXPLORATION_BASELINES.get(generator_name, BASELINE_VARIANT)
     baseline = read_jsonl(
-        EXPERIMENT_DIR / "runs" / BASELINE_RUN / f"executions-{BASELINE_VARIANT}.jsonl"
+        EXPERIMENT_DIR / "runs" / BASELINE_RUN / f"executions-{baseline_variant}.jsonl"
     )
-    generator = generators()[GENERATOR]
+    generator = generators()[generator_name]
     guidance = GUIDANCES[cycle]
 
     async def runner(item: dict, variant: str, repeat: int, *, reraise) -> dict:
@@ -155,16 +161,25 @@ def _run_dev(cycle: int, run_dir: Path) -> dict[str, Any]:
         )
     )
     executions = baseline + agentic
-    invalid = invalid_v2_executions(_with_cost(executions, day))
+    invalid = invalid_v2_executions(_with_cost(executions, day, generator_name))
     if invalid:
         raise SystemExit(f"{len(invalid)} exécutions hors du schéma v2 (rangs {invalid[:10]})")
-    summary = analyze_step8(all_items, executions, split="dev", excluded=excluded, day=day)
+    summary = analyze_step8(
+        all_items,
+        executions,
+        split="dev",
+        excluded=excluded,
+        day=day,
+        generator=generator_name,
+        baseline_variant=baseline_variant,
+    )
     summary["run"] = {
         "day": day,
         "cycle": cycle,
         "guidance": guidance,
         "commit": cli.current_commit(ROOT),
-        "generator": GENERATOR,
+        "generator": generator_name,
+        "exploration": generator_name != GENERATOR,
         "settings": generator.settings,
         "baseline_run": f"runs/{BASELINE_RUN}",
         "golden": cli.display_path(GOLDEN_V5, ROOT),
@@ -185,6 +200,12 @@ def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Étape 8 de la 002 : RAG agentique")
     parser.add_argument("--split", choices=["dev", "test"], required=True)
     parser.add_argument("--cycle", type=int, default=1)
+    parser.add_argument(
+        "--generator",
+        default=GENERATOR,
+        choices=[GENERATOR, *EXPLORATION_BASELINES],
+        help="un autre générateur : exploration hors protocole, sur le dev seulement",
+    )
     args = parser.parse_args(argv)
     if args.split == "test":
         raise SystemExit(
@@ -194,8 +215,9 @@ def main(argv: list[str] | None = None) -> None:
     if args.cycle not in GUIDANCES:
         raise SystemExit(f"cycle {args.cycle} inconnu : cycles écrits {sorted(GUIDANCES)}")
     os.environ.setdefault("PYDANTIC_AI_NO_BANNER", "1")
-    run_dir = EXPERIMENT_DIR / "runs" / f"{date.today()}-step8-dev-cycle{args.cycle}"
-    s = _run_dev(args.cycle, run_dir)
+    suffix = "" if args.generator == GENERATOR else f"-{args.generator}"
+    run_dir = EXPERIMENT_DIR / "runs" / f"{date.today()}-step8-dev-cycle{args.cycle}{suffix}"
+    s = _run_dev(args.cycle, run_dir, args.generator)
     c, b, a, t = s["correct"], s["baseline"], s["agentic"], s["tools"]
     print(
         f"cycle {args.cycle} : correct {b['correct']:.3f} → {a['correct']:.3f} "

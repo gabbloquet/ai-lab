@@ -97,3 +97,25 @@ def test_the_launcher_refuses_a_test_run_and_an_unknown_cycle() -> None:
         main(["--split", "test"])
     with pytest.raises(SystemExit, match="cycle"):
         main(["--split", "dev", "--cycle", "4"])
+
+
+def test_an_exploration_compares_another_generator_to_its_own_top_k_20() -> None:
+    items = [item(f"rq-{i:03d}") for i in range(30)]
+    rows = [
+        execution(i["id"], v, r, right=True, tool_calls=t)
+        for i in items
+        for v, t in (("gemini_4_carbon", None), ("agentic_rag", 2))
+        for r in range(3)
+    ]
+
+    result = analyze_step8(
+        items,
+        rows,
+        split="dev",
+        excluded=[],
+        generator="gemini-4-carbon",
+        baseline_variant="gemini_4_carbon",
+    )
+
+    assert result["baseline"]["n_executions"] == 90
+    assert result["agentic"]["cost_usd_mean"] == pytest.approx((10_000 * 2.0 + 300 * 10.0) / 1e6)
