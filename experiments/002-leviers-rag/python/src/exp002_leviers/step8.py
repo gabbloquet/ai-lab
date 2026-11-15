@@ -41,6 +41,11 @@ GUIDANCES: dict[int, str] = {
 }
 
 
+# Le cycle gelé (règle écrite avant le cycle 2 : meilleur `correct` sur le `dev`, et à moins d'un
+# point le moins cher). Cycle 2 : 0,901 contre 0,898, et 0,007978 $ contre 0,007980 $.
+FROZEN_CYCLE = 2
+
+
 def tool_stats(executions: list[dict]) -> dict[str, Any]:
     """`tool_calls` (moyenne, médiane, distribution), part des questions au plafond, part des
     appels qui lisent un article."""

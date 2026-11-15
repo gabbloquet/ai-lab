@@ -2,7 +2,14 @@
 
 import pytest
 
-from exp002_leviers.step8 import BASELINE_VARIANT, GUIDANCES, analyze_step8, main, tool_stats
+from exp002_leviers.step8 import (
+    BASELINE_VARIANT,
+    FROZEN_CYCLE,
+    GUIDANCES,
+    analyze_step8,
+    main,
+    tool_stats,
+)
 
 GOLD = "LEGIARTI000032226842"
 
@@ -47,6 +54,7 @@ def test_the_first_cycle_uses_the_guidance_written_before_any_dev_run() -> None:
     assert GUIDANCES[1] == AGENTIC_GUIDANCE
     assert "trois recherches reformulées" in GUIDANCES[2] and GUIDANCES[2] != GUIDANCES[1]
     assert BASELINE_VARIANT == "mistral_large_4"
+    assert FROZEN_CYCLE == 2
 
 
 def test_the_analysis_compares_the_agentic_variant_to_top_k_20_with_large_4() -> None:

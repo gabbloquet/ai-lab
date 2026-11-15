@@ -25,7 +25,7 @@ Toutes les étapes ont tourné sur les trois mêmes générateurs : `mistral-sma
 | 5 — [006](../006-consigne-abstention/README.md) | consigne d'abstention plus exigeante | RAG à 20 passages | v3, `test` 190 | moins de réponses inventées avec Mistral Small (−9,2 pts) ; non concluant avec Ministral ; plus d'abstentions à tort avec Gemini (+8,7 pts) | non concluant avec Mistral Small (−3,3 pts, garde franchie) et Ministral ; plus d'abstentions à tort avec Gemini (+15,1 pts, −9,0 pts de `correct`) |
 | 6 — [ci-dessous](#étape-6--sabstenir-daprès-le-score-de-reclassement) | abstention si le meilleur score Cohere est sous un seuil | RAG à 20 passages | v4, `test` 234 | — | non concluant pour les trois modèles : réponses inventées −2,6 (Mistral Small), −3,9 (Ministral), 0 (Gemini) pts ; garde tenue |
 | 7 — [ci-dessous](#étape-7--le-générateur-comme-levier) | générateur : Mistral Large 4, Gemini 4 Carbon, Gemma 4 31B, Mistral Small avec raisonnement | RAG à 20 passages avec Mistral Small | v5, `dev` 118 | gelée le 2026-11-13 ; verdict au run consolidé 2 (`test` v5). Sur le `dev` : moins de réponses inventées avec les quatre candidats ; Large 4 retenu pour l'étape 8 | — |
-| 8 — [ci-dessous](#étape-8--rag-agentique) | RAG agentique : recherche par outil MCP, autant d'appels que voulu (6 au plus) | RAG à 20 passages avec Mistral Large 4 | v5, `dev` 118 | verdict au run consolidé 2 (`test` v5) | — |
+| 8 — [ci-dessous](#étape-8--rag-agentique) | RAG agentique : recherche par outil MCP, autant d'appels que voulu (6 au plus) | RAG à 20 passages avec Mistral Large 4 | v5, `dev` 118 | gelée le 2026-11-15 ; verdict au run consolidé 2 (`test` v5). Sur le `dev` : +2,8 pts de `correct` (non concluant), 2,4 fois plus cher | — |
 
 Les étapes 4 et 5 ont pris pour baseline la meilleure configuration du moment (20 passages) : l'expérience mêle donc des deltas isolés (contre le RAG naïf) et des deltas cumulés (contre 20 passages).
 
@@ -441,6 +441,20 @@ Ce sont celles de l'étape 7 : `correct`, réponses inventées, abstentions à t
 - la part des appels à `consommation_get_article`.
 
 Le coût compte tous les appels au modèle de la boucle agentique, sur le barème gelé de l'étape 7.
+
+### Gel de l'étape 8 (2026-11-15)
+
+**L'étape 8 est gelée** après ses deux cycles `dev` ([rapport](results/2026-11-15-etape-8-dev.md)). Ce qui est gelé, à ce commit :
+- le serveur MCP (`experiments/002-leviers-rag/mcp_server`) et ses deux outils ;
+- le client agentique (`ailab_rag.agentic`) ;
+- la consigne du cycle 2 (`exp002_leviers.step8.GUIDANCES[2]`, `FROZEN_CYCLE = 2`) ;
+- le lanceur.
+
+**Cycle gelé : le cycle 2**, par la règle écrite avant son run. Son `correct` est le meilleur (0,901 contre 0,898), et c'est le moins cher (0,007978 $ contre 0,007980 $).
+
+**Sur le `dev`** : +2,8 points de `correct` contre `top_k_20` avec Large 4, non concluant. `retrieval_miss` passe de 6,7 % à 1,9 %, et le coût par question est 2,4 fois plus élevé.
+
+**Verdict** : au run consolidé 2, sur le `test` v5.
 
 ## Limites
 

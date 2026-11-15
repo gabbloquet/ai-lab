@@ -10,6 +10,7 @@
 - **Chantier 3 fait (2026-11-12)** : le [run `dev` de contrôle](results/2026-11-12-controle-dev-v5.md) reproduit les configurations gelées des étapes 1 à 6 sur la v5, notée par la spec v2. Les leviers gardent le sens qu'ils avaient sur la v4, et les modes récents sont les plus durs (`set` sous 0,40). La spec v2 et la v5 sont publiées. L'étape 7 peut commencer.
 - **Chantier 4, étape 7, gelée (2026-11-13)** : le run `dev` des quatre candidats est fait ([rapport](results/2026-11-12-etape-7-dev.md)). Les quatre font moins inventer que Mistral Small. La règle du protocole retient **Mistral Large 4** comme générateur de l'étape 8. Le verdict viendra du run consolidé 2.
 - **Chantier 5, étape 8 : protocole écrit (2026-11-14)**. RAG agentique avec Mistral Large 4 : deux outils MCP (recherche de 5 passages, lecture d'un article), 6 appels au plus, serveur Python en stdio, 2 cycles `dev` sur le prompt et les descriptions des outils. Le serveur s'écrit ensemble.
+- **Chantier 5, étape 8, gelée (2026-11-15)** : le serveur MCP, le client agentique et deux cycles `dev` sont faits ([rapport](results/2026-11-15-etape-8-dev.md)). Le cycle 2 est gelé. Sur le `dev`, +2,8 points de `correct` (non concluant) et un coût 2,4 fois plus élevé. Il reste le chantier 6, le run consolidé 2, dont le protocole s'écrit ensemble.
 - D'après la pré-étude des erreurs (README, 2026-11-10, `dev` v4) :
   - la récupération est saturée : à 20 passages, elle ne rate plus que 3 items ;
   - les erreurs qui restent viennent de la génération, surtout des listes incomplètes en `set` ;
