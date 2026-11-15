@@ -466,6 +466,58 @@ Le coût compte tous les appels au modèle de la boucle agentique, sur le barèm
 - **Ce run a révélé un défaut du lanceur**, corrigé avant toute lecture : l'analyse prenait la baseline de Large 4 au lieu de celle de Carbon. Il a été réanalysé à partir des exécutions enregistrées, sans nouvel appel.
 - **Cela ne change pas l'étape gelée.** Son générateur reste Large 4, comme le veut la règle de l'étape 7. Ce résultat dit seulement que le gain de l'agentique dépend du modèle.
 
+## Run consolidé 2 sur le golden set v5
+
+Protocole écrit le 2026-11-15, après le gel des étapes 7 et 8, et avant tout run sur le `test` v5. Les choix sont du propriétaire, le 2026-11-15.
+
+### Question du run
+
+Sur le `test` v5, notés par la spec `rag-qa/v2`, quels leviers des étapes 1 à 8 restent concluants ? Et quel est le tableau final des deltas de la 002, coût et latence compris ?
+
+### Ce qui tourne
+
+| Bloc | Configurations | Générateurs | Comparaisons et verdict |
+|---|---|---|---|
+| A — étapes 1 à 6 | `closed_book`, `naive_rag`, `query_rewrite`, `top_k_20`, `rerank_cohere`, `abstain_strict`, et `abstain_low_rerank` (calculée sans appel) | `mistral-small-2603`, `ministral-14b-2512`, `gemini-3.5-flash-lite` | Les 6 comparaisons de `correct` du run consolidé 1, en famille de Holm par générateur ; c'est le verdict corrigé qui porte le verdict. Les étapes 5 et 6 ont leur verdict à deux critères (spec v2, § 8.2) |
+| B — étape 7 | `top_k_20` avec `mistral-large-4-0`, `gemini-4-carbon`, `gemma-4-31b-it` et `mistral-small-2603` en raisonnement | contre `top_k_20` avec Mistral Small (bloc A) | `correct` et réponses inventées, chacun en famille de Holm de 4 comparaisons (§ 8.3) |
+| C — étape 8 | `agentic_rag`, cycle 2 gelé, avec Large 4 | contre `top_k_20` avec Large 4 (bloc B) | `correct`, une seule comparaison, verdict par l'IC (§ 8.1) |
+| C' — secondaire, déclarée d'avance | `agentic_rag`, cycle 2, avec Carbon | contre `top_k_20` avec Carbon (bloc B) | `correct`, IC publié. Elle confirme ou non l'exploration du `dev` (étape 8), et ne porte aucun verdict d'étape |
+
+**Fixé** :
+- le golden set v5 : n_test = 234 items valides (12 écartés par l'audit de la v1), dont 51 sans réponse ;
+- k = 3 répétitions ;
+- tous les réglages gelés des étapes : générateurs, réflexion, prompts, consignes, serveur MCP ;
+- le barème de l'étape 7, relevé le 2026-11-12 ;
+- la spec `rag-qa/v2`.
+
+**Mesures publiées sans verdict** : les agrégats du § 7 pour chaque configuration (coût par question, latence médiane et au 95ᵉ centile, tokens, `tool_calls`, `failure`, `premise`, `correct` par mode).
+
+### Règles
+
+- **Un seul run, avec `--final`**, après le commit de gel, sur un arbre git propre. Pour le bloc A, le contrôle de reproduction passe avant tout appel payant.
+- **Aucune analyse item par item du `test` avant le rapport.** Un incident d'infrastructure se relance, sans rien régler : la campagne reprend les exécutions déjà enregistrées.
+- **Le `test` v5 est le `test` v4, complété des champs v2** : c'est son troisième regard en agrégat, après le run consolidé 1 et l'étape 6. Aucune configuration n'a été réglée dessus, et c'est une limite écrite.
+- **Latence** : toutes les configurations tournent sur la même machine, pendant la même période, et se comparent entre elles. Le réseau des fournisseurs y est compris, et les embeddings de la recherche viennent des caches.
+- **Tarif de Carbon** : celui du jour du run. S'il change (le 1ᵉʳ décembre), le rapport cite les deux tarifs.
+- **Générateurs du bloc A** : les trois générateurs de la série seulement, pour rester comparable au run consolidé 1 (décision ouverte du plan, tranchée le 2026-11-15).
+
+### Taille et MDE
+
+- **`correct`** : avec s_d = 0,31 à 0,35 et n = 234, le MDE vaut 5,7 à 6,4 points, et 6,8 à 7,7 points avec Holm sur 4 ou 6 comparaisons.
+- **Réponses inventées** : avec n = 51, le MDE vaut 12 à 19 points.
+
+### Lancement
+
+```
+uv run --env-file .env python -m exp002_leviers.consolidated2 --final --block A
+uv run --env-file .env python -m exp002_leviers.consolidated2 --final --block B
+uv run --env-file .env python -m exp002_leviers.consolidated2 --final --block C
+uv run --env-file .env python -m exp002_leviers.consolidated2 --final --block report
+```
+
+- **Ordre.** Les blocs A, B et C tournent en parallèle. Le bloc `report` vient ensuite : il réunit les verdicts dans `runs/<date>-consolidated2-test/summary.json`.
+- **Coût et durée estimés** : environ 45 $, et 3 à 4 h à cause du quota de Gemma (environ 4 requêtes par minute).
+
 ## Limites
 
 - Celles de chaque étape. Les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention. Le run consolidé écarte ces 12 questions.

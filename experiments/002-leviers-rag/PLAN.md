@@ -11,6 +11,7 @@
 - **Chantier 4, étape 7, gelée (2026-11-13)** : le run `dev` des quatre candidats est fait ([rapport](results/2026-11-12-etape-7-dev.md)). Les quatre font moins inventer que Mistral Small. La règle du protocole retient **Mistral Large 4** comme générateur de l'étape 8. Le verdict viendra du run consolidé 2.
 - **Chantier 5, étape 8 : protocole écrit (2026-11-14)**. RAG agentique avec Mistral Large 4 : deux outils MCP (recherche de 5 passages, lecture d'un article), 6 appels au plus, serveur Python en stdio, 2 cycles `dev` sur le prompt et les descriptions des outils. Le serveur s'écrit ensemble.
 - **Chantier 5, étape 8, gelée (2026-11-15)** : le serveur MCP, le client agentique et deux cycles `dev` sont faits ([rapport](results/2026-11-15-etape-8-dev.md)). Le cycle 2 est gelé. Sur le `dev`, +2,8 points de `correct` (non concluant) et un coût 2,4 fois plus élevé. Il reste le chantier 6, le run consolidé 2, dont le protocole s'écrit ensemble.
+- **Chantier 6, run consolidé 2 : protocole écrit (2026-11-15)**. Blocs A (étapes 1 à 6, 3 générateurs), B (étape 7), C (étape 8) et C' (Carbon agentique, secondaire, déclarée d'avance). Holm par bloc, un seul run `--final`.
 - D'après la pré-étude des erreurs (README, 2026-11-10, `dev` v4) :
   - la récupération est saturée : à 20 passages, elle ne rate plus que 3 items ;
   - les erreurs qui restent viennent de la génération, surtout des listes incomplètes en `set` ;
@@ -76,8 +77,8 @@ Deux critères : `correct` et le taux de réponses inventées. Le coût se compa
 
 ## Décisions ouvertes
 
-- **Combien de regards sur le `test` v5 ?** Soit les étapes 7 et 8 ont chacune leur run final, puis le run consolidé 2 rejoue tout. Soit elles s'arrêtent à leur gel sur le `dev`, et leur seul run `test` est le run consolidé 2. Recommandation : la seconde, pour ne regarder qu'une fois le `test` v5.
-- **Générateurs du run consolidé 2** : les trois actuels seulement, ou aussi ceux de l'étape 7 ? C'est une question de coût.
+- ~~**Combien de regards sur le `test` v5 ?**~~ : tranché le 2026-11-12. Les étapes 7 et 8 s'arrêtent à leur gel ; leur seul run `test` est le run consolidé 2.
+- ~~**Générateurs du run consolidé 2**~~ : tranché le 2026-11-15. Les trois actuels pour les étapes 1 à 6 ; les candidats de l'étape 7 en `top_k_20` seulement.
 - **Taille de la v5 par mode**, à fixer d'après le MDE visé.
 
 ## Écartés, et pourquoi
