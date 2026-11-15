@@ -115,11 +115,11 @@ Run consolidé du 2026-11-09, sur le `test` de `rag-qa/v4` (234 items valides, k
 
 Consigne d'abstention, critères de l'étape 5 : **non concluant** avec Mistral Small (réponses inventées −3,3 points [−9,3 ; +2,7], abstentions à tort +3,5 [+0,8 ; +6,1], garde franchie) et avec Ministral 14B (−3,9 [−11,3 ; +3,5]) ; **moins bonne** avec Gemini Flash-Lite (abstentions à tort +15,1 [+9,8 ; +20,5]).
 
-**Réponse à la question.** Deux leviers font gagner des réponses justes : **le RAG naïf** (+28 à +44 points) et **envoyer plus de bons articles au générateur**, soit par 20 passages (+6 à +10 points), soit par un reclassement des 50 premiers candidats en 5 (+4 à +8 points, à 2,5 fois moins de tokens). Ces deux façons se valent (−1 à −2 points, non concluant). La reformulation de la question ne fait rien gagner. La consigne d'abstention ne fait gagner à aucun modèle et coûte 9 points à Gemini.
+**Réponse à la question.** Deux leviers font gagner des réponses justes : **le RAG naïf** (+28 à +44 points) et **envoyer plus de bons articles au générateur**, soit par 20 passages (+6 à +10 points), soit par un reclassement des 50 premiers candidats en 5 (+4 à +8 points, à 2,5 fois moins de tokens). Entre ces deux façons, l'écart est non concluant (−1,0 à −2,1 points) : les IC excluent un gain de 3 points pour le reclassement avec Mistral Small et Gemini, mais pas une perte de 3 points (bornes basses de −5,0 à −6,1). La reformulation ne change rien à 5 points près avec Mistral Small et Gemini ; avec Ministral, un gain de 5 points n'est pas exclu (borne haute +5,2). *(Phrase corrigée le 2026-11-15 : la version précédente écrivait « se valent ».)* La consigne d'abstention ne fait gagner à aucun modèle et coûte 9 points à Gemini.
 
 **H1 est confirmée, sauf sur un point.** Les étapes 1 à 4 se retrouvent dans le même sens, Mistral Small restant non concluant pour 20 passages comme à l'étape 3. En revanche, la baisse des réponses inventées par la consigne d'abstention avec Mistral Small (−9,2 points à l'étape 5) ne se retrouve pas : −3,3 points, non concluant. Le nouveau delta reste dans l'IC de l'étape 5 (−15,7 à −2,6 points), mais n'exclut plus 0 : sur les mêmes 51 questions, le A de ce run invente moins que celui de l'étape 5 (0,222 contre 0,261), et l'effet de la consigne y est plus faible qu'on ne l'avait mesuré.
 
-**Configuration recommandée sur ce corpus** : 20 passages, ou le reclassement en 5 pour réduire les tokens au prix d'un fournisseur de plus. Pas de consigne d'abstention commune aux modèles.
+**Configuration recommandée sur ce corpus** : 20 passages. Le reclassement en 5 réduit les tokens de 2,5 fois, au prix d'un fournisseur de plus et sans qu'une perte de 3 points soit exclue. Pas de consigne d'abstention commune aux modèles.
 
 ## Pré-étude après le run consolidé : d'autres types de recherche (2026-11-09, `dev` seulement)
 
@@ -500,6 +500,7 @@ Sur le `test` v5, notés par la spec `rag-qa/v2`, quels leviers des étapes 1 à
 - **Latence** : toutes les configurations tournent sur la même machine, pendant la même période, et se comparent entre elles. Le réseau des fournisseurs y est compris, et les embeddings de la recherche viennent des caches.
 - **Tarif de Carbon** : celui du jour du run. S'il change (le 1ᵉʳ décembre), le rapport cite les deux tarifs.
 - **Générateurs du bloc A** : les trois générateurs de la série seulement, pour rester comparable au run consolidé 1 (décision ouverte du plan, tranchée le 2026-11-15).
+- **Lecture des « non concluant »** (décidée le 2026-11-15, après le gel et pendant le run, avant le bloc `report` ; écrite ici après lui, parce que le lanceur exige un arbre git propre). Pour chaque comparaison non concluante, le rapport dit si l'IC à 95 % exclut un gain ou une perte de l'écart utile écrit au protocole (borne haute < +δ, borne basse > −δ). On n'écrit « se valent » que si les deux sont exclus. Cette lecture ne change aucun verdict et n'a pas de correction de Holm.
 
 ### Taille et MDE
 
