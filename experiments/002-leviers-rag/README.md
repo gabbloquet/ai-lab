@@ -1,8 +1,8 @@
 # 002 — Notre RAG répond mal : quels sont les plus gros leviers ?
 
-> **Statut :** run consolidé conclu le 2026-11-09 ([rapport](results/2026-11-09-run-consolide-test.md)) ; étape 6 conclue le 2026-11-10 ([rapport](results/2026-11-10-etape-6-test.md))
+> **Statut : conclue le 2026-11-15** par le run consolidé 2 ([rapport](results/2026-11-15-run-consolide-2-test.md)). Avant lui : le run consolidé 1 le 2026-11-09 ([rapport](results/2026-11-09-run-consolide-test.md)) et l'étape 6 le 2026-11-10 ([rapport](results/2026-11-10-etape-6-test.md))
 > **Domaines :** [`droit-consommation`](../../domains/droit-consommation/README.md)
-> **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) (publiée)
+> **Spec de notation :** [`rag-qa/v1`](../../evals/spec/rag-qa/v1/SPEC.md) jusqu'au run consolidé 1, puis [`rag-qa/v2`](../../evals/spec/rag-qa/v2/SPEC.md) (golden set v5), toutes deux publiées
 
 Une seule expérience, découpée en étapes (règle 1 du lab). Chaque étape juge un levier contre une baseline gelée, avec son propre protocole, son commit de gel et un seul run final. L'expérience conclut par le tableau des deltas de tous les leviers.
 
@@ -518,6 +518,39 @@ uv run --env-file .env python -m exp002_leviers.consolidated2 --final --block re
 
 - **Ordre.** Les blocs A, B et C tournent en parallèle. Le bloc `report` vient ensuite : il réunit les verdicts dans `runs/<date>-consolidated2-test/summary.json`.
 - **Coût et durée estimés** : environ 45 $, et 3 à 4 h à cause du quota de Gemma (environ 4 requêtes par minute).
+
+## Verdict du run consolidé 2 : clôture de la 002 (2026-11-15)
+
+Il porte sur le `test` v5 (234 items valides, k = 3), noté par la spec `rag-qa/v2` ([rapport](results/2026-11-15-run-consolide-2-test.md)).
+
+| Levier | Mistral Small | Ministral 14B | Gemini Flash-Lite |
+|---|---|---|---|
+| 1. RAG naïf contre modèle seul | **+35,9 pts** | **+44,0 pts** | **+27,6 pts** |
+| 2. Reformulation | non concluant | non concluant | non concluant |
+| 3. 20 passages contre 5 | non concluant après Holm (+5,4) | non concluant (+4,4) | **+9,4 pts** |
+| 4. Reclassement, contre 20 passages | non concluant | non concluant | non concluant |
+| 5. Consigne d'abstention (deux critères) | compromis : −8,5 pts de réponses inventées, garde franchie | **meilleure** : −4,6 pts de réponses inventées, garde tenue | **moins bonne** : +14,2 pts d'abstentions à tort |
+| 6. Seuil Cohere (deux critères) | non concluant | non concluant | non concluant |
+
+**Étape 7, le générateur** (contre Mistral Small avec 20 passages, `correct` 0,815, réponses inventées 0,248) :
+
+| Candidat | `correct` | Réponses inventées |
+|---|---|---|
+| Mistral Large 4 | **+5,6 pts** | **−23,5 pts** |
+| Gemini 4 Carbon | **+7,1 pts** | **−24,8 pts** |
+| Gemma 4 31B | non concluant (+4,4) | **−24,8 pts** |
+| Mistral Small en raisonnement | non concluant (−0,1) | **−16,3 pts** |
+
+**Étape 8, le RAG agentique avec Large 4** : non concluant (+2,8 points), pour un coût 2,2 fois plus élevé et une latence 1,9 fois plus longue.
+
+**Comparaison secondaire, déclarée d'avance** : le RAG agentique avec Carbon donne **+6,7 points** contre son RAG à 20 passages. Avec 0,953 de `correct` et aucune réponse inventée, c'est la meilleure configuration de la série, pour 0,025 $ et 21 s par question.
+
+**Conclusion de la 002.**
+- **Les plus gros leviers, dans l'ordre** :
+  1. le RAG lui-même ;
+  2. le générateur, qui fait presque disparaître les réponses inventées ;
+  3. pour un modèle qui sait se servir des outils, le RAG agentique.
+- **Les leviers de récupération et de consigne pèsent peu** une fois le RAG à 20 passages en place.
 
 ## Limites
 

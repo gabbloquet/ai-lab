@@ -12,6 +12,7 @@
 - **Chantier 5, étape 8 : protocole écrit (2026-11-14)**. RAG agentique avec Mistral Large 4 : deux outils MCP (recherche de 5 passages, lecture d'un article), 6 appels au plus, serveur Python en stdio, 2 cycles `dev` sur le prompt et les descriptions des outils. Le serveur s'écrit ensemble.
 - **Chantier 5, étape 8, gelée (2026-11-15)** : le serveur MCP, le client agentique et deux cycles `dev` sont faits ([rapport](results/2026-11-15-etape-8-dev.md)). Le cycle 2 est gelé. Sur le `dev`, +2,8 points de `correct` (non concluant) et un coût 2,4 fois plus élevé. Il reste le chantier 6, le run consolidé 2, dont le protocole s'écrit ensemble.
 - **Chantier 6, run consolidé 2 : protocole écrit (2026-11-15)**. Blocs A (étapes 1 à 6, 3 générateurs), B (étape 7), C (étape 8) et C' (Carbon agentique, secondaire, déclarée d'avance). Holm par bloc, un seul run `--final`.
+- **Chantier 6 fait, la 002 est conclue (2026-11-15)** : le run consolidé 2 a tourné sur le `test` v5 ([rapport](results/2026-11-15-run-consolide-2-test.md)). Les plus gros leviers sont, dans l'ordre, le RAG, le générateur, puis le RAG agentique pour un modèle qui sait se servir des outils. La meilleure configuration est Carbon agentique (0,953) ; le meilleur compromis est Large 4 avec 20 passages (0,870, 0,003 $).
 - D'après la pré-étude des erreurs (README, 2026-11-10, `dev` v4) :
   - la récupération est saturée : à 20 passages, elle ne rate plus que 3 items ;
   - les erreurs qui restent viennent de la génération, surtout des listes incomplètes en `set` ;
