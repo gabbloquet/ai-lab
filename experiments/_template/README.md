@@ -72,6 +72,8 @@ Les résultats `dev` éventuels vont dans une section à part, signalée comme t
 
 Pour chaque modèle : **B meilleure**, **B moins bonne** ou **non concluant**, avec le delta et son IC. Une phrase d'interprétation au plus.
 
+Pour un **non concluant**, dire si l'IC exclut le plus petit écart qui compte, en gain et en perte. Sans cela, ne pas écrire que A et B se valent.
+
 ## Limites
 
 Ce que l'expérience ne permet pas de conclure, les biais connus, les incidents de run, et les vérifications de versions ou de specs externes (mention « vérifié le <date> » ou « non vérifié »).
