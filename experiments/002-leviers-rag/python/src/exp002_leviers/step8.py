@@ -97,7 +97,7 @@ def analyze_step8(
         "correct": rag_qa_v2.compare(
             items,
             executions,
-            baseline=BASELINE_VARIANT,
+            baseline=baseline_variant,
             variant=AGENTIC_VARIANT,
             metric="correct",
             direction="higher_better",
@@ -106,7 +106,7 @@ def analyze_step8(
         "hallucination": rag_qa_v2.compare(
             items,
             executions,
-            baseline=BASELINE_VARIANT,
+            baseline=baseline_variant,
             variant=AGENTIC_VARIANT,
             metric="hallucination",
             direction="lower_better",

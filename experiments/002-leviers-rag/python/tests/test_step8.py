@@ -118,4 +118,5 @@ def test_an_exploration_compares_another_generator_to_its_own_top_k_20() -> None
     )
 
     assert result["baseline"]["n_executions"] == 90
+    assert result["correct"]["n"] == 30 and result["hallucination"]["n"] == 0
     assert result["agentic"]["cost_usd_mean"] == pytest.approx((10_000 * 2.0 + 300 * 10.0) / 1e6)

@@ -458,6 +458,14 @@ Le coût compte tous les appels au modèle de la boucle agentique, sur le barèm
 
 **Exploration hors protocole (2026-11-15, à la demande du propriétaire).** Le même RAG agentique, gelé au cycle 2, avec Gemini 4 Carbon (réflexion `low`), contre le `top_k_20` de Carbon au run `dev` de l'étape 7. Elle se fait sur le `dev` seulement, sans réglage, et ne change ni la configuration gelée ni le générateur de l'étape. Lancement : `python -m exp002_leviers.step8 --split dev --cycle 2 --generator gemini-4-carbon`.
 
+**Résultat de l'exploration (`dev`, sans verdict)** : `runs/2026-11-15-step8-dev-cycle2-gemini-4-carbon/`.
+- **Avec Carbon, l'agentique gagne nettement plus qu'avec Large 4.** `correct` passe de 0,859 à 0,918 : +5,9 points [+0,1 ; +11,8], contre +2,8 non concluant avec Large 4.
+- **Le gain vient de la récupération et des abstentions à tort.** `retrieval_miss` passe de 8,9 % à 2,6 %, et les abstentions à tort de 13,7 % à 5,9 %. Les réponses inventées restent à 0.
+- **Carbon cherche autrement.** 40 % de ses appels lisent un article entier (`get_article`), contre 5 % pour Large 4, et `multi_article` passe de 0,72 à 0,98.
+- **Le coût est bien plus lourd** : 0,027 $ par question au lieu de 0,009 $, et une latence médiane de 21,7 s au lieu de 6,5 s.
+- **Ce run a révélé un défaut du lanceur**, corrigé avant toute lecture : l'analyse prenait la baseline de Large 4 au lieu de celle de Carbon. Il a été réanalysé à partir des exécutions enregistrées, sans nouvel appel.
+- **Cela ne change pas l'étape gelée.** Son générateur reste Large 4, comme le veut la règle de l'étape 7. Ce résultat dit seulement que le gain de l'agentique dépend du modèle.
+
 ## Limites
 
 - Celles de chaque étape. Les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention. Le run consolidé écarte ces 12 questions.
