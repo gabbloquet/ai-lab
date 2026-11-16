@@ -120,7 +120,7 @@ Ce que les non concluants excluent, par rapport au plus petit écart qui compte 
 
 **À retenir.** Le RAG lui-même est le premier levier. Viennent ensuite, du même ordre sur `correct`, les 20 passages, le générateur et le RAG agentique ; le générateur se détache sur les réponses inventées, qu'il fait presque disparaître.
 
-**Limites.** Un seul corpus, où la récupération est presque saturée à 20 passages ; un `test` lu trois fois en agrégat ; un plus petit effet détectable de 6 à 8 points sur `correct` et de 12 à 19 sur les réponses inventées, au-dessus de plusieurs écarts utiles.
+**Limites.** Un seul corpus, à un passage par article ; un `test` lu trois fois en agrégat ; un plus petit effet détectable de 6 à 8 points sur `correct` et de 12 à 19 sur les réponses inventées, au-dessus de plusieurs écarts utiles.
 
 Les verdicts antérieurs (golden sets v1 à v4, spec v1) restent dans leurs rapports : [run consolidé 1](experiments/002-leviers-rag/results/2026-11-09-run-consolide-test.md), étapes [1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), [2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md), [3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md), [4](experiments/005-reclassement/results/2026-11-09-run-final-test.md), [5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) et [6](experiments/002-leviers-rag/results/2026-11-10-etape-6-test.md). Deux verdicts ont changé entre la v4 et la v5 : les 20 passages avec Ministral ne sont plus concluants (+6,8 puis +4,4), et la consigne d'abstention l'est devenue avec Ministral.
 

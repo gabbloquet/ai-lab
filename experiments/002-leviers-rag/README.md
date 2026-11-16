@@ -566,6 +566,10 @@ Il porte sur le `test` v5 (234 items valides, k = 3), noté par la spec `rag-qa/
 - **Les leviers de récupération et de consigne pèsent peu** une fois le RAG à 20 passages en place.
 - **Les 20 passages eux-mêmes ne sont pas un petit levier** : +4,4 à +9,4 points, concluant avec Gemini seulement, et les IC n'excluent pas un gain de 9 à 10 points avec les deux Mistral. Sur `correct`, ils sont du même ordre que le changement de générateur (+5,6 et +7,1) ; c'est sur les réponses inventées que le générateur se détache. *(Ajouté le 2026-11-16, d'après la lecture des non concluants.)*
 
+**Correction du 2026-11-16.** La phrase « la récupération est presque saturée dès 20 passages » (rapport du run consolidé 2, § Lecture) ne tient pas sur le `test` v5. Avec 20 passages, 12 % des questions avec réponse n'ont pas tous leurs articles attendus dans le contexte (`all_evidence` = 0,880), et 7,7 à 10,7 % des exécutions sont des `retrieval_miss` selon le générateur. La saturation venait du `dev` : 93 % des articles attendus sur le `dev` v4, 4 à 7 % de `retrieval_miss` au contrôle `dev` v5. Le RAG agentique de Carbon, qui reformule et lit des articles, ramène `retrieval_miss` à 1,5 %. Ce taux est une borne haute : un article manquant n'était pas toujours nécessaire à la réponse.
+
+Le même rapport écrit que « le reclassement n'apporte rien de plus ». L'IC exclut un gain de 3 points contre 20 passages avec Mistral Small et Gemini, pas avec Ministral ([−3,4 ; +4,0]). Au-delà de 20 passages, rien n'a été mesuré.
+
 ## Limites
 
 - Celles de chaque étape. Les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention. Le run consolidé écarte ces 12 questions.
