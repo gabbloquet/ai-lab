@@ -72,7 +72,13 @@ Les résultats `dev` éventuels vont dans une section à part, signalée comme t
 
 Pour chaque modèle : **B meilleure**, **B moins bonne** ou **non concluant**, avec le delta et son IC. Une phrase d'interprétation au plus.
 
-Pour un **non concluant**, dire si l'IC exclut le plus petit écart qui compte, en gain et en perte. Sans cela, ne pas écrire que A et B se valent.
+Pour un **non concluant**, dire si l'IC exclut le plus petit écart qui compte, en gain et en perte. Sans cela, ne pas écrire que A et B se valent, ni que le levier pèse peu.
+
+Pour un verdict **concluant**, dire aussi si l'IC exclut cet écart : l'effet est alors mesuré, mais sous le seuil utile.
+
+Quand l'expérience compare plusieurs leviers, les classer par leur delta et leur IC, pas par leur verdict. Si deux deltas voisins ont deux verdicts à cause de la correction de Holm, le dire.
+
+**Avant de publier le rapport :** relire le protocole et `git log` depuis le commit de gel, pour appliquer toute règle ajoutée entre-temps. **À la clôture :** mettre à jour le README racine dans le même commit (statut, résultats clés, domaines).
 
 ## Limites
 

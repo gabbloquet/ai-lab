@@ -36,6 +36,7 @@ Ce lab traite ces choix comme des hypothèses : une question, un protocole écri
 6. **Un jeu de données publié ne change plus.** Pour le corriger, on crée `v2`. Une version est considérée comme publiée dès qu'un rapport de résultats la cite.
 7. **Les données sont synthétiques ou publiques.** Synthétiques, elles sont produites par des scripts seedés et versionnés. Publiques, elles sont sous une licence compatible avec un dépôt public, et le README du domaine cite la source, la licence et la date d'extraction. Aucune donnée client, dans les deux cas.
 8. **Les comparaisons se font à modèle constant.** Les deltas sont calculés modèle par modèle. Les tokens ne sont jamais comparés d'un fournisseur à l'autre, car leurs tokenizers diffèrent.
+9. **Un « non concluant » n'est pas une égalité.** Le rapport dit si l'intervalle de confiance exclut le plus petit écart qui compte, en gain et en perte. Les leviers se classent par leur delta et leur intervalle, pas par leur verdict.
 
 ## Évaluation
 

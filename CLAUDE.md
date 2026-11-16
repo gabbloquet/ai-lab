@@ -20,6 +20,15 @@ Dépôt public : le laboratoire et la vitrine d'un AI Engineer freelance (Java /
 - Quand un levier est comparé à une baseline gelée de l'expérience, la baseline compte les cycles qu'elle a déjà reçus, et le levier a droit au même nombre de cycles sur `dev`.
 - Les comparaisons se font à modèle constant. Les tokens ne se comparent jamais d'un fournisseur à l'autre.
 
+## Lecture des verdicts
+
+- Un « non concluant » n'est ni une égalité ni un petit effet. Pour chaque non concluant, le rapport dit si l'IC exclut le plus petit écart qui compte, en gain et en perte. On n'écrit « se valent », « n'apporte rien » ou « pèse peu » que si l'IC l'exclut.
+- Un verdict concluant dont l'IC exclut le plus petit écart qui compte se signale de la même façon : l'effet est mesuré, mais sous le seuil utile.
+- Les leviers se classent par leur delta et leur IC, pas par leur verdict. Deux deltas voisins peuvent recevoir deux verdicts selon la taille de leur famille de Holm : le rapport le dit.
+- Avant de publier un rapport, relire le protocole et `git log` depuis le commit de gel : toute règle ajoutée entre-temps s'applique au rapport. Un rapport publié ne se modifie plus ; sa correction s'écrit, datée, dans le README de l'expérience.
+- À la clôture d'une expérience, le README racine est mis à jour dans le même commit : statut, résultats clés, domaines.
+- Claude relit chaque phrase de conclusion contre ces règles avant de proposer un rapport, et signale celles qui ne tiennent pas.
+
 ## Évaluation : spec partagée, implémentations par langage
 
 - Sont partagés, et neutres vis-à-vis du langage : les golden sets (`domains/<domaine>/golden/<famille>/vN/`), et sous `evals/spec/<famille>/vN/` les règles de notation (`SPEC.md`), le JSON Schema et les vecteurs de conformance (des cas accompagnés de leurs scores attendus).
