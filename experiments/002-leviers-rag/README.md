@@ -500,7 +500,7 @@ Sur le `test` v5, notés par la spec `rag-qa/v2`, quels leviers des étapes 1 à
 - **Latence** : toutes les configurations tournent sur la même machine, pendant la même période, et se comparent entre elles. Le réseau des fournisseurs y est compris, et les embeddings de la recherche viennent des caches.
 - **Tarif de Carbon** : celui du jour du run. S'il change (le 1ᵉʳ décembre), le rapport cite les deux tarifs.
 - **Générateurs du bloc A** : les trois générateurs de la série seulement, pour rester comparable au run consolidé 1 (décision ouverte du plan, tranchée le 2026-11-15).
-- **Lecture des « non concluant »** (décidée le 2026-11-15, après le gel et pendant le run, avant le bloc `report` ; écrite ici après lui, parce que le lanceur exige un arbre git propre). Pour chaque comparaison non concluante, le rapport dit si l'IC à 95 % exclut un gain ou une perte de l'écart utile écrit au protocole (borne haute < +δ, borne basse > −δ). On n'écrit « se valent » que si les deux sont exclus. Cette lecture ne change aucun verdict et n'a pas de correction de Holm.
+- **Lecture des « non concluant »** (décidée le 2026-11-15, après le gel et pendant le run, avant le bloc `report` ; écrite ici après lui, parce que le lanceur exige un arbre git propre). Pour chaque comparaison non concluante, le README dit, sous le verdict du run consolidé 2, si l'IC à 95 % exclut un gain ou une perte de l'écart utile écrit au protocole (borne haute < +δ, borne basse > −δ). Le rapport, publié le même soir, ne porte pas cette lecture. On n'écrit « se valent » que si les deux sont exclus. Cette lecture ne change aucun verdict et n'a pas de correction de Holm.
 
 ### Taille et MDE
 
@@ -545,12 +545,26 @@ Il porte sur le `test` v5 (234 items valides, k = 3), noté par la spec `rag-qa/
 
 **Comparaison secondaire, déclarée d'avance** : le RAG agentique avec Carbon donne **+6,7 points** contre son RAG à 20 passages. Avec 0,953 de `correct` et aucune réponse inventée, c'est la meilleure configuration de la série, pour 0,025 $ et 21 s par question.
 
+**Lecture des non concluants** (ajoutée le 2026-11-16, selon la règle du protocole ; calculée sur `runs/consolidated2-test/summary.json`). IC à 95 % en points, et écart utile δ écrit au protocole de chaque étape :
+
+| Comparaison (δ) | Mistral Small | Ministral 14B | Gemini Flash-Lite |
+|---|---|---|---|
+| reformulation − RAG naïf (5) | [−3,7 ; +3,4] : ni gain ni perte | [−3,3 ; +3,9] : ni gain ni perte | [−2,3 ; +5,2] : exclut une perte, pas un gain |
+| 20 passages − RAG naïf (3) | [+0,7 ; +10,1] : exclut une perte, pas un gain | [−0,2 ; +9,0] : exclut une perte, pas un gain | concluant |
+| reclassement − 20 passages (3) | [−5,9 ; +2,7] : exclut un gain, pas une perte | [−3,4 ; +4,0] : n'exclut ni l'un ni l'autre | [−5,2 ; +2,9] : exclut un gain, pas une perte |
+| reclassement − RAG naïf (3) | [−0,5 ; +8,2] : exclut une perte, pas un gain | [−0,2 ; +9,6] : exclut une perte, pas un gain | concluant |
+| seuil Cohere, réponses inventées (10) | [−9,4 ; +1,6] : ni baisse ni hausse | [−9,4 ; +1,6] : ni baisse ni hausse | [0 ; 0] : ni baisse ni hausse |
+
+- **Étape 7, `correct` (δ = 5)** : Gemma 4 31B, [−0,2 ; +9,1], exclut une perte, pas un gain ; Mistral Small en raisonnement, [−4,4 ; +4,1], ni gain ni perte.
+- **Étape 8 (δ = 3)** : agentique avec Large 4, [−0,5 ; +6,2], exclut une perte, pas un gain.
+
 **Conclusion de la 002.**
 - **Les plus gros leviers, dans l'ordre** :
   1. le RAG lui-même ;
   2. le générateur, qui fait presque disparaître les réponses inventées ;
   3. pour un modèle qui sait se servir des outils, le RAG agentique.
 - **Les leviers de récupération et de consigne pèsent peu** une fois le RAG à 20 passages en place.
+- **Les 20 passages eux-mêmes ne sont pas un petit levier** : +4,4 à +9,4 points, concluant avec Gemini seulement, et les IC n'excluent pas un gain de 9 à 10 points avec les deux Mistral. Sur `correct`, ils sont du même ordre que le changement de générateur (+5,6 et +7,1) ; c'est sur les réponses inventées que le générateur se détache. *(Ajouté le 2026-11-16, d'après la lecture des non concluants.)*
 
 ## Limites
 
