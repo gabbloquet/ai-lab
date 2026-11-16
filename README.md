@@ -48,7 +48,7 @@ Le principe est celui d'une suite de conformance, comme [JSON-Schema-Test-Suite]
 
 Une spec versionnée suit la même règle que les données : une fois publiée, elle ne change plus ; une correction donne une `v2`.
 
-**Exemple de golden set : [`rag-qa`](domains/droit-consommation/golden/rag-qa/README.md)** (droit de la consommation, v4, 339 questions). Il comprend neuf types de questions inspirés de benchmarks RAG publics (CRAG, MultiHop-RAG) : question directe, paraphrase, contexte perdu, plusieurs articles, comparaison, liste, fausse prémisse, question sans réponse… Les articles sont tirés par un script seedé, et non choisis par le LLM rédacteur. Chaque item est relu sur tout le corpus, preuves copiées mot pour mot à l'appui. Les questions sans réponse sont auditées, et les défauts connus sont écrits dans ses limites.
+**Exemple de golden set : [`rag-qa`](domains/droit-consommation/golden/rag-qa/README.md)** (droit de la consommation, v5, 366 questions : 120 pour itérer, 246 pour juger). Il comprend neuf types de questions inspirés de benchmarks RAG publics (CRAG, MultiHop-RAG) : question directe, paraphrase, contexte perdu, plusieurs articles, comparaison, liste, fausse prémisse, question sans réponse… Les articles sont tirés par un script seedé, et non choisis par le LLM rédacteur. Chaque item est relu sur tout le corpus, preuves copiées mot pour mot à l'appui. Les questions sans réponse sont auditées, et les défauts connus sont écrits dans ses limites.
 
 ## Expériences
 
@@ -57,14 +57,14 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 | Aspect | Expérience | Statut |
 |---|---|---|
 | Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Terminée : B meilleure de +24,6 pts avec Mistral small ; non concluant (plafond) avec Gemini Flash-Lite et Claude Haiku 5.5 |
-| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | Terminée (run consolidé sur le golden set v4) : le RAG naïf (+28 à +44 pts), puis plus de bons articles, par 20 passages (+6 à +10 pts) ou un reclassement en 5 (+4 à +8 pts, 2,5 fois moins de tokens) ; reformulation non concluante ; consigne d'abstention sans gain, moins bonne avec Gemini ; abstention sous un score de reclassement non concluante |
+| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | Conclue le 2026-11-15 (run consolidé 2, golden set v5) : le RAG naïf d'abord (+28 à +44 pts de `correct`) ; puis trois leviers du même ordre : 20 passages au lieu de 5 (+4,4 à +9,4 pts, concluant avec un modèle sur trois), un meilleur générateur (+5,6 et +7,1 pts, et 16 à 25 pts de réponses inventées en moins), le RAG agentique (+2,8 à +6,7 pts selon le modèle, concluant avec Gemini 4 Carbon) ; reformulation sans effet à 5 pts près avec deux modèles sur trois ; reclassement après 20 passages et abstention sous un score de reclassement non concluants ; consigne d'abstention utile ou nuisible selon le modèle |
 
 ### Par domaine
 
 | Domaine | Contenu | Expériences |
 |---|---|---|
 | [magasin](domains/magasin/README.md) | Catalogue d'environ 50 produits, 5 magasins, stocks (synthétiques) | 001 |
-| [droit-consommation](domains/droit-consommation/README.md) | Code de la consommation, 2 150 articles en vigueur au 13/07/2025 (LEGI, Licence Ouverte) ; golden set de 200 questions (v1), étendu à 339 (v4) | 002 (étapes 1 à 5) |
+| [droit-consommation](domains/droit-consommation/README.md) | Code de la consommation, 2 150 articles en vigueur au 13/07/2025 (LEGI, Licence Ouverte) ; golden set `rag-qa` de 200 questions (v1), étendu à 366 (v5) | 002 |
 
 ## Résultats clés
 
@@ -78,19 +78,51 @@ Chaque ligne renvoie au rapport daté qui l'a produite.
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `gemini-3.5-flash-lite` | `success` | 0,994 | 1,000 | +0,006 [−0,006 ; +0,018] | non concluant |
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `claude-haiku-5-5` | `success` | 0,996 | 1,000 | +0,004 [−0,002 ; +0,010] | non concluant |
 
-**002 — Les leviers du RAG**, [run consolidé](experiments/002-leviers-rag/results/2026-11-09-run-consolide-test.md) : six configurations dans un même run, golden set `rag-qa` v4, `test` 234 items valides, k = 3. Delta de `correct` (variante − baseline), IC à 95 % apparié, verdict après correction de Holm sur les six comparaisons de chaque modèle :
+**002 — Les leviers du RAG**, [run consolidé 2](experiments/002-leviers-rag/results/2026-11-15-run-consolide-2-test.md) : golden set `rag-qa` v5, spec `rag-qa/v2`, `test` 234 items valides, k = 3. Delta de `correct` (variante − baseline), IC à 95 % apparié. En gras : concluant, après correction de Holm quand plusieurs comparaisons forment une famille.
+
+*Leviers à générateur constant (étapes 1 à 4)*
 
 | Levier (étape) | Baseline | `mistral-small-2603` | `ministral-14b-2512` | `gemini-3.5-flash-lite` |
 |---|---|---|---|---|
-| RAG naïf, 5 passages (1) | modèle seul | **+0,339** [+0,268 ; +0,410] | **+0,439** [+0,369 ; +0,508] | **+0,281** [+0,208 ; +0,354] |
-| Reformulation de la question (2) | RAG naïf | −0,003 [−0,038 ; +0,032] | +0,013 [−0,027 ; +0,052] | +0,009 [−0,032 ; +0,049] |
-| 20 passages au lieu de 5 (3) | RAG naïf | +0,061 [+0,014 ; +0,108], non concluant après Holm | **+0,068** [+0,020 ; +0,116] | **+0,104** [+0,062 ; +0,146] |
-| Reclassement, 50 candidats vers 5 (4) | 20 passages | −0,021 [−0,060 ; +0,017] | −0,010 [−0,050 ; +0,030] | −0,021 [−0,061 ; +0,018] |
-| Reclassement, 50 candidats vers 5 (4) | RAG naïf | +0,040 [−0,004 ; +0,084] | **+0,058** [+0,013 ; +0,104] | **+0,083** [+0,035 ; +0,130] |
-| Consigne d'abstention (5) | 20 passages | −0,003 [−0,028 ; +0,023] | +0,007 [−0,022 ; +0,036] | **−0,090** [−0,127 ; −0,053] |
-| [Abstention sous un score Cohere de 0,20 (6)](experiments/002-leviers-rag/results/2026-11-10-etape-6-test.md) | 20 passages | +0,001 [−0,010 ; +0,013] | +0,004 [−0,010 ; +0,019] | −0,003 [−0,008 ; +0,003] |
+| RAG naïf, 5 passages (1) | modèle seul | **+0,359** [+0,288 ; +0,430] | **+0,440** [+0,372 ; +0,508] | **+0,276** [+0,206 ; +0,347] |
+| Reformulation de la question (2) | RAG naïf | −0,001 [−0,037 ; +0,034] | +0,003 [−0,033 ; +0,039] | +0,014 [−0,023 ; +0,052] |
+| 20 passages au lieu de 5 (3) | RAG naïf | +0,054 [+0,007 ; +0,101] | +0,044 [−0,002 ; +0,090] | **+0,094** [+0,053 ; +0,135] |
+| Reclassement, 50 candidats vers 5 (4) | 20 passages | −0,016 [−0,059 ; +0,027] | +0,003 [−0,034 ; +0,040] | −0,011 [−0,052 ; +0,029] |
+| Reclassement, 50 candidats vers 5 (4) | RAG naïf | +0,038 [−0,005 ; +0,082] | +0,047 [−0,002 ; +0,096] | **+0,083** [+0,036 ; +0,130] |
 
-En gras : delta concluant après Holm. Les autres sont non concluants. Consigne d'abstention selon les critères de l'étape 5 (réponses inventées, garde sur les abstentions à tort) : non concluant avec Mistral Small et Ministral, moins bonne avec Gemini (+0,151 d'abstentions à tort). Abstention sous un score Cohere (étape 6, calculée sur les exécutions gelées du run consolidé) : non concluant pour les trois, réponses inventées −0,026 à 0 et garde tenue. Les verdicts de chaque étape, sur la v1 ou la v3, restent dans leurs rapports : [1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), [2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md), [3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md), [4](experiments/005-reclassement/results/2026-11-09-run-final-test.md), [5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md). Seul celui de l'étape 5 avec Mistral Small (−9,2 points de réponses inventées) ne s'est pas retrouvé.
+Ce que les non concluants excluent, par rapport au plus petit écart qui compte (5 points pour la reformulation, 3 pour les passages et le reclassement) :
+- **Reformulation** : ni gain ni perte de 5 points avec les deux Mistral.
+- **20 passages, et reclassement contre le RAG naïf** : une perte de 3 points est exclue, pas un gain. Ces leviers ne sont pas petits, ils sont mal mesurés.
+- **Reclassement contre 20 passages** : un gain de 3 points est exclu avec Mistral Small et Gemini, pas une perte.
+
+*Abstention (étapes 5 et 6)*, jugée sur les réponses inventées aux 51 questions sans réponse, avec une garde sur les abstentions à tort :
+- **Consigne d'abstention**, selon le modèle :
+  - Mistral Small : compromis, −8,5 points de réponses inventées contre +3,8 d'abstentions à tort.
+  - Ministral : meilleure, −4,6 points [−8,8 ; −0,4], mais sous l'écart utile de 10 points.
+  - Gemini : moins bonne, +14,2 points d'abstentions à tort et −8,7 de `correct`.
+- **Abstention sous un score de reclassement** : non concluante pour les trois, ni baisse ni hausse de 10 points.
+
+*Le générateur comme levier (étape 7)*, contre Mistral Small avec 20 passages (`correct` 0,815, réponses inventées 0,248, 0,0006 $ et 0,8 s par question). C'est la seule étape où le modèle change : il y est le levier.
+
+| Générateur | `correct` | Delta [IC 95 %] | Réponses inventées | Delta [IC 95 %] | Coût par question | Latence médiane |
+|---|---|---|---|---|---|---|
+| Mistral Large 4 | 0,870 | **+0,056** [+0,014 ; +0,097] | 0,013 | **−0,235** [−0,351 ; −0,119] | 0,0032 $ | 4,5 s |
+| Gemini 4 Carbon | 0,886 | **+0,071** [+0,025 ; +0,117] | 0,000 | **−0,248** [−0,365 ; −0,132] | 0,0092 $ | 5,5 s |
+| Gemma 4 31B | 0,859 | +0,044 [−0,002 ; +0,091] | 0,000 | **−0,248** [−0,365 ; −0,132] | — (palier gratuit) | 2,9 s |
+| Mistral Small en raisonnement | 0,813 | −0,001 [−0,044 ; +0,041] | 0,085 | **−0,163** [−0,263 ; −0,064] | 0,0008 $ | 2,2 s |
+
+*RAG agentique (étape 8)* : recherche par outils MCP, contre 20 passages, à générateur constant.
+
+| Générateur | `correct` | Delta [IC 95 %] | Coût par question | Latence médiane |
+|---|---|---|---|---|
+| Mistral Large 4 (verdict de l'étape) | 0,870 → 0,899 | +0,028 [−0,005 ; +0,062] : perte de 3 points exclue, pas un gain | 0,0032 → 0,0071 $ | 4,5 → 8,5 s |
+| Gemini 4 Carbon (secondaire, déclarée d'avance) | 0,886 → 0,953 | **+0,067** [+0,032 ; +0,102] | 0,0092 → 0,0248 $ | 5,5 → 20,9 s |
+
+**À retenir.** Le RAG lui-même est le premier levier. Viennent ensuite, du même ordre sur `correct`, les 20 passages, le générateur et le RAG agentique ; le générateur se détache sur les réponses inventées, qu'il fait presque disparaître.
+
+**Limites.** Un seul corpus, où la récupération est presque saturée à 20 passages ; un `test` lu trois fois en agrégat ; un plus petit effet détectable de 6 à 8 points sur `correct` et de 12 à 19 sur les réponses inventées, au-dessus de plusieurs écarts utiles.
+
+Les verdicts antérieurs (golden sets v1 à v4, spec v1) restent dans leurs rapports : [run consolidé 1](experiments/002-leviers-rag/results/2026-11-09-run-consolide-test.md), étapes [1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), [2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md), [3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md), [4](experiments/005-reclassement/results/2026-11-09-run-final-test.md), [5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) et [6](experiments/002-leviers-rag/results/2026-11-10-etape-6-test.md). Deux verdicts ont changé entre la v4 et la v5 : les 20 passages avec Ministral ne sont plus concluants (+6,8 puis +4,4), et la consigne d'abstention l'est devenue avec Ministral.
 
 ## Organisation du dépôt
 
@@ -135,7 +167,7 @@ Côté Python, aucune bibliothèque ne couvre seule le périmètre de Spring AI 
 
 | Composant | Choix |
 |---|---|
-| Fournisseurs LLM | Gemini, Mistral, Claude (starters Spring AI côté Java ; SDK côté Python à choisir) |
+| Fournisseurs LLM | Gemini, Mistral, Claude (starters Spring AI côté Java ; Pydantic AI côté Python) ; Cohere pour le reclassement de la 002 |
 | Golden sets et specs | JSONL et JSON Schema, lisibles depuis les deux langages |
 | Traces et scores | Langfuse 4.74.0, auto-hébergé (`infra/langfuse/`, Docker Compose, sur `127.0.0.1`) |
 
