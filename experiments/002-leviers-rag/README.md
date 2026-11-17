@@ -649,6 +649,42 @@ Les items incomplets à 20 passages se répartissent ainsi : 4 en `multi_article
 - **Des dimensions différentes** (1 024, 2 048 et 3 072) : on compare des modèles tels qu'ils sont livrés, pas à taille égale.
 - **Pas de génération** : un gain d'`all_evidence` ne dit pas combien de réponses justes il apporterait (règle 2 de `docs/pistes.md`).
 
+### Résultats (2026-11-17)
+
+**Provenance.**
+- **Code** : script `prestudy/embeddings_v5_dev.py` (sha256 `4d9f212e75b2a5546493c11901c4b0341e7f609c1daec1433fc7b13735ae9b0e`) ; adaptateurs dans `ailab_rag/embeddings.py`, au commit `65fca51` (sha256 `601d6c079d96f8e560a3014dbced266faef279fb370be50fe59f61456f26ebba`).
+- **Lockfile** : `uv.lock` sha256 `b507149987dd9c34e6fd1d1d58a5dd2606e3fd21f8be076bd015c3a2a405818f`.
+- **Lancement** : le 2026-11-17, un seul passage par modèle. Résumé dans `runs/2026-11-17-prestudy-embeddings-dev/summary.json`, et les vecteurs dans le cache disque.
+- **Smoke test** : avant le run, deux phrases neutres, hors corpus. Il a montré que l'API Gemini ne renvoie ni le nombre de tokens ni de signal de troncature. Le script compte donc les tokens des 20 passages les plus longs avec `count_tokens`, qui accepte le modèle d'embedding.
+
+**Contrôles.**
+- A retrouve `all_evidence` = 0,900 à 20 passages.
+- Le plus long passage fait 3 519 tokens pour Gemini, sous sa fenêtre de 8 192 : aucune troncature n'est possible, et Cohere n'a refusé aucun texte.
+- Stabilité, mesurée sur 20 questions encodées deux fois hors cache : écart maximal nul pour B1 et B2, 0,001 pour `embed-v5.0-fast`.
+
+| 90 items `dev` avec réponse | `all_evidence` @5 | @10 | **@20** | Gagnés / perdus contre A @20 | Solde | Décision |
+|---|---|---|---|---|---|---|
+| A `mistral-embed` | 0,711 | 0,789 | **0,900** | — | — | — |
+| B1 `gemini-embedding-2` | 0,844 (+14 / −2) | 0,889 (+10 / −1) | **0,922** | +3 / −1 | +2 | retombe |
+| B2 `embed-v5.0-pro` | 0,744 (+9 / −6) | 0,844 (+9 / −4) | **0,922** | +4 / −2 | +2 | retombe |
+| B2' Pro pour les documents, Fast pour les requêtes | 0,767 | 0,822 | **0,889** | +2 / −3 | −1 | retombe |
+
+- **`evidence_recall` à 20 passages** : 0,922 (A), 0,950 (B1), 0,944 (B2), 0,917 (B2').
+- **Items incomplets à 20 passages, par mode** : A en a 4 en `multi_article`, 3 en `paraphrase`, 1 en `comparison` et 1 en `false_premise`. B1 : 4, 1, 1, 1. B2 : 2, 1, 3, 1. B2' : 3, 2, 3, 1, et 1 en `reference`.
+- **Coût** :
+  - B2 : 336 758 tokens facturés pour le corpus, et 3 539 pour les questions (3 787 pour B2'), soit environ 0,04 $ au tarif des agrégateurs, non vérifié.
+  - B1 : l'API ne renvoie pas les tokens. Le coût n'est pas mesuré ; l'estimation du protocole était inférieure à 0,10 $.
+- **Durée d'encodage du corpus** : 54 s pour B1, 314 s pour B2, à cause des appels espacés de 6 s.
+
+**Lecture.**
+- **Selon la règle fixée d'avance, la piste retombe pour les trois configurations.** À 20 passages, B1 et B2 ne gagnent que 2 items de solde, sous les 3 exigés. Changer d'embedding change peu à cette profondeur sur ce corpus, comme le tri du 2026-11-17 le laissait prévoir.
+- **Aux profondeurs secondaires, B1 se détache nettement.** Il a 12 items de solde à 5 passages et 9 à 10 passages. Avec 10 passages, il atteint presque ce que `mistral-embed` donne avec 20 (0,889 contre 0,900). Le gain d'un meilleur embedding porte donc sur la taille du contexte plutôt que sur `all_evidence` à 20 passages. Ce n'est pas mesuré en génération.
+- **B1 corrige surtout la paraphrase** (3 items incomplets à 20 passages, puis 1). Les 4 items `multi_article` restent incomplets avec lui : ils demandent plusieurs articles qu'une seule requête ne réunit pas.
+- **B2 fait moins bien que B1 à 5 et 10 passages**, et perd davantage d'items. Le mélange Pro et Fast fait moins bien que Pro seul.
+- **Hors protocole**, à titre indicatif : à 50 passages, B1 atteint 0,967 (+5 / −1), B2 0,944 (+4 / −2), et A 0,922.
+
+**Limites** : 90 items, donc un item vaut 1,1 point, et le solde de 2 se trouve à un item de la règle. Le titre de B1 (le numéro d'article) n'est pas séparé de l'effet du modèle. Le coût de B1 n'est pas mesuré.
+
 ## Limites
 
 - Celles de chaque étape. Les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention. Le run consolidé écarte ces 12 questions.

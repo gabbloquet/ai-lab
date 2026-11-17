@@ -6,7 +6,7 @@ Chaque ligne cite sa preuve. Quand une condition dépend d'une mesure, la mesure
 
 Le tableau « Écartés » de [`PLAN.md`](../experiments/002-leviers-rag/PLAN.md) garde la trace des décisions prises pendant la 002. Pour la suite, c'est ce fichier qui fait foi.
 
-Dernière mise à jour : 2026-11-17, après le tri des pistes de récupération sur le `dev` v5.
+Dernière mise à jour : 2026-11-17, après le tri des pistes de récupération et la pré-étude des embeddings sur le `dev` v5.
 
 ## Série RAG (domaine `droit-consommation`)
 
@@ -40,10 +40,11 @@ Mesuré par la [pré-étude après la clôture](../experiments/002-leviers-rag/R
 |---|---|---|
 | **Plus de 20 passages** | 30 passages : +1 item ; 50 passages : +2 items, sans perte (0,922). | **Retombe** : 2 items au mieux, sous ce qu'une étape pourrait détecter. |
 | **Reclassement Cohere de 50 candidats vers 20 passages** | 0,900, avec 2 items gagnés et 2 perdus. Le gain du `dev` v4 (3 gagnés, 0 perdu) ne tient pas. Il ne réordonne que les mêmes 50 candidats, donc ne peut pas dépasser 0,922. | **Retombe.** |
-| **Modèle d'embedding** | Non mesuré : il faut ré-encoder les 2 150 articles. Il produit un autre classement, donc il peut compléter les 9 items incomplets à 20 passages (4 `multi_article`, 3 `paraphrase`, 1 `comparison`, 1 `false_premise`). Parmi eux, 7 manquent encore à 50 passages avec mistral-embed : aucun réordonnancement des candidats actuels ne les atteint. | **Survit, avec un plafond de 9 items** (10 points d'`all_evidence` sur le `dev`). |
+| **Modèle d'embedding** | Mesuré par la [pré-étude du 2026-11-17](../experiments/002-leviers-rag/README.md#pré-étude--un-autre-modèle-dembedding-protocole-du-2026-11-17-dev-seulement). À 20 passages, `gemini-embedding-2` et `embed-v5.0-pro` donnent 0,922 contre 0,900, avec 2 items de solde chacun, sous les 3 de la règle. À 5 et 10 passages, `gemini-embedding-2` se détache : 0,844 contre 0,711, et 0,889 contre 0,789. | **Retombe à 20 passages.** Voir la piste « Moins de passages » ci-dessous, et le choix de l'embedding pour un nouveau corpus. |
 | **Multi-query, HyDE** | Non mesurés : ils font un appel au générateur par question. Ils changent la requête, donc ils ont la même cible de 9 items. Le RAG agentique de Carbon, qui reformule ses recherches, ne laisse que 2 items jamais complets (0,959). La reformulation de l'étape 2 n'a pas été concluante sur le `test` v5 : ni gain ni perte de 5 points avec les deux Mistral, et un gain non exclu avec Gemini Flash-Lite ([−2,3 ; +5,2]). | **Survivent, avec le même plafond.** Ils recoupent ce que fait déjà l'agentique : changer la requête. |
+| **Moins de passages avec un meilleur embedding** | Avec 10 passages, `gemini-embedding-2` complète presque autant d'items que `mistral-embed` avec 20 (0,889 contre 0,900). Le contexte serait deux fois plus court, donc moins de tokens et de latence par question. | **Nouvelle piste, à juger en génération** : `correct` en garde, et tokens et latence comme gain. Elle reste soumise à la règle 1 pour le choix du `test`. |
 
-**Conclusion du tri.** À requête inchangée, la récupération de ce corpus a presque tout donné. Ce qui reste à gagner tient à la façon de chercher, c'est-à-dire aux requêtes. La ligne « RAG agentique selon le générateur » ci-dessous en devient la piste principale.
+**Conclusion du tri.** À requête inchangée et à 20 passages, la récupération de ce corpus a presque tout donné, même avec un autre embedding. Ce qui reste à gagner tient à la façon de chercher, c'est-à-dire aux requêtes. La ligne « RAG agentique selon le générateur » ci-dessous en devient la piste principale.
 
 ### Candidates à une étape
 
