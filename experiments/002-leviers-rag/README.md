@@ -594,11 +594,60 @@ Les items incomplets à 20 passages se répartissent ainsi : 4 en `multi_article
 
 **Lecture.**
 - **À requête inchangée, la récupération a presque tout donné.** Aller jusqu'à 50 passages rattrape 2 items sur 9, soit 2,2 points d'`all_evidence`. Le reclassement de 50 candidats ne fait que réordonner les mêmes 50 : il ne peut pas dépasser 0,922. Gardé à 20 passages, il gagne 2 items et en perd 2. Sur le `dev` v4, il en gagnait 3 sans en perdre : ce gain ne tient pas sur la v5.
-- **Les 7 items qui manquent encore à 50 passages ne s'atteignent qu'avec une autre requête.** Ils sont en `multi_article` (3), en `paraphrase` (2), en `comparison` (1) et en `false_premise` (1). L'agentique de Carbon, qui reformule ses recherches, ne laisse que 2 items jamais complets, sur tous les items avec réponse. Ce qui reste à gagner tient donc à la façon de chercher, pas à la profondeur ni à l'ordre des passages.
+- **Les 7 items qui manquent encore à 50 passages ne s'atteignent qu'avec une autre requête ou un autre embedding.** Ils sont en `multi_article` (3), en `paraphrase` (2), en `comparison` (1) et en `false_premise` (1). L'agentique de Carbon, qui reformule ses recherches, ne laisse que 2 items jamais complets, sur tous les items avec réponse. Ce qui reste à gagner tient donc à la façon de chercher ou d'encoder, pas à la profondeur ni à l'ordre des passages. *(Puce corrigée le 2026-11-17 : elle disait « qu'avec une autre requête » et « à la façon de chercher », en oubliant qu'un autre embedding produit aussi un autre classement.)*
 - **Le `dev` et le `test` vont dans le même sens** : 0,900 sur le `dev`, 0,880 sur le `test` (12 % d'items incomplets).
 - **Ce que Carbon va chercher par numéro n'est pas vérifiable.** Les exécutions comptent les appels à `consommation_get_article`, mais n'en gardent pas les arguments. Sur les questions avec réponse, Carbon en fait 1,1 à 1,3 en moyenne dans tous les modes, sauf `set` (0,38). Large 4 en fait de 0 à 0,19, sauf en `reference`, où il en fait 1. Or seules 8 questions `dev` sur 118 citent un numéro d'article. Savoir si Carbon suit des renvois demanderait de journaliser les arguments des appels.
 
 **Limites** : 90 items, donc un item vaut 1,1 point ; seuls des écarts de plusieurs items se lisent. `all_evidence` compte un item comme incomplet dès qu'un article attendu manque, même si cet article n'était pas nécessaire à la réponse.
+
+## Pré-étude : un autre modèle d'embedding (protocole du 2026-11-17, `dev` seulement)
+
+> Comme la précédente, cette pré-étude ne change aucun verdict et ne touche pas au `test`. Son résultat dit si la piste « Modèle d'embedding » de [`docs/pistes.md`](../../docs/pistes.md) survit, et quel modèle prendre pour un nouveau corpus.
+
+**Question** : sur le `dev` v5, en récupération seule et à 20 passages, un modèle d'embedding de 2026 complète-t-il plus d'items que `mistral-embed` ?
+
+**Hypothèse** : `mistral-embed` date de décembre 2023 (version v23.12, [docs.mistral.ai/getting-started/models](https://docs.mistral.ai/getting-started/models/)), et Mistral ne lui publie pas de successeur pour le texte. Un modèle récent devrait gagner quelques items, surtout en `paraphrase`, où la recherche dense manque le plus. Il peut aussi en perdre. Le plafond est de 9 items : ceux qui sont incomplets à 20 passages avec `mistral-embed`.
+
+**Configurations** (vérifiées à la source le 2026-11-17) :
+
+| | Modèle | Dimensions | Requête | Document |
+|---|---|---|---|---|
+| A | `mistral-embed` (lu dans le cache, sans appel) | 1 024 | la question | le passage |
+| B1 | `gemini-embedding-2` (Google, stable, avril 2026 ; fenêtre de 8 192 tokens) | 3 072, par défaut | `task: search result \| query: {question}` | `title: {numéro d'article} \| text: {passage}` |
+| B2 | `embed-v5.0-pro` (Cohere ; fenêtre de 128 000 tokens) | 2 048, par défaut | `input_type = search_query` | `input_type = search_document` |
+| B2' (secondaire) | `embed-v5.0-pro` pour les documents, `embed-v5.0-fast` pour les requêtes, dans le même espace | 2 048 | `embed-v5.0-fast`, `search_query` | les vecteurs de B2 |
+
+- **Formats.** Ceux de B1 et de B2 viennent de la documentation de chaque fournisseur ([embeddings Gemini](https://aistudio.google.com/docs/embeddings), [modèles Cohere Embed](https://docs.cohere.com/docs/cohere-embed), [API Embed de Cohere](https://docs.cohere.com/reference/embed)). Ils font partie du modèle et ne se règlent pas.
+- **Passages.** Ce sont les mêmes pour tous : `passages(articles)`, un article par passage, coupé au-delà de 12 000 caractères (`rag/python/src/ailab_rag/corpus.py`). Les deux fenêtres les contiennent.
+- **Troncature.** Elle est interdite. Pour Cohere, `truncate = NONE` fait échouer l'appel au lieu de couper en silence. Pour Gemini, aucun texte ne dépasse 12 000 caractères, très en dessous de 8 192 tokens. Le comportement de l'API au-delà de la fenêtre n'est pas vérifié.
+- **Recherche.** Les vecteurs sont normalisés, et la recherche est exacte par produit scalaire, comme pour A.
+
+**Mesures.**
+- **Critère principal** : `all_evidence` à 20 passages (spec `rag-qa/v2`, § 6), avec les items gagnés et perdus contre A, apparié item par item.
+- **Secondaire** : `all_evidence` à 5 et 10 passages, `evidence_recall@k`, et les items incomplets par mode.
+- **Coût** : les tokens facturés, lus dans la réponse de l'API quand elle les donne, et le montant au barème du jour.
+- **Stabilité** : 20 textes encodés deux fois. On publie l'écart maximal entre les deux vecteurs.
+
+**Règle de décision**, fixée avant le run :
+- un modèle **survit** si, à 20 passages, il gagne au moins 3 items de plus qu'il n'en perd contre A. C'est l'ordre du gain du reclassement sur le `dev` v4, seul écart jugé net dans la pré-étude du 2026-11-09 ;
+- sinon la piste **retombe** pour ce modèle ;
+- si les deux survivent, on retient le meilleur solde, et à un item près le moins cher.
+
+**Discipline.** Un seul passage par modèle, sans réglage : ni préfixe, ni dimension, ni profondeur ne bougent après le premier run. Seul le `dev` est encodé. Les vecteurs du corpus servent aux 2 150 articles, mais les questions du `test` ne sont ni encodées ni lues. Chaque vecteur est gardé dans le cache disque, sous l'empreinte du modèle et du texte. La pré-étude se rejoue ensuite sans appel, comme `prestudy/search_v5_dev.py`.
+
+**Contrôle** : A doit retrouver `all_evidence` = 0,900 à 20 passages, comme le tri du 2026-11-17.
+
+**Coût estimé** : environ 0,45 million de tokens par modèle pour le corpus (1,49 million de caractères, estimation non mesurée), et un peu plus pour les questions et le contrôle de stabilité. Au barème relevé le 2026-11-17 :
+- **B1** : 0,20 $ par million de tokens ([aistudio.google.com/docs/pricing](https://aistudio.google.com/docs/pricing)), soit moins de 0,10 $ ;
+- **B2** : 0,12 $ par million de tokens selon des agrégateurs, non vérifié à la source (ni [cohere.com/pricing](https://cohere.com/pricing) ni [cohere.com/embed](https://cohere.com/embed) n'affichent le tarif d'Embed 5), soit moins de 0,10 $.
+
+**Code à écrire** : un adaptateur Gemini et un adaptateur Cohere à côté de `MistralEmbedder` (`ailab_rag/embeddings.py`), avec leurs tests, puis le script `prestudy/embeddings_v5_dev.py`. Les SDK sont `google-genai` 2.34.0 (déjà dans `uv.lock`) et `httpx` pour Cohere, comme pour le reclassement.
+
+**Limites connues d'avance.**
+- **90 items** : un item vaut 1,1 point.
+- **Le titre de B1 est un en-tête indexé.** Sur le `dev` v4, l'en-tête n'avait rien changé avec `mistral-embed` (3 items gagnés, 3 perdus). Ici, on ne sépare pas son effet de celui du modèle.
+- **Des dimensions différentes** (1 024, 2 048 et 3 072) : on compare des modèles tels qu'ils sont livrés, pas à taille égale.
+- **Pas de génération** : un gain d'`all_evidence` ne dit pas combien de réponses justes il apporterait (règle 2 de `docs/pistes.md`).
 
 ## Limites
 
