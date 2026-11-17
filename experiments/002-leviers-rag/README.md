@@ -570,6 +570,36 @@ Il porte sur le `test` v5 (234 items valides, k = 3), noté par la spec `rag-qa/
 
 Le même rapport écrit que « le reclassement n'apporte rien de plus ». L'IC exclut un gain de 3 points contre 20 passages avec Mistral Small et Gemini, pas avec Ministral ([−3,4 ; +4,0]). Au-delà de 20 passages, rien n'a été mesuré.
 
+## Pré-étude après la clôture : trier les pistes de récupération (2026-11-17, `dev` seulement)
+
+> Cette pré-étude ne change aucun verdict, et la 002 reste conclue. Elle trie les pistes de récupération de [`docs/pistes.md`](../../docs/pistes.md) avant d'en faire une expérience.
+
+**Question** : sur le `dev` v5, à requête inchangée, quelle part des articles manqués à 20 passages une recherche plus profonde ou un reclassement de 50 candidats vers 20 passages rattrape-t-elle ?
+
+**Mesure** : récupération seule, sans générateur, sur les 90 items `dev` de `rag-qa/v5` qui ont une réponse (`items.jsonl` sha256 `9677d85172341b31ec5f71e030bda87ebe17a531126df63c5b0c22fca1426d53`). Elle porte sur `all_evidence` (spec `rag-qa/v2`, § 6) : la part des items dont tous les articles attendus sont dans le contexte. Le script est `prestudy/search_v5_dev.py`. Il ne lit que les caches (embeddings et notes Cohere), sans aucun appel.
+- **Contrôle** : il retrouve à l'identique l'`all_evidence` du run de contrôle `dev` v5 (`runs/2026-11-12-mistral-mistral-small-2603-dev`), soit 0,900 en `top_k_20` et 0,856 en `rerank_cohere`, et s'arrête sinon.
+- **Agentique** : les lignes du RAG agentique sont lues dans les exécutions `dev` de l'étape 8, cycle 2 gelé : Large 4, et l'exploration hors protocole avec Carbon. La valeur est la moyenne sur les 3 répétitions.
+
+| Recherche | `all_evidence` | Items incomplets | Contre la dense à 20 : gagnés / perdus |
+|---|---|---|---|
+| Dense à 20 passages (`top_k_20`) | 0,900 | 9 | — |
+| Dense à 30 passages | 0,911 | 8 | +1 / −0 |
+| Dense à 50 passages | 0,922 | 7 | +2 / −0 |
+| Reclassement Cohere de 50 candidats, gardé à 20 | 0,900 | 9 | +2 / −2 |
+| Reclassement Cohere de 50 candidats, gardé à 5 (`rerank_cohere`) | 0,856 | 13 | +1 / −5 |
+| RAG agentique, Large 4 | 0,907 | 5 jamais complets en 3 répétitions | |
+| RAG agentique, Carbon | 0,959 | 2 jamais complets en 3 répétitions | |
+
+Les items incomplets à 20 passages se répartissent ainsi : 4 en `multi_article`, 3 en `paraphrase`, 1 en `comparison` et 1 en `false_premise`.
+
+**Lecture.**
+- **À requête inchangée, la récupération a presque tout donné.** Aller jusqu'à 50 passages rattrape 2 items sur 9, soit 2,2 points d'`all_evidence`. Le reclassement de 50 candidats ne fait que réordonner les mêmes 50 : il ne peut pas dépasser 0,922. Gardé à 20 passages, il gagne 2 items et en perd 2. Sur le `dev` v4, il en gagnait 3 sans en perdre : ce gain ne tient pas sur la v5.
+- **Les 7 items qui manquent encore à 50 passages ne s'atteignent qu'avec une autre requête.** Ils sont en `multi_article` (3), en `paraphrase` (2), en `comparison` (1) et en `false_premise` (1). L'agentique de Carbon, qui reformule ses recherches, ne laisse que 2 items jamais complets, sur tous les items avec réponse. Ce qui reste à gagner tient donc à la façon de chercher, pas à la profondeur ni à l'ordre des passages.
+- **Le `dev` et le `test` vont dans le même sens** : 0,900 sur le `dev`, 0,880 sur le `test` (12 % d'items incomplets).
+- **Ce que Carbon va chercher par numéro n'est pas vérifiable.** Les exécutions comptent les appels à `consommation_get_article`, mais n'en gardent pas les arguments. Sur les questions avec réponse, Carbon en fait 1,1 à 1,3 en moyenne dans tous les modes, sauf `set` (0,38). Large 4 en fait de 0 à 0,19, sauf en `reference`, où il en fait 1. Or seules 8 questions `dev` sur 118 citent un numéro d'article. Savoir si Carbon suit des renvois demanderait de journaliser les arguments des appels.
+
+**Limites** : 90 items, donc un item vaut 1,1 point ; seuls des écarts de plusieurs items se lisent. `all_evidence` compte un item comme incomplet dès qu'un article attendu manque, même si cet article n'était pas nécessaire à la réponse.
+
 ## Limites
 
 - Celles de chaque étape. Les étapes 1 à 4 ont tourné sur la v1, dont 12 questions sans réponse du `test` ont en fait une réponse (audit du 2026-11-09). Leurs métriques d'abstention en sont biaisées en faveur de l'abstention. Le run consolidé écarte ces 12 questions.
