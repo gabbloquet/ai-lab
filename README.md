@@ -56,8 +56,8 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 
 | Aspect | Expérience | Statut |
 |---|---|---|
-| Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Terminée : B meilleure de +24,6 pts avec Mistral small ; non concluant (plafond) avec Gemini Flash-Lite et Claude Haiku 5.5 |
-| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | Conclue le 2026-11-15 (run consolidé 2, golden set v5) : le RAG naïf d'abord (+28 à +44 pts de `correct`) ; puis trois leviers du même ordre : 20 passages au lieu de 5 (+4,4 à +9,4 pts, concluant avec un modèle sur trois), un meilleur générateur (+5,6 et +7,1 pts, et 16 à 25 pts de réponses inventées en moins), le RAG agentique (+2,8 à +6,7 pts selon le modèle, concluant avec Gemini 4 Carbon) ; reformulation sans effet à 5 pts près avec deux modèles sur trois ; reclassement après 20 passages et abstention sous un score de reclassement non concluants ; consigne d'abstention utile ou nuisible selon le modèle |
+| Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Terminée ([rapport final](experiments/001-mcp-outils-par-intention/results/2026-11-19-rapport-final.md)) : B meilleure de +24,6 pts avec Mistral small ; non concluant (plafond) avec Gemini Flash-Lite et Claude Haiku 5.5 |
+| RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | Conclue le 2026-11-15 (run consolidé 2, golden set v5 ; [rapport final](experiments/002-leviers-rag/results/2026-11-19-rapport-final.md)) : le RAG naïf d'abord (+28 à +44 pts de `correct`) ; puis trois leviers du même ordre : 20 passages au lieu de 5 (+4,4 à +9,4 pts, concluant avec un modèle sur trois), un meilleur générateur (+5,6 et +7,1 pts, et 16 à 25 pts de réponses inventées en moins), le RAG agentique (+2,8 à +6,7 pts selon le modèle, concluant avec Gemini 4 Carbon) ; reformulation sans effet à 5 pts près avec deux modèles sur trois ; reclassement après 20 passages et abstention sous un score de reclassement non concluants ; consigne d'abstention utile ou nuisible selon le modèle |
 
 ### Par domaine
 
@@ -70,7 +70,7 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 
 Chaque ligne renvoie au rapport daté qui l'a produite.
 
-**001 — Outils par intention ou miroir REST ?**
+**001 — Outils par intention ou miroir REST ?** En une page : [rapport final](experiments/001-mcp-outils-par-intention/results/2026-11-19-rapport-final.md).
 
 | Expérience | Modèle | Mesure | Baseline | Variante | Delta [IC 95 %] | Verdict |
 |---|---|---|---|---|---|---|
@@ -78,7 +78,7 @@ Chaque ligne renvoie au rapport daté qui l'a produite.
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `gemini-3.5-flash-lite` | `success` | 0,994 | 1,000 | +0,006 [−0,006 ; +0,018] | non concluant |
 | [001](experiments/001-mcp-outils-par-intention/results/2026-11-04-run-final-test.md) | `claude-haiku-5-5` | `success` | 0,996 | 1,000 | +0,004 [−0,002 ; +0,010] | non concluant |
 
-**002 — Les leviers du RAG**, [run consolidé 2](experiments/002-leviers-rag/results/2026-11-15-run-consolide-2-test.md) : golden set `rag-qa` v5, spec `rag-qa/v2`, `test` 234 items valides, k = 3. Delta de `correct` (variante − baseline), IC à 95 % apparié. En gras : concluant, après correction de Holm quand plusieurs comparaisons forment une famille.
+**002 — Les leviers du RAG**, en une page : [rapport final](experiments/002-leviers-rag/results/2026-11-19-rapport-final.md). Détail du [run consolidé 2](experiments/002-leviers-rag/results/2026-11-15-run-consolide-2-test.md) : golden set `rag-qa` v5, spec `rag-qa/v2`, `test` 234 items valides, k = 3. Delta de `correct` (variante − baseline), IC à 95 % apparié. En gras : concluant, après correction de Holm quand plusieurs comparaisons forment une famille.
 
 *Leviers à générateur constant (étapes 1 à 4)*
 
