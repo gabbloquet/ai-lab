@@ -1,6 +1,6 @@
 # Spec de notation — famille `rag-qa`, v1
 
-> **Statut : publiée** le 2026-11-07, citée par le [run final de la 002](../../../../experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md). Elle ne change plus ; toute correction passe par une `v2`.
+> **Statut : publiée** le 2026-11-07, citée par le [run final de la 002](../../../../experiments/002-leviers-rag/leviers/1-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md). Elle ne change plus ; toute correction passe par une `v2`.
 
 ## 1. Objet
 

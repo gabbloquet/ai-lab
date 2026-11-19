@@ -45,19 +45,11 @@ domains/*/.cache/
 # 002, run consolidé : runs de travail (JSONL bruts, traces)
 experiments/002-leviers-rag/runs/
 
-# 002 : cache des embeddings (retéléchargeable), runs de travail
-experiments/002-rag-naif-vs-modele-seul/.cache/
-experiments/002-rag-naif-vs-modele-seul/runs/
+# 002, étapes 1 à 5 : runs de travail et cache local des embeddings (recalculables)
+experiments/002-leviers-rag/leviers/*/runs/
+experiments/002-leviers-rag/leviers/*/.cache/
+
 
 # Caches partagés de la série RAG (embeddings, réécritures), recalculables
 .cache/
-experiments/003-reformulation-de-requete/runs/
 
-# 004 : runs de travail (JSONL bruts, traces)
-experiments/004-top-k-20/runs/
-
-# 005 : runs de travail (JSONL bruts, traces)
-experiments/005-reclassement/runs/
-
-# 006 : runs de travail (JSONL bruts, traces)
-experiments/006-consigne-abstention/runs/

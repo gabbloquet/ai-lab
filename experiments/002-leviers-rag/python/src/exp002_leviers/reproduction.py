@@ -27,13 +27,14 @@ from ailab_rag.campaign import read_jsonl
 from ailab_rag.rewriting import QueryRewriter
 from exp002_leviers.paths import ARTICLES, CACHE_DIR, GOLDEN, ROOT
 
-# Les étapes 1 à 5 de l'expérience (dossiers 002 à 006) ; leurs `runs/` sont ignorés par git.
+# Les étapes 1 à 5 de l'expérience, sous `leviers/` (paquets exp002_rag à exp006_rag) ; leurs
+# `runs/` sont ignorés par git.
 STEP_DIRS = (
-    "002-rag-naif-vs-modele-seul",
-    "003-reformulation-de-requete",
-    "004-top-k-20",
-    "005-reclassement",
-    "006-consigne-abstention",
+    "002-leviers-rag/leviers/1-rag-naif-vs-modele-seul",
+    "002-leviers-rag/leviers/2-reformulation-de-requete",
+    "002-leviers-rag/leviers/3-top-k-20",
+    "002-leviers-rag/leviers/4-reclassement",
+    "002-leviers-rag/leviers/5-consigne-abstention",
 )
 
 Key = tuple[str, str]  # (configuration, item)

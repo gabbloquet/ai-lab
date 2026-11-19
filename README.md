@@ -58,13 +58,14 @@ Une spec versionnée suit la même règle que les données : une fois publiée, 
 |---|---|---|
 | Design d'outils MCP | [001 — Outils par intention ou miroir REST ?](experiments/001-mcp-outils-par-intention/README.md) | Terminée ([rapport final](experiments/001-mcp-outils-par-intention/results/2026-11-19-rapport-final.md)) : B meilleure de +24,6 pts avec Mistral small ; non concluant (plafond) avec Gemini Flash-Lite et Claude Haiku 5.5 |
 | RAG | [002 — Notre RAG répond mal : quels sont les plus gros leviers ?](experiments/002-leviers-rag/README.md) | Conclue le 2026-11-15 (run consolidé 2, golden set v5 ; [rapport final](experiments/002-leviers-rag/results/2026-11-19-rapport-final.md)) : le RAG naïf d'abord (+28 à +44 pts de `correct`) ; puis trois leviers du même ordre : 20 passages au lieu de 5 (+4,4 à +9,4 pts, concluant avec un modèle sur trois), un meilleur générateur (+5,6 et +7,1 pts, et 16 à 25 pts de réponses inventées en moins), le RAG agentique (+2,8 à +6,7 pts selon le modèle, concluant avec Gemini 4 Carbon) ; reformulation sans effet à 5 pts près avec deux modèles sur trois ; reclassement après 20 passages et abstention sous un score de reclassement non concluants ; consigne d'abstention utile ou nuisible selon le modèle |
+| Décision : LLM ou règles | [003 — Décision réglementaire : où placer le LLM ?](experiments/003-decision-llm-ou-regles/README.md) | Cadrage (proposition du 2026-11-19) : protocole non figé, aucun run |
 
 ### Par domaine
 
 | Domaine | Contenu | Expériences |
 |---|---|---|
 | [magasin](domains/magasin/README.md) | Catalogue d'environ 50 produits, 5 magasins, stocks (synthétiques) | 001 |
-| [droit-consommation](domains/droit-consommation/README.md) | Code de la consommation, 2 150 articles en vigueur au 13/07/2025 (LEGI, Licence Ouverte) ; golden set `rag-qa` de 200 questions (v1), étendu à 366 (v5) | 002 |
+| [droit-consommation](domains/droit-consommation/README.md) | Code de la consommation, 2 150 articles en vigueur au 13/07/2025 (LEGI, Licence Ouverte) ; golden set `rag-qa` de 200 questions (v1), étendu à 366 (v5) | 002, 003 (cadrage) |
 
 ## Résultats clés
 
@@ -122,7 +123,7 @@ Ce que les non concluants excluent, par rapport au plus petit écart qui compte 
 
 **Limites.** Un seul corpus, où un article est indexé en un seul passage, sans découpage (seuls 3 articles sur 2 150, de plus de 12 000 caractères, sont coupés) ; avec 20 passages, 12 % des questions avec réponse n'ont pas encore tous leurs articles attendus ; un `test` lu trois fois en agrégat ; un plus petit effet détectable de 6 à 8 points sur `correct` et de 12 à 19 sur les réponses inventées, au-dessus de plusieurs écarts utiles.
 
-Les verdicts antérieurs (golden sets v1 à v4, spec v1) restent dans leurs rapports : [run consolidé 1](experiments/002-leviers-rag/results/2026-11-09-run-consolide-test.md), étapes [1](experiments/002-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), [2](experiments/003-reformulation-de-requete/results/2026-11-08-run-final-test.md), [3](experiments/004-top-k-20/results/2026-11-08-run-final-test.md), [4](experiments/005-reclassement/results/2026-11-09-run-final-test.md), [5](experiments/006-consigne-abstention/results/2026-11-09-run-final-test.md) et [6](experiments/002-leviers-rag/results/2026-11-10-etape-6-test.md). Deux verdicts ont changé entre la v4 et la v5 : les 20 passages avec Ministral ne sont plus concluants (+6,8 puis +4,4), et la consigne d'abstention l'est devenue avec Ministral.
+Les verdicts antérieurs (golden sets v1 à v4, spec v1) restent dans leurs rapports : [run consolidé 1](experiments/002-leviers-rag/results/2026-11-09-run-consolide-test.md), étapes [1](experiments/002-leviers-rag/leviers/1-rag-naif-vs-modele-seul/results/2026-11-07-run-final-test.md), [2](experiments/002-leviers-rag/leviers/2-reformulation-de-requete/results/2026-11-08-run-final-test.md), [3](experiments/002-leviers-rag/leviers/3-top-k-20/results/2026-11-08-run-final-test.md), [4](experiments/002-leviers-rag/leviers/4-reclassement/results/2026-11-09-run-final-test.md), [5](experiments/002-leviers-rag/leviers/5-consigne-abstention/results/2026-11-09-run-final-test.md) et [6](experiments/002-leviers-rag/results/2026-11-10-etape-6-test.md). Deux verdicts ont changé entre la v4 et la v5 : les 20 passages avec Ministral ne sont plus concluants (+6,8 puis +4,4), et la consigne d'abstention l'est devenue avec Ministral.
 
 ## Organisation du dépôt
 
@@ -135,6 +136,7 @@ ai-lab/
 ├── rag/python/     # briques RAG communes aux étapes de l'expérience 002 (corpus, embeddings, recherche) : baseline naïve, leviers en option
 ├── domains/        # un dossier par domaine : données versionnées, golden sets, générateur seedé
 └── experiments/    # une expérience par dossier : cadrage, implémentations (java/, python/), results/
+                    # la 002 range ses étapes 1 à 5 sous 002-leviers-rag/leviers/
 ```
 
 ## Stack
